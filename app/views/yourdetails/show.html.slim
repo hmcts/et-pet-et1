@@ -1,0 +1,54 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @yourdetail.title
+p
+  strong First name:
+  = @yourdetail.first_name
+p
+  strong Last name:
+  = @yourdetail.last_name
+p
+  strong Gender:
+  = @yourdetail.gender
+p
+  strong Date of birth:
+  = @yourdetail.date_of_birth
+p
+  strong Building number name:
+  = @yourdetail.building_number_name
+p
+  strong Street:
+  = @yourdetail.street
+p
+  strong Town city:
+  = @yourdetail.town_city
+p
+  strong County:
+  = @yourdetail.county
+p
+  strong Postcode:
+  = @yourdetail.postcode
+p
+  strong Telephone:
+  = @yourdetail.telephone
+p
+  strong Mobile:
+  = @yourdetail.mobile
+p
+  strong Contact method:
+  = @yourdetail.contact_method
+p
+  strong Disability:
+  = @yourdetail.disability
+p
+  strong Help with fees:
+  = @yourdetail.help_with_fees
+p
+  strong Reprasentative:
+  = @yourdetail.reprasentative
+
+= link_to 'Edit', edit_yourdetail_path(@yourdetail)
+'|
+= link_to 'Back', yourdetails_path

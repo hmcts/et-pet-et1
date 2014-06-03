@@ -1,0 +1,57 @@
+= form_for @yourdetail do |f|
+  - if @yourdetail.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@yourdetail.errors.count, "error")} prohibited this yourdetail from being saved:"
+      ul
+        - @yourdetail.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :first_name
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    = f.text_field :last_name
+  .field
+    = f.label :gender
+    = f.text_field :gender
+  .field
+    = f.label :date_of_birth
+    = f.date_select :date_of_birth
+  .field
+    = f.label :building_number_name
+    = f.text_field :building_number_name
+  .field
+    = f.label :street
+    = f.text_field :street
+  .field
+    = f.label :town_city
+    = f.text_field :town_city
+  .field
+    = f.label :county
+    = f.text_field :county
+  .field
+    = f.label :postcode
+    = f.text_field :postcode
+  .field
+    = f.label :telephone
+    = f.text_field :telephone
+  .field
+    = f.label :mobile
+    = f.text_field :mobile
+  .field
+    = f.label :contact_method
+    = f.text_field :contact_method
+  .field
+    = f.label :disability
+    = f.text_field :disability
+  .field
+    = f.label :help_with_fees
+    = f.text_field :help_with_fees
+  .field
+    = f.label :reprasentative
+    = f.text_field :reprasentative
+  .actions = f.submit 'Save'

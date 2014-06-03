@@ -19,5 +19,18 @@ module App
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Application Title (Populates <title>)
+    config.app_title = 'Employment Tribunals'
+    # Proposition Title (Populates proposition header)
+    config.proposition_title = 'Employment Tribunals'
+    # Current Phase (Sets the current phase and the colour of phase tags)
+    # Presumed values: alpha, beta, live
+    config.phase = 'alpha'
+    # Product Type (Adds class to body based on service type)
+    # Presumed values: information, service
+    config.product_type = ''
+    # Feedback URL (URL for feedback link in phase banner)
+    config.feedback_url = ''
   end
 end

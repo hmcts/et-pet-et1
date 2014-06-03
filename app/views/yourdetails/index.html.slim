@@ -1,0 +1,51 @@
+h1 Listing yourdetails
+
+table
+  thead
+    tr
+      th Title
+      th First name
+      th Last name
+      th Gender
+      th Date of birth
+      th Building number name
+      th Street
+      th Town city
+      th County
+      th Postcode
+      th Telephone
+      th Mobile
+      th Contact method
+      th Disability
+      th Help with fees
+      th Reprasentative
+      th
+      th
+      th
+
+  tbody
+    - @yourdetails.each do |yourdetail|
+      tr
+        td = yourdetail.title
+        td = yourdetail.first_name
+        td = yourdetail.last_name
+        td = yourdetail.gender
+        td = yourdetail.date_of_birth
+        td = yourdetail.building_number_name
+        td = yourdetail.street
+        td = yourdetail.town_city
+        td = yourdetail.county
+        td = yourdetail.postcode
+        td = yourdetail.telephone
+        td = yourdetail.mobile
+        td = yourdetail.contact_method
+        td = yourdetail.disability
+        td = yourdetail.help_with_fees
+        td = yourdetail.reprasentative
+        td = link_to 'Show', yourdetail
+        td = link_to 'Edit', edit_yourdetail_path(yourdetail)
+        td = link_to 'Destroy', yourdetail, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Yourdetail', new_yourdetail_path

@@ -1,0 +1,11 @@
+/ - content_for :after_header, 'hello world'
+
+- content_for :content_override do
+  main#wrapper(role="main")
+    .container
+      section#content
+        header.inner-block.group
+          h1= yield :header
+          = yield
+
+= render template: "layouts/moj_template"
