@@ -34,4 +34,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  #Rack livereload for frontend development
+  config.middleware.use Rack::LiveReload
 end

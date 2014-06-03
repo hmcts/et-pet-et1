@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development do
   gem 'spring'
   gem 'pry-rails'
+  gem 'rack-livereload'
+  gem 'guard-livereload'
 end
 
 gem 'simple_form'
