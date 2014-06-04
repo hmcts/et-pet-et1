@@ -32,5 +32,5 @@ end
 
 gem 'simple_form'
 gem "slim-rails"
-gem 'govuk_frontend_toolkit', '0.43.2'
+gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
