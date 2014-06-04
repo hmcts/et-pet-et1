@@ -1,4 +1,21 @@
-/ - content_for :after_header, 'hello world'
+- content_for :stylesheets do
+  /![if IE 6]
+    = stylesheet_link_tag "application-ie6", media: "all"
+  /![if IE 7]
+    = stylesheet_link_tag "application-ie7", media: "all"
+  /![if IE 8]
+    = stylesheet_link_tag "application-ie8", media: "all"
+  = "<!--[if gt IE 8]><!-->#{stylesheet_link_tag("application", media: "all")}<!--<![endif]-->".html_safe
+
+- content_for :javascripts do
+  = javascript_include_tag "application"
+
+- content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
+
+- content_for :after_header do
+  /![if lte IE 6]
+    javascript:
+        document.body.className = document.body.className.replace('js-enabled','');
 
 - content_for :content_override do
   main#wrapper(role="main")
