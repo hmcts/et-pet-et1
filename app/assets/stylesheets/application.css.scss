@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+// global requirements
+@import "config";
+
+// Employment Tribunals
+@import "layout";
