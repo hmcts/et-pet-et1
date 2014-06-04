@@ -1,11 +1,21 @@
 // GDS toolkit
-@import "design-patterns/_buttons";
-@import "_colours";
-@import "_typography";
-@import "_conditionals";
-@import '_measurements';
-@import '_shims';
-@import "_grid_layout";
+@import "colours";
+@import "measurements";
+@import "conditionals";
+@import 'shims';
+@import "typography";
+@import "css3";
+@import "grid_layout";
+
+@import "design-patterns/alpha-beta";
+@import "design-patterns/buttons";
+
+@import "elements/helpers";
+@import "elements/typography";
+@import "elements/layout";
+@import "elements/forms";
+@import "elements/panels";
+@import "elements/buttons";
 
 // Employment Tribunals
-@import "layout";
+@import "common";

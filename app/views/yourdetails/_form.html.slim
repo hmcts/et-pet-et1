@@ -5,53 +5,108 @@
       ul
         - @yourdetail.errors.full_messages.each do |message|
           li = message
+  section
+    h2.heading-medium Personal details
+    fieldset.form-panel
+      legend.visually-hidden Personal details
+      .form-group
+        = f.label :title, class: "form-label"
+        = f.select :title, [["Mr", "mr"], ["Mrs", "mrs"], ["Miss", "miss"], ["Ms", "ms"]]
+      .form-group
+        = f.label :first_name, class: "form-label"
+        = f.text_field :first_name, class: "form-control"
+      .form-group
+        = f.label :last_name, class: "form-label"
+        = f.text_field :last_name, class: "form-control"
+      .form-group
+        h3.copy-14 Gender
+        .inline
+          label for="yourdetail_gender_male" class="block-label"
+            = f.radio_button :gender, "male"
+            |Male
+          label for="yourdetail_gender_female" class="block-label"
+            = f.radio_button :gender, "female"
+            | Female
 
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :first_name
-    = f.text_field :first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name
-  .field
-    = f.label :gender
-    = f.text_field :gender
-  .field
-    = f.label :date_of_birth
-    = f.date_select :date_of_birth
-  .field
-    = f.label :building_number_name
-    = f.text_field :building_number_name
-  .field
-    = f.label :street
-    = f.text_field :street
-  .field
-    = f.label :town_city
-    = f.text_field :town_city
-  .field
-    = f.label :county
-    = f.text_field :county
-  .field
-    = f.label :postcode
-    = f.text_field :postcode
-  .field
-    = f.label :telephone
-    = f.text_field :telephone
-  .field
-    = f.label :mobile
-    = f.text_field :mobile
-  .field
-    = f.label :contact_method
-    = f.text_field :contact_method
-  .field
-    = f.label :disability
-    = f.text_field :disability
-  .field
-    = f.label :help_with_fees
-    = f.text_field :help_with_fees
-  .field
-    = f.label :reprasentative
-    = f.text_field :reprasentative
-  .actions = f.submit 'Save'
+    h2.heading-medium Contact details
+    fieldset.form-panel
+      legend.visually-hidden Contact details
+      .form-group
+        h3.copy-14 Date of birth
+        .date-of-birth
+          p.form-hint For example, 08 04 2014
+          - dates = ['day', 'month', 'year']
+          - dates.each_with_index do |o, i|
+            div class= "form-group form-group-#{o}"
+              label for= "visitor_date_of_birth_#{dates.count - i}i" #{o.mb_chars.titleize}
+              input.form-control type= "text" name= "date_of_birth(#{dates.count - i}i)]" id= "visitor_date_of_birth_#{dates.count - i}i"
+          input.hidden.js-native-date__date-input name= "visit[visitor][][date_of_birth_native]" type='date'
+      .form-group
+        = f.label :building_number_name, class: "form-label"
+        = f.text_field :building_number_name, class: "form-control"
+      .form-group
+        = f.label :street, class: "form-label"
+        = f.text_field :street, class: "form-control"
+      .form-group
+        = f.label :town_city, class: "form-label"
+        = f.text_field :town_city, class: "form-control"
+      .form-group
+        = f.label :county, class: "form-label"
+        = f.text_field :county, class: "form-control"
+      .form-group
+        = f.label :postcode, class: "form-label"
+        = f.text_field :postcode, class: "form-control"
+      .form-group
+        = f.label :telephone, class: "form-label"
+        p.form-hint Include area code
+        = f.text_field :telephone, class: "form-control"
+      details
+        summary role="button" aria-axpanded="false"
+        | Why do you need my phone number?
+        p We may need to call you during normal working hours, but only if absolutely necessary. We won't give your number to anyone else.
+      .form-group
+        = f.label :mobile, class: "form-label"
+        = f.text_field :mobile, class: "form-control"
+      .form-group
+        h3.copy-14 Best way to contact you
+        .inline
+          label for="yourdetail_contact_method_email" class="block-label"
+            = f.radio_button :contact_method, "email"
+            | Email
+          label for="yourdetail_contact_method_post" class="block-label"
+            = f.radio_button :contact_method, "post"
+            | Post
+          label for="yourdetail_contact_method_fax" class="block-label"
+            = f.radio_button :contact_method, "fax"
+            | Fax
+      .form-group
+        h3.copy-14 Do you have a disability or a particular need?
+        .inline
+          label for="yourdetail_disability_yes" class="block-label"
+            = f.radio_button :disability, "yes"
+            | Yes
+          label for="yourdetail_disability_no" class="block-label"
+            = f.radio_button :disability, "no"
+            | No
+      .form-group
+        h3.copy-14 Will you apply for help to pay your fees (fee remission)?
+        p.form-hint Help is available if you're on a low income or receive certain benefits.
+        .inline
+          label for="yourdetail_help_with_fees_yes" class="block-label"
+            = f.radio_button :help_with_fees, "yes"
+            | Yes
+          label for="yourdetail_help_with_fees_no" class="block-label"
+            = f.radio_button :help_with_fees, "no"
+            | No
+      .form-group
+        h3.copy-14 Do you have a representative
+        p.form-hint Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
+        .inline
+          label for="yourdetail_reprasentative_yes" class="block-label"
+            = f.radio_button :reprasentative, "yes"
+            | Yes
+          label for="yourdetail_reprasentative_no" class="block-label"
+            = f.radio_button :reprasentative, "no"
+            | No
+    .actions
+      = f.submit 'Save & Continue', class:"button"
