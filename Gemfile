@@ -31,10 +31,10 @@ group :development, :test do
 end
 
 gem 'pg'
-gem 'slim-rails'
-gem 'govuk_frontend_toolkit', '0.43.2'
-gem 'moj_template', '0.12.0'
 gem 'base32_pure'
 gem 'integer-obfuscator'
 gem 'bcrypt'
 gem 'simple_form'
+gem "slim-rails"
+gem 'govuk_frontend_toolkit', '1.2.0'
+gem 'moj_template', '0.12.0'
