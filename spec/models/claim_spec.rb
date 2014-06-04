@@ -35,5 +35,18 @@ RSpec.describe Claim, :type => :model do
         end
       end
     end
+
+    describe 'moving backward' do
+      let(:claim) { Claim.new }
+
+      it 'transitions to the previous state' do
+        state = claim.state
+
+        claim.next
+        claim.previous
+
+        expect(claim.state).to eq(state)
+      end
+    end
   end
 end
