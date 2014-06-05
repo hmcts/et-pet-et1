@@ -1,0 +1,74 @@
+= form_for @yourrepresentative do |f|
+  - if @yourrepresentative.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@yourrepresentative.errors.count, "error")} prohibited this yourrepresentative from being saved:"
+      ul
+        - @yourrepresentative.errors.full_messages.each do |message|
+          li = message
+  section
+    h2.heading-medium Representative details
+    fieldset.form-panel
+      legend.visually-hidden Representative details
+      .form-group
+        h3.copy-14 Type of representative
+        p.hint Acas conciliators are not representatives
+        label for="yourrepresentative_type_of_representative_cab" class="block-label"
+          = f.radio_button :type_of_representative, "cab"
+          |  Citizens Advice Bureau
+        label for="yourrepresentative_type_of_representative_fru" class="block-label"
+          = f.radio_button :type_of_representative, "fru"
+          |  Free Representation Unit
+        label for="yourrepresentative_type_of_representative_lawcentre" class="block-label"
+          = f.radio_button :type_of_representative, "lawcentre"
+          | Law centre
+        label for="yourrepresentative_type_of_representative_tradeunion" class="block-label"
+          = f.radio_button :type_of_representative, "tradeunion"
+          | Trade Union
+        label for="yourrepresentative_type_of_representative_solicitor" class="block-label"
+          = f.radio_button :type_of_representative, "solicitor"
+          | Solicitor
+        label for="yourrepresentative_type_of_representative_privateindividual" class="block-label"
+          = f.radio_button :type_of_representative, "privateindividual"
+          | Private individual
+        label for="yourrepresentative_type_of_representative_tradeassociation" class="block-label"
+          = f.radio_button :type_of_representative, "tradeassociation"
+          | Trade association
+        label for="yourrepresentative_type_of_representative_other" class="block-label"
+          = f.radio_button :type_of_representative, "other"
+          | Other
+      .form-group
+        = f.label :representative_organisation, class: "form-label"
+        = f.text_field :representative_organisation, class: "form-control"
+      .form-group
+        = f.label :representative_name, class: "form-label"
+        = f.text_field :representative_name, class: "form-control"
+      .form-group
+        = f.label :building_number_name, class: "form-label"
+        = f.text_field :building_number_name, class: "form-control"
+      .form-group
+        = f.label :street, class: "form-label"
+        = f.text_field :street, class: "form-control"
+      .form-group
+        = f.label :town_city, class: "form-label"
+        = f.text_field :town_city, class: "form-control"
+      .form-group
+        = f.label :county, class: "form-label"
+        = f.text_field :county, class: "form-control"
+      .form-group
+        = f.label :postcode, class: "form-label"
+        = f.text_field :postcode, class: "form-control"
+      .form-group
+        = f.label :telephone, class: "form-label"
+        p.form-hint Include area code
+        = f.text_field :telephone, class: "form-control"
+      .form-group
+        = f.label :mobile, class: "form-label"
+        = f.text_field :mobile, class: "form-control"
+      .form-group
+        = f.label :email, class: "form-label"
+        = f.text_field :email, class: "form-control"
+      .form-group
+      = f.label :dx_number, class: "form-label"
+      = f.text_field :dx_number, class: "form-control"
+    .actions
+      = f.submit 'Save & Continue', class:"button"

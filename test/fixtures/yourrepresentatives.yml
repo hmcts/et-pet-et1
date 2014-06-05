@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type_of_representative: MyString
+  representative_organisation: MyString
+  representative_name: MyString
+  building_number_name: MyString
+  street: MyString
+  town_city: MyString
+  county: MyString
+  postcode: MyString
+  telephone: MyString
+  mobile: MyString
+  email: MyString
+  dx_number: MyString
+
+two:
+  type_of_representative: MyString
+  representative_organisation: MyString
+  representative_name: MyString
+  building_number_name: MyString
+  street: MyString
+  town_city: MyString
+  county: MyString
+  postcode: MyString
+  telephone: MyString
+  mobile: MyString
+  email: MyString
+  dx_number: MyString

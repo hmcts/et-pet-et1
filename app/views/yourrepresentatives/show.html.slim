@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Type of representative:
+  = @yourrepresentative.type_of_representative
+p
+  strong Representative organisation:
+  = @yourrepresentative.representative_organisation
+p
+  strong Representative name:
+  = @yourrepresentative.representative_name
+p
+  strong Building number name:
+  = @yourrepresentative.building_number_name
+p
+  strong Street:
+  = @yourrepresentative.street
+p
+  strong Town city:
+  = @yourrepresentative.town_city
+p
+  strong County:
+  = @yourrepresentative.county
+p
+  strong Postcode:
+  = @yourrepresentative.postcode
+p
+  strong Telephone:
+  = @yourrepresentative.telephone
+p
+  strong Mobile:
+  = @yourrepresentative.mobile
+p
+  strong Email:
+  = @yourrepresentative.email
+p
+  strong Dx number:
+  = @yourrepresentative.dx_number
+
+= link_to 'Edit', edit_yourrepresentative_path(@yourrepresentative)
+'|
+= link_to 'Back', yourrepresentatives_path

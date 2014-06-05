@@ -1,0 +1,1 @@
+json.extract! @yourrepresentative, :id, :type_of_representative, :representative_organisation, :representative_name, :building_number_name, :street, :town_city, :county, :postcode, :telephone, :mobile, :email, :dx_number, :created_at, :updated_at

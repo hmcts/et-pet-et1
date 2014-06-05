@@ -16,7 +16,7 @@ class CreateYourdetails < ActiveRecord::Migration
       t.string :contact_method
       t.boolean :disability
       t.boolean :help_with_fees
-      t.boolean :reprasentative
+      t.boolean :representative
 
       t.timestamps
     end

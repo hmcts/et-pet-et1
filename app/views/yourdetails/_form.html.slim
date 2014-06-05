@@ -102,11 +102,11 @@
         h3.copy-14 Do you have a representative
         p.form-hint Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
         .inline
-          label for="yourdetail_reprasentative_yes" class="block-label"
-            = f.radio_button :reprasentative, "yes"
+          label for="yourdetail_representative_yes" class="block-label"
+            = f.radio_button :representative, "yes"
             | Yes
-          label for="yourdetail_reprasentative_no" class="block-label"
-            = f.radio_button :reprasentative, "no"
+          label for="yourdetail_representative_no" class="block-label"
+            = f.radio_button :representative, "no"
             | No
     .actions
       = f.submit 'Save & Continue', class:"button"

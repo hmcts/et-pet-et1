@@ -1,0 +1,43 @@
+h1 Listing yourrepresentatives
+
+table
+  thead
+    tr
+      th Type of representative
+      th Representative organisation
+      th Representative name
+      th Building number name
+      th Street
+      th Town city
+      th County
+      th Postcode
+      th Telephone
+      th Mobile
+      th Email
+      th Dx number
+      th
+      th
+      th
+
+  tbody
+    - @yourrepresentatives.each do |yourrepresentative|
+      tr
+        td = yourrepresentative.type_of_representative
+        td = yourrepresentative.representative_organisation
+        td = yourrepresentative.representative_name
+        td = yourrepresentative.building_number_name
+        td = yourrepresentative.street
+        td = yourrepresentative.town_city
+        td = yourrepresentative.county
+        td = yourrepresentative.postcode
+        td = yourrepresentative.telephone
+        td = yourrepresentative.mobile
+        td = yourrepresentative.email
+        td = yourrepresentative.dx_number
+        td = link_to 'Show', yourrepresentative
+        td = link_to 'Edit', edit_yourrepresentative_path(yourrepresentative)
+        td = link_to 'Destroy', yourrepresentative, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Yourrepresentative', new_yourrepresentative_path
