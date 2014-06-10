@@ -1,0 +1,1 @@
+json.extract! @employers_detail, :id, :name, :building_name_number, :street, :town_city, :county, :postcode, :telephone, :acas_certificate_number, :acas_number, :work_address_different, :another_employer_same_case, :employed_by_organisation, :created_at, :updated_at

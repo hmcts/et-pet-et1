@@ -1,0 +1,187 @@
+= form_for @employers_detail do |f|
+  - if @employers_detail.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@employers_detail.errors.count, "error")} prohibited this employers_detail from being saved:"
+      ul
+        - @employers_detail.errors.full_messages.each do |message|
+          li = message
+  section
+    p Give details about the person or organisation you're making a claim against (known as the 'respondent' at a tribunal). If you need to, you can add more names and details later.
+
+    fieldset.form-panel
+      legend.visually-hidden Employers detail
+      .form-group
+        = f.label :name, class: "form-label"
+        = f.text_field :name, class: "form-control"
+      .form-group
+        = f.label :building_name_number, class: "form-label"
+          | Building name or number
+        = f.text_field :building_name_number, class: "form-control"
+      .form-group
+        = f.label :street, class: "form-label"
+        = f.text_field :street, class: "form-control"
+      .form-group
+        = f.label :town_city, class: "form-label"
+          | Town/City
+        = f.text_field :town_city, class: "form-control"
+      .form-group
+        = f.label :county, class: "form-label"
+        = f.text_field :county, class: "form-control"
+      .form-group
+        = f.label :postcode, class: "form-label"
+        = f.text_field :postcode, class: "form-control"
+      .form-group
+        label for="telephone" class="form-label"
+          | Telephone
+          span.form-hint Include area code
+        = f.text_field :telephone, class: "form-control"
+      .form-group
+        = f.label :acas_certificate_number, class: "form-label"
+          | Acas early conciliation certificate number
+        details
+          summary role="button" aria-expanded="false" How to get this?
+          p The prisoner you're visiting will be able to give you their prisoner number.
+        = f.text_field :acas_certificate_number, class: "form-control"
+      .form-group.form-group-related
+        = f.label :acas_number, class: "form-label"
+          = f.check_box :acas_number
+          | I don't have an Acas number
+      fieldset.panel-indent.toggle-content
+        h3.heading-medium.no-top-margin Why don't you have an Acas number?
+        .inline
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            input name="plop" type="radio" value="slop"
+            | Another person I'm making the claim with has an Acas early conciliation certificate number
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            input name="plop" type="radio" value="slop"
+            | Acas doesn't have the power to conciliate on some or all of my claim
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            input name="plop" type="radio" value="slop"
+            | My employer has already been in touch with Acas
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            input name="plop" type="radio" value="slop"
+            | I've been unfairly dismissed and I want to apply for interim relief (to keep getting paid until the case has been decided)
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            input name="plop" type="radio" value="slop"
+            | My claim is against the Security Service, Secret Intelligence Service or GCHQ
+
+      / ------
+      .form-group
+        h3.form-label Did you work at a different address to the one given above
+        .inline
+          label for="employers_detail_work_address_different_yes" class="block-label"
+            = f.radio_button :work_address_different, "yes"
+            | Yes
+          label for="employers_detail_work_address_different_no" class="block-label"
+            = f.radio_button :work_address_different, "no"
+            | No
+      fieldset.panel-indent.toggle-content
+        legend.visually-hidden Give details of your work address
+        h3.heading-medium.no-top-margin Give details of your work address
+        .form-group
+          = f.label :different_building_name_number, class: "form-label"
+            | Building name or number
+          = f.text_field :different_building_name_number, class: "form-control"
+        .form-group
+          = f.label :different_street, class: "form-label"
+            | Street
+          = f.text_field :different_street, class: "form-control"
+        .form-group
+          = f.label :different_town_city, class: "form-label"
+            | Town/City
+          = f.text_field :different_town_city, class: "form-control"
+        .form-group
+          = f.label :different_county, class: "form-label"
+            | County
+          = f.text_field :different_county, class: "form-control"
+        .form-group
+          = f.label :different_postcode, class: "form-label"
+            | Postcode
+          = f.text_field :different_postcode, class: "form-control"
+        .form-group
+          = f.label :different_telephone, class: "form-label"
+            | Telephone
+            span.form-hint Include area code
+          = f.text_field :different_telephone, class: "form-control"
+      / ------
+      .form-group
+        h3.form-label Are you making a claim against another employer, person or organisation in the same case?
+        details
+          summary role="button" aria-expanded="false" What does this mean?
+          p For example, if your case is about discrimination you may be able to claim against any person the employer is responsible for, who you believe has discriminated against you
+        .inline
+          label for="employers_another_employer_same_case_yes" class="block-label"
+            = f.radio_button :another_employer_same_case, "yes"
+            | Yes
+          label for="employers_another_employer_same_case_no" class="block-label"
+            = f.radio_button :another_employer_same_case, "no"
+            | No
+      fieldset.panel-indent.toggle-content
+        legend.visually-hidden Give details of the other employer, person or organisation
+        h3.heading-medium.no-top-margin Give details of the other employer, person or organisation
+        .form-group
+          = f.label :another_building_name_number, class: "form-label"
+            | Building name or number
+          = f.text_field :another_building_name_number, class: "form-control"
+        .form-group
+          = f.label :another_street, class: "form-label"
+            | Street
+          = f.text_field :another_street, class: "form-control"
+        .form-group
+          = f.label :another_town_city, class: "form-label"
+           | Town/ City
+          = f.text_field :another_town_city, class: "form-control"
+        .form-group
+          = f.label :another_county, class: "form-label"
+            | County
+          = f.text_field :another_county, class: "form-control"
+        .form-group
+          = f.label :another_postcode, class: "form-label"
+            | Postcode
+          = f.text_field :another_postcode, class: "form-control"
+        .form-group
+          = f.label :another_telephone, class: "form-label"
+            | Telephone
+            span.form-hint Include area code
+          = f.text_field :another_telephone, class: "form-control"
+      / ------
+      .form-group
+        h3.copy-14 Were you employed by the person or organisation you're making a claim against?
+        .inline
+          label for="employed_by_organisation" class="block-label"
+            = f.radio_button :employed_by_organisation, "yes"
+            | Yes
+          label for="employed_by_organisation" class="block-label"
+            = f.radio_button :employed_by_organisation, "no"
+            | No
+      fieldset.panel-indent.toggle-content
+        legend.visually-hidden Give details of the person or organisation
+        h3.heading-medium.no-top-margin Give details of the person or organisation
+        .form-group
+          = f.label :employed_building_name_number, class: "form-label"
+            | Building name or number
+          = f.text_field :employed_building_name_number, class: "form-control"
+        .form-group
+          = f.label :employed_street, class: "form-label"
+            | Street
+          = f.text_field :employed_street, class: "form-control"
+        .form-group
+          = f.label :employed_town_city, class: "form-label"
+             | Town/City
+          = f.text_field :employed_town_city, class: "form-control"
+        .form-group
+          = f.label :employed_county, class: "form-label"
+            | County
+          = f.text_field :employed_county, class: "form-control"
+        .form-group
+          = f.label :employed_postcode, class: "form-label"
+            | Postecode
+          = f.text_field :employed_postcode, class: "form-control"
+        .form-group
+          = f.label :employed_telephone, class: "form-label"
+            | Telephone
+            span.form-hint Include area code
+          = f.text_field :employed_telephone, class: "form-control"
+      / ------
+    .actions
+      = f.submit 'Save & Continue', class:"button"

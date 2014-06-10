@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  building_name_number: MyString
+  street: MyString
+  town_city: MyString
+  county: MyString
+  postcode: MyString
+  telephone: MyString
+  acas_certificate_number: MyString
+  acas_number: false
+  work_address_different: false
+  another_employer_same_case: false
+  employed_by_organisation: false
+
+two:
+  name: MyString
+  building_name_number: MyString
+  street: MyString
+  town_city: MyString
+  county: MyString
+  postcode: MyString
+  telephone: MyString
+  acas_certificate_number: MyString
+  acas_number: false
+  work_address_different: false
+  another_employer_same_case: false
+  employed_by_organisation: false

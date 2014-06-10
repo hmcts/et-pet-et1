@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @employers_detail.name
+p
+  strong Building name number:
+  = @employers_detail.building_name_number
+p
+  strong Street:
+  = @employers_detail.street
+p
+  strong Town city:
+  = @employers_detail.town_city
+p
+  strong County:
+  = @employers_detail.county
+p
+  strong Postcode:
+  = @employers_detail.postcode
+p
+  strong Telephone:
+  = @employers_detail.telephone
+p
+  strong Acas certificate number:
+  = @employers_detail.acas_certificate_number
+p
+  strong Acas number:
+  = @employers_detail.acas_number
+p
+  strong Work address different:
+  = @employers_detail.work_address_different
+p
+  strong Another employer same case:
+  = @employers_detail.another_employer_same_case
+p
+  strong Employed by organisation:
+  = @employers_detail.employed_by_organisation
+
+= link_to 'Edit', edit_employers_detail_path(@employers_detail)
+'|
+= link_to 'Back', employers_details_path

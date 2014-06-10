@@ -1,0 +1,43 @@
+h1 Listing employers_details
+
+table
+  thead
+    tr
+      th Name
+      th Building name number
+      th Street
+      th Town city
+      th County
+      th Postcode
+      th Telephone
+      th Acas certificate number
+      th Acas number
+      th Work address different
+      th Another employer same case
+      th Employed by organisation
+      th
+      th
+      th
+
+  tbody
+    - @employers_details.each do |employers_detail|
+      tr
+        td = employers_detail.name
+        td = employers_detail.building_name_number
+        td = employers_detail.street
+        td = employers_detail.town_city
+        td = employers_detail.county
+        td = employers_detail.postcode
+        td = employers_detail.telephone
+        td = employers_detail.acas_certificate_number
+        td = employers_detail.acas_number
+        td = employers_detail.work_address_different
+        td = employers_detail.another_employer_same_case
+        td = employers_detail.employed_by_organisation
+        td = link_to 'Show', employers_detail
+        td = link_to 'Edit', edit_employers_detail_path(employers_detail)
+        td = link_to 'Destroy', employers_detail, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Employers detail', new_employers_detail_path

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605104226) do
+ActiveRecord::Schema.define(version: 20140609152500) do
+
+# Could not dump table "employers_details" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "yourdetails", force: true do |t|
     t.string   "title"

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :employers_details
+
   resources :yourrepresentatives
 
   resources :yourdetails
