@@ -1,7 +1,7 @@
 class Claim < ActiveRecord::Base
   has_many :claimants
   # has_many :respondents
-  
+
   accepts_nested_attributes_for :claimants#, :respondents
 
   attr_accessor :has_representative, :was_employed
@@ -49,5 +49,9 @@ class Claim < ActiveRecord::Base
     end
 
     transition[:to]
+  end
+
+  def reference
+    KeyObfuscator.new.obfuscate(id)
   end
 end

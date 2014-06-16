@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Claim, :type => :model do
+  describe '#reference' do
+    let(:claim) { Claim.new id: 1 }
+
+    it 'returns a token based upon the primary key' do
+      expect(claim.reference).to eq('6CWKCC9P70W38C1K')
+    end
+  end
+
   describe 'state transitions' do
     describe 'moving forward' do
       context 'when there is a representative' do
