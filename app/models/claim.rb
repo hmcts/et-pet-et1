@@ -1,8 +1,8 @@
 class Claim < ActiveRecord::Base
-  # has_many :claimants
+  has_many :claimants
   # has_many :respondents
-  #
-  # accepts_nested_attributes_for :claimants, :respondents
+  
+  accepts_nested_attributes_for :claimants#, :respondents
 
   attr_accessor :has_representative, :was_employed
 
