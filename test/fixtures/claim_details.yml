@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unfairly_dismissed: MyString
+  discrimination: MyString
+  pay: MyString
+  whistleblowing_claim: MyString
+  type_of_claims: MyString
+  other_complaints: MyString
+  want_if_claim_successful: MyString
+  compensation_other_outcome: MyString
+  similar_claims: MyString
+  similar_claims_names: MyString
+  additional_information: MyString
+  rtf_file: 
+
+two:
+  unfairly_dismissed: MyString
+  discrimination: MyString
+  pay: MyString
+  whistleblowing_claim: MyString
+  type_of_claims: MyString
+  other_complaints: MyString
+  want_if_claim_successful: MyString
+  compensation_other_outcome: MyString
+  similar_claims: MyString
+  similar_claims_names: MyString
+  additional_information: MyString
+  rtf_file: 

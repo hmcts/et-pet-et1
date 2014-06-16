@@ -1,0 +1,36 @@
+p#notice = notice
+
+p
+  strong Job title:
+  = @employment_detail.job_title
+p
+  strong Start date:
+  = @employment_detail.start_date
+p
+  strong Hours worked:
+  = @employment_detail.hours_worked
+p
+  strong Pay before tax:
+  = @employment_detail.pay_before_tax
+p
+  strong Pay before tax frequency:
+  = @employment_detail.pay_before_tax_frequency
+p
+  strong Take home pay:
+  = @employment_detail.take_home_pay
+p
+  strong Take home pay frequency:
+  = @employment_detail.take_home_pay_frequency
+p
+  strong Pension scheme:
+  = @employment_detail.pension_scheme
+p
+  strong Details of benefit:
+  = @employment_detail.details_of_benefit
+p
+  strong Current situation:
+  = @employment_detail.current_situation
+
+= link_to 'Edit', edit_employment_detail_path(@employment_detail)
+'|
+= link_to 'Back', employment_details_path

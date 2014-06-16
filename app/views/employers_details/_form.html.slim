@@ -49,24 +49,23 @@
       fieldset.panel-indent.toggle-content
         h3.heading-medium.no-top-margin Why don't you have an Acas number?
         .inline
-          label for="employers_detail_work_address_different_yes" class="block-label"
-            input name="plop" type="radio" value="slop"
+          label for="employers_detail_acas_reason_a" class="block-label"
+            = f.radio_button :acas_reason, "a"
             | Another person I'm making the claim with has an Acas early conciliation certificate number
-          label for="employers_detail_work_address_different_yes" class="block-label"
-            input name="plop" type="radio" value="slop"
+          label for="employers_detail_acas_reason_b" class="block-label"
+            = f.radio_button :acas_reason, "b"
             | Acas doesn't have the power to conciliate on some or all of my claim
-          label for="employers_detail_work_address_different_yes" class="block-label"
-            input name="plop" type="radio" value="slop"
+          label for="employers_detail_acas_reason_c" class="block-label"
+            = f.radio_button :acas_reason, "c"
             | My employer has already been in touch with Acas
-          label for="employers_detail_work_address_different_yes" class="block-label"
-            input name="plop" type="radio" value="slop"
+          label for="employers_detail_acas_reason_d" class="block-label"
+            = f.radio_button :acas_reason, "d"
             | I've been unfairly dismissed and I want to apply for interim relief (to keep getting paid until the case has been decided)
-          label for="employers_detail_work_address_different_yes" class="block-label"
-            input name="plop" type="radio" value="slop"
+          label for="employers_detail_acas_reason_e" class="block-label"
+            = f.radio_button :acas_reason, "e"
             | My claim is against the Security Service, Secret Intelligence Service or GCHQ
-
       / ------
-      .form-group
+      .form-group.form-group-related
         h3.form-label Did you work at a different address to the one given above
         .inline
           label for="employers_detail_work_address_different_yes" class="block-label"
@@ -104,16 +103,16 @@
             span.form-hint Include area code
           = f.text_field :different_telephone, class: "form-control"
       / ------
-      .form-group
+      .form-group.form-group-related
         h3.form-label Are you making a claim against another employer, person or organisation in the same case?
         details
           summary role="button" aria-expanded="false" What does this mean?
           p For example, if your case is about discrimination you may be able to claim against any person the employer is responsible for, who you believe has discriminated against you
         .inline
-          label for="employers_another_employer_same_case_yes" class="block-label"
+          label for="employers_detail_another_employer_same_case_yes" class="block-label"
             = f.radio_button :another_employer_same_case, "yes"
             | Yes
-          label for="employers_another_employer_same_case_no" class="block-label"
+          label for="employers_detail_another_employer_same_case_no" class="block-label"
             = f.radio_button :another_employer_same_case, "no"
             | No
       fieldset.panel-indent.toggle-content
@@ -145,13 +144,13 @@
             span.form-hint Include area code
           = f.text_field :another_telephone, class: "form-control"
       / ------
-      .form-group
-        h3.copy-14 Were you employed by the person or organisation you're making a claim against?
+      .form-group.form-group-related
+        h3.form-label Were you employed by the person or organisation you're making a claim against?
         .inline
-          label for="employed_by_organisation" class="block-label"
+          label for="employers_detail_employed_by_organisation_yes" class="block-label"
             = f.radio_button :employed_by_organisation, "yes"
             | Yes
-          label for="employed_by_organisation" class="block-label"
+          label for="employers_detail_employed_by_organisation_no" class="block-label"
             = f.radio_button :employed_by_organisation, "no"
             | No
       fieldset.panel-indent.toggle-content

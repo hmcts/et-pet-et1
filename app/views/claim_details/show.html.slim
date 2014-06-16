@@ -1,0 +1,42 @@
+p#notice = notice
+
+p
+  strong Unfairly dismissed:
+  = @claim_detail.unfairly_dismissed
+p
+  strong Discrimination:
+  = @claim_detail.discrimination
+p
+  strong Pay:
+  = @claim_detail.pay
+p
+  strong Whistleblowing claim:
+  = @claim_detail.whistleblowing_claim
+p
+  strong Type of claims:
+  = @claim_detail.type_of_claims
+p
+  strong Other complaints:
+  = @claim_detail.other_complaints
+p
+  strong Want if claim successful:
+  = @claim_detail.want_if_claim_successful
+p
+  strong Compensation other outcome:
+  = @claim_detail.compensation_other_outcome
+p
+  strong Similar claims:
+  = @claim_detail.similar_claims
+p
+  strong Similar claims names:
+  = @claim_detail.similar_claims_names
+p
+  strong Additional information:
+  = @claim_detail.additional_information
+p
+  strong Rtf file:
+  = @claim_detail.rtf_file
+
+= link_to 'Edit', edit_claim_detail_path(@claim_detail)
+'|
+= link_to 'Back', claim_details_path

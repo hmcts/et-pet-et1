@@ -1,0 +1,130 @@
+= form_for @employment_detail do |f|
+  - if @employment_detail.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@employment_detail.errors.count, "error")} prohibited this employment_detail from being saved:"
+      ul
+        - @employment_detail.errors.full_messages.each do |message|
+          li = message
+  section
+    fieldset.form-panel
+      legend.visually-hidden Employers detail
+      .form-group
+        = f.label :job_title, class: "form-label"
+        = f.text_field :job_title, class: "form-control"
+      .form-group
+        h3.form-label Start date
+        .date-of-birth
+          p.form-hint For example 12 4 2010, you don't have to give the exact date if you don't know it
+          - dates = ['day', 'month', 'year']
+          - dates.each_with_index do |o, i|
+            div class= "form-group form-group-#{o}"
+              label for= "employment_detail_start_date#{dates.count - i}i" #{o.mb_chars.titleize}
+              input.form-control type= "text" name= "start_date(#{dates.count - i}i)]" id= "employment_detail_start_date#{dates.count - i}i"
+          = f.date_field :start_date, class:"hidden js-native-date__date-input"
+      .form-group
+        = f.label :hours_worked, class: "form-label"
+          | Average hours worked each week
+          span.form-hint Don't include overtime
+        = f.text_field :hours_worked, class: "form-control"
+      .form-group
+        = f.label :pay_before_tax, class: "form-label"
+          | Pay before tax
+          span.form-hint Don't include overtime payments
+        .inline
+          = f.text_field :pay_before_tax, class: "form-control"
+          = f.select :pay_before_tax_frequency, [["Please select...", ""], ["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"], ["Yearly", "yearly"]]
+      .form-group
+        = f.label :take_home_pay, class: "form-label"
+          | Take home pay
+          span.form-hint Include overtime, commissions and bonuses
+        .inline
+          = f.text_field :take_home_pay, class: "form-control"
+          = f.select :take_home_pay_frequency, [["Please select...", ""], ["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"], ["Yearly", "yearly"]]
+      .form-group
+        h3.form-label Enrolled into employer's pension scheme
+        .inline
+          label for="employment_detail_pension_scheme_yes" class="block-label"
+            = f.radio_button :pension_scheme, "yes"
+            |Yes
+          label for="employment_detail_pension_scheme_no" class="block-label"
+            = f.radio_button :pension_scheme, "no"
+            | No
+      .form-group
+        = f.label :details_of_benefit, class: "form-label"
+          | Details of any benefits, like a company car
+          span.form-hint
+            | 250 characters limit. If you want to add more you can upload a file saved as Rich Text Format (.rtf) later and only enter a title here.
+        = f.text_area :details_of_benefit, class: "form-control"
+      .form-group
+        h3.form-label Current situation
+        label for="employment_detail_current_situation_employed" class="block-label"
+          = f.radio_button :current_situation, "employed"
+          | I'm still employed
+        label for="employment_detail_current_situation_notice" class="block-label"
+          = f.radio_button :current_situation, "notice"
+          | I'm in a notice period
+        label for="employment_detail_current_situation_ended" class="block-label"
+          = f.radio_button :current_situation, "ended"
+          | My employment has ended
+      fieldset.panel-indent
+        legend.visually-hidden Provide details of when your employment ended
+        h3.heading-medium.no-top-margin Provide details of when your employment ended
+        .inline
+          .form-group
+            h3.form-label Start date
+            .date-of-birth
+              p.form-hint For example 12 4 2014
+              - dates = ['day', 'month', 'year']
+              - dates.each_with_index do |o, i|
+                div class= "form-group form-group-#{o}"
+                  label for= "employment_detail_employment_ended#{dates.count - i}i" #{o.mb_chars.titleize}
+                  input.form-control type= "text" name= "employment_ended(#{dates.count - i}i)]" id= "employment_detail_employment_ended#{dates.count - i}i"
+              = f.date_field :employment_ended,class:"hidden js-native-date__date-input"
+          / -----
+          .form-group
+            h3.form-label Did you work or get paid for a period of notice?
+            .inline
+              label for="employment_detail_worked_period_of_notice_yes" class="block-label"
+                = f.radio_button :worked_period_of_notice, "yes"
+                | Yes
+              label for="employment_detail_worked_period_of_notice_no" class="block-label"
+                = f.radio_button :worked_period_of_notice, "no"
+                | No
+          / ------
+          .form-group
+            = f.label :weeks_paid, class: "form-label"
+              | For how many weeks or months did you get paid?
+            .inline
+              = f.text_field :weeks_paid, class: "form-control"
+              = f.select :weeks_paid_frequency, [["Please select...", ""], ["Weeks", "weeks"], ["Months", "months"]]
+          / -----
+          .form-group
+            h3.form-label Did you get another job?
+            .inline
+              label for="employment_detail_another_job_yes" class="block-label"
+                = f.radio_button :another_job, "yes"
+                | Yes
+              label for="employment_detail_another_job_no" class="block-label"
+                = f.radio_button :another_job, "no"
+                | No
+          / -------
+          .form-group
+            h3.form-label Start date
+            .date-of-birth
+              p.form-hint For example 12 4 2014
+              - dates = ['day', 'month', 'year']
+              - dates.each_with_index do |o, i|
+                div class= "form-group form-group-#{o}"
+                  label for= "employment_detail_another_job_start_date#{dates.count - i}i" #{o.mb_chars.titleize}
+                  input.form-control type= "text" name= "another_job_start_date(#{dates.count - i}i)]" id= "employment_detail_another_job_start_date#{dates.count - i}i"
+              = f.date_field :another_job_start_date,class:"hidden js-native-date__date-input"
+            / -----
+            .form-group
+              = f.label :another_job_pay_before_tax, class: "form-label"
+                | Pay before tax
+                span.form-hint Don't include any overtime payments
+              .inline
+                = f.text_field :another_job_pay_before_tax, class: "form-control"
+                = f.select :another_job_pay_before_tax_frequency, [["Please select...", ""], ["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"], ["Yearly", "yearly"]]
+      .actions
+        = f.submit 'Save & Continue', class:"button"

@@ -1,0 +1,39 @@
+h1 Listing employment_details
+
+table
+  thead
+    tr
+      th Job title
+      th Start date
+      th Hours worked
+      th Pay before tax
+      th Pay before tax frequency
+      th Take home pay
+      th Take home pay frequency
+      th Pension scheme
+      th Details of benefit
+      th Current situation
+      th
+      th
+      th
+
+  tbody
+    - @employment_details.each do |employment_detail|
+      tr
+        td = employment_detail.job_title
+        td = employment_detail.start_date
+        td = employment_detail.hours_worked
+        td = employment_detail.pay_before_tax
+        td = employment_detail.pay_before_tax_frequency
+        td = employment_detail.take_home_pay
+        td = employment_detail.take_home_pay_frequency
+        td = employment_detail.pension_scheme
+        td = employment_detail.details_of_benefit
+        td = employment_detail.current_situation
+        td = link_to 'Show', employment_detail
+        td = link_to 'Edit', edit_employment_detail_path(employment_detail)
+        td = link_to 'Destroy', employment_detail, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Employment detail', new_employment_detail_path

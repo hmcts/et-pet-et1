@@ -11,10 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140609152500) do
+ActiveRecord::Schema.define(version: 20140612103612) do
+
+  create_table "claim_details", force: true do |t|
+    t.string   "unfairly_dismissed"
+    t.string   "discrimination"
+    t.string   "pay"
+    t.string   "whistleblowing_claim"
+    t.string   "type_of_claims"
+    t.string   "other_complaints"
+    t.string   "want_if_claim_successful"
+    t.string   "compensation_other_outcome"
+    t.string   "similar_claims"
+    t.string   "similar_claims_names"
+    t.string   "additional_information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 # Could not dump table "employers_details" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "employment_details", force: true do |t|
+    t.string   "job_title"
+    t.date     "start_date"
+    t.string   "hours_worked"
+    t.string   "pay_before_tax"
+    t.string   "pay_before_tax_frequency"
+    t.string   "take_home_pay"
+    t.string   "take_home_pay_frequency"
+    t.string   "pension_scheme"
+    t.string   "details_of_benefit"
+    t.string   "current_situation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date     "employment_ended"
+    t.string   "weeks_paid"
+    t.date     "another_job_start_date"
+    t.string   "another_job_pay_before_tax"
+    t.date     "notice_period_end_date"
+    t.string   "weeks_paid_frequency"
+    t.string   "worked_period_of_notice"
+    t.string   "another_job"
+    t.string   "another_job_pay_before_tax_frequency"
+  end
 
   create_table "yourdetails", force: true do |t|
     t.string   "title"

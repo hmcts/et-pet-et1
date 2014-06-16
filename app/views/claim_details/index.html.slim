@@ -1,0 +1,43 @@
+h1 Listing claim_details
+
+table
+  thead
+    tr
+      th Unfairly dismissed
+      th Discrimination
+      th Pay
+      th Whistleblowing claim
+      th Type of claims
+      th Other complaints
+      th Want if claim successful
+      th Compensation other outcome
+      th Similar claims
+      th Similar claims names
+      th Additional information
+      th Rtf file
+      th
+      th
+      th
+
+  tbody
+    - @claim_details.each do |claim_detail|
+      tr
+        td = claim_detail.unfairly_dismissed
+        td = claim_detail.discrimination
+        td = claim_detail.pay
+        td = claim_detail.whistleblowing_claim
+        td = claim_detail.type_of_claims
+        td = claim_detail.other_complaints
+        td = claim_detail.want_if_claim_successful
+        td = claim_detail.compensation_other_outcome
+        td = claim_detail.similar_claims
+        td = claim_detail.similar_claims_names
+        td = claim_detail.additional_information
+        td = claim_detail.rtf_file
+        td = link_to 'Show', claim_detail
+        td = link_to 'Edit', edit_claim_detail_path(claim_detail)
+        td = link_to 'Destroy', claim_detail, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Claim detail', new_claim_detail_path

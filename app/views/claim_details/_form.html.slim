@@ -1,0 +1,207 @@
+= form_for @claim_detail, multipart:true do |f|
+  - if @claim_detail.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@claim_detail.errors.count, "error")} prohibited this claim_detail from being saved:"
+      ul
+        - @claim_detail.errors.full_messages.each do |message|
+          li = message
+  section
+    fieldset.form-panel
+      legend.visually-hidden Claim details
+      h2.heading-medium What type of claim are you making
+      .form-group
+        = f.label :unfairly_dismissed, class: "block-label"
+          = f.check_box :unfairly_dismissed
+          | I was unfairly dismissed (including constructive dismissal)
+          span.form-hint
+           | Constructive dismissal is when you're forced to leave your job against your will because of your employer's behaviour
+      / ------
+      .form-group.form-group-related
+        label for="claim_detail_discrimination_checkbox" class="block-label"
+          input type="checkbox" id="claim_detail_discrimination_checkbox" name="discrimination_checkbox" value="yes"
+          | Discrimination (unfair treatment)
+      fieldset.panel-indent
+        legend.visually-hidden Tell us the type of discrimination
+        h3.heading-medium.no-top-margin Tell us the type of discrimination
+        .inline
+          label for="claim_detail_discrimination_sex" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_sex" name="discrimination_sex" value="sex"
+            |  (including equal pay)
+          label for="claim_detail_discrimination_disability" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_disability" name="discrimination_disability" value="disability"
+            | disability
+          label for="claim_detail_discrimination_race" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_race" name="discrimination_race" value="race"
+            | race
+          label for="claim_detail_discrimination_age" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_age" name="discrimination_age" value="age"
+            | age
+          label for="claim_detail_discrimination_pregnancy" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_pregnancy" name="discrimination_pregnancy" value="pregnancy"
+            | pregnancy or maternity
+          label for="claim_detail_discrimination_religion" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_religion" name="discrimination_religion" value="religion"
+            | religion or belief
+          label for="claim_detail_discrimination_sexual_orientation" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_sexual_orientation" name="discrimination_sexual_orientation" value="sexual_orientation"
+            | sexual orientation
+          label for="claim_detail_discrimination_marriage" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_marriage" name="discrimination_marriage" value="marriage"
+            | marriage or civil partnership
+          label for="claim_detail_discrimination_gender_reassignment" class="block-label"
+            input type="checkbox" id="claim_detail_discrimination_gender_reassignment" name="discrimination_gender_reassignment" value="gender_reassignment"
+            | gender reassignment
+      / ------
+      .form-group.form-group-related
+        label for="claim_detail_pay_checkbox" class="block-label"
+          input type="checkbox" id="claim_detail_pay_checkbox" name="pay_checkbox" value="yes"
+          | I'm owed pay
+      fieldset.panel-indent
+        legend.visually-hidden Tell us what pay you're owed
+        h3.heading-medium.no-top-margin Tell us what pay you're owed
+        .inline
+          label for="claim_detail_pay_redundancy" class="block-label"
+            input type="checkbox" id="claim_detail_pay_redundancy" name="pay_redundancy" value="redundancy"
+            |  redundancy payment
+          label for="claim_detail_pay_notice" class="block-label"
+            input type="checkbox" id="claim_detail_pay_notice" name="pay_notice" value="notice"
+            |  notice pay
+          label for="claim_detail_pay_holiday" class="block-label"
+            input type="checkbox" id="claim_detail_pay_holiday" name="pay_holiday" value="holiday"
+            |  holiday pay
+          label for="claim_detail_pay_arrears" class="block-label"
+            input type="checkbox" id="claim_detail_pay_arrears" name="pay_arrears" value="arrears"
+            |  arrears of pay
+          label for="claim_detail_pay_other" class="block-label"
+            input type="checkbox" id="claim_detail_pay_other" name="pay_other" value="other"
+            |  other payments
+      / ------
+      .form-group.form-group-related
+        label for="claim_detail_whistleblowing_claim_checkbox" class="block-label"
+          input type="checkbox" id="claim_detail_whistleblowing_claim_checkbox" name="whistleblowing_claim_checkbox" value="yes"
+          | Whistleblowing claim (protected disclosure)
+      fieldset.panel-indent
+        legend.visually-hidden Do you want a copy of your claim to be sent to the regulator?
+        h3.heading-medium.no-top-margin Do you want a copy of your claim to be sent to the regulator?
+        .inline
+          label for="claim_detail_whistleblowing_claim_yes" class="block-label"
+            = f.radio_button :whistleblowing_claim, "yes"
+            | Yes
+          label for="claim_detail_whistleblowing_claim_no" class="block-label"
+            = f.radio_button :whistleblowing_claim, "no"
+            | No
+      / ------
+      .form-group.form-group-related
+        label for="claim_detail_type_of_claims_checkbox" class="block-label"
+          input type="checkbox" id="claim_detail_type_of_claims_checkbox" name="type_of_claims_checkbox" value="yes"
+          | I'm making another type of employment tribunal claim
+      fieldset.panel-indent
+        legend.visually-hidden State the type of claim you're making
+        h3.heading-medium.no-top-margin State the type of claim you're making
+        span.form-hint
+            | 250 characters limit. If you want to add more you can upload a file saved as Rich Text Format (.rtf) later and only enter a title here.
+        = f.text_area :type_of_claims, class: "form-control"
+      / ------
+      h3.heading-medium.no-top-margin Give the background and details of your claim, including dates and people involved.
+      details
+        summary role="button" aria-expanded="false"
+          | Unfair dismissal and constructive dismissal
+        ul.list-bullet.text
+          li explain the background to the dismissal
+          li describe how the dismissal took place (include dates, times and people)
+          li say what you think the reason was for dismissal
+      details
+        summary role="button" aria-expanded="false"
+          | Discrimination
+        ul.list-bullet.text
+          li describe the incidents (include dates and people)
+          li explain in what way you believe you were discriminated against
+          li if you applied for a job, say what job it was
+          li if you’re claiming more than one type of discrimination, provide separate details
+          li describe how you have been affected
+          li if you can’t give dates for all the incidents, give the date of the last incident or tell us if the discrimination is still happening
+      details
+        summary role="button" aria-expanded="false"
+          | Redundancy payment
+        ul.list-bullet.text
+          li say whether you have asked your employer for payment (if so, give the date)
+          li tell us whether your claim was rejected by a Redundancy Payments Office (if so, give the date of the rejection letter)
+      details
+        summary role="button" aria-expanded="false"
+          | Other payments you are owed
+        ul.list-bullet.text
+          li tell us how much you are claiming
+          li explain why you believe you are entitled to this payment (include dates and rate of pay)
+          li if you have specified an amount, say how you worked it out
+          li if you are claiming more than one type of payment, give the amounts for each one
+      details
+        summary role="button" aria-expanded="false"
+          | Other complaints
+        ul.list-bullet.text
+          li tell us what your complaint is
+          li explain the events leading up to your claim (include dates)
+          li if possible, tell us the relevant law that applies to your claim
+        / ------
+      .form-group
+        span.form-hint
+            | 5000 characters limit - if you want to add more you can upload a file saved as Rich Text Format (.rtf) later and only enter a title here.
+        = f.text_area :other_complaints, class: "form-control"
+      .form-group.form-group-related
+        h3.heading-medium.no-top-margin What do you want if your claim is successful?
+        = f.label :want_if_claim_successful, class: "block-label"
+          = f.check_box :want_if_claim_successful
+          | Compensation only
+      .form-group
+        label for="claim_detail_compensation_other_outcome" class="form-label" 
+         | What compensation or other outcome do you want?
+        span.form-hint
+            | If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later. 2500 characters limit - if you want to add more you can upload a file saved as Rich Text Format (.rtf) later and only enter a title here.
+        = f.text_area :compensation_other_outcome, class: "form-control"
+      / ------
+      .form-group.form-group-related
+        h3.heading-medium Do you know of similar claims that have already been made against the same employer?
+        span.form-hint A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
+        .inline
+          label for="claim_detail_similar_claims_yes" class="block-label"
+            = f.radio_button :similar_claims, "yes"
+            | Yes
+          label for="claim_detail_similar_claims_no" class="block-label"
+            = f.radio_button :similar_claims, "no"
+            | No
+      fieldset.panel-indent
+        = f.label :similar_claims_names, class: "form-label"
+          | You can add the names of other people who’ve made similar claims here.
+        span.form-hint
+            | Limit 350 characters
+        = f.text_area :similar_claims_names, class: "form-control"
+      / ------
+      .form-group
+        h3.heading-medium Additional information
+        p You can provide additional information about your claim in this section.
+        p If you're part of a group claim, give the Acas early conciliation certificate numbers for other people in your group. If they don't have numbers, tell us why.
+        span.form-hint 5000 characters limit - if you want to add more you can upload a file saved as Rich Text Format (.rtf) later and only enter a title here.
+        = f.label :additional_information, class: "form-label visually-hidden"
+          | Additional information
+        = f.text_area :additional_information, class: "form-control"
+      / ------
+      .form-group
+        h3.heading-medium Diversity monitoring questionnaire
+        span.form-hint Upload  Rich Text Format file
+        p If you have a Rich Text Format (RTF) file containing information about your claim, you can upload it here.
+        span.form-hint You may want to include subheadings for different sections of the form. When you submit your form you'll get a PDF version for your records, but you won't see the extra information in your RTF file (this doesn't affect your claim). You can usually save any file as .rtf using your word-processing menu: select File> Save As> then RTF in file type.
+        = f.file_field 'file'
+      / ------
+      .form-group
+        h3.heading-medium Diversity monitoring questionnaire
+        span.form-hint This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
+        p Do you want to fill in the questionnaire?
+        .inline
+          label for="claim_detail_diversity_yes" class="block-label"
+            input type="radio" name="diversity" id="claim_detail_diversity_yes"
+            | Yes
+          label for="claim_detail_diversity_no" class="block-label"
+            input type="radio" name="diversity" id="claim_detail_diversity_no"
+            | No
+      .actions.inline
+        = f.submit 'Save & Continue', class:"button"
+        = link_to 'Back', claim_details_path

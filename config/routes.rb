@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :claim_details
+
+  resources :employment_details
+
   resources :employers_details
 
   resources :yourrepresentatives
