@@ -26,6 +26,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'awesome_print'
 end
 
 gem 'pg'
@@ -34,3 +36,4 @@ gem 'govuk_frontend_toolkit', '0.43.2'
 gem 'moj_template', '0.12.0'
 gem 'base32_pure'
 gem 'integer-obfuscator'
+gem 'bcrypt'
