@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimSessionTransitionManager do
-  describe 'perform!' do
+  describe '#perform!' do
     let(:params)  { Hash.new }
     let(:session) { Hash.new }
     let(:manager) { ClaimSessionTransitionManager.new params: params, session: session }
