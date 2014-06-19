@@ -28,6 +28,8 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'awesome_print'
+  gem 'rack-livereload'
+  gem 'guard-livereload'
 end
 
 gem 'pg'

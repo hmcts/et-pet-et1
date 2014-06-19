@@ -21,5 +21,18 @@ module App
     # config.i18n.default_locale = :de
     config.active_record.schema_format = :sql
     config.autoload_paths += ["#{config.root}/app/forms"]
+
+    # Application Title (Populates <title>)
+    config.app_title = 'Employment Tribunals'
+    # Proposition Title (Populates proposition header)
+    config.proposition_title = 'Employment Tribunals'
+    # Current Phase (Sets the current phase and the colour of phase tags)
+    # Presumed values: alpha, beta, live
+    config.phase = 'beta'
+    # Product Type (Adds class to body based on service type)
+    # Presumed values: information, service
+    config.product_type = ''
+    # Feedback URL (URL for feedback link in phase banner)
+    config.feedback_url = ''
   end
 end
