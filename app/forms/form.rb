@@ -1,16 +1,21 @@
 class Form
   include ActiveModel::Model
 
-  def initialize(attrs={})
-    attrs.each do |key, value|
-      singleton_class.send :attr_accessor, key
-      send :"#{key}=", value
-    end
+  def initialize(attributes={})
+    attributes.each { |key, value| send :"#{key}=", value }
+  end
+
+  def persisted?
+    true
   end
 
   class << self
+    def attributes(*attributes)
+      attributes.each { |a| attr_accessor a }
+    end
+
     def model_name
-      name.underscore.sub /_form\Z/, ''
+      ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
     end
   end
 end

@@ -31,6 +31,10 @@ class ClaimsController < ApplicationController
     end
   end
 
+  helper_method def form
+    @form ||= ClaimantForm.new
+  end
+
   def claim_params
     params.require(:claim).permit :password, :password_confirmation,
       claimants_attributes:[

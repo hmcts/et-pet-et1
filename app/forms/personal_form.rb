@@ -1,3 +1,0 @@
-class PersonalDetailsForm < Form
-
-end

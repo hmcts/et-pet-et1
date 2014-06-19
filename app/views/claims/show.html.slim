@@ -1,7 +1,8 @@
 h1 Claim
 
-= form_for claim do |f|
-  ol
+= simple_form_for form, url: claim_path(claim) do |f|
+  = f.error_notification
+  .form-inputs
     = render partial: session_manager.current_step, locals: { f: f }
-    li
-      = f.submit
+  .form-actions
+    = f.button :submit, value: t('helpers.submit.claim.update')

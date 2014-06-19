@@ -1,76 +1,44 @@
-= f.fields_for :claimants do |c|
-  li
-    = c.label  :title
-    = c.select :title, options_for(:claimant, :title)
-  li
-    = c.label      :first_name
-    = c.text_field :first_name
-  li
-    = c.label      :last_name
-    = c.text_field :last_name
-  li
-    = c.label  :gender
-    = c.select :gender, options_for(:claimant, :gender)
-  li
-    = c.label :date_of_birth
-    = c.date_select :date_of_birth, start_year: 1900,
-        end_year: Date.today.year, order: %i<day month year>
+= f.input :title, collection: Claimant::TITLES
+= f.input :first_name
+= f.input :last_name
+= f.input :gender, collection: Claimant::GENDERS
+= f.input :date_of_birth, as: :date, start_year: 1900,
+  end_year: Date.today.year, order: %i<day month year>
 
-    = c.fields_for :address do |a|
-      li
-        = a.label      :building
-        = a.text_field :building
-      li
-        = a.label      :street
-        = a.text_field :street
-      li
-        = a.label      :locality
-        = a.text_field :locality
-      li
-        = a.label      :county
-        = a.text_field :county
-      li
-        = a.label      :post_code
-        = a.text_field :post_code
-  li
-    = c.label           :telephone_number
-    = c.telephone_field :telephone_number
-  li
-    = c.label           :mobile_number
-    = c.telephone_field :mobile_number
-  li
-    = c.label :contact_preference
-    ol
-      - Claimant::CONTACT_PREFERENCES.each do |p|
-        li
-          = c.radio_button :contact_preference, p
-          = c.label :contact_preference, t("enums.claimant.contact_preference.#{p}")
-  li
-    = c.label :email_address
-    = c.text_field :email_address
-  li
-    = c.label :fax_number
-    = c.text_field :fax_number
-  li
-    = c.label :has_special_needs
-    ol
-      li
-        = radio_button_tag :has_special_needs, 'yes'
-        = label_tag :has_special_needs, t('answer.yes')
-      li
-        = radio_button_tag :has_special_needs, 'no'
-        = label_tag :has_special_needs, t('answer.no')
-  li
-    = c.label :special_needs
-    br
-    = c.text_area :special_needs
+  = f.simple_fields_for :address do |a|
+    = a.input :building
+    = a.input :street
+    = a.input :locality
+    = a.input :county
+    = a.input :post_code
 
-  li
-    = c.label :has_representative
-    ol
-      li
-        = radio_button_tag :has_representative, 'yes'
-        = label_tag :has_representative, t('answer.yes')
-      li
-        = radio_button_tag :has_representative, 'no'
-        = label_tag :has_representative, t('answer.no')
+= f.input :telephone_number, as: :tel
+= f.input :mobile_number, as: :tel
+
+= f.input :contact_preference, collection: Claimant::CONTACT_PREFERENCES,
+  as: :radio_buttons
+
+= f.input :email_address, as: :email
+= f.input :fax_number, as: :tel
+
+li
+  = f.label :has_special_needs
+  ol
+    li
+      = radio_button_tag :has_special_needs, 'yes'
+      = label_tag :has_special_needs, t('answer.yes')
+    li
+      = radio_button_tag :has_special_needs, 'no'
+      = label_tag :has_special_needs, t('answer.no')
+
+= f.input :special_needs, as: :text
+
+li
+  = f.label :has_representative
+  ol
+    li
+      = radio_button_tag :has_representative, 'yes'
+      = label_tag :has_representative, t('answer.yes')
+    li
+      = radio_button_tag :has_representative, 'no'
+      = label_tag :has_representative, t('answer.no')

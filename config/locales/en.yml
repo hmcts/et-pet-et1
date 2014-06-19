@@ -20,19 +20,34 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  simple_form:
+    options:
+      claimant:
+        gender:
+          male: Male
+          female: Female
+        title:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+
+    labels:
+      claimant:
+        telephone_number: Telephone
+        mobile_number: Mobile (if different)
+        contact_preference: Best way to contact you
+        fax_number: Fax
+        has_special_needs: Do you have a disability or particular need?
+        special_needs: Tell us how we can help you.
+        has_representative: Do you have a representative?
+
+
   answer:
     yes: Yes
     no: No
   enums:
     claimant:
-      gender:
-        male: Male
-        female: Female
-      titles:
-        mr: Mr
-        mrs: Mrs
-        miss: Miss
-        ms: Ms
       contact_preferences:
         post: Post
         fax: Fax
@@ -44,7 +59,7 @@ en:
         create: Start claim
         update: Save and continue
     label:
-      claim[claimants_attributes][]:
+      claimant:
         telephone_number: Telephone
         mobile_number: Mobile (if different)
         contact_preference: Best way to contact you
@@ -52,7 +67,7 @@ en:
         has_special_needs: Do you have a disability or particular need?
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
-      claim[claimants_attributes][address_attributes]:
+      claimant[address]:
         building: Building number or name
         locality: Town/city
       claim:
