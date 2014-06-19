@@ -1,0 +1,3 @@
+class PersonalDetailsForm < Form
+
+end

@@ -1,0 +1,7 @@
+h1 Claim
+
+= form_for claim do |f|
+  ol
+    = render partial: session_manager.current_step, locals: { f: f }
+    li
+      = f.submit

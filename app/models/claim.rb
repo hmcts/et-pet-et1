@@ -5,6 +5,9 @@ class Claim < ActiveRecord::Base
   validates :password_confirmation,
     presence: { if: -> { attribute_changed? :password_digest } }
 
+  has_many :claimants
+  accepts_nested_attributes_for :claimants
+
   def reference
     KeyObfuscator.new.obfuscate(id)
   end
