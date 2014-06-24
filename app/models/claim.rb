@@ -1,10 +1,6 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
 
-  validates :password, confirmation: true
-  validates :password_confirmation,
-    presence: { if: -> { attribute_changed? :password_digest } }
-
   has_many :claimants
   accepts_nested_attributes_for :claimants
 

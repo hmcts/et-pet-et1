@@ -41,6 +41,11 @@ en:
         has_special_needs: Do you have a disability or particular need?
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
+        address_building: Building number or name
+        address_locality: Town/city
+        address_street: Street
+        address_county: County
+        address_post_code: Post code
 
 
   answer:
@@ -68,7 +73,6 @@ en:
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
       claimant[address]:
-        building: Building number or name
-        locality: Town/city
+
       claim:
         submit: 'Save and continue'

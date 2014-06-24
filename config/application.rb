@@ -20,7 +20,7 @@ module App
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.active_record.schema_format = :sql
-    config.autoload_paths += ["#{config.root}/app/forms"]
+    config.autoload_paths += Dir["#{config.root}/app/{services,forms}"]
 
     # Application Title (Populates <title>)
     config.app_title = 'Employment Tribunals'

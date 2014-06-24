@@ -1,21 +1,20 @@
-= f.input :title, collection: Claimant::TITLES
+= f.input :title, collection: ClaimantForm::TITLES
 = f.input :first_name
 = f.input :last_name
-= f.input :gender, collection: Claimant::GENDERS
+= f.input :gender, collection: ClaimantForm::GENDERS
 = f.input :date_of_birth, as: :date, start_year: 1900,
   end_year: Date.today.year, order: %i<day month year>
 
-  = f.simple_fields_for :address do |a|
-    = a.input :building
-    = a.input :street
-    = a.input :locality
-    = a.input :county
-    = a.input :post_code
+= f.input :address_building
+= f.input :address_street
+= f.input :address_locality
+= f.input :address_county
+= f.input :address_post_code
 
 = f.input :telephone_number, as: :tel
 = f.input :mobile_number, as: :tel
 
-= f.input :contact_preference, collection: Claimant::CONTACT_PREFERENCES,
+= f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,
   as: :radio_buttons
 
 = f.input :email_address, as: :email

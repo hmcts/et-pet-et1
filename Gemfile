@@ -30,6 +30,8 @@ group :development, :test do
   gem 'awesome_print'
   gem 'rack-livereload'
   gem 'guard-livereload'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'pg'

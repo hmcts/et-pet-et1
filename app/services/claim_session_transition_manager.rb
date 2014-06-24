@@ -1,12 +1,12 @@
 class ClaimSessionTransitionManager
   TRANSITIONS = [
-    { from: nil, to: :personal },
-    { from: :personal, to: :representative, if: :has_representative },
-    { from: :personal, to: :employer },
-    { from: :representative, to: :employer },
-    { from: :employer, to: :employment, if: :was_employed },
-    { from: :employer, to: :claim },
-    { from: :employment, to: :claim }
+    { from: 'password', to: 'claimant' },
+    { from: 'claimant', to: 'representative', if: 'has_representative' },
+    { from: 'claimant', to: 'employer' },
+    { from: 'representative', to: 'employer' },
+    { from: 'employer', to: 'employment', if: 'was_employed' },
+    { from: 'employer', to: 'claim' },
+    { from: 'employment', to: 'claim' }
   ].freeze
 
   def initialize(params:, session:)
@@ -29,7 +29,7 @@ class ClaimSessionTransitionManager
   end
 
   private def stack
-    @session[:step_stack] ||= []
+    @session['step_stack'] ||= ['password']
   end
 
   private def transition

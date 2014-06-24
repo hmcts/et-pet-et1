@@ -1,0 +1,3 @@
+class RepresentativeForm < Form
+
+end
