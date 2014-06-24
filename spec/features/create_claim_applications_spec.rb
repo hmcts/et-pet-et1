@@ -12,6 +12,8 @@ feature 'Claim applications', type: :feature do
 
     claim = Claim.first
     expect(claim.authenticate 'sup3r_s3cr3t').to eq(claim)
+
+    expect(page).to have_text('Your details')
   end
 
   scenario 'Entering personal details' do
@@ -19,14 +21,16 @@ feature 'Claim applications', type: :feature do
     fill_in_password 'sup3r_s3cr3t'
     fill_in_personal_details
 
+    expect(page).to have_text("Your representative")
   end
 
   scenario 'Entering representative details' do
-    pending
     start_claim
     fill_in_password 'sup3r_s3cr3t'
     fill_in_personal_details
     fill_in_representative_details
+
+    expect(page).to have_text("Employer's details")
   end
 end
 
@@ -73,6 +77,10 @@ def fill_in_representative_details
   fill_in "Representative's name", with: 'Saul Goodman'
 
   fill_in_address
+
+  fill_in 'Document exchange (DX) number', with: '1'
+
+  click_button 'Save and continue'
 end
 
 def fill_in_address
@@ -82,5 +90,6 @@ def fill_in_address
   fill_in 'County',                  with: 'Anyfordshire'
   fill_in 'Post code',               with: 'AT1 4PQ'
   fill_in 'Telephone',               with: '01234567890'
-  fill_in 'Mobile',                  with: '07956000000'
+  fill_in 'Mobile (if different)',   with: '07956000000'
+  fill_in 'Email address',           with: 'lol@example.com'
 end

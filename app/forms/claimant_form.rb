@@ -10,7 +10,7 @@ class ClaimantForm < Form
              :address_street, :address_locality, :address_county, :address_post_code
 
   validates :first_name, :last_name, :address_building, :address_street,
-            :address_locality, :address_county, :address_post_code, presence: true
+            :address_locality, :address_post_code, presence: true
 
   validates :title, inclusion: { in: TITLES.map(&:to_s) }
   validates :gender, inclusion: { in: GENDERS.map(&:to_s) }
@@ -36,30 +36,11 @@ class ClaimantForm < Form
 
   def save
     if valid?
-      claimant = resource.claimants.build attributes.slice(address_keys)
-      address  = claimant.build_address address_attributes_for_address
+      extractor = AttributeExtractor.new(attributes)
+      claimant  = resource.claimants.build(extractor =~ /\A(?!#{ADDRESS_REGEXP})/)
+      address   = claimant.build_address(extractor =~ ADDRESS_REGEXP)
 
       resource.save
     end
   end
-
-  private def address_attributes_from_attributes
-    attributes.select { |k,_| ADDRESS_REGEXP === k }
-  end
-
-  private def address_keys
-    address_attributes_from_attributes.keys
-  end
-
-  private def address_attributes_for_address
-    address_attributes_from_attributes.inject({}) do |hash, (attribute, value)|
-      attribute = attribute.to_s
-
-      next unless attribute =~ ADDRESS_REGEXP
-
-      hash.update attribute.sub(ADDRESS_REGEXP, '').to_sym => value
-    end
-  end
-
-
 end

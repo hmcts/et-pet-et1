@@ -1,0 +1,3 @@
+class EmployerForm < Form
+
+end

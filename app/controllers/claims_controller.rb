@@ -44,4 +44,12 @@ class ClaimsController < ApplicationController
       :fax_number, :special_needs, :has_representative, :address_building,
       :address_street, :address_locality, :address_county, :address_post_code
   end
+
+  def representative_params
+    params.require(:representative).permit \
+      :type, :organisation_name, :name, :telephone_number,
+      :mobile_number, :email_address, :dx_number, :address_building,
+      :address_street, :address_locality, :address_county,
+      :address_post_code
+  end
 end

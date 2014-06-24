@@ -2,7 +2,7 @@ class Claim < ActiveRecord::Base
   has_secure_password validations: false
 
   has_many :claimants
-  accepts_nested_attributes_for :claimants
+  has_one  :representative
 
   def reference
     KeyObfuscator.new.obfuscate(id)

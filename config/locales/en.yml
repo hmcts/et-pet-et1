@@ -31,6 +31,16 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
+      representative:
+        type:
+          citizen_advice_bureau: Citizen Advice Bureau
+          free_representation_unit: Free Representation Unit
+          law_centre: Law centre
+          trade_union: Trade union
+          solicitor: Solicitor
+          private_individual: Private individual
+          trade_association: Trade association
+          other: Other
 
     labels:
       claimant:
@@ -46,6 +56,20 @@ en:
         address_street: Street
         address_county: County
         address_post_code: Post code
+
+      representative:
+        address_building: Building number or name
+        address_locality: Town/city
+        address_street: Street
+        address_county: County
+        address_post_code: Post code
+        type: Type of representative
+        organisation_name: Name of the representative's organisation
+        name: Representative's name
+        telephone_number: Telephone
+        mobile_number: Mobile (if different)
+        dx_number: Document exchange (DX) number
+
 
 
   answer:

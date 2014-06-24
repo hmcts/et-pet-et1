@@ -149,6 +149,7 @@ CREATE TABLE claims (
     id integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
+    stack character varying(255)[] DEFAULT '{}'::character varying[],
     password_digest character varying(255)
 );
 
@@ -170,6 +171,44 @@ CREATE SEQUENCE claims_id_seq
 --
 
 ALTER SEQUENCE claims_id_seq OWNED BY claims.id;
+
+
+--
+-- Name: representatives; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE representatives (
+    id integer NOT NULL,
+    type character varying(255),
+    organisation_name character varying(255),
+    name character varying(255),
+    telephone_number character varying(255),
+    mobile_number character varying(255),
+    email_address character varying(255),
+    dx_number character varying(255),
+    claim_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: representatives_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE representatives_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: representatives_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE representatives_id_seq OWNED BY representatives.id;
 
 
 --
@@ -203,6 +242,13 @@ ALTER TABLE ONLY claims ALTER COLUMN id SET DEFAULT nextval('claims_id_seq'::reg
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY representatives ALTER COLUMN id SET DEFAULT nextval('representatives_id_seq'::regclass);
+
+
+--
 -- Name: addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -224,6 +270,14 @@ ALTER TABLE ONLY claimants
 
 ALTER TABLE ONLY claims
     ADD CONSTRAINT claims_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: representatives_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY representatives
+    ADD CONSTRAINT representatives_pkey PRIMARY KEY (id);
 
 
 --
@@ -250,4 +304,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140605092649');
 INSERT INTO schema_migrations (version) VALUES ('20140616151523');
 
 INSERT INTO schema_migrations (version) VALUES ('20140617162645');
+
+INSERT INTO schema_migrations (version) VALUES ('20140624134653');
 

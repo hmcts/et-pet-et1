@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ClaimantForm, :type => :form do
   describe 'validations' do
     [:first_name, :last_name, :address_building, :address_street,
-     :address_locality, :address_county, :address_post_code].each do |attr|
+     :address_locality, :address_post_code].each do |attr|
        it { is_expected.to validate_presence_of(attr) }
     end
 
