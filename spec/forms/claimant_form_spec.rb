@@ -20,7 +20,7 @@ RSpec.describe ClaimantForm, :type => :form do
     it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
 
-    %i<telephone_number mobile_number fax_number>.each do |number|
+    %i<address_telephone_number mobile_number fax_number>.each do |number|
       it { is_expected.to ensure_length_of(number).is_at_most(15) }
     end
 

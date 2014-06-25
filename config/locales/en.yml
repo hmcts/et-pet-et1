@@ -44,13 +44,13 @@ en:
 
     labels:
       claimant:
-        telephone_number: Telephone
         mobile_number: Mobile (if different)
         contact_preference: Best way to contact you
         fax_number: Fax
         has_special_needs: Do you have a disability or particular need?
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
+        address_telephone_number: Telephone
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
@@ -58,6 +58,7 @@ en:
         address_post_code: Post code
 
       representative:
+        address_telephone_number: Telephone
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
@@ -66,7 +67,6 @@ en:
         type: Type of representative
         organisation_name: Name of the representative's organisation
         name: Representative's name
-        telephone_number: Telephone
         mobile_number: Mobile (if different)
         dx_number: Document exchange (DX) number
 

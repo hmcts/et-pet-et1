@@ -76,7 +76,8 @@ CREATE TABLE addresses (
     addressable_id integer,
     addressable_type character varying(255),
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    telephone_number character varying(255)
 );
 
 
@@ -108,7 +109,6 @@ CREATE TABLE claimants (
     first_name character varying(255),
     last_name character varying(255),
     date_of_birth date,
-    telephone_number character varying(255),
     mobile_number character varying(255),
     fax_number character varying(255),
     email_address character varying(255),
@@ -149,7 +149,6 @@ CREATE TABLE claims (
     id integer NOT NULL,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    stack character varying(255)[] DEFAULT '{}'::character varying[],
     password_digest character varying(255)
 );
 
@@ -182,7 +181,6 @@ CREATE TABLE representatives (
     type character varying(255),
     organisation_name character varying(255),
     name character varying(255),
-    telephone_number character varying(255),
     mobile_number character varying(255),
     email_address character varying(255),
     dx_number character varying(255),
@@ -306,4 +304,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140616151523');
 INSERT INTO schema_migrations (version) VALUES ('20140617162645');
 
 INSERT INTO schema_migrations (version) VALUES ('20140624134653');
+
+INSERT INTO schema_migrations (version) VALUES ('20140625114444');
+
+INSERT INTO schema_migrations (version) VALUES ('20140625115513');
 

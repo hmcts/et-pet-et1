@@ -3,7 +3,7 @@ class RepresentativeForm < Form
   TYPES = %i<citizen_advice_bureau free_representation_unit law_centre trade_union
              solicitor private_individual trade_association other>.freeze
 
-  attributes :type, :organisation_name, :name, :telephone_number,
+  attributes :type, :organisation_name, :name, :address_telephone_number,
              :mobile_number, :email_address, :dx_number, :address_building,
              :address_street, :address_locality, :address_county,
              :address_post_code
@@ -17,7 +17,7 @@ class RepresentativeForm < Form
   validates :address_street, :address_locality, length: { maximum: 30 }
   validates :address_county, length: { maximum: 25 }
   validates :address_post_code, length: { maximum: 8 }
-  validates :telephone_number, :mobile_number, length: { maximum: 15 }
+  validates :address_telephone_number, :mobile_number, length: { maximum: 15 }
   validates :dx_number, length: { maximum: 20 }
 
   def save

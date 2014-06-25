@@ -4,7 +4,7 @@ class ClaimantForm < Form
   GENDERS             = %i<male female>.freeze
   CONTACT_PREFERENCES = %i<email post fax>.freeze
 
-  attributes :first_name, :last_name, :date_of_birth, :telephone_number,
+  attributes :first_name, :last_name, :date_of_birth, :address_telephone_number,
              :mobile_number, :fax_number, :email_address, :special_needs,
              :title, :gender, :contact_preference, :address_building,
              :address_street, :address_locality, :address_county, :address_post_code
@@ -18,7 +18,7 @@ class ClaimantForm < Form
   validates :first_name, :address_locality, :address_county, length: { maximum: 25 }
   validates :last_name, length: { maximum: 100 }
   validates :address_building, :address_street, length: { maximum: 30 }
-  validates :telephone_number, :mobile_number, :fax_number, length: { maximum: 15 }
+  validates :address_telephone_number, :mobile_number, :fax_number, length: { maximum: 15 }
   validates :address_post_code, length: { maximum: 8 }
 
   def assign_attributes(attributes={})
