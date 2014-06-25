@@ -1,3 +1,0 @@
-class EmployerForm < Form
-
-end

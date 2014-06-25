@@ -21,9 +21,9 @@ RSpec.describe ClaimSessionTransitionManager do
     describe "transitioning from 'claimant'" do
       before { session['step_stack'] = %w<password claimant> }
 
-      it "sets current_step to 'employer'" do
+      it "sets current_step to 'respondent'" do
         manager.perform!
-        expect(manager.current_step).to eq('employer')
+        expect(manager.current_step).to eq('respondent')
       end
 
       it "sets previous_step to 'claimant'" do
@@ -47,9 +47,9 @@ RSpec.describe ClaimSessionTransitionManager do
     describe "transitioning from 'representative'" do
       before { session['step_stack'] = %w<password claimant representative> }
 
-      it "sets current_step to 'employer'" do
+      it "sets current_step to 'respondent'" do
         manager.perform!
-        expect(manager.current_step).to eq('employer')
+        expect(manager.current_step).to eq('respondent')
       end
 
       it "sets previous_step to 'representative'" do
@@ -58,8 +58,8 @@ RSpec.describe ClaimSessionTransitionManager do
       end
     end
 
-    describe "transitioning from 'employer'" do
-      before { session['step_stack'] = %w<password claimant employer> }
+    describe "transitioning from 'respondent'" do
+      before { session['step_stack'] = %w<password claimant respondent> }
 
       it "sets current_step to 'claim'" do
         manager.perform!
@@ -67,15 +67,15 @@ RSpec.describe ClaimSessionTransitionManager do
       end
 
 
-      it "sets previous_step to 'employer'" do
+      it "sets previous_step to 'respondent'" do
         manager.perform!
-        expect(manager.previous_step).to eq('employer')
+        expect(manager.previous_step).to eq('respondent')
       end
 
 
       describe "when params contain 'was_employed'" do
         before do
-          session['step_stack'] = %w<password claimant representative employer>
+          session['step_stack'] = %w<password claimant representative respondent>
           params['was_employed'] = true
         end
 
@@ -84,15 +84,15 @@ RSpec.describe ClaimSessionTransitionManager do
           expect(manager.current_step).to eq('employment')
         end
 
-        it "sets previous_step to 'employer'" do
+        it "sets previous_step to 'respondent'" do
           manager.perform!
-          expect(manager.previous_step).to eq('employer')
+          expect(manager.previous_step).to eq('respondent')
         end
       end
     end
 
     describe "transitioning from 'employment'" do
-      before { session['step_stack'] = %w<password claimant representative employer employment> }
+      before { session['step_stack'] = %w<password claimant representative respondent employment> }
 
       it "sets current_step to 'claim'" do
         manager.perform!

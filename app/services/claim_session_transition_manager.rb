@@ -2,10 +2,10 @@ class ClaimSessionTransitionManager
   TRANSITIONS = [
     { from: 'password', to: 'claimant' },
     { from: 'claimant', to: 'representative', if: 'has_representative' },
-    { from: 'claimant', to: 'employer' },
-    { from: 'representative', to: 'employer' },
-    { from: 'employer', to: 'employment', if: 'was_employed' },
-    { from: 'employer', to: 'claim' },
+    { from: 'claimant', to: 'respondent' },
+    { from: 'representative', to: 'respondent' },
+    { from: 'respondent', to: 'employment', if: 'was_employed' },
+    { from: 'respondent', to: 'claim' },
     { from: 'employment', to: 'claim' }
   ].freeze
 
