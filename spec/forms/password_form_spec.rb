@@ -14,4 +14,15 @@ RSpec.describe PasswordForm, :type => :form do
       it { is_expected.to_not validate_presence_of(:password_confirmation) }
     end
   end
+
+  describe '#save' do
+    let(:model) { double('model') }
+    let(:attributes) { { password: 'lol', password_confirmation: 'lol' } }
+    let(:subject) { PasswordForm.new(attributes).tap { |f| f.resource = model } }
+
+    it 'calls update_attributes on the underlying model with its own attributes' do
+      expect(model).to receive(:update_attributes).with attributes
+      subject.save
+    end
+  end
 end

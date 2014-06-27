@@ -30,7 +30,7 @@ class ClaimsController < ApplicationController
   end
 
   helper_method def resource
-    @form ||= Form.for(session_manager.current_step).new.tap { |f| f.resource = claim }
+    @form ||= Form.for(session_manager.current_step).new { |f| f.resource = claim }
   end
 
   def password_params
@@ -51,5 +51,17 @@ class ClaimsController < ApplicationController
       :mobile_number, :email_address, :dx_number, :address_building,
       :address_street, :address_locality, :address_county,
       :address_post_code
+  end
+
+  def respondent_params
+    params.require(:respondent).permit \
+      :organisation_name, :name, :address_telephone_number,
+      :address_building, :address_street, :address_locality, :address_county,
+      :address_post_code, :work_address_building,
+      :work_address_street, :work_address_locality,
+      :work_address_county, :work_address_post_code,
+      :work_address_telephone_number, :worked_at_different_address,
+      :acas_early_conciliation_certificate_number, :no_acas_number,
+      :no_acas_number_reason
   end
 end

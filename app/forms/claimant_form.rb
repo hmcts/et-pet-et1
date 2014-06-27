@@ -10,7 +10,7 @@ class ClaimantForm < Form
              :address_street, :address_locality, :address_county, :address_post_code
 
   validates :first_name, :last_name, :address_building, :address_street,
-            :address_locality, :address_post_code, presence: true
+            :address_locality, :address_post_code, :address_county, presence: true
 
   validates :title, inclusion: { in: TITLES.map(&:to_s) }
   validates :gender, inclusion: { in: GENDERS.map(&:to_s) }
@@ -20,6 +20,9 @@ class ClaimantForm < Form
   validates :address_building, :address_street, length: { maximum: 30 }
   validates :address_telephone_number, :mobile_number, :fax_number, length: { maximum: 15 }
   validates :address_post_code, length: { maximum: 8 }
+
+  validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
+  validates :email_address, presence: { if: -> { contact_preference.email? } }
 
   def assign_attributes(attributes={})
     date_of_birth_keys = attributes.keys.grep /\Adate_of_birth\(\di\)\Z/
@@ -32,6 +35,10 @@ class ClaimantForm < Form
     end
 
     super valid_attributes
+  end
+
+  def contact_preference
+    ActiveSupport::StringInquirer.new(attributes[:contact_preference] || "")
   end
 
   def save

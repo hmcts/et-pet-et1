@@ -1,5 +1,30 @@
-h1 Employer's details
+h1= t 'copy.respondent.header'
 
-p Give details about the person or organisation you're making a claim against
-  (known as the 'respondent' at a tribunal). If you need to, you can add more
-  names and details later.
+p= t 'copy.respondent.hint'
+
+= f.input :name
+
+= f.input :address_building
+= f.input :address_street
+= f.input :address_locality
+= f.input :address_county
+= f.input :address_post_code
+= f.input :address_telephone_number
+
+= f.input :worked_at_different_address, as: :radio_buttons
+
+p= t 'copy.respondent.work_address'
+
+= f.input :work_address_building
+= f.input :work_address_street
+= f.input :work_address_locality
+= f.input :work_address_county
+= f.input :work_address_post_code
+= f.input :work_address_telephone_number
+
+= f.input :acas_early_conciliation_certificate_number
+= f.input :no_acas_number, as: :boolean
+= f.input :no_acas_number_reason,
+  collection: RespondentForm::NO_ACAS_REASON, as: :radio_buttons
+
+= radio_disclosure_control_for :was_employed

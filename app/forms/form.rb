@@ -9,8 +9,9 @@ class Form
     end
   end
 
-  def initialize(attributes={})
+  def initialize(attributes={},&block)
     assign_attributes attributes
+    yield self if block_given?
   end
 
   def assign_attributes(attributes={})
@@ -35,6 +36,7 @@ class Form
     def attributes(*attrs)
       attrs.each do |a|
         define_method(a) { attributes[a] }
+        define_method(:"#{a}?") { attributes[a].present? }
         define_method(:"#{a}=") { |v| attributes[a] = v }
       end
     end

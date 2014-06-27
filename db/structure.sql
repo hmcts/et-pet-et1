@@ -210,6 +210,40 @@ ALTER SEQUENCE representatives_id_seq OWNED BY representatives.id;
 
 
 --
+-- Name: respondents; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE respondents (
+    id integer NOT NULL,
+    name character varying(255),
+    acas_early_conciliation_certificate_number character varying(255),
+    no_acas_number_reason character varying(255),
+    claim_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: respondents_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE respondents_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: respondents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE respondents_id_seq OWNED BY respondents.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -247,6 +281,13 @@ ALTER TABLE ONLY representatives ALTER COLUMN id SET DEFAULT nextval('representa
 
 
 --
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY respondents ALTER COLUMN id SET DEFAULT nextval('respondents_id_seq'::regclass);
+
+
+--
 -- Name: addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -279,6 +320,14 @@ ALTER TABLE ONLY representatives
 
 
 --
+-- Name: respondents_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY respondents
+    ADD CONSTRAINT respondents_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -308,4 +357,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140624134653');
 INSERT INTO schema_migrations (version) VALUES ('20140625114444');
 
 INSERT INTO schema_migrations (version) VALUES ('20140625115513');
+
+INSERT INTO schema_migrations (version) VALUES ('20140627144213');
 

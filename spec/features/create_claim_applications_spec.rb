@@ -32,6 +32,14 @@ feature 'Claim applications', type: :feature do
 
     expect(page).to have_text("Employer's details")
   end
+
+  scenario 'Entering employer details' do
+    start_claim
+    fill_in_password 'sup3r_s3cr3t'
+    fill_in_personal_details
+    fill_in_representative_details
+    fill_in_employer_details
+  end
 end
 
 def start_claim
@@ -40,8 +48,8 @@ def start_claim
 end
 
 def fill_in_password(password)
-  fill_in 'Password', with: password
-  fill_in 'Password confirmation', with: password
+  fill_in 'Create a password', with: password
+  fill_in 'Confirm your password', with: password
 
   click_button 'Save and continue'
 end
@@ -59,6 +67,8 @@ def fill_in_personal_details
   select '1985',    from: :claimant_date_of_birth_1i
 
   fill_in_address
+
+  fill_in 'Mobile (if different)',   with: '07956000000'
 
   choose  'claimant_contact_preference_email'
   fill_in 'Email address', with: 'barrington@example.com'
@@ -78,18 +88,44 @@ def fill_in_representative_details
 
   fill_in_address
 
+  fill_in 'Mobile (if different)',   with: '07956000000'
+
+
   fill_in 'Document exchange (DX) number', with: '1'
 
   click_button 'Save and continue'
 end
 
-def fill_in_address
+def fill_in_address(prefix='')
   fill_in 'Building number or name', with: '1'
   fill_in 'Street',                  with: 'High street'
   fill_in 'Town/city',               with: 'Anytown'
   fill_in 'County',                  with: 'Anyfordshire'
   fill_in 'Post code',               with: 'AT1 4PQ'
   fill_in 'Telephone',               with: '01234567890'
-  fill_in 'Mobile (if different)',   with: '07956000000'
-  fill_in 'Email address',           with: 'lol@example.com'
+end
+
+def fill_in_employer_details
+  fill_in 'Name', with: 'Crappy Co, LTD'
+
+  fill_in :respondent_address_building,         with: '2'
+  fill_in :respondent_address_street,           with: 'Main street'
+  fill_in :respondent_address_locality,         with: 'Anytown'
+  fill_in :respondent_address_county,           with: 'Anyfordshire'
+  fill_in :respondent_address_post_code,        with: 'AT3 0AS'
+  fill_in :respondent_address_telephone_number, with: '01234567890'
+
+  choose 'respondent_worked_at_different_address_true'
+
+  fill_in_address
+
+  check 'No acas number'
+  choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
+
+  choose 'was_employed_yes'
+
+  click_button 'Save and continue'
+
+  expect(page).to have_text("Employment details")
+
 end

@@ -2,6 +2,7 @@ class Claim < ActiveRecord::Base
   has_secure_password validations: false
 
   has_many :claimants
+  has_many :respondents
   has_one  :representative
 
   def reference

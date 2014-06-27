@@ -42,3 +42,4 @@ gem 'simple_form'
 gem "slim-rails"
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
+gem 'redcarpet', require: 'redcarpet/compat'

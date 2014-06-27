@@ -41,8 +41,18 @@ en:
           private_individual: Private individual
           trade_association: Trade association
           other: Other
+      respondent:
+        no_acas_number_reason:
+          joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
+          acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
+          employer_contacted_acas: My employer has already been in touch with Acas
+          interim_relief: I've been unfairly dismissed and I want to apply for interim relief (to keep getting paid until the case has been decided)
+          claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
     labels:
+      password:
+        password: Create a password
+        password_confirmation: Confirm your password
       claimant:
         mobile_number: Mobile (if different)
         contact_preference: Best way to contact you
@@ -69,7 +79,20 @@ en:
         name: Representative's name
         mobile_number: Mobile (if different)
         dx_number: Document exchange (DX) number
-
+      respondent:
+        address_telephone_number: Telephone
+        address_building: Building number or name
+        address_locality: Town/city
+        address_street: Street
+        address_county: County
+        address_post_code: Post code
+        work_address_telephone_number: Telephone
+        work_address_building: Building number or name
+        work_address_locality: Town/city
+        work_address_street: Street
+        work_address_county: County
+        work_address_post_code: Post code
+        worked_at_different_address: Did you work at a different address to the one given above
 
 
   answer:
@@ -87,16 +110,59 @@ en:
       claim:
         create: Start claim
         update: Save and continue
-    label:
-      claimant:
-        telephone_number: Telephone
-        mobile_number: Mobile (if different)
-        contact_preference: Best way to contact you
-        fax_number: Fax
-        has_special_needs: Do you have a disability or particular need?
-        special_needs: Tell us how we can help you.
-        has_representative: Do you have a representative?
-      claimant[address]:
 
-      claim:
-        submit: 'Save and continue'
+  copy:
+    new: |
+      # Take your employer to a tribunal (ET1)
+
+      ## Before you start
+
+      You will need:
+
+        * your early conciliation number (or confirmation that you're exempt)
+        * a description of your claim
+        * details of your pay and benefits, before and after tax
+        * the full address of your employer (respondent)
+        * details of your representative, like a solicitor or union, if you have one
+        * a credit or debit card to pay any fees
+
+      ## Paying your fees
+
+      When you submit your form you'll be charged a fee to pay for the cost of
+      your claim. You may pay less or nothing (remission), eg if you're on
+      certain state benefits.
+
+      If your case goes to court you'll have to pay another fee unless you
+      qualify for remission. Find out more about paying court and tribunal fees.
+
+      ## Saving your form
+
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+      elementum iaculis enim at placerat. Donec urna sem, sodales a pretium
+      vitae, lobortis in lectus.
+
+      ## Data Protection Act 1998
+
+      We send a copy of this form to the respondent and the Advisory,
+      Conciliation and Arbitration Service (Acas). Information provided on
+      this form is also passed to the Department for Business, Innovation and Skills.
+
+    password:
+      header: Your claim form reference
+      info: You’ll need this information to save changes and return to complete your form another time.
+      reference: Your claim form reference number
+    claimant:
+      header: Your details
+      personal_details: Personal details
+      contact_details: Contact details
+    representative:
+      header: Your representative
+    respondent:
+      header: Employer's details
+      hint: |
+        Give details about the person or organisation you're making a claim
+        against (known as the 'respondent' at a tribunal). If you need to, you
+        can add more names and details later.
+      work_address: Give details of your work address
+    employment:
+      header: Employment details
