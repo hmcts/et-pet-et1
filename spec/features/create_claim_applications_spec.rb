@@ -39,11 +39,24 @@ feature 'Claim applications', type: :feature do
     fill_in_personal_details
     fill_in_representative_details
     fill_in_employer_details
+
+    expect(page).to have_text("Employment details")
+  end
+
+  scenario 'Entering employment details' do
+    start_claim
+    fill_in_password 'sup3r_s3cr3t'
+    fill_in_personal_details
+    fill_in_representative_details
+    fill_in_employer_details
+    fill_in_employment_details
+
+    expect(page).to have_text("Claim details")
   end
 end
 
 def start_claim
-  visit '/claims/new'
+  visit '/'
   click_button 'Start claim'
 end
 
@@ -73,10 +86,10 @@ def fill_in_personal_details
   choose  'claimant_contact_preference_email'
   fill_in 'Email address', with: 'barrington@example.com'
 
-  choose  'has_special_needs_yes'
+  choose  'has_special_needs_true'
   fill_in 'Tell us how we can help you.', with: 'I am blind.'
 
-  choose  'has_representative_yes'
+  choose  'has_representative_true'
 
   click_button 'Save and continue'
 end
@@ -96,7 +109,7 @@ def fill_in_representative_details
   click_button 'Save and continue'
 end
 
-def fill_in_address(prefix='')
+def fill_in_address
   fill_in 'Building number or name', with: '1'
   fill_in 'Street',                  with: 'High street'
   fill_in 'Town/city',               with: 'Anytown'
@@ -122,10 +135,23 @@ def fill_in_employer_details
   check 'No acas number'
   choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
-  choose 'was_employed_yes'
+  choose 'was_employed_true'
 
   click_button 'Save and continue'
+end
 
-  expect(page).to have_text("Employment details")
+def fill_in_employment_details
+  fill_in 'Job or job title', with: 'Super High Powered Exec'
 
+  select '1',    from: :employment_start_date_3i
+  select 'July', from: :employment_start_date_2i
+  select '2000', from: :employment_start_date_1i
+
+  fill_in 'Average hours worked each week', with: 37.5
+  fill_in 'Pay before tax', with: 10000
+  choose  'employment_gross_pay_period_type_weekly'
+  fill_in 'Pay after tax',  with: 6000
+  choose  'employment_net_pay_period_type_weekly'
+
+  click_button 'Save and continue'
 end

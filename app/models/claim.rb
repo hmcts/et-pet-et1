@@ -4,6 +4,7 @@ class Claim < ActiveRecord::Base
   has_many :claimants
   has_many :respondents
   has_one  :representative
+  has_one  :employment
 
   def reference
     KeyObfuscator.new.obfuscate(id)

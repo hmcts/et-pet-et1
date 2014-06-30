@@ -24,19 +24,6 @@ class ClaimantForm < Form
   validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
   validates :email_address, presence: { if: -> { contact_preference.email? } }
 
-  def assign_attributes(attributes={})
-    date_of_birth_keys = attributes.keys.grep /\Adate_of_birth\(\di\)\Z/
-    date_of_birth_attributes = attributes.values_at *date_of_birth_keys.sort
-
-    valid_attributes = attributes.except(*date_of_birth_keys)
-
-    if date_of_birth_attributes
-      valid_attributes.merge date_of_birth: Date.civil(*date_of_birth_attributes.map(&:to_i))
-    end
-
-    super valid_attributes
-  end
-
   def contact_preference
     ActiveSupport::StringInquirer.new(attributes[:contact_preference] || "")
   end

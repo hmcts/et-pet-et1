@@ -1,0 +1,2 @@
+class ClaimForm < Form
+end

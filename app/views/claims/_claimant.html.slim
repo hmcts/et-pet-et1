@@ -1,5 +1,3 @@
-h1= t 'copy.claimant.header'
-
 h2= t 'copy.claimant.personal_details'
 
 = f.input :title, collection: ClaimantForm::TITLES
@@ -27,24 +25,7 @@ h2= t 'copy.claimant.contact_details'
 = f.input :email_address, as: :email
 = f.input :fax_number, as: :tel
 
-li
-  = f.label :has_special_needs
-  ol
-    li
-      = radio_button_tag :has_special_needs, 'yes'
-      = label_tag :has_special_needs, t('answer.yes')
-    li
-      = radio_button_tag :has_special_needs, 'no'
-      = label_tag :has_special_needs, t('answer.no')
-
+= radio_disclosure_control_for :has_special_needs
 = f.input :special_needs, as: :text
 
-li
-  = f.label :has_representative
-  ol
-    li
-      = radio_button_tag :has_representative, 'yes'
-      = label_tag :has_representative, t('answer.yes')
-    li
-      = radio_button_tag :has_representative, 'no'
-      = label_tag :has_representative, t('answer.no')
+= radio_disclosure_control_for :has_representative

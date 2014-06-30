@@ -37,7 +37,8 @@ class ClaimSessionTransitionManager
       next unless t[:from] == current_step
 
       condition = t[:if]
-      condition ? @params[condition].present? : true
+      bool = ActiveRecord::ConnectionAdapters::Column.value_to_boolean @params[condition]
+      condition ? bool : true
     end
   end
 end

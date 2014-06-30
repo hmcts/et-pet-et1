@@ -173,6 +173,56 @@ ALTER SEQUENCE claims_id_seq OWNED BY claims.id;
 
 
 --
+-- Name: employments; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE employments (
+    id integer NOT NULL,
+    enrolled_in_pension_scheme boolean,
+    found_new_employment boolean,
+    worked_notice_period_or_paid_in_lieu boolean,
+    end_date date,
+    new_job_start_date date,
+    notice_period_end_date date,
+    start_date date,
+    notice_pay_period_count double precision,
+    gross_pay integer,
+    net_pay integer,
+    new_job_gross_pay integer,
+    average_hours_worked_per_week double precision,
+    current_situation character varying(255),
+    gross_pay_period_type character varying(255),
+    job_title character varying(255),
+    net_pay_period_type character varying(255),
+    new_job_gross_pay_frequency character varying(255),
+    notice_pay_period_type character varying(255),
+    benefit_details text,
+    claim_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+--
+-- Name: employments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE employments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: employments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE employments_id_seq OWNED BY employments.id;
+
+
+--
 -- Name: representatives; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -277,6 +327,13 @@ ALTER TABLE ONLY claims ALTER COLUMN id SET DEFAULT nextval('claims_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY employments ALTER COLUMN id SET DEFAULT nextval('employments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY representatives ALTER COLUMN id SET DEFAULT nextval('representatives_id_seq'::regclass);
 
 
@@ -309,6 +366,14 @@ ALTER TABLE ONLY claimants
 
 ALTER TABLE ONLY claims
     ADD CONSTRAINT claims_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: employments_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY employments
+    ADD CONSTRAINT employments_pkey PRIMARY KEY (id);
 
 
 --
@@ -359,4 +424,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140625114444');
 INSERT INTO schema_migrations (version) VALUES ('20140625115513');
 
 INSERT INTO schema_migrations (version) VALUES ('20140627144213');
+
+INSERT INTO schema_migrations (version) VALUES ('20140630141116');
 

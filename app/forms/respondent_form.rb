@@ -39,6 +39,11 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number.present? } }
 
+  def worked_at_different_address=(value)
+    attributes[:worked_at_different_address] =
+      ActiveRecord::ConnectionAdapters::Column.value_to_boolean(value)
+  end
+
   def save
     if valid?
       extractor = AttributeExtractor.new(attributes)

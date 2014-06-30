@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :claims, only: %i<create update new show>
+  resources :claims, only: %i<create update show>
+  root to: 'claims#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
