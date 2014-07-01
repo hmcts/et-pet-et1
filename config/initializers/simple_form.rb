@@ -5,7 +5,7 @@ SimpleForm.setup do |config|
   # wrapper, change the order or even add your own to the
   # stack. The options given below are used to wrap the
   # whole input.
-  config.wrappers :default, class: :input,
+  config.wrappers :default, class: %w<input form-group>,
     hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
@@ -95,7 +95,7 @@ SimpleForm.setup do |config|
   # config.label_text = lambda { |label, required| "#{required} #{label}" }
 
   # You can define the class to use on all labels. Default is nil.
-  config.label_class = 'control-label'
+  config.label_class = 'form-label'
 
   # You can define the class to use on all forms. Default is simple_form.
   # config.form_class = :simple_form
