@@ -23,8 +23,16 @@ class MultiparameterDateParser
       memo
     end
 
-    parsed_dates = Hash[values.map { |key, value| [key, Date.civil(*value)] }]
+    values = values.map do |key, value|
+      begin
+        value = Date.civil(*value)
+      rescue ArgumentError
+        value = nil
+      end
 
-    attributes.update parsed_dates
+      [key, value]
+    end
+
+    attributes.update Hash[values]
   end
 end

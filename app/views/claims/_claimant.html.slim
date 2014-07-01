@@ -9,8 +9,7 @@ fieldset.form-panel
   = f.input :first_name
   = f.input :last_name
   = f.input :gender, collection: ClaimantForm::GENDERS
-  = f.input :date_of_birth, as: :date, start_year: 1900,
-    end_year: Date.today.year, order: %i<day month year>
+  = f.input :date_of_birth, as: :gds_date
 
 h2.heading-medium= t 'copy.claimant.contact_details'
 

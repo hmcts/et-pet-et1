@@ -1,6 +1,5 @@
 = f.input :job_title
-= f.input :start_date, as: :date, start_year: 1900,
-  end_year: Date.today.year, order: %i<day month year>
+= f.input :start_date, as: :gds_date
 
 = f.input :average_hours_worked_per_week
 = f.input :gross_pay
@@ -17,11 +16,9 @@
   as: :radio_buttons
 
 
-= f.input :end_date, as: :date, start_year: 2.years.ago.year,
-  end_year: Date.today.year, order: %i<day month year>
+= f.input :end_date, as: :gds_date
 
-= f.input :notice_period_end_date, as: :date, start_year: 2.years.ago.year,
-  end_year: Date.today.year, order: %i<day month year>
+= f.input :notice_period_end_date, as: :gds_date
 
 = f.input :worked_notice_period_or_paid_in_lieu, as: :radio_buttons
 = f.input :notice_pay_period_count
@@ -29,7 +26,7 @@
   collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons
 
 = f.input :found_new_job, as: :radio_buttons
-= f.input :new_job_start_date
+= f.input :new_job_start_date, as: :gds_date
 = f.input :new_job_gross_pay
 = f.input :new_job_gross_pay_frequency, label: false, label: false,
   collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons
