@@ -68,12 +68,12 @@ def fill_in_password(password)
 end
 
 def fill_in_personal_details
-  select 'Mr', from: 'Title'
+  choose 'Mr'
 
   fill_in 'First name', with: 'Barrington'
   fill_in 'Last name',  with: 'Wrigglesworth'
 
-  select 'Male', from: 'Gender'
+  choose 'Male'
 
   fill_in :claimant_date_of_birth_3i, with: '15'
   fill_in :claimant_date_of_birth_2i, with: '01'
