@@ -31,6 +31,11 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
+        contact_preference:
+          email: Email
+          post: Post
+          fax: Fax
+
       representative:
         type:
           citizen_advice_bureau: Citizen Advice Bureau

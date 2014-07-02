@@ -13,6 +13,11 @@
   }
 }
 
+.form-group.radio_buttons > label.radio {
+  clear: none;
+  margin-right: $gutter-half;
+}
+
 .form-group-related {
   margin-bottom: 10px;
   @include media(tablet) {
@@ -92,14 +97,16 @@ fieldset {
   padding: 4px;
   background-color: $white;
   border: 1px solid $border-colour;
-
-  // Disable webkit appearance and remove rounded corners
-  -webkit-appearance: none;
   border-radius: 0;
 
   @include media(tablet) {
     width: 50%;
   }
+}
+
+.form-control:not([type=radio]) {
+  // Disable webkit appearance and remove rounded corners
+  -webkit-appearance: none;
 }
 
 
