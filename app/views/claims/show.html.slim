@@ -1,4 +1,4 @@
-h1.heading-xlarge= header_text
+= content_for(:header) { header_text }
 
 section
   = simple_form_for resource, url: claim_path(claim) do |f|
