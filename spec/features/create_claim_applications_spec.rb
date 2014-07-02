@@ -86,10 +86,10 @@ def fill_in_personal_details
   choose  'claimant_contact_preference_email'
   fill_in 'Email address', with: 'barrington@example.com'
 
-  choose  'has_special_needs_true'
+  choose  'claimant_has_special_needs_true'
   fill_in 'Tell us how we can help you.', with: 'I am blind.'
 
-  choose  'has_representative_true'
+  choose  'claimant_has_representative_true'
 
   click_button 'Save and continue'
 end
@@ -135,7 +135,7 @@ def fill_in_employer_details
   check 'No acas number'
   choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
-  choose 'was_employed_true'
+  choose 'respondent_was_employed_true'
 
   click_button 'Save and continue'
 end

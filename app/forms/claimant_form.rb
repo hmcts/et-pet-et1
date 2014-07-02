@@ -9,6 +9,8 @@ class ClaimantForm < Form
              :title, :gender, :contact_preference, :address_building,
              :address_street, :address_locality, :address_county, :address_post_code
 
+  booleans   :has_special_needs, :has_representative
+
   validates :first_name, :last_name, :address_building, :address_street,
             :address_locality, :address_post_code, :address_county, presence: true
 
