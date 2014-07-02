@@ -1,28 +1,32 @@
-p= t 'copy.respondent.hint'
+fieldset.form-panel
+  legend.visuallyhidden= header_text
+  p= t 'copy.respondent.hint'
 
-= f.input :name
+  = f.input :name
 
-= f.input :address_building
-= f.input :address_street
-= f.input :address_locality
-= f.input :address_county
-= f.input :address_post_code
-= f.input :address_telephone_number
+  = f.input :address_building
+  = f.input :address_street
+  = f.input :address_locality
+  = f.input :address_county
+  = f.input :address_post_code
+  = f.input :address_telephone_number
 
-= f.input :worked_at_different_address, as: :radio_buttons
+  = f.input :worked_at_different_address, as: :radio_buttons,
+    item_wrapper_class: 'block-label'
 
-p= t 'copy.respondent.work_address'
+  div.panel-indent
+    p= t 'copy.respondent.work_address'
 
-= f.input :work_address_building
-= f.input :work_address_street
-= f.input :work_address_locality
-= f.input :work_address_county
-= f.input :work_address_post_code
-= f.input :work_address_telephone_number
+    = f.input :work_address_building
+    = f.input :work_address_street
+    = f.input :work_address_locality
+    = f.input :work_address_county
+    = f.input :work_address_post_code
+    = f.input :work_address_telephone_number
 
-= f.input :acas_early_conciliation_certificate_number
-= f.input :no_acas_number, as: :boolean
-= f.input :no_acas_number_reason,
-  collection: RespondentForm::NO_ACAS_REASON, as: :radio_buttons
+  = f.input :acas_early_conciliation_certificate_number
+  = f.input :no_acas_number, as: :boolean
+  = f.input :no_acas_number_reason, collection: RespondentForm::NO_ACAS_REASON,
+    as: :radio_buttons, item_wrapper_class: 'block-label'
 
-= f.input :was_employed, as: :radio_buttons
+  = f.input :was_employed, as: :radio_buttons, item_wrapper_class: 'block-label'

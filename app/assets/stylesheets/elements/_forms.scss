@@ -104,7 +104,7 @@ fieldset {
   }
 }
 
-.form-control:not([type=radio]) {
+.form-control:not([type=radio][type=checkbox]) {
   // Disable webkit appearance and remove rounded corners
   -webkit-appearance: none;
 }

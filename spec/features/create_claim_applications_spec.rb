@@ -95,7 +95,7 @@ def fill_in_personal_details
 end
 
 def fill_in_representative_details
-  select 'Solicitor', from: 'Type of representative'
+  choose 'representative_type_solicitor'
   fill_in "Name of the representative's organisation", with: 'Better Call Saul'
   fill_in "Representative's name", with: 'Saul Goodman'
 

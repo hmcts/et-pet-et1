@@ -30,10 +30,10 @@ fieldset.form-panel
   = f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,
     as: :radio_buttons, item_wrapper_class: 'block-label'
 
-  = f.input :email_address, as: :email
-  = f.input :fax_number, as: :tel
+  = f.input :email_address, as: :email, wrapper_class: 'panel-indent'
+  = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent'
 
-  = f.input :has_special_needs, as: :radio_buttons
-  = f.input :special_needs, as: :text
+  = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label'
+  = f.input :special_needs, as: :text, wrapper_class: 'panel-indent'
 
-  = f.input :has_representative, as: :radio_buttons
+  = f.input :has_representative, as: :radio_buttons, item_wrapper_class: 'block-label'

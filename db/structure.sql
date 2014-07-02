@@ -181,7 +181,7 @@ ALTER SEQUENCE claims_id_seq OWNED BY claims.id;
 CREATE TABLE employments (
     id integer NOT NULL,
     enrolled_in_pension_scheme boolean,
-    found_new_employment boolean,
+    found_new_job boolean,
     worked_notice_period_or_paid_in_lieu boolean,
     end_date date,
     new_job_start_date date,
@@ -433,4 +433,6 @@ INSERT INTO schema_migrations (version) VALUES ('20140630141116');
 INSERT INTO schema_migrations (version) VALUES ('20140702113651');
 
 INSERT INTO schema_migrations (version) VALUES ('20140702120605');
+
+INSERT INTO schema_migrations (version) VALUES ('20140702155957');
 
