@@ -12,7 +12,7 @@ class ClaimsController < ApplicationController
     resource.assign_attributes params[session_manager.current_step]
 
     if resource.save
-      session_manager.perform!
+      session_manager.perform!(resource: resource)
       redirect_to claim_path(@claim)
     else
       render action: :show
@@ -22,7 +22,7 @@ class ClaimsController < ApplicationController
   private
 
   helper_method def session_manager
-    @session_manager ||= ClaimSessionTransitionManager.new(params: params, session: session)
+    @session_manager ||= ClaimSessionTransitionManager.new(session: session)
   end
 
   helper_method def claim

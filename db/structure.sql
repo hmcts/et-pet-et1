@@ -118,7 +118,9 @@ CREATE TABLE claimants (
     contact_preference contact_preference,
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
-    claim_id integer
+    claim_id integer,
+    has_representative boolean,
+    has_special_needs boolean
 );
 
 
@@ -270,7 +272,8 @@ CREATE TABLE respondents (
     no_acas_number_reason character varying(255),
     claim_id integer,
     created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    updated_at timestamp without time zone,
+    was_employed boolean
 );
 
 
@@ -426,4 +429,8 @@ INSERT INTO schema_migrations (version) VALUES ('20140625115513');
 INSERT INTO schema_migrations (version) VALUES ('20140627144213');
 
 INSERT INTO schema_migrations (version) VALUES ('20140630141116');
+
+INSERT INTO schema_migrations (version) VALUES ('20140702113651');
+
+INSERT INTO schema_migrations (version) VALUES ('20140702120605');
 

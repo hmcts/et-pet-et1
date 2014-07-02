@@ -9,14 +9,13 @@ class ClaimSessionTransitionManager
     { from: 'employment', to: 'claim' }
   ].freeze
 
-  def initialize(params:, session:)
-    @params = params
+  def initialize(session:)
     @session = session
   end
 
-  def perform!
-    if transition
-      stack.push transition[:to]
+  def perform!(resource:)
+    if t = transition(resource)
+      stack.push t[:to]
     end
   end
 
@@ -32,13 +31,12 @@ class ClaimSessionTransitionManager
     @session['step_stack'] ||= ['password']
   end
 
-  private def transition
+  private def transition(resource)
     TRANSITIONS.find do |t|
       next unless t[:from] == current_step
 
       condition = t[:if]
-      bool = ActiveRecord::ConnectionAdapters::Column.value_to_boolean @params[condition]
-      condition ? bool : true
+      condition ? resource.send(condition) : true
     end
   end
 end

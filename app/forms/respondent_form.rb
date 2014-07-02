@@ -16,6 +16,8 @@ class RespondentForm < Form
              :acas_early_conciliation_certificate_number, :no_acas_number,
              :no_acas_number_reason
 
+  booleans   :worked_at_different_address, :was_employed
+
   validates :name, :address_telephone_number, :address_building, :address_street,
             :address_locality, :address_county, :address_post_code, presence: true
 
@@ -38,11 +40,6 @@ class RespondentForm < Form
 
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number.present? } }
-
-  def worked_at_different_address=(value)
-    attributes[:worked_at_different_address] =
-      ActiveRecord::ConnectionAdapters::Column.value_to_boolean(value)
-  end
 
   def save
     if valid?

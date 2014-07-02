@@ -25,7 +25,7 @@ h2= t 'copy.claimant.contact_details'
 = f.input :email_address, as: :email
 = f.input :fax_number, as: :tel
 
-= radio_disclosure_control_for :has_special_needs
+= f.input :has_special_needs, as: :radio_buttons
 = f.input :special_needs, as: :text
 
-= radio_disclosure_control_for :has_representative
+= f.input :has_representative, as: :radio_buttons

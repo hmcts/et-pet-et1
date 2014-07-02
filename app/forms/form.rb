@@ -12,6 +12,19 @@ class Form
       end
     end
 
+    def booleans(*attrs)
+      attrs.each do |a|
+        define_method(a) { attributes[a] }
+        define_method(:"#{a}=") do |v|
+          attributes[a] = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
+        end
+
+        alias_method :"#{a}?", a
+      end
+    end
+
+    alias_method :boolean, :booleans
+
     def for(name)
       "#{name}_form".classify.constantize
     end

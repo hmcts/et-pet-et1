@@ -25,4 +25,4 @@ p= t 'copy.respondent.work_address'
 = f.input :no_acas_number_reason,
   collection: RespondentForm::NO_ACAS_REASON, as: :radio_buttons
 
-= radio_disclosure_control_for :was_employed
+= f.input :was_employed, as: :radio_buttons
