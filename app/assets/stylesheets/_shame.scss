@@ -1,3 +1,7 @@
 .no-top-margin{
     margin-top:0;
 }
+label.disabled{
+  background:$grey-4;
+  color: $grey-1;
+}

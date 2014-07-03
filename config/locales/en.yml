@@ -31,6 +31,11 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
+        contact_preference:
+          email: Email
+          post: Post
+          fax: Fax
+
       representative:
         type:
           citizen_advice_bureau: Citizen Advice Bureau
@@ -53,6 +58,18 @@ en:
           still_employed: I'm still employed
           notice_period: I'm in a notice period
           employment_terminated: My employment has ended
+        notice_pay_period_type:
+          weeks: Weeks
+          months: Months
+        gross_pay_period_type:
+          weekly: Weekly
+          monthly: Monthly
+        net_pay_period_type:
+          weekly: Weekly
+          monthly: Monthly
+        new_job_gross_pay_frequency:
+          weekly: Weekly
+          monthly: Monthly
 
     labels:
       password:
@@ -110,17 +127,39 @@ en:
         end_date: Employment ended
         worked_notice_period_or_paid_in_lieu: Did you work -or get paid- for a period of notice?
         found_new_employment: Did you get another job?
+        notice_pay_period_count: For how many weeks or months did you get paid?
 
+    hints:
+      claimant:
+        date_of_birth: For example, 08 04 2014
+        address_telephone_number: Include area code
+        special_needs: |
+          For example, we can provide documents in large print, Braille and on CD;
+          help you attend a hearing; pay for sign language interpreters; and
+          provide hearing loops. If you'd like to add more information, you can
+          upload a file saved as Rich Text Format (RTF) later and just enter a
+          title here. You can usually save a file as an RTF by selecting File >
+          Save As > Format: Rich Text Format.
+        has_representative: |
+          Someone who has agreed to represent you (for example, to prepare your
+          case and/or act on your behalf if there is a hearing).
+      representative:
+        type: Acas conciliators are not representatives
+      respondent:
+        address_telephone_number: Include area code
+        work_address_telephone_number: Include area code
+      employment:
+        start_date: For example 12 4 2010, you don't have to give the exact date if you don't know it
+        average_hours_worked_per_week: Don't include overtime
+        gross_pay: Don't include overtime payments
+        net_pay: Include overtime, commissions and bonuses
+        benefit_details: |
+          250 characters limit. If you want to add more you can upload a file
+          saved as Rich Text Format (.rtf) later and only enter a title here.
+        end_date: For example 08 04 2014
+        new_job_start_date: For example 08 04 2014
+        notice_period_end_date: For example 08 04 2014
 
-  answer:
-    yes: Yes
-    no: No
-  enums:
-    claimant:
-      contact_preferences:
-        post: Post
-        fax: Fax
-        email: Email
 
   helpers:
     submit:

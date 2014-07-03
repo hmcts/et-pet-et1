@@ -68,16 +68,16 @@ def fill_in_password(password)
 end
 
 def fill_in_personal_details
-  select 'Mr', from: 'Title'
+  choose 'Mr'
 
   fill_in 'First name', with: 'Barrington'
   fill_in 'Last name',  with: 'Wrigglesworth'
 
-  select 'Male', from: 'Gender'
+  choose 'Male'
 
-  select '15',      from: :claimant_date_of_birth_3i
-  select 'January', from: :claimant_date_of_birth_2i
-  select '1985',    from: :claimant_date_of_birth_1i
+  fill_in :claimant_date_of_birth_3i, with: '15'
+  fill_in :claimant_date_of_birth_2i, with: '01'
+  fill_in :claimant_date_of_birth_1i, with: '1985'
 
   fill_in_address
 
@@ -95,7 +95,7 @@ def fill_in_personal_details
 end
 
 def fill_in_representative_details
-  select 'Solicitor', from: 'Type of representative'
+  choose 'representative_type_solicitor'
   fill_in "Name of the representative's organisation", with: 'Better Call Saul'
   fill_in "Representative's name", with: 'Saul Goodman'
 
@@ -143,9 +143,9 @@ end
 def fill_in_employment_details
   fill_in 'Job or job title', with: 'Super High Powered Exec'
 
-  select '1',    from: :employment_start_date_3i
-  select 'July', from: :employment_start_date_2i
-  select '2000', from: :employment_start_date_1i
+  fill_in :employment_start_date_3i, with: '01'
+  fill_in :employment_start_date_2i, with: '07'
+  fill_in :employment_start_date_1i, with: '2000'
 
   fill_in 'Average hours worked each week', with: 37.5
   fill_in 'Pay before tax', with: 10000
