@@ -15,24 +15,12 @@ class MultiparameterDateParser
 
   def parse
     memo   = Hash.new { |hash, key| hash[key] = [] }
-    values = attributes.reduce(memo) do |memo, (key, _)|
-      if match_data = key.match(REGEX)
-        param, index = match_data.captures
-        memo[param][index.to_i-1] = attributes.delete(key).to_i
-      end
-      memo
+    values = attributes.each_with_object(memo) do |(key, _), memo|
+      next unless match_data = key.match(REGEX)
+      param, index = match_data.captures
+      memo[param][index.to_i-1] = attributes.delete(key).to_i
     end
 
-    values = values.map do |key, value|
-      begin
-        value = Date.civil(*value)
-      rescue ArgumentError
-        value = nil
-      end
-
-      [key, value]
-    end
-
-    attributes.update Hash[values]
+    attributes.update values.map { |k,v| [k, (Date.civil *v rescue nil)] }.to_h
   end
 end

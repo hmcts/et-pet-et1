@@ -4,14 +4,11 @@ class AttributeExtractor # :nodoc:
   end
 
   def =~(regex)
-    @hash.inject({}) do |hash, (attribute, value)|
+    @hash.each_with_object({}) do |(attribute, value), hash|
       attribute = attribute.to_s
 
-      if attribute =~ regex
-        hash.update attribute.sub(regex, '').to_sym => value
-      else
-        hash
-      end
+      next unless attribute =~ regex
+      hash[attribute.sub(regex, '').to_sym] = value
     end
   end
 end
