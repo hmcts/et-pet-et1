@@ -87,7 +87,7 @@ en:
         address_locality: Town/city
         address_street: Street
         address_county: County
-        address_post_code: Post code
+        address_post_code: Postcode
 
       representative:
         address_telephone_number: Telephone
@@ -95,7 +95,7 @@ en:
         address_locality: Town/city
         address_street: Street
         address_county: County
-        address_post_code: Post code
+        address_post_code: Postcode
         type: Type of representative
         organisation_name: Name of the representative's organisation
         name: Representative's name
@@ -107,13 +107,13 @@ en:
         address_locality: Town/city
         address_street: Street
         address_county: County
-        address_post_code: Post code
+        address_post_code: Postcode
         work_address_telephone_number: Telephone
         work_address_building: Building number or name
         work_address_locality: Town/city
         work_address_street: Street
         work_address_county: County
-        work_address_post_code: Post code
+        work_address_post_code: Postcode
         worked_at_different_address: Did you work at a different address to the one given above
       employment:
         job_title: Job or job title
