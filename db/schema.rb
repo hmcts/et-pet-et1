@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140708231013) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "telephone_number"
+    t.string   "country"
   end
 
   create_table "claim_details", force: true do |t|
