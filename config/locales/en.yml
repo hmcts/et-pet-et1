@@ -48,7 +48,7 @@ en:
           other: Other
       respondent:
         no_acas_number: I don't have an Acas number
-        no_acas_number_reason: 
+        no_acas_number_reason: Why don't you have an Acas number?
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
