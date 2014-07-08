@@ -1,3 +1,13 @@
-.inner-block{
-    @include inner-block;
+form{
+  @include col(2/3);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel]{
+  @include col(2/3);
+}
+
+textarea.form-control{
+  width:100%;
 }
