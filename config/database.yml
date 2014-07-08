@@ -11,3 +11,12 @@ development:
 test:
   <<: *default
   database: atet_test
+
+production:
+  adapter: postgresql
+  host: <%= ENV['DB_HOST'] %>
+  encoding: unicode
+  username: <%= ENV['DB_USERNAME']  || 'etuser' %>
+  password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
+  database: <%= ENV['DB_NAME'] || 'etdb' %>
+  pool: 15
