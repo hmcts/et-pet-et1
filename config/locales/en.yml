@@ -146,8 +146,8 @@ en:
       representative:
         type: Acas conciliators are not representatives
       respondent:
-        address_telephone_number: Include area code
-        work_address_telephone_number: Include area code
+        address_telephone_number: For example 020 7649 9122
+        work_address_telephone_number: For example 020 7649 9122
       employment:
         start_date: For example 12 4 2010, you don't have to give the exact date if you don't know it
         average_hours_worked_per_week: Don't include overtime
