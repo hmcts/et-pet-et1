@@ -6,8 +6,20 @@ input[type=text],
 input[type=email],
 input[type=tel]{
   @include col(2/3);
+  &.short-input{
+    @include col(1/5);
+  }
 }
 
 textarea.form-control{
   width:100%;
+}
+.form-inputs{
+  @include cf();
+}
+.form-actions{
+  margin-top:2em;
+}
+#claimant_title{
+  @include col(1/3);
 }

@@ -21,18 +21,19 @@ fieldset.form-panel
   = f.input :address_street
   = f.input :address_locality
   = f.input :address_county
-  = f.input :address_post_code, class: 'short-input'
+  = f.input :address_post_code, input_html: {class: 'short-input'}
+  = f.input :address_country, collection: ClaimantForm::COUNTRIES, include_blank:false
 
   = f.input :address_telephone_number, as: :tel
   = f.input :mobile_number, as: :tel
   = f.input :email_address, as: :email
 
   = f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,
-    as: :radio_buttons, item_wrapper_class: 'block-label'
+    as: :radio_buttons, item_wrapper_class: 'block-label', wrapper_html: {class:'form-group-reveal', data: {trigger: 'claimant_contact_preference_fax'}}
 
-  = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent'
+  = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent toggle-content'
 
-  = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label'
-  = f.input :special_needs, as: :text, wrapper_class: 'panel-indent', input_html: {rows: 5}
+  = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label', wrapper_html: {data: {trigger: 'claimant_has_special_needs_false'}}
+  = f.input :special_needs, as: :text, wrapper_class: 'panel-indent toggle-content', input_html: {rows: 5}
 
   = f.input :has_representative, as: :radio_buttons, item_wrapper_class: 'block-label'
