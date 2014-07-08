@@ -41,22 +41,20 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } }
 
-  def save
-    if valid?
-      extractor = AttributeExtractor.new(attributes)
-      address_attributes = extractor =~ /\Aaddress_/
-      work_address_attributes = extractor =~ /\Awork_address_/
-      respondent_attributes = extractor =~ /\A(?!(work_)?address_)/
-
-      respondent = resource.respondents.build \
-        respondent_attributes.except(:worked_at_different_address, :no_acas_number)
-
-      respondent.addresses.build address_attributes
-      respondent.addresses.build work_address_attributes
-
-      resource.save
-    end
+  def worked_at_different_address
+    @worked_at_different_address ||= target.work_address.persisted?
   end
 
+  def no_acas_number
+    @no_acas_number ||= acas_early_conciliation_certificate_number.blank?
+  end
+
+  def was_employed
+    @was_employed ||= resource.employment.present?
+  end
+
+  private def target
+    resource.respondents.first || resource.respondents.build
+  end
 
 end

@@ -11,9 +11,7 @@ class EmploymentForm < Form
     :notice_pay_period_type, :found_new_job, :new_job_start_date,
     :new_job_gross_pay, :new_job_gross_pay_frequency
 
-  def save
-    if valid?
-      resource.build_employment attributes
-    end
+  private def target
+    resource.employment || resource.build_employment
   end
 end

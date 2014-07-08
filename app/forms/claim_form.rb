@@ -13,11 +13,7 @@ class ClaimForm < Form
   validates :other_outcome,              length: { maximum: 2500 }
 
 
-  def save
-    if valid?
-      resource.build_claim_detail attributes
-
-      resource.save
-    end
+  private def target
+    resource.claim_detail || resource.build_claim_detail
   end
 end

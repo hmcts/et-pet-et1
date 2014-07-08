@@ -22,6 +22,7 @@ RSpec.describe PasswordForm, :type => :form do
 
     it 'calls update_attributes on the underlying model with its own attributes' do
       expect(model).to receive(:update_attributes).with attributes
+      allow(model).to  receive(:save)
       subject.save
     end
   end
