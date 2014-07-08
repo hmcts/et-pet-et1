@@ -48,7 +48,7 @@ en:
           other: Other
       respondent:
         no_acas_number: I don't have an Acas number
-        no_acas_number_reason:
+        no_acas_number_reason: 
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
@@ -78,7 +78,7 @@ en:
         password_confirmation: Confirm your password
       claimant:
         mobile_number: Mobile (if different)
-        contact_preference: Best way to contact you
+        contact_preference: Best way to send correspondence to you
         fax_number: Fax
         has_special_needs: Do you have a disability or health condition?
         special_needs: Tell us how we can help you.
