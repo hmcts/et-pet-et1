@@ -51,7 +51,7 @@ en:
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: I've been unfairly dismissed and I want to apply for interim relief (to keep getting paid until the case has been decided)
+          interim_relief: I've been unfairly dismissed and I want to apply for interim relief
           claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
       employment:
         current_situation:
