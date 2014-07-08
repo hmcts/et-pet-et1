@@ -114,7 +114,7 @@ en:
         work_address_street: Street
         work_address_county: County
         work_address_post_code: Postcode
-        worked_at_different_address: Did you work at a different address to the one given above
+        worked_at_different_address: Did you work at a different address to the one given above?
       employment:
         job_title: Job or job title
         start_date: Start date
@@ -219,7 +219,7 @@ en:
         Give details about the person or organisation you're making a claim
         against (known as the 'respondent' at a tribunal). If you need to, you
         can add more names and details later.
-      work_address: Give details of your work address
+      work_address: Give details of your work address.
     employment:
       header: Employment details
     claim:
