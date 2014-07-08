@@ -1,5 +1,4 @@
 class RepresentativeForm < Form
-  ADDRESS_REGEXP = /\Aaddress_/
   TYPES = %i<citizen_advice_bureau free_representation_unit law_centre trade_union
              solicitor private_individual trade_association other>.freeze
 
@@ -20,13 +19,7 @@ class RepresentativeForm < Form
   validates :address_telephone_number, :mobile_number, length: { maximum: 15 }
   validates :dx_number, length: { maximum: 20 }
 
-  def save
-    if valid?
-      extractor = AttributeExtractor.new(attributes)
-      representative = resource.build_representative(extractor =~ /\A(?!#{ADDRESS_REGEXP})/)
-      representative.build_address(extractor =~ ADDRESS_REGEXP)
-      resource.save
-    end
+  private def target
+    resource.representative || resource.build_representative
   end
-
 end

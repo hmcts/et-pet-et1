@@ -1,5 +1,4 @@
 class ClaimantForm < Form
-  ADDRESS_REGEXP      = /\Aaddress_/
   TITLES              = %i<mr mrs ms miss>.freeze
   GENDERS             = %i<male female>.freeze
   CONTACT_PREFERENCES = %i<email post fax>.freeze
@@ -30,13 +29,15 @@ class ClaimantForm < Form
     ActiveSupport::StringInquirer.new(attributes[:contact_preference] || "")
   end
 
-  def save
-    if valid?
-      extractor = AttributeExtractor.new(attributes)
-      claimant  = resource.claimants.build(extractor =~ /\A(?!#{ADDRESS_REGEXP})/)
-      address   = claimant.build_address(extractor =~ ADDRESS_REGEXP)
+  def has_special_needs
+    @has_special_needs ||= special_needs.present?
+  end
 
-      resource.save
-    end
+  def has_representative
+    @has_representative ||= resource.representative.present?
+  end
+
+  private def target
+    resource.claimants.first || resource.claimants.build
   end
 end

@@ -7,16 +7,16 @@ class Form
     private def attributes(*attrs)
       attrs.each do |a|
         define_method(a) { attributes[a] }
-        define_method(:"#{a}?") { attributes[a].present? }
+        define_method(:"#{a}?") { send(a).present? }
         define_method(:"#{a}=") { |v| attributes[a] = v }
       end
     end
 
     def booleans(*attrs)
       attrs.each do |a|
-        define_method(a) { attributes[a] }
+        define_method(a) { instance_variable_get :"@#{a}" }
         define_method(:"#{a}=") do |v|
-          attributes[a] = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
+          instance_variable_set :"@#{a}", ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
         end
 
         alias_method :"#{a}?", a
@@ -49,12 +49,17 @@ class Form
   end
 
   def attributes
-    @attributes ||= {}
+    @attributes ||= Hash.new do |hash, key|
+      if value = resource.try(key)
+        hash[key] = value
+      end
+    end
   end
 
   def save
     if valid?
-      resource.update_attributes attributes
+      target.assign_attributes attributes
+      resource.save
     end
   end
 

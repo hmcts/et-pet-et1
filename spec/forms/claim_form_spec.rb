@@ -9,11 +9,7 @@ RSpec.describe ClaimForm, :type => :form do
   end
 
   describe '#save' do
-    let(:resource) { double }
-    let(:form) { ClaimForm.new(attributes) { |f| f.resource = resource } }
-
-    let(:attributes) do
-      { is_unfair_dismissal: "1",
+    attributes = { is_unfair_dismissal: "1",
         discrimination_claims: ["sex_including_equal_pay", "pregnancy_or_maternity", "marriage_or_civil_partnership", ""],
         pay_claims: ["redundancy", "notice", "holiday", "other", ""],
         other_claim_details: "lol", claim_details: "lewl",
@@ -23,15 +19,10 @@ RSpec.describe ClaimForm, :type => :form do
         is_whistleblowing: "true",
         send_claim_to_whistleblowing_entity: "true",
         miscellaneous_information: "hey now!" }
-    end
 
-    describe 'for valid attributes' do
-      it 'creates a new claim detail on the claim' do
-        expect(resource).to receive(:build_claim_detail).with attributes
-        expect(resource).to receive(:save)
-
-        form.save
-      end
-    end
+    it_behaves_like("a Form", attributes, proc {
+      allow(resource).to receive(:claim_detail)
+      allow(resource).to receive(:build_claim_detail).and_return target
+    })
   end
 end

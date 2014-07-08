@@ -42,3 +42,51 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 end
+
+RSpec.shared_examples 'a Form' do |attributes, block|
+  let(:proxy)    { double 'proxy', first: nil, second: nil }
+  let(:resource) { double 'resource' }
+  let(:target)   { double 'target', assign_attributes: nil }
+  let(:form)     { described_class.new(attributes) { |f| f.resource = resource } }
+
+  describe 'for valid attributes' do
+
+    it "creates a #{described_class.model_name} on the claim" do
+      instance_eval &block
+      expect(resource).to receive(:save)
+
+      form.save
+      expect(target).to have_received(:assign_attributes).with attributes.slice(*form.attributes.keys)
+    end
+  end
+
+  if described_class.validators.any?
+    describe 'for invalid attributes' do
+      let(:attributes) { { } }
+      it 'is not saved' do
+        expect(resource).to_not receive(:save)
+      end
+    end
+  end
+end
+
+RSpec.shared_examples 'it has an address' do |prefix|
+  describe 'delegation' do
+    [:building, :street, :locality, :county, :post_code, :telephone_number].each do |attr|
+      describe "#{prefix}_#{attr}" do
+        it "is delegated to ##{prefix} as #{attr}" do
+          expect(subject.send(prefix)).to receive(attr)
+          subject.send :"#{prefix}_#{attr}"
+        end
+      end
+
+      describe "#{prefix}_#{attr}=" do
+        let(:object) { double }
+        it "is delegated to ##{prefix} as #{attr}=" do
+          expect(subject.send(prefix)).to receive(:"#{attr}=").with object
+          subject.send :"#{prefix}_#{attr}=", object
+        end
+      end
+    end
+  end
+end

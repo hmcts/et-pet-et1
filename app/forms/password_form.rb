@@ -3,4 +3,11 @@ class PasswordForm < Form
 
   validates :password, confirmation: true
   validates :password_confirmation, presence: { if: -> { password.present? } }
+
+  def save
+    if valid?
+      resource.update_attributes attributes
+      resource.save
+    end
+  end
 end
