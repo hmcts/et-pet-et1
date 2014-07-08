@@ -35,6 +35,9 @@ en:
           email: Email
           post: Post
           fax: Fax
+        address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
 
       representative:
         type:
@@ -88,6 +91,7 @@ en:
         address_street: Street
         address_county: County
         address_post_code: Post code
+        address_country: Country
 
       representative:
         address_telephone_number: Telephone
@@ -133,6 +137,7 @@ en:
       claimant:
         date_of_birth: For example, 08 04 2014
         address_telephone_number: Include area code
+        has_special_needs: Tribunal staff can provide suitable documents and help you at a hearing
         special_needs: |
           For example, we can provide documents in large print, Braille and on CD;
           help you attend a hearing; pay for sign language interpreters; and
