@@ -172,39 +172,35 @@ en:
 
   copy:
     new: |
-      # Take your employer to a tribunal (ET1)
+      # Take your employer to a tribunal
 
-      ## Before you begin
+      Take your employer to a tribunal using an online ET1 claim form (England, Wales and Scotland).
 
-      You will need:
+      ## Time limit
 
-        * your early conciliation number (or confirmation that you're exempt)
-        * a description of your claim
-        * details of your pay and benefits, before and after tax
-        * the full address of your employer (respondent)
-        * details of your representative, like a solicitor or union, if you have one
-        * a credit or debit card to pay any fees
+      You usually have to apply to the tribunal within 3 months of your employment ending, or the problem happening at work.
 
-      ## Paying your fees
+      ## Fees
 
-      When you submit your form you'll be charged a fee to pay for the cost of
-      your claim. You may pay less or nothing (remission), eg if you're on
-      certain state benefits.
+      You'll have to pay a [fee](https://www.gov.uk/employment-tribunals/apply-to-the-tribunal) (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee. 
 
-      If your case goes to court you'll have to pay another fee unless you
-      qualify for remission. Find out more about paying court and tribunal fees.
+      If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are). 
 
-      ## Saving your form
+      ##Before you begin the form
 
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-      elementum iaculis enim at placerat. Donec urna sem, sodales a pretium
-      vitae, lobortis in lectus.
+      * try to [sort out the problem with your employer](https://www.gov.uk/solve-workplace-dispute/overview)
+      * if you can’t solve the problem, [contact Acas](http://www.acas.org.uk/earlyconciliation) before you apply to an employment tribunal
 
-      ## Data Protection Act 1998
+      ## Information to gather for this form
 
-      We send a copy of this form to the respondent and the Advisory,
-      Conciliation and Arbitration Service (Acas). Information provided on
-      this form is also passed to the Department for Business, Innovation and Skills.
+      * your [Acas early conciliation certificate number](http://www.acas.org.uk/earlyconciliation) (or a reason why you don't need one)
+      * a description of your claim, including dates and the people involved
+      * details of your pay and benefits, before and after tax (you can find these on your payslip)
+      * the full address of the employer or organisation you want to make a claim against
+
+      ## How we use your information
+
+      We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
       header: Your claim form reference
