@@ -126,7 +126,7 @@ en:
         benefit_details: Details of any benefits, like a company car
         current_situation: Current situation
         end_date: Employment ended
-        worked_notice_period_or_paid_in_lieu: Did you work -or get paid- for a period of notice?
+        worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_employment: Did you get another job?
         notice_pay_period_count: For how many weeks or months did you get paid?
 
@@ -152,16 +152,16 @@ en:
         address_telephone_number: For example, 020 7649 9122
         work_address_telephone_number: For example, 020 7649 9122
       employment:
-        start_date: For example 12 4 2010, you don't have to give the exact date if you don't know it
+        start_date: For example, 12 4 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: Don't include overtime payments
         net_pay: Include overtime, commissions and bonuses
         benefit_details: |
           250 characters limit. If you want to add more you can upload a file
           saved as Rich Text Format (.rtf) later and only enter a title here.
-        end_date: For example 08 04 2014
-        new_job_start_date: For example 08 04 2014
-        notice_period_end_date: For example 08 04 2014
+        end_date: For example, 08 04 2014
+        new_job_start_date: For example, 08 04 2014
+        notice_period_end_date: For example, 08 04 2014
 
 
   helpers:
