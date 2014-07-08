@@ -79,7 +79,7 @@ en:
         mobile_number: Mobile (if different)
         contact_preference: Best way to contact you
         fax_number: Fax
-        has_special_needs: Do you have a disability or particular need?
+        has_special_needs: Do you have a disability or health condition?
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
         address_telephone_number: Telephone
