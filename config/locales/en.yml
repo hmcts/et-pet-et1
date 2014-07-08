@@ -132,7 +132,7 @@ en:
     hints:
       claimant:
         date_of_birth: For example, 08 04 2014
-        address_telephone_number: Include area code
+        address_telephone_number: For example, 020 7649 9122
         special_needs: |
           For example, we can provide documents in large print, Braille and on CD;
           help you attend a hearing; pay for sign language interpreters; and
