@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708131259) do
+ActiveRecord::Schema.define(version: 20140708231013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,23 @@ ActiveRecord::Schema.define(version: 20140708131259) do
     t.string   "country"
   end
 
+  create_table "claim_details", force: true do |t|
+    t.boolean  "is_unfair_dismissal"
+    t.integer  "discrimination_claims"
+    t.integer  "pay_claims"
+    t.string   "other_claim_details"
+    t.text     "claim_details"
+    t.integer  "desired_outcomes"
+    t.text     "other_outcome"
+    t.text     "other_known_claimant_names"
+    t.boolean  "is_whistleblowing"
+    t.boolean  "send_claim_to_whistleblowing_entity"
+    t.text     "miscellaneous_information"
+    t.integer  "claim_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "claimants", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -41,8 +58,6 @@ ActiveRecord::Schema.define(version: 20140708131259) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "claim_id"
-    t.boolean  "has_representative"
-    t.boolean  "has_special_needs"
     t.string   "gender"
     t.string   "contact_preference"
     t.string   "title"
@@ -98,7 +113,6 @@ ActiveRecord::Schema.define(version: 20140708131259) do
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "was_employed"
   end
 
 end
