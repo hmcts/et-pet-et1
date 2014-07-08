@@ -38,7 +38,7 @@ module.exports = (function() {
 module.exports = (function() {
   var config = {
       group: '.form-group-reveal',
-      data: '[data-target]',
+      data: '[data-trigger]',
       label: '.block-label',
       content: 'toggle-content',
       selected: 'selected'
@@ -53,28 +53,29 @@ module.exports = (function() {
         });
       },
       bindLabels: function(group) {
-        var label = config.label,
-          labels = $(group).find(label);
+        var labels = $(group).find(config.label),
+            input = $(document.getElementById(group.getAttribute('data-trigger'))),
+            trigger = input.parent('label'),
+            target = $(group).next('.toggle-content');
 
-        $(group).on('click', label , function(event){
-          reveal.toggleState(labels);
+        $(labels).on('click', function(event){
+          reveal.toggleState(labels, target);
         });
       },
-      toggleState: function(labels) {
+      toggleState: function(labels, target) {
         var checked;
 
         return labels.each(function(i, label){
           var input = $(label).find('input'),
-            checked = input.is(':checked'),
-            target = $(document.getElementById(label.getAttribute('data-target')));
+            checked = input.is(':checked');
 
           input.attr('checked', checked)
             .parent().toggleClass(config.selected, checked);
 
           if(checked){
-            target.removeClass(config.content);
+            target.show();
           } else {
-            target.addClass(config.content);
+            target.hide();
           }
 
         });
