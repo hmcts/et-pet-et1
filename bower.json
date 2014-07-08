@@ -1,6 +1,3 @@
 {
-  "name": "atet",
-  "dependencies": {
-    "jquery": "~1.11.1"
-  }
+  "name": "atet"
 }
