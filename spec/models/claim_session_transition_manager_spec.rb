@@ -111,5 +111,19 @@ RSpec.describe ClaimSessionTransitionManager do
         expect(manager.previous_step).to eq('employment')
       end
     end
+
+    describe "transitioning from 'claim'" do
+      before { session['step_stack'] = %w<password claimant representative respondent employment claim> }
+
+      it "sets current_step to 'confirmation'" do
+        manager.perform! resource: resource
+        expect(manager.current_step).to eq('confirmation')
+      end
+
+      it "sets previous_step to 'claim'" do
+        manager.perform! resource: resource
+        expect(manager.previous_step).to eq('claim')
+      end
+    end
   end
 end

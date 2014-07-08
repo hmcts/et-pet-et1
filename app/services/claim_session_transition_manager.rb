@@ -6,7 +6,8 @@ class ClaimSessionTransitionManager
     { from: 'representative', to: 'respondent' },
     { from: 'respondent', to: 'employment', if: 'was_employed' },
     { from: 'respondent', to: 'claim' },
-    { from: 'employment', to: 'claim' }
+    { from: 'employment', to: 'claim' },
+    { from: 'claim',      to: 'confirmation' }
   ].freeze
 
   def initialize(session:)

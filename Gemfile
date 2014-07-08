@@ -46,3 +46,5 @@ gem "slim-rails"
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
 gem 'redcarpet', require: 'redcarpet/compat'
+gem 'copycopter_client', '~> 2.0.1'
+gem 'bitmask_attributes'

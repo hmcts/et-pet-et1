@@ -3,7 +3,11 @@ module ClaimsHelper
     Markdown.new(I18n.t 'copy.' + key).to_html.html_safe
   end
 
+  def copy_text
+    t "copy.#{session_manager.current_step}"
+  end
+
   def header_text
-    t "copy.#{session_manager.current_step}.header"
+    copy_text[:header]
   end
 end

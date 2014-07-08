@@ -53,6 +53,18 @@ feature 'Claim applications', type: :feature do
 
     expect(page).to have_text("Claim details")
   end
+
+  scenario 'Entering claim details' do
+    start_claim
+    fill_in_password 'sup3r_s3cr3t'
+    fill_in_personal_details
+    fill_in_representative_details
+    fill_in_employer_details
+    fill_in_employment_details
+    fill_in_claim_details
+
+    expect(page).to have_text("Check your answers")
+  end
 end
 
 def start_claim
@@ -152,6 +164,42 @@ def fill_in_employment_details
   choose  'employment_gross_pay_period_type_weekly'
   fill_in 'Pay after tax',  with: 6000
   choose  'employment_net_pay_period_type_weekly'
+
+  click_button 'Save and continue'
+end
+
+def fill_in_claim_details
+  check "Unfair dismissal (including constructive dismissal)"
+
+  check "Discrimination"
+    check "Sex (including equal pay)"
+    check "Race"
+    check "Age"
+
+  check 'Pay'
+    check 'Holiday pay'
+    check 'Arrears of pay'
+    check 'Other payments'
+
+  check 'Another type of claim'
+    fill_in 'State the other type of claim – or claims – that you’re making',
+      with: 'Boss was a bit of a douchenozzle TBH'
+    fill_in 'Give the background and details of your problem at work',
+      with: 'It was all a bit long TBH'
+
+  check 'To get my old job back and compensation'
+
+  fill_in 'What compensation or other outcome do you want?',
+    with: 'One billllllllion dollars'
+
+  choose 'claim_other_known_claimants_true'
+
+  fill_in 'You can add the names of other people here.',
+    with: 'Barrington Wrigglesworth'
+
+  choose 'claim_is_whistleblowing_true'
+
+  choose 'claim_send_claim_to_whistleblowing_entity_true'
 
   click_button 'Save and continue'
 end
