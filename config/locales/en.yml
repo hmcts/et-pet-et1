@@ -147,6 +147,8 @@ en:
       representative:
         type: Acas conciliators are not representatives
       respondent:
+        acas_early_conciliation_certificate_number: |
+          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the <a href="http://www.acas.org.uk/earlyconciliation">Acas website</a>.
         address_telephone_number: For example, 020 7649 9122
         work_address_telephone_number: For example, 020 7649 9122
       employment:
