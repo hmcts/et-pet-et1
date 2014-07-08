@@ -47,6 +47,7 @@ en:
           trade_association: Trade association
           other: Other
       respondent:
+        no_acas_number: I don't have an Acas number
         no_acas_number_reason:
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
@@ -146,8 +147,8 @@ en:
       representative:
         type: Acas conciliators are not representatives
       respondent:
-        address_telephone_number: For example 020 7649 9122
-        work_address_telephone_number: For example 020 7649 9122
+        address_telephone_number: For example, 020 7649 9122
+        work_address_telephone_number: For example, 020 7649 9122
       employment:
         start_date: For example 12 4 2010, you don't have to give the exact date if you don't know it
         average_hours_worked_per_week: Don't include overtime
