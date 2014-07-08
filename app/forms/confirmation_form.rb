@@ -1,0 +1,2 @@
+class ConfirmationForm < Form
+end
