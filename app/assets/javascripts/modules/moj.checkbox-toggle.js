@@ -1,4 +1,4 @@
-// Reveals hidden content
+// Toggles disabled groups of adjacent checkboxes
 
 module.exports = (function() {
   var checkboxToggle = {
@@ -8,15 +8,16 @@ module.exports = (function() {
         checkboxToggle.bindCheckboxes(label);
       });
     },
-    bindCheckboxes: function(checkbox) {
-      var target = $(document.getElementById(checkbox.attr('data-target'))),
+    bindCheckboxes: function(label) {
+      var input = label.find('input'),
+        target = $(document.getElementById(input.attr('data-target'))),
         checked = function(){
-          return checkbox.find('input').is(':not(:checked)');
+          return input.is(':not(:checked)');
         },
-        slaves = target.find('label');
+        checkboxes = target.find('label');
 
-      checkbox.on('click', function(){
-        slaves.toggleClass('disabled', checked())
+      input.on('click', function(){
+        checkboxes.toggleClass('disabled', checked())
           .find('input').attr('disabled', checked());
       });
     }
