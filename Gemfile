@@ -35,6 +35,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "codeclimate-test-reporter", group: :test, require: nil
 end
 
 gem 'pg'
@@ -46,5 +47,4 @@ gem "slim-rails"
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
 gem 'redcarpet', require: 'redcarpet/compat'
-gem 'copycopter_client', '~> 2.0.1'
 gem 'bitmask_attributes'
