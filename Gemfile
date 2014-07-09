@@ -12,9 +12,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-# Use unicorn as the app server
-gem 'unicorn'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -46,5 +43,3 @@ gem "slim-rails"
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
 gem 'redcarpet', require: 'redcarpet/compat'
-gem 'copycopter_client', '~> 2.0.1'
-gem 'bitmask_attributes'
