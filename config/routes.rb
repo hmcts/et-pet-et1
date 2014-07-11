@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :claims, only: %i<create update show>
+  resources :claims, only: %i<create update show> do
+    member do
+      get ':page', to: 'claims#show', as: :page
+    end
+  end
 
   root to: 'claims#new'
 

@@ -32,6 +32,8 @@ class Form
     def model_name
       ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
     end
+
+    delegate :i18n_key, to: :model_name, prefix: true
   end
 
   def initialize(attributes={},&block)

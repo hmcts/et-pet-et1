@@ -4,6 +4,6 @@ section
   = simple_form_for resource, url: claim_path(claim) do |f|
     = f.error_notification
     .form-inputs
-      = render partial: session_manager.current_step.to_s, locals: { f: f }
+      = render partial: current_step.to_s, locals: { f: f }
     .form-actions
       = f.button :submit, value: t('helpers.submit.claim.update')

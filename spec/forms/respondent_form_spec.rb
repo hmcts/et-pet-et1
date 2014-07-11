@@ -69,25 +69,25 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
-  describe '#save' do
-    let(:model) { Claim.create }
-    let(:form) { RespondentForm.new(attributes) { |f| f.resource = model } }
-    let(:respondent) { model.respondents.first }
+  let(:model) { Claim.create }
+  let(:form) { RespondentForm.new(attributes) { |f| f.resource = model } }
+  let(:respondent) { model.respondents.first }
 
-    attributes = {
-      name: "Crappy Co. LTD",
-      address_telephone_number: "01234567890", address_building: "1",
-      address_street: "Business Street", address_locality: "Businesstown",
-      address_county: "Businessfordshire", address_post_code: "BT1 1CB",
-      work_address_building: "2", work_address_street: "Business Lane",
-      work_address_locality: "Business City", work_address_county: 'Businessbury',
-      work_address_post_code: "BT2 1CB", work_address_telephone_number: "01234000000",
-      worked_at_different_address: '1', no_acas_number: "1",
-      no_acas_number_reason: "acas_has_no_jurisdiction" }
+  attributes = {
+    name: "Crappy Co. LTD",
+    address_telephone_number: "01234567890", address_building: "1",
+    address_street: "Business Street", address_locality: "Businesstown",
+    address_county: "Businessfordshire", address_post_code: "BT1 1CB",
+    work_address_building: "2", work_address_street: "Business Lane",
+    work_address_locality: "Business City", work_address_county: 'Businessbury',
+    work_address_post_code: "BT2 1CB", work_address_telephone_number: "01234000000",
+    worked_at_different_address: '1', no_acas_number: "1",
+    no_acas_number_reason: "acas_has_no_jurisdiction" }
 
-    it_behaves_like("a Form", attributes, proc {
-      allow(resource).to receive(:respondents).and_return proxy
-      allow(proxy).to receive(:build).and_return target
-    })
+  before = proc do
+    allow(resource).to receive(:respondents).and_return proxy
+    allow(proxy).to receive(:build).and_return target
   end
+
+  it_behaves_like("a Form", attributes, before)
 end

@@ -26,17 +26,17 @@ RSpec.describe RepresentativeForm, :type => :form do
     it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
   end
 
-  describe '#save' do
-    attributes = {
-      name: 'Saul Goodman', organisation_name: 'Better Call Saul',
-      type: 'citizen_advice_bureau', dx_number: '1',
-      address_building: '1', address_street: 'High Street',
-      address_locality: 'Anytown', address_county: 'Anyfordshire',
-      address_post_code: 'AT1 0AA', email_address: 'lol@example.com' }
+  attributes = {
+    name: 'Saul Goodman', organisation_name: 'Better Call Saul',
+    type: 'citizen_advice_bureau', dx_number: '1',
+    address_building: '1', address_street: 'High Street',
+    address_locality: 'Anytown', address_county: 'Anyfordshire',
+    address_post_code: 'AT1 0AA', email_address: 'lol@example.com' }
 
-    it_behaves_like("a Form", attributes, proc {
-      allow(resource).to receive(:representative)
-      allow(resource).to receive(:build_representative).and_return target
-    })
+  before = proc do
+    allow(resource).to receive(:representative)
+    allow(resource).to receive(:build_representative).and_return target
   end
+
+  it_behaves_like("a Form", attributes, before)
 end
