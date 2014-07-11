@@ -5,14 +5,14 @@ class ClaimsController < ApplicationController
   end
 
   def create
-    redirect_to claim_path(Claim.create)
+    redirect_to page_claim_path(Claim.create, page: 'password')
   end
 
   def update
-    resource.assign_attributes params[session_manager.current_step]
+    resource.assign_attributes params[current_step]
 
     if resource.save
-      redirect_to_next_step
+      redirect_to page_claim_path(@claim, page: transition_manager.forward)
     else
       render action: :show
     end
@@ -20,13 +20,12 @@ class ClaimsController < ApplicationController
 
   private
 
-  def redirect_to_next_step
-    session_manager.perform!(resource: resource)
-    redirect_to claim_path(@claim)
+  def transition_manager
+    @transition_manager ||= ClaimTransitionManager.new(resource: resource)
   end
 
-  helper_method def session_manager
-    @session_manager ||= ClaimSessionTransitionManager.new(session: session)
+  def referring_step
+    Rails.application.routes.recognize_path(request.referer)[:page]
   end
 
   helper_method def claim
@@ -34,7 +33,10 @@ class ClaimsController < ApplicationController
   end
 
   helper_method def resource
-    @form ||= Form.for(session_manager.current_step).new { |f| f.resource = claim }
+    @form ||= Form.for(current_step).new { |f| f.resource = claim }
   end
 
+  helper_method def current_step
+    params[:page] || referring_step
+  end
 end

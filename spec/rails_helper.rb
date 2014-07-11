@@ -52,22 +52,30 @@ RSpec.shared_examples 'a Form' do |attributes, block|
   let(:target)   { double 'target', assign_attributes: nil }
   let(:form)     { described_class.new(attributes) { |f| f.resource = resource } }
 
-  describe 'for valid attributes' do
-
-    it "creates a #{described_class.model_name} on the claim" do
-      instance_eval &block
-      expect(resource).to receive(:save)
-
-      form.save
-      expect(target).to have_received(:assign_attributes).with attributes.slice(*form.attributes.keys)
+  describe '.model_name_i18n_key' do
+    specify do
+      expect(described_class.model_name_i18n_key).
+        to eq(described_class.model_name.i18n_key)
     end
   end
 
-  if described_class.validators.any?
-    describe 'for invalid attributes' do
-      let(:attributes) { { } }
-      it 'is not saved' do
-        expect(resource).to_not receive(:save)
+  describe '#save' do
+    describe 'for valid attributes' do
+      it "creates a #{described_class.model_name} on the claim" do
+        instance_eval &block
+        expect(resource).to receive(:save)
+
+        form.save
+        expect(target).to have_received(:assign_attributes).with attributes.slice(*form.attributes.keys)
+      end
+    end
+
+    if described_class.validators.any?
+      describe 'for invalid attributes' do
+        let(:attributes) { { } }
+        it 'is not saved' do
+          expect(resource).to_not receive(:save)
+        end
       end
     end
   end
