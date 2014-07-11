@@ -7,6 +7,6 @@ class Claimant < ActiveRecord::Base
     to: :address, prefix: true
 
   def address
-    association(:address).target ||= build_address
+    association(:address).reader || build_address
   end
 end
