@@ -4,7 +4,7 @@ module ClaimsHelper
   end
 
   def copy_text
-    t "copy.#{session_manager.current_step}"
+    t "copy.#{current_step}"
   end
 
   def header_text

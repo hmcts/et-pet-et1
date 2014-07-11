@@ -35,7 +35,8 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem "codeclimate-test-reporter", group: :test, require: nil
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'rspec-its', require: 'rspec/its'
 end
 
 gem 'pg'
