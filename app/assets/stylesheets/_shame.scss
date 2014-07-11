@@ -4,6 +4,13 @@
 label.disabled{
   background:$grey-4;
   color: $grey-1;
+  &:hover{
+    border-color:$panel-colour;
+    cursor:default;
+  }
+  input{
+    cursor:default;
+  }
 }
  label abbr{
   display: none;
@@ -12,5 +19,5 @@ label.disabled{
   margin-bottom:0;
  }
  label.radio_buttons{
-  display: none;
+  // display: none;
  }

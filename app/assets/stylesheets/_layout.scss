@@ -10,7 +10,9 @@ input[type=tel]{
     @include col(1/5);
   }
 }
-
+.form-group{
+  @include cf();
+}
 textarea.form-control{
   width:100%;
 }
@@ -29,7 +31,6 @@ textarea.form-control{
 }
 .block-label{
   &.large-label{
-    @include column(0.905);
-    padding-left:45px;
+    @include stack();
   }
 }
