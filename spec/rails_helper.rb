@@ -62,6 +62,13 @@ RSpec.shared_examples 'a Form' do |attributes, block|
   describe '#save' do
     describe 'for valid attributes' do
       it "creates a #{described_class.model_name} on the claim" do
+        # Allow double to receive attributes that have validators. It will
+        # receive those messages on save because the validators call through to
+        # them and in turn the target receives the message if the attribute is
+        # blank
+        described_class.validators.flat_map(&:attributes).uniq.
+          each { |a| allow(target).to receive(a) }
+
         instance_eval &block
         expect(resource).to receive(:save)
 

@@ -1,7 +1,8 @@
 = content_for(:header) { header_text }
 
 section
-  = simple_form_for resource, url: claim_path(claim) do |f|
+  = simple_form_for resource, url: claim_path do |f|
+    = hidden_field_tag :page, current_step
     = f.error_notification
     .form-inputs
       = render partial: current_step.to_s, locals: { f: f }

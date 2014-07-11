@@ -3,36 +3,39 @@ class Form
 
   attr_accessor :resource
 
+  def resource
+    @resource ||= Claim.new
+  end
+
+  def self.attributes(*attrs)
+    attrs.each do |a|
+      define_method(a) { attributes[a] }
+      define_method(:"#{a}?") { send(a).present? }
+      define_method(:"#{a}=") { |v| attributes[a] = v }
+    end
+  end
+
+  def self.booleans(*attrs)
+    attrs.each do |a|
+      define_method(a) { instance_variable_get :"@#{a}" }
+      define_method(:"#{a}=") do |v|
+        instance_variable_set :"@#{a}", ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
+      end
+
+      alias_method :"#{a}?", a
+    end
+  end
+
+  def self.for(name)
+    "#{name}_form".classify.constantize
+  end
+
+  def self.model_name
+    ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
+  end
+
   class << self
-    private def attributes(*attrs)
-      attrs.each do |a|
-        define_method(a) { attributes[a] }
-        define_method(:"#{a}?") { send(a).present? }
-        define_method(:"#{a}=") { |v| attributes[a] = v }
-      end
-    end
-
-    def booleans(*attrs)
-      attrs.each do |a|
-        define_method(a) { instance_variable_get :"@#{a}" }
-        define_method(:"#{a}=") do |v|
-          instance_variable_set :"@#{a}", ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
-        end
-
-        alias_method :"#{a}?", a
-      end
-    end
-
     alias_method :boolean, :booleans
-
-    def for(name)
-      "#{name}_form".classify.constantize
-    end
-
-    def model_name
-      ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
-    end
-
     delegate :i18n_key, to: :model_name, prefix: true
   end
 
@@ -52,7 +55,7 @@ class Form
 
   def attributes
     @attributes ||= Hash.new do |hash, key|
-      if value = resource.try(key)
+      if value = respond_to?(:target, true) && target.send(key)
         hash[key] = value
       end
     end

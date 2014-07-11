@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe ClaimTransitionManager, type: 'lol' do
+RSpec.describe ClaimTransitionManager, type: :model do
   let(:subject) { ClaimTransitionManager.new resource: resource }
 
   describe '#forward' do
