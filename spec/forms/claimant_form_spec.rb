@@ -29,7 +29,7 @@ RSpec.describe ClaimantForm, :type => :form do
 
       describe "presence of #{name}" do
         describe "when contact_preference != #{name}" do
-          it { is_expected.to_not validate_presence_of(attribute) }
+          it { is_expected.not_to validate_presence_of(attribute) }
         end
 
         describe "when contact_preference == #{name}" do
