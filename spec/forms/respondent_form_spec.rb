@@ -27,7 +27,7 @@ RSpec.describe RespondentForm, :type => :form do
       describe "when respondent didn't work at a different address" do
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_telephone_number, :work_address_post_code].each do |attr|
-          it { is_expected.to_not validate_presence_of(attr) }
+          it { is_expected.not_to validate_presence_of(attr) }
         end
       end
 
@@ -47,7 +47,7 @@ RSpec.describe RespondentForm, :type => :form do
 
       describe 'when no reason is given for its absence' do
         before { subject.no_acas_number = true }
-        it { is_expected.to_not validate_presence_of(:acas_early_conciliation_certificate_number) }
+        it { is_expected.not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe RespondentForm, :type => :form do
       it { is_expected.to ensure_inclusion_of(:no_acas_number_reason).in_array reasons }
 
       describe 'when and ACAS number is given' do
-        it { is_expected.to_not validate_presence_of(:no_acas_number_reason) }
+        it { is_expected.not_to validate_presence_of(:no_acas_number_reason) }
       end
 
       describe 'when and ACAS number is given' do

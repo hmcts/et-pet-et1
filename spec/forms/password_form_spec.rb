@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PasswordForm, :type => :form do
   describe 'validations' do
-    it { is_expected.to_not validate_presence_of(:password) }
+    it { is_expected.not_to validate_presence_of(:password) }
     it { is_expected.to     validate_confirmation_of(:password) }
 
     describe 'password_confirmation when password has changed' do
@@ -11,7 +11,7 @@ RSpec.describe PasswordForm, :type => :form do
     end
 
     describe 'password_confirmation when password has not changed' do
-      it { is_expected.to_not validate_presence_of(:password_confirmation) }
+      it { is_expected.not_to validate_presence_of(:password_confirmation) }
     end
   end
   
