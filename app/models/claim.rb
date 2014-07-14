@@ -11,10 +11,6 @@ class Claim < ActiveRecord::Base
     KeyObfuscator.new.obfuscate(id)
   end
 
-  def to_param
-    reference
-  end
-
   class << self
     def find_by_reference(reference)
       find KeyObfuscator.new.unobfuscate(reference)
