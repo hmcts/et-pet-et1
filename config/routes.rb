@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'static/review'
 
   resource :claim, only: %i<create update>, path: 'apply' do
     member do
@@ -8,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'claims#new'
+
+  get ':controller/:action'
 end
