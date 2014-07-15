@@ -27,9 +27,9 @@ bundle \
 
 bundle exec rake assets:precompile RAILS_ENV=production
 
-#export DOCKERTAG="${DOCKER_PREFIX}assets"
-#echo "Building Assets Container ($APPVERSION)"
-#./docker/assets/make.sh $APPVERSION
+export DOCKERTAG="${DOCKER_PREFIX}assets"
+echo "Building Assets Container ($APPVERSION)"
+./docker/assets/make.sh $APPVERSION
 
 export DOCKERTAG="${DOCKER_PREFIX}rails"
 echo "Building Rails Container ($APPVERSION)"
