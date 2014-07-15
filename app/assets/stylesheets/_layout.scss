@@ -1,3 +1,16 @@
-.inner-block{
-    @include inner-block;
+table.review-table{
+  border-collapse: collapse;
+  width:100%;
+  caption{
+    @extend .bold-medium;
+    text-align:left;
+  }
+  th,td{
+    border-bottom:1px solid $border-colour;
+    vertical-align: top;
+  }
+  th{
+    font-weight:400;
+    color:$grey-1;
+  }
 }
