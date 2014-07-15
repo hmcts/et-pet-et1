@@ -3,6 +3,8 @@ class Form
 
   attr_accessor :resource
 
+  delegate :column_for_attribute, to: :target
+
   def resource
     @resource ||= Claim.new
   end
@@ -55,7 +57,7 @@ class Form
 
   def attributes
     @attributes ||= Hash.new do |hash, key|
-      if value = respond_to?(:target, true) && target.send(key)
+      if value = respond_to?(:target, true) && target.try(key)
         hash[key] = value
       end
     end

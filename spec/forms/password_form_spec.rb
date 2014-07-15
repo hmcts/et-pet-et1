@@ -14,7 +14,7 @@ RSpec.describe PasswordForm, :type => :form do
       it { is_expected.not_to validate_presence_of(:password_confirmation) }
     end
   end
-  
+
   describe '.model_name_i18n_key' do
     specify do
       expect(described_class.model_name_i18n_key).
@@ -28,8 +28,9 @@ RSpec.describe PasswordForm, :type => :form do
     let(:subject) { PasswordForm.new(attributes).tap { |f| f.resource = model } }
 
     it 'calls update_attributes on the underlying model with its own attributes' do
-      expect(model).to receive(:update_attributes).with attributes
-      allow(model).to  receive(:save)
+      allow(model).to receive(:assign_attributes).with(attributes)
+      allow(model).to receive(:save)
+
       subject.save
     end
   end

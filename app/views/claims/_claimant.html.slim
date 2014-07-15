@@ -11,7 +11,7 @@ fieldset.form-panel
   = f.input :last_name
   = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
     item_wrapper_class: 'block-label'
-  = f.input :date_of_birth, as: :know_date
+  = f.input :date_of_birth
 
 h2.heading-medium= t 'copy.claimant.contact_details'
 
@@ -28,12 +28,12 @@ fieldset.form-panel
   = f.input :mobile_number, as: :tel
 
   = f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,
-    as: :radio_buttons, item_wrapper_class: 'block-label'
+    as: :radio_buttons, item_wrapper_class: 'block-label', reveal: :selection
 
   = f.input :email_address, as: :email, wrapper_class: 'panel-indent'
   = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent'
 
   = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label'
-  = f.input :special_needs, as: :text, wrapper_class: 'panel-indent'
+  = f.input :special_needs, wrapper_class: 'panel-indent'
 
   = f.input :has_representative, as: :radio_buttons, item_wrapper_class: 'block-label'

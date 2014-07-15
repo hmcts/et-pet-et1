@@ -23,10 +23,6 @@ class ClaimsController < ApplicationController
     end
   end
 
-  def show
-    # binding.pry
-  end
-
   private
 
   def ensure_claim_in_progress
