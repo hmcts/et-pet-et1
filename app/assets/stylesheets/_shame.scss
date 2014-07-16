@@ -16,15 +16,12 @@ label.disabled{
     cursor:default;
   }
 }
- label abbr{
-  display: none;
- }
- .margin-bottom-adjust{
-  margin-bottom:0;
- }
- label.radio_buttons{
-  // display: none;
- }}
+label abbr{
+display: none;
+}
+.margin-bottom-adjust{
+margin-bottom:0;
+}
 .application-summary{
   text-align:center;
   background-color:$panel-colour;
@@ -39,18 +36,35 @@ table.review-table{
   border-collapse: collapse;
   width:100%;
   margin-bottom:2em;
+  col.th{
+    width:30%;
+  }
+  col.td:first-child{
+    width:30%;
+  }
   caption{
     @extend .bold-medium;
     text-align:left;
+    margin-bottom:.5em;
   }
   th,td{
     border-bottom:1px solid $border-colour;
     vertical-align: top;
     padding-right:0;
+    width:30%;
   }
   th{
     font-weight:400;
     color:$grey-1;
+  }
+  td:nth-child(3n){
+    text-align:right;
+    padding-right:1em;
+  }
+  tr:first-child{
+    th,td{
+      border-top:1px solid $border-colour;
+    }
   }
   tr.row{
     th{
