@@ -81,7 +81,7 @@ RSpec.shared_examples 'a Form' do |attributes, block|
       describe 'for invalid attributes' do
         let(:attributes) { { } }
         it 'is not saved' do
-          expect(resource).to_not receive(:save)
+          expect(resource).not_to receive(:save)
         end
       end
     end

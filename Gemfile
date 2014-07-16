@@ -12,6 +12,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+# Use unicorn as the app server
+gem 'unicorn'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -32,6 +35,8 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'codeclimate-test-reporter', require: nil
+  gem 'rspec-its', require: 'rspec/its'
 end
 
 gem 'pg'

@@ -1,3 +1,7 @@
+// clearfix
+.inline {
+    overflow:hidden;
+}
 .no-top-margin{
     margin-top:0;
 }
@@ -20,4 +24,48 @@ label.disabled{
  }
  label.radio_buttons{
   // display: none;
- }
+ }}
+.application-summary{
+  text-align:center;
+  background-color:$panel-colour;
+  padding:1em 0;
+  margin-bottom:1em;
+  h2,h3{
+    margin-top:0;
+  }
+}
+
+table.review-table{
+  border-collapse: collapse;
+  width:100%;
+  margin-bottom:2em;
+  caption{
+    @extend .bold-medium;
+    text-align:left;
+  }
+  th,td{
+    border-bottom:1px solid $border-colour;
+    vertical-align: top;
+    padding-right:0;
+  }
+  th{
+    font-weight:400;
+    color:$grey-1;
+  }
+  tr.row{
+    th{
+      background:$highlight-colour;
+      color:$text-colour;
+      @extend .bold-small;
+    }
+  }
+}
+.files-table{
+  border:1px solid $border-colour;
+  border-bottom:none;
+  margin-bottom:1em;
+  caption{
+    @extend .bold-medium;
+    text-align:left;
+  }
+}
