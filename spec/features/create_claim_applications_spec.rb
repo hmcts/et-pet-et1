@@ -126,7 +126,7 @@ def fill_in_address
   fill_in 'Street',                  with: 'High street'
   fill_in 'Town/city',               with: 'Anytown'
   fill_in 'County',                  with: 'Anyfordshire'
-  fill_in 'Post code',               with: 'AT1 4PQ'
+  fill_in 'Postcode',                with: 'AT1 4PQ'
   fill_in 'Telephone',               with: '01234567890'
 end
 
