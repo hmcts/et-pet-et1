@@ -28,10 +28,13 @@ fieldset.form-panel
   = f.input :mobile_number, as: :tel
 
   = f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,
-    as: :radio_buttons, item_wrapper_class: 'block-label', reveal: :selection
+    as: :radio_buttons, item_wrapper_class: 'block-label',
+    reveal: { :email => :email_wrapper, :fax => :fax_wrapper }
 
-  = f.input :email_address, as: :email, wrapper_class: 'panel-indent'
-  = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent'
+  div#email_wrapper
+    = f.input :email_address, as: :email, wrapper_class: 'panel-indent'
+    
+  = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent', wrapper_html: { id: :fax_wrapper }
 
   = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label'
   = f.input :special_needs, wrapper_class: 'panel-indent'

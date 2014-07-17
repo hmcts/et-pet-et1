@@ -6,9 +6,18 @@ end
 module SimpleForm
   module Tags
     class CollectionRadioButtons
-      def render_collection
-        @template_object.content_tag :div, class: "option" do
-          super
+      def render(&block)
+        super do |b|
+          b.radio_button(data_options(b)) + b.text
+        end
+      end
+
+      def data_options(builder)
+        if @options[:reveal]
+          key = builder.object.last
+          { :"data-target" => @options[:reveal][key] }
+        else
+          {}
         end
       end
     end
