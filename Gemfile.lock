@@ -118,6 +118,8 @@ GEM
       peek
     peek-git (1.0.2)
       peek
+    peek-performance_bar (1.1.5)
+      peek (>= 0.1.0)
     peek-pg (1.1.0)
       atomic (>= 1.0.0)
       peek
@@ -259,6 +261,7 @@ DEPENDENCIES
   peek
   peek-gc
   peek-git
+  peek-performance_bar
   peek-pg
   pg
   pry-rails
