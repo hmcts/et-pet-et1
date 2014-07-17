@@ -8,6 +8,18 @@ class RepresentativeForm < Form
              :address_street, :address_locality, :address_county,
              :address_post_code
 
+  validates :type, inclusion: { in: TYPES.map(&:to_s) }
+  validates :name, :address_building, :address_street,
+            :address_locality, :address_post_code, presence: true
+
+  validates :organisation_name, :name, length: { maximum: 100 }
+  validates :address_building, length: { maximum: 75 }
+  validates :address_street, :address_locality, length: { maximum: 30 }
+  validates :address_county, length: { maximum: 25 }
+  validates :address_post_code, length: { maximum: 8 }
+  validates :address_telephone_number, :mobile_number, length: { maximum: 15 }
+  validates :dx_number, length: { maximum: 20 }
+
   def save
     if valid?
       extractor = AttributeExtractor.new(attributes)
