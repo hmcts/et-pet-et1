@@ -18,11 +18,13 @@
         document.body.className = document.body.className.replace('js-enabled','');
 
 - content_for :content_override do
+  = render 'peek/bar'  
   main#wrapper(role="main")
     .container
       section#content
         header.inner-block.group
           h1.heading-xlarge = yield :header
           = yield
+
 
 = render template: "layouts/moj_template"
