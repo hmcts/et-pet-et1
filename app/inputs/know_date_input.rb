@@ -23,10 +23,6 @@ class KnowDateInput < SimpleForm::Inputs::Base
     "#{object_name}[#{attribute_name}(#{index}i)]"
   end
 
-  def id_for(index:)
-
-  end
-
   def defaults
     SimpleForm.wrapper(:default).defaults
   end
