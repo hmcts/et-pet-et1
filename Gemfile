@@ -39,6 +39,10 @@ group :development, :test do
   gem 'rspec-its', require: 'rspec/its'
 end
 
+gem 'peek'
+gem 'peek-git'
+gem 'peek-gc'
+gem 'peek-pg'
 gem 'pg'
 gem 'base32_pure'
 gem 'integer-obfuscator'
