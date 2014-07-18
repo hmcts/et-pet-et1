@@ -10,7 +10,7 @@ module.exports = (function() {
     },
     reveal = {
       init : function(conf){
-        if(typeof conf != 'undefined'){
+        if(typeof conf !== 'undefined'){
           config = conf;
         }
         $(config.group).each(function(i, el) {
