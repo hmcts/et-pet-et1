@@ -11,6 +11,10 @@ class Claim < ActiveRecord::Base
     KeyObfuscator.new.obfuscate(id)
   end
 
+  def claimant_count
+    claimants.count
+  end
+
   class << self
     def find_by_reference(reference)
       find KeyObfuscator.new.unobfuscate(reference)
