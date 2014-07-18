@@ -45,7 +45,7 @@ module.exports = (function() {
     },
     reveal = {
       init : function(conf){
-        if(typeof conf != 'undefined'){
+        if(typeof conf !== 'undefined'){
           config = conf;
         }
         $(config.group).each(function(i, el) {
@@ -86,6 +86,7 @@ module.exports = (function() {
   return reveal;
 
 })();
+
 },{}],4:[function(require,module,exports){
 /*
 * A polyfill that provides Object.create method
@@ -97,13 +98,15 @@ module.exports = (function(){
     function F(){}
 
     return function(o){
-      if (arguments.length != 1) {
+      if (arguments.length !== 1) {
           throw new Error('Object.create implementation only accepts one parameter.');
       }
-      F.prototype = o
-        return new F()
-    }
-  })()
+      F.prototype = o;
+
+      return new F();
+    };
+  })();
 }
 })();
+
 },{}]},{},[1])
