@@ -22,4 +22,12 @@ RSpec.describe Claim, :type => :model do
       claim.claimant_count
     end
   end
+
+  describe '#alleges_discrimination_or_unfair_dismissal?' do
+    it 'is delegated to the claim_detail association proxy' do
+      expect(subject.claim_detail).to receive(:alleges_discrimination_or_unfair_dismissal?)
+
+      claim.alleges_discrimination_or_unfair_dismissal?
+    end
+  end
 end
