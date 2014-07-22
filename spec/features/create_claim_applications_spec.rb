@@ -74,7 +74,7 @@ end
 
 def fill_in_password(password)
   fill_in 'Create a password', with: password
-  fill_in 'Confirm your password', with: password
+  fill_in 'Re-enter the password', with: password
 
   click_button 'Save and continue'
 end
