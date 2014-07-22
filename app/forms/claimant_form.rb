@@ -6,7 +6,8 @@ class ClaimantForm < Form
   attributes :first_name, :last_name, :date_of_birth, :address_telephone_number,
              :mobile_number, :fax_number, :email_address, :special_needs,
              :title, :gender, :contact_preference, :address_building,
-             :address_street, :address_locality, :address_county, :address_post_code
+             :address_street, :address_locality, :address_county, :address_post_code,
+             :applying_for_remission
 
   booleans   :has_special_needs, :has_representative
 

@@ -33,10 +33,12 @@ fieldset.form-panel
 
   div#email_wrapper
     = f.input :email_address, as: :email, wrapper_class: 'panel-indent'
-    
+
   = f.input :fax_number, as: :tel, wrapper_class: 'panel-indent', wrapper_html: { id: :fax_wrapper }
 
   = f.input :has_special_needs, as: :radio_buttons, item_wrapper_class: 'block-label'
   = f.input :special_needs, wrapper_class: 'panel-indent'
 
   = f.input :has_representative, as: :radio_buttons, item_wrapper_class: 'block-label'
+
+  = f.input :applying_for_remission, as: :radio_buttons, item_wrapper_class: 'block-label'
