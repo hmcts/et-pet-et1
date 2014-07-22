@@ -103,6 +103,8 @@ def fill_in_personal_details
 
   choose  'claimant_has_representative_true'
 
+  choose  'claimant_applying_for_remission_true'
+
   click_button 'Save and continue'
 end
 
