@@ -58,7 +58,7 @@ en:
 
       employment:
         current_situation:
-          still_employed: I'm still employed
+          still_employed: I'm still employed by this employer
           notice_period: I'm in a notice period
           employment_terminated: My employment has ended
         notice_pay_period_type:
