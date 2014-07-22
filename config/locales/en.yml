@@ -144,16 +144,16 @@ en:
 
       employment:
         job_title: Job or job title
-        start_date: Start date
+        start_date: Employment start date
         average_hours_worked_per_week: Average hours worked each week
         gross_pay: Pay before tax
         net_pay: Pay after tax
-        enrolled_in_pension_scheme: Enrolled into employer's pension scheme
+        enrolled_in_pension_scheme: Membership of employer's pension scheme
         benefit_details: Details of any benefits, like a company car
-        current_situation: Current situation
-        end_date: Employment ended
+        current_situation: Current work situation
+        end_date: Employment end date
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
-        found_new_employment: Did you get another job?
+        found_new_employment: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
 
       claim:
@@ -193,6 +193,7 @@ en:
         address_telephone_number: For example, 020 7649 9122
         work_address_telephone_number: For example, 020 7649 9122
       employment:
+        job_or_job_title: The job you were doing when the problem at work happened
         start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
