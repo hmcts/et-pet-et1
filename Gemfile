@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development, :test do
   gem 'spring'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara'
   gem 'shoulda-matchers'

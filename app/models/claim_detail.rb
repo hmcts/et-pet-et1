@@ -11,4 +11,8 @@ class ClaimDetail < ActiveRecord::Base
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
 
   belongs_to :claim
+
+  def alleges_discrimination_or_unfair_dismissal?
+    discrimination_claims.any? || is_unfair_dismissal?
+  end
 end
