@@ -1,0 +1,135 @@
+diff --git a/config/locales/en.yml b/config/locales/en.yml
+index f2d64e9..206e8b0 100644
+--- a/config/locales/en.yml
++++ b/config/locales/en.yml
+@@ -72,10 +72,34 @@ en:
+           weekly: Weekly
+           monthly: Monthly
+ 
++      claim:
++        discrimination_claims:
++          sex_including_equal_pay: Sex (including equal pay)
++          disability: Disability
++          race: Race
++          age: Age
++          pregnancy_or_maternity: Pregnancy or maternity
++          religion_or_belief: Religion or belief
++          sexual_orientation: Sexual orientation
++          marriage_or_civil_partnership: Marriage or civil partnership
++          gender_reassignment: Gender reassignment
++        pay_claims:
++          redundancy: Redundancy pay
++          notice: Notice pay
++          holiday: Holiday pay
++          arrears: Arrears of pay
++          other: Other payments
++        desired_outcomes:
++          compensation_only: Compensation only
++          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
++          reinstated_employment_and_compensation: To get my old job back and compensation
++          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
++
+     labels:
+       password:
+         password: Create a password
+-        password_confirmation: Re-enter the password
++        password_confirmation: Confirm your password
++
+       claimant:
+         mobile_number: Mobile (if different)
+         contact_preference: Best way to send correspondence to you
+@@ -102,6 +126,7 @@ en:
+         name: Representative's name
+         mobile_number: Mobile (if different)
+         dx_number: Document exchange (DX) number
++
+       respondent:
+         address_telephone_number: Telephone
+         address_building: Building number or name
+@@ -116,20 +141,36 @@ en:
+         work_address_county: County
+         work_address_post_code: Postcode
+         worked_at_different_address: Did you work at a different address to the one given above?
++
+       employment:
+         job_title: Job or job title
+         start_date: Start date
+         average_hours_worked_per_week: Average hours worked each week
+         gross_pay: Pay before tax
+         net_pay: Pay after tax
+-        enrolled_in_pension_scheme: Part of employer's pension scheme
++        enrolled_in_pension_scheme: Enrolled into employer's pension scheme
+         benefit_details: Details of any benefits, like a company car
+         current_situation: Current situation
+-        end_date: Employment end date
++        end_date: Employment ended
+         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
+-        found_new_employment: Have you got a new job?
++        found_new_employment: Did you get another job?
+         notice_pay_period_count: For how many weeks or months did you get paid?
+ 
++      claim:
++        is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
++        is_discrimination: Discrimination
++        is_pay_related: Pay
++        is_other_type_of_claim: Another type of claim
++        other_claim_details: State the other type of claim – or claims – that you’re making
++        claim_details: Give the background and details of your problem at work
++        desired_outcomes: What do you want if your claim is successful?
++        other_outcome: What compensation or other outcome do you want? (optional)
++        other_known_claimants: Do you know of other people who have made similar claims against the same employer?
++        other_known_claimant_names: You can add the names of other people here.
++        is_whistleblowing: Are you making a whistleblowing claim?
++        send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
++        miscellaneous_information: Additional information (optional)
++
+     hints:
+       claimant:
+         date_of_birth: For example, 08 04 2014
+@@ -152,10 +193,10 @@ en:
+         address_telephone_number: For example, 020 7649 9122
+         work_address_telephone_number: For example, 020 7649 9122
+       employment:
+-        start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
++        start_date: For example, 12 4 2010 (you don't have to give the exact date if you don't know it)
+         average_hours_worked_per_week: Don't include overtime
+-        gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
+-        net_pay: This is your net or take-home pay, after tax and other deductions. Include overtime, commission and bonuses
++        gross_pay: Don't include overtime payments
++        net_pay: Include overtime, commissions and bonuses
+         benefit_details: |
+           250 characters limit. If you want to add more you can upload a file
+           saved as Rich Text Format (.rtf) later and only enter a title here.
+@@ -182,9 +223,9 @@ en:
+ 
+       ## Fees
+ 
+-      You'll have to pay a [fee](https://www.gov.uk/employment-tribunals/apply-to-the-tribunal) (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee. 
++      You'll have to pay a [fee](https://www.gov.uk/employment-tribunals/apply-to-the-tribunal) (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee.
+ 
+-      If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are). 
++      If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are).
+ 
+       ##Before you begin the form
+ 
+@@ -203,9 +244,9 @@ en:
+       We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
+ 
+     password:
+-      header: Save your form
+-      info: You can save your form and come back to it later if you have a claim form reference number and a password.
+-      reference: Claim form reference number
++      header: Your claim form reference
++      info: You’ll need this information to save changes and return to complete your form another time.
++      reference: Your claim form reference number
+     claimant:
+       header: Your details
+       personal_details: Personal details
+@@ -223,3 +264,7 @@ en:
+       header: Employment details
+     claim:
+       header: Claim details
++      claim_type: What type of claim - or claims - are you making?
++      claim_type_hint: You can select more than one
++    confirmation:
++      header: Check your answers
