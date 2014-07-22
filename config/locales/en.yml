@@ -245,7 +245,7 @@ en:
 
     password:
       header: Save your form
-      info: You can save your form and come back to it later if you have a claim form reference number and a password.
+      info: You can save your form and come back to it later if you have this claim form reference number (below) and a password.  
       reference: Claim form reference number
     claimant:
       header: Your details
