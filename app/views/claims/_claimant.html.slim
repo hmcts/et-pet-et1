@@ -24,7 +24,10 @@ fieldset.form-panel
   = f.input :address_county
   = f.input :address_post_code
 
-  = f.input :address_telephone_number, as: :tel
+  = f.input :address_telephone_number do
+    = f.input_field :address_telephone_number
+    p.form-hint hint
+
   = f.input :mobile_number, as: :tel
 
   = f.input :contact_preference, collection: ClaimantForm::CONTACT_PREFERENCES,

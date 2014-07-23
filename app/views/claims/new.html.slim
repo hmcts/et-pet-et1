@@ -1,4 +1,6 @@
-div= copy_for 'new'
+div.content-copy = copy_for 'newintro'
 
 = simple_form_for claim, url: claim_path do |f|
   = f.button :submit
+
+div.content-copy = copy_for 'new'

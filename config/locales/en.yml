@@ -211,15 +211,16 @@ en:
   helpers:
     submit:
       claim:
-        create: Start claim
+        create: Start now
         update: Save and continue
 
   copy:
-    new: |
+    newintro: |
       # Take your employer to a tribunal
 
       Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
 
+    new: |
       ## Time limit
 
       You usually have to apply to the tribunal within 3 months of your employment ending, or the problem happening at work.
@@ -230,7 +231,7 @@ en:
 
       If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are).
 
-      ##Before you begin the form
+      ## Before you begin the form
 
       * try to [sort out the problem with your employer](https://www.gov.uk/solve-workplace-dispute/overview)
       * if you can’t solve the problem, [contact Acas](http://www.acas.org.uk/earlyconciliation) before you apply to an employment tribunal
