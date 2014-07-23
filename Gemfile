@@ -38,6 +38,8 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'codeclimate-test-reporter', require: nil
   gem 'rspec-its', require: 'rspec/its'
+  gem 'webmock'
+  gem 'dotenv-rails'
 end
 
 gem 'peek'
@@ -55,3 +57,4 @@ gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
 gem 'redcarpet', require: 'redcarpet/compat'
 gem 'bitmask_attributes'
+gem 'httparty'

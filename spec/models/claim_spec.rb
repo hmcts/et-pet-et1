@@ -8,7 +8,7 @@ RSpec.describe Claim, :type => :model do
   it { is_expected.to have_one  :primary_claimant }
   it { is_expected.to have_one  :primary_respondent }
 
-  let(:claim) { Claim.new id: 1 }
+  let(:claim) { Claim.new(id: 1) }
 
   describe '#reference' do
     it 'returns a token based upon the primary key' do
