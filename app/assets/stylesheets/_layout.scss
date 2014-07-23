@@ -1,3 +1,36 @@
-.inner-block{
-    @include inner-block;
+form{
+  @include col(2/3);
+}
+
+input[type=text],
+input[type=email],
+input[type=tel]{
+  @include col(2/3);
+  &.short-input{
+    @include col(1/5);
+  }
+}
+.form-group{
+  @include cf();
+}
+textarea.form-control{
+  width:100%;
+}
+.form-inputs{
+  @include cf();
+}
+.form-actions{
+  margin-top:2em;
+}
+#claimant_title{
+  @include col(1/3);
+}
+.label-column .block-label {
+  @include column(0.41, $cycle: 2, $gutter: 2);
+  padding-left:45px;
+}
+.block-label{
+  &.large-label{
+    @include stack();
+  }
 }

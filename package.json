@@ -1,10 +1,10 @@
 {
-  "name": "atet",
-  "description": "Employment Tribunals",
+  "name": "ATET",
+  "description": "Apply to Employment Tribunals",
   "author": {
     "name": "UK Ministry Of Justice"
   },
-  "license" : "OPG",
+  "license" : "OGL",
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/ministryofjustice/atet"
@@ -12,13 +12,15 @@
   "devDependencies": {
     "bower": "^1.2.8",
     "browserify": "^3.32.0",
-    "watchify": "^0.6.1"
+    "watchify": "^0.6.1",
+    "uglifyjs": "~2.4.15"
   },
   "dependencies": {},
   "scripts": {
-    "postinstall" : "node_modules/.bin/bower install",
-    "bundle": "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
-    "watch-js": "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
-    "start": "npm run watch-js & rails s"
+    "postinstall" :   "node_modules/.bin/bower install",
+    "buildjs":       "browserify app/assets/javascripts/index.js | uglifyjs -mc > app/assets/javascripts/bundle.js",
+    "bundle":         "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
+    "watch-js":       "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
+    "start":          "npm run watch-js & rails s"
   }
 }

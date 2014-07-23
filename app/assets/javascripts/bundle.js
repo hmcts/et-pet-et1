@@ -3,7 +3,7 @@ var create = require('./polyfills/polyfill.object-create'),
     reveal = require('./modules/moj.reveal'),
     checkbox = require('./modules/moj.checkbox-toggle');
 },{"./modules/moj.checkbox-toggle":2,"./modules/moj.reveal":3,"./polyfills/polyfill.object-create":4}],2:[function(require,module,exports){
-// Reveals hidden content
+// Toggles disabled groups of adjacent checkboxes
 
 module.exports = (function() {
   var checkboxToggle = {
@@ -13,15 +13,16 @@ module.exports = (function() {
         checkboxToggle.bindCheckboxes(label);
       });
     },
-    bindCheckboxes: function(checkbox) {
-      var target = $(document.getElementById(checkbox.attr('data-target'))),
+    bindCheckboxes: function(label) {
+      var input = label.find('input'),
+        target = $(document.getElementById(input.attr('data-target'))),
         checked = function(){
-          return checkbox.find('input').is(':not(:checked)');
+          return input.is(':not(:checked)');
         },
-        slaves = target.find('label');
+        checkboxes = target.find('label');
 
-      checkbox.on('click', function(){
-        slaves.toggleClass('disabled', checked())
+      input.on('click', function(){
+        checkboxes.toggleClass('disabled', checked())
           .find('input').attr('disabled', checked());
       });
     }
@@ -38,7 +39,7 @@ module.exports = (function() {
 module.exports = (function() {
   var config = {
       group: '.form-group-reveal',
-      data: '[data-target]',
+      data: '[data-trigger]',
       label: '.block-label',
       content: 'toggle-content',
       selected: 'selected'
@@ -53,28 +54,29 @@ module.exports = (function() {
         });
       },
       bindLabels: function(group) {
-        var label = config.label,
-          labels = $(group).find(label);
+        var labels = $(group).find(config.label),
+            input = $(document.getElementById(group.getAttribute('data-trigger'))),
+            trigger = input.parent('label'),
+            target = $(group).next('.toggle-content');
 
-        $(group).on('click', label , function(event){
-          reveal.toggleState(labels);
+        $(labels).on('click', function(event){
+          reveal.toggleState(labels, target);
         });
       },
-      toggleState: function(labels) {
+      toggleState: function(labels, target) {
         var checked;
 
         return labels.each(function(i, label){
           var input = $(label).find('input'),
-            checked = input.is(':checked'),
-            target = $(document.getElementById(label.getAttribute('data-target')));
+            checked = input.is(':checked');
 
           input.attr('checked', checked)
             .parent().toggleClass(config.selected, checked);
 
           if(checked){
-            target.removeClass(config.content);
+            target.show();
           } else {
-            target.addClass(config.content);
+            target.hide();
           }
 
         });

@@ -2,6 +2,7 @@ class ClaimantForm < Form
   TITLES              = %i<mr mrs ms miss>.freeze
   GENDERS             = %i<male female>.freeze
   CONTACT_PREFERENCES = %i<email post fax>.freeze
+  COUNTRIES           = %i<united_kingdom other>.freeze
 
   attributes :first_name, :last_name, :date_of_birth, :address_telephone_number,
              :mobile_number, :fax_number, :email_address, :special_needs,

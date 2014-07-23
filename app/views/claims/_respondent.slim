@@ -8,13 +8,16 @@ fieldset.form-panel
   = f.input :address_street
   = f.input :address_locality
   = f.input :address_county
-  = f.input :address_post_code
+  = f.input :address_post_code, input_html: {class: 'short-input'}
   = f.input :address_telephone_number
 
-  = f.input :worked_at_different_address, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+  = f.input :worked_at_different_address,
+    as: :radio_buttons,
+    item_wrapper_class: 'block-label',
+    wrapper_html: {class:'form-group-reveal',
+    data: {trigger: 'respondent_worked_at_different_address_true'}}
 
-  .panel-indent
+  .panel-indent.toggle-content
     p= t 'copy.respondent.work_address'
 
     = f.input :work_address_building
@@ -26,7 +29,7 @@ fieldset.form-panel
 
   = f.input :acas_early_conciliation_certificate_number
   = f.input :no_acas_number, as: :boolean
-  
+
   .panel-indent
     h2.form-label Why don't you have an Acas number?
     = f.input :no_acas_number_reason, collection: RespondentForm::NO_ACAS_REASON,

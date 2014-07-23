@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'claims#new'
+
+  get ':controller/:action'
 end

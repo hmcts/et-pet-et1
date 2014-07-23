@@ -80,7 +80,7 @@ def fill_in_password(password)
 end
 
 def fill_in_personal_details
-  choose 'Mr'
+  select 'Mr', from: 'Title'
 
   fill_in 'First name', with: 'Barrington'
   fill_in 'Last name',  with: 'Wrigglesworth'
