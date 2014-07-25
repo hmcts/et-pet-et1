@@ -1,4 +1,4 @@
-div.content-copy = copy_for 'newintro'
+- content_for(:header, markdown(t('copy.newheader')))
 
 = simple_form_for claim, url: claim_path do |f|
   = f.button :submit

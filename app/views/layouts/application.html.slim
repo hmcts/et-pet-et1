@@ -22,9 +22,9 @@
   main#wrapper(role="main")
     .container
       section#content
-        header.inner-block.group
-          h1.heading-xlarge = yield :header
-          = yield
+        header
+          = yield :header
+        = yield
 
 
 = render template: "layouts/moj_template"

@@ -219,11 +219,9 @@ en:
         update: Save and continue
 
   copy:
-    newintro: |
+    newheader: |
       # Take your employer to a tribunal
-
       Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
-
     new: |
       ## Time limit
 
