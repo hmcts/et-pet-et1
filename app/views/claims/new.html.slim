@@ -1,6 +1,10 @@
-- content_for(:header, markdown(t('copy.newheader')))
+= content_for(:header, t('copy.new.header'))
+- content_for(:intro) do
+  p = t('copy.new.intro')
 
-= simple_form_for claim, url: claim_path do |f|
-  = f.button :submit
+section
+  .main-column
+    = simple_form_for claim, url: claim_path do |f|
+      = f.button :submit
 
-div.content-copy = copy_for 'new'
+    div.content-copy = copy_for 'new.body'
