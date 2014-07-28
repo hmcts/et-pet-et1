@@ -1,7 +1,3 @@
-form{
-  @include col(2/3);
-}
-
 input[type=text],
 input[type=email],
 input[type=tel]{
@@ -10,9 +6,7 @@ input[type=tel]{
     @include col(1/5);
   }
 }
-.form-group{
-  @include cf();
-}
+
 textarea.form-control{
   width:100%;
 }
@@ -33,4 +27,7 @@ textarea.form-control{
   &.large-label{
     @include stack();
   }
+}
+.main-column{
+  @include col(2/3);
 }

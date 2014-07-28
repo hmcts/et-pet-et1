@@ -83,3 +83,17 @@ table.review-table{
     text-align:left;
   }
 }
+header{
+  h1{
+    @extend .heading-xlarge;
+    margin-bottom:.5em;
+  }
+}
+.content-copy{
+  h2{
+    @extend .heading-medium;
+  }
+}
+.options {
+  @extend .inline;
+}
