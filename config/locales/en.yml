@@ -221,7 +221,7 @@ en:
   copy:
     new:
       header: Take your employer to a tribunal
-      intro: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
+      info: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
       body: |
         ## Time limit
 
@@ -250,8 +250,8 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Your claim form reference
-      info: You’ll need this information to save changes and return to complete your form another time.
+      header: Enter your reference number
+      info: Enter your form reference number to return to your saved claim form and continue applying online to an employment tribunal
       reference: Your claim form reference number
     claimant:
       header: Your details
