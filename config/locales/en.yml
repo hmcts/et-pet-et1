@@ -183,12 +183,7 @@ en:
         address_telephone_number: Include area code
         has_special_needs: Tribunal staff can provide suitable documents and help you at a hearing
         special_needs: |
-          For example, we can provide documents in large print, Braille and on CD;
-          help you attend a hearing; pay for sign language interpreters; and
-          provide hearing loops. If you'd like to add more information, you can
-          upload a file saved as Rich Text Format (RTF) later and just enter a
-          title here. You can usually save a file as an RTF by selecting File >
-          Save As > Format: Rich Text Format.
+          For example, we can provide documents in large print, Braille and on CD; help you attend a hearing; pay for sign language interpreters; and provide hearing loops.
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your
           case and/or act on your behalf if there is a hearing).
