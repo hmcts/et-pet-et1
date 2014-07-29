@@ -145,6 +145,7 @@ en:
         work_address_county: County
         work_address_post_code: Postcode
         worked_at_different_address: Did you work at a different address to the one given above?
+        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
 
       employment:
         job_title: Job or job title
@@ -152,7 +153,7 @@ en:
         average_hours_worked_per_week: Average hours worked each week
         gross_pay: Pay before tax
         net_pay: Pay after tax
-        enrolled_in_pension_scheme: Membership of employer's pension scheme
+        enrolled_in_pension_scheme: Are – or were – you a member of your employer's pension scheme?
         benefit_details: Details of any benefits, like a company car
         current_situation: Current work situation
         end_date: Employment end date
@@ -192,9 +193,10 @@ en:
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the <a href="http://www.acas.org.uk/earlyconciliation">Acas website</a>.
         address_telephone_number: For example, 020 7649 9122
+        address_building: May be different to your work address
         work_address_telephone_number: For example, 020 7649 9122
       employment:
-        job_or_job_title: The job you were doing when the problem at work happened
+        job_or_job_title: The job you were doing at the time of the problem at work
         start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
@@ -245,8 +247,7 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-
-      header: Save your form, return later
+      header: Create a form that you can return to later
       info: |
         You may want to create a form that you can save and return to later.
 
@@ -272,6 +273,8 @@ en:
       work_address: Give details of your work address.
     employment:
       header: Employment details
+      hint: |
+        Please give details about your job to help us understand your case.
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
