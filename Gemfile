@@ -49,7 +49,7 @@ gem 'pg'
 gem 'base32_pure'
 gem 'integer-obfuscator'
 gem 'bcrypt'
-gem 'simple_form'
+gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
