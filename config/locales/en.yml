@@ -178,8 +178,9 @@ en:
     hints:
       claimant:
         date_of_birth: For example, 08 04 2014
-        address_telephone_number: Include area code
-        has_special_needs: Tribunal staff can provide suitable documents and help you at a hearing
+        address_telephone_number: For example, 020 7649 9122
+        has_special_needs: |
+          Tribunal staff can provide suitable documents and help you at a hearing
         special_needs: |
           For example, we can provide documents in large print, Braille and on CD; help you attend a hearing; pay for sign language interpreters; and provide hearing loops.
         has_representative: |
@@ -244,9 +245,18 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Enter your reference number
-      info: Enter your form reference number to return to your saved claim form and continue applying online to an employment tribunal
-      reference: Your claim form reference number
+
+      header: Save your form, return later
+      info: |
+        You may want to create a form that you can save and return to later.
+
+        This is useful if you don’t have time to complete the form in one go, or if you need more time to gather information.
+
+        You must still submit the form within the time limit for making a claim.
+
+        You won’t be able to access the form after you’ve submitted it.
+
+      reference: Claim form reference number
     claimant:
       header: Your details
       personal_details: Personal details
