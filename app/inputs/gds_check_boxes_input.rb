@@ -8,7 +8,7 @@ class GdsCheckBoxesInput < SimpleForm::Inputs::BooleanInput
     template.concat build_hidden_field_for_checkbox
 
     template.label_tag(nil, class: 'block-label') do
-      build_check_box_without_hidden_field + inline_label
+      build_check_box_without_hidden_field(input_html_options) + inline_label
     end
   end
 end
