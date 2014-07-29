@@ -176,6 +176,8 @@ en:
       claimant:
         date_of_birth: For example, 08 04 2014
         address_telephone_number: For example, 020 7649 9122
+        has_special_needs: |
+          Tribunal staff can provide suitable documents and help you at a hearing
         special_needs: |
           For example, we can provide documents in large print, Braille and on CD;
           help you attend a hearing; pay for sign language interpreters; and
@@ -235,7 +237,7 @@ en:
 
       ## Information to gather for this form
 
-      * your [Acas early conciliation certificate number](http://www.acas.org.uk/earlyconciliation) (or a reason why you don't need one)
+      * your [Acas early conciliation](http://www.acas.org.uk/earlyconciliation) certificate number (or a reason why you don't need one)
       * a description of your claim, including dates and the people involved
       * details of your pay and benefits, before and after tax (you can find these on your payslip)
       * the full address of the employer or organisation you want to make a claim against
@@ -245,8 +247,16 @@ en:
       We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Save your form
-      info: You can save your form and come back to it later if you have this claim form reference number (below) and a password.  
+      header: Save your form, return later
+      info: | 
+        You may want to create a form that you can save and return to later.
+        
+        This is useful if you don’t have time to complete the form in one go, or if you need more time to gather information.
+        
+        You must still submit the form within the time limit for making a claim.
+        
+        You won’t be able to access the form after you’ve submitted it.
+        
       reference: Claim form reference number
     claimant:
       header: Your details
