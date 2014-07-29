@@ -46,7 +46,6 @@ en:
           private_individual: Private individual
           trade_association: Trade association
           other: Other
-
       respondent:
         no_acas_number: I don't have an Acas number
         no_acas_number_reason:
@@ -55,12 +54,11 @@ en:
           employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I've been unfairly dismissed and I want to apply for interim relief
           claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
-
       employment:
         current_situation:
-          still_employed: I'm still employed
-          notice_period: I'm in a notice period
-          employment_terminated: My employment has ended
+          still_employed: Still working for this employer
+          notice_period: Still working for this employer, but in a notice period
+          employment_terminated: No longer working for this employer
         notice_pay_period_type:
           weeks: Weeks
           months: Months
@@ -100,7 +98,7 @@ en:
     labels:
       password:
         password: Create a password
-        password_confirmation: Confirm your password
+        password_confirmation: Re-enter the password
 
       claimant:
         mobile_number: Mobile (if different)
@@ -147,16 +145,16 @@ en:
 
       employment:
         job_title: Job or job title
-        start_date: Start date
+        start_date: Employment start date
         average_hours_worked_per_week: Average hours worked each week
         gross_pay: Pay before tax
         net_pay: Pay after tax
-        enrolled_in_pension_scheme: Enrolled into employer's pension scheme
+        enrolled_in_pension_scheme: Membership of employer's pension scheme
         benefit_details: Details of any benefits, like a company car
-        current_situation: Current situation
-        end_date: Employment ended
+        current_situation: Current work situation
+        end_date: Employment end date
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
-        found_new_employment: Did you get another job?
+        found_new_employment: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
 
       claim:
@@ -196,10 +194,11 @@ en:
         address_telephone_number: For example, 020 7649 9122
         work_address_telephone_number: For example, 020 7649 9122
       employment:
-        start_date: For example, 12 4 2010 (you don't have to give the exact date if you don't know it)
+        job_or_job_title: The job you were doing when the problem at work happened
+        start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
-        gross_pay: Don't include overtime payments
-        net_pay: Include overtime, commissions and bonuses
+        gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
+        net_pay: This is your net or take-home pay, after tax and other deductions. Include overtime, commission and bonuses
         benefit_details: |
           250 characters limit. If you want to add more you can upload a file
           saved as Rich Text Format (.rtf) later and only enter a title here.
@@ -227,7 +226,6 @@ en:
       ## Fees
 
       You'll have to pay a [fee](https://www.gov.uk/employment-tribunals/apply-to-the-tribunal) (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee.
-
       If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are).
 
       ##Before you begin the form
@@ -247,9 +245,9 @@ en:
       We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Your claim form reference
-      info: You’ll need this information to save changes and return to complete your form another time.
-      reference: Your claim form reference number
+      header: Save your form
+      info: You can save your form and come back to it later if you have this claim form reference number (below) and a password.  
+      reference: Claim form reference number
     claimant:
       header: Your details
       personal_details: Personal details
