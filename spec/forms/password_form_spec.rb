@@ -21,13 +21,6 @@ RSpec.describe PasswordForm, :type => :form do
         to eq(described_class.model_name.i18n_key)
     end
   end
-  
-  describe '.model_name_i18n_key' do
-    specify do
-      expect(described_class.model_name_i18n_key).
-        to eq(described_class.model_name.i18n_key)
-    end
-  end
 
   describe '#save' do
     let(:model) { double('model') }

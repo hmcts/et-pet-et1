@@ -21,6 +21,9 @@
 
 en:
   simple_form:
+    include_blanks:
+      claimant:
+        title: Please select
     options:
       claimant:
         gender:
@@ -212,7 +215,7 @@ en:
   helpers:
     submit:
       claim:
-        create: Start now
+        create: Apply now
         update: Save and continue
 
   copy:
