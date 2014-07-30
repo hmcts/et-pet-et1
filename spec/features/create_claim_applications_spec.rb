@@ -69,7 +69,7 @@ end
 
 def start_claim
   visit '/'
-  click_button 'Start claim'
+  click_button 'Apply now'
 end
 
 def fill_in_password(password)
@@ -174,14 +174,9 @@ def fill_in_claim_details
   check "Unfair dismissal (including constructive dismissal)"
 
   check "Discrimination"
-    check "Sex (including equal pay)"
-    check "Race"
-    check "Age"
-
-  check 'Pay'
-    check 'Holiday pay'
-    check 'Arrears of pay'
-    check 'Other payments'
+    # Checking things nested within labels is apparently FUBAR
+    label = find('label', text: "Sex (including equal pay)")
+    find("##{label['for']}").set true
 
   check 'Another type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',

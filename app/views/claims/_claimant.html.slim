@@ -4,8 +4,7 @@ section
     fieldset.form-panel
       legend.heading-medium= t 'copy.claimant.personal_details'
 
-      = f.input :title, collection: ClaimantForm::TITLES, as: :radio_buttons,
-        item_wrapper_class: 'block-label'
+      = f.input :title, collection: ClaimantForm::TITLES, include_blank: :translate
       = f.input :first_name
       = f.input :last_name
       = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
