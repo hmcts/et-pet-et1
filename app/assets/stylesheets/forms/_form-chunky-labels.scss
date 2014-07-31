@@ -1,8 +1,19 @@
+%block-label{
+  display: block;
+  float: none;
+  clear: left;
+
+  background: $panel-colour;
+  border: 1px solid $panel-colour;
+  padding: (18px $gutter $gutter-half $gutter*1.5);
+  position: relative;
+  cursor: pointer; // Encourage clicking on block labels
+}
 // Large hit area
 // Radio buttons & checkboxes
 
 // By default, block labels stack vertically
-.block-label {
+label.block-label {
 
   display: block;
   float: none;
@@ -22,6 +33,21 @@
     margin-top: 5px;
     margin-bottom: 5px;
     // width: 25%; - Test : check that text within labels will wrap
+  }
+}
+
+span.block-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  label{
+    
+    margin:0;
+
+    &:hover {
+      border-color: $black;
+    }
   }
 }
 

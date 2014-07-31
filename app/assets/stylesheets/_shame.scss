@@ -5,6 +5,7 @@
 .no-top-margin{
     margin-top:0;
 }
+// label ---------------------
 label.disabled{
   background:$grey-4;
   color: $grey-1;
@@ -19,9 +20,6 @@ label.disabled{
 label abbr{
 display: none;
 }
-.margin-bottom-adjust{
-margin-bottom:0;
-}
 .application-summary{
   text-align:center;
   background-color:$panel-colour;
@@ -31,7 +29,7 @@ margin-bottom:0;
     margin-top:0;
   }
 }
-
+// table --------------------
 table.review-table{
   border-collapse: collapse;
   width:100%;
@@ -74,6 +72,7 @@ table.review-table{
     }
   }
 }
+
 .files-table{
   border:1px solid $border-colour;
   border-bottom:none;
@@ -83,12 +82,14 @@ table.review-table{
     text-align:left;
   }
 }
+// header -------------------
 header{
   h1{
     @extend .heading-xlarge;
     margin-bottom:.5em;
   }
 }
+// content-copy -------------
 .content-copy{
   h2{
     @extend .heading-medium;
