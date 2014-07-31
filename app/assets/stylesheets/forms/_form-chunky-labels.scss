@@ -15,18 +15,9 @@
 // By default, block labels stack vertically
 label.block-label {
 
-  display: block;
-  float: none;
-  clear: left;
-  position: relative;
-
-  background: $panel-colour;
-  border: 1px solid $panel-colour;
-  padding: (18px $gutter $gutter-half $gutter*1.5);
+  @extend %block-label;
   margin-top: 10px;
   margin-bottom: 10px;
-
-  cursor: pointer; // Encourage clicking on block labels
 
   @include media(tablet) {
     float: left;
@@ -42,7 +33,7 @@ span.block-label {
   margin-bottom: 10px;
 
   label{
-    
+    @extend %block-label;
     margin:0;
 
     &:hover {

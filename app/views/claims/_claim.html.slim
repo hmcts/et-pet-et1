@@ -5,36 +5,31 @@ section
 
       p.form-hint= copy_text[:claim_type_hint]
 
-      = f.input :is_unfair_dismissal, as: :gds_check_boxes, wrapper_class: 'input form-group margin-bottom-adjust'
-
-      p= link_to 'What does this mean?',
-                'https://www.gov.uk/dismissal/unfair-and-constructive-dismissal',
-                rel: 'external'
+      = f.input :is_unfair_dismissal,
+        as: :gds_check_boxes,
+        wrapper_class: 'input form-group margin-bottom-adjust'
 
       = f.input :is_discrimination,
         as: :gds_check_boxes,
         wrapper_class: 'input form-group margin-bottom-adjust form-group-checkbox-toggle',
-        input_html: {data: {target: 'discrimination-checkboxes'}}
-
-      = link_to 'What does this mean?',
-                'https://www.gov.uk/discrimination-your-rights/discrimination-at-work',
-                rel: 'external'
+        reveal: { true => :discrimination_checkboxes }
 
       = f.input :discrimination_claims, label: false,
         collection: ClaimDetail::DISCRIMINATION_COMPLAINTS,
         as: :check_boxes,
         item_wrapper_class: 'block-label disabled',
-        wrapper_html: {class: 'inline panel-indent label-column form-group-checkboxes',id: 'discrimination-checkboxes'},
+        wrapper_html: {class: 'inline panel-indent label-column form-group-checkboxes',id: 'discrimination_checkboxes'},
         disabled: true
 
       = f.input :is_pay_related, as: :gds_check_boxes,
         wrapper_class: 'input form-group margin-bottom-adjust form-group-checkbox-toggle',
-        input_html: {data: {target: 'pay-checkboxes'}}
+        input_html: {data: {target: 'pay-checkboxes'}},
+        reveal: { true => :pay_checkboxes }
 
       = f.input :pay_claims, label: false,
         collection: ClaimDetail::PAY_COMPLAINTS, as: :check_boxes,
         item_wrapper_class: 'block-label disabled',
-        wrapper_html: {class: 'inline panel-indent label-column form-group-checkboxes', id: 'pay-checkboxes'},
+        wrapper_html: {class: 'inline panel-indent label-column form-group-checkboxes', id: 'pay_checkboxes'},
         disabled: true
 
       = f.input :is_other_type_of_claim, as: :gds_check_boxes
