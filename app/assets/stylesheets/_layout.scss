@@ -16,8 +16,14 @@ textarea.form-control{
 .form-actions{
   margin-top:2em;
 }
-.label-column .block-label {
-  @include column(0.5, $cycle: 2, $gutter: 2);
+// --------------
+.label-column {
+  .block-label {
+    @include column(0.5, $cycle: 2, $gutter: 2);
+    label{
+      margin-right:0;
+    }
+  }
 }
 .block-label{
   &.large-label{
@@ -27,6 +33,7 @@ textarea.form-control{
 }
 .main-column{
   @include col(2/3);
+  //@include edit();
 }
 .form-group + p{
   margin-top:0;

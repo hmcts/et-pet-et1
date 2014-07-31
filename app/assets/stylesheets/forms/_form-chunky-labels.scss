@@ -1,5 +1,4 @@
 %block-label{
-  display: block;
   float: none;
   clear: left;
 
@@ -9,6 +8,14 @@
   position: relative;
   cursor: pointer; // Encourage clicking on block labels
 }
+
+.options{
+  overflow:hidden;
+  > span.block-label{
+    float:left;
+  }
+}
+
 // Large hit area
 // Radio buttons & checkboxes
 
@@ -23,22 +30,26 @@ label.block-label {
     float: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    // width: 25%; - Test : check that text within labels will wrap
   }
 }
 
 span.block-label {
-  display: block;
+  clear: none;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-right: $gutter-half;
 
   label{
     @extend %block-label;
+    display:block;
     margin:0;
 
     &:hover {
       border-color: $black;
     }
+  }
+  &.large-label{
+    margin-right:0;
   }
 }
 
