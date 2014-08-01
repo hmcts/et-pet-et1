@@ -1,20 +1,17 @@
-fieldset.form-panel
-  legend.visuallyhidden= header_text
-  = f.input :type, collection: RepresentativeForm::TYPES
-  = f.input :organisation_name
-  = f.input :name
-  = f.input :address_building
-  = f.input :address_street
-  = f.input :address_locality
-  = f.input :address_county
-  = f.input :address_post_code
-  = f.input :address_telephone_number
-  = f.input :mobile_number
-  = f.input :email_address
-  = f.input :dx_number do
-    p.form-hint.text= link_to t 'copy.representative.what_is_dx.anchor_text'
-    p.form-hint.text= t 'copy.representative.what_is_dx.body'
-    = f.input_field :dx_number
-
-  = f.input :contact_preference, collection: RepresentativeForm::CONTACT_PREFERENCES,
-    as: :radio_buttons, item_wrapper_class: 'block-label'
+.main-column
+  fieldset.form-panel
+    legend.visuallyhidden= header_text
+    = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
+    = f.input :organisation_name
+    = f.input :name
+    = f.input :address_building
+    = f.input :address_street
+    = f.input :address_locality
+    = f.input :address_county
+    = f.input :address_post_code, input_html: {class: 'short-input'}
+    = f.input :address_telephone_number
+    = f.input :mobile_number
+    = f.input :email_address
+    = f.input :dx_number
+    = f.input :contact_preference, collection: RepresentativeForm::CONTACT_PREFERENCES,
+      as: :radio_buttons, item_wrapper_class: 'block-label'

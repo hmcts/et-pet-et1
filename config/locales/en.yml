@@ -24,6 +24,8 @@ en:
     include_blanks:
       claimant:
         title: Please select
+      representative:
+        type: Please select
     options:
       claimant:
         gender:
