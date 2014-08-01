@@ -247,17 +247,10 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Create a form that you can return to later
+      header: Before you continue
       info: |
-        You may want to create a form that you can save and return to later.
 
-        This is useful if you don’t have time to complete the form in one go, or if you need more time to gather information.
-
-        You must still submit the form within the time limit for making a claim.
-
-        You won’t be able to access the form after you’ve submitted it.
-
-      reference: Claim form reference number
+      reference: Application number
     claimant:
       header: Your details
       personal_details: Personal details
