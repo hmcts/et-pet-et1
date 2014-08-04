@@ -1,5 +1,5 @@
 .field_with_errors{
-  background:lighten($error-colour, 40%);
+  background:lighten($error-colour, 45%);
   border-left:3px solid $error-colour;
   padding:$gutter-half 0 $gutter-half $gutter-half;
 }

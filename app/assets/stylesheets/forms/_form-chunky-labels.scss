@@ -13,6 +13,9 @@
   overflow:hidden;
   > span.block-label{
     float:left;
+    &:last-child{
+      margin-right:0;
+    }
   }
 }
 
