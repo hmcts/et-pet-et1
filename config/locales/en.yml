@@ -200,6 +200,15 @@ en:
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your
           case and/or act on your behalf if there is a hearing).
+        applying_for_remission: |
+          If you're on benefits or a low income, you may qualify for a reduced fee or no fee at all. How do I qualify for help?
+
+          You must pass 2 tests to qualify for help with your fee:
+
+           1.  capital test (eg, your savings and investments)
+           2.  income test (your income before tax and other deductions)
+
+           You’ll need to send evidence to support the information you give.
       representative:
         type: Acas conciliators are not representatives
       respondent:
