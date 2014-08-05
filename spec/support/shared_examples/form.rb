@@ -1,7 +1,7 @@
 RSpec.shared_examples 'a Form' do |attributes, block|
   let(:proxy)    { double 'proxy', first: nil, second: nil }
   let(:resource) { double 'resource' }
-  let(:target)   { double 'target', assign_attributes: nil }
+  let(:target)   { double 'target', update_attributes: nil }
   let(:form)     { described_class.new(attributes) { |f| f.resource = resource } }
 
   describe '.model_name_i18n_key' do
@@ -34,7 +34,7 @@ RSpec.shared_examples 'a Form' do |attributes, block|
         expect(resource).to receive(:save)
 
         form.save
-        expect(target).to have_received(:assign_attributes).with attributes.slice(*form.attributes.keys)
+        expect(target).to have_received(:update_attributes).with attributes.slice(*form.attributes.keys)
       end
     end
 

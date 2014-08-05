@@ -1,2 +1,0 @@
-class ConfirmationForm < Form
-end

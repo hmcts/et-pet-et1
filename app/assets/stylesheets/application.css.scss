@@ -20,12 +20,11 @@
 
 // JEET
 @import "jeet/index";
-@import "layout";
+// Employment Tribunals
 
 //Peek
 @import "peek";
 @import "peek/views/performance_bar";
-
-// Employment Tribunals
+@import "layout";
 @import "common";
 @import "shame";

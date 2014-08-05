@@ -4,6 +4,7 @@ class Form
   attr_accessor :resource
 
   delegate :column_for_attribute, to: :target
+  delegate :keys, to: :class
 
   def resource
     @resource ||= Claim.new
@@ -36,6 +37,10 @@ class Form
     ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
   end
 
+  def self.keys
+    instance_methods(false).grep(/\A\w+\Z/)
+  end
+
   class << self
     alias_method :boolean, :booleans
     delegate :i18n_key, to: :model_name, prefix: true
@@ -65,10 +70,12 @@ class Form
 
   def save
     if valid?
-      target.assign_attributes attributes
+      target.update_attributes attributes
       resource.save
     end
   end
+
+
 
   private def parse_multiparameter_date_attributes(attributes)
     MultiparameterDateParser.parse(attributes)

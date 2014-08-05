@@ -6,5 +6,5 @@ class ClaimTransitionManager < TransitionManager
   transition :respondent     => :employment,     if: :was_employed
   transition :respondent     => :claim
   transition :employment     => :claim
-  transition :claim          => :confirmation
+  transition :claim          => :review
 end

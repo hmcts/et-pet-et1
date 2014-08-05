@@ -28,7 +28,7 @@ RSpec.describe PasswordForm, :type => :form do
     let(:subject) { PasswordForm.new(attributes).tap { |f| f.resource = model } }
 
     it 'calls update_attributes on the underlying model with its own attributes' do
-      allow(model).to receive(:assign_attributes).with(attributes)
+      allow(model).to receive(:update_attributes).with(attributes)
       allow(model).to receive(:save)
 
       subject.save
