@@ -1,8 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var create = require('./polyfills/polyfill.object-create'),
     reveal = require('./modules/moj.reveal'),
-    checkbox = require('./modules/moj.checkbox-toggle');
-},{"./modules/moj.checkbox-toggle":2,"./modules/moj.reveal":3,"./polyfills/polyfill.object-create":4}],2:[function(require,module,exports){
+    checkbox = require('./modules/moj.checkbox-toggle'),
+    selectedOption = require('./modules/moj.selected-option');
+},{"./modules/moj.checkbox-toggle":2,"./modules/moj.reveal":4,"./modules/moj.selected-option":5,"./polyfills/polyfill.object-create":6}],2:[function(require,module,exports){
 // Toggles disabled groups of adjacent checkboxes
 
 module.exports = (function() {
@@ -34,62 +35,82 @@ module.exports = (function() {
 
 })();
 },{}],3:[function(require,module,exports){
+// Checks to see if the current element is a label or a container
+
+module.exports = function(container) {
+  var trigger = $(container);
+  if(container.tagName.toLowerCase() != 'label') {
+    trigger = $(container).find('label');
+  }
+  return trigger;
+};
+},{}],4:[function(require,module,exports){
 // Reveals hidden content
+var getTrigger = require('./moj.get-blocklabel');
 
 module.exports = (function() {
-  var config = {
-      group: '.form-group-reveal',
-      data: '[data-trigger]',
-      label: '.block-label',
-      content: 'toggle-content',
-      selected: 'selected'
+  var reveal = {
+    init : function() {
+      $('.form-group-reveal').each(function(i, group) {
+        reveal.bindLabels(group);
+      });
     },
-    reveal = {
-      init : function(conf){
-        if(typeof conf !== 'undefined'){
-          config = conf;
+    bindLabels: function(container) {
+      var blocklabels = $(container).find('.block-label'),
+        labels = blocklabels.find('label');
+
+      labels.each(function(i, label){
+        $(label).on('click', function(event){
+          reveal.toggleState(labels);
+        });
+      });
+    },
+    toggleState: function(labels, target) {
+      var checked;
+
+      return labels.each(function(i, label){
+        var input = $(label).find('input'),
+          target = $(document.getElementById(input.attr('data-target'))),
+          checked = input.is(':checked');
+
+        if(checked) {
+          target.show();
+        } else {
+          target.hide();
         }
-        $(config.group).each(function(i, el) {
-          reveal.bindLabels(el);
-        });
-      },
-      bindLabels: function(group) {
-        var labels = $(group).find(config.label),
-            input = $(document.getElementById(group.getAttribute('data-trigger'))),
-            trigger = input.parent('label'),
-            target = $(group).next('.toggle-content');
 
-        $(labels).on('click', function(event){
-          reveal.toggleState(labels, target);
-        });
-      },
-      toggleState: function(labels, target) {
-        var checked;
-
-        return labels.each(function(i, label){
-          var input = $(label).find('input'),
-            checked = input.is(':checked');
-
-          input.attr('checked', checked)
-            .parent().toggleClass(config.selected, checked);
-
-          if(checked){
-            target.show();
-          } else {
-            target.hide();
-          }
-
-        });
-      }
-    };
+      });
+    }
+  };
 
   reveal.init();
 
   return reveal;
 
 })();
+},{"./moj.get-blocklabel":3}],5:[function(require,module,exports){
+/* Toggles selected option class
+* .block-label > label > input
+*/
+module.exports = (function() {
+  $('.options').each(function(i, container){
+    var blocklabels = $(container).find('.block-label'),
+      labels = blocklabels.find('label');
 
-},{}],4:[function(require,module,exports){
+    labels.each(function(i, el){
+      var checked,
+        label = $(el),
+        input = label.find('input');
+      label.on('click', function(){
+        checked = input.is(':checked');
+        labels.removeClass('selected')
+        .a
+        label.toggleClass('selected', checked);
+      });
+    });
+  });
+})();
+},{}],6:[function(require,module,exports){
 /*
 * A polyfill that provides Object.create method
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
