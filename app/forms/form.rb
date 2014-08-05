@@ -62,8 +62,8 @@ class Form
 
   def attributes
     @attributes ||= Hash.new do |hash, key|
-      if value = respond_to?(:target, true) && target.try(key)
-        hash[key] = value
+      if respond_to?(:target, true) && !target.try(key).nil?
+        hash[key] = target.try key
       end
     end
   end

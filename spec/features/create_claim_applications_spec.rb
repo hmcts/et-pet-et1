@@ -109,7 +109,7 @@ def fill_in_personal_details
 end
 
 def fill_in_representative_details
-  choose 'representative_type_solicitor'
+  select 'Solicitor', from: 'Type of representative'
   fill_in "Name of the representative's organisation", with: 'Better Call Saul'
   fill_in "Representative's name", with: 'Saul Goodman'
 
@@ -144,9 +144,9 @@ def fill_in_employer_details
 
   choose 'respondent_worked_at_different_address_true'
 
-  fill_in_address
+  within('.work-address') { fill_in_address }
 
-  check 'No acas number'
+  check  "I don't have an Acas number"
   choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
   choose 'respondent_was_employed_true'

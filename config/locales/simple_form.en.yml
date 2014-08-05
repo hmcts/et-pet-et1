@@ -2,9 +2,8 @@ en:
   simple_form:
     "yes": 'Yes'
     "no": 'No'
-    required:
-      text: 'required'
-      mark: '*'
+    optional:
+      text: '(Optional)'
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
@@ -23,4 +22,3 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-

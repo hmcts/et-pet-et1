@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe RespondentForm, :type => :form do
   describe 'validations' do
     [:name, :address_building, :address_street, :address_locality,
-      :address_telephone_number, :address_post_code].each do |attr|
+      :address_post_code].each do |attr|
       it { is_expected.to validate_presence_of(attr) }
     end
 
@@ -34,7 +34,7 @@ RSpec.describe RespondentForm, :type => :form do
       describe "when respondent worked at a different address" do
         before { subject.worked_at_different_address = true }
         [:work_address_building, :work_address_street, :work_address_locality,
-         :work_address_telephone_number, :work_address_post_code].each do |attr|
+         :work_address_post_code].each do |attr|
           it { is_expected.to validate_presence_of(attr) }
         end
       end

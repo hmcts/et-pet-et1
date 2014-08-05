@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe ClaimantForm, :type => :form do
   describe 'validations' do
     [:first_name, :last_name, :address_building, :address_street,
-     :address_locality, :address_post_code, :address_county].each do |attr|
+     :address_locality, :address_post_code].each do |attr|
        it { is_expected.to validate_presence_of(attr) }
     end
 
     it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
-    it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female> }
+    it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female prefer_not_to_say> }
     it { is_expected.to ensure_inclusion_of(:contact_preference).in_array %w<email post fax> }
 
     it { is_expected.to ensure_length_of(:first_name).is_at_most(25) }
@@ -19,6 +19,8 @@ RSpec.describe ClaimantForm, :type => :form do
     it { is_expected.to ensure_length_of(:address_locality).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
+    it { is_expected.to ensure_inclusion_of(:address_country).in_array %w<united_kingdom other> }
+
 
     %i<address_telephone_number mobile_number fax_number>.each do |number|
       it { is_expected.to ensure_length_of(number).is_at_most(15) }
@@ -45,6 +47,7 @@ RSpec.describe ClaimantForm, :type => :form do
     first_name: 'Barrington', last_name: 'Wrigglesworth',
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
+    address_country: 'united_kingdom',
     address_post_code: 'AT1 0AA', email_address: 'lol@example.com'
   }
 
