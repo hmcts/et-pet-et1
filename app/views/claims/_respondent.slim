@@ -29,8 +29,7 @@
       = f.input :work_address_telephone_number
 
     = f.input :acas_early_conciliation_certificate_number
-    = f.input :no_acas_number,
-      as: :boolean
+    = f.input :no_acas_number, as: :boolean, boolean_style: :inline
 
     .panel-indent
       = f.input :no_acas_number_reason,
