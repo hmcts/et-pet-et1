@@ -1,6 +1,6 @@
 class ClaimantForm < Form
   TITLES              = %i<mr mrs ms miss>.freeze
-  GENDERS             = %i<male female>.freeze
+  GENDERS             = %i<male female prefer_not_to_say>.freeze
   CONTACT_PREFERENCES = %i<email post fax>.freeze
   COUNTRIES           = %i<united_kingdom other>.freeze
 
@@ -8,12 +8,12 @@ class ClaimantForm < Form
              :mobile_number, :fax_number, :email_address, :special_needs,
              :title, :gender, :contact_preference, :address_building,
              :address_street, :address_locality, :address_county, :address_post_code,
-             :applying_for_remission
+             :address_country, :applying_for_remission
 
   booleans   :has_special_needs, :has_representative
 
   validates :first_name, :last_name, :address_building, :address_street,
-            :address_locality, :address_post_code, :address_county, presence: true
+            :address_locality, :address_post_code, presence: true
 
   validates :title, inclusion: { in: TITLES.map(&:to_s) }
   validates :gender, inclusion: { in: GENDERS.map(&:to_s) }
@@ -23,6 +23,7 @@ class ClaimantForm < Form
   validates :address_building, :address_street, length: { maximum: 30 }
   validates :address_telephone_number, :mobile_number, :fax_number, length: { maximum: 15 }
   validates :address_post_code, length: { maximum: 8 }
+  validates :address_country, inclusion: { in: COUNTRIES.map(&:to_s) }
 
   validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
   validates :email_address, presence: { if: -> { contact_preference.email? } }

@@ -19,6 +19,7 @@ section
     = f.input :address_locality
     = f.input :address_county
     = f.input :address_post_code
+    = f.input :address_country, collection: ClaimantForm::COUNTRIES, include_blank: false
 
     = f.input :address_telephone_number, as: :tel
     = f.input :mobile_number, as: :tel
