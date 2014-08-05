@@ -36,7 +36,6 @@ module.exports = (function() {
 })();
 },{}],3:[function(require,module,exports){
 // Reveals hidden content
-
 module.exports = (function() {
   var reveal = {
     init : function() {
