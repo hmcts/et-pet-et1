@@ -95,3 +95,13 @@ header{
 .options {
   @extend .inline;
 }
+// -------------
+.respondent_no_acas_number{
+  display:inline-block;
+  label,input{
+    float:right;
+  }
+  input{
+    width:auto;
+  }
+}

@@ -29,9 +29,13 @@
       = f.input :work_address_telephone_number
 
     = f.input :acas_early_conciliation_certificate_number
-    = f.input :no_acas_number, as: :boolean, boolean_style: :inline
+    = f.input :no_acas_number,
+      as: :boolean,
+      boolean_style: :inline,
+      wrapper_class: 'reveal-checkbox',
+      input_html: {class: 'input-reveal'}
 
-    .panel-indent
+    .panel-indent.toggle-content
       = f.input :no_acas_number_reason,
         collection: RespondentForm::NO_ACAS_REASON,
         as: :radio_buttons,

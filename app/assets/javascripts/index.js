@@ -1,4 +1,5 @@
 var create = require('./polyfills/polyfill.object-create'),
     reveal = require('./modules/moj.reveal'),
-    checkbox = require('./modules/moj.checkbox-toggle'),
-    selectedOption = require('./modules/moj.selected-option');
+    checkboxToggle = require('./modules/moj.checkbox-toggle'),
+    selectedOption = require('./modules/moj.selected-option'),
+    checkboxReveal = require('./modules/moj.checkbox-reveal');
