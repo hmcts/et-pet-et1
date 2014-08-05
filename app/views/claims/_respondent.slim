@@ -15,10 +15,10 @@
     = f.input :worked_at_different_address,
       as: :radio_buttons,
       item_wrapper_class: 'block-label',
-      wrapper_html: {class:'form-group-reveal',
-      data: {trigger: 'respondent_worked_at_different_address_true'}}
+      wrapper_html: { class: 'form-group-reveal' },
+      reveal: { true => :work_address_wrapper }
 
-    .panel-indent.work-address
+    #work_address_wrapper.panel-indent.toggle-content.work-address
       p.form-hint= t 'copy.respondent.work_address'
 
       = f.input :work_address_building
@@ -29,9 +29,10 @@
       = f.input :work_address_telephone_number
 
     = f.input :acas_early_conciliation_certificate_number
-    = f.input :no_acas_number, as: :boolean
+    = f.input :no_acas_number,
+      as: :boolean
 
-    .panel-indent.
+    .panel-indent
       = f.input :no_acas_number_reason,
         collection: RespondentForm::NO_ACAS_REASON,
         as: :radio_buttons,
