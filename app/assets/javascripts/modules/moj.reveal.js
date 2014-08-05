@@ -1,5 +1,4 @@
 // Reveals hidden content
-
 module.exports = (function() {
   var reveal = {
     init : function() {
