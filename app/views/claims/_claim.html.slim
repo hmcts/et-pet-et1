@@ -40,6 +40,10 @@
       wrapper_class: 'panel-indent toggle-content',
       wrapper_html: { id: :other_claim_details_wrapper }
 
+    = f.input :claim_details,
+      as: :text,
+      input_html: { rows: 5 }
+
     = f.input :desired_outcomes,
       collection: ClaimDetail::DESIRED_OUTCOMES,
       as: :check_boxes,
