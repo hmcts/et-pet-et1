@@ -23,17 +23,15 @@
       item_wrapper_class: 'block-label'
 
     = f.input :benefit_details, hint: false do
-      = f.input_field :benefit_details
-      = f.hint :benefit_details,
-        as: :text, input_html: { rows: 5 }
-
+    = f.input_field :benefit_details
+    = f.hint :benefit_details,
+      as: :text,
+      input_html: { rows: 5 }
 
     = f.input :current_situation, collection: EmploymentForm::CURRENT_SITUATION,
       as: :radio_buttons, item_wrapper_class: 'block-label'
 
-
     = f.input :end_date
-
 
     = f.input :worked_notice_period_or_paid_in_lieu, as: :radio_buttons,
       item_wrapper_class: 'block-label'
