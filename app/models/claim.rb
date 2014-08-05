@@ -21,6 +21,14 @@ class Claim < ActiveRecord::Base
     claimants.where(applying_for_remission: true).count
   end
 
+  def primary_claimant
+    claimants.first
+  end
+
+  def primary_respondent
+    respondents.first
+  end
+
   class << self
     def find_by_reference(reference)
       find KeyObfuscator.new.unobfuscate(reference)

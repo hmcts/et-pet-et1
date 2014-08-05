@@ -52,6 +52,11 @@ en:
           private_individual: Private individual
           trade_association: Trade association
           other: Other
+        contact_preference:
+          email: Email
+          post: Post
+          fax: Fax
+
       respondent:
         no_acas_number: I don't have an Acas number
         no_acas_number_reason:
@@ -275,5 +280,5 @@ en:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
       claim_type_hint: You can select more than one
-    confirmation:
+    review:
       header: Check your answers

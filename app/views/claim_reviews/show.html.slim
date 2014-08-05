@@ -1,0 +1,23 @@
+= content_for(:header) { t 'copy.review.header' }
+
+/ - { :claimant => :primary_claimant, :representative => :representative }.each do |section, object|
+/   - next unless claim.send(object).present?
+/   = render partial: 'review_table',
+/     locals: { presenter: Presenter.for(section).new(claim), section: section }
+
+- ClaimPresenter::SECTIONS.each do |section|
+  - next if presenter.skip? section
+
+  table.review-table
+    caption = t "claim_review.#{section}"
+    colgroup
+      col
+      col
+      col
+    tbody
+    - presenter.methods.grep(/\A#{section}_/).each do |method|
+      tr
+        th= t "claim_review.#{method}"
+        td= presenter.send(method)
+        td
+          = link_to "Change", page_claim_path(page: section)

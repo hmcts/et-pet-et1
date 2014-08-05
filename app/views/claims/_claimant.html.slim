@@ -27,7 +27,7 @@ section
       collection: ClaimantForm::CONTACT_PREFERENCES,
       as: :radio_buttons,
       item_wrapper_class: 'block-label',
-      reveal: { :email => :email_wrapper, :fax => :fax_wrapper }
+      reveal: { 'email' => :email_wrapper, 'fax' => :fax_wrapper }
 
     = f.input :email_address,
       as: :email,

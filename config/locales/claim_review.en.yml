@@ -1,0 +1,58 @@
+en:
+  claim_review:
+    claimant: Your details
+    representative: Your representative
+    respondent: Employer's details
+
+    claimant_full_name: Full name
+    claimant_gender: Gender
+    claimant_date_of_birth: Date of birth
+    claimant_address: Address
+    claimant_telephone_number: Telephone
+    claimant_mobile_number: Mobile
+    claimant_contact_preference: Preferred contact
+    claimant_is_disabled: Disability
+    claimant_is_applying_for_remission: Fee remission
+
+    representative_type: Type of representative
+    representative_organisation_name: Organisation name
+    representative_name: Full name
+    representative_address: Address
+    representative_telephone_number: Telephone
+    representative_mobile_number: Mobile
+    representative_email_address: Email
+    representative_dx_number: DX number
+    representative_contact_preference: Preferred contact
+
+    respondent_name: Name
+    respondent_address: Address
+    respondent_telephone_number: Telephone
+    respondent_employed_by_employer: Employed by employer
+    respondent_acas_early_conciliation_certificate_number: Acas number
+
+    employment_job_title: Job
+    employment_start_date: Start date
+    employment_average_hours_worked_per_week: Average hours worked
+    employment_gross_pay: Pay before tax
+    employment_net_pay: Pay after tax
+    employment_enrolled_in_pension_scheme: Pension scheme
+    employment_benefit_details: Benefit details
+    employment_current_situation: Current situation
+    employment_end_date: End date
+    employment_worked_notice_period_or_paid_in_lieu: Notice period
+    employment_notice_period_end_date: Notice period end date
+    employment_notice_period_pay: Notice pay
+    employment_new_job: Another job
+    employment_new_job_gross_pay: Pay before tax at new job
+
+    employment_pay_period_weekly: per week
+    employment_pay_period_monthly: per month
+
+    claim_detail_types: Type(s)
+    claim_detail_claim_details: Claim details
+    claim_detail_desired_outcomes: What outcome?
+    claim_detail_other_outcome: Outcome description
+    claim_detail_other_known_claimant_names: Other known claimants
+    claim_detail_is_whistleblowing: Whistleblowing
+    claim_detail_send_claim_to_whistleblowing_entity: Send to whistleblowing body
+    claim_detail_miscellaneous_information: Other information

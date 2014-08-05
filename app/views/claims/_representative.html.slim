@@ -13,3 +13,5 @@ fieldset.form-panel
   = f.input :mobile_number
   = f.input :email_address
   = f.input :dx_number
+  = f.input :contact_preference, collection: RepresentativeForm::CONTACT_PREFERENCES,
+    as: :radio_buttons, item_wrapper_class: 'block-label'

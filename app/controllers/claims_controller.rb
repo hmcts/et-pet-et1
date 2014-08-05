@@ -25,20 +25,12 @@ class ClaimsController < ApplicationController
 
   private
 
-  def ensure_claim_in_progress
-    redirect_to root_path unless session[:claim_reference].present?
-  end
-
   def transition_manager
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)
   end
 
   def referring_step
     Rails.application.routes.recognize_path(request.referer)[:page]
-  end
-
-  helper_method def claim
-    @claim ||= Claim.find_by_reference(session[:claim_reference])
   end
 
   helper_method def resource

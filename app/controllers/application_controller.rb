@@ -3,7 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  private
+
   def peek_enabled?
     Rails.env.development?
+  end
+
+  def ensure_claim_in_progress
+    redirect_to root_path unless session[:claim_reference].present?
+  end
+
+  helper_method def claim
+    @claim ||= Claim.find_by_reference(session[:claim_reference])
   end
 end
