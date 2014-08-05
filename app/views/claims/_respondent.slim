@@ -14,10 +14,10 @@ fieldset.form-panel
   = f.input :worked_at_different_address,
     as: :radio_buttons,
     item_wrapper_class: 'block-label',
-    wrapper_html: {class:'form-group-reveal',
-    data: {trigger: 'respondent_worked_at_different_address_true'}}
+    wrapper_html: { class:'form-group-reveal',
+      data: { trigger: 'respondent_worked_at_different_address_true' } }
 
-  .panel-indent.toggle-content
+  .panel-indent.toggle-content.work-address
     p= t 'copy.respondent.work_address'
 
     = f.input :work_address_building
@@ -33,6 +33,6 @@ fieldset.form-panel
   .panel-indent
     h2.form-label Why don't you have an Acas number?
     = f.input :no_acas_number_reason, collection: RespondentForm::NO_ACAS_REASON,
-      as: :radio_buttons, item_wrapper_class: 'block-label'
+      as: :radio_buttons, item_wrapper_class: 'block-label', label: false
 
   = f.input :was_employed, as: :radio_buttons, item_wrapper_class: 'block-label'

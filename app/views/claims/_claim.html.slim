@@ -5,10 +5,6 @@ fieldset
 
   = f.input :is_unfair_dismissal, as: :gds_check_boxes, wrapper_class: 'input form-group margin-bottom-adjust'
 
-  p= link_to 'What does this mean?',
-            'https://www.gov.uk/dismissal/unfair-and-constructive-dismissal',
-            rel: 'external'
-
   = f.input :is_discrimination,
     as: :gds_check_boxes,
     wrapper_class: 'input form-group margin-bottom-adjust form-group-checkbox-toggle',
