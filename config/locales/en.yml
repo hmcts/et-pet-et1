@@ -101,7 +101,7 @@ en:
           arrears: Arrears of pay
           other: Other payments
         desired_outcomes:
-          compensation_only: Compensation only
+          compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
           reinstated_employment_and_compensation: To get my old job back and compensation
           new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
