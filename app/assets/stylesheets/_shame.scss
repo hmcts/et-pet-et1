@@ -96,7 +96,8 @@ header{
   @extend .inline;
 }
 // -------------
-.respondent_no_acas_number{
+.respondent_no_acas_number,
+.claim_is_other_type_of_claim{
   display:inline-block;
   label,input{
     float:right;
