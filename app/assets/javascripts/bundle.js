@@ -3,7 +3,7 @@ var create = require('./polyfills/polyfill.object-create'),
     reveal = require('./modules/moj.reveal'),
     checkbox = require('./modules/moj.checkbox-toggle'),
     selectedOption = require('./modules/moj.selected-option');
-},{"./modules/moj.checkbox-toggle":2,"./modules/moj.reveal":4,"./modules/moj.selected-option":5,"./polyfills/polyfill.object-create":6}],2:[function(require,module,exports){
+},{"./modules/moj.checkbox-toggle":2,"./modules/moj.reveal":3,"./modules/moj.selected-option":4,"./polyfills/polyfill.object-create":5}],2:[function(require,module,exports){
 // Toggles disabled groups of adjacent checkboxes
 
 module.exports = (function() {
@@ -35,18 +35,7 @@ module.exports = (function() {
 
 })();
 },{}],3:[function(require,module,exports){
-// Checks to see if the current element is a label or a container
-
-module.exports = function(container) {
-  var trigger = $(container);
-  if(container.tagName.toLowerCase() != 'label') {
-    trigger = $(container).find('label');
-  }
-  return trigger;
-};
-},{}],4:[function(require,module,exports){
 // Reveals hidden content
-var getTrigger = require('./moj.get-blocklabel');
 
 module.exports = (function() {
   var reveal = {
@@ -88,7 +77,8 @@ module.exports = (function() {
   return reveal;
 
 })();
-},{"./moj.get-blocklabel":3}],5:[function(require,module,exports){
+
+},{}],4:[function(require,module,exports){
 /* Toggles selected option class
 * .block-label > label > input
 */
@@ -110,7 +100,7 @@ module.exports = (function() {
     });
   });
 })();
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /*
 * A polyfill that provides Object.create method
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create

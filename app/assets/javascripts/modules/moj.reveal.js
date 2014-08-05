@@ -1,5 +1,4 @@
 // Reveals hidden content
-var getTrigger = require('./moj.get-blocklabel');
 
 module.exports = (function() {
   var reveal = {
