@@ -187,7 +187,7 @@ en:
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-        miscellaneous_information: Additional information (optional)
+        miscellaneous_information: Additional information
 
     hints:
       claimant:
