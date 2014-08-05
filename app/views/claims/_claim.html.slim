@@ -65,7 +65,8 @@
       wrapper_html: { id: :send_claim_to_whistleblowing_entity_wrapper }
 
     = f.input :other_known_claimants,
-      as: :radio_buttons
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label'
 
     = f.input :other_known_claimant_names,
       as: :text,
