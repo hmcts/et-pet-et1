@@ -10,7 +10,7 @@ class ClaimsController < ApplicationController
     claim = Claim.create
     session[:claim_reference] = claim.reference
 
-    redirect_to page_claim_path(page: 'password')
+    redirect_to page_claim_path(page: 'claimant')
   end
 
   def update
