@@ -23,8 +23,16 @@ RSpec.describe RespondentPresenter, type: :presenter do
 
   its(:telephone_number) { is_expected.to eq('01234567890') }
   its(:acas_early_conciliation_certificate_number) { is_expected.to eq('123') }
-  its(:no_acas_number_reason) do
-    is_expected.
-      to eq("Acas doesn't have the power to conciliate on some or all of my claim")
+
+  describe '#no_acas_number_reason' do
+    its(:no_acas_number_reason) do
+      is_expected.
+        to eq("Acas doesn't have the power to conciliate on some or all of my claim")
+    end
+
+    context 'when target.no_acas_number_reason is nil' do
+      before { allow(respondent).to receive(:no_acas_number_reason).and_return nil }
+      its(:no_acas_number_reason) { is_expected.to be nil }
+    end
   end
 end
