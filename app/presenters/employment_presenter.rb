@@ -8,15 +8,11 @@ class EmploymentPresenter < Presenter
   present :average_hours_worked_per_week
 
   def gross_pay
-    if [target.gross_pay, target.gross_pay_period_type].all? &:present?
-      "£#{target.gross_pay} #{period_type(target.gross_pay_period_type)}"
-    end
+    pay_for __method__
   end
 
   def net_pay
-    if [target.net_pay, target.net_pay_period_type].all? &:present?
-      "£#{target.net_pay} #{period_type(target.net_pay_period_type)}"
-    end
+    pay_for __method__
   end
 
   def enrolled_in_pension_scheme
@@ -59,5 +55,14 @@ class EmploymentPresenter < Presenter
 
   private def period_type(period_type)
     t "claim_review.employment_pay_period_#{period_type}"
+  end
+
+  private def pay_for(pay)
+    period = target.send(:"#{pay}_period_type")
+    pay    = target.send(pay)
+
+    if [pay, period].all?(&:present?)
+      "£#{pay} #{period_type(period)}"
+    end
   end
 end
