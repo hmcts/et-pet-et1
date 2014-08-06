@@ -10,19 +10,17 @@
 
     = f.input :is_discrimination,
       as: :gds_check_boxes,
-      wrapper_class: 'input form-group form-groupcheckbox-reveal',
-      reveal: { 1 => :discrimination_checkboxes }
+      wrapper_class: 'input form-group checkbox-reveal'
 
     = f.input :discrimination_claims, label: false,
       collection: ClaimDetail::DISCRIMINATION_COMPLAINTS,
       as: :check_boxes,
       item_wrapper_class: 'block-label disabled',
-      wrapper_class: 'panel-indent label-column form-group-checkboxes',
-      wrapper_html: { id: 'discrimination_checkboxes' }
+      wrapper_class: 'panel-indent label-column form-group-checkboxes'
 
     = f.input :is_pay_related,
       as: :gds_check_boxes,
-      wrapper_class: 'input form-group'
+      wrapper_class: 'input form-group checkbox-reveal'
 
     = f.input :pay_claims, label: false,
       collection: ClaimDetail::PAY_COMPLAINTS, as: :check_boxes,
