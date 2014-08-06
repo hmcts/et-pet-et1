@@ -22,7 +22,7 @@ class RespondentForm < Form
             :address_locality, :address_post_code, presence: true
 
   validates :work_address_street, :work_address_locality, :work_address_building,
-            :work_address_post_code, presence: { if: -> { worked_at_different_address? } }
+            :work_address_post_code, presence: { if: -> { worked_at_different_address } }
 
   validates :name, length: { maximum: 100 }
   validates :address_building, :address_street, :work_address_building,
@@ -52,4 +52,7 @@ class RespondentForm < Form
     resource.respondents.first || resource.respondents.build
   end
 
+  def worked_at_different_address=(v)
+    attributes[:worked_at_different_address] = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
+  end
 end

@@ -81,7 +81,7 @@ RSpec.describe RespondentForm, :type => :form do
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
     work_address_post_code: "BT2 1CB", work_address_telephone_number: "01234000000",
-    worked_at_different_address: '1', no_acas_number: "1",
+    worked_at_different_address: true, no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction" }
 
   before = proc do
