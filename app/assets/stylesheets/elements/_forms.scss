@@ -3,8 +3,6 @@
 
 // Form group is used to wrap label and input pairs
 .form-group {
-  float: left;
-  width: 100%;
   clear: both;
   @include contain-floats;
   margin-bottom: $gutter-half;
@@ -12,7 +10,9 @@
     margin-bottom: $gutter;
   }
 }
-
+.form-group-reveal{
+  @extend .form-group;
+}
 .form-group.radio_buttons > label.radio {
   clear: none;
   margin-right: $gutter-half;
@@ -28,14 +28,6 @@
 .form-group-compound {
   margin-bottom: 10px;
 }
-
-// Fieldset is used to group more than one .form-group
-fieldset {
-  width: 100%;
-  float: left;
-  clear: both;
-}
-
 
 // Form title
 .form-title {
@@ -176,3 +168,9 @@ fieldset {
 @import "forms/form-date-of-birth";
 
 @import "forms/form-chunky-labels";
+
+// Errors
+@import "forms/form-errors";
+
+//Field prefixes
+@import "forms/form-prefixes";

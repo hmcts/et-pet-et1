@@ -1,27 +1,59 @@
-// Large hit area
-// Radio buttons & checkboxes
-
-// By default, block labels stack vertically
-.block-label {
-
-  display: block;
+%block-label{
   float: none;
   clear: left;
-  position: relative;
 
   background: $panel-colour;
   border: 1px solid $panel-colour;
   padding: (18px $gutter $gutter-half $gutter*1.5);
+  position: relative;
+  cursor: pointer; // Encourage clicking on block labels
+}
+
+.options{
+  overflow:hidden;
+  > span.block-label{
+    float:left;
+    &:last-child{
+      margin-right:0;
+    }
+  }
+}
+
+// Large hit area
+// Radio buttons & checkboxes
+
+// By default, block labels stack vertically
+label.block-label {
+
+  @extend %block-label;
   margin-top: 10px;
   margin-bottom: 10px;
-
-  cursor: pointer; // Encourage clicking on block labels
 
   @include media(tablet) {
     float: left;
     margin-top: 5px;
     margin-bottom: 5px;
-    // width: 25%; - Test : check that text within labels will wrap
+  }
+}
+
+span.block-label {
+  clear: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: $gutter-half;
+
+  label{
+    @extend %block-label;
+    display:block;
+    margin:0;
+
+    &:hover {
+      border-color: $black;
+    }
+  }
+  &.large-label{
+    margin-right:0;
+    float:none;
   }
 }
 

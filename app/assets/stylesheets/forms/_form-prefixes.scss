@@ -1,0 +1,15 @@
+.prefix-pound {
+  position:relative;
+  padding-left:2em;
+  z-index:99;
+  &:before{
+    position:absolute;
+    content: '\00A3';
+    background:$panel-colour;
+    border-right:1px solid $border-colour;
+    top:50%;
+    left:0;
+    padding:10px;
+    z-index:100;
+  }
+}

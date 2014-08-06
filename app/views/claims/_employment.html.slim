@@ -1,48 +1,73 @@
-fieldset
-  legend.visuallyhidden= header_text
-  p= t 'copy.employment.hint'
+.main-column
+  fieldset
+    legend.visuallyhidden= header_text
+    p= t 'copy.employment.hint'
 
-  = f.input :job_title
+    = f.input :job_title
 
-  = f.input :start_date
+    = f.input :start_date
 
-  = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
+    = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
 
-  = f.input :gross_pay, input_html: {class: 'short-input'}
-  = f.input :gross_pay_period_type, label: false, label: false,
-    collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+    = f.input :gross_pay,
+      wrapper_class: 'prefixed-field',
+      input_html: {class: 'prefix-pound'}
+    = f.input :gross_pay_period_type, label: false, label: false,
+      collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+      item_wrapper_class: 'block-label'
 
-  = f.input :net_pay
-  = f.input :net_pay_period_type, label: false,
-    collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+    = f.input :net_pay,
+      wrapper_class: 'prefixed-field',
+      input_html: {class: 'prefix-pound'}
+    = f.input :net_pay_period_type, label: false,
+      collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+      item_wrapper_class: 'block-label'
 
-  = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
-    
-  = f.input :benefit_details, hint: false do
-    = f.input_field :benefit_details
+    = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
+      item_wrapper_class: 'block-label'
+
+    = f.input :benefit_details, hint: false do
+    = f.input_field :benefit_details,
+      as: :text,
+      input_html: { rows: 5 }
     = f.hint :benefit_details
 
-  = f.input :current_situation, collection: EmploymentForm::CURRENT_SITUATION,
-    as: :radio_buttons, item_wrapper_class: 'block-label'
+    = f.input :current_situation,
+      collection: EmploymentForm::CURRENT_SITUATION,
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label',
+      wrapper_class: 'form-group-reveal',
+      reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
 
+    = f.input :notice_period_end_date,
+      wrapper_class: 'panel-indent toggle-content',
+      wrapper_html: { id: :end_date_wrapper }
 
-  = f.input :end_date
+    #employment_terminated_wrapper.panel-indent.toggle-content
+      = f.input :end_date
+      = f.input :worked_notice_period_or_paid_in_lieu,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal',
+        reveal: { true => :notice_pay_period_wrapper }
 
+      #notice_pay_period_wrapper.panel-indent.toggle-content
+        = f.input :notice_pay_period_count
+        = f.input :notice_pay_period_type, label: false,
+          collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
+          item_wrapper_class: 'block-label'
 
-  = f.input :worked_notice_period_or_paid_in_lieu, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
-  = f.input :notice_period_end_date
-  = f.input :notice_pay_period_count
-  = f.input :notice_pay_period_type, label: false,
-    collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+      = f.input :found_new_job,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal',
+        reveal: { true => :new_job_wrapper }
 
-  = f.input :found_new_job, as: :radio_buttons, item_wrapper_class: 'block-label'
-  = f.input :new_job_start_date
-  = f.input :new_job_gross_pay
-  = f.input :new_job_gross_pay_frequency, label: false, label: false,
-    collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+      #new_job_wrapper.panel-indent.toggle-content
+        = f.input :new_job_start_date
+        = f.input :new_job_gross_pay,
+          wrapper_class: 'prefixed-field',
+          input_html: {class: 'prefix-pound'}
+        = f.input :new_job_gross_pay_frequency, label: false, label: false,
+          collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+          item_wrapper_class: 'block-label'

@@ -1,10 +1,8 @@
 // clearfix
-.inline {
-    overflow:hidden;
-}
 .no-top-margin{
     margin-top:0;
 }
+// label ---------------------
 label.disabled{
   background:$grey-4;
   color: $grey-1;
@@ -17,10 +15,7 @@ label.disabled{
   }
 }
 label abbr{
-display: none;
-}
-.margin-bottom-adjust{
-margin-bottom:0;
+  display: none;
 }
 .application-summary{
   text-align:center;
@@ -31,7 +26,7 @@ margin-bottom:0;
     margin-top:0;
   }
 }
-
+// table --------------------
 table.review-table{
   border-collapse: collapse;
   width:100%;
@@ -74,6 +69,7 @@ table.review-table{
     }
   }
 }
+
 .files-table{
   border:1px solid $border-colour;
   border-bottom:none;
@@ -83,12 +79,14 @@ table.review-table{
     text-align:left;
   }
 }
+// header -------------------
 header{
   h1{
     @extend .heading-xlarge;
     margin-bottom:.5em;
   }
 }
+// content-copy -------------
 .content-copy{
   h2{
     @extend .heading-medium;
@@ -96,4 +94,15 @@ header{
 }
 .options {
   @extend .inline;
+}
+// -------------
+.respondent_no_acas_number,
+.claim_is_other_type_of_claim{
+  display:inline-block;
+  label,input{
+    float:right;
+  }
+  input{
+    width:auto;
+  }
 }

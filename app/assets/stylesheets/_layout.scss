@@ -1,3 +1,16 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+  header.content-header{
+    padding-top:$gutter;
+    h1.heading-xlarge{
+      margin-bottom:0.3em;
+    }
+  }
+// ==========================================================================
+// Inputs
+// ==========================================================================
+
 input[type=text],
 input[type=email],
 input[type=tel]{
@@ -10,24 +23,34 @@ input[type=tel]{
 textarea.form-control{
   width:100%;
 }
+
+// ==========================================================================
+// Form layout
+// ==========================================================================
 .form-inputs{
   @include cf();
 }
 .form-actions{
   margin-top:2em;
 }
-#claimant_title{
-  @include col(1/3);
-}
-.label-column .block-label {
-  @include column(0.41, $cycle: 2, $gutter: 2);
-  padding-left:45px;
+.label-column {
+  .block-label {
+    @include column(0.5, $cycle: 2, $gutter: 2);
+    label{
+      margin-right:0;
+    }
+  }
 }
 .block-label{
   &.large-label{
-    @include stack();
+    float:none;
+    display: block;
   }
 }
+// ==========================================================================
+// Page layout
+// ==========================================================================
 .main-column{
   @include col(2/3);
+  //@include edit();
 }

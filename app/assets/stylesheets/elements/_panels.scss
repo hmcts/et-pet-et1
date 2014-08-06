@@ -4,17 +4,18 @@
 // Indented panels with a grey left hand border
 .panel-indent {
   @include contain-floats;
-  clear: both;
+  //clear: both;
   border-left: 5px solid $panel-colour;
 
   padding-top: 10px;
   padding-bottom: 10px;
-
+  float:none;
+  width:auto;
   padding-left: $gutter-half;
-  @include media(tablet){
-    padding-left: 20px;
-  }
-  margin: ($gutter $gutter-half $gutter*1.5 0);
+  //@include media(tablet){
+  //  padding-left: 20px;
+  //}
+  margin: ($gutter 0 $gutter*1.5 0);
 }
 
 .panel-indent legend {
