@@ -29,6 +29,7 @@ en:
     respondent_telephone_number: Telephone
     respondent_employed_by_employer: Employed by employer
     respondent_acas_early_conciliation_certificate_number: Acas number
+    respondent_no_acas_number_reason: Reason for no Acas number
 
     employment_job_title: Job
     employment_start_date: Start date

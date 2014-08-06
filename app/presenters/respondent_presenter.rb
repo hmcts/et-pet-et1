@@ -13,6 +13,8 @@ class RespondentPresenter < Presenter
   present :acas_early_conciliation_certificate_number
 
   def no_acas_number_reason
-    I18n.t "simple_form.options.respondent.no_acas_number_reason.#{target.no_acas_number_reason}"
+    if target.no_acas_number_reason
+      I18n.t "simple_form.options.respondent.no_acas_number_reason.#{target.no_acas_number_reason}"
+    end
   end
 end
