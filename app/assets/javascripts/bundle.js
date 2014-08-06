@@ -22,9 +22,9 @@ module.exports = (function() {
 module.exports = (function() {
   var checkboxToggle = {
     init: function() {
-      $('.form-group-checkbox-toggle').each(function(i, el) {
-        var label = $(el).find('label');
-        checkboxToggle.bindCheckboxes(label);
+      $('.form-group-checkboxes').each(function(i, el) {
+        var inputs = $(el).find('input');
+        checkboxToggle.bindCheckboxes(inputs);
       });
     },
     bindCheckboxes: function(label) {
@@ -100,13 +100,11 @@ module.exports = (function() {
       labels = blocklabels.find('label');
 
     labels.each(function(i, el){
-      var checked,
-        label = $(el),
+      var label = $(el),
         input = label.find('input');
-      label.on('click', function(){
-        checked = input.is(':checked');
-        labels.removeClass('selected')
-        .a
+      input.on('change', function(){
+        var checked = input.is(':checked');
+        labels.removeClass('selected');
         label.toggleClass('selected', checked);
       });
     });

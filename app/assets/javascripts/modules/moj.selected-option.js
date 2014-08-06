@@ -7,13 +7,11 @@ module.exports = (function() {
       labels = blocklabels.find('label');
 
     labels.each(function(i, el){
-      var checked,
-        label = $(el),
+      var label = $(el),
         input = label.find('input');
-      label.on('click', function(){
-        checked = input.is(':checked');
-        labels.removeClass('selected')
-        .a
+      input.on('change', function(){
+        var checked = input.is(':checked');
+        labels.removeClass('selected');
         label.toggleClass('selected', checked);
       });
     });
