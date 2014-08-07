@@ -20,31 +20,17 @@ module.exports = (function() {
 // Toggles disabled groups of adjacent checkboxes
 
 module.exports = (function() {
-  var checkboxToggle = {
-    init: function() {
-      $('.form-group-checkboxes').each(function(i, el) {
-        var inputs = $(el).find('input');
-        checkboxToggle.bindCheckboxes(inputs);
-      });
-    },
-    bindCheckboxes: function(label) {
-      var input = label.find('input'),
-        target = $(document.getElementById(input.attr('data-target'))),
-        checked = function(){
-          return input.is(':not(:checked)');
-        },
-        checkboxes = target.find('label');
+  var root = $('.related-checkboxes-root'),
+    collections = $('.related-checkboxes-collection');
 
-      input.on('click', function(){
-        checkboxes.toggleClass('disabled', checked())
-          .find('input').attr('disabled', checked());
-      });
-    }
-  };
+  collections.each(function(i, collection){
+    var selected = [],
+      checkboxes = $(collection).find('input');
+    //
+    checkboxes.on('change', function(){
 
-  checkboxToggle.init();
-
-  return checkboxToggle;
+    });
+  });
 
 })();
 },{}],4:[function(require,module,exports){
