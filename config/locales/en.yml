@@ -111,8 +111,8 @@ en:
 
     labels:
       password:
-        password: Create a password
-        password_confirmation: Re-enter the password
+        password: Your memorable word
+        save_and_return_email: Email address
 
       claimant:
         mobile_number: Mobile (if different)
@@ -268,10 +268,39 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Before you continue
+      header: Before you start
       info: |
+        The claim form may take over an hour to complete.
 
-      reference: Application number
+        You must have a unique form number and a memorable word to retrieve any saved work.
+
+      access_details:
+        header: Your access details
+        reference: Your unique form number
+
+      record_details:
+        header: Record your details
+
+        info: Email the number to yourself, write it down, or print it out.
+
+      memorable_word:
+        header: Enter your memorable word
+
+
+    email:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your unique form number is:
+
+        __%{reference}__
+
+        You need this number, and your memorable word, to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+      reference:
+        header: Unique form number
+
     claimant:
       header: Your details
       personal_details: Personal details

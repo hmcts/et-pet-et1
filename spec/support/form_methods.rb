@@ -4,9 +4,13 @@ module FormMethods
     click_button 'Apply now'
   end
 
-  def fill_in_password(password)
-    fill_in 'Create a password', with: password
-    fill_in 'Re-enter the password', with: password
+  def fill_in_memorable_word(word='green')
+    fill_in_memorable_word_and_email(word, nil)
+  end
+
+  def fill_in_memorable_word_and_email(word='green', email='mail@example.com')
+    fill_in 'memorable word', with: word
+    fill_in 'Email address', with: email if email.present?
 
     click_button 'Save and continue'
   end

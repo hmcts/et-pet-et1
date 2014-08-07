@@ -1,10 +1,23 @@
 class PasswordForm < Form
-  attributes :password, :password_confirmation
+  attributes :password
 
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: { if: -> { password.present? } }
+  attr_accessor :save_and_return_email
+
+  validates :password, presence: true
 
   def target
     resource
+  end
+
+  def save
+    super && mail_access_details
+  end
+
+  def mail_access_details
+    if save_and_return_email.present?
+      BaseMailer.access_details_email(resource, save_and_return_email).deliver
+    else
+      true
+    end
   end
 end

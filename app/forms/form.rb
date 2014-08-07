@@ -75,8 +75,6 @@ class Form
     end
   end
 
-
-
   private def parse_multiparameter_date_attributes(attributes)
     MultiparameterDateParser.parse(attributes)
   end
