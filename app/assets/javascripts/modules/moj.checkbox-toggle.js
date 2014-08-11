@@ -2,7 +2,6 @@
 * assumes structure: .related-checkboxes-root + .related-checkboxes-collection
 */
 module.exports = (function() {
-<<<<<<< HEAD
   var rootCheckbox = $('.related-checkboxes-root'),
     toggleRootCheckbox = function(array, root) {
       var checkbox = root.find('input');
@@ -43,18 +42,6 @@ module.exports = (function() {
         toggleRootCheckbox(selectedArray, main);
       });
     })
-=======
-  var root = $('.related-checkboxes-root'),
-    collections = $('.related-checkboxes-collection');
-
-  collections.each(function(i, collection){
-    var selected = [],
-      checkboxes = $(collection).find('input');
-    //
-    checkboxes.on('change', function(){
-
-    });
->>>>>>> b443d2c... updated related checkbox layout
   });
 
 })();
