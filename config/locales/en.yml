@@ -204,14 +204,16 @@ en:
           Someone who has agreed to represent you (for example, to prepare your
           case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
-          If you're on benefits or a low income, you may qualify for a reduced fee or no fee at all. <a href="">How do I qualify for help?</a>
-          <div class="content">
-          You must pass 2 tests to qualify for help with your fee:
-          <ol>
-            <li> capital test (eg, your savings and investments)</li>
-            <li> income test (your income before tax and other deductions)</li>
-          </ol>
-          You’ll need to send evidence to support the information you give.
+          If you're on benefits or a low income, you may qualify for a reduced fee or no fee at all. <a href="javascript:void(0);" class="hint-reveal">How do I qualify for help?</a>
+          <div class="toggle-content form-hint">
+            <p>You must pass 2 tests to qualify for help with your fee:</p>
+            <ol class="numeric-list">
+              <li> capital test (eg, your savings and investments)</li>
+              <li> income test (your income before tax and other deductions)</li>
+            </ol>
+            <p>You’ll need to send evidence to support the information you give.<br>
+            <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=4396" rel="external">Read more about applying for help with paying your fee</a>
+            </p>
           </div>
       representative:
         type: Acas conciliators are not representatives

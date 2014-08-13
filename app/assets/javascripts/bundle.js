@@ -1,10 +1,10 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var create = require('./polyfills/polyfill.object-create'),
-    reveal = require('./modules/moj.reveal'),
-    checkboxToggle = require('./modules/moj.checkbox-toggle'),
-    selectedOption = require('./modules/moj.selected-option'),
-    checkboxReveal = require('./modules/moj.checkbox-reveal');
-},{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.reveal":4,"./modules/moj.selected-option":5,"./polyfills/polyfill.object-create":6}],2:[function(require,module,exports){
+var reveal = require('./modules/moj.reveal'),
+  checkboxToggle = require('./modules/moj.checkbox-toggle'),
+  selectedOption = require('./modules/moj.selected-option'),
+  checkboxReveal = require('./modules/moj.checkbox-reveal'),
+  formHintReveal = require('./modules/moj.reveal-hints');
+},{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.reveal":5,"./modules/moj.reveal-hints":4,"./modules/moj.selected-option":6}],2:[function(require,module,exports){
 /* Toggles content if checkbox is checked
 */
 module.exports = (function() {
@@ -65,6 +65,19 @@ module.exports = (function() {
 
 })();
 },{}],4:[function(require,module,exports){
+// Reveals hidden hint text
+
+module.exports = (function() {
+  $('.hint-reveal').each(function(i, el){
+    var trigger = $(el),
+      content = trigger.parent().next('.toggle-content');
+    trigger.on('click', function(){
+      content.toggle();
+    });
+  });
+})();
+
+},{}],5:[function(require,module,exports){
 // Reveals hidden content
 module.exports = (function() {
   var reveal = {
@@ -107,7 +120,7 @@ module.exports = (function() {
 
 })();
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /* Toggles selected option class
 * .block-label > label > input
 */
@@ -127,26 +140,4 @@ module.exports = (function() {
     });
   });
 })();
-},{}],6:[function(require,module,exports){
-/*
-* A polyfill that provides Object.create method
-* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
-*/
-module.exports = (function(){
-  if (!Object.create) {
-  Object.create = (function(){
-    function F(){}
-
-    return function(o){
-      if (arguments.length !== 1) {
-          throw new Error('Object.create implementation only accepts one parameter.');
-      }
-      F.prototype = o;
-
-      return new F();
-    };
-  })();
-}
-})();
-
 },{}]},{},[1])
