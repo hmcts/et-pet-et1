@@ -1,11 +1,14 @@
 // Reveals hidden hint text
 
 module.exports = (function() {
-  $('.hint-reveal').each(function(i, el){
-    var trigger = $(el),
-      content = trigger.parent().next('.toggle-content');
-    trigger.on('click', function(){
-      content.toggle();
-    });
+  $('.field_with_hint').each(function(i, field){
+    var container = $(field),
+      trigger = container.find('.hint-reveal');
+    if(container.length){
+      var content = container.find('.toggle-content');
+      trigger.on('click', function(){
+        content.toggle();
+      });
+    }
   });
 })();
