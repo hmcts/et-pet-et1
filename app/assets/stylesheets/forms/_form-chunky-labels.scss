@@ -92,3 +92,7 @@ span.block-label {
   background: $white;
   border-color: $black;
 }
+//hide abbr tag (simple_form adds an asterisk)
+label abbr{
+  display: none;
+}

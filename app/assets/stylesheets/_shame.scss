@@ -1,22 +1,5 @@
-// clearfix
-.no-top-margin{
-    margin-top:0;
-}
-// label ---------------------
-label.disabled{
-  background:$grey-4;
-  color: $grey-1;
-  &:hover{
-    border-color:$panel-colour;
-    cursor:default;
-  }
-  input{
-    cursor:default;
-  }
-}
-label abbr{
-  display: none;
-}
+// Application summary page
+// ==========================================================================
 .application-summary{
   text-align:center;
   background-color:$panel-colour;
@@ -26,76 +9,17 @@ label abbr{
     margin-top:0;
   }
 }
-// table --------------------
-table.review-table{
-  border-collapse: collapse;
-  width:100%;
-  margin-bottom:2em;
-  col.th{
-    width:30%;
-  }
-  col.td:first-child{
-    width:30%;
-  }
-  caption{
-    @extend .bold-medium;
-    text-align:left;
-    margin-bottom:.5em;
-  }
-  th,td{
-    border-bottom:1px solid $border-colour;
-    vertical-align: top;
-    padding-right:0;
-    width:30%;
-  }
-  th{
-    font-weight:400;
-    color:$grey-1;
-  }
-  td:nth-child(3n){
-    text-align:right;
-    padding-right:1em;
-  }
-  tr:first-child{
-    th,td{
-      border-top:1px solid $border-colour;
-    }
-  }
-  tr.row{
-    th{
-      background:$highlight-colour;
-      color:$text-colour;
-      @extend .bold-small;
-    }
-  }
-}
 
-.files-table{
-  border:1px solid $border-colour;
-  border-bottom:none;
-  margin-bottom:1em;
-  caption{
-    @extend .bold-medium;
-    text-align:left;
-  }
-}
-// header -------------------
-header{
-  h1{
-    @extend .heading-xlarge;
-    margin-bottom:.5em;
-  }
-}
-// content-copy -------------
+// content-copy
+// ==========================================================================
 .content-copy{
   h2{
     @extend .heading-medium;
   }
 }
-.options {
-  @extend .inline;
-}
-// -------------
+
+// Hack to make checkbox float inline before the label
+// ==========================================================================
 .respondent_no_acas_number,
 .claim_is_other_type_of_claim{
   display:inline-block;
@@ -105,8 +29,4 @@ header{
   input{
     width:auto;
   }
-}
-
-span.not-entered {
-  color: #aaa
 }
