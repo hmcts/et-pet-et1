@@ -4,11 +4,18 @@ module FormMethods
     click_button 'Apply now'
   end
 
-  def fill_in_memorable_word(word='green')
-    fill_in_memorable_word_and_email(word, nil)
+  def fill_in_return_form reference, word
+    visit '/user_sessions/new'
+    fill_in 'form number', with: reference
+    fill_in 'memorable word', with: word
+    click_button 'Next'
   end
 
-  def fill_in_memorable_word_and_email(word='green', email='mail@example.com')
+  def fill_in_password(word='green')
+    fill_in_password_and_email(word, nil)
+  end
+
+  def fill_in_password_and_email(word='green', email='mail@example.com')
     fill_in 'memorable word', with: word
     fill_in 'Email address', with: email if email.present?
 

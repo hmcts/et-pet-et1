@@ -25,11 +25,11 @@ RSpec.describe PasswordForm, :type => :form do
     end
   end
 
-  describe "#mail_access_details" do
+  describe "#deliver_access_details" do
     context "when no save and return email specified" do
       it "does not send email" do
         expect(BaseMailer).not_to receive(:access_details_email)
-        subject.mail_access_details
+        subject.deliver_access_details
       end
     end
 
@@ -40,7 +40,7 @@ RSpec.describe PasswordForm, :type => :form do
         mock_mailer = double(:mailer)
         expect(mock_mailer).to receive(:deliver)
         expect(BaseMailer).to receive(:access_details_email).with(model, email_address).and_return(mock_mailer)
-        subject.mail_access_details
+        subject.deliver_access_details
       end
     end
   end

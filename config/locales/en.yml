@@ -110,6 +110,9 @@ en:
           new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
 
     labels:
+      user_session:
+        reference: Your unique form number
+        password: Your memorable word
       password:
         password: Your memorable word
         save_and_return_email: Email address
@@ -235,8 +238,22 @@ en:
       claim:
         create: Apply now
         update: Save and continue
+      user_session:
+        create: Next
+    link:
+      claim:
+        return: Return to your saved form
+
+  errors:
+    user_session:
+      not_found: A claim with that form number could not be found
+      invalid: This memorable word does not match the form number
 
   copy:
+    user_session:
+      header: Return to your saved form
+      info: Sign in to return to your saved form.
+      body: If you don't have your unique form number and memorable word you'll have to [start a new form](/).
     new:
       header: Take your employer to a tribunal
       info: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe BaseMailer, :type => :mailer do
+describe BaseMailer do
   let(:claim) { Claim.create }
   let(:email_address) { 'mail@example.com' }
 
