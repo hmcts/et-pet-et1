@@ -1,19 +1,19 @@
 class ClaimPresenter < Struct.new(:claim)
+  include ActionView::Helpers
+  include ActionView::Context
+
   SECTIONS  = %w<claimant representative respondent employment claim_detail>.freeze
   RELATIONS = %w<primary_claimant representative primary_respondent employment claim_detail>.freeze
 
-  def claimant_has_representative
-    yes_no claim.representative.present?
+  def each_section
+    enumerable_sections.each { |section| proc[section] }
   end
 
-  def employed_by_employer
-    yes_no claim.employment.present?
-  end
-
-  alias :respondent_employed_by_employer :employed_by_employer
-
-  def skip?(section)
-    send(section).target.blank?
+  private def enumerable_sections
+    @enumerable_sections ||= SECTIONS.dup.tap do |arr|
+      arr.delete('employment')     if claim.employment.blank?
+      arr.delete('representative') if claim.representative.blank?
+    end
   end
 
   private def yes_no(val)
@@ -31,8 +31,28 @@ class ClaimPresenter < Struct.new(:claim)
       end
     end
 
-    delegate *presenter.instance_methods(false), to: section, prefix: true
+    presenter.instance_methods(false).each do |meth|
+      define_method("#{section}_#{meth}") do
+        value = send(section).send(meth).__value__
+
+        if value.present?
+          value
+        else
+          content_tag(:span, class: 'not-entered') { I18n.t('presenters.blank') }
+        end
+      end
+    end
   end
 
   Hash[SECTIONS.zip RELATIONS].each { |section, relation| add_delegator_for(section, relation) }
+
+  def claimant_has_representative
+    yes_no claim.representative.present?
+  end
+
+  def employed_by_employer
+    yes_no claim.employment.present?
+  end
+
+  alias :respondent_employed_by_employer :employed_by_employer
 end

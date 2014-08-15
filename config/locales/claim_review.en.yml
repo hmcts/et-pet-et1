@@ -1,4 +1,6 @@
 en:
+  presenters:
+    blank: Not entered
   claim_review:
     claimant: Your details
     representative: Your representative

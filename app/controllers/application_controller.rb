@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def ensure_claim_in_progress
+    # session[:claim_reference] = "68SKGCHM6WSK8CHQ"
     redirect_to root_path unless session[:claim_reference].present?
   end
 

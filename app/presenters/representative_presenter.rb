@@ -6,8 +6,7 @@ class RepresentativePresenter < Presenter
   present :organisation_name, :name
 
   def address
-    [address_building, address_street, address_locality, address_county,
-      address_post_code].map { |s| sanitize s }.join('<br>').html_safe
+    AddressPresenter.present(self)
   end
 
   def telephone_number

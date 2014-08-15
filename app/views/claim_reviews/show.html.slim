@@ -5,9 +5,7 @@
 /   = render partial: 'review_table',
 /     locals: { presenter: Presenter.for(section).new(claim), section: section }
 
-- ClaimPresenter::SECTIONS.each do |section|
-  - next if presenter.skip? section
-
+- presenter.each_section do |section|
   table.review-table
     caption = t "claim_review.#{section}"
     colgroup

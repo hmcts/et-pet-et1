@@ -6,11 +6,27 @@ class ClaimDetailPresenter < Presenter
       claims << I18n.t("simple_form.labels.claim.is_unfair_dismissal")
     end
 
-    claims.push *target.pay_claims.
-      map { |c| I18n.t "simple_form.options.claim.pay_claims.#{c}" }
+    # %i<pay_claims discrimination_claims>.each_with_object(claims) do |section, claims|
+    #   collection = target.send(section)
+    #   next unless collection
+    #
+    #   claims.push *collection.
+    #     map { |c| I18n.t "simple_form.options.claim.#{section}.#{c}" }
+    # end
 
-    claims.push *target.discrimination_claims.
-      map { |c| I18n.t "simple_form.options.claim.discrimination_claims.#{c}" }
+    target.pay_claims.each_with_object(claims) do |claim, claims|
+      claims << I18n.t("simple_form.options.claim.pay_claims.#{claim}")
+    end
+
+    target.discrimination_claims.each_with_object(claims) do |claim, claims|
+      claims << I18n.t("simple_form.options.claim.discrimination_claims.#{claim}")
+    end
+
+    # claims.push *target.pay_claims.
+    #   map { |c| I18n.t "simple_form.options.claim.pay_claims.#{c}" }
+    #
+    # claims.push *target.discrimination_claims.
+    #   map { |c| I18n.t "simple_form.options.claim.discrimination_claims.#{c}" }
 
     claims.join('<br />').html_safe
   end
