@@ -5,6 +5,8 @@ RSpec.describe Claim, :type => :model do
 
   it { is_expected.to have_many :claimants }
   it { is_expected.to have_many :respondents }
+  it { is_expected.to have_one  :primary_claimant }
+  it { is_expected.to have_one  :primary_respondent }
 
   let(:claim) { Claim.new id: 1 }
 
@@ -66,6 +68,26 @@ RSpec.describe Claim, :type => :model do
       end
 
       its(:alleges_discrimination_or_unfair_dismissal?) { is_expected.to be true }
+    end
+  end
+
+  describe '#submittable?' do
+    let(:attributes) do
+      {
+        primary_claimant:   Claimant.new,
+        primary_respondent: Respondent.new
+      }
+    end
+
+    context 'when the minimum information is incomplete' do
+      it 'returns false' do
+        expect(attributes.none? { |key, _| Claim.new(attributes.except key).submittable? }).to be true
+      end
+    end
+
+    context 'when the minimum information is complete' do
+      subject { Claim.new attributes }
+      its(:submittable?) { is_expected.to be true }
     end
   end
 end
