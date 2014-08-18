@@ -1,6 +1,9 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
 
+  has_one :primary_claimant,   class_name: 'Claimant'
+  has_one :primary_respondent, class_name: 'Respondent'
+
   has_many :claimants
   has_many :respondents
   has_one  :representative
@@ -33,12 +36,10 @@ class Claim < ActiveRecord::Base
     claimants.where(applying_for_remission: true).count
   end
 
-  def primary_claimant
-    claimants.first
-  end
-
-  def primary_respondent
-    respondents.first
+  def submittable?
+    %i<primary_claimant primary_respondent>.all? do |relation|
+      send(relation).present?
+    end
   end
 
   class << self

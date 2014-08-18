@@ -1,5 +1,8 @@
 en:
   claim_review:
+    incomplete_claim: |
+      Your claim is incomplete. Please go back through the form and ensure all
+      required sections are complete
     claimant: Your details
     representative: Your representative
     respondent: Employer's details

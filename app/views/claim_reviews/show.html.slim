@@ -1,9 +1,6 @@
 = content_for(:header) { t 'copy.review.header' }
 
-/ - { :claimant => :primary_claimant, :representative => :representative }.each do |section, object|
-/   - next unless claim.send(object).present?
-/   = render partial: 'review_table',
-/     locals: { presenter: Presenter.for(section).new(claim), section: section }
+= incomplete_claim_warning
 
 - ClaimPresenter::SECTIONS.each do |section|
   - next if presenter.skip? section
