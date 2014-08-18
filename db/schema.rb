@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805145802) do
+ActiveRecord::Schema.define(version: 20140818100052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,23 +28,6 @@ ActiveRecord::Schema.define(version: 20140805145802) do
     t.datetime "updated_at"
     t.string   "telephone_number"
     t.string   "country"
-  end
-
-  create_table "claim_details", force: true do |t|
-    t.boolean  "is_unfair_dismissal"
-    t.integer  "discrimination_claims"
-    t.integer  "pay_claims"
-    t.text     "other_claim_details"
-    t.text     "claim_details"
-    t.integer  "desired_outcomes"
-    t.text     "other_outcome"
-    t.text     "other_known_claimant_names"
-    t.boolean  "is_whistleblowing"
-    t.boolean  "send_claim_to_whistleblowing_entity"
-    t.text     "miscellaneous_information"
-    t.integer  "claim_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "claimants", force: true do |t|
@@ -68,6 +51,17 @@ ActiveRecord::Schema.define(version: 20140805145802) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.boolean  "is_unfair_dismissal"
+    t.integer  "discrimination_claims"
+    t.integer  "pay_claims"
+    t.text     "other_claim_details"
+    t.text     "claim_details"
+    t.integer  "desired_outcomes"
+    t.text     "other_outcome"
+    t.text     "other_known_claimant_names"
+    t.boolean  "is_whistleblowing"
+    t.boolean  "send_claim_to_whistleblowing_entity"
+    t.text     "miscellaneous_information"
   end
 
   create_table "employments", force: true do |t|
