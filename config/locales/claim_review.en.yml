@@ -1,4 +1,6 @@
 en:
+  presenters:
+    blank: Not entered
   claim_review:
     incomplete_claim: |
       Your claim is incomplete. Please go back through the form and ensure all
@@ -16,6 +18,7 @@ en:
     claimant_contact_preference: Preferred contact
     claimant_is_disabled: Disability
     claimant_is_applying_for_remission: Fee remission
+    claimant_has_representative: Representative
 
     representative_type: Type of representative
     representative_organisation_name: Organisation name

@@ -35,14 +35,52 @@ RSpec.describe ClaimPresenter, type: :presenter do
     end
   end
 
-  describe '#skip?' do
-    context 'when the underlying presenter has a nil target' do
-      let(:claim) { double 'claim', primary_claimant: nil }
-      specify { expect(subject.skip? :claimant).to be true }
+  context 'when underlying methods return `blank?` values' do
+    let(:claim) do
+      Claim.new
     end
 
-    context 'when the underlying presenter has a nil target' do
-      specify { expect(subject.skip? :claimant).to be false }
+    let(:values) do
+      methods = ClaimPresenter.instance_methods(false)
+      methods.delete :each_section
+
+      methods.each { |meth| puts "#{meth}: #{subject.send meth}" }
+      methods.map { |meth| subject.send meth }
+    end
+
+    specify 'all methods return a placeholder indicating information not supplied' do
+      expect(values).to all match 'Not entered'
+    end
+  end
+
+  describe '#each_section' do
+    it 'yields each section name' do
+      expect { |b| subject.each_section &b }.
+        to yield_successive_args "claimant", "representative", "respondent",
+          "employment", "claim_detail"
+    end
+
+    %w<representative employment>.each do |relation|
+      context "when claim##{relation} is nil" do
+        before { allow(claim).to receive(relation) }
+
+        it "does not yield '#{relation}'" do
+          expect { |b| subject.each_section &b }.
+            to_not yield_successive_args relation
+        end
+      end
+    end
+
+    %w<claimant respondent claim_detail>.each do |relation|
+      context "when claim##{relation} is nil" do
+        before { allow(claim).to receive(relation) }
+
+        it "still yields '#{relation}'" do
+          expect { |b| subject.each_section &b }.
+            to yield_successive_args "claimant", "representative", "respondent",
+              "employment", "claim_detail"
+        end
+      end
     end
   end
 end

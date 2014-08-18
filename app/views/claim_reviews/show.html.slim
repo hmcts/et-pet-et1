@@ -2,9 +2,7 @@
 
 = incomplete_claim_warning
 
-- ClaimPresenter::SECTIONS.each do |section|
-  - next if presenter.skip? section
-
+- presenter.each_section do |section|
   table.review-table
     caption = t "claim_review.#{section}"
     colgroup

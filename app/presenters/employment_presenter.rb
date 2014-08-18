@@ -22,7 +22,9 @@ class EmploymentPresenter < Presenter
   present :benefit_details
 
   def current_situation
-    t "simple_form.options.employment.current_situation.#{target.current_situation}"
+    if target.current_situation
+      t "simple_form.options.employment.current_situation.#{target.current_situation}"
+    end
   end
 
   def end_date
