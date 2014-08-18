@@ -1,30 +1,34 @@
 class Presenter
   include ActionView::Helpers
 
-  # class NullObjectProxy# < BasicObject
-  #   def initialize(target)
-  #     @target = target
-  #   end
-  #
-  #   def method_missing(meth, *args, &blk)
-  #     if @target.respond_to? meth
-  #       @target.send(meth)
-  #     elsif @target
-  #       super
-  #     else
-  #       nil
-  #     end
-  #   end
-  #
-  #   def respond_to_missing? method_name, include_private=false
-  #     true
-  #   end
-  # end
+  class Proxy
+    def initialize(target)
+      @target = target
+    end
+
+    def method_missing(meth, *args, &blk)
+      if @target.respond_to? meth
+        @target.send(meth)
+      elsif @target
+        super
+      else
+        nil
+      end
+    end
+
+    def respond_to_missing? method_name, include_private=false
+      if @target
+        @target.respond_to? method_name, include_private
+      else
+        true
+      end
+    end
+  end
 
   attr_reader :target
 
   def initialize(target)
-    @target = target
+    @target = Proxy.new target
   end
 
   def self.present *keys
@@ -62,7 +66,9 @@ class Presenter
   end
 
   def yes_no(val)
-    I18n.t "simple_form.#{val ? 'yes' : 'no'}" unless val.nil?
+    unless val.nil?
+      I18n.t "simple_form.#{val ? 'yes' : 'no'}"
+    end
   end
 
   def date(date)

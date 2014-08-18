@@ -1,10 +1,13 @@
 class ClaimantPresenter < Presenter
   def full_name
-    [t("simple_form.options.claimant.title.#{title}"), first_name, last_name].join ' '
+    salutation = t("simple_form.options.claimant.title.#{title}") if target.title
+    [salutation, first_name, last_name].compact.join ' '
   end
 
   def gender
-    I18n.t "simple_form.options.claimant.gender.#{target.gender}"
+    if target.gender
+      I18n.t "simple_form.options.claimant.gender.#{target.gender}"
+    end
   end
 
   def date_of_birth
@@ -22,11 +25,13 @@ class ClaimantPresenter < Presenter
   present :mobile_number
 
   def contact_preference
-    t "simple_form.options.claimant.contact_preference.#{target.contact_preference}"
+    if target.contact_preference
+      t "simple_form.options.claimant.contact_preference.#{target.contact_preference}"
+    end
   end
 
   def is_disabled
-    yes_no special_needs.present?
+    yes_no special_needs
   end
 
   def is_applying_for_remission

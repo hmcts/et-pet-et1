@@ -35,22 +35,23 @@ RSpec.describe ClaimPresenter, type: :presenter do
     end
   end
 
-  # context 'when underlying methods return `blank?` values' do
-  #   let(:claim) do
-  #     double 'claim', primary_claimant: nil, representative: nil,
-  #       primary_respondent: nil, employment: nil, claim_detail: nil
-  #   end
-  #
-  #   let(:values) do
-  #     methods = ClaimPresenter.instance_methods(false)
-  #     methods.delete :each_section
-  #     methods.map { |meth| subject.send meth }
-  #   end
-  #
-  #   specify 'all methods return a placeholder indicating information not supplied' do
-  #     expect(values).to all match 'Not entered'
-  #   end
-  # end
+  context 'when underlying methods return `blank?` values' do
+    let(:claim) do
+      Claim.new
+    end
+
+    let(:values) do
+      methods = ClaimPresenter.instance_methods(false)
+      methods.delete :each_section
+
+      methods.each { |meth| puts "#{meth}: #{subject.send meth}" }
+      methods.map { |meth| subject.send meth }
+    end
+
+    specify 'all methods return a placeholder indicating information not supplied' do
+      expect(values).to all match 'Not entered'
+    end
+  end
 
   describe '#each_section' do
     it 'yields each section name' do
