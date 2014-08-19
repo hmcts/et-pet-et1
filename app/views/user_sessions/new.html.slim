@@ -1,0 +1,13 @@
+= content_for(:header, t('copy.user_session.header'))
+- content_for(:info) do
+  p = t('copy.user_session.info')
+
+section
+  .main-column
+
+    = simple_form_for user_session, url: user_sessions_path do |f|
+      = f.error_notification
+      p= f.input :reference
+      p= f.input :password, as: :string
+
+      p= f.button :submit

@@ -44,7 +44,7 @@ class Claim < ActiveRecord::Base
 
   class << self
     def find_by_reference(reference)
-      find KeyObfuscator.new.unobfuscate(reference)
+      find_by_id KeyObfuscator.new.unobfuscate(reference)
     end
   end
 end

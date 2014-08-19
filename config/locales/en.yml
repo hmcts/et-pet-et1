@@ -110,9 +110,12 @@ en:
           new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
 
     labels:
+      user_session:
+        reference: Your unique form number
+        password: Your memorable word
       password:
-        password: Create a password
-        password_confirmation: Re-enter the password
+        password: Your memorable word
+        save_and_return_email: Email address
 
       claimant:
         mobile_number: Mobile (if different)
@@ -235,8 +238,22 @@ en:
       claim:
         create: Apply now
         update: Save and continue
+      user_session:
+        create: Next
+    link:
+      claim:
+        return: Return to your saved form
+
+  errors:
+    user_session:
+      not_found: A claim with that form number could not be found
+      invalid: This memorable word does not match the form number
 
   copy:
+    user_session:
+      header: Return to your saved form
+      info: Sign in to return to your saved form.
+      body: If you don't have your unique form number and memorable word you'll have to [start a new form](/).
     new:
       header: Take your employer to a tribunal
       info: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
@@ -268,10 +285,39 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Before you continue
+      header: Before you start
       info: |
+        The claim form may take over an hour to complete.
 
-      reference: Application number
+        You must have a unique form number and a memorable word to retrieve any saved work.
+
+      access_details:
+        header: Your access details
+        reference: Your unique form number
+
+      record_details:
+        header: Record your details
+
+        info: Email the number to yourself, write it down, or print it out.
+
+      memorable_word:
+        header: Enter your memorable word
+
+
+    email:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your unique form number is:
+
+        __%{reference}__
+
+        You need this number, and your memorable word, to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+      reference:
+        header: Unique form number
+
     claimant:
       header: Your details
       personal_details: Personal details

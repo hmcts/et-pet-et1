@@ -1,6 +1,6 @@
 module ClaimsHelper
-  def copy_for(key)
-    Markdown.new(I18n.t 'copy.' + key).to_html.html_safe
+  def copy_for(key, options = {})
+    Markdown.new(I18n.t 'copy.' + key, options).to_html.html_safe
   end
 
   def copy_text

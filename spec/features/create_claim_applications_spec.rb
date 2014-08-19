@@ -5,22 +5,35 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Create a new application' do
     start_claim
+    expect(page).to have_text('Before you start')
+  end
+
+  scenario 'Entering word for save and return' do
+    start_claim
+    fill_in_password 'green'
+
+    claim = Claim.first
+    expect(claim.authenticate 'green').to eq(claim)
+
     expect(page).to have_text('Your details')
   end
 
-  scenario 'Choosing a password for save and return' do
-    pending "Removed functionality for UT. Left as a pending as a reminder to reinstate, i.e. revert this particular commit"
+  scenario 'Entering word and email for save and return' do
     start_claim
-    fill_in_password 'sup3r_s3cr3t'
+    fill_in_password_and_email 'green', 'mail@example.com'
 
     claim = Claim.first
-    expect(claim.authenticate 'sup3r_s3cr3t').to eq(claim)
+    expect(claim.authenticate 'green').to eq(claim)
+
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail.subject).to include(claim.reference)
 
     expect(page).to have_text('Your details')
   end
 
   scenario 'Entering personal details' do
     start_claim
+    fill_in_password
     fill_in_personal_details
 
     expect(page).to have_text("Your representative")
@@ -28,6 +41,7 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Entering representative details' do
     start_claim
+    fill_in_password
     fill_in_personal_details
     fill_in_representative_details
 
@@ -36,6 +50,7 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Entering employer details' do
     start_claim
+    fill_in_password
     fill_in_personal_details
     fill_in_representative_details
     fill_in_employer_details
@@ -45,6 +60,7 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Entering employment details' do
     start_claim
+    fill_in_password
     fill_in_personal_details
     fill_in_representative_details
     fill_in_employer_details
@@ -55,6 +71,7 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Entering claim details' do
     start_claim
+    fill_in_password
     fill_in_personal_details
     fill_in_representative_details
     fill_in_employer_details
