@@ -6,7 +6,8 @@ feature 'Return to your saved form' do
   scenario 'returning to existing application' do
     start_claim
     fill_in_password 'green'
-    form_number = Claim.last.reference
-    fill_in_return_form form_number, 'green'
+    fill_in_return_form Claim.last.reference, 'green'
+
+    expect(page).to have_text('Your details')
   end
 end

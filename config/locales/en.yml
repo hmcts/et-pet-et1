@@ -111,7 +111,7 @@ en:
 
     labels:
       user_session:
-        reference: Your unique form number
+        reference: Your 'save and return' number
         password: Your memorable word
       password:
         password: Your memorable word
@@ -246,14 +246,14 @@ en:
 
   errors:
     user_session:
-      not_found: A claim with that form number could not be found
-      invalid: This memorable word does not match the form number
+      not_found: A claim with that 'save and return' number could not be found
+      invalid: This memorable word does not match the 'save and return' number
 
   copy:
     user_session:
       header: Return to your saved form
       info: Sign in to return to your saved form.
-      body: If you don't have your unique form number and memorable word you'll have to [start a new form](/).
+      body: If you don't have your unique 'save and return' number and memorable word you'll have to [start a new form](/).
     new:
       header: Take your employer to a tribunal
       info: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).
@@ -289,11 +289,11 @@ en:
       info: |
         The claim form may take over an hour to complete.
 
-        You must have a unique form number and a memorable word to retrieve any saved work.
+        You must have a 'save and return' number and a memorable word to retrieve any saved work.
 
       access_details:
         header: Your access details
-        reference: Your unique form number
+        reference: Your 'save and return' number
 
       record_details:
         header: Record your details
@@ -309,14 +309,14 @@ en:
       body: |
         Thank you for starting an employment tribunal claim form.
 
-        Your unique form number is:
+        Your unique 'save and return' number is:
 
         __%{reference}__
 
         You need this number, and your memorable word, to [return to your form](http://gov.uk/) (if you don't complete it in one session).
 
       reference:
-        header: Unique form number
+        header: "'Save and return' number"
 
     claimant:
       header: Your details

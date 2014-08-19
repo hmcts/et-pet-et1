@@ -6,7 +6,7 @@ module FormMethods
 
   def fill_in_return_form reference, word
     visit '/user_sessions/new'
-    fill_in 'form number', with: reference
+    fill_in 'save and return', with: reference
     fill_in 'memorable word', with: word
     click_button 'Next'
   end
