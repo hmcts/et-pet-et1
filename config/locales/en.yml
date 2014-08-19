@@ -346,3 +346,5 @@ en:
       claim_type_hint: You can select more than one
     review:
       header: Check your answers
+      info: |
+        You can change anything that's not right before sending your application.
