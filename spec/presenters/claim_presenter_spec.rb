@@ -44,7 +44,6 @@ RSpec.describe ClaimPresenter, type: :presenter do
       methods = ClaimPresenter.instance_methods(false)
       methods.delete :each_section
 
-      methods.each { |meth| puts "#{meth}: #{subject.send meth}" }
       methods.map { |meth| subject.send meth }
     end
 
