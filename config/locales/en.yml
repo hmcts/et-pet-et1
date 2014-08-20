@@ -183,7 +183,7 @@ en:
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
         other_claim_details: State the other type of claim – or claims – that you’re making
-        claim_details: Give the background and details of your problem at work
+        claim_details: This is your opportunity to tell us about your problem at work.
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
         other_known_claimants: Do you know of other people who have made similar claims against the same employer?
@@ -233,7 +233,9 @@ en:
         end_date: For example, 08 04 2014
         new_job_start_date: For example, 08 04 2014
         notice_period_end_date: For example, 08 04 2014
-
+      claim:
+        claim_details: |
+          Include the background, dates and the people involved.
 
   helpers:
     submit:

@@ -6,7 +6,8 @@ RSpec.describe ClaimForm, :type => :form do
     it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
     it { is_expected.to ensure_length_of(:other_outcome).is_at_most(2500) }
     it { is_expected.to ensure_length_of(:other_known_claimant_names).is_at_most(350) }
-  end
+    it { is_expected.to validate_presence_of :claim_details }
+end
 
   let(:attributes) {
     { is_unfair_dismissal: "1",
