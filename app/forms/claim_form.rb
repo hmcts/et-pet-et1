@@ -12,6 +12,8 @@ class ClaimForm < Form
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :other_outcome,              length: { maximum: 2500 }
 
+  validates :claim_details, presence: true
+  
   private def target
     resource
   end

@@ -1,4 +1,10 @@
-= content_for(:header) { t 'copy.review.header' }
+= content_for(:header, t('copy.review.header'))
+- content_for(:headeractions) do
+  .buttons-action
+    button.button Print this page
+    button.button Share this page
+- content_for(:info) do
+  p = t('copy.review.info')
 
 = incomplete_claim_warning
 

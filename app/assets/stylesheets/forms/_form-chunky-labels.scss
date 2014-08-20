@@ -67,6 +67,7 @@ span.block-label {
   top: 18px;
   left: $gutter-half;
   cursor: pointer;
+  width:auto;
 }
 
 // Use inline, to sit block labels next to each other
@@ -91,4 +92,8 @@ span.block-label {
 .js-enabled .selected {
   background: $white;
   border-color: $black;
+}
+//hide abbr tag (simple_form adds an asterisk)
+label abbr{
+  display: none;
 }

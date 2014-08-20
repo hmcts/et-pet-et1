@@ -124,7 +124,7 @@ module FormMethods
     check 'Another type of claim'
       fill_in 'State the other type of claim – or claims – that you’re making',
         with: 'Boss was a bit of a douchenozzle TBH'
-      fill_in 'Give the background and details of your problem at work',
+      fill_in 'This is your opportunity to tell us about your problem at work',
         with: 'It was all a bit long TBH'
 
     check 'To get my old job back and compensation'

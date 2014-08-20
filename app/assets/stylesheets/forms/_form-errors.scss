@@ -7,3 +7,11 @@
   display:block;
   color:$error-colour;
 }
+.validation-summary{
+  background:lighten($error-colour, 45%);
+  margin: $gutter 0;
+  h2{
+    @extend .heading-medium;
+    margin:0;
+  }
+}

@@ -20,3 +20,61 @@ table td {
 table th {
   font-weight: 700;
 }
+
+// review table
+// ==========================================================================
+
+table.review-table{
+  border-collapse: collapse;
+  width:100%;
+  margin-bottom:2em;
+  col{
+    &.th{
+      width:30%;
+    }
+    &.td:first-child{
+      width:30%;
+    }
+  }
+  caption{
+    @extend .bold-medium;
+    text-align:left;
+    margin-bottom:.5em;
+  }
+  th,td{
+    border-bottom:1px solid $border-colour;
+    vertical-align: top;
+    padding-right:0;
+    width:30%;
+  }
+  th{
+    font-weight:400;
+    color:$grey-1;
+  }
+  td:nth-child(3n){
+    text-align:right;
+    padding-right:1em;
+  }
+  tr:first-child{
+    th,td{
+      border-top:1px solid $border-colour;
+    }
+  }
+  tr.row{
+    th{
+      background:$highlight-colour;
+      color:$text-colour;
+      @extend .bold-small;
+    }
+  }
+}
+
+table.files-table{
+  border:1px solid $border-colour;
+  border-bottom:none;
+  margin-bottom:1em;
+  caption{
+    @extend .bold-medium;
+    text-align:left;
+  }
+}

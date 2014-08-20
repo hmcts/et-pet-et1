@@ -1,30 +1,47 @@
-// Toggles disabled groups of adjacent checkboxes
-
+/* Toggles disabled groups of adjacent checkboxes
+* assumes structure: .related-checkboxes-root + .related-checkboxes-collection
+*/
 module.exports = (function() {
-  var checkboxToggle = {
-    init: function() {
-      $('.form-group-checkbox-toggle').each(function(i, el) {
-        var label = $(el).find('label');
-        checkboxToggle.bindCheckboxes(label);
+  var rootCheckbox = $('.related-checkboxes-root'),
+    toggleRootCheckbox = function(array, root) {
+      var checkbox = root.find('input');
+      return checkbox.prop({
+        checked : array.length
       });
     },
-    bindCheckboxes: function(label) {
-      var input = label.find('input'),
-        target = $(document.getElementById(input.attr('data-target'))),
-        checked = function(){
-          return input.is(':not(:checked)');
-        },
-        checkboxes = target.find('label');
+    toggleCheckboxes = function(checked, array, val) {
+      if(checked){
+        return array.push(val);
+      } else {
+        return array.pop(array.indexOf(val));
+      }
+    };
 
-      input.on('click', function(){
-        checkboxes.toggleClass('disabled', checked())
-          .find('input').attr('disabled', checked());
+  rootCheckbox.each(function(i, root) {
+    var main = $(root),
+      collection = main.next('.related-checkboxes-collection'),
+      selectedArray = [],
+      checkboxes = collection.find('input');
+
+    main.on('change', function(){
+      var checked = main.is(':checked');
+      if(!checked){
+        $.each(selectedArray, function(i,val){
+          $(checkboxes[val]).prop('checked' , false);
+        });
+        selectedArray = [];
+      }
+    });
+
+    checkboxes.each(function(index, el) {
+      var checked,
+        checkbox = $(el);
+      checkbox.on('change', function() {
+        checked = checkbox.is(':checked');
+        toggleCheckboxes(checked, selectedArray, index);
+        toggleRootCheckbox(selectedArray, main);
       });
-    }
-  };
-
-  checkboxToggle.init();
-
-  return checkboxToggle;
+    })
+  });
 
 })();
