@@ -2,23 +2,29 @@
 // Header
 // ==========================================================================
   header{
-    position:relative;
-    &.content-header{
+    &.content-header {
       padding-top:$gutter;
-      h1.heading-xlarge{
+      h1.heading-xlarge {
         margin-bottom:0.3em;
       }
     }
-    h1.heading-xlarge + .buttons-action{
+    .claim_reviews & {
+      h1.heading-xlarge {
+        @include col(2/3);
+      }
+      .buttons-action{
         @include col(1/3);
-        position:absolute;
-        top:1.8em;
-        right:0;
-        margin: 1.8em 0 0;
+        float:right;
+        margin-top: 1.8em;
+        margin-right:0;
         button{
           @include col(1/2);
           text-align:center;
         }
+      }
+      p {
+        @include col(2/3);
+      }
     }
   }
 // ==========================================================================
