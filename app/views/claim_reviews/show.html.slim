@@ -1,28 +1,24 @@
-= content_for (:content_override) do
-  = render 'peek/bar'
-  main#wrapper(role="main")
-    .container
-      section#content
-        header.content-header.inner-block.group.split-header
-          h1.heading-xlarge = t 'copy.review.header'
-          .buttons-action
-            button.button Print this page
-            button.button Share this page
-          = yield  t 'copy.review.info'
-        .inner-block
-          = incomplete_claim_warning
+= content_for(:header, t('copy.review.header'))
+- content_for(:headeractions) do
+  .buttons-action
+    button.button Print this page
+    button.button Share this page
+- content_for(:info) do
+  p = t('copy.review.info')
 
-          - presenter.each_section do |section|
-            table.review-table
-              caption = t "claim_review.#{section}"
-              colgroup
-                col
-                col
-                col
-              tbody
-              - presenter.methods.grep(/\A#{section}_/).each do |method|
-                tr
-                  th= t "claim_review.#{method}"
-                  td= presenter.send(method)
-                  td
-                    = link_to "Change", page_claim_path(page: section)
+= incomplete_claim_warning
+
+- presenter.each_section do |section|
+  table.review-table
+    caption = t "claim_review.#{section}"
+    colgroup
+      col
+      col
+      col
+    tbody
+    - presenter.methods.grep(/\A#{section}_/).each do |method|
+      tr
+        th= t "claim_review.#{method}"
+        td= presenter.send(method)
+        td
+          = link_to "Change", page_claim_path(page: section)

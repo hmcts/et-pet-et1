@@ -23,7 +23,9 @@
     .container
       section#content
         header.content-header.inner-block.group
-          h1.heading-xlarge = yield :header
+          h1.heading-xlarge
+            = yield :header
+          = yield :headeractions
           = yield :info
         .inner-block
           = yield
