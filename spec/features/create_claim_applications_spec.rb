@@ -3,6 +3,21 @@ require 'rails_helper'
 feature 'Claim applications', type: :feature do
   include FormMethods
 
+  before do
+    stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/new_claim').
+      with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+  end
+
+  let(:fgr_response) do
+    {
+      "fgr"               => 511234567800,
+      "ETOfficeCode"      => 22,
+      "ETOfficeName"      => "Birmingham",
+      "ETOfficeAddress"   => "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU",
+      "ETOfficeTelephone" => "0121 600 7780"
+    }
+  end
+
   scenario 'Create a new application' do
     start_claim
     expect(page).to have_text('Before you start')
