@@ -53,6 +53,7 @@ class RespondentForm < Form
   end
 
   def worked_at_different_address=(v)
-    attributes[:worked_at_different_address] = ActiveRecord::ConnectionAdapters::Column.value_to_boolean(v)
+    type = ActiveRecord::Type::Boolean.new
+    attributes[:worked_at_different_address] = type.type_cast_from_user(v)
   end
 end

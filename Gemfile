@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.0.beta1'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~>  5.0.0.beta1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -38,7 +38,10 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'codeclimate-test-reporter', require: nil
   gem 'rspec-its', require: 'rspec/its'
+  gem 'dotenv-rails'
 end
+
+gem 'webmock', group: :test
 
 gem 'peek'
 gem 'peek-git'
@@ -55,3 +58,4 @@ gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'moj_template', '0.12.0'
 gem 'redcarpet', require: 'redcarpet/compat'
 gem 'bitmask_attributes'
+gem 'httparty'

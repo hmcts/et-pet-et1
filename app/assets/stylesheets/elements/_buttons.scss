@@ -46,7 +46,7 @@ summary {
 }
 
 details summary {
-  @extend .button-link;
+  @extend .button-link !optional;
 }
 
 details summary:focus {
