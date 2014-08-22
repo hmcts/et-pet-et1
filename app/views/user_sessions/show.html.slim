@@ -1,0 +1,13 @@
+= content_for(:header, t('copy.user_session.show.header'))
+
+section
+  .main-column
+    p= copy_for 'user_session.show.info'
+
+    = simple_form_for user_session, url: user_sessions_path, method: :delete do |f|
+      p.reference
+        = t 'copy.password.access_details.reference'
+      p.reference
+        strong= claim.reference
+
+      p= f.button :submit, name: 'delete', value: t('helpers.submit.user_session.delete')

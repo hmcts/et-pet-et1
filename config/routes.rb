@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :user_sessions, only: %i<new create>
+  resource :user_sessions, only: %i<new create show destroy>
 
   root to: 'claims#new'
 end

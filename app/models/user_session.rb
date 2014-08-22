@@ -9,6 +9,10 @@ class UserSession < PlainModel
     Claim.find_by_reference(reference)
   end
 
+  def persisted?
+    reference.present?
+  end
+
   private
 
   def authenticates

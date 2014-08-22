@@ -7,4 +7,6 @@ section
     .form-inputs
       = render partial: current_step.to_s, locals: { f: f }
     .form-actions
-      = f.button :submit, value: t('helpers.submit.claim.update')
+      = f.button :submit
+      - if current_step != 'password'
+        = f.button :submit, name: 'return', value: t('helpers.submit.return')
