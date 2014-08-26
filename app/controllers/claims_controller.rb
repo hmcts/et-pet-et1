@@ -16,14 +16,16 @@ class ClaimsController < ApplicationController
   def update
     resource.assign_attributes params[current_step]
 
-    if resource.save
-      if params[:return]
-        redirect_to user_sessions_path
-      else
-        redirect_to page_claim_path(page: transition_manager.forward)
-      end
+    saved = resource.save
+
+    if params[:return]
+      redirect_to user_sessions_path
     else
-      render action: :show
+      if saved
+        redirect_to page_claim_path(page: transition_manager.forward)
+      else
+        render action: :show
+      end
     end
   end
 

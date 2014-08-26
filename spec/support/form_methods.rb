@@ -5,7 +5,7 @@ module FormMethods
   end
 
   def end_session
-    click_button 'Save now and complete later'
+    click_button 'Complete later'
     click_button 'Sign out now'
   end
 
