@@ -239,11 +239,13 @@ en:
 
   helpers:
     submit:
+      update: Save and continue
+      return: Save now and complete later
       claim:
         create: Apply now
-        update: Save and continue
       user_session:
         create: Next
+        delete: Sign out now
     link:
       claim:
         return: Return to your saved form
@@ -255,9 +257,14 @@ en:
 
   copy:
     user_session:
-      header: Return to your saved form
-      info: Sign in to return to your saved form.
-      body: If you don't have your unique 'save and return' number and memorable word you'll have to [start a new form](/).
+      new:
+        header: Return to your saved form
+        info: Sign in to return to your saved form.
+        body: If you don't have your 'save and return' number and memorable word you'll have to [start a new form](/).
+      show:
+        header: Saved
+        info: Make sure you know your  'save and return’ number and memorable word before you sign out (or you'll lose your work).
+
     new:
       header: Take your employer to a tribunal
       info: Apply online to an employment tribunal with an ET1 claim form (England, Wales and Scotland).

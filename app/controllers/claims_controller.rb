@@ -17,7 +17,11 @@ class ClaimsController < ApplicationController
     resource.assign_attributes params[current_step]
 
     if resource.save
-      redirect_to page_claim_path(page: transition_manager.forward)
+      if params[:return]
+        redirect_to user_sessions_path
+      else
+        redirect_to page_claim_path(page: transition_manager.forward)
+      end
     else
       render action: :show
     end

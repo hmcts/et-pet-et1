@@ -4,6 +4,11 @@ module FormMethods
     click_button 'Apply now'
   end
 
+  def end_session
+    click_button 'Save now and complete later'
+    click_button 'Sign out now'
+  end
+
   def fill_in_return_form reference, word
     visit '/user_sessions/new'
     fill_in 'save and return', with: reference
@@ -22,7 +27,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_personal_details
+  def fill_in_personal_details(submit_form: true)
     select 'Mr', from: 'Title'
 
     fill_in 'First name', with: 'Barrington'
@@ -48,7 +53,7 @@ module FormMethods
 
     choose  'claimant_applying_for_remission_true'
 
-    click_button 'Save and continue'
+    click_button 'Save and continue' if submit_form
   end
 
   def fill_in_representative_details

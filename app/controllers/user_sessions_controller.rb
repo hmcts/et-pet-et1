@@ -4,6 +4,10 @@ class UserSessionsController < ApplicationController
     session.clear
   end
 
+  def show
+    user_session.reference = session[:claim_reference]
+  end
+
   def create
     if user_session.save
       session[:claim_reference] = user_session.reference
@@ -11,6 +15,11 @@ class UserSessionsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to root_path
   end
 
   private

@@ -18,6 +18,21 @@ describe UserSession do
     end
   end
 
+  describe '#persisted?' do
+    context 'when there is a reference' do
+      it 'is persisted' do
+        expect(subject).to be_persisted
+      end
+    end
+
+    context 'when there is no reference' do
+      before { subject.reference = nil }
+      it 'is not persisted' do
+        expect(subject).to_not be_persisted
+      end
+    end
+  end
+
   describe '#authenticates' do
     it 'does not add any errors when authentication successful' do
       expect(subject.save).to eq(true)
