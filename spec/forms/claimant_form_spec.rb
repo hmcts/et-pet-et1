@@ -11,11 +11,11 @@ RSpec.describe ClaimantForm, :type => :form do
     it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female prefer_not_to_say> }
     it { is_expected.to ensure_inclusion_of(:contact_preference).in_array %w<email post fax> }
 
-    it { is_expected.to ensure_length_of(:first_name).is_at_most(25) }
+    it { is_expected.to ensure_length_of(:first_name).is_at_most(100) }
     it { is_expected.to ensure_length_of(:last_name).is_at_most(100) }
 
-    it { is_expected.to ensure_length_of(:address_building).is_at_most(30) }
-    it { is_expected.to ensure_length_of(:address_street).is_at_most(30) }
+    it { is_expected.to ensure_length_of(:address_building).is_at_most(75) }
+    it { is_expected.to ensure_length_of(:address_street).is_at_most(75) }
     it { is_expected.to ensure_length_of(:address_locality).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
@@ -23,7 +23,7 @@ RSpec.describe ClaimantForm, :type => :form do
 
 
     %i<address_telephone_number mobile_number fax_number>.each do |number|
-      it { is_expected.to ensure_length_of(number).is_at_most(15) }
+      it { is_expected.to ensure_length_of(number).is_at_most(21) }
     end
 
     %w<email_address fax_number>.each do |attribute|

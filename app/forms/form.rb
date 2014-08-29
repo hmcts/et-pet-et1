@@ -1,6 +1,13 @@
 class Form
   include ActiveModel::Model
 
+  ADDRESS_LINE_LENGTH  = 75
+  EMAIL_ADDRESS_LENGTH = 100
+  LOCALITY_LENGTH      = 25
+  NAME_LENGTH          = 100
+  PHONE_NUMBER_LENGTH  = 21
+  POSTCODE_LENGTH      = 8
+
   attr_accessor :resource
 
   # TODO smarter delegation of this method to take into account delegated
