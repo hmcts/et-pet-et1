@@ -4,29 +4,25 @@ class ClaimantForm < Form
   CONTACT_PREFERENCES = %i<email post fax>.freeze
   COUNTRIES           = %i<united_kingdom other>.freeze
 
-  attributes :first_name, :last_name, :date_of_birth, :address_telephone_number,
+  include AddressAttributes
+
+  attributes :first_name, :last_name, :date_of_birth, :address_country,
              :mobile_number, :fax_number, :email_address, :special_needs,
-             :title, :gender, :contact_preference, :address_building,
-             :address_street, :address_locality, :address_county, :address_post_code,
-             :address_country, :applying_for_remission
+             :title, :gender, :contact_preference,
+             :applying_for_remission
 
   booleans   :has_special_needs, :has_representative
 
-  validates :first_name, :last_name, :address_building, :address_street,
-            :address_locality, :address_post_code, presence: true
+  validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
   validates :title, inclusion: { in: TITLES.map(&:to_s) }
   validates :gender, inclusion: { in: GENDERS.map(&:to_s) }
+  validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES.map(&:to_s) }
-  validates :first_name, :address_locality, :address_county, length: { maximum: 25 }
-  validates :last_name, length: { maximum: 100 }
-  validates :address_building, :address_street, length: { maximum: 30 }
-  validates :address_telephone_number, :mobile_number, :fax_number, length: { maximum: 15 }
-  validates :address_post_code, length: { maximum: 8 }
+  validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }
   validates :address_country, inclusion: { in: COUNTRIES.map(&:to_s) }
-
   validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
-  validates :email_address, presence: { if: -> { contact_preference.email? } }
+  validates :email_address, presence: { if: -> { contact_preference.email? } }, length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   def contact_preference
     ActiveSupport::StringInquirer.new(attributes[:contact_preference] || "")

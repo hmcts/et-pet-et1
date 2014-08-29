@@ -16,13 +16,13 @@ RSpec.describe RepresentativeForm, :type => :form do
     it { is_expected.to ensure_length_of(:organisation_name).is_at_most(100) }
 
     it { is_expected.to ensure_length_of(:address_building).is_at_most(75) }
-    it { is_expected.to ensure_length_of(:address_street).is_at_most(30) }
-    it { is_expected.to ensure_length_of(:address_locality).is_at_most(30) }
+    it { is_expected.to ensure_length_of(:address_street).is_at_most(75) }
+    it { is_expected.to ensure_length_of(:address_locality).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
     it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
 
-    it { is_expected.to ensure_length_of(:address_telephone_number).is_at_most(15) }
-    it { is_expected.to ensure_length_of(:mobile_number).is_at_most(15) }
+    it { is_expected.to ensure_length_of(:address_telephone_number).is_at_most(21) }
+    it { is_expected.to ensure_length_of(:mobile_number).is_at_most(21) }
     it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
   end
 
