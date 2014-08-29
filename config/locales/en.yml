@@ -240,7 +240,7 @@ en:
   helpers:
     submit:
       update: Save and continue
-      return: Save now and complete later
+      return: Complete later
       claim:
         create: Apply now
       user_session:

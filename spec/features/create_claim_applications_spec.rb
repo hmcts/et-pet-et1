@@ -25,14 +25,14 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Entering word for save and return' do
     start_claim
-    expect(page).to_not have_button('Save now and complete later')
+    expect(page).to_not have_button('Complete later')
     fill_in_password 'green'
 
     claim = Claim.first
     expect(claim.authenticate 'green').to eq(claim)
 
     expect(page).to have_text('Your details')
-    expect(page).to have_button('Save now and complete later')
+    expect(page).to have_button('Complete later')
   end
 
   scenario 'Entering word and email for save and return' do

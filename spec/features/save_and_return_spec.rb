@@ -8,12 +8,19 @@ feature 'Save and Return' do
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Save now and complete later'
+    click_button 'Complete later'
     expect(page).to have_text('Saved')
     expect(page).to have_text(Claim.last.reference)
     click_button 'Sign out now'
 
     expect(page).to have_text('Take your employer to a tribunal')
+  end
+
+  scenario 'ending the session when current page invalid' do
+    start_claim
+    fill_in_password
+    click_button 'Complete later'
+    expect(page).to have_text('Saved')
   end
 
   scenario 'returning to existing application' do
