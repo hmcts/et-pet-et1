@@ -4,10 +4,10 @@ class Claim < ActiveRecord::Base
   has_one :primary_claimant,   class_name: 'Claimant'
   has_one :primary_respondent, class_name: 'Respondent'
 
-  has_many :claimants
-  has_many :respondents
-  has_one  :representative
-  has_one  :employment
+  has_many :claimants, dependent: :destroy
+  has_many :respondents, dependent: :destroy
+  has_one  :representative, dependent: :destroy
+  has_one  :employment, dependent: :destroy
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
