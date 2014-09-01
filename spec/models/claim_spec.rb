@@ -3,8 +3,10 @@ require 'rails_helper'
 RSpec.describe Claim, :type => :model do
   it { is_expected.to have_secure_password }
 
-  it { is_expected.to have_many :claimants }
-  it { is_expected.to have_many :respondents }
+  it { is_expected.to have_many(:claimants).dependent(:destroy) }
+  it { is_expected.to have_many(:respondents).dependent(:destroy) }
+  it { is_expected.to have_one(:representative).dependent(:destroy) }
+  it { is_expected.to have_one(:employment).dependent(:destroy) }
   it { is_expected.to have_one  :primary_claimant }
   it { is_expected.to have_one  :primary_respondent }
 
