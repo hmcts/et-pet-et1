@@ -7,6 +7,7 @@ RSpec.describe Claim, :type => :model do
   it { is_expected.to have_many(:respondents).dependent(:destroy) }
   it { is_expected.to have_one(:representative).dependent(:destroy) }
   it { is_expected.to have_one(:employment).dependent(:destroy) }
+  it { is_expected.to have_one(:office).dependent(:destroy) }
   it { is_expected.to have_one  :primary_claimant }
   it { is_expected.to have_one  :primary_respondent }
 

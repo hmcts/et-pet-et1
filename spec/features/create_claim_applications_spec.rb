@@ -4,7 +4,7 @@ feature 'Claim applications', type: :feature do
   include FormMethods
 
   before do
-    stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/new_claim').
+    stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
       with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
   end
 
