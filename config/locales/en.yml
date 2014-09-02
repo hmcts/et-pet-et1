@@ -130,6 +130,7 @@ en:
         address_street: Street
         address_county: County
         address_post_code: Postcode
+        address_country: Country
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
