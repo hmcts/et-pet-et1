@@ -114,7 +114,7 @@ en:
         reference: Your 'save and return' number
         password: Your memorable word
       password:
-        password: Enter a memorable word (at least 5 characters long)
+        password: Your memorable word
         save_and_return_email: Email address
 
       claimant:
@@ -194,6 +194,8 @@ en:
         miscellaneous_information: Additional information
 
     hints:
+      password:
+        password: Enter a memorable word (at least 5 characters long)
       claimant:
         date_of_birth: For example, 08 04 2014
         address_telephone_number: For example, 020 7649 9122
@@ -312,8 +314,7 @@ en:
 
       record_details:
         header: Send yourself an email
-
-        info: Email the number to yourself, write it down, or print it out.
+        info: Get your 'save and return' number in an email
 
     email:
       subject: 'Employment tribunal: %{reference}'
