@@ -62,7 +62,7 @@ en:
 
       respondent:
         no_acas_number: I don't have an Acas number
-        no_acas_number_reason:
+        no_acas_number_reason: Why don't you have an Acas number?
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
@@ -118,13 +118,13 @@ en:
         save_and_return_email: Email address
 
       claimant:
-        mobile_number: Mobile (if different)
+        mobile_number: Alternative phone or mobile number
         contact_preference: Best way to send correspondence to you
         fax_number: Fax
         has_special_needs: Do you have a disability or health condition?
         special_needs: Tell us how we can help you.
         has_representative: Do you have a representative?
-        address_telephone_number: Telephone
+        address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
@@ -134,7 +134,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
-        address_telephone_number: Telephone
+        address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
@@ -148,19 +148,20 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        address_telephone_number: Telephone
+        name: Name of organisation
+        address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
         address_county: County
         address_post_code: Postcode
-        work_address_telephone_number: Telephone
+        work_address_telephone_number: Phone number
         work_address_building: Building number or name
         work_address_locality: Town/city
         work_address_street: Street
         work_address_county: County
         work_address_post_code: Postcode
-        worked_at_different_address: Did you work at a different address to the one given above?
+        worked_at_different_address: Did you work at the same address to the one given above?
         was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
         no_acas_number: I don't have an Acas number
 
@@ -187,7 +188,7 @@ en:
         claim_details: This is your opportunity to tell us about your problem at work.
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
-        other_known_claimants: Do you know of other people who have made similar claims against the same employer?
+        other_known_claimants: Do you know of other people who are making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
@@ -224,7 +225,7 @@ en:
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the <a href="http://www.acas.org.uk/earlyconciliation">Acas website</a>.
         address_telephone_number: For example, 020 7649 9122
-        address_building: May be different to your work address
+        address_building: This may the head office and different to your own work address
         work_address_telephone_number: For example, 020 7649 9122
       employment:
         job_title: The job you were doing at the time of the problem at work
@@ -237,6 +238,8 @@ en:
         new_job_start_date: For example, 08 04 2014
         notice_period_end_date: For example, 08 04 2014
       claim:
+        other_claim_details: |
+          Eg, your employer hasn’t allowed you to take your statutory annual leave entitlement.
         claim_details: |
           Include the background, dates and the people involved.
 
@@ -343,9 +346,9 @@ en:
     respondent:
       header: Employer's details
       hint: |
-        Give details about the person or organisation you're making a claim
+        Give details about the employer, person or organisation you're making a claim
         against (known as the 'respondent' at a tribunal). If you need to, you
-        can add more names and details later.
+        can add more respondents later.
       work_address: Give details of your work address.
     employment:
       header: Employment details
