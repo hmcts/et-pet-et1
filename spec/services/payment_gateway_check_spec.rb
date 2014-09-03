@@ -2,13 +2,14 @@ require 'rails_helper'
 
 Thread.abort_on_exception = true
 
-RSpec.describe PaymentGatewayCheck, type: :thread do
+RSpec.describe PaymentGatewayCheck, type: :service do
   describe '.available?' do
     around(:example) do |example|
       pdq_stub
       subject.run
-      example.run
+      WebMock.after_request { example.run }
       subject.stop
+      WebMock.reset_callbacks
     end
 
     context 'when the gateway returns HTTP error codes' do
