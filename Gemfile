@@ -39,6 +39,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'codeclimate-test-reporter', require: nil
   gem 'rspec-its', require: 'rspec/its'
+  gem 'dotenv-deployment'
   gem 'dotenv-rails'
 end
 
@@ -56,3 +57,4 @@ gem 'redcarpet', require: 'redcarpet/compat'
 gem 'bitmask_attributes'
 gem 'httparty'
 gem 'uk_postcode'
+gem 'state_machine', require: 'state_machine/core'
