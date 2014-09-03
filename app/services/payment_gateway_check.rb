@@ -15,7 +15,7 @@ module PaymentGatewayCheck
     MUTEX.synchronize { @available }
   end
 
-  %i<run stop>.each { |m| define_method(m) { TASK.send(m) } }
+  delegate :run, :stop, to: :TASK
 
   extend self
 end
