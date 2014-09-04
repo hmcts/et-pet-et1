@@ -8,8 +8,8 @@ RSpec.describe Claim, :type => :claim do
   it { is_expected.to have_one(:representative).dependent(:destroy) }
   it { is_expected.to have_one(:employment).dependent(:destroy) }
   it { is_expected.to have_one(:office).dependent(:destroy) }
-  it { is_expected.to have_one  :primary_claimant }
-  it { is_expected.to have_one  :primary_respondent }
+  it { is_expected.to have_one(:primary_claimant) }
+  it { is_expected.to have_one(:primary_respondent) }
 
   let(:claim) { Claim.new(id: 1) }
 
@@ -139,6 +139,90 @@ RSpec.describe Claim, :type => :claim do
 
       it 'returns false' do
         expect(subject.payment_applicable?).to be false
+      end
+    end
+  end
+
+  describe '#state' do
+    describe 'for a new record' do
+      it 'is "created"' do
+        expect(subject.state).to eq('created')
+      end
+    end
+  end
+
+  describe '#submit!' do
+    context 'transitioning state from "created"' do
+      context 'when the claim is in a submittable state' do
+        before { allow(subject).to receive_messages :submittable? => true, :save! => true }
+
+        context 'and payment is required' do
+          before { allow(subject).to receive(:payment_applicable?).and_return true }
+
+          it 'transitions state to "payment_required"' do
+            subject.submit!
+            expect(subject.state).to eq('payment_required')
+          end
+        end
+
+        context 'and payment is not required' do
+          before { allow(subject).to receive(:payment_applicable?).and_return false }
+
+          it 'transitions state to "enqueued_for_submission"' do
+            subject.submit!
+            expect(subject.state).to eq('enqueued_for_submission')
+          end
+
+          it 'saves the claim' do
+            expect(subject).to receive(:save!)
+            subject.submit!
+          end
+
+          it 'enqueues the claim for submission'
+        end
+      end
+
+      context 'when the claim is not in a submittable state' do
+        before { allow(subject).to receive(:submittable?).and_return false }
+
+        it 'raises "StateMachine::InvalidTransition"' do
+          expect { subject.submit! }.to raise_error StateMachine::InvalidTransition
+        end
+      end
+    end
+
+    context 'transitioning state from "payment_required"' do
+      before do
+        allow(subject).to receive_messages :save! => true
+        subject.state = 'payment_required'
+      end
+
+      context 'when payment has been received' do
+        it 'transitions state to "enqueued_for_submission"'
+        it 'enqueues the claim for submission'
+      end
+
+      context 'when payment has not been received' do
+        it 'raises "StateMachine::InvalidTransition"'
+      end
+    end
+  end
+
+  describe '#finalize!' do
+    context 'transitioning state from "enqueued_for_submission"' do
+      before do
+        allow(subject).to receive_messages :save! => true
+        subject.state = 'enqueued_for_submission'
+      end
+
+      it 'transitions state to "submitted"' do
+        subject.finalize!
+        expect(subject.state).to eq('submitted')
+      end
+
+      it 'saves the claim' do
+        expect(subject).to receive(:save!)
+        subject.finalize!
       end
     end
   end

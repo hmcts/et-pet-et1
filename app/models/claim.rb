@@ -21,6 +21,8 @@ class Claim < ActiveRecord::Base
   bitmask :pay_claims,            as: PAY_COMPLAINTS
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
 
+  after_initialize :setup_state_machine
+
   def alleges_discrimination_or_unfair_dismissal?
     discrimination_claims.any? || is_unfair_dismissal?
   end
@@ -59,4 +61,12 @@ class Claim < ActiveRecord::Base
       find_by_id KeyObfuscator.new.unobfuscate(reference)
     end
   end
+
+  private def state_machine
+    @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
+  end
+
+  alias :setup_state_machine :state_machine
+
+  delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
 end

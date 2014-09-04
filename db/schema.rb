@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20140901134253) do
     t.boolean  "send_claim_to_whistleblowing_entity"
     t.text     "miscellaneous_information"
     t.string   "fee_group_reference"
+    t.string   "state"
   end
 
   create_table "employments", force: true do |t|
