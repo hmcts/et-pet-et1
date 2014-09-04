@@ -1,4 +1,4 @@
-RSpec.describe ClaimFeeCalculator, type: :service do
+RSpec.describe ClaimFeeCalculator, type: :remissions do
   let(:claim) { Claim.new }
 
   def calculation
@@ -170,97 +170,72 @@ RSpec.describe ClaimFeeCalculator, type: :service do
       end
     end
 
-    describe 'calculating the application fee remission' do
-      context 'when the claim pertains to discrimination or unfair dismissal' do
+    describe 'calculating the application fee with remission' do
+      context 'for a single claimant who is claiming remission' do
         before do
-          allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
-            and_return true
+          allow(claim).to receive(:claimant_count).and_return 1
+          allow(claim).to receive(:remission_claimant_count).and_return 1
         end
 
-        context 'with a single claimant' do
-          before { allow(claim).to receive(:claimant_count).and_return 1 }
-
-          it 'is the same as the regular fee' do
-            expect(calculation.application_fee_after_remission).
-              to eq calculation.application_fee
-          end
+        it 'is 0, i.e. 100% remission' do
+          expect(calculation.application_fee_after_remission).to eq 0
         end
+      end
 
-        context "with 2..10 claimants" do
-          context 'and only one claimant is not seeking remissions' do
-            it "is 50% of the regular fee" do
-              (2..10).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 1
-                allow(claim).to receive(:claimant_count).and_return i
-
-                expect(calculation.application_fee_after_remission).
-                  to eq(calculation.application_fee * 0.5)
-               end
-            end
-          end
-
-          context 'and more than one claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (2..10).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 2
-                allow(claim).to receive(:claimant_count).and_return i
-
-                expect(calculation.application_fee_after_remission).
-                  to eq calculation.application_fee
-               end
-            end
-          end
-        end
-
-        context "with 11..200 claimants" do
-          (1...4).each do |count|
-            context "and #{count} claimants are not seeking remissions" do
-              it "is #{count * 0.25 * 100}% of the regular fee" do
-                (11..200).each do |i|
-                  allow(claim).to receive(:remission_claimant_count).and_return i - count
-                  allow(claim).to receive(:claimant_count).and_return i
+      context 'for 2..10 claimants' do
+        context 'when number_of_claimants - number_of_claimants_applying_for_remission' do
+          context 'is less than or equal to 2' do
+            it 'is equal to regular_fee / 2 * (number_of_claimants - number_of_claimants_applying_for_remission)' do
+              (2..10).each do |claimant_count|
+                (1..2).each do |delta|
+                  allow(claim).to receive(:remission_claimant_count).and_return claimant_count - delta
+                  allow(claim).to receive(:claimant_count).and_return claimant_count
 
                   expect(calculation.application_fee_after_remission).
-                    to eq(calculation.application_fee * 0.25 * count)
-                 end
+                    to eq(calculation.application_fee / 2 * (claim.claimant_count - claim.remission_claimant_count))
+                end
               end
             end
           end
 
-          context 'and 4 or more claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (11..200).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 5
-                allow(claim).to receive(:claimant_count).and_return i
+          context 'is greater than 2' do
+            it 'is equal to the regular fee' do
+              (2..10).each do |claimant_count|
+                (3..claimant_count).each do |delta|
+                  allow(claim).to receive(:remission_claimant_count).and_return claimant_count - delta
+                  allow(claim).to receive(:claimant_count).and_return claimant_count
 
-                expect(calculation.application_fee_after_remission).
-                  to eq calculation.application_fee
-               end
+                  expect(calculation.application_fee_after_remission).
+                    to eq calculation.application_fee
+                end
+              end
             end
           end
         end
+      end
 
-        context "with 201 or more claimants" do
-          (1...6).each do |count|
-            context "and #{count} claimants are not seeking remissions" do
-              fraction = Rational(1, 6)
+      context "with 11..200 claimants" do
+        context 'when number of claimants - number of claimants applying for remission' do
+          context 'is less than or equal to 4' do
+            it 'is equal to regular_fee / 4 * (number_of_claimants - number_of_claimants_applying_for_remission)' do
+              (11..200).each do |claimant_count|
+                (1..4).each do |delta|
+                  allow(claim).to receive(:remission_claimant_count).and_return claimant_count - delta
+                  allow(claim).to receive(:claimant_count).and_return claimant_count
 
-              it "is #{"%.2f" % (count * fraction * 100)}% of the regular fee" do
-                allow(claim).to receive(:remission_claimant_count).and_return 201 - count
-                allow(claim).to receive(:claimant_count).and_return 201
-
-                expect(calculation.application_fee_after_remission).
-                  to eq(calculation.application_fee * fraction * count)
+                  expect(calculation.application_fee_after_remission).
+                    to eq(calculation.application_fee / 4 * (claim.claimant_count - claim.remission_claimant_count))
+                end
               end
             end
           end
 
-          context 'and 6 or more claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (11..200).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return 195
-                allow(claim).to receive(:claimant_count).and_return 201
+          context 'is greater than 4' do
+            it 'is equal to the regular fee' do
+              (11..200).each do |claimant_count|
+                # Would prefer to loop 5..claimant_count but that would be O(n^2)
+                allow(claim).to receive(:remission_claimant_count).and_return 5
+                allow(claim).to receive(:claimant_count).and_return claimant_count
 
                 expect(calculation.application_fee_after_remission).
                   to eq calculation.application_fee
@@ -270,100 +245,29 @@ RSpec.describe ClaimFeeCalculator, type: :service do
         end
       end
 
-      context 'when the claim does not pertain to discrimination or unfair dismissal' do
-        before do
-          allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
-            and_return false
-        end
+      context "with 201 or more claimants" do
+        context 'when number of claimants - number of claimants applying for remission' do
+          let(:claimant_count) { 201 }
+          context 'is less than or equal to 6' do
 
-        context 'with a single claimant' do
-          before { allow(claim).to receive(:claimant_count).and_return 1 }
-
-          it 'is the same as the regular fee' do
-            expect(calculation.application_fee_after_remission).
-              to eq calculation.application_fee
-          end
-        end
-
-        context "with 2..10 claimants" do
-          context 'and only one claimant is not seeking remissions' do
-            it "is 50% of the regular fee" do
-              (2..10).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 1
-                allow(claim).to receive(:claimant_count).and_return i
+            it 'is equal to regular_fee / 6 * (number_of_claimants - number_of_claimants_applying_for_remission)' do
+              (1..6).each do |delta|
+                allow(claim).to receive(:remission_claimant_count).and_return claimant_count - delta
+                allow(claim).to receive(:claimant_count).and_return claimant_count
 
                 expect(calculation.application_fee_after_remission).
-                  to eq(calculation.application_fee * 0.5)
-               end
-            end
-          end
-
-          context 'and more than one claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (2..10).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 2
-                allow(claim).to receive(:claimant_count).and_return i
-
-                expect(calculation.application_fee_after_remission).
-                  to eq calculation.application_fee
-               end
-            end
-          end
-        end
-
-        context "with 11..200 claimants" do
-          (1...4).each do |count|
-            context "and #{count} claimants are not seeking remissions" do
-              it "is #{count * 0.25 * 100}% of the regular fee" do
-                (11..200).each do |i|
-                  allow(claim).to receive(:remission_claimant_count).and_return i - count
-                  allow(claim).to receive(:claimant_count).and_return i
-
-                  expect(calculation.application_fee_after_remission).
-                    to eq(calculation.application_fee * 0.25 * count)
-                 end
+                  to eq(calculation.application_fee / 6 * (claim.claimant_count - claim.remission_claimant_count))
               end
             end
           end
 
-          context 'and 4 or more claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (11..200).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return i - 5
-                allow(claim).to receive(:claimant_count).and_return i
+          context 'is greater than 6' do
+            it 'is equal to the regular fee' do
+              allow(claim).to receive(:remission_claimant_count).and_return 7
+              allow(claim).to receive(:claimant_count).and_return claimant_count
 
-                expect(calculation.application_fee_after_remission).
-                  to eq calculation.application_fee
-               end
-            end
-          end
-        end
-
-        context "with 201 or more claimants" do
-          (1...6).each do |count|
-            context "and #{count} claimants are not seeking remissions" do
-              fraction = Rational(1, 6)
-
-              it "is #{"%.2f" % (count * fraction * 100)}% of the regular fee" do
-                allow(claim).to receive(:remission_claimant_count).and_return 201 - count
-                allow(claim).to receive(:claimant_count).and_return 201
-
-                expect(calculation.application_fee_after_remission).
-                  to eq(calculation.application_fee * fraction * count)
-              end
-            end
-          end
-
-          context 'and 6 or more claimant is not seeking remissions' do
-            it "is the same as the regular application fee" do
-              (11..200).each do |i|
-                allow(claim).to receive(:remission_claimant_count).and_return 195
-                allow(claim).to receive(:claimant_count).and_return 201
-
-                expect(calculation.application_fee_after_remission).
-                  to eq calculation.application_fee
-              end
+              expect(calculation.application_fee_after_remission).
+                to eq calculation.application_fee
             end
           end
         end
