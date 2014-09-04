@@ -95,6 +95,6 @@ feature 'Claim applications', type: :feature do
     fill_in_employment_details
     fill_in_claim_details
 
-    expect(page).to have_text("Check your answers")
+    expect(page).to have_text('Check your details')
   end
 end

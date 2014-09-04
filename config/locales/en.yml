@@ -206,8 +206,7 @@ en:
         special_needs: |
           For example, we can provide documents in large print, Braille and on CD; help you attend a hearing; pay for sign language interpreters; and provide hearing loops.
         has_representative: |
-          Someone who has agreed to represent you (for example, to prepare your
-          case and/or act on your behalf if there is a hearing).
+          Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           If you're on benefits or a low income, you may qualify for a reduced fee or no fee at all. <a href="javascript:void(0);" class="hint-reveal">How do I qualify for help?</a>
           <div class="toggle-content form-hint">
@@ -240,9 +239,11 @@ en:
         notice_period_end_date: For example, 08 04 2014
       claim:
         other_claim_details: |
-          Eg, your employer hasn’t allowed you to take your statutory annual leave entitlement.
+          Eg, your employer hasn’t allowed you to take your statutory annual leave entitlement
         claim_details: |
-          Include the background, dates and the people involved.
+          Include the background, dates and the people involved
+        other_known_claimants: |
+          A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money
 
   helpers:
     submit:
@@ -360,6 +361,6 @@ en:
       claim_type: What type of claim - or claims - are you making?
       claim_type_hint: You can select more than one
     review:
-      header: Check your answers
+      header: Check your details
       info: |
         You can change anything that's not right before sending your application.
