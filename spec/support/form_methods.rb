@@ -41,7 +41,7 @@ module FormMethods
 
     fill_in_address
 
-    fill_in 'Mobile (if different)',   with: '07956000000'
+    fill_in 'Alternative phone',   with: '07956000000'
 
     choose  'claimant_contact_preference_email'
     fill_in 'Email address', with: 'barrington@example.com'
@@ -63,7 +63,7 @@ module FormMethods
 
     fill_in_address
 
-    fill_in 'Mobile (if different)',   with: '07956000000'
+    fill_in 'Alternative phone',   with: '07956000000'
 
 
     fill_in 'Document exchange (DX) number', with: '1'
@@ -77,7 +77,7 @@ module FormMethods
     fill_in 'Town/city',               with: 'Anytown'
     fill_in 'County',                  with: 'Anyfordshire'
     fill_in 'Postcode',                with: 'AT1 4PQ'
-    fill_in 'Telephone',               with: '01234567890'
+    fill_in 'Phone',                   with: '01234567890'
   end
 
   def fill_in_employer_details
