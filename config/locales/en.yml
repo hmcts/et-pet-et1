@@ -61,13 +61,13 @@ en:
           fax: Fax
 
       respondent:
-        no_acas_number: I don't have an Acas number
-        no_acas_number_reason: Why don't you have an Acas number?
+        no_acas_number_reason:
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I've been unfairly dismissed and I want to apply for interim relief
           claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
+
       employment:
         current_situation:
           still_employed: Still working for this employer
@@ -134,7 +134,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
-        address_telephone_number: Phone number
+        address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
         address_street: Street
@@ -143,7 +143,7 @@ en:
         type: Type of representative
         organisation_name: Name of the representative's organisation
         name: Representative's name
-        mobile_number: Mobile (if different)
+        mobile_number: Alternative phone or mobile number
         dx_number: Document exchange (DX) number
         contact_preference: Best way to send correspondence to your representative
 
@@ -164,6 +164,7 @@ en:
         worked_at_different_address: Did you work at the same address to the one given above?
         was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
         no_acas_number: I don't have an Acas number
+        no_acas_number_reason: Why don't you have an Acas number?
 
       employment:
         job_title: Job or job title
