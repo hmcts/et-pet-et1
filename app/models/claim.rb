@@ -37,10 +37,21 @@ class Claim < ActiveRecord::Base
     claimants.where(applying_for_remission: true).count
   end
 
+  # TODO validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
     end
+  end
+
+  def fee_calculation
+    ClaimFeeCalculator.calculate claim: self
+  end
+
+  def payment_applicable?
+    PaymentGatewayCheck.available? &&
+    fee_calculation.fee_to_pay? &&
+    fee_group_reference?
   end
 
   class << self
