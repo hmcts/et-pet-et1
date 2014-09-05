@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ping' => 'ping#index'
+
   mount Peek::Railtie => '/peek'
 
   resource :claim, only: %i<create update>, path: 'apply' do
