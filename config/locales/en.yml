@@ -65,7 +65,7 @@ en:
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: I've been unfairly dismissed and I want to apply for interim relief
+          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for 'interim relief'. It's within 7 days of the dismissal
           claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       employment:
@@ -188,7 +188,7 @@ en:
         other_claim_details: State the other type of claim – or claims – that you’re making
         claim_details: This is your opportunity to tell us about your problem at work.
         desired_outcomes: What do you want if your claim is successful?
-        other_outcome: What compensation or other outcome do you want?
+        other_outcome: What compensation or other outcome(s) do you want?
         other_known_claimants: Do you know of other people who are making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
@@ -200,7 +200,6 @@ en:
         password: Enter a memorable word (at least 5 characters long)
       claimant:
         date_of_birth: For example, 08 04 2014
-        address_telephone_number: For example, 020 7649 9122
         has_special_needs: |
           Tribunal staff can provide suitable documents and help you at a hearing
         special_needs: |
@@ -224,9 +223,7 @@ en:
       respondent:
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the <a href="http://www.acas.org.uk/earlyconciliation">Acas website</a>.
-        address_telephone_number: For example, 020 7649 9122
-        address_building: This may the head office and different to your own work address
-        work_address_telephone_number: For example, 020 7649 9122
+        address_building: This may be the head office and different to your own work address
       employment:
         job_title: The job you were doing at the time of the problem at work
         start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
@@ -244,6 +241,8 @@ en:
           Include the background, dates and the people involved
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money
+        desired_outcomes: |
+          If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
 
   helpers:
     submit:
@@ -318,8 +317,8 @@ en:
         reference: Your 'save and return' number
 
       record_details:
-        header: Send yourself an email
-        info: Get your 'save and return' number in an email
+        header: What is your email address?
+        info: Your ‘save and return’ number will be emailed to this address
 
     email:
       subject: 'Employment tribunal: %{reference}'
