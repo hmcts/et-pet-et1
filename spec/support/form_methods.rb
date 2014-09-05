@@ -134,7 +134,7 @@ module FormMethods
 
     check 'To get my old job back and compensation'
 
-    fill_in 'What compensation or other outcome do you want?',
+    fill_in 'What compensation or other outcome(s) do you want?',
       with: 'One billllllllion dollars'
 
     choose 'claim_other_known_claimants_true'
