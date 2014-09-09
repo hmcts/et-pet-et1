@@ -290,10 +290,11 @@ en:
 
         * try to [sort out the problem with your employer](https://www.gov.uk/solve-workplace-dispute/overview)
         * if you can’t solve the problem, [contact Acas](http://www.acas.org.uk/earlyconciliation) before you apply to an employment tribunal
+        * read the [guidance on taking your employer to a tribunal](https://www.gov.uk/employment-tribunals/taking-a-case-to-an-employment-tribunal)
 
         ## Information to gather for this form
 
-        * your [Acas early conciliation certificate number](http://www.acas.org.uk/earlyconciliation) (or a reason why you don't need one)
+        * your [Acas](http://www.acas.org.uk/earlyconciliation) early conciliation certificate number (or a reason why you don't need one)
         * a description of your claim, including dates and the people involved
         * details of your pay and benefits, before and after tax (you can find these on your payslip)
         * the full address of the employer or organisation you want to make a claim against
@@ -354,7 +355,7 @@ en:
     employment:
       header: Employment details
       hint: |
-        Please give details about your job to help us understand your case.
+        Please give details about the job you were doing when the problem at work happened. This will help us understand your case.
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
