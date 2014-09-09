@@ -10,8 +10,9 @@ class RepresentativeForm < Form
 
   include AddressAttributes
 
+  validates :type, :name, presence: true
+
   validates :type, inclusion: { in: TYPES.map(&:to_s) }
-  validates :name, presence: true
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 20 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
