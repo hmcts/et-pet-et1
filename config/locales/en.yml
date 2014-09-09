@@ -148,7 +148,7 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        name: Name of organisation
+        name: Name of employer, person or organisation
         address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
@@ -173,8 +173,8 @@ en:
         gross_pay: Pay before tax
         net_pay: Pay after tax
         enrolled_in_pension_scheme: Are – or were – you a member of your employer's pension scheme?
-        benefit_details: Details of any benefits, like a company car
-        current_situation: Current work situation
+        benefit_details: Do – or did – you have any benefits, like a company car?
+        current_situation: What is your current work situation?
         end_date: Employment end date
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
@@ -193,7 +193,7 @@ en:
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-        miscellaneous_information: Additional information
+        miscellaneous_information: Do you want to  tell us any additional information about your claim?
 
     hints:
       password:
@@ -207,17 +207,7 @@ en:
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
-          If you're on benefits or a low income, you may qualify for a reduced fee or no fee at all. <a href="javascript:void(0);" class="hint-reveal">How do I qualify for help?</a>
-          <div class="toggle-content form-hint">
-            <p>You must pass 2 tests to qualify for help with your fee:</p>
-            <ol class="numeric-list">
-              <li> capital test (eg, your savings and investments)</li>
-              <li> income test (your income before tax and other deductions)</li>
-            </ol>
-            <p>You’ll need to send evidence to support the information you give.<br>
-            <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=4396" rel="external">Read more about applying for help with paying your fee</a>
-            </p>
-          </div>
+          You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
       representative:
         type: Acas conciliators are not representatives
       respondent:
@@ -241,8 +231,10 @@ en:
           Include the background, dates and the people involved
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money
-        desired_outcomes: |
+        other_outcome: |
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
+        miscellaneous_information: |
+          Eg, you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
 
   helpers:
     submit:
@@ -288,9 +280,10 @@ en:
 
         ## Before you begin the form
 
+        * read the [guidance on taking your employer to a tribunal](https://www.gov.uk/employment-tribunals/taking-a-case-to-an-employment-tribunal)
         * try to [sort out the problem with your employer](https://www.gov.uk/solve-workplace-dispute/overview)
         * if you can’t solve the problem, [contact Acas](http://www.acas.org.uk/earlyconciliation) before you apply to an employment tribunal
-        * read the [guidance on taking your employer to a tribunal](https://www.gov.uk/employment-tribunals/taking-a-case-to-an-employment-tribunal)
+
 
         ## Information to gather for this form
 
@@ -355,7 +348,7 @@ en:
     employment:
       header: Employment details
       hint: |
-        Please give details about the job you were doing when the problem at work happened. This will help us understand your case.
+        Please give details about the job you were doing when the problem at work happened.
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
