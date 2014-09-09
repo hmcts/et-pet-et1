@@ -15,7 +15,7 @@ cat <<EOT
         "project": "$PROJECT",
         "appserver": "rails",
         "version": "$APPVERSION",
-        "env": "$ENV",
+        "env": "$ENV"
       }
     }
   ]
