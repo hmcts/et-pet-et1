@@ -1,0 +1,89 @@
+doctype xml
+ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd"
+  DocumentID
+    DocumentName ETFeesEntry
+    UniqueID= claim.created_at.to_s(:number)
+    DocumentType ETFeesEntry
+    TimeStamp= timestamp.to_s(:xml)
+    Version 1
+  FeeGroupReference= claim.fee_group_reference
+  SubmissionURN= claim.id
+  CurrentQuantityOfClaimants= claim.claimant_count
+  SubmissionChannel Web
+  CaseType= case_type
+  Jurisdiction= jurisdiction
+  OfficeCode=  claim.office.code
+  DateOfReceiptET= claim.submitted_at
+  RemissionIndicated= remission_indicated
+  Administrator xsi:nil="true"
+  Claimants
+    - claim.claimants.each do |claimant|
+      Claimant
+        GroupContact= claimant == claim.primary_claimant
+        Title= claimant.title
+        Forename= claimant.first_name
+        Surname= claimant.last_name
+        Address
+          Number= address_number(claimant.address.building)
+          Name= address_name(claimant.address.building)
+          Street= claimant.address.street
+          Town= claimant.address.locality
+          County= claimant.address.county
+          Postcode= claimant.address.post_code
+        OfficeNumber= claimant.address.telephone_number
+        AltPhoneNumber= claimant.mobile_number
+        Email= claimant.email_address
+        Fax= claimant.fax_number
+        PreferredContactMethod= claimant.contact_preference.humanize
+  Respondents
+    - claim.respondents.each do |respondent|
+      Respondent
+        GroupContact= respondent == claim.primary_respondent
+        Name= respondent.name
+        Address
+          Number= address_number(respondent.address.building)
+          Name= address_name(respondent.address.building)
+          Street= respondent.address.street
+          Town= respondent.address.locality
+          County= respondent.address.county
+          Postcode= respondent.address.post_code
+        OfficeNumber= respondent.address.telephone_number
+        PhoneNumber= respondent.work_address.telephone_number
+        Acas
+          Number= respondent.acas_early_conciliation_certificate_number
+          ExemptionCode= exemption_code(respondent.no_acas_number_reason)
+  Representatives
+    Representative
+      Name= claim.representative.name
+      Address
+        Number= address_number(claim.representative.address.building)
+        Name= address_name(claim.representative.address.building)
+        Street= claim.representative.address.street
+        Town= claim.representative.address.locality
+        County= claim.representative.address.county
+        Postcode= claim.representative.address.post_code
+      OfficeNumber= claim.representative.address.telephone_number
+      AltPhoneNumber= claim.representative.mobile_number
+      Email= claim.representative.email_address
+      ClaimantOrRespondent C
+  Payment
+    Fee
+      Amount 1
+      PRN
+      Date 2014-10-11T09:10:58+00:00
+  UserCharacteristics
+    DeclinedToAnswer true
+    ClaimType
+    Sex
+    GenderIdentityBirth
+    GenderIdentityNow
+    SexualOrientation
+    MaritalStatus
+    AgeGroup
+    CaringResponsibilities
+    Religion
+    EthnicityPartA
+    EthnicityPartB
+    Disability
+    Pregnancy
+  Files
