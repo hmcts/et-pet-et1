@@ -20,3 +20,6 @@ ADD docker/rails/logstash-forwarder.sh /etc/logstash-forwarder.sh
 # install service files for runit
 ADD docker/rails/unicorn.service /etc/service/unicorn/run
 
+# The way this base image handles envvars is pretty strange
+COPY docker/app_env_vars /etc/container_environment/
+
