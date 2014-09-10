@@ -296,14 +296,11 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Before you start
+      header: Your 'save and return' number
       info: |
         You may want to save any work you do (eg, to show it to someone else or gather more information).
 
-        To save your work and return to it another time, you need the following details:
-
-        1. 'save and return’ number
-        1. memorable word
+        To save your work and return to it another time, you need a 'save and return' number.
 
       access_details:
         header: Keep a note of these details
