@@ -69,6 +69,9 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
+  include_examples "Postcode validation", attribute_prefix: 'address'
+  include_examples "Postcode validation", attribute_prefix: 'work_address'
+
   let(:model) { Claim.create }
   let(:form) { RespondentForm.new(attributes) { |f| f.resource = model } }
   let(:respondent) { model.respondents.first }
@@ -77,10 +80,10 @@ RSpec.describe RespondentForm, :type => :form do
     name: "Crappy Co. LTD",
     address_telephone_number: "01234567890", address_building: "1",
     address_street: "Business Street", address_locality: "Businesstown",
-    address_county: "Businessfordshire", address_post_code: "BT1 1CB",
+    address_county: "Businessfordshire", address_post_code: "SW1A 1AB",
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
-    work_address_post_code: "BT2 1CB", work_address_telephone_number: "01234000000",
+    work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000",
     worked_at_different_address: true, no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction" }
 

@@ -31,7 +31,7 @@ class RespondentForm < Form
   validates :work_address_locality,
             :work_address_county,
             length: { maximum: LOCALITY_LENGTH }
-  validates :work_address_post_code, length: { maximum: POSTCODE_LENGTH }
+  validates :work_address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   validates :work_address_telephone_number,
             length: { maximum: PHONE_NUMBER_LENGTH }
 
