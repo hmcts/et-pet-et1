@@ -25,7 +25,7 @@ class ClaimantForm < Form
   validates :email_address, presence: { if: -> { contact_preference.email? } }, length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   def contact_preference
-    ActiveSupport::StringInquirer.new(attributes[:contact_preference] || "")
+    (attributes[:contact_preference] || "").inquiry
   end
 
   def has_special_needs

@@ -26,6 +26,8 @@ RSpec.describe RepresentativeForm, :type => :form do
     it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
   end
 
+include_examples "Postcode validation", attribute_prefix: 'address'
+
   attributes = {
     name: 'Saul Goodman', organisation_name: 'Better Call Saul',
     type: 'citizen_advice_bureau', dx_number: '1',

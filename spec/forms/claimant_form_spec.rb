@@ -42,6 +42,8 @@ RSpec.describe ClaimantForm, :type => :form do
     end
   end
 
+  include_examples "Postcode validation", attribute_prefix: 'address'
+
   attributes = {
     title: 'mr', gender: 'male', contact_preference: 'email',
     first_name: 'Barrington', last_name: 'Wrigglesworth',
