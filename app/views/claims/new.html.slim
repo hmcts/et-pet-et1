@@ -1,6 +1,6 @@
-= content_for(:header, t('copy.new.header'))
+= content_for(:header, t('.header'))
 - content_for(:info) do
-  p = t('copy.new.info')
+  p = t '.info'
 
 section
   .main-column
@@ -8,4 +8,4 @@ section
       = f.button :submit
     = link_to t('helpers.link.claim.return'), new_user_sessions_path
 
-    .content-copy = copy_for 'new.body'
+    .content-copy = format t '.body'

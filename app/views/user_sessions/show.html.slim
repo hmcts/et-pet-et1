@@ -1,12 +1,12 @@
-= content_for(:header, t('copy.user_session.show.header'))
+= content_for(:header, t('.header'))
 
 section
   .main-column
-    p= copy_for 'user_session.show.info'
+    p= format t '.info'
 
     = simple_form_for user_session, url: user_sessions_path, method: :delete do |f|
       p.reference
-        = t 'copy.password.access_details.reference'
+        = t 'claims.password.access_details.reference'
       p.reference
         strong= claim.reference
 

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Save and Return' do
   include FormMethods
+  include Messages
 
   scenario 'ending the session' do
     start_claim
@@ -13,7 +14,7 @@ feature 'Save and Return' do
     expect(page).to have_text(Claim.last.reference)
     click_button 'Sign out now'
 
-    expect(page).to have_text('Take your employer to a tribunal')
+    expect(page).to have_text(claim_heading_for(:new))
   end
 
   scenario 'ending the session when current page invalid' do
@@ -30,7 +31,7 @@ feature 'Save and Return' do
     end_session
     fill_in_return_form Claim.last.reference, 'green'
 
-    expect(page).to have_text('Your details')
+    expect(page).to have_text(claim_heading_for(:claimant))
     expect(page).to have_field('Last name', with: 'Wrigglesworth')
   end
 end
