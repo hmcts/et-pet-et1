@@ -1,8 +1,8 @@
 .main-column
   fieldset.form-panel
-    h2.heading-medium= copy_text[:claim_type]
+    h2.heading-medium= t '.claim_type'
 
-    p.form-hint= copy_text[:claim_type_hint]
+    p.form-hint= t '.claim_type_hint'
 
     = f.input :is_unfair_dismissal,
       as: :gds_check_boxes,

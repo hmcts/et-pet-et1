@@ -56,7 +56,7 @@ class EmploymentPresenter < Presenter
   end
 
   private def period_type(period_type)
-    t "claim_review.employment_pay_period_#{period_type}"
+    t "claim_reviews.show.employment_pay_period_#{period_type}"
   end
 
   private def pay_for(pay)

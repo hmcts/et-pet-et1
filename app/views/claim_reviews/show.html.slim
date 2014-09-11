@@ -1,16 +1,16 @@
-= content_for(:header, t('copy.review.header'))
+= content_for(:header, t('.header'))
 - content_for(:headeractions) do
   .buttons-action
     button.button Print this page
     button.button Share this page
 - content_for(:info) do
-  p = t('copy.review.info')
+  p = t('.info')
 
 = incomplete_claim_warning
 
 - presenter.each_section do |section|
   table.review-table
-    caption = t "claim_review.#{section}"
+    caption = t ".#{section}"
     colgroup
       col
       col
@@ -18,7 +18,7 @@
     tbody
     - presenter.methods.grep(/\A#{section}_/).each do |method|
       tr
-        th= t "claim_review.#{method}"
+        th= t ".#{method}"
         td= presenter.send(method)
         td
           = link_to "Change", page_claim_path(page: section)

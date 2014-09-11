@@ -1,4 +1,4 @@
-= content_for(:header) { header_text }
+= content_for(:header, claim_header)
 
 section
   = simple_form_for resource, url: claim_path do |f|
