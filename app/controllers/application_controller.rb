@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def peek_enabled?
-    Rails.env.development?
-  end
-
   def ensure_claim_in_progress
     redirect_to root_path unless session[:claim_reference].present?
   end
