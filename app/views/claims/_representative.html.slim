@@ -1,6 +1,6 @@
 .main-column
   fieldset.form-panel
-    legend.visuallyhidden= header_text
+    legend.visuallyhidden= t '.header'
     = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
     = f.input :organisation_name
     = f.input :name

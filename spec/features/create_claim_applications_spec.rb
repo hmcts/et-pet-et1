@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature 'Claim applications', type: :feature do
   include FormMethods
+  include Messages
 
   before do
     stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
@@ -20,7 +21,7 @@ feature 'Claim applications', type: :feature do
 
   scenario 'Create a new application' do
     start_claim
-    expect(page).to have_text('Before you start')
+    expect(page).to have_text(claim_heading_for(:password))
   end
 
   scenario 'Entering word for save and return' do
@@ -31,7 +32,7 @@ feature 'Claim applications', type: :feature do
     claim = Claim.first
     expect(claim.authenticate 'green').to eq(claim)
 
-    expect(page).to have_text('Your details')
+    expect(page).to have_text(claim_heading_for(:claimant))
     expect(page).to have_button('Complete later')
   end
 
@@ -45,7 +46,7 @@ feature 'Claim applications', type: :feature do
     mail = ActionMailer::Base.deliveries.last
     expect(mail.subject).to include(claim.reference)
 
-    expect(page).to have_text('Your details')
+    expect(page).to have_text(claim_heading_for(:claimant))
   end
 
   scenario 'Entering personal details' do
@@ -53,7 +54,7 @@ feature 'Claim applications', type: :feature do
     fill_in_password
     fill_in_personal_details
 
-    expect(page).to have_text("Your representative")
+    expect(page).to have_text(claim_heading_for(:representative))
   end
 
   scenario 'Entering representative details' do
@@ -62,7 +63,7 @@ feature 'Claim applications', type: :feature do
     fill_in_personal_details
     fill_in_representative_details
 
-    expect(page).to have_text("Employer's details")
+    expect(page).to have_text(claim_heading_for(:respondent))
   end
 
   scenario 'Entering employer details' do
@@ -72,7 +73,7 @@ feature 'Claim applications', type: :feature do
     fill_in_representative_details
     fill_in_employer_details
 
-    expect(page).to have_text("Employment details")
+    expect(page).to have_text(claim_heading_for(:employment))
   end
 
   scenario 'Entering employment details' do
@@ -83,7 +84,7 @@ feature 'Claim applications', type: :feature do
     fill_in_employer_details
     fill_in_employment_details
 
-    expect(page).to have_text("Claim details")
+    expect(page).to have_text(claim_heading_for(:claim))
   end
 
   scenario 'Entering claim details' do
@@ -95,6 +96,6 @@ feature 'Claim applications', type: :feature do
     fill_in_employment_details
     fill_in_claim_details
 
-    expect(page).to have_text('Check your details')
+    expect(page).to have_text(review_heading_for(:show))
   end
 end

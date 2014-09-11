@@ -1,6 +1,6 @@
 .main-column
   fieldset.form-panel
-    legend.heading-medium= t 'copy.claimant.personal_details'
+    legend.heading-medium= t '.personal_details'
 
     = f.input :title, collection: ClaimantForm::TITLES, include_blank: :translate
     = f.input :first_name
@@ -10,7 +10,7 @@
     = f.input :date_of_birth
 
   fieldset.form-panel
-    legend.heading-medium= t 'copy.claimant.contact_details'
+    legend.heading-medium= t '.contact_details'
 
     = f.input :address_building
     = f.input :address_street

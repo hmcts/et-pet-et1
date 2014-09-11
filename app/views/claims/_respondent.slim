@@ -1,7 +1,7 @@
 .main-column
   fieldset.form-panel
-    legend.visuallyhidden= header_text
-    p= t 'copy.respondent.hint'
+    legend.visuallyhidden= t '.header'
+    p= t '.hint'
 
     = f.input :name
 
@@ -19,7 +19,7 @@
       reveal: { true => :work_address_wrapper }
 
     #work_address_wrapper.panel-indent.toggle-content.work-address
-      p.form-hint= t 'copy.respondent.work_address'
+      p.form-hint= t '.work_address'
 
       = f.input :work_address_building
       = f.input :work_address_street

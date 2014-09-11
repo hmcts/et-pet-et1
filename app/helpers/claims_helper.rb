@@ -1,13 +1,9 @@
 module ClaimsHelper
-  def copy_for(key, options = {})
-    Markdown.new(I18n.t 'copy.' + key, options).to_html.html_safe
+  def format(text, options = {})
+    Markdown.new(text, options).to_html.html_safe
   end
 
-  def copy_text
-    t "copy.#{current_step}"
-  end
-
-  def header_text
-    copy_text[:header]
+  def claim_header
+    I18n.t("claims.#{current_step}.header")
   end
 end
