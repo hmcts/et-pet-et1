@@ -1,4 +1,6 @@
 class Claim < ActiveRecord::Base
+  include JaduFormattable
+
   has_secure_password validations: false
   mount_uploader :attachment, AttachmentUploader
 
@@ -74,6 +76,34 @@ class Claim < ActiveRecord::Base
 
   def remission_applicable?
     fee_calculation.application_fee != fee_calculation.application_fee_after_remission
+  end
+
+  def to_xml(options={})
+    require 'builder'
+    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml.instruct! unless options[:skip_instruct]
+    xml.ETFeesEntry(
+      'xmlns' => "http://www.justice.gov.uk/ETFEES",
+      'xmlns:xsi' => "http://www.w3.org/2001/XMLSchema-instance",
+      'xsi:noNamespaceSchemaLocation' => "ETFees_v0.09.xsd") do
+      xml.DocumentID do
+        xml.DocumentName 'ETFeesEntry'
+        xml.UniqueID created_at.to_s(:number)
+        xml.DocumentType 'ETFeesEntry'
+        xml.TimeStamp timestamp.to_s(:xml)
+        xml.Version 1
+      end
+      xml.FeeGroupReference fee_group_reference
+      xml.SubmissionURN id
+      xml.CurrentQuantityOfClaimants claimant_count
+      xml.SubmissionChannel 'Web'
+      xml.CaseType case_type(self)
+      xml.Jurisdiction jurisdiction(self)
+      xml.OfficeCode  office.code
+      xml.DateOfReceiptET submitted_at
+      xml.RemissionIndicated remission_indicated(self)
+      xml.Administrator('xsi:nil'=>"true")
+    end
   end
 
   class << self

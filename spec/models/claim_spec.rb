@@ -288,4 +288,48 @@ RSpec.describe Claim, :type => :claim do
       expect(claimant.primary_claimant).to be true
     end
   end
+
+  describe '#to_xml' do
+    let(:timestamp) { DateTime.new(2014, 10, 11, 9, 10, 58) }
+    subject do
+      Claim.new(
+        id: 1,
+        created_at: DateTime.new(2014, 1, 2, 3, 4, 5),
+        submitted_at: DateTime.new(2014, 1, 2, 11, 40, 28),
+        fee_group_reference: 123456789000,
+        other_claim_details: '',
+        office: Office.new(code: 12)
+      )
+    end
+
+    before do
+      allow(subject).to receive(:claimant_count).and_return 1
+      allow(subject).to receive(:timestamp).and_return(timestamp)
+    end
+
+    it 'outputs XML according to Jadu spec' do
+      expect(subject.to_xml(indent: 2)).to eq <<-END.gsub(/^ {6}/, '')
+      <?xml version="1.0" encoding="UTF-8"?>
+      <ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd">
+        <DocumentID>
+          <DocumentName>ETFeesEntry</DocumentName>
+          <UniqueID>20140102030405</UniqueID>
+          <DocumentType>ETFeesEntry</DocumentType>
+          <TimeStamp>2014-10-11T09:10:58+00:00</TimeStamp>
+          <Version>1</Version>
+        </DocumentID>
+        <FeeGroupReference>123456789000</FeeGroupReference>
+        <SubmissionURN>1</SubmissionURN>
+        <CurrentQuantityOfClaimants>1</CurrentQuantityOfClaimants>
+        <SubmissionChannel>Web</SubmissionChannel>
+        <CaseType>Single</CaseType>
+        <Jurisdiction>1</Jurisdiction>
+        <OfficeCode>12</OfficeCode>
+        <DateOfReceiptET>2014-01-02 11:40:28 UTC</DateOfReceiptET>
+        <RemissionIndicated>NotRequested</RemissionIndicated>
+        <Administrator xsi:nil="true"/>
+      </ETFeesEntry>
+      END
+    end
+  end
 end

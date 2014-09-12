@@ -14,7 +14,7 @@ RSpec.describe Claimant, :type => :model do
 
   describe '#to_xml' do
     subject do
-      Claimant.new title: 'Mr',
+      described_class.new title: 'Mr',
         first_name: 'Bill',
         last_name: 'Jones',
         mobile_number: '020 1234 1234',

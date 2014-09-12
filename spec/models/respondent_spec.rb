@@ -77,4 +77,36 @@ RSpec.describe Respondent, :type => :model do
       end
     end
   end
+
+  describe '#to_xml' do
+    subject do
+      described_class.new(
+        name: 'Harry Hill',
+        addresses: [
+          Address.new(telephone_number: '020 1111 1111'),
+          Address.new(telephone_number: '020 1111 2222')
+        ],
+        acas_early_conciliation_certificate_number: 123123123123,
+        no_acas_number_reason: 'acas_has_no_jurisdiction'
+      )
+    end
+
+    let(:claim) { object_double Claim.new, primary_respondent: subject }
+    before { allow(subject).to receive(:claim).and_return claim }
+
+    it 'outputs XML according to Jadu spec' do
+      expect(subject.to_xml(indent: 2)).to eq <<-END.gsub(/^ {6}/, '')
+      <Respondent>
+        <GroupContact>true</GroupContact>
+        <Name>Harry Hill</Name>
+        <OfficeNumber>020 1111 1111</OfficeNumber>
+        <PhoneNumber>020 1111 2222</PhoneNumber>
+        <Acas>
+          <Number>123123123123</Number>
+          <ExemptionCode>outside_acas</ExemptionCode>
+        </Acas>
+      </Respondent>
+      END
+    end
+  end
 end

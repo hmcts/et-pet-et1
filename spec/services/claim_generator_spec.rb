@@ -54,16 +54,10 @@ describe ClaimGenerator, type: :service do
       claimants: [claimant],
       respondents: [respondent],
       representative: representative,
-      office: double(Office, code: 12)
+      office: Office.new(Office, code: 12)
   }
 
   subject { ClaimGenerator.new(claim) }
-  let(:timestamp) { DateTime.new(2014, 10, 11, 9, 10, 58) }
-
-  before do
-    allow(subject).to receive(:timestamp).and_return(timestamp)
-  end
-
   describe '#to_xml' do
     it 'Generates an XML document of the claim' do
       actual = Nokogiri::XML(subject.to_xml).to_s
@@ -75,70 +69,6 @@ describe ClaimGenerator, type: :service do
       xsd = Nokogiri::XML::Schema(File.read(Rails.root.join('spec/support/ETFees_v0.09.xsd')))
       doc = Nokogiri::XML(subject.to_xml)
       expect(xsd.validate(doc)).to eq([])
-    end
-  end
-
-  describe '#timestamp' do
-    it 'returns the current time' do
-      allow(Time).to receive_message_chain(:zone, :now) { timestmp }
-      expect(subject.timestamp).to eq(timestamp)
-    end
-  end
-
-  describe 'case_type' do
-    context 'when single claimant' do
-      it 'returns "Single"' do
-        expect(subject.case_type).to eq('Single')
-      end
-    end
-
-    context 'when multiple claimants' do
-      before { allow(claim).to receive(:claimant_count).and_return(2) }
-      it 'returns "Multiple"' do
-        expect(subject.case_type).to eq('Multiple')
-      end
-    end
-  end
-
-  describe '#jurisdiction' do
-    context 'when not other claim type' do
-      it 'is "1"' do
-       expect(subject.jurisdiction).to eq(1)
-     end
-    end
-
-    context 'when other claim type' do
-      before do
-        allow(claim).to receive(:other_claim_details).and_return('other claim details')
-      end
-
-      it 'is "2"' do
-        expect(subject.jurisdiction).to eq(2)
-      end
-    end
-  end
-
-  describe '#remission_indicated' do
-    context 'when no remission claimants' do
-      it 'is "NotRequested"' do
-        expect(subject.remission_indicated).to eq('NotRequested')
-      end
-    end
-
-    context 'when remission claimants' do
-      before do
-        allow(claim).to receive(:remission_claimant_count).and_return(1)
-      end
-
-      it 'is "Indicated"' do
-        expect(subject.remission_indicated).to eq('Indicated')
-      end
-    end
-  end
-
-  describe '#exemption_code' do
-    it 'maps reason to Jadu exemption code' do
-      expect(subject.exemption_code('claim_against_security_or_intelligence_services')).to eq('claim_targets')
     end
   end
 end
