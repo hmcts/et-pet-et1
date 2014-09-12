@@ -3,7 +3,7 @@ en:
     blank: Not entered
   claim_reviews:
     show:
-      header: Check your details
+      header: Check your application
       info: |
         You can change anything that's not right before sending your application.
       incomplete_claim_summary: |

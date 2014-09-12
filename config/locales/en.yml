@@ -94,9 +94,9 @@ en:
           age: Age
           pregnancy_or_maternity: Pregnancy or maternity
           religion_or_belief: Religion or belief
-          sexual_orientation: Sexual orientation
+          sexual_orientation: Sexual orientation (eg, you've been treated unfairly because you're gay)
           marriage_or_civil_partnership: Marriage or civil partnership
-          gender_reassignment: Gender reassignment
+          gender_reassignment: Gender reassignment (eg, you've been treated unfairly because you've had a sex change)
         pay_claims:
           redundancy: Redundancy pay
           notice: Notice pay
@@ -186,7 +186,7 @@ en:
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
         other_claim_details: State the other type of claim – or claims – that you’re making
-        claim_details: This is your opportunity to tell us about your problem at work.
+        claim_details: This is your opportunity to tell us about your problem at work, so that the tribunal and employer understand your claim. You don't have to provide evidence at this stage. How do I write a claim statement?
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome(s) do you want?
         other_known_claimants: Do you know of other people who are making similar claims against the same employer?
@@ -212,7 +212,7 @@ en:
         type: Acas conciliators are not representatives
       respondent:
         acas_early_conciliation_certificate_number: |
-          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the <a href="http://www.acas.org.uk/earlyconciliation">Acas website</a>.
+          This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
         address_building: This may be the head office and different to your own work address
       employment:
         job_title: The job you were doing at the time of the problem at work
@@ -228,7 +228,7 @@ en:
         other_claim_details: |
           Eg, your employer hasn’t allowed you to take your statutory annual leave entitlement
         claim_details: |
-          Include the background, dates and the people involved
+          Include the background, dates and people involved. This helps the tribunal and employer understand the basis of your case. How do I write a claim statement?
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money
         other_outcome: |
@@ -273,9 +273,9 @@ en:
 
         ## Fees
 
-        You'll have to pay a [fee](https://www.gov.uk/employment-tribunals/apply-to-the-tribunal) (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee.
+        You'll have to pay a fee (using a debit or credit card) when you submit your form. If your case goes to a hearing, you'll need to pay a second fee.
 
-        If you're on benefits or a low income, you may be able to [pay less or no fee at all](https://www.gov.uk/court-fees-what-they-are).
+        If you're on benefits or a low income, you may be able to get help with paying the fees.
 
         ## Before you begin the form
 
@@ -288,7 +288,7 @@ en:
 
         * your [Acas](http://www.acas.org.uk/earlyconciliation) early conciliation certificate number (or a reason why you don't need one)
         * a description of your claim, including dates and the people involved
-        * details of your pay and benefits, before and after tax (you can find these on your payslip)
+        * details of your pay and benefits (you can find these on your payslip)
         * the full address of the employer or organisation you want to make a claim against
 
         ## How we use your information
