@@ -14,12 +14,20 @@ RSpec.describe ClaimDetailPresenter, type: :presenter do
       miscellaneous_information: "hey\r\nhey"
   end
 
+  def translation_for(option, section: 'options', br: true)
+    I18n.t("simple_form.#{section}.claim.#{option}") + (br ? '<br />' : '')
+  end
+
   describe '#types' do
     it 'concatenates is_unfair_dismissal, discrimination_claims, and pay_claims' do
-      expect(subject.types).
-        to eq 'Unfair dismissal (including constructive dismissal)' +
-        '<br />Redundancy pay<br />Other payments<br />Sex (including equal pay)' +
-        '<br />Race<br />Sexual orientation'
+      expect(subject.types).to eq(
+        translation_for('is_unfair_dismissal', section: 'labels') +
+        translation_for('pay_claims.redundancy') +
+        translation_for('pay_claims.other') +
+        translation_for('discrimination_claims.sex_including_equal_pay') +
+        translation_for('discrimination_claims.race') +
+        translation_for('discrimination_claims.sexual_orientation', br: false)
+      )
     end
   end
 
