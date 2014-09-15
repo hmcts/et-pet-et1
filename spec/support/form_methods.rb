@@ -27,7 +27,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_personal_details(submit_form: true)
+  def fill_in_personal_details(submit_form: true, seeking_remissions: true)
     select 'Mr', from: 'Title'
 
     fill_in 'First name', with: 'Barrington'
@@ -51,7 +51,9 @@ module FormMethods
 
     choose  'claimant_has_representative_true'
 
-    choose  'claimant_applying_for_remission_true'
+    if seeking_remissions
+      choose  'claimant_applying_for_remission_true'
+    end
 
     click_button 'Save and continue' if submit_form
   end

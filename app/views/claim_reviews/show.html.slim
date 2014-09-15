@@ -22,3 +22,7 @@
         td= presenter.send(method)
         td
           = link_to "Change", page_claim_path(page: section)
+
+- if claim.submittable?
+  = simple_form_for claim, url: request.url do |f|
+    = f.button :submit, t('helpers.submit.claim_review.update')
