@@ -1,4 +1,4 @@
-module PaymentGatewayCheck
+module PaymentGateway
   @available = nil
   MUTEX = Mutex.new
 

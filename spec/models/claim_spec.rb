@@ -103,7 +103,7 @@ RSpec.describe Claim, :type => :claim do
 
   describe '#payment_applicable?' do
     before do
-      allow(PaymentGatewayCheck).to receive(:available?).and_return true
+      allow(PaymentGateway).to receive(:available?).and_return true
       allow(subject).to receive(:fee_group_reference?).and_return true
       allow(ClaimFeeCalculator).to receive(:calculate).with(claim: subject).
         and_return double(ClaimFeeCalculator::Calculation, :fee_to_pay? => true)
@@ -116,7 +116,7 @@ RSpec.describe Claim, :type => :claim do
     end
 
     context 'but the payment gateway is unavailable' do
-      before { allow(PaymentGatewayCheck).to receive(:available?).and_return false }
+      before { allow(PaymentGateway).to receive(:available?).and_return false }
 
       it 'returns false' do
         expect(subject.payment_applicable?).to be false
