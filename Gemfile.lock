@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/ministryofjustice/epdq.git
+  revision: b6e7d30886078bd9884e7167fef3f125ad70a8dc
+  specs:
+    epdq (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -278,8 +284,8 @@ DEPENDENCIES
   capybara
   codeclimate-test-reporter
   coffee-rails (~> 4.0.0)
-  dotenv-deployment
   dotenv-rails
+  epdq!
   govuk_frontend_toolkit (= 1.2.0)
   guard-livereload
   httparty
