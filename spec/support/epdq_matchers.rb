@@ -2,13 +2,11 @@ module EpdqMatchers
   extend RSpec::Matchers::DSL
 
   EPDQ_FORM_PARAMS = {
-     "SHASIGN" => "FB209D9B87130CC6DAE525ADEA03F43091DABAF8B698922F76A1ACE2D4556C6B",
+     "SHASIGN" => "3DF12D65A5772BB836E91EC4DAC2ACACF723B510CEAB9AF7A01B31D2B75071F6",
     "CURRENCY" => "GBP",
     "LANGUAGE" => "en_US",
    "ACCEPTURL" => "http://www.example.com/apply/pay/success",
   "DECLINEURL" => "http://www.example.com/apply/pay/decline",
-"EXCEPTIONURL" => "http://www.example.com/apply/pay/exception",
-   "CANCELURL" => "http://www.example.com/apply/pay/cancel",
       "AMOUNT" => "25000",
      "ORDERID" => "fgr",
        "PSPID" => "ministry2"

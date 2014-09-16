@@ -27,13 +27,11 @@ RSpec.describe PaymentGateway::Request, type: :service do
 
     let(:attributes) do
       {
-         "SHASIGN" => "0056678DA525BD224C54D539E0235E22340E3540BB1E7392AB6F278CBE530700",
+         "SHASIGN" => "4111D945E75265523A0EAA50EE80CEF6E7BCB2AA29355FA34D3920DF05CC1CBB",
         "CURRENCY" => "GBP",
         "LANGUAGE" => "en_US",
        "ACCEPTURL" => "https://example.org/apply/pay/success",
       "DECLINEURL" => "https://example.org/apply/pay/decline",
-    "EXCEPTIONURL" => "https://example.org/apply/pay/exception",
-       "CANCELURL" => "https://example.org/apply/pay/cancel",
           "AMOUNT" => "250",
          "ORDERID" => "lol",
            "PSPID" => "ministry2"

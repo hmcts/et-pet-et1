@@ -9,7 +9,6 @@ module PaymentGateway
     def epdq_request
       @request ||= EPDQ::Request.new currency: 'GBP', language: 'en_US',
         accepturl: url_helper(:success), declineurl: url_helper(:decline),
-        exceptionurl: url_helper(:exception), cancelurl: url_helper(:cancel),
         amount: options[:amount], orderid: options[:reference]
     end
 

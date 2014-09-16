@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   resource :claim, only: %i<create update>, path: 'apply' do
     resource :claim_review, only: %i<show update>, path: 'review'
-    
+
     resource :payment, only: %i<show update>, path: 'pay' do
       member do
-        %i<success decline exception cancel>.each do |result|
+        %i<success decline>.each do |result|
           get result, to: "payments##{result}", as: result
         end
       end
