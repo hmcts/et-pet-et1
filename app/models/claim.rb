@@ -9,6 +9,9 @@ class Claim < ActiveRecord::Base
   has_one  :representative, dependent: :destroy
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
+  has_one  :payment
+
+  delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -20,6 +23,8 @@ class Claim < ActiveRecord::Base
   bitmask :discrimination_claims, as: DISCRIMINATION_COMPLAINTS
   bitmask :pay_claims,            as: PAY_COMPLAINTS
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
+
+  after_initialize :setup_state_machine
 
   def alleges_discrimination_or_unfair_dismissal?
     discrimination_claims.any? || is_unfair_dismissal?
@@ -37,10 +42,25 @@ class Claim < ActiveRecord::Base
     claimants.where(applying_for_remission: true).count
   end
 
+  # TODO validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
     end
+  end
+
+  def fee_calculation
+    ClaimFeeCalculator.calculate claim: self
+  end
+
+  def payment_applicable?
+    PaymentGateway.available? &&
+    fee_calculation.fee_to_pay? &&
+    fee_group_reference?
+  end
+
+  def remission_applicable?
+    fee_calculation.application_fee != fee_calculation.application_fee_after_remission
   end
 
   class << self
@@ -48,4 +68,12 @@ class Claim < ActiveRecord::Base
       find_by_id KeyObfuscator.new.unobfuscate(reference)
     end
   end
+
+  private def state_machine
+    @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
+  end
+
+  alias :setup_state_machine :state_machine
+
+  delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
 end

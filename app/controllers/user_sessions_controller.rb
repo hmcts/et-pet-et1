@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  skip_before_action :ensure_claim_exists, except: :destroy
 
   def new
     session.clear

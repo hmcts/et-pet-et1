@@ -242,6 +242,8 @@ en:
       return: Complete later
       claim:
         create: Apply now
+      claim_review:
+        update: Submit the form
       user_session:
         create: Next
         delete: Sign out now

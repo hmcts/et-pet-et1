@@ -27,7 +27,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_personal_details(submit_form: true)
+  def fill_in_personal_details(submit_form: true, seeking_remissions: true)
     select 'Mr', from: 'Title'
 
     fill_in 'First name', with: 'Barrington'
@@ -51,7 +51,9 @@ module FormMethods
 
     choose  'claimant_has_representative_true'
 
-    choose  'claimant_applying_for_remission_true'
+    if seeking_remissions
+      choose  'claimant_applying_for_remission_true'
+    end
 
     click_button 'Save and continue' if submit_form
   end
@@ -147,5 +149,12 @@ module FormMethods
     choose 'claim_send_claim_to_whistleblowing_entity_true'
 
     click_button 'Save and continue'
+  end
+
+  def return_from_payment_gateway
+    visit '/apply/pay/success?orderID=fgr&amount=250&PM=CreditCard&' +
+      'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
+      'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
+      'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'
   end
 end
