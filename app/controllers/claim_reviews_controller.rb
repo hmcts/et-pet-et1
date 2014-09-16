@@ -7,7 +7,6 @@ class ClaimReviewsController < ApplicationController
 
   def update
     claim.submit!
-
-    redirect_to page_claim_path(page: 'pay')
+    redirect_to claim.payment_required? ? page_claim_path(page: 'pay') : claim_confirmation_path
   end
 end

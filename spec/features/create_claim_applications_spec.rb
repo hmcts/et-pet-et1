@@ -110,6 +110,21 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text review_heading_for(:show)
     end
 
+    scenario 'Submitting the claim when payment is not required' do
+      start_claim
+      fill_in_password
+      fill_in_personal_details
+      fill_in_representative_details
+      fill_in_employer_details
+      fill_in_employment_details
+      fill_in_claim_details
+
+      click_button 'Submit the form'
+
+      expect(page).to have_text "It looks like you haven't paid yet. We'll give you a bell about that soon"
+      expect(page).to have_text "Insert instructions on how to claim remission."
+    end
+
     scenario 'Making payment' do
       start_claim
       fill_in_password
@@ -122,6 +137,23 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit the form'
 
       expect(page).to have_epdq_form
+    end
+
+    scenario 'Returning from the payment page' do
+      start_claim
+      fill_in_password
+      fill_in_personal_details seeking_remissions: false
+      fill_in_representative_details
+      fill_in_employer_details
+      fill_in_employment_details
+      fill_in_claim_details
+
+      click_button 'Submit the form'
+
+      return_from_payment_gateway
+
+      expect(page).to have_text 'It looks like you paid.'
+      expect(page).to have_text 'No remissions for you. Sorry buddy.'
     end
   end
 end

@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'ping' => 'ping#index'
+  resource :claim_review,       only: %i<show update>, path: 'apply/review'
+  resource :claim_confirmation, only: :show,           path: 'apply/confirmation'
 
   resource :claim, only: %i<create update>, path: 'apply' do
-    resource :claim_review, only: %i<show update>, path: 'review'
-
     resource :payment, only: %i<show update>, path: 'pay' do
       member do
         %i<success decline>.each do |result|
@@ -20,4 +19,6 @@ Rails.application.routes.draw do
   resource :user_sessions, only: %i<new create show destroy>
 
   root to: 'claims#new'
+
+  get 'ping' => 'ping#index'
 end

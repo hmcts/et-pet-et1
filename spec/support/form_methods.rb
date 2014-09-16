@@ -150,4 +150,11 @@ module FormMethods
 
     click_button 'Save and continue'
   end
+
+  def return_from_payment_gateway
+    visit '/apply/pay/success?orderID=fgr&amount=250&PM=CreditCard&' +
+      'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
+      'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
+      'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'
+  end
 end

@@ -10,8 +10,47 @@ RSpec.describe Claim, :type => :claim do
   it { is_expected.to have_one(:office).dependent(:destroy) }
   it { is_expected.to have_one(:primary_claimant) }
   it { is_expected.to have_one(:primary_respondent) }
+  it { is_expected.to have_one(:payment) }
 
   let(:claim) { Claim.new(id: 1) }
+
+  %i<created_at amount reference>.each do |meth|
+    describe "#payment_#{meth}" do
+      context 'when #payment is nil' do
+        it 'returns nil' do
+          expect(claim.send "payment_#{meth}").to be nil
+        end
+      end
+
+      context 'when #payment is not nil' do
+        let(:payment) { double :payment }
+        before { allow(claim).to receive(:payment).and_return payment }
+
+        it 'delegates to #payment' do
+          expect(payment).to receive(meth).and_return 'lol'
+          expect(claim.send "payment_#{meth}").to eq 'lol'
+        end
+      end
+    end
+  end
+
+  describe "#payment_present?" do
+    context 'when #payment is nil' do
+      it 'returns false' do
+        expect(claim.payment_present?).to be false
+      end
+    end
+
+    context 'when #payment is not nil' do
+      let(:payment) { double :payment }
+      before { allow(claim).to receive(:payment).and_return payment }
+
+      it 'delegates to #payment' do
+        expect(payment).to receive(:present?).and_return true
+        expect(claim.payment_present?).to eq true
+      end
+    end
+  end
 
   describe '#reference' do
     it 'returns a token based upon the primary key' do
@@ -190,21 +229,27 @@ RSpec.describe Claim, :type => :claim do
         end
       end
     end
+  end
 
+  describe '#enqueue' do
     context 'transitioning state from "payment_required"' do
       before do
         allow(subject).to receive_messages :save! => true
         subject.state = 'payment_required'
       end
 
-      context 'when payment has been received' do
-        it 'transitions state to "enqueued_for_submission"'
-        it 'enqueues the claim for submission'
+      it 'transitions state to "enqueued_for_submission"' do
+        subject.enqueue!
+        expect(subject.state).to eq('enqueued_for_submission')
       end
 
-      context 'when payment has not been received' do
-        it 'raises "StateMachine::InvalidTransition"'
+      it 'saves the claim' do
+        expect(subject).to receive(:save!)
+        subject.enqueue!
       end
+
+      it 'enqueues the claim for submission'
+
     end
   end
 

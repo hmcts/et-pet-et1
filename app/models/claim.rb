@@ -9,6 +9,9 @@ class Claim < ActiveRecord::Base
   has_one  :representative, dependent: :destroy
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
+  has_one  :payment
+
+  delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -54,6 +57,10 @@ class Claim < ActiveRecord::Base
     PaymentGateway.available? &&
     fee_calculation.fee_to_pay? &&
     fee_group_reference?
+  end
+
+  def remission_applicable?
+    fee_calculation.application_fee != fee_calculation.application_fee_after_remission
   end
 
   class << self
