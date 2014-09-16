@@ -35,18 +35,6 @@ class Presenter
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
-  def self.for(name)
-    "#{name}_presenter".classify.constantize
-  end
-
-  def each
-    self.class.instance_methods(false).each { |attr| proc[attr, send(attr)] }
-  end
-
-  def label_for key
-    I18n.t "presenters.#{self.class.name.underscore.sub(/_presenter\Z/, '')}.#{key}"
-  end
-
   private
 
   def method_missing meth, *args, &block

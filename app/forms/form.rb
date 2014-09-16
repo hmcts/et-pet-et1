@@ -54,10 +54,6 @@ class Form
     ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
   end
 
-  def self.keys
-    instance_methods(false).grep(/\A\w+\Z/)
-  end
-
   class << self
     alias_method :boolean, :booleans
     delegate :i18n_key, to: :model_name, prefix: true
