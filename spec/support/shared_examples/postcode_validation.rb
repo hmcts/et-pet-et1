@@ -5,6 +5,17 @@ RSpec.shared_examples 'Postcode validation' do |options|
     let(:prefix) { options[:attribute_prefix] }
     let(:errors) { subject.errors[:"#{prefix}_post_code"] }
 
+    context 'when no postcode' do
+      before do
+        subject.send :"#{prefix}_post_code=", ''
+        subject.valid?
+      end
+
+      it 'does not add any errors' do
+        expect(errors).not_to include 'is invalid'
+      end
+    end
+
     context 'when it is not a valid postcode' do
       before do
         subject.send :"#{prefix}_post_code=", 'LOLZ'
@@ -34,7 +45,7 @@ RSpec.shared_examples 'Postcode validation' do |options|
         subject.valid?
       end
 
-      it 'adds an error to the postcode attribute' do
+      it 'does not add any errors' do
         expect(errors).to be_empty
       end
     end
