@@ -4,7 +4,7 @@ class PostCodeValidator < ActiveModel::EachValidator
       postcode = UKPostcode.new(value)
       message  = options[:message] || I18n.t('errors.messages.invalid')
 
-      record.errors[attribute] << message unless postcode.valid? && postcode.full?
+      record.errors[attribute] << message unless value.blank? || (postcode.valid? && postcode.full?)
     end
   end
 end
