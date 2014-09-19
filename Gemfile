@@ -29,7 +29,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry-rails'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers'
   gem 'awesome_print'
