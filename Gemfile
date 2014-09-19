@@ -65,3 +65,5 @@ gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
 gem 'state_machine', require: 'state_machine/core'
 gem 'uk_postcode'
+gem 'susy'
+gem 'compass'
