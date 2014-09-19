@@ -84,7 +84,7 @@
   border: 1px solid $border-colour;
   border-radius: 0;
   &.select{
-      @include col(2/3);
+      // @include col(2/3);
   }
 }
 
