@@ -111,7 +111,7 @@ en:
 
     labels:
       user_session:
-        reference: Your 'save and return' number
+        reference: Your reference number
         password: Your memorable word
       password:
         password: Your memorable word
@@ -195,6 +195,9 @@ en:
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
         miscellaneous_information: Do you want to  tell us any additional information about your claim?
 
+      confirmation_email:
+        email_addresses: Select or enter the recipients you'd like to send a copy to
+
     hints:
       password:
         password: Enter a memorable word (at least 5 characters long)
@@ -247,23 +250,25 @@ en:
       user_session:
         create: Next
         delete: Sign out now
+      confirmation_email:
+        create: Submit the form
     link:
       claim:
         return: Return to your saved form
 
   errors:
     user_session:
-      not_found: A claim with that 'save and return' number could not be found
-      invalid: This memorable word does not match the 'save and return' number
+      not_found: A claim with that reference number could not be found
+      invalid: This memorable word does not match the reference number
 
   user_sessions:
     new:
       header: Return to your saved form
       info: Sign in to return to your saved form.
-      body: If you don't have your 'save and return' number and memorable word you'll have to [start a new form](/).
+      body: If you don't have your reference number and memorable word you'll have to [start a new form](/).
     show:
       header: Saved
-      info: Make sure you know your  'save and return’ number and memorable word before you sign out (or you'll lose your work).
+      info: Make sure you know your reference number and memorable word before you sign out (or you'll lose your work).
   claims:
     new:
       header: Take your employer to a tribunal
@@ -298,19 +303,19 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Your 'save and return' number
+      header: Your reference number
       info: |
         You may want to save any work you do (eg, to show it to someone else or gather more information).
 
-        To save your work and return to it another time, you need a 'save and return' number.
+        To save your work and return to it another time, you need a reference number.
 
       access_details:
         header: Keep a note of these details
-        reference: Your 'save and return' number
+        reference: Your reference number
 
       record_details:
         header: What is your email address?
-        info: Your ‘save and return’ number will be emailed to this address
+        info: Your reference number will be emailed to this address
 
     claimant:
       header: Your details
@@ -344,11 +349,15 @@ en:
       body: |
         Thank you for starting an employment tribunal claim form.
 
-        Your unique 'save and return' number is:
+        Your reference number is:
 
         __%{reference}__
 
-        You need this number, and your memorable word, to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+        You need this number, and your memorable word,
+        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+    confirmation_email:
+      subject: Employment tribunal submitted
 
     reference:
-      header: "'Save and return' number"
+      header: Reference number

@@ -1,4 +1,8 @@
 module FormMethods
+  SAVE_AND_RETURN_EMAIL = 'mail@example.com'
+  CLAIMANT_EMAIL = 'barrington@example.com'
+  REPRESENTATIVE_EMAIL = 'rep@example.com'
+
   def start_claim
     visit '/'
     click_button 'Apply now'
@@ -11,7 +15,7 @@ module FormMethods
 
   def fill_in_return_form reference, word
     visit '/user_sessions/new'
-    fill_in 'save and return', with: reference
+    fill_in 'reference', with: reference
     fill_in 'memorable word', with: word
     click_button 'Next'
   end
@@ -20,7 +24,7 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email='mail@example.com')
+  def fill_in_password_and_email(word='green', email=SAVE_AND_RETURN_EMAIL)
     fill_in 'memorable word', with: word
     fill_in 'Email address', with: email if email.present?
 
@@ -44,7 +48,7 @@ module FormMethods
     fill_in 'Alternative phone',   with: '07956000000'
 
     choose  'claimant_contact_preference_email'
-    fill_in 'Email address', with: 'barrington@example.com'
+    fill_in 'Email address', with: CLAIMANT_EMAIL
 
     choose  'claimant_has_special_needs_true'
     fill_in 'Tell us how we can help you.', with: 'I am blind.'
@@ -66,8 +70,7 @@ module FormMethods
     fill_in_address
 
     fill_in 'Alternative phone',   with: '07956000000'
-
-
+    fill_in 'Email address', with: REPRESENTATIVE_EMAIL
     fill_in 'Document exchange (DX) number', with: '1'
 
     click_button 'Save and continue'
@@ -129,10 +132,10 @@ module FormMethods
       find("##{label['for']}").set true
 
     check 'Another type of claim'
-      fill_in 'State the other type of claim – or claims – that you’re making',
-        with: 'Boss was a bit of a douchenozzle TBH'
-      fill_in 'This is your opportunity to tell us about your problem at work',
-        with: 'It was all a bit long TBH'
+    fill_in 'State the other type of claim – or claims – that you’re making',
+      with: 'Boss was a bit of a douchenozzle TBH'
+    fill_in 'This is your opportunity to tell us about your problem at work',
+      with: 'It was all a bit long TBH'
 
     check 'To get my old job back and compensation'
 
@@ -156,5 +159,23 @@ module FormMethods
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
       'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
       'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'
+  end
+
+  def complete_a_claim(options={})
+    start_claim
+    fill_in_password
+    fill_in_personal_details(options)
+    fill_in_representative_details
+    fill_in_employer_details
+    fill_in_employment_details
+    fill_in_claim_details
+  end
+
+  def select_recipients
+    check CLAIMANT_EMAIL
+    check REPRESENTATIVE_EMAIL
+    fill_in 'additional_email_address_1', with: 'bob@example.com'
+    fill_in 'additional_email_address_2', with: 'jane@example.com'
+    click_button 'Submit the form'
   end
 end
