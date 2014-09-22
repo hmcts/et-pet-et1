@@ -20,10 +20,6 @@ describe BaseMailer do
     I18n.t("claim_reviews.confirmation.details.#{heading}")
   end
 
-  before do
-    allow(claim).to receive(:remission_applicable?).and_return false
-  end
-
   describe '#access_details_email' do
     subject { BaseMailer.access_details_email(claim, email_address) }
 
@@ -49,6 +45,11 @@ describe BaseMailer do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
     subject { BaseMailer.confirmation_email(claim, email_addresses) }
 
+    before do
+      allow(claim).to receive(:payment_applicable?).and_return false
+      allow(claim).to receive(:remission_applicable?).and_return false
+    end
+
     it 'has been delivered' do
       email
       expect(ActionMailer::Base.deliveries).to be_present
@@ -65,6 +66,14 @@ describe BaseMailer do
     it 'has office' do
       expect(email.body).to include 'Birmingham'
       expect(email.body).to include 'Phoenix House'
+    end
+
+    context 'when no office' do
+      let(:office) { nil }
+
+      it 'does not show office details' do
+        expect(email.body).not_to include table_heading('office')
+      end
     end
 
     context 'when paid' do
@@ -84,6 +93,7 @@ describe BaseMailer do
     context 'when applying for remission' do
       before do
         allow(claim).to receive(:remission_applicable?).and_return true
+        allow(claim).to receive(:payment_applicable?).and_return false
       end
 
       it 'shows remission help' do

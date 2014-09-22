@@ -21,11 +21,12 @@ section
     tr
       td= t('.details.your_rtf_file')
       td
-    tr
-      td= t('.details.office')
-      td
-        address
-          = @claim.office.name
-          br
-          = @claim.office.address
-          br
+    - if @claim.office.present?
+      tr
+        td= t('.details.office')
+        td
+          address
+            = @claim.office.name
+            br
+            = @claim.office.address
+            br

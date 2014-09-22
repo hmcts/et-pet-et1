@@ -50,7 +50,7 @@ class Claim < ActiveRecord::Base
   end
 
   def fee_calculation
-    @fee_calculation ||= ClaimFeeCalculator.calculate claim: self
+    ClaimFeeCalculator.calculate claim: self
   end
 
   def payment_applicable?
