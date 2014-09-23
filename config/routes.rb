@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :guide, only: :show
+
   resource :claim_review,       only: %i<show update>, path: 'apply/review'
   resource :claim_confirmation, only: :show,           path: 'apply/confirmation'
 
