@@ -1,6 +1,14 @@
 = content_for(:header, claim_header)
 
-section
+.main-section
+  aside
+    h3 Get Help
+    nav
+      ul
+        li: a href="/" Read the guide
+        li: a href="/" Contact us
+        li: a href="/" Sign out
+
   = simple_form_for resource, url: claim_path do |f|
     = hidden_field_tag :page, current_step
     = f.error_notification
