@@ -1,6 +1,6 @@
 .main-column
   fieldset.form-panel
-    legend.heading-medium= t '.personal_details'
+    legend= t '.personal_details'
 
     = render partial: 'personal_details', locals: { f: f }
 
@@ -18,7 +18,7 @@
       wrapper_html: { id: :special_needs_wrapper }
 
   fieldset.form-panel
-    legend.heading-medium= t '.contact_details'
+    legend= t '.contact_details'
 
     = render partial: 'address', locals: { f: f }
 
