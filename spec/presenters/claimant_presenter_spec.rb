@@ -9,8 +9,8 @@ RSpec.describe ClaimantPresenter, type: :presenter do
       address_street: 'Lol street', address_locality: 'Lolzville',
       address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
       address_telephone_number: '01234567890', mobile_number: '07956123456',
-      contact_preference: 'post', special_needs: false,
-      applying_for_remission?: false
+      email_address: 'joe@example.com', contact_preference: 'post',
+      special_needs: false, applying_for_remission?: false
   end
 
   describe '#full_name' do
@@ -31,6 +31,7 @@ RSpec.describe ClaimantPresenter, type: :presenter do
 
   its(:telephone_number)   { is_expected.to eq('01234567890') }
   its(:mobile_number)      { is_expected.to eq('07956123456') }
+  its(:email_address)      { is_expected.to eq('joe@example.com') }
   its(:contact_preference) { is_expected.to eq('Post') }
 
   describe '#is_disabled' do

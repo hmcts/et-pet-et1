@@ -4,6 +4,7 @@ en:
   claim_reviews:
     show:
       header: Check your application
+      change: Change
       info: |
         You can change anything that's not right before sending your application.
       incomplete_claim_summary: |
@@ -23,6 +24,7 @@ en:
       claimant_address: Address
       claimant_telephone_number: Telephone
       claimant_mobile_number: Mobile
+      claimant_email_address: Email
       claimant_contact_preference: Preferred contact
       claimant_is_disabled: Disability
       claimant_is_applying_for_remission: Fee remission
@@ -71,3 +73,48 @@ en:
       claim_detail_is_whistleblowing: Whistleblowing
       claim_detail_send_claim_to_whistleblowing_entity: Send to whistleblowing body
       claim_detail_miscellaneous_information: Other information
+
+    email_addresses:
+      confirmation: Email confirmation
+      hint: We'll send a copy of your completed application in the email
+      add_email_address: Add email address
+
+    confirmation:
+      complete: |
+        # Application complete
+
+        Your application reference number: %{reference}
+
+      fee_paid: |
+        ## Thank you for your payment. We’ll write to you within 5 working days.
+
+      information: |
+        ## If your claim is accepted
+
+        * We’ll send your employer a copy of your claim form and ask them to respond.
+        * In most cases, we’ll also send a copy of your claim to Acas. Someone from Acas will contact you to see if you can solve the problem without going to a tribunal.
+
+
+
+        From the information you’ve given us, you have to pay %{claim_fee} we
+        will be in touch within 5 work days to tell you how to pay this.
+
+        (If your case goes to a tribunal, you’ll have to pay a hearing fee of
+        %{heading_fee}).
+
+      remission_help: |
+        ## Get help with paying your fee
+
+        You must apply for a 'fee remission' within __7 calendar days__ of
+        submitting this claim form (or we’ll reject your claim).
+
+        [Apply for a 'fee remission'](https://www.employmenttribunals.service.gov.uk/remissions)
+
+      details:
+        header: Claim details summary
+        date_submitted: Date you sent your claim
+        fee_to_pay: Fee to pay
+        fee_paid: Fee paid
+        pdf_version: PDF version of form (for your records)
+        your_rtf_file: Your RTF file
+        office: Tribunal office dealing with your claim

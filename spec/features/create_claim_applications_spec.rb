@@ -99,26 +99,24 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Entering claim details' do
-      start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_representative_details
-      fill_in_employer_details
-      fill_in_employment_details
-      fill_in_claim_details
+      complete_a_claim
 
       expect(page).to have_text review_heading_for(:show)
     end
 
-    scenario 'Submitting the claim when payment is not required' do
-      start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_representative_details
-      fill_in_employer_details
-      fill_in_employment_details
-      fill_in_claim_details
+    scenario 'Emailing confirmation' do
+      complete_a_claim seeking_remissions: false
+      select_recipients
 
+      claim = Claim.last
+
+      email = ActionMailer::Base.deliveries.last
+      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
+      expect(email.body).to include completion_message(claim.reference)
+    end
+
+    scenario 'Submitting the claim when payment is not required' do
+      complete_a_claim
       click_button 'Submit the form'
 
       expect(page).to have_text "It looks like you haven't paid yet. We'll give you a bell about that soon"
@@ -126,28 +124,14 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Making payment' do
-      start_claim
-      fill_in_password
-      fill_in_personal_details seeking_remissions: false
-      fill_in_representative_details
-      fill_in_employer_details
-      fill_in_employment_details
-      fill_in_claim_details
-
+      complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
       expect(page).to have_epdq_form
     end
 
     scenario 'Returning from the payment page' do
-      start_claim
-      fill_in_password
-      fill_in_personal_details seeking_remissions: false
-      fill_in_representative_details
-      fill_in_employer_details
-      fill_in_employment_details
-      fill_in_claim_details
-
+      complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
       return_from_payment_gateway

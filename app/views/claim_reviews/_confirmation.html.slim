@@ -1,0 +1,32 @@
+section= format t('.complete', reference: @claim.reference)
+section= format t('.fee_paid') if @claim.payment_present?
+section= format t('.remission_help') if @claim.remission_applicable?
+section
+  h2= t('.details.header')
+  table
+    tr
+      td= t('.details.date_submitted')
+      td= @claim.submitted_at
+    - if @claim.payment_present?
+      tr
+        td= t('.details.fee_paid')
+        td= @claim.payment_amount
+    - elsif @claim.payment_applicable?
+      tr
+        td= t('.details.fee_to_pay')
+        td= @claim.fee_calculation.application_fee
+    tr
+      td= t('.details.pdf_version')
+      td
+    tr
+      td= t('.details.your_rtf_file')
+      td
+    - if @claim.office.present?
+      tr
+        td= t('.details.office')
+        td
+          address
+            = @claim.office.name
+            br
+            = @claim.office.address
+            br

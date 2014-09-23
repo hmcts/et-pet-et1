@@ -22,7 +22,7 @@ class ClaimantPresenter < Presenter
     address_telephone_number
   end
 
-  present :mobile_number
+  present :mobile_number, :email_address
 
   def contact_preference
     if target.contact_preference
