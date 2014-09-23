@@ -1,14 +1,1 @@
-h1 Submitted
-
-p Thank you for your claim form and payment. Your form submission number is:
-  <strong>#{claim.fee_group_reference}</strong>
-
-- if claim.payment_present?
-  p It looks like you paid.
-- else
-  p It looks like you haven't paid yet. We'll give you a bell about that soon
-
-- if claim.remission_applicable?
-  p Insert instructions on how to claim remission.
-- else
-  p No remissions for you. Sorry buddy.
+= render partial: '/claim_reviews/confirmation'
