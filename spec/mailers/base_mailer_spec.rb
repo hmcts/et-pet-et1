@@ -2,23 +2,12 @@ require "rails_helper"
 
 describe BaseMailer do
   include ClaimsHelper
+  include Messages
 
   let(:office) { Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')}
   let(:claim) { Claim.create!(submitted_at: '2014-09-09', office: office) }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver }
-
-  def payment_message
-    format I18n.t('claim_reviews.confirmation.fee_paid')
-  end
-
-  def remission_help
-    format I18n.t('claim_reviews.confirmation.remission_help')
-  end
-
-  def table_heading(heading)
-    I18n.t("claim_reviews.confirmation.details.#{heading}")
-  end
 
   describe '#access_details_email' do
     subject { BaseMailer.access_details_email(claim, email_address) }

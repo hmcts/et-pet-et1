@@ -108,19 +108,19 @@ feature 'Claim applications', type: :feature do
       complete_a_claim seeking_remissions: false
       select_recipients
 
-      claim = Claim.last
-
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
-      expect(email.body).to include completion_message(claim.reference)
+      expect(email.body).to include completion_message(Claim.last.reference)
     end
 
     scenario 'Submitting the claim when payment is not required' do
       complete_a_claim
       click_button 'Submit the form'
 
-      expect(page).to have_text "It looks like you haven't paid yet. We'll give you a bell about that soon"
-      expect(page).to have_text "Insert instructions on how to claim remission."
+      expect(page.html).to include completion_message(Claim.last.reference)
+      expect(page.html).not_to include table_heading('fee_paid')
+      expect(page.html).not_to include table_heading('fee_to_pay')
+      expect(page.html).to include remission_help
     end
 
     scenario 'Making payment' do
@@ -136,8 +136,21 @@ feature 'Claim applications', type: :feature do
 
       return_from_payment_gateway
 
-      expect(page).to have_text 'It looks like you paid.'
-      expect(page).to have_text 'No remissions for you. Sorry buddy.'
+      expect(page.html).to include table_heading('fee_paid')
+      expect(page.html).not_to include table_heading('fee_to_pay')
+      expect(page.html).not_to include remission_help
     end
+
+  scenario 'Submitting the claim when payment failed' do
+    complete_a_claim seeking_remissions: false
+    click_button 'Submit the form'
+
+    return_from_payment_gateway('decline')
+
+    expect(page.html).to include completion_message(Claim.last.reference)
+    expect(page.html).not_to include table_heading('fee_paid')
+    expect(page.html).to include table_heading('fee_to_pay')
+    expect(page.html).not_to include remission_help
+  end
   end
 end
