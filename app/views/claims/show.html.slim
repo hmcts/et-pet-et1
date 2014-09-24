@@ -5,16 +5,17 @@
     h3 Get Help
     nav
       ul
-        li: a href="/" Read the guide
-        li: a href="/" Contact us
-        li: a href="/" Sign out
-
-  = simple_form_for resource, url: claim_path do |f|
-    = hidden_field_tag :page, current_step
-    = f.error_notification
-    .form-inputs
-      = render partial: current_step.to_s, locals: { f: f }
-    .form-actions
-      = f.button :submit
-      - if current_step != 'password'
-        = f.button :submit, name: 'return', value: t('helpers.submit.return')
+        li
+          = link_to('Read the guide', guide_path)
+        li
+          = link_to('Sign out', user_sessions_path)
+  .main-content
+    = simple_form_for resource, url: claim_path do |f|
+      = hidden_field_tag :page, current_step
+      = f.error_notification
+      .form-inputs
+        = render partial: current_step.to_s, locals: { f: f }
+      .form-actions
+        = f.button :submit
+        - if current_step != 'password'
+          = f.button :submit, name: 'return', value: t('helpers.submit.return')
