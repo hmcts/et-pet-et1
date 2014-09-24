@@ -7,12 +7,33 @@
 // ==========================================================================
   header{
     &.main-header{
-      @include container;
+      @include prefix(4 of 12);
+      h3{
+        @include core-24;
+        color:$secondary-text-colour;
+        padding-top: $gutter-half;
+      }
       h1{
-        @include span(8 of 12 last);
+        @include bold-48();
+        padding: $gutter-half 0 $gutter;
       }
     }
   }
+// ==========================================================================
+// Aside nav
+aside {
+  a{
+    @include core-19;
+  }
+  li:last-child{
+    margin-top:$gutter;
+  }
+}
+
+
+// ==========================================================================
+
+
 // ==========================================================================
 // Inputs
 // ==========================================================================
@@ -63,7 +84,7 @@ textarea.form-control{
 .main-section{
   @include container;
 }
-.simple_form{
+.main-content{
   @include span(8 of 12 last);
 }
 aside{
