@@ -28,3 +28,19 @@ legend{
   display:block;
 
 }
+// ==========================================================================
+// Aside nav
+// ==========================================================================
+aside {
+  a{
+    @include core-19;
+  }
+}
+
+
+.label-column {
+  @include container(wider);
+  span.checkbox{
+    @include gallery(6 of 12);
+  }
+}
