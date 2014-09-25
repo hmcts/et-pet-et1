@@ -1,9 +1,11 @@
+header.main-header
+  h1= t("guide.header")
+
 .main-section
   aside
     nav
       ul
-        li
-          = link_to('Return to form', claim_path)
+        li= link_to('Return to form', claim_path)
   .main-content
     nav#guide-toc
       ul

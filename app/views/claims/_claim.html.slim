@@ -1,31 +1,31 @@
 .main-column
   fieldset.form-panel
-    h2.heading-medium= t '.claim_type'
+    legend= t '.claim_type'
 
     p.form-hint= t '.claim_type_hint'
 
+
+    h2.heading-medium Unfair dismissal
+
     = f.input :is_unfair_dismissal,
       as: :gds_check_boxes,
+      item_wrapper_class: 'block-label large-label',
       wrapper_class: 'input form-group'
 
-    = f.input :is_discrimination,
-      as: :gds_check_boxes,
-      wrapper_class: 'input form-group related-checkboxes-root'
+    h2.heading-medium Discrimination
 
     = f.input :discrimination_claims, label: false,
       collection: Claim::DISCRIMINATION_COMPLAINTS,
       as: :check_boxes,
-      item_wrapper_class: 'block-label disabled',
-      wrapper_class: 'panel-indent label-column related-checkboxes-collection'
+      item_wrapper_class: 'block-label',
+      wrapper_class: 'label-column related-checkboxes-collection'
 
-    = f.input :is_pay_related,
-      as: :gds_check_boxes,
-      wrapper_class: 'input form-group related-checkboxes-root'
+    h2.heading-medium Pay
 
     = f.input :pay_claims, label: false,
       collection: Claim::PAY_COMPLAINTS, as: :check_boxes,
-      item_wrapper_class: 'block-label disabled',
-      wrapper_class: 'panel-indent label-column related-checkboxes-collection'
+      item_wrapper_class: 'block-label',
+      wrapper_class: 'label-column related-checkboxes-collection'
 
     = f.input :is_other_type_of_claim,
       as: :boolean,

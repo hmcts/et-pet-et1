@@ -94,9 +94,9 @@ en:
           age: Age
           pregnancy_or_maternity: Pregnancy or maternity
           religion_or_belief: Religion or belief
-          sexual_orientation: Sexual orientation (eg, you've been treated unfairly because you're gay)
+          sexual_orientation: Sexual orientation
           marriage_or_civil_partnership: Marriage or civil partnership
-          gender_reassignment: Gender reassignment (eg, you've been treated unfairly because you've had a sex change)
+          gender_reassignment: Gender reassignment
         pay_claims:
           redundancy: Redundancy pay
           notice: Notice pay
@@ -269,6 +269,9 @@ en:
     show:
       header: Saved
       info: Make sure you know your reference number and memorable word before you sign out (or you'll lose your work).
+  guide:
+    header: Guide
+
   claims:
     new:
       header: Take your employer to a tribunal
@@ -318,7 +321,7 @@ en:
         info: Your reference number will be emailed to this address
 
     claimant:
-      header: Your details
+      header: About you
       personal_details: Personal details
       contact_details: Contact details
     representative:
