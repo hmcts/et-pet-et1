@@ -10,8 +10,27 @@ cat <<EOT
   },
   "files": [
     {
-      "paths": [ "/rails/log/*" ],
+      "paths": [ "/rails/log/unicorn.log" ],
       "fields": {
+        "project": "$PROJECT",
+        "appserver": "rails",
+        "version": "$APPVERSION",
+        "env": "$ENV"
+      }
+    },
+    {
+      "paths": [ "/rails/log/production.log" ],
+      "fields": {
+        "project": "$PROJECT",
+        "appserver": "rails",
+        "version": "$APPVERSION",
+        "env": "$ENV"
+      }
+    },
+    {
+      "paths": [ "/rails/log/logstash_production.log" ],
+      "fields": {
+        "format": "json",
         "project": "$PROJECT",
         "appserver": "rails",
         "version": "$APPVERSION",
