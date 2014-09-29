@@ -5,15 +5,15 @@
 // ==========================================================================
 // Header
 // ==========================================================================
-  header{
+  header {
     &.main-header{
       @include prefix(4 of 12);
-      h3{
+      h3 {
         @include core-24;
         color:$secondary-text-colour;
         padding-top: $gutter-half;
       }
-      h1{
+      h1 {
         @include bold-48();
         padding: $gutter-half 0 $gutter;
       }
@@ -26,7 +26,7 @@
 
 input[type=text],
 input[type=email],
-input[type=tel]{
+input[type=tel] {
   @include span(8 of 12);
   &.short-input{
     @include span(4 of 12);

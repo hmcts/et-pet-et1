@@ -66,9 +66,6 @@
   display: block;
   color: $secondary-text-colour;
   margin-bottom: 5px;
-  @include media (tablet) {
-    margin-top: 8px;
-  }
 }
 
 

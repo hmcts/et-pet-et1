@@ -4,6 +4,7 @@ var reveal = require('./modules/moj.reveal'),
   selectedOption = require('./modules/moj.selected-option'),
   checkboxReveal = require('./modules/moj.checkbox-reveal'),
   formHintReveal = require('./modules/moj.reveal-hints');
+
 },{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.reveal":5,"./modules/moj.reveal-hints":4,"./modules/moj.selected-option":6}],2:[function(require,module,exports){
 /* Toggles content if checkbox is checked
 */
@@ -16,6 +17,7 @@ module.exports = (function() {
     });
   });
 })();
+
 },{}],3:[function(require,module,exports){
 /* Toggles disabled groups of adjacent checkboxes
 * assumes structure: .related-checkboxes-root + .related-checkboxes-collection
@@ -64,6 +66,7 @@ module.exports = (function() {
   });
 
 })();
+
 },{}],4:[function(require,module,exports){
 // Reveals hidden hint text
 
