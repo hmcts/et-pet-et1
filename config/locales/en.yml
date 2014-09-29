@@ -114,7 +114,7 @@ en:
         reference: Your reference number
         password: Your memorable word
       password:
-        password: Your memorable word
+        password: Your memorable word (at least 5 characters long)
         save_and_return_email: Email address
 
       claimant:
@@ -200,7 +200,8 @@ en:
 
     hints:
       password:
-        password: Enter a memorable word (at least 5 characters long)
+        password: You need this word to return to your application another time
+        save_and_return_email: Get your 'save and return' number in an email
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
@@ -306,19 +307,15 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Your reference number
-      info: |
-        You may want to save any work you do (eg, to show it to someone else or gather more information).
-
-        To save your work and return to it another time, you need a reference number.
+      header: Before you start
+      legend: Save and return to your application
 
       access_details:
         header: Keep a note of these details
         reference: Your reference number
 
       record_details:
-        header: What is your email address?
-        info: Your reference number will be emailed to this address
+          header: Email address
 
     claimant:
       header: About you

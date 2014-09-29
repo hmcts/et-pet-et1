@@ -18,10 +18,10 @@
 
 // Hack to make checkbox float inline before the label
 // ==========================================================================
-.strong{
+.strong {
   font-weight:700;
 }
-legend{
+legend {
   @extend .heading-medium;
   border-bottom:1px solid $border-colour;
   width:100%;
@@ -40,7 +40,7 @@ h2.heading-medium{
 // Aside nav
 // ==========================================================================
 aside {
-  a{
+  a {
     @include core-19;
   }
 }
