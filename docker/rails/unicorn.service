@@ -10,10 +10,6 @@ seed)
     echo "running seed"           >>/rails/log/unicorn.log
     bundle exec rake db:migrate   >>/rails/log/unicorn.log 2>&1
     bundle exec rake db:seed      >>/rails/log/unicorn.log 2>&1
-    USER_CREATE=${RAILS_USER:-'admin@admin.com, 123456789, admin'}
-    echo $USER_CREATE
-    echo "creating user $USER_CREATE"            >>/rails/log/unicorn.log
-    bundle exec rake "user:create[$USER_CREATE]" >>/rails/log/unicorn.log 2>&1
     ;;
 esac
 echo "Starting unicorn"           >>/rails/log/unicorn.log
