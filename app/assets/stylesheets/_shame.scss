@@ -26,10 +26,14 @@ legend {
   border-bottom:1px solid $border-colour;
   width:100%;
   display:block;
-  padding-bottom:$gutter-half/2;
+  padding:0 0 $gutter-half/2 0;
   &.medium {
     @include core-24;
     border:none;
+  }
+  &.form-label{
+    border:none;
+    margin-bottom:0;
   }
 }
 h2.heading-medium{
@@ -50,5 +54,10 @@ aside {
   @include container(wider);
   span.checkbox{
     @include gallery(6 of 12);
+    padding-left:0;
   }
+}
+
+.form-panel{
+  margin:0 0 $gutter;
 }

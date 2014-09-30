@@ -1,17 +1,33 @@
 .main-column
-  fieldset.form-panel
-    legend.visuallyhidden= t '.header'
-    = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
-    = f.input :organisation_name
-    = f.input :name
-    = f.input :address_building
-    = f.input :address_street
-    = f.input :address_locality
-    = f.input :address_county
-    = f.input :address_post_code, input_html: {class: 'short-input'}
-    = f.input :address_telephone_number
-    = f.input :mobile_number
-    = f.input :email_address
-    = f.input :dx_number
-    = f.input :contact_preference, collection: RepresentativeForm::CONTACT_PREFERENCES,
-      as: :radio_buttons, item_wrapper_class: 'block-label'
+  fieldset
+    legend= t '.form_legend'
+
+    fieldset.form-panel
+      legend.form-label Do you have a representative?
+      p.form-hint Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
+      .inline
+        label.block-label for="has_representative_yes"
+          input type="radio" name="has_representative" id="has_representative_yes" value="yes"
+          | Yes
+        label.block-label for="has_representative_no"
+          input type="radio" name="has_representative" id="has_representative_no" value="no" checked="checked"
+          | No
+
+    fieldset.form-panel
+      legend Representative's details
+
+      = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
+      = f.input :organisation_name
+      = f.input :name
+
+    fieldset.form-panel
+      legend Contact details
+      = f.input :address_building
+      = f.input :address_street
+      = f.input :address_locality
+      = f.input :address_county
+      = f.input :address_post_code, input_html: { class: 'short-input' }
+      = f.input :address_telephone_number
+      = f.input :mobile_number
+      = f.input :email_address
+      = f.input :dx_number
