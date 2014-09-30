@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PaymentGateway::Response, type: :service do
+describe PaymentGateway::Response do
   let(:request) { double 'request', query_string: query_string }
   let(:query_string) do
     'orderID=1f7b4bac6daef&amount=250&PM=CreditCard&ACCEPTANCE=test123&STATUS=9' +

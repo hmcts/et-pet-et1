@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EmploymentPresenter, type: :presenter do
+describe EmploymentPresenter do
   subject { EmploymentPresenter.new employment }
 
   let(:employment) do

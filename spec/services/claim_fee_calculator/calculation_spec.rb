@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClaimFeeCalculator::Calculation, type: :remissions do
+describe ClaimFeeCalculator::Calculation do
   describe '#fee_to_pay?' do
     context 'when there is an application fee to pay after counting remission' do
       let(:subject) { ClaimFeeCalculator::Calculation.new 1, 1, 1 }

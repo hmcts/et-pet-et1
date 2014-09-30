@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PaymentGateway::Request, type: :service do
+describe PaymentGateway::Request do
   let(:request) { double 'request', url: 'https://example.org/apply/pay' }
   subject { described_class.new request, reference: 'lol', amount: 250 }
 

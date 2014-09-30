@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RepresentativeForm, :type => :form do
+describe RepresentativeForm do
   describe 'validations' do
     [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
       it { is_expected.to validate_presence_of(attr) }

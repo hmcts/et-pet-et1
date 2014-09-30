@@ -2,7 +2,7 @@ require 'rails_helper'
 
 Thread.abort_on_exception = true
 
-RSpec.describe PaymentGateway, type: :service do
+describe PaymentGateway do
   describe '.available?' do
     around(:example) do |example|
       pdq_stub

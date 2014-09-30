@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RespondentPresenter, type: :presenter do
+describe RespondentPresenter do
   subject { RespondentPresenter.new respondent }
 
   let(:respondent) do

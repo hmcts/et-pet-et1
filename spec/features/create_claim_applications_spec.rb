@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Claim applications', type: :feature do
+feature 'Claim applications' do
   include FormMethods
   include Messages
   include EpdqMatchers

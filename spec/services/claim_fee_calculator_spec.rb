@@ -1,4 +1,4 @@
-RSpec.describe ClaimFeeCalculator, type: :remissions do
+describe ClaimFeeCalculator do
   let(:claim) { Claim.new }
 
   def calculation

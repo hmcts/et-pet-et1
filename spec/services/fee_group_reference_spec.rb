@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe FeeGroupReference, type: :service do
+describe FeeGroupReference do
   describe '.create' do
     let(:request) do
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').

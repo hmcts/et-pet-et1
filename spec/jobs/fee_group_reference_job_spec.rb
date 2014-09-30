@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe FeeGroupReferenceJob, type: :job do
+describe FeeGroupReferenceJob do
   let(:claim) { double }
   let(:postcode) { 'SW2 2WS' }
   let(:fee_group_reference) { double reference: 1234567890, office_code: 11, office_name: 'Puddletown', office_address: '1 Some road, Puddletown', office_telephone: '020 1234 5678' }
