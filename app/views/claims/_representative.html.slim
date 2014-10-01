@@ -3,25 +3,28 @@
     legend= t '.form_legend'
 
     fieldset.form-panel
-      legend.form-label Do you have a representative?
-      p.form-hint Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
+      legend.form-label= t '.has_representative_label'
+      //////////////////////
+      p.form-hint= t '.has_representative_hint'
+      /////////////////////
       .inline
         label.block-label for="has_representative_yes"
           input type="radio" name="has_representative" id="has_representative_yes" value="yes"
-          | Yes
+          = t '.has_representative_yes'
+
         label.block-label for="has_representative_no"
           input type="radio" name="has_representative" id="has_representative_no" value="no" checked="checked"
-          | No
+          = t '.has_representative_no'
 
     fieldset.form-panel
-      legend Representative's details
+      legend= t '.representative_legend'
 
       = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
       = f.input :organisation_name
       = f.input :name
 
     fieldset.form-panel
-      legend Contact details
+      legend= t '.contact_legend'
       = f.input :address_building
       = f.input :address_street
       = f.input :address_locality
@@ -31,3 +34,9 @@
       = f.input :mobile_number
       = f.input :email_address
       = f.input :dx_number
+
+      details
+        summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+          span.summary= t '.what_is_dx.detail'
+        .panel-indent#details-content-0
+          p= t '.what_is_dx.summary'
