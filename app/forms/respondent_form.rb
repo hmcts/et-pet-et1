@@ -43,7 +43,7 @@ class RespondentForm < Form
   end
 
   private def target
-    resource.respondents.first || resource.respondents.build
+    resource.primary_respondent || resource.build_primary_respondent
   end
 
   def worked_at_different_address=(v)

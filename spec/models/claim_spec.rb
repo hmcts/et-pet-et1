@@ -4,12 +4,16 @@ RSpec.describe Claim, :type => :claim do
   it { is_expected.to have_secure_password }
 
   it { is_expected.to have_many(:claimants).dependent(:destroy) }
+  it { is_expected.to have_many(:secondary_claimants).conditions primary_claimant: false }
+
   it { is_expected.to have_many(:respondents).dependent(:destroy) }
+  it { is_expected.to have_many(:secondary_respondents).conditions primary_respondent: false }
+
   it { is_expected.to have_one(:representative).dependent(:destroy) }
   it { is_expected.to have_one(:employment).dependent(:destroy) }
   it { is_expected.to have_one(:office).dependent(:destroy) }
-  it { is_expected.to have_one(:primary_claimant) }
-  it { is_expected.to have_one(:primary_respondent) }
+  it { is_expected.to have_one(:primary_claimant).conditions primary_claimant: true }
+  it { is_expected.to have_one(:primary_respondent).conditions primary_respondent: true }
   it { is_expected.to have_one(:payment) }
 
   subject { described_class.new(id: 1) }
@@ -269,6 +273,14 @@ RSpec.describe Claim, :type => :claim do
         expect(subject).to receive(:save!)
         subject.finalize!
       end
+    end
+  end
+
+  describe '#build_primary_claimant' do
+    let(:claimant) { claim.build_primary_claimant }
+
+    it 'sets primary_claimant as true' do
+      expect(claimant.primary_claimant).to be true
     end
   end
 end
