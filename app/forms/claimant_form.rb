@@ -37,6 +37,6 @@ class ClaimantForm < Form
   end
 
   private def target
-    resource.claimants.first || resource.claimants.build
+    resource.primary_claimant || resource.build_primary_claimant
   end
 end
