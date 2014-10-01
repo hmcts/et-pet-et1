@@ -1,32 +1,8 @@
 .main-column
+  p= t '.hint'
   fieldset.form-panel
-    legend.visuallyhidden= t '.header'
-    p= t '.hint'
-
+    legend= t '.header'
     = f.input :name
-
-    = f.input :address_building
-    = f.input :address_street
-    = f.input :address_locality
-    = f.input :address_county
-    = f.input :address_post_code, input_html: {class: 'short-input'}
-    = f.input :address_telephone_number
-
-    = f.input :worked_at_different_address,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label',
-      wrapper_html: { class: 'form-group-reveal' },
-      reveal: { true => :work_address_wrapper }
-
-    #work_address_wrapper.panel-indent.toggle-content.work-address
-      p.form-hint= t '.work_address'
-
-      = f.input :work_address_building
-      = f.input :work_address_street
-      = f.input :work_address_locality
-      = f.input :work_address_county
-      = f.input :work_address_post_code, input_html: {class: 'short-input'}
-      = f.input :work_address_telephone_number
 
     = f.input :acas_early_conciliation_certificate_number, required: true
     = f.input :no_acas_number,
@@ -43,6 +19,28 @@
         required: true,
         item_wrapper_class: 'block-label large-label'
 
-    = f.input :was_employed,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label'
+    fieldset.form-panel
+      legend= t '.contact_legend'
+      = f.input :address_building
+      = f.input :address_street
+      = f.input :address_locality
+      = f.input :address_county
+      = f.input :address_post_code, input_html: {class: 'short-input'}
+      = f.input :address_telephone_number
+
+    fieldset.form-panel
+      legend= t '.workaddress_legend'
+      = f.input :worked_at_different_address,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_html: { class: 'form-group-reveal' },
+        reveal: { true => :work_address_wrapper }
+
+      #work_address_wrapper.panel-indent.toggle-content.work-address
+        p.form-hint= t '.work_address'
+        = f.input :work_address_building
+        = f.input :work_address_street
+        = f.input :work_address_locality
+        = f.input :work_address_county
+        = f.input :work_address_post_code, input_html: {class: 'short-input'}
+        = f.input :work_address_telephone_number
