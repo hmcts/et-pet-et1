@@ -239,6 +239,11 @@ en:
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
         miscellaneous_information: |
           Eg, you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+      respondent:
+        acas_early_conciliation_certificate_number: |
+          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the Acas website.
+        address_building: |
+          May be different to your work address
 
   helpers:
     submit:
@@ -336,6 +341,9 @@ en:
 
     respondent:
       header: Employer's details
+      form_legend: Employer's details
+      contact_legend: Contact details
+      workaddress_legend: Your work address
       hint: |
         Give details about the employer, person or organisation you're making a claim
         against (known as the 'respondent' at a tribunal). If you need to, you
