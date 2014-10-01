@@ -88,8 +88,8 @@ RSpec.describe RespondentForm, :type => :form do
     no_acas_number_reason: "acas_has_no_jurisdiction" }
 
   before = proc do
-    allow(resource).to receive(:respondents).and_return proxy
-    allow(proxy).to receive(:build).and_return target
+    allow(resource).to receive(:primary_respondent).and_return nil
+    allow(resource).to receive(:build_primary_respondent).and_return target
   end
 
   it_behaves_like("a Form", attributes, before)

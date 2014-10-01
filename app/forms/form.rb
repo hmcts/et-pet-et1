@@ -8,7 +8,7 @@ class Form
   PHONE_NUMBER_LENGTH  = 21
   POSTCODE_LENGTH      = 8
 
-  attr_accessor :resource
+  attr_accessor :resource, :target
 
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
@@ -59,7 +59,7 @@ class Form
     delegate :i18n_key, to: :model_name, prefix: true
   end
 
-  def initialize(attributes={},&block)
+  def initialize(attributes={}, &block)
     assign_attributes attributes
     yield self if block_given?
   end
