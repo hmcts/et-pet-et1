@@ -30,6 +30,6 @@ class Respondent < ActiveRecord::Base
   end
 
   private def enqueue_fee_group_reference_request
-    FeeGroupReferenceJob.enqueue claim, fee_group_reference_address.post_code
+    FeeGroupReferenceJob.perform_later claim, fee_group_reference_address.post_code
   end
 end

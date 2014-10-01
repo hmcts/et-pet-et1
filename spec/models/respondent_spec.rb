@@ -28,13 +28,13 @@ RSpec.describe Respondent, :type => :model do
     describe 'enqueueing the fee group reference request' do
       let(:claim) { Claim.new }
       subject     { Respondent.new claim: claim }
-      
+
       context 'when the respondent has one address' do
         context 'and the post code has changed' do
           before { subject.address.post_code = 'W1F 7JG' }
 
           it 'enqueues a fee group reference request with that post code' do
-            expect(FeeGroupReferenceJob).to receive(:enqueue).with(claim, 'W1F 7JG')
+            expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim, 'W1F 7JG')
 
             subject.save
           end
@@ -44,7 +44,7 @@ RSpec.describe Respondent, :type => :model do
           before { subject.address.update post_code: 'W1F 7JG' }
 
           it 'does not enqueue a fee group reference request' do
-            expect(FeeGroupReferenceJob).not_to receive(:enqueue)
+            expect(FeeGroupReferenceJob).not_to receive(:perform_later)
 
             subject.save
           end
@@ -59,7 +59,7 @@ RSpec.describe Respondent, :type => :model do
           end
 
           it 'enqueues a fee group reference request with that post code' do
-            expect(FeeGroupReferenceJob).to receive(:enqueue).with(claim, 'SW1A 1AA')
+            expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim, 'SW1A 1AA')
 
             subject.save
           end
@@ -69,7 +69,7 @@ RSpec.describe Respondent, :type => :model do
           before { subject.work_address.update post_code: 'SW1A 1AA' }
 
           it 'does not enqueue a fee group reference request' do
-            expect(FeeGroupReferenceJob).not_to receive(:enqueue)
+            expect(FeeGroupReferenceJob).not_to receive(:perform_later)
 
             subject.save
           end
