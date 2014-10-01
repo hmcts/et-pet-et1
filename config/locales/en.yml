@@ -214,7 +214,7 @@ en:
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
       representative:
         type: Acas conciliators are not representatives
-      respondent:
+        respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
         address_building: This may be the head office and different to your own work address
@@ -324,9 +324,15 @@ en:
     representative:
       header: Your representative
       form_legend: Representative
+      representative_legend: Representative's details
+      contact_legend: Contact details
+      has_representative_label: Do you have a representative?
+      has_representative_yes: 'Yes'
+      has_representative_no: 'No'
+      has_representative_hint: Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
       what_is_dx:
-        anchor_text: What is a DX number?
-        body: DX is a private mail system used by organisations (eg, legal firms)
+        detail: What is a DX number?
+        summary: DX is a private mail system used by organisations (eg, legal firms)
 
     respondent:
       header: Employer's details
