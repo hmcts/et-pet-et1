@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClaimantForm, :type => :form do
+describe ClaimantForm do
   describe 'validations' do
     [:first_name, :last_name, :address_building, :address_street,
      :address_locality, :address_post_code].each do |attr|

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Claimant, :type => :model do
+describe Claimant do
   it { is_expected.to have_one :address }
   it_behaves_like "it has an address", :address
 

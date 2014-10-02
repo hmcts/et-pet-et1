@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe RepresentativePresenter, type: :presenter do
+describe RepresentativePresenter do
   let(:subject) { RepresentativePresenter.new representative }
   let(:representative) do
     double 'representative', type: :law_centre,

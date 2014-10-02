@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClaimForm, :type => :form do
+describe ClaimForm do
   describe 'validations' do
     it { is_expected.to ensure_length_of(:claim_details).is_at_most(5000) }
     it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }

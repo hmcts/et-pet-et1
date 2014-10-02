@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PasswordForm, :type => :form do
+describe PasswordForm do
   let(:model) { double('model') }
   let(:attributes) { { password: 'lol' } }
   subject { PasswordForm.new(attributes).tap { |f| f.resource = model } }
