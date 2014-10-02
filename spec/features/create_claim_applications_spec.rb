@@ -114,6 +114,7 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment is not required' do
+      pending 'pending design changes in progress there is no way to indicate applying for remission'
       complete_a_claim
       click_button 'Submit the form'
 
