@@ -45,6 +45,6 @@ class ClaimsController < ApplicationController
   end
 
   helper_method def current_step
-    params[:page] || referring_step
+    (params[:page] || referring_step).underscore
   end
 end
