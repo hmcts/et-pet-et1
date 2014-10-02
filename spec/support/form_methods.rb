@@ -53,12 +53,6 @@ module FormMethods
     choose  'claimant_has_special_needs_true'
     fill_in 'Tell us how we can help you.', with: 'I am blind.'
 
-    choose  'claimant_has_representative_true'
-
-    if seeking_remissions
-      choose  'claimant_applying_for_remission_true'
-    end
-
     click_button 'Save and continue' if submit_form
   end
 

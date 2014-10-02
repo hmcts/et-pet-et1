@@ -13,15 +13,8 @@ RSpec.describe ClaimTransitionManager, type: :service do
   describe 'when resource is a ClaimantForm' do
     let(:resource) { ClaimantForm.new }
 
-    context 'when form#has_representative == false' do
-      before { allow(resource).to receive(:has_representative).and_return false }
-      its(:forward) { is_expected.to eq(:respondent) }
-    end
-
-    context 'when form#has_representative == true' do
-      before { allow(resource).to receive(:has_representative).and_return true }
-      its(:forward) { is_expected.to eq(:representative) }
-    end
+    before { allow(resource).to receive(:has_representative).and_return true }
+    its(:forward) { is_expected.to eq(:representative) }
   end
 
   describe 'when resource is a RepresentativeForm' do
