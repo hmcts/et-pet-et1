@@ -10,21 +10,18 @@
     p If there are more than 5 people in the group we advise you upload the information in a spreadsheet
 
     p How many are making a claim with you?
+    
+    = number_field_tag :count, claim.secondary_claimants.size, min: 1, class: 'toggle',
+      style: 'display:none;', :"data-target" => 'claimant'
 
-    / = form_tag request.url, method: :get do
-    = number_field_tag :count, params[:additional_claimants], min: 0
-
-      / noscript= submit_tag 'Add'
-
-  / - resource.claimants.each do |claimant|
   = f.simple_fields_for :claimants do |builder|
+    .claimant
+      fieldset.form-panel
+        legend.heading-medium Person <span class="index">#{builder.index + 1}</span> (making a claim with you)
 
-    fieldset.form-panel
-      legend.heading-medium Person 1 (making a claim with you)
+        = render 'personal_details', f: builder
 
-      = render 'personal_details', f: builder
+      fieldset.form-panel
+        legend.heading-medium Contact details
 
-    fieldset.form-panel
-      legend.heading-medium Contact details
-
-      = render 'address', f: builder
+        = render 'address', f: builder
