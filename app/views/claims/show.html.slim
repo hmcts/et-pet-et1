@@ -16,7 +16,7 @@ header.main-header
       = hidden_field_tag :page, current_step
       = f.error_notification
       .form-inputs
-        = render partial: current_step.to_s, locals: { f: f }
+        = render current_step.to_s, f: f
       .form-actions
         = f.button :submit
         - if current_step != 'password'
