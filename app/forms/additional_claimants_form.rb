@@ -20,7 +20,9 @@ class AdditionalClaimantsForm < Form
   end
 
   def errors
-    claimants.map &:errors
+    claimants.each_with_object(super) do |claimant, errors|
+      errors.add(:claimants, claimant.errors)
+    end
   end
 
   def relation

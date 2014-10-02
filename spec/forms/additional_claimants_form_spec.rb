@@ -64,9 +64,8 @@ RSpec.describe AdditionalClaimantsForm, :type => :lol do
     before { 3.times { claim.claimants.create } }
 
     it 'maps the errors of #claimants' do
-      expect(subject.errors).to eq subject.claimants.map(&:errors)
+      expect(subject.errors[:claimants]).to include *subject.claimants.map(&:errors)
     end
-
   end
 
   describe '#save' do
