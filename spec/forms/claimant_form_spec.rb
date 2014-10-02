@@ -58,5 +58,6 @@ RSpec.describe ClaimantForm, :type => :form do
     allow(proxy).to receive(:build).and_return target
   end
 
-  it_behaves_like("a Form", attributes, before)
+  it_behaves_like "a Form", attributes, before
+  it_behaves_like 'it parses and validates multiparameter dates', :date_of_birth
 end

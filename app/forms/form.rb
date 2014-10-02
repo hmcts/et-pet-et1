@@ -46,6 +46,29 @@ class Form
     end
   end
 
+  def self.dates(*attrs)
+    attrs.each { |attribute| date attribute }
+  end
+
+  def self.date(attribute)
+    validates attribute, date: true
+
+    define_method(:"#{attribute}_date_params") do
+      iv = :"@#{attribute}_date_collaborator"
+      instance_variable_get(iv) || instance_variable_set(iv, MultiParameterDate.new(self, attribute))
+    end
+
+    1.upto(3) do |index|
+      define_method(:"#{attribute}(#{index}i)=") do |value|
+        send(:"#{attribute}_date_params")[index] = value
+      end
+
+      define_method(:"#{attribute}(#{index}i)") do
+        send("#{attribute}_date_params")[index]
+      end
+    end
+  end
+
   def self.for(name)
     "#{name}_form".classify.constantize
   end
@@ -65,8 +88,7 @@ class Form
   end
 
   def assign_attributes(attributes={})
-    parse_multiparameter_date_attributes(attributes)
-      .each { |key, value| send :"#{key}=", value }
+    attributes.each { |key, value| send :"#{key}=", value }
   end
 
   def persisted?
@@ -86,9 +108,5 @@ class Form
       target.update_attributes attributes
       resource.save
     end
-  end
-
-  private def parse_multiparameter_date_attributes(attributes)
-    MultiparameterDateParser.parse(attributes)
   end
 end

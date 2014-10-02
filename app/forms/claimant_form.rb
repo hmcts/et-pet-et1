@@ -8,6 +8,8 @@ class ClaimantForm < Form
 
   booleans   :has_special_needs, :has_representative
 
+  date       :date_of_birth
+
   validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
   validates :title, inclusion: { in: FormOptions::TITLES.map(&:to_s) }
