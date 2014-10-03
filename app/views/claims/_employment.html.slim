@@ -3,6 +3,10 @@
     legend.visuallyhidden= t '.header'
     p= t '.hint'
 
+    = f.input :was_employed,
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label'
+
     = f.input :job_title
 
     = f.input :start_date
