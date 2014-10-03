@@ -1,0 +1,27 @@
+.main-column
+  fieldset.form-panel
+    legend.heading-medium People making a claim with you
+
+    p Are other people making a claim with (against the same employer)?
+
+  fieldset.form-panel
+    legend.heading-medium Details
+
+    p If there are more than 5 people in the group we advise you upload the information in a spreadsheet
+
+    p How many are making a claim with you?
+    
+    = number_field_tag :count, claim.secondary_claimants.size, min: 1, class: 'toggle',
+      style: 'display:none;', :"data-target" => 'claimant'
+
+  = f.simple_fields_for :claimants do |builder|
+    .claimant
+      fieldset.form-panel
+        legend.heading-medium Person <span class="index">#{builder.index + 1}</span> (making a claim with you)
+
+        = render 'personal_details', f: builder
+
+      fieldset.form-panel
+        legend.heading-medium Contact details
+
+        = render 'address', f: builder
