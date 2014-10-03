@@ -162,7 +162,6 @@ en:
         work_address_county: County
         work_address_post_code: Postcode
         worked_at_different_address: Did you work at the same address to the one given above?
-        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
         no_acas_number: I don't have an Acas number
         no_acas_number_reason: Why don't you have an Acas number?
 
@@ -179,6 +178,7 @@ en:
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
+        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -219,12 +219,13 @@ en:
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
         address_building: This may be the head office and different to your own work address
       employment:
+        current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
         start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. Include overtime, commission and bonuses
-        benefit_details: 250 characters limit.
+        benefit_details: Details of benefit.
         end_date: For example, 08 04 2014
         new_job_start_date: For example, 08 04 2014
         notice_period_end_date: For example, 08 04 2014
@@ -351,9 +352,11 @@ en:
         can add more respondents later.
       work_address: Give details of your work address.
     employment:
-      header: Employment details
-      hint: |
-        Please give details about the job you were doing when the problem at work happened.
+      header: Employment detail
+      situation_legend: Employment situation
+      current_situation_legend: Current work situation
+      employment_details_legend: Employment details
+      pay_legend: Pay, pension and benefits
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
