@@ -1,51 +1,60 @@
 .main-column
   fieldset
-    legend.visuallyhidden= t '.header'
-    p= t '.hint'
+    legend= t '.situation_legend'
 
     = f.input :was_employed,
       as: :radio_buttons,
       item_wrapper_class: 'block-label'
 
-    = f.input :job_title
+    fieldset
+      legend= t '.current_situation_legend'
 
-    = f.input :start_date
+      = f.input :current_situation,
+        collection: EmploymentForm::CURRENT_SITUATION,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal',
+        reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
 
-    = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
+    fieldset
+      legend= t '.employment_details_legend'
 
-    = f.input :gross_pay,
-      wrapper_class: 'prefixed-field',
-      input_html: {class: 'prefix-pound'}
-    = f.input :gross_pay_period_type, label: false, label: false,
-      collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
-      item_wrapper_class: 'block-label'
+      = f.input :job_title
 
-    = f.input :net_pay,
-      wrapper_class: 'prefixed-field',
-      input_html: {class: 'prefix-pound'}
-    = f.input :net_pay_period_type, label: false,
-      collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
-      item_wrapper_class: 'block-label'
+      = f.input :start_date
 
-    = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
-      item_wrapper_class: 'block-label'
+      = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
 
-    = f.input :benefit_details, hint: false do
-    = f.input_field :benefit_details,
-      as: :text,
-      input_html: { rows: 5 }
-    = f.hint :benefit_details
+      = f.input :notice_period_end_date,
+        wrapper_html: { id: :end_date_wrapper }
 
-    = f.input :current_situation,
-      collection: FormOptions::CURRENT_SITUATION,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'form-group-reveal',
-      reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
+    fieldset
+      legend= t '.pay_legend'
 
-    = f.input :notice_period_end_date,
-      wrapper_class: 'panel-indent toggle-content',
-      wrapper_html: { id: :end_date_wrapper }
+      = f.input :gross_pay,
+        wrapper_class: 'prefixed-field',
+        input_html: {class: 'prefix-pound'}
+
+      = f.input :gross_pay_period_type,
+        label: false,
+        collection: EmploymentForm::PAY_PERIODS,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label'
+
+      = f.input :net_pay,
+        wrapper_class: 'prefixed-field',
+        input_html: {class: 'prefix-pound'}
+
+      = f.input :net_pay_period_type, label: false,
+        collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+        item_wrapper_class: 'block-label'
+
+      = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
+        item_wrapper_class: 'block-label'
+
+      = f.input :benefit_details,
+        as: :text,
+        input_html: { rows: 5 }
 
     #employment_terminated_wrapper.panel-indent.toggle-content
       = f.input :end_date
