@@ -318,6 +318,7 @@ en:
       access_details:
         header: Keep a note of these details
         reference: Your reference number
+        hint: You need this number to save your work and return to it another time
 
       record_details:
           header: Email address

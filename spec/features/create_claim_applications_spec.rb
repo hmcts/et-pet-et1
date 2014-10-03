@@ -114,6 +114,7 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment is not required' do
+      pending 'pending design changes in progress there is no way to indicate applying for remission'
       complete_a_claim
       click_button 'Submit the form'
 
@@ -141,16 +142,16 @@ feature 'Claim applications', type: :feature do
       expect(page.html).not_to include remission_help
     end
 
-  scenario 'Submitting the claim when payment failed' do
-    complete_a_claim seeking_remissions: false
-    click_button 'Submit the form'
+    scenario 'Submitting the claim when payment failed' do
+      complete_a_claim seeking_remissions: false
+      click_button 'Submit the form'
 
-    return_from_payment_gateway('decline')
+      return_from_payment_gateway('decline')
 
-    expect(page.html).to include completion_message(Claim.last.reference)
-    expect(page.html).not_to include table_heading('fee_paid')
-    expect(page.html).to include table_heading('fee_to_pay')
-    expect(page.html).not_to include remission_help
-  end
+      expect(page.html).to include completion_message(Claim.last.reference)
+      expect(page.html).not_to include table_heading('fee_paid')
+      expect(page.html).to include table_heading('fee_to_pay')
+      expect(page.html).not_to include remission_help
+    end
   end
 end

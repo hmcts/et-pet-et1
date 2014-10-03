@@ -1,8 +1,21 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
 
-  has_one :primary_claimant,   class_name: 'Claimant'
-  has_one :primary_respondent, class_name: 'Respondent'
+  has_one :primary_claimant,
+    -> { where primary_claimant: true },
+    class_name: 'Claimant'
+
+  has_one :primary_respondent,
+    -> { where primary_respondent: true },
+    class_name: 'Respondent'
+
+  has_many :secondary_claimants,
+    -> { where primary_claimant: false },
+    class_name: 'Claimant'
+
+  has_many :secondary_respondents,
+    -> { where primary_respondent: false },
+    class_name: 'Respondent'
 
   has_many :claimants, dependent: :destroy
   has_many :respondents, dependent: :destroy
