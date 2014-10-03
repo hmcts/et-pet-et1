@@ -300,11 +300,7 @@ DEPENDENCIES
   bitmask_attributes
   capybara
   codeclimate-test-reporter
-<<<<<<< HEAD
-=======
-  coffee-rails (~> 4.0.0)
   compass
->>>>>>> added in susy gem
   dotenv-rails
   epdq!
   govuk_frontend_toolkit (= 1.2.0)
