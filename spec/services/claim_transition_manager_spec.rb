@@ -25,15 +25,8 @@ RSpec.describe ClaimTransitionManager, type: :service do
   describe 'when resource is a RespondentForm' do
     let(:resource) { RespondentForm.new }
 
-    context 'when form#was_employed == false' do
-      before { allow(resource).to receive(:was_employed).and_return false }
-      its(:forward) { is_expected.to eq(:claim) }
-    end
-
-    context 'when form#was_employed == true' do
-      before { allow(resource).to receive(:was_employed).and_return true }
-      its(:forward) { is_expected.to eq(:employment) }
-    end
+    before { allow(resource).to receive(:was_employed).and_return true }
+    its(:forward) { is_expected.to eq(:employment) }
   end
 
   describe 'when resource is a EmploymentForm' do

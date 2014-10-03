@@ -96,7 +96,7 @@ module FormMethods
     check  "I don't have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
-    choose 'respondent_was_employed_true'
+    # choose 'respondent_was_employed_true'
 
     click_button 'Save and continue'
   end
@@ -120,10 +120,9 @@ module FormMethods
   def fill_in_claim_details
     check "Unfair dismissal (including constructive dismissal)"
 
-    check "Discrimination"
-      # Checking things nested within labels is apparently FUBAR
-      label = find('label', text: "Sex (including equal pay)")
-      find("##{label['for']}").set true
+    # Checking things nested within labels is apparently FUBAR
+    label = find('label', text: "Sex (including equal pay)")
+    find("##{label['for']}").set true
 
     check 'Another type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',
