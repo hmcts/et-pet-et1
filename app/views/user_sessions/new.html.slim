@@ -1,9 +1,8 @@
-= content_for(:header, t('.header'))
-= content_for(:info, t('.info'))
+header.main-header
+  h1= t('.header')
 
-section
-  .main-column
-
+.main-section
+  .main-content
     = simple_form_for user_session do |f|
       = f.error_notification
       p= f.input :reference

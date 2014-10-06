@@ -89,3 +89,18 @@ aside {
     }
   }
 }
+
+
+.reference{
+  @include core-24;
+  @include span(8 of 12);
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  margin:$gutter-half 0;
+  background:$highlight-colour;
+  padding:4px 8px;
+  // text-align:center;
+  &.panel-indent{
+   margin-top:0;
+   margin-bottom:$gutter;
+  }
+}
