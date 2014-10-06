@@ -4,9 +4,11 @@
 
     = f.input :was_employed,
       as: :radio_buttons,
-      item_wrapper_class: 'block-label'
+      wrapper_class: 'form-group-reveal',
+      item_wrapper_class: 'block-label',
+      reveal: { true => :reveal_current_situation }
 
-    fieldset
+    fieldset#reveal_current_situation.toggle-content
       legend= t '.current_situation_legend'
 
       = f.input :current_situation,
@@ -16,7 +18,7 @@
         wrapper_class: 'form-group-reveal',
         reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
 
-    fieldset
+    fieldset.toggle-content
       legend= t '.employment_details_legend'
 
       = f.input :job_title
@@ -39,8 +41,7 @@
 
       = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
 
-
-    fieldset
+    fieldset.toggle-content
       legend= t '.pay_legend'
 
       = f.input :gross_pay, input_html: {class: 'prefix-pound'} do
@@ -66,8 +67,7 @@
         as: :text,
         input_html: { rows: 5 }
 
-
-    fieldset.reveal-option-c
+    fieldset.toggle-content.reveal-option-c
       legend= t '.new_job_legend'
 
       = f.input :found_new_job,
