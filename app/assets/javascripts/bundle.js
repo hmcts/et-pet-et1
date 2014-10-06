@@ -1,12 +1,13 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var polyfillDetail = require('./polyfills/polyfill.details'),
   reveal = require('./modules/moj.reveal'),
   checkboxToggle = require('./modules/moj.checkbox-toggle'),
   selectedOption = require('./modules/moj.selected-option'),
   checkboxReveal = require('./modules/moj.checkbox-reveal'),
-  formHintReveal = require('./modules/moj.reveal-hints');
+  formHintReveal = require('./modules/moj.reveal-hints'),
+  nodeCloning    = require('./modules/moj.node-cloning');
 
-},{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.reveal":5,"./modules/moj.reveal-hints":4,"./modules/moj.selected-option":6,"./polyfills/polyfill.details":7}],2:[function(require,module,exports){
+},{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.node-cloning":4,"./modules/moj.reveal":6,"./modules/moj.reveal-hints":5,"./modules/moj.selected-option":7,"./polyfills/polyfill.details":8}],2:[function(require,module,exports){
 /* Toggles content if checkbox is checked
 */
 module.exports = (function() {
@@ -69,6 +70,48 @@ module.exports = (function() {
 })();
 
 },{}],4:[function(require,module,exports){
+module.exports = (function() {
+  var cloneSection = function(section) {
+    var clone    = section.clone(),
+        span     = $('span.index', clone),
+        inputs   = $('input', clone);
+
+    span.text(parseInt(span.text(), 10) + 1);
+    inputs.val('');
+    inputs.each(incrementAttrs);
+    clone.insertAfter(section);
+  }
+
+  var incrementAttrs = function(_, input) {
+    var oldId = input.id;
+    var id    = oldId.replace(/_(\d+)_/, function(_, i) {
+      return '_' + (parseInt(i, 10) + 1) + '_'
+    });
+
+    input = $(input);
+
+    var name = input.attr('name').replace(/\[(\d+)\]/, function(_, i) {
+      return '[' + (parseInt(i, 10) + 1) + ']'
+    });
+
+    input.attr('name', name);
+    input.attr('id', id);
+  }
+
+  $('input[type=number].toggle').show().bind('change', function(event) {
+    var selector = $(event.target).data('target');
+
+    while($('.' + selector).size() < event.target.value) {
+      cloneSection($('.' + selector).last());
+    }
+
+    while($('.' + selector).size() > event.target.value) {
+      $('.' + selector).last().remove();
+    }
+  });
+})();
+
+},{}],5:[function(require,module,exports){
 // Reveals hidden hint text
 
 module.exports = (function() {
@@ -83,7 +126,7 @@ module.exports = (function() {
     }
   });
 })();
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 // Reveals hidden content
 module.exports = (function() {
   var reveal = {
@@ -126,7 +169,7 @@ module.exports = (function() {
 
 })();
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /* Toggles selected option class
 * .block-label > label > input
 */
@@ -146,7 +189,7 @@ module.exports = (function() {
     });
   });
 })();
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 module.exports = (function () {
   // <details> polyfill
   // http://caniuse.com/#feat=details
@@ -305,4 +348,4 @@ module.exports = (function () {
 
 })();
 
-},{}]},{},[1])
+},{}]},{},[1]);
