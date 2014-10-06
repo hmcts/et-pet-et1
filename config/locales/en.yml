@@ -357,6 +357,7 @@ en:
       current_situation_legend: Current work situation
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
+      new_job_legend: New Job
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
