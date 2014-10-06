@@ -8,7 +8,7 @@
       item_wrapper_class: 'block-label',
       reveal: { true => :reveal_current_situation }
 
-    fieldset#reveal_current_situation.toggle-content
+    fieldset#reveal_current_situation
       legend= t '.current_situation_legend'
 
       = f.input :current_situation,
@@ -18,7 +18,7 @@
         wrapper_class: 'form-group-reveal',
         reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
 
-    fieldset.toggle-content
+    fieldset
       legend= t '.employment_details_legend'
 
       = f.input :job_title
@@ -33,32 +33,33 @@
         wrapper_class: 'reveal-option-c',
         reveal: { true => :reveal_notice_pay_period }
 
-      = f.input :notice_pay_period_count, wrapper_html: { id: 'reveal_notice_pay_period', class: 'panel-indent toggle-content' } do
-        = f.input :notice_pay_period_count, label: false
-        = f.input :notice_pay_period_type, label: false,
-          collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
-          item_wrapper_class: 'block-label'
+      = f.input :notice_pay_period_count, wrapper_html: { id: 'reveal_notice_pay_period', class: 'panel-indent' } do
+        .inline-fields
+          = f.input :notice_pay_period_count, label: false
+          = f.input :notice_pay_period_type, label: false,
+            collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
+            item_wrapper_class: 'slim-label'
 
       = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
 
-    fieldset.toggle-content
+    fieldset
       legend= t '.pay_legend'
 
-      = f.input :gross_pay, input_html: {class: 'prefix-pound'} do
-        .prefixed-field
+      = f.input :gross_pay, input_html: { class: 'prefix-pound' } do
+        .prefixed-field.inline-fields
           = f.input :gross_pay, label: false, hint:false
           = f.input :gross_pay_period_type,
             label: false,
             collection: EmploymentForm::PAY_PERIODS,
             as: :radio_buttons,
-            item_wrapper_class: 'block-label'
+            item_wrapper_class: 'slim-label'
 
-      = f.input :net_pay, input_html: {class: 'prefix-pound'} do
-        .prefixed-field
+      = f.input :net_pay, input_html: { class: 'prefix-pound' } do
+        .prefixed-field.inline-fields
           = f.input :net_pay, label: false, hint:false
           = f.input :net_pay_period_type, label: false,
             collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
-            item_wrapper_class: 'block-label'
+            item_wrapper_class: 'slim-label'
 
       = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
         item_wrapper_class: 'block-label'
@@ -67,7 +68,7 @@
         as: :text,
         input_html: { rows: 5 }
 
-    fieldset.toggle-content.reveal-option-c
+    fieldset.reveal-option-c
       legend= t '.new_job_legend'
 
       = f.input :found_new_job,
@@ -76,11 +77,11 @@
         wrapper_class: 'form-group-reveal',
         reveal: { true => :reveal_new_job }
 
-      #reveal_new_job.panel-indent.toggle-content
+      #reveal_new_job.panel-indent
         = f.input :new_job_start_date
-        = f.input :new_job_gross_pay,
-          wrapper_class: 'prefixed-field',
-          input_html: {class: 'prefix-pound'}
-        = f.input :new_job_gross_pay_frequency, label: false, label: false,
+        = f.input :new_job_gross_pay, input_html: { class: 'prefix-pound' } do
+        .prefixed-field.inline-fields
+          = f.input :new_job_gross_pay, label: false, hint:false
+          = f.input :new_job_gross_pay_frequency, label: false, label: false,
           collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
-          item_wrapper_class: 'block-label'
+          item_wrapper_class: 'slim-label'
