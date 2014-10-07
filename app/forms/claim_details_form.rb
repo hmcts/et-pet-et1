@@ -1,4 +1,4 @@
-class ClaimDetailForm < Form
+class ClaimDetailsForm < Form
   attr_accessor :other_known_claimants
 
   attributes :claim_details, :other_known_claimant_names
