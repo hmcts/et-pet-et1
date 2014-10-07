@@ -4,6 +4,10 @@ class AdditionalInformationForm < Form
     :remove_attachment
 
   validates :miscellaneous_information, length: { maximum: 5000 }
+  validates :attachment, content_type: {
+    in: %w<text/rtf text/plain>,
+    message: I18n.t('errors.messages.rtf')
+  }
 
   def save
     if valid?

@@ -1,12 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalInformationForm, :type => :form do
-  describe 'validations' do
-    it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
-  end
-
   let(:resource) { double 'resource' }
   subject { described_class.new { |f| f.resource = resource } }
+
+  describe 'validations' do
+    it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
+
+    describe 'on #attachment' do
+      let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
+      before do
+        subject.attachment = file
+        subject.valid?
+      end
+
+      context 'when its value is a plain text file' do
+        let(:file) { File.open(path + 'file.rtf') }
+
+        it 'does nothing' do
+          expect(subject.errors[:attachment]).to be_empty
+        end
+      end
+
+      context 'when its value is not a plain text file' do
+        let(:file) { File.open(path + 'phil.jpg') }
+
+        it 'adds an error message to the attribute' do
+          expect(subject.errors[:attachment]).to include(I18n.t 'errors.messages.rtf')
+        end
+      end
+    end
+  end
 
   describe '#save' do
     before do
@@ -76,5 +100,4 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       end
     end
   end
-
 end
