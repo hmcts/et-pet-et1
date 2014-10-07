@@ -85,8 +85,13 @@ en:
         new_job_gross_pay_frequency:
           weekly: Weekly
           monthly: Monthly
-
       claim:
+        desired_outcomes:
+          compensation_only: Compensation
+          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
+          reinstated_employment_and_compensation: To get my old job back and compensation
+          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
+      claim_type:
         discrimination_claims:
           sex_including_equal_pay: Sex (including equal pay)
           disability: Disability
@@ -103,11 +108,6 @@ en:
           holiday: Holiday pay
           arrears: Arrears of pay
           other: Other payments
-        desired_outcomes:
-          compensation_only: Compensation
-          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get my old job back and compensation
-          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
 
     labels:
       user_session:
@@ -362,6 +362,10 @@ en:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
       claim_type_hint: You can select more than one
+    claim_type:
+      header: Your claim type
+      claim_type: What type of claim - or claims - are you making?
+      claim_type_hint: Select all that apply
 
   base_mailer:
     access_details_email:
