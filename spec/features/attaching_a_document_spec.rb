@@ -7,6 +7,7 @@ feature 'Attaching a document' do
   let(:claim) { Claim.create password: 'lollolol' }
   let(:file_path) { Pathname.new(Rails.root) + 'spec/support/files/file.rtf' }
   let(:alternative_file_path) { file_path + '../alt_file.rtf' }
+  let(:image_file_path) { file_path + '../phil.jpg' }
 
   def upload_file!
     visit page_claim_path page: :additional_information
@@ -43,5 +44,14 @@ feature 'Attaching a document' do
     click_button 'Save and continue'
 
     expect(claim.reload.attachment_file.read).to eq File.read(alternative_file_path)
+  end
+
+  scenario 'Uploading a non text file' do
+    visit page_claim_path page: :additional_information
+    attach_file "additional_information_attachment", image_file_path
+    click_button 'Save and continue'
+
+    expect(page).to have_text('is not an RTF or plain text file')
+    expect(claim.attachment).not_to be_present
   end
 end

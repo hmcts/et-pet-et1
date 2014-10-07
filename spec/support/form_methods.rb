@@ -158,6 +158,14 @@ module FormMethods
     click_button 'Save and continue'
   end
 
+  def fill_in_addtional_information
+    choose 'additional_information_has_miscellaneous_information_true'
+    fill_in 'additional_information_miscellaneous_information',
+      with: 'better late than never'
+
+    click_button 'Save and continue'
+  end
+
   def return_from_payment_gateway(response='success')
     visit "/apply/pay/#{response}?orderID=fgr&amount=250&PM=CreditCard&" +
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
@@ -175,6 +183,7 @@ module FormMethods
     fill_in_claim_type_details
     fill_in_claim_details
     fill_in_claim_outcome_details
+    fill_in_addtional_information
   end
 
   def select_recipients

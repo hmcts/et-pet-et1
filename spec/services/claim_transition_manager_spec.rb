@@ -46,6 +46,11 @@ RSpec.describe ClaimTransitionManager, type: :service do
 
   describe 'when resource is a ClaimOutcomeForm' do
     let(:resource) { ClaimOutcomeForm.new }
+    its(:forward)  { is_expected.to eq(:additional_information) }
+  end
+
+  describe 'when resource is a AdditionalInformationForm' do
+    let(:resource) { AdditionalInformationForm.new }
     its(:forward)  { is_expected.to eq(:review) }
   end
 end

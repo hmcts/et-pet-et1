@@ -314,6 +314,8 @@ en:
         return: Return to your saved form
 
   errors:
+    messages:
+      rtf: is not an RTF or plain text file
     user_session:
       not_found: A claim with that reference number could not be found
       invalid: This memorable word does not match the reference number

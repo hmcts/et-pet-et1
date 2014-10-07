@@ -6,6 +6,6 @@ class ClaimTransitionManager < TransitionManager
   transition :employment     => :claim_type
   transition :claim_type     => :claim_details
   transition :claim_details  => :claim_outcome
-  transition :claim_outcome  => :review
+  transition :claim_outcome  => :additional_information
   transition :additional_information => :review
 end

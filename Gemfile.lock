@@ -73,6 +73,10 @@ GEM
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chunky_png (1.3.1)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.4)
+      climate_control (>= 0.0.3, < 1.0)
     codeclimate-test-reporter (0.4.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
@@ -305,6 +309,7 @@ DEPENDENCIES
   bitmask_attributes
   capybara
   carrierwave (~> 0.10)
+  cocaine
   codeclimate-test-reporter
   compass
   dotenv-rails
