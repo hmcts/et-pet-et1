@@ -7,6 +7,11 @@ ENV APP_HOME /rails
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
 
+# Ensure the pdftk package is installed as a prereq for ruby PDF generation
+ENV DEBIAN_FRONTEND noninteractive
+RUN apt-get update
+RUN apt-get install pdftk
+
 ADD ./ /rails
 # set WORKDIR
 WORKDIR /rails
