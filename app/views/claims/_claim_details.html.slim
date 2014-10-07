@@ -1,0 +1,11 @@
+.main-column
+  fieldset.form-panel
+    legend= t '.claim_details'
+
+    / TODO:
+    / Needs to include a link in the hint to the
+    / guide(writing your claim statement section)
+
+    = f.input :claim_details,
+      as: :text,
+      input_html: { rows: 10 }

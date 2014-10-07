@@ -198,6 +198,10 @@ en:
       confirmation_email:
         email_addresses: Select or enter the recipients you'd like to send a copy to
 
+      claim_details:
+        claim_details: |
+          This is your opportunity to tell us about your problem at work.
+
     hints:
       password:
         password: You need this word to return to your application another time
@@ -245,6 +249,8 @@ en:
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the Acas website.
         address_building: |
           May be different to your work address
+      claim_details:
+        claim_details: Include the background, dates and the people involved.
 
   helpers:
     submit:
@@ -366,7 +372,9 @@ en:
       header: Your claim type
       claim_type: What type of claim - or claims - are you making?
       claim_type_hint: Select all that apply
-
+    claim_details:
+      header: Your claim details
+      claim_details: Claim details
   base_mailer:
     access_details_email:
       subject: 'Employment tribunal: %{reference}'
