@@ -207,8 +207,9 @@ en:
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
 
       claim_details:
-        claim_details: |
-          This is your opportunity to tell us about your problem at work.
+        claim_details: This is your opportunity to tell us about your problem at work.
+        other_known_claimants: Do you know of other people who are making similar claims against the same employer?
+        other_known_claimant_names: You can add the names of other people here.
 
     hints:
       password:
@@ -266,6 +267,9 @@ en:
           You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties.
       claim_details:
         claim_details: Include the background, dates and the people involved.
+        other_known_claimants: |
+          A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
+        other_known_claimant_names: Limit is 350 characters.
 
   helpers:
     submit:
@@ -398,6 +402,8 @@ en:
     claim_details:
       header: Your claim details
       claim_details: Claim details
+      similar_claims: Similar claims
+
 
   base_mailer:
     access_details_email:

@@ -9,3 +9,18 @@
     = f.input :claim_details,
       as: :text,
       input_html: { rows: 30 }
+
+    fieldset
+      legend= t '.similar_claims'
+      = f.input :other_known_claimants,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal',
+        reveal: { true => :other_known_claimant_names_wrapper }
+
+      = f.input :other_known_claimant_names,
+        as: :text,
+        input_html: { rows: 5 },
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'panel-indent toggle-content',
+        wrapper_html: { id: :other_known_claimant_names_wrapper }
