@@ -108,6 +108,8 @@ bundle --quiet \
 
 
 rm -rf bin
+# Add the envvars defined in .env to avoid errors during the assets:precompile stage
+. /.env
 bundle exec rake rails:update:bin
 bundle exec rake assets:precompile RAILS_ENV=production
 
