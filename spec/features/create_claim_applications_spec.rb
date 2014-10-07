@@ -40,7 +40,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to_not have_button('Complete later')
       fill_in_password 'green'
 
-      claim = Claim.first
+      claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
 
       expect(page).to have_text claim_heading_for(:claimant)
@@ -51,7 +51,7 @@ feature 'Claim applications', type: :feature do
       start_claim
       fill_in_password_and_email 'green', 'mail@example.com'
 
-      claim = Claim.first
+      claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
 
       mail = ActionMailer::Base.deliveries.last
@@ -150,6 +150,7 @@ feature 'Claim applications', type: :feature do
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
       expect(email.body).to include completion_message(Claim.last.reference)
+      expect(email.body).not_to include 'Download PDF file'
     end
 
     scenario 'Submitting the claim when payment is not required' do
@@ -161,6 +162,14 @@ feature 'Claim applications', type: :feature do
       expect(page.html).not_to include table_heading('fee_paid')
       expect(page.html).not_to include table_heading('fee_to_pay')
       expect(page.html).to include remission_help
+    end
+
+    scenario 'Downloading the PDF' do
+      complete_a_claim
+      click_button 'Submit the form'
+      click_link 'Download PDF file'
+
+      expect(page.response_headers['Content-Type']).to eq "application/pdf"
     end
 
     scenario 'Making payment' do

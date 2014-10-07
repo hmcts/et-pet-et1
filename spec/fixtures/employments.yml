@@ -1,0 +1,22 @@
+---
+full_employment:
+  enrolled_in_pension_scheme: true
+  found_new_job: true
+  worked_notice_period_or_paid_in_lieu: true
+  end_date: '2014-03-01'
+  new_job_start_date: '2014-04-01'
+  notice_period_end_date: '2014-04-01'
+  start_date: '2014-02-01'
+  notice_pay_period_count: '2.5'
+  gross_pay: 1000000
+  net_pay: 600000
+  new_job_gross_pay: 1200000
+  average_hours_worked_per_week: '40'
+  current_situation: employment_terminated
+  gross_pay_period_type: monthly
+  job_title: Marksman
+  net_pay_period_type: monthly
+  new_job_gross_pay_frequency: monthly
+  notice_pay_period_type: weekly
+  benefit_details: car + life insurance
+  claim: full_claim

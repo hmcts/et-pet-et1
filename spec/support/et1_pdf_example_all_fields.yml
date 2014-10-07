@@ -1,0 +1,185 @@
+# Fill all fields - This is not a valid claim, it's just used to exercise
+# the form.
+#
+# Answer yes to everything (where possible)
+# Diversity monitoring not yet filled
+# Section 14 (Fee) not applicable
+
+---
+#type of claim:
+#more than one claimant:
+#after reading the fees and remissions:
+#how many claimants are applying:
+#Does your claim relate to any of the following?:
+#Secretary of State:
+#claim related to an appeal:
+#another type of claim:
+#I agree to the payment of this fee:
+tribunal office: Birmingham
+#case number:
+#date received:
+1.1 title tick boxes: ms
+1.2 first names: Geraldine
+1.3 surname: Hardin
+1.4 DOB day: '01'
+1.4 DOB month: '02'
+1.4 DOB year: '1976'
+1.4 gender: female
+1.5 number: '8590'
+1.5 street: Lobortis Avenue
+1.5 town city: Barmouth
+1.5 county: Merionethshire
+1.6 phone number: (021) 2736 4979
+1.7 mobile number: 07528 123456
+1.8 tick boxes: email
+1.9 email: g.hardin@example.com
+# 1.10 fax number: (021) 2736 4980 # fax will be removed from front-end
+1.5 postcode: A9  9AA
+2.2 postcode: H6G 5YG
+'2.1': Germane Whitney
+2.2 number: '6929'
+2.2 street: Augue Av.
+2.2 town city: Bromley
+2.2 county: Kent
+2.2 phone number: 070 3618 6730
+2.3 postcode: A25 5LW
+2.3 number: '2662'
+2.3 street: Consectetuer Street
+2.3 town city: Hunstanton
+2.3 county: Norfolk
+2.3 phone number: 0800 1111
+2.4 tick box: 'yes'
+2.4 R2 postcode: B6  3QA
+2.4 R2 name: Dylan Hall
+2.4 R2 number: '3890'
+2.4 R2 street: Hendrerit Road
+2.4 R2 town: Warminster
+2.4 R2 county: WI
+2.4 R2 phone number: 07010 120164
+2.4 R3 postcode: K3W 5TW
+2.4 R3 name: Grady Jarvis
+2.4 R3 number: '6773'
+2.4 R3 street: Quisque Rd.
+2.4 R3 town city: Swansea
+2.4 R3 county: Glamorgan
+2.4 R3 phone number: (016977) 1415
+3.1 tick boxes: 'yes'
+3.1 if yes: Daryl Boyer, Leandra Walls, Cade Pitts
+# '4.1': They didn't give me the job. - Information will be entered into 'other type of claim' field
+5.1 employment start: '2014-02-01'
+5.1 tick boxes: 'no'
+5.1 employment end: '2014-03-01'
+5.1 not ended: '2014-04-01'
+'5.2': Marksman
+'6.1': 40.0
+6.2 pay before tax: 1000000
+6.2 pay before tax tick boxes: monthly
+6.2 normal pay: 600000
+6.2 normal pay tick boxes: monthly
+6.3 tick boxes: 'yes'
+6.3 weeks: 2.5
+6.3 months:
+6.4 tick boxes: 'yes'
+'6.5': car + life insurance
+7.1 tick boxes: 'yes'
+'7.2': '2014-04-01'
+'7.3': 1200000
+8.1 unfairly tick box: 'yes'
+8.1 discriminated: 'yes'
+8.1 age: 'yes'
+8.1 race: 'yes'
+8.1 gender reassignment: 'yes'
+8.1 disability: 'yes'
+8.1 pregnancy: 'yes'
+8.1 marriage: 'yes'
+8.1 sexual orientation: 'yes'
+8.1 sex: 'yes'
+8.1 religion: 'yes'
+8.1 redundancy: 'yes'
+8.1 owed: 'yes'
+8.1 notice pay: 'yes'
+8.1 holiday pay: 'yes'
+8.1 arrears of pay: 'yes'
+8.1 other payments: 'yes'
+8.1 another type of claim: 'yes'
+8.1 other type of claim: Some other types of claim
+'8.2': What happened was...
+9.1 old job back: 'yes'
+9.1 another job: 'yes'
+9.1 compensation: 'yes'
+9.1 recommendation: 'yes'
+'9.2': 1 billion dollars!
+'10.1': 'yes'
+11.3 postcode: MW469XR
+'11.1': Lavinia Chapman
+'11.2': Fusce Corp.
+11.3 number: '2725'
+11.3 street: Duis Road
+11.3 town city: Invergordon
+11.3 county: Ross-shire
+11.4 dx number: '713424'
+11.5 phone number: 0800 750 2398
+11.6 mobile number: 07234 456876
+#11.7 reference:
+11.8 email: lavinia.chapman@example.com
+11.9 tick boxes: post
+# 11.10 fax number:
+12.1 tick box: 'yes'
+12.1 if yes: I'm in a wheelchair
+13 R4 name: Chaim Mcpherson
+13 R4 number: Ap 585-9946
+13 R4 street: Nulla St.
+13 R4 town city: Leeds
+13 R4 county: West Yorkshire
+13 R4 postcode: TA533AA
+13 R4 phone number: 055 1884 2177
+13 R5 name: Bree Fleming
+13 R5 number: '2704'
+R5 street: Velit St.
+R5 town city: Malvern
+R5 county: Orkney
+R5 postcode: BH991FE
+R5 phone number: 0987 265 5866
+# 14 satisfied tick box:
+# 14 fee:
+'15': Additional information about claim
+# claim type a:
+# claim type b:
+# claim type c:
+# claim type d:
+# claim type e:
+# sex:
+# sex a:
+# age group:
+# ethnicity white:
+# mixed multiple:
+# asian british:
+# black african caribbean:
+# other ethnic:
+# prefer not to say:
+# caring:
+# disability:
+# sexual:
+# marriage:
+# gender:
+# gender different:
+# religion:
+# pregnancy:
+# other religion:
+Check Box1: 'Yes'
+Text2: '111111'
+Check Box3: 'Yes'
+Check Box8: 'Yes'
+Text9: '222222'
+Check Box11: 'Yes'
+Check Box15: 'Yes'
+Text16: '333333'
+Check Box19: 'Yes'
+Check Box22: 'Yes'
+Text23: '444444'
+Check Box27: 'Yes'
+Check Box29: 'Yes'
+Text30: '555555'
+Check Box35: 'Yes'
+# Button30:
+# Button31:

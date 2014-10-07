@@ -1,0 +1,17 @@
+---
+full_claim:
+  # Use save and return of S38E9R64V34D9H and password 'word'
+  password_digest: "$2a$10$U1y7IeDbuReX5hPyrawkGuBg8iNFmS5oe1MD19nmfrYfXZJx8WMxG"
+  is_unfair_dismissal: true
+  discrimination_claims: '511'
+  pay_claims: '31'
+  other_claim_details: Some other types of claim
+  claim_details: What happened was...
+  desired_outcomes: '15'
+  other_outcome: 1 billion dollars!
+  other_known_claimant_names: 'Daryl Boyer, Leandra Walls, Cade Pitts'
+  is_whistleblowing: true
+  send_claim_to_whistleblowing_entity: true
+  miscellaneous_information: Additional information about claim
+  fee_group_reference: fdd56d9d81537004
+  state: created

@@ -1,4 +1,5 @@
 class EmploymentForm < Form
+
   attributes :job_title, :start_date, :average_hours_worked_per_week,
     :gross_pay, :gross_pay_period_type, :net_pay, :net_pay_period_type,
     :enrolled_in_pension_scheme, :benefit_details, :current_situation,
