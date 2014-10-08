@@ -38,7 +38,7 @@
 
     .panel-indent.toggle-content
       = f.input :no_acas_number_reason,
-        collection: RespondentForm::NO_ACAS_REASON,
+        collection: FormOptions::NO_ACAS_REASON,
         as: :radio_buttons,
         required: true,
         item_wrapper_class: 'block-label large-label'

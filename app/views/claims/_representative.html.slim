@@ -1,7 +1,7 @@
 .main-column
   fieldset.form-panel
     legend.visuallyhidden= t '.header'
-    = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
+    = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
     = f.input :organisation_name
     = f.input :name
     = f.input :address_building
@@ -13,5 +13,5 @@
     = f.input :mobile_number
     = f.input :email_address
     = f.input :dx_number
-    = f.input :contact_preference, collection: RepresentativeForm::CONTACT_PREFERENCES,
+    = f.input :contact_preference, collection: FormOptions::CONTACT_PREFERENCES,
       as: :radio_buttons, item_wrapper_class: 'block-label'
