@@ -31,11 +31,26 @@ RSpec.describe ClaimTransitionManager, type: :service do
 
   describe 'when resource is a EmploymentForm' do
     let(:resource) { EmploymentForm.new }
-    its(:forward)  { is_expected.to eq(:claim) }
+    its(:forward)  { is_expected.to eq(:claim_type) }
   end
 
-  describe 'when resource is a ClaimForm' do
-    let(:resource) { ClaimForm.new }
+  describe 'when resource is a ClaimTypeForm' do
+    let(:resource) { ClaimTypeForm.new }
+    its(:forward)  { is_expected.to eq(:claim_details) }
+  end
+
+  describe 'when resource is a ClaimDetailsForm' do
+    let(:resource) { ClaimDetailsForm.new }
+    its(:forward)  { is_expected.to eq(:claim_outcome) }
+  end
+
+  describe 'when resource is a ClaimOutcomeForm' do
+    let(:resource) { ClaimOutcomeForm.new }
+    its(:forward)  { is_expected.to eq(:additional_information) }
+  end
+
+  describe 'when resource is a AdditionalInformationForm' do
+    let(:resource) { AdditionalInformationForm.new }
     its(:forward)  { is_expected.to eq(:review) }
   end
 end

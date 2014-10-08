@@ -95,11 +95,39 @@ feature 'Claim applications', type: :feature do
       fill_in_employer_details
       fill_in_employment_details
 
-      expect(page).to have_text claim_heading_for(:claim)
+      expect(page).to have_text claim_heading_for(:claim_type)
+    end
+
+    scenario 'Entering claim type details' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+
+      expect(page).to have_text claim_heading_for(:claim_details)
     end
 
     scenario 'Entering claim details' do
-      complete_a_claim
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+
+      expect(page).to have_text claim_heading_for(:claim_outcome)
+    end
+
+    scenario 'Entering claim outcome details' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+      fill_in_claim_outcome_details
+
+      expect(page).to have_text claim_heading_for(:additional_information)
+    end
+
+    scenario 'Entering additonal information' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+      fill_in_claim_outcome_details
+      fill_in_addtional_information
 
       expect(page).to have_text review_heading_for(:show)
     end

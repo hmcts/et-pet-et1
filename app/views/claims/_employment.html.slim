@@ -12,7 +12,7 @@
       legend= t '.current_situation_legend'
 
       = f.input :current_situation,
-        collection: EmploymentForm::CURRENT_SITUATION,
+        collection: FormOptions::CURRENT_SITUATION,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',
         wrapper_class: 'form-group-reveal',
@@ -37,7 +37,7 @@
         .inline-fields
           = f.input :notice_pay_period_count, label: false
           = f.input :notice_pay_period_type, label: false,
-            collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
+            collection: FormOptions::NOTICE_PAY_PERIODS, as: :radio_buttons,
             item_wrapper_class: 'slim-label'
 
       = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
@@ -50,7 +50,7 @@
           = f.input :gross_pay, label: false, hint:false
           = f.input :gross_pay_period_type,
             label: false,
-            collection: EmploymentForm::PAY_PERIODS,
+            collection: FormOptions::PAY_PERIODS,
             as: :radio_buttons,
             item_wrapper_class: 'slim-label'
 
@@ -58,7 +58,7 @@
         .prefixed-field.inline-fields
           = f.input :net_pay, label: false, hint:false
           = f.input :net_pay_period_type, label: false,
-            collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+            collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
             item_wrapper_class: 'slim-label'
 
       = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
@@ -83,5 +83,5 @@
         .prefixed-field.inline-fields
           = f.input :new_job_gross_pay, label: false, hint:false
           = f.input :new_job_gross_pay_frequency, label: false, label: false,
-          collection: EmploymentForm::PAY_PERIODS, as: :radio_buttons,
+          collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
           item_wrapper_class: 'slim-label'
