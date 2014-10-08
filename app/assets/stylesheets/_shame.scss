@@ -27,8 +27,7 @@ legend {
   width:100%;
   display:block;
   padding:0 0 $gutter-half/2 0;
-  &.medium {
-    @include core-24;
+  &.font-medium {
     border:none;
   }
   &.form-label{
@@ -58,31 +57,34 @@ aside {
   }
 }
 
-.form-panel{
+.form-panel {
   margin:0 0 $gutter;
+  legend.font-medium {
+    margin:0;
+  }
 }
-.slim-label{
+.slim-label {
   display:inline-block;
   padding-top:$gutter-half/2;
   margin-right:$gutter-half;
 }
-.inline-fields{
+.inline-fields {
   overflow:hidden;
-  .form-group{
+  .form-group {
     @include span(6 of 12);
     clear:none;
     margin-bottom:0;
-    &:first-child{
+    &:first-child {
       @include first;
       padding-left:0;
-      input{
+      input {
         @include span(10 of 12);
         margin-left:0;
       }
     }
-    &.radio_buttons{
+    &.radio_buttons {
       @include last;
-      span.block-label{
+      span.block-label {
         margin-top:0;
         margin-bottom:0;
       }
@@ -91,7 +93,7 @@ aside {
 }
 
 
-.reference{
+.reference {
   @include core-24;
   @include span(8 of 12);
   font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -99,7 +101,7 @@ aside {
   background:$highlight-colour;
   padding:4px 8px;
   // text-align:center;
-  &.panel-indent{
+  &.panel-indent {
    margin-top:0;
    margin-bottom:$gutter;
   }
