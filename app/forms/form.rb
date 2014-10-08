@@ -52,21 +52,7 @@ class Form
 
   def self.date(attribute)
     validates attribute, date: true
-
-    define_method(:"#{attribute}_date_params") do
-      iv = :"@#{attribute}_date_collaborator"
-      instance_variable_get(iv) || instance_variable_set(iv, MultiParameterDate.new(self, attribute))
-    end
-
-    1.upto(3) do |index|
-      define_method(:"#{attribute}(#{index}i)=") do |value|
-        send(:"#{attribute}_date_params")[index] = value
-      end
-
-      define_method(:"#{attribute}(#{index}i)") do
-        send("#{attribute}_date_params")[index]
-      end
-    end
+    MultiParameterDate.decorate self, attribute
   end
 
   def self.for(name)
