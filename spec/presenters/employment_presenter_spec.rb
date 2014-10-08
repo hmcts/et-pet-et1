@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EmploymentPresenter, type: :presenter do
-  subject { EmploymentPresenter.new employment }
+  subject { described_class.new employment }
 
   let(:employment) do
     double 'employment',

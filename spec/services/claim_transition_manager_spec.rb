@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe ClaimTransitionManager, type: :service do
-  let(:subject) { ClaimTransitionManager.new resource: resource }
+  let(:subject) { described_class.new resource: resource }
 
   describe '#forward' do
     describe 'when resource is a PasswordForm' do

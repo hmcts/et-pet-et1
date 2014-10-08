@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe KeyObfuscator, type: :service do
   subject do
-    KeyObfuscator.new \
+    described_class.new \
       secret: 'very.secret.such.confidential.wow.lol.biz.info'
   end
 

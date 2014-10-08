@@ -10,7 +10,7 @@ describe BaseMailer do
   let(:email) { subject.deliver }
 
   describe '#access_details_email' do
-    subject { BaseMailer.access_details_email(claim, email_address) }
+    subject { described_class.access_details_email(claim, email_address) }
 
     it 'has been delivered' do
       email
@@ -32,7 +32,7 @@ describe BaseMailer do
 
   describe '#confirmation_email' do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
-    subject { BaseMailer.confirmation_email(claim, email_addresses) }
+    subject { described_class.confirmation_email(claim, email_addresses) }
 
     before do
       allow(claim).to receive(:payment_applicable?).and_return false
