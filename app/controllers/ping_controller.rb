@@ -1,7 +1,5 @@
-class PingController  < ApplicationController
+class PingController  < ActionController::Base
   respond_to :json
-
-  skip_before_action :ensure_claim_exists
 
   def index
     respond_with Deployment.info
