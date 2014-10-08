@@ -18,14 +18,14 @@ RSpec.describe FeeGroupReference, type: :service do
 
     describe 'making the API request' do
       it 'calls the FGR service' do
-        FeeGroupReference.create postcode: 'SW1 1AA'
+        described_class.create postcode: 'SW1 1AA'
 
         expect(request).to have_been_made
       end
     end
 
     context 'when the API request is successful' do
-      let(:fgr) { FeeGroupReference.create postcode: 'SW1 1AA' }
+      let(:fgr) { described_class.create postcode: 'SW1 1AA' }
 
       it 'returns an instance exposing the fee group reference and office details' do
         expect(fgr.reference).to eq(511234567800)
@@ -45,7 +45,7 @@ RSpec.describe FeeGroupReference, type: :service do
       end
 
       it 'makes an API request' do
-        expect { FeeGroupReference.create postcode: 'SW1 1AA' }.
+        expect { described_class.create postcode: 'SW1 1AA' }.
           to raise_error RuntimeError
       end
     end

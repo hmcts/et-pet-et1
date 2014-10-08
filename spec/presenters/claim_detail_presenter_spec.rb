@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimDetailPresenter, type: :presenter do
-  subject { ClaimDetailPresenter.new claim_detail }
+  subject { described_class.new claim_detail }
 
   let(:claim_detail) do
     double 'claim_detail',

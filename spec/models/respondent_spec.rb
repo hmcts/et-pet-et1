@@ -27,7 +27,7 @@ RSpec.describe Respondent, :type => :model do
   describe '#save' do
     describe 'enqueueing the fee group reference request' do
       let(:claim) { Claim.new }
-      subject     { Respondent.new claim: claim }
+      subject     { described_class.new claim: claim }
 
       context 'when the respondent has one address' do
         context 'and the post code has changed' do

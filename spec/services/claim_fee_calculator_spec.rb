@@ -2,7 +2,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
   let(:claim) { Claim.new }
 
   def calculation
-    ClaimFeeCalculator.calculate claim: claim
+    described_class.calculate claim: claim
   end
 
   describe '.calculate' do

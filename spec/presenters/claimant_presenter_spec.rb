@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimantPresenter, type: :presenter do
-  let(:subject) { ClaimantPresenter.new claim }
+  let(:subject) { described_class.new claim }
   let(:claim) do
     double 'claim',
       title: 'mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',

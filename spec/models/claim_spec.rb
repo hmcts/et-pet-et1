@@ -12,23 +12,23 @@ RSpec.describe Claim, :type => :claim do
   it { is_expected.to have_one(:primary_respondent) }
   it { is_expected.to have_one(:payment) }
 
-  let(:claim) { Claim.new(id: 1) }
+  subject { described_class.new(id: 1) }
 
   %i<created_at amount reference>.each do |meth|
     describe "#payment_#{meth}" do
       context 'when #payment is nil' do
         it 'returns nil' do
-          expect(claim.send "payment_#{meth}").to be nil
+          expect(subject.send "payment_#{meth}").to be nil
         end
       end
 
       context 'when #payment is not nil' do
         let(:payment) { double :payment }
-        before { allow(claim).to receive(:payment).and_return payment }
+        before { allow(subject).to receive(:payment).and_return payment }
 
         it 'delegates to #payment' do
           expect(payment).to receive(meth).and_return 'lol'
-          expect(claim.send "payment_#{meth}").to eq 'lol'
+          expect(subject.send "payment_#{meth}").to eq 'lol'
         end
       end
     end
@@ -37,32 +37,32 @@ RSpec.describe Claim, :type => :claim do
   describe "#payment_present?" do
     context 'when #payment is nil' do
       it 'returns false' do
-        expect(claim.payment_present?).to be false
+        expect(subject.payment_present?).to be false
       end
     end
 
     context 'when #payment is not nil' do
       let(:payment) { double :payment }
-      before { allow(claim).to receive(:payment).and_return payment }
+      before { allow(subject).to receive(:payment).and_return payment }
 
       it 'delegates to #payment' do
         expect(payment).to receive(:present?).and_return true
-        expect(claim.payment_present?).to eq true
+        expect(subject.payment_present?).to eq true
       end
     end
   end
 
   describe '#reference' do
     it 'returns a token based upon the primary key' do
-      expect(claim.reference).to eq('6CWKCC9P70W38C1K')
+      expect(subject.reference).to eq('6CWKCC9P70W38C1K')
     end
   end
 
   describe '#claimant_count' do
     it 'delegates to the claimant association proxy' do
-      expect(claim.claimants).to receive(:count)
+      expect(subject.claimants).to receive(:count)
 
-      claim.claimant_count
+      subject.claimant_count
     end
   end
 
@@ -70,7 +70,7 @@ RSpec.describe Claim, :type => :claim do
     let (:query) { double }
 
     before do
-      allow(claim.claimants).to receive(:where).
+      allow(subject.claimants).to receive(:where).
         with(applying_for_remission: true).
         and_return query
     end
@@ -78,7 +78,7 @@ RSpec.describe Claim, :type => :claim do
     it 'delegates to the claimant association proxy' do
       expect(query).to receive(:count)
 
-      claim.remission_claimant_count
+      subject.remission_claimant_count
     end
   end
 
@@ -123,20 +123,20 @@ RSpec.describe Claim, :type => :claim do
 
     context 'when the minimum information is incomplete' do
       it 'returns false' do
-        expect(attributes.none? { |key, _| Claim.new(attributes.except key).submittable? }).to be true
+        expect(attributes.none? { |key, _| described_class.new(attributes.except key).submittable? }).to be true
       end
     end
 
     context 'when the minimum information is complete' do
-      subject { Claim.new attributes }
+      subject { described_class.new attributes }
       its(:submittable?) { is_expected.to be true }
     end
   end
 
   describe '#fee_calculation' do
     it 'delegates to ClaimFeeCalculator.calculate' do
-      expect(ClaimFeeCalculator).to receive(:calculate).with claim: claim
-      claim.fee_calculation
+      expect(ClaimFeeCalculator).to receive(:calculate).with claim: subject
+      subject.fee_calculation
     end
   end
 

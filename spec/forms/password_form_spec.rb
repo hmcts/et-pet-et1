@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PasswordForm, :type => :form do
   let(:model) { double('model') }
   let(:attributes) { { password: 'lol' } }
-  subject { PasswordForm.new(attributes).tap { |f| f.resource = model } }
+  subject { described_class.new(attributes).tap { |f| f.resource = model } }
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:password) }
