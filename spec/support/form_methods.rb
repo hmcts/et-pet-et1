@@ -117,32 +117,43 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_claim_details
-    check "Unfair dismissal (including constructive dismissal)"
+  def fill_in_pre_claim_pages
+    start_claim
+    fill_in_password
+    fill_in_personal_details
+    fill_in_representative_details
+    fill_in_employer_details
+    fill_in_employment_details
+  end
 
-    # Checking things nested within labels is apparently FUBAR
+  def fill_in_claim_type_details
+    check "Unfair dismissal (including constructive dismissal)"
     label = find('label', text: "Sex (including equal pay)")
     find("##{label['for']}").set true
-
     check 'Another type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',
       with: 'Boss was a bit of a douchenozzle TBH'
-    fill_in 'This is your opportunity to tell us about your problem at work',
-      with: 'It was all a bit long TBH'
+    choose 'claim_type_is_whistleblowing_true'
+    choose 'claim_type_send_claim_to_whistleblowing_entity_true'
 
-    check 'To get my old job back and compensation'
+    click_button 'Save and continue'
+  end
 
-    fill_in 'What compensation or other outcome(s) do you want?',
-      with: 'One billllllllion dollars'
+  def fill_in_claim_details
+    fill_in 'This is your opportunity to tell us about your problem at work.',
+      with: "Everybody hates me"
+    choose 'claim_details_other_known_claimants_true'
+    fill_in 'You can add the names of other people here. (optional)',
+      with: 'Charles, Faz & Stevie'
 
-    choose 'claim_other_known_claimants_true'
+    click_button 'Save and continue'
+  end
 
-    fill_in 'You can add the names of other people here.',
-      with: 'Barrington Wrigglesworth'
-
-    choose 'claim_is_whistleblowing_true'
-
-    choose 'claim_send_claim_to_whistleblowing_entity_true'
+  def fill_in_claim_outcome_details
+    label = find('label', text: "Compensation")
+    find("##{label['for']}").set true
+    fill_in 'What compensation or other outcome do you want? (optional)',
+      with: 'i would like a gold chain'
 
     click_button 'Save and continue'
   end
@@ -161,7 +172,9 @@ module FormMethods
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details
+    fill_in_claim_type_details
     fill_in_claim_details
+    fill_in_claim_outcome_details
   end
 
   def select_recipients
