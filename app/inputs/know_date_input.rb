@@ -13,7 +13,7 @@ class KnowDateInput < SimpleForm::Inputs::Base
 
     template.content_tag(defaults[:tag], class: defaults[:class] + ["know-date-#{key}"]) do
       template.label_tag(id, I18n.t("datetime.prompts.#{key}")) +
-      template.text_field_tag(name_for(index: index), value_for(key: key), id: id, class: input_html_classes, maxlength: maxlength)
+      template.text_field_tag(name_for(index: index), value_for(index: index), id: id, class: input_html_classes, maxlength: maxlength)
     end
   end
 
@@ -27,7 +27,7 @@ class KnowDateInput < SimpleForm::Inputs::Base
     SimpleForm.wrapper(:default).defaults
   end
 
-  def value_for(key:)
-    object.send(attribute_name).try(key)
+  def value_for(index:)
+    object.send "#{attribute_name}(#{index}i)"
   end
 end

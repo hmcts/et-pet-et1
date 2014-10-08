@@ -7,7 +7,7 @@ describe BaseMailer do
   let(:office) { Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')}
   let(:claim) { Claim.create!(submitted_at: '2014-09-09', office: office) }
   let(:email_address) { 'mail@example.com' }
-  let(:email) { subject.deliver }
+  let(:email) { subject.deliver_now }
 
   describe '#access_details_email' do
     subject { described_class.access_details_email(claim, email_address) }

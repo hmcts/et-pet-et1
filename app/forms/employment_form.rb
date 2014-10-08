@@ -7,6 +7,8 @@ class EmploymentForm < Form
     :notice_pay_period_type, :found_new_job, :new_job_start_date,
     :new_job_gross_pay, :new_job_gross_pay_frequency
 
+  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
+
   private def target
     resource.employment || resource.build_employment
   end
