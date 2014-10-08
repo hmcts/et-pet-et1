@@ -66,7 +66,7 @@ en:
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for 'interim relief'. It's within 7 days of the dismissal
-          claim_against_security_or_intelligence_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
+          claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       employment:
         current_situation:
