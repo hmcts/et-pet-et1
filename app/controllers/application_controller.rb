@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def claim
+    # session[:claim_reference] = Claim.last.reference
     @claim ||= if session[:claim_reference].present?
       Claim.find_by_reference(session[:claim_reference])
     end

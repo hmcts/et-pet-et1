@@ -85,6 +85,8 @@ class Form
     if valid?
       target.update_attributes attributes
       resource.save
+    else
+      false
     end
   end
 
