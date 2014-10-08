@@ -199,7 +199,10 @@ en:
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-        miscellaneous_information: Do you want to  tell us any additional information about your claim?
+
+      additional_information:
+        has_miscellaneous_information: Do you want to tell us any additional information about your claim?
+        attachment: Do you want to attach a document?
 
       confirmation_email:
         email_addresses: Select or enter the recipients you'd like to send a copy to
@@ -284,6 +287,14 @@ en:
         desired_outcomes: You can select more than one
         other_outcome: |
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
+      additional_information:
+        has_miscellaneous_information: |
+          E.g., you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+        miscellaneous_information: You can provide additional information about your claim in this section.
+        attachment: |
+          You can upload more information about your claim in a Rich Text Format
+          (RTF) file. You can usually save a file as an RTF by selecting File >
+          Save As > Format: Rich Text Format.
 
   helpers:
     submit:
@@ -303,6 +314,8 @@ en:
         return: Return to your saved form
 
   errors:
+    messages:
+      rtf: is not an RTF or plain text file
     user_session:
       not_found: A claim with that reference number could not be found
       invalid: This memorable word does not match the reference number
@@ -421,6 +434,10 @@ en:
     claim_outcome:
       header: Prefered outcome
       claim_outcome: Your prefered claim outcome
+    additional_information:
+      header: Additional information
+      remove_attachment: |
+        Remove previously uploaded document: %{file}
 
   base_mailer:
     access_details_email:
