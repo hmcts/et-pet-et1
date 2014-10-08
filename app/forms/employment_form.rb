@@ -9,6 +9,8 @@ class EmploymentForm < Form
 
   dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
 
+  booleans :was_employed
+
   private def target
     resource.employment || resource.build_employment
   end

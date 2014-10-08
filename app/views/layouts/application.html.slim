@@ -20,14 +20,6 @@
 - content_for :content_override do
   main#wrapper(role="main")
     .container
-      section#content
-        header.content-header.inner-block.group
-          h1.heading-xlarge
-            = yield :header
-          = yield :headeractions
-          = yield :info
-
-        .inner-block
-          = yield
+        = yield
 
 = render template: "layouts/moj_template"

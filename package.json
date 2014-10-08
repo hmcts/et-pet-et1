@@ -10,10 +10,9 @@
     "url" : "https://github.com/ministryofjustice/atet"
   },
   "devDependencies": {
-    "bower": "^1.2.8",
-    "browserify": "^3.32.0",
-    "watchify": "^0.6.1",
-    "uglifyjs": "~2.4.15"
+    "browserify": "^5.9.1",
+    "watchify": "^1.0.1",
+    "uglifyjs": "~2.3.6"
   },
   "dependencies": {},
   "scripts": {
@@ -21,6 +20,6 @@
     "buildjs":       "browserify app/assets/javascripts/index.js | uglifyjs -mc > app/assets/javascripts/bundle.js",
     "bundle":         "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
     "watch-js":       "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
-    "start":          "npm run watch-js & rails s"
+    "start":          "npm run watch-js && rails s"
   }
 }

@@ -3,10 +3,9 @@ class ClaimantForm < Form
 
   attributes :first_name, :last_name, :date_of_birth, :address_country,
              :mobile_number, :fax_number, :email_address, :special_needs,
-             :title, :gender, :contact_preference,
-             :applying_for_remission
+             :title, :gender, :contact_preference
 
-  booleans   :has_special_needs, :has_representative
+  booleans   :has_special_needs
 
   date       :date_of_birth
 
@@ -34,6 +33,6 @@ class ClaimantForm < Form
   end
 
   private def target
-    resource.claimants.first || resource.claimants.build
+    resource.primary_claimant || resource.build_primary_claimant
   end
 end

@@ -85,8 +85,13 @@ en:
         new_job_gross_pay_frequency:
           weekly: Weekly
           monthly: Monthly
-
       claim:
+        desired_outcomes:
+          compensation_only: Compensation
+          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
+          reinstated_employment_and_compensation: To get my old job back and compensation
+          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
+      claim_type:
         discrimination_claims:
           sex_including_equal_pay: Sex (including equal pay)
           disability: Disability
@@ -94,15 +99,16 @@ en:
           age: Age
           pregnancy_or_maternity: Pregnancy or maternity
           religion_or_belief: Religion or belief
-          sexual_orientation: Sexual orientation (eg, you've been treated unfairly because you're gay)
+          sexual_orientation: Sexual orientation
           marriage_or_civil_partnership: Marriage or civil partnership
-          gender_reassignment: Gender reassignment (eg, you've been treated unfairly because you've had a sex change)
+          gender_reassignment: Gender reassignment
         pay_claims:
           redundancy: Redundancy pay
           notice: Notice pay
           holiday: Holiday pay
           arrears: Arrears of pay
           other: Other payments
+      claim_outcome:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
@@ -114,7 +120,7 @@ en:
         reference: Your reference number
         password: Your memorable word
       password:
-        password: Your memorable word
+        password: Your memorable word (at least 5 characters long)
         save_and_return_email: Email address
 
       claimant:
@@ -162,7 +168,6 @@ en:
         work_address_county: County
         work_address_post_code: Postcode
         worked_at_different_address: Did you work at the same address to the one given above?
-        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
         no_acas_number: I don't have an Acas number
         no_acas_number_reason: Why don't you have an Acas number?
 
@@ -179,6 +184,7 @@ en:
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
+        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -193,14 +199,35 @@ en:
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-        miscellaneous_information: Do you want to  tell us any additional information about your claim?
+
+      additional_information:
+        has_miscellaneous_information: Do you want to tell us any additional information about your claim?
+        attachment: Do you want to attach a document?
 
       confirmation_email:
         email_addresses: Select or enter the recipients you'd like to send a copy to
 
+      claim_type:
+        is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+        is_other_type_of_claim: Another type of claim
+        other_claim_details: State the other type of claim – or claims – that you’re making
+        is_whistleblowing: Are you making a whistleblowing claim?
+        send_claim_to_whistleblowing_entity: |
+          Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
+
+      claim_details:
+        claim_details: This is your opportunity to tell us about your problem at work.
+        other_known_claimants: Do you know of other people who are making similar claims against the same employer?
+        other_known_claimant_names: You can add the names of other people here.
+
+      claim_outcome:
+        desired_outcomes: What do you want if your claim is successful?
+        other_outcome: What compensation or other outcome do you want?
+
     hints:
       password:
-        password: Enter a memorable word (at least 5 characters long)
+        password: You need this word to return to your application another time
+        save_and_return_email: Get your 'save and return' number in an email
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
@@ -213,17 +240,18 @@ en:
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
       representative:
         type: Acas conciliators are not representatives
-      respondent:
+        respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
         address_building: This may be the head office and different to your own work address
       employment:
+        current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
         start_date: For example, 12 04 2010 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. Include overtime, commission and bonuses
-        benefit_details: 250 characters limit.
+        benefit_details: Details of benefit.
         end_date: For example, 08 04 2014
         new_job_start_date: For example, 08 04 2014
         notice_period_end_date: For example, 08 04 2014
@@ -238,6 +266,35 @@ en:
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
         miscellaneous_information: |
           Eg, you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+      respondent:
+        acas_early_conciliation_certificate_number: |
+          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or visit the Acas website.
+        address_building: |
+          May be different to your work address
+      claim_type:
+        is_other_type_of_claim: |
+          For example, your employer hasn’t allowed you to take your statutory annual leave entitlement.
+        other_claim_details: |
+          For example, your employer hasn’t allowed you to take your statutory annual leave entitlement. If you know the relevant law, you can tell us here.
+        is_whistleblowing: |
+          You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties.
+      claim_details:
+        claim_details: Include the background, dates and the people involved.
+        other_known_claimants: |
+          A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
+        other_known_claimant_names: Limit is 350 characters.
+      claim_outcome:
+        desired_outcomes: You can select more than one
+        other_outcome: |
+          If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
+      additional_information:
+        has_miscellaneous_information: |
+          E.g., you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+        miscellaneous_information: You can provide additional information about your claim in this section.
+        attachment: |
+          You can upload more information about your claim in a Rich Text Format
+          (RTF) file. You can usually save a file as an RTF by selecting File >
+          Save As > Format: Rich Text Format.
 
   helpers:
     submit:
@@ -257,6 +314,8 @@ en:
         return: Return to your saved form
 
   errors:
+    messages:
+      rtf: is not an RTF or plain text file
     user_session:
       not_found: A claim with that reference number could not be found
       invalid: This memorable word does not match the reference number
@@ -269,6 +328,9 @@ en:
     show:
       header: Saved
       info: Make sure you know your reference number and memorable word before you sign out (or you'll lose your work).
+  guide:
+    header: Guide
+
   claims:
     new:
       header: Take your employer to a tribunal
@@ -303,45 +365,79 @@ en:
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     password:
-      header: Your reference number
-      info: |
-        You may want to save any work you do (eg, to show it to someone else or gather more information).
-
-        To save your work and return to it another time, you need a reference number.
+      header: Before you start
+      legend: Save and return to your application
 
       access_details:
         header: Keep a note of these details
         reference: Your reference number
+        hint: You need this number to save your work and return to it another time
 
       record_details:
-        header: What is your email address?
-        info: Your reference number will be emailed to this address
+          header: Email address
 
     claimant:
-      header: Your details
+      header: About you
       personal_details: Personal details
       contact_details: Contact details
     representative:
       header: Your representative
+      form_legend: Representative
+      representative_legend: Representative's details
+      contact_legend: Contact details
+      has_representative_label: Do you have a representative?
+      has_representative_yes: 'Yes'
+      has_representative_no: 'No'
+      has_representative_hint: Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
       what_is_dx:
-        anchor_text: What is a DX number?
-        body: DX is a private mail system used by organisations (eg, legal firms)
+        detail: What is a DX number?
+        summary: DX is a private mail system used by organisations (eg, legal firms)
 
     respondent:
       header: Employer's details
+      form_legend: Employer's details
+      contact_legend: Contact details
+      workaddress_legend: Your work address
       hint: |
         Give details about the employer, person or organisation you're making a claim
         against (known as the 'respondent' at a tribunal). If you need to, you
         can add more respondents later.
       work_address: Give details of your work address.
     employment:
-      header: Employment details
-      hint: |
-        Please give details about the job you were doing when the problem at work happened.
+      header: Employment detail
+      situation_legend: Employment situation
+      current_situation_legend: Current work situation
+      employment_details_legend: Employment details
+      pay_legend: Pay, pension and benefits
+      new_job_legend: New Job
     claim:
       header: Claim details
       claim_type: What type of claim - or claims - are you making?
       claim_type_hint: You can select more than one
+
+    claim_type:
+      header: Your claim type
+      claim_type: Claim type
+      claim_type_label: What type of claim – or claims – are you making?
+      claim_type_hint: Select all that apply
+      unfair_dismissal: Unfair dismissal (including constructive dismissal)
+      discrimination: Discrimination
+      pay: Pay
+      other_type: Another type of claim
+      whistleblowing: Whistleblowing claim
+
+    claim_details:
+      header: Your claim details
+      claim_details: Claim details
+      similar_claims: Similar claims
+
+    claim_outcome:
+      header: Prefered outcome
+      claim_outcome: Your prefered claim outcome
+    additional_information:
+      header: Additional information
+      remove_attachment: |
+        Remove previously uploaded document: %{file}
 
   base_mailer:
     access_details_email:
