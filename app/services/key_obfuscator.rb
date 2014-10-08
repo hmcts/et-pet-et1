@@ -10,10 +10,10 @@ class KeyObfuscator
   end
 
   def obfuscate(numeric)
-    Base32::Crockford.encode @obfuscator.obfuscate(numeric).to_s
+    Base32::Crockford.encode @obfuscator.obfuscate(numeric).to_s if numeric.present?
   end
 
   def unobfuscate(string)
-    @obfuscator.unobfuscate Base32::Crockford.decode(string).to_i
+    @obfuscator.unobfuscate Base32::Crockford.decode(string).to_i if string.present?
   end
 end
