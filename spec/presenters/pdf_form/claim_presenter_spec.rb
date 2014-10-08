@@ -2,9 +2,19 @@ require 'rails_helper'
 
 RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
   subject { described_class.new(claim) }
-  let(:hash) { subject.to_h }
+
+  describe '#name' do
+    let(:claimant) { double 'Claimant', first_name: 'first', last_name: 'last' }
+    let(:claim) { double 'Claim', primary_claimant: claimant }
+
+    it 'returns a name' do
+      expect(subject.name).to eq('first last')
+    end
+  end
 
   describe '#to_h' do
+    let(:hash) { subject.to_h }
+
     context 'when owed' do
       %i<notice holiday arrears other>.each do |type|
         let(:claim) { Claim.new pay_claims: [type] }

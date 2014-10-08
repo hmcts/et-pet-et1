@@ -186,14 +186,6 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe 'filename' do
-    before { subject.claimants << Claimant.new(first_name: 'First', last_name: 'Last') }
-    
-    it 'returns a filename' do
-      expect(subject.filename).to eq('et1_first_last')
-    end
-  end
-
   describe '#state' do
     describe 'for a new record' do
       it 'is "created"' do

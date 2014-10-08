@@ -4,6 +4,14 @@ RSpec.describe PdfForm::ClaimantPresenter, type: :presenter do
   subject { described_class.new(claimant) }
   let(:hash) { subject.to_h }
 
+  describe '#name' do
+    let(:claimant) { Claimant.new first_name: 'First', last_name: 'Last' }
+
+    it 'returns first name, last name' do
+      expect(subject.name).to eq('First Last')
+    end
+  end
+
   describe '#to_h' do
     it_behaves_like 'it includes a formatted postcode', Claimant, '1.5'
     it_behaves_like 'it includes a contact preference', Claimant, '1.8'

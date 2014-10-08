@@ -1,7 +1,11 @@
 class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
+  def name
+    primary_claimant && primary_claimant.name
+  end
+
   def to_h
-    hashes = [office, claim, claimant, representative, employment] + respondents
-    hashes.reduce({}, :merge)
+    presenters = [office, claim, primary_claimant, representative, employment] + respondents
+    presenters.compact.map(&:to_h).reduce({}, :merge)
   end
 
   private
@@ -15,7 +19,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
       "2.4 tick box" => dual_state(respondents.count > 1),
       "3.1 tick boxes" => tri_state(other_known_claimant_names.present?),
       "3.1 if yes" => other_known_claimant_names,
-      # "4.1" => respondent_not_employer_text, (leaving blank)
+
       "8.1 unfairly tick box" => dual_state(is_unfair_dismissal),
       "8.1 discriminated" => dual_state(discrimination_claims?),
       "8.1 age" => dual_state(discrimination_claims?(:age)),
@@ -49,24 +53,24 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   end
 
   def office
-    super && PdfForm::OfficePresenter.new(super).to_h || {}
+    super && PdfForm::OfficePresenter.new(super)
   end
 
-  def claimant
-    claimants.first && PdfForm::ClaimantPresenter.new(claimants.first).to_h || {}
+  def primary_claimant
+    super && PdfForm::ClaimantPresenter.new(super)
   end
 
   def respondents
-    @respondents ||= super && super.each_with_index.map do |respondent, i|
-      PdfForm::RespondentPresenter.new(respondent, i).to_h
-    end || {}
+    super && super.each_with_index.map do |respondent, i|
+      PdfForm::RespondentPresenter.new(respondent, i)
+    end
   end
 
   def representative
-    super && PdfForm::RepresentativePresenter.new(super).to_h || {}
+    super && PdfForm::RepresentativePresenter.new(super)
   end
 
   def employment
-    super && PdfForm::EmploymentPresenter.new(super).to_h || {}
+    super && PdfForm::EmploymentPresenter.new(super)
   end
 end

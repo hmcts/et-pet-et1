@@ -1,5 +1,9 @@
 class PdfForm::ClaimantPresenter < PdfForm::BaseDelegator
 
+  def name
+    first_name + ' ' + last_name
+  end
+
   def to_h
     {
       "1.1 title tick boxes" => title,

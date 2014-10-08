@@ -13,7 +13,8 @@ class ClaimConfirmationsController < ApplicationController
 
   def generated_claim
     respond_to do |format|
-      format.pdf { render pdf: PdfFormBuilder.new(claim), filename: claim.filename }
+      pdf_form = PdfFormBuilder.new(claim)
+      format.pdf { render pdf: pdf_form, filename: pdf_form.filename }
     end
   end
 end

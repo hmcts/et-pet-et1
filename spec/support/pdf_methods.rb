@@ -1,6 +1,6 @@
 module PdfMethods
   def pdf_to_hash(content)
-    pdftk = PdfForms.new('/usr/local/bin/pdftk')
+    pdftk = PdfForms.new('pdftk')
 
     pdf = Tempfile.new('generated_pdf')
     begin

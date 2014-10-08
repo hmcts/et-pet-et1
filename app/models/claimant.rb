@@ -9,8 +9,4 @@ class Claimant < ActiveRecord::Base
   def address
     super || build_address
   end
-
-  def name
-    first_name + ' ' + last_name
-  end
 end

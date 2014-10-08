@@ -78,10 +78,6 @@ class Claim < ActiveRecord::Base
     fee_calculation.application_fee != fee_calculation.application_fee_after_remission
   end
 
-  def filename
-    "et1_#{claimants.first.name.downcase.gsub(' ', '_')}"
-  end
-
   class << self
     def find_by_reference(reference)
       find_by_id KeyObfuscator.new.unobfuscate(reference)
