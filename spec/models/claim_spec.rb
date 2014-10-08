@@ -277,7 +277,7 @@ RSpec.describe Claim, :type => :claim do
   end
 
   describe '#build_primary_claimant' do
-    let(:claimant) { claim.build_primary_claimant }
+    let(:claimant) { subject.build_primary_claimant }
 
     it 'sets primary_claimant as true' do
       expect(claimant.primary_claimant).to be true

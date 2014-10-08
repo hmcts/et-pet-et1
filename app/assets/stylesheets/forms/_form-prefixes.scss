@@ -1,21 +1,15 @@
 .prefixed-field {
-  .form-group{
-    // @include span(6 of 12);
-    &.radio-buttons{
-      // @include span(6 of 12 last);
-    }
-    &.integer{
-      position:relative;
-      &:before{
-        position:absolute;
-        content: '\00A3';
-        background:$panel-colour;
-        border-right:1px solid $border-colour;
-        top:50%;
-        left:0;
-        padding:10px;
-        z-index:100;
-      }
+  .form-group.integer{
+    position:relative;
+    &:before{
+      @include core-19;
+      float:left;
+      content: '\00A3';
+      background:$panel-colour;
+      border:1px solid $border-colour;
+      border-right:none;
+      padding:5px 10px 4px;
+      margin:2px 0;
     }
   }
 }

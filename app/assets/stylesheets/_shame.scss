@@ -27,8 +27,7 @@ legend {
   width:100%;
   display:block;
   padding:0 0 $gutter-half/2 0;
-  &.medium {
-    @include core-24;
+  &.font-medium {
     border:none;
   }
   &.form-label{
@@ -58,6 +57,52 @@ aside {
   }
 }
 
-.form-panel{
+.form-panel {
   margin:0 0 $gutter;
+  legend.font-medium {
+    margin:0;
+  }
+}
+.slim-label {
+  display:inline-block;
+  padding-top:$gutter-half/2;
+  margin-right:$gutter-half;
+}
+.inline-fields {
+  overflow:hidden;
+  .form-group {
+    @include span(6 of 12);
+    clear:none;
+    margin-bottom:0;
+    &:first-child {
+      @include first;
+      padding-left:0;
+      input {
+        @include span(10 of 12);
+        margin-left:0;
+      }
+    }
+    &.radio_buttons {
+      @include last;
+      span.block-label {
+        margin-top:0;
+        margin-bottom:0;
+      }
+    }
+  }
+}
+
+
+.reference {
+  @include core-24;
+  @include span(8 of 12);
+  font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+  margin:$gutter-half 0;
+  background:$highlight-colour;
+  padding:4px 8px;
+  // text-align:center;
+  &.panel-indent {
+   margin-top:0;
+   margin-bottom:$gutter;
+  }
 }
