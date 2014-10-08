@@ -4,6 +4,7 @@ feature 'Claim applications', type: :feature do
   include FormMethods
   include Messages
   include EpdqMatchers
+  include PdfMethods
 
   context 'along the happy path' do
     before do
@@ -170,6 +171,7 @@ feature 'Claim applications', type: :feature do
       click_link 'Download PDF file'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
+      expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
     end
 
     scenario 'Making payment' do

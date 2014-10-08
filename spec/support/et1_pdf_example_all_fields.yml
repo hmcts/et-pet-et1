@@ -6,18 +6,18 @@
 # Section 14 (Fee) not applicable
 
 ---
-#type of claim:
-#more than one claimant:
-#after reading the fees and remissions:
-#how many claimants are applying:
-#Does your claim relate to any of the following?:
-#Secretary of State:
-#claim related to an appeal:
-#another type of claim:
-#I agree to the payment of this fee:
+type of claim:
+more than one claimant:
+after reading the fees and remissions:
+how many claimants are applying:
+Does your claim relate to any of the following?:
+Secretary of State:
+claim related to an appeal:
+another type of claim:
+I agree to the payment of this fee:
 tribunal office: Birmingham
-#case number:
-#date received:
+case number:
+date received:
 1.1 title tick boxes: ms
 1.2 first names: Geraldine
 1.3 surname: Hardin
@@ -33,7 +33,7 @@ tribunal office: Birmingham
 1.7 mobile number: 07528 123456
 1.8 tick boxes: email
 1.9 email: g.hardin@example.com
-# 1.10 fax number: (021) 2736 4980 # fax will be removed from front-end
+1.10 fax number: # fax will be removed from front-end
 1.5 postcode: A9  9AA
 2.2 postcode: H6G 5YG
 '2.1': Germane Whitney
@@ -65,25 +65,25 @@ tribunal office: Birmingham
 2.4 R3 phone number: (016977) 1415
 3.1 tick boxes: 'yes'
 3.1 if yes: Daryl Boyer, Leandra Walls, Cade Pitts
-# '4.1': They didn't give me the job. - Information will be entered into 'other type of claim' field
+'4.1': # Information will be entered into 'other type of claim' field
 5.1 employment start: '2014-02-01'
 5.1 tick boxes: 'no'
 5.1 employment end: '2014-03-01'
 5.1 not ended: '2014-04-01'
 '5.2': Marksman
-'6.1': 40.0
-6.2 pay before tax: 1000000
+'6.1': '40.0'
+6.2 pay before tax: '1000000'
 6.2 pay before tax tick boxes: monthly
-6.2 normal pay: 600000
+6.2 normal pay: '600000'
 6.2 normal pay tick boxes: monthly
 6.3 tick boxes: 'yes'
-6.3 weeks: 2.5
-6.3 months:
+6.3 weeks: '2.5'
+6.3 months: ''
 6.4 tick boxes: 'yes'
 '6.5': car + life insurance
 7.1 tick boxes: 'yes'
 '7.2': '2014-04-01'
-'7.3': 1200000
+'7.3': '1200000'
 8.1 unfairly tick box: 'yes'
 8.1 discriminated: 'yes'
 8.1 age: 'yes'
@@ -120,10 +120,10 @@ tribunal office: Birmingham
 11.4 dx number: '713424'
 11.5 phone number: 0800 750 2398
 11.6 mobile number: 07234 456876
-#11.7 reference:
+11.7 reference:
 11.8 email: lavinia.chapman@example.com
 11.9 tick boxes: post
-# 11.10 fax number:
+11.10 fax number: # not used
 12.1 tick box: 'yes'
 12.1 if yes: I'm in a wheelchair
 13 R4 name: Chaim Mcpherson
@@ -140,46 +140,66 @@ R5 town city: Malvern
 R5 county: Orkney
 R5 postcode: BH991FE
 R5 phone number: 0987 265 5866
-# 14 satisfied tick box:
-# 14 fee:
+14 satisfied tick box:
+14 fee:
 '15': Additional information about claim
-# claim type a:
-# claim type b:
-# claim type c:
-# claim type d:
-# claim type e:
-# sex:
-# sex a:
-# age group:
-# ethnicity white:
-# mixed multiple:
-# asian british:
-# black african caribbean:
-# other ethnic:
-# prefer not to say:
-# caring:
-# disability:
-# sexual:
-# marriage:
-# gender:
-# gender different:
-# religion:
-# pregnancy:
-# other religion:
+claim type a:
+claim type b:
+claim type c:
+claim type d:
+claim type e:
+sex:
+sex a:
+age group:
+ethnicity white:
+mixed multiple:
+asian british:
+black african caribbean:
+other ethnic:
+prefer not to say:
+caring:
+disability:
+sexual:
+marriage:
+gender:
+gender different:
+religion:
+pregnancy:
+other religion:
 Check Box1: 'Yes'
 Text2: '111111'
 Check Box3: 'Yes'
+Check Box4:
+Check Box5:
+Check Box6:
+Check Box7:
 Check Box8: 'Yes'
 Text9: '222222'
+Check Box10:
 Check Box11: 'Yes'
+Check Box12:
+Check Box13:
+Check Box14:
 Check Box15: 'Yes'
 Text16: '333333'
+Check Box17:
+Check Box18:
 Check Box19: 'Yes'
+Check Box20:
+Check Box21:
 Check Box22: 'Yes'
 Text23: '444444'
+Check Box24:
+Check Box25:
+Check Box26:
 Check Box27: 'Yes'
+Check Box28:
 Check Box29: 'Yes'
 Text30: '555555'
+Check Box31:
+Check Box32:
+Check Box33:
+Check Box34:
 Check Box35: 'Yes'
-# Button30:
-# Button31:
+Button30:
+Button31:
