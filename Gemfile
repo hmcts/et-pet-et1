@@ -53,8 +53,6 @@ gem 'webmock', group: :test
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
-gem 'carrierwave', '~> 0.10'
-gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'httparty'

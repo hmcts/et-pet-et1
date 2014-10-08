@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalClaimantsForm, :type => :form do
+RSpec.describe AdditionalClaimantsForm, :type => :lol do
   let(:attributes) do
     {
       claimants_attributes: {

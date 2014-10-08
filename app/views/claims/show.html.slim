@@ -12,7 +12,7 @@ header.main-header
         li
           = link_to('Sign out', user_sessions_path)
   .main-content
-    = simple_form_for resource, url: claim_path, multipart: true do |f|
+    = simple_form_for resource, url: claim_path do |f|
       = hidden_field_tag :page, current_step
       = f.error_notification
       .form-inputs

@@ -7,5 +7,4 @@ class ClaimTransitionManager < TransitionManager
   transition :claim_type     => :claim_details
   transition :claim_details  => :claim_outcome
   transition :claim_outcome  => :review
-  transition :additional_information => :review
 end

@@ -14,7 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/public/uploads
 
 #ignore node modules
 /node_modules

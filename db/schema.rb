@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006124939) do
+ActiveRecord::Schema.define(version: 20141001152722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 20141006124939) do
     t.string   "fee_group_reference"
     t.string   "state"
     t.datetime "submitted_at"
-    t.string   "attachment"
   end
 
   create_table "employments", force: true do |t|
