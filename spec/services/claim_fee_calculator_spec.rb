@@ -14,6 +14,14 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
             and_return true
         end
 
+        context 'with no claimants' do
+          before { allow(claim).to receive(:claimant_count).and_return 0 }
+
+          it 'is 0' do
+            expect(calculation.application_fee).to eq 0
+          end
+        end
+
         context 'with a single claimant' do
           before { allow(claim).to receive(:claimant_count).and_return 1 }
 
@@ -52,6 +60,14 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
           allow(claim).
             to receive(:alleges_discrimination_or_unfair_dismissal?).
             and_return false
+        end
+
+        context 'with no claimants' do
+          before { allow(claim).to receive(:claimant_count).and_return 0 }
+
+          it 'is 0' do
+            expect(calculation.application_fee).to eq 0
+          end
         end
 
         context 'with a single claimant' do
@@ -96,6 +112,14 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
             and_return true
         end
 
+        context 'with no claimants' do
+          before { allow(claim).to receive(:claimant_count).and_return 0 }
+
+          it 'is 0' do
+            expect(calculation.hearing_fee).to eq 0
+          end
+        end
+
         context 'with a single claimant' do
           before { allow(claim).to receive(:claimant_count).and_return 1 }
 
@@ -136,6 +160,14 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
             and_return false
         end
 
+        context 'with no claimants' do
+          before { allow(claim).to receive(:claimant_count).and_return 0 }
+
+          it 'is 0' do
+            expect(calculation.hearing_fee).to eq 0
+          end
+        end
+
         context 'with a single claimant' do
           before { allow(claim).to receive(:claimant_count).and_return 1 }
 
@@ -171,6 +203,17 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
     end
 
     describe 'calculating the application fee with remission' do
+      context 'with no claimants' do
+        before do
+          allow(claim).to receive(:remission_claimant_count).and_return 1
+          allow(claim).to receive(:claimant_count).and_return 0
+        end
+
+        it 'is 0' do
+          expect(calculation.application_fee_after_remission).to eq 0
+        end
+      end
+
       context 'for a single claimant who is claiming remission' do
         before do
           allow(claim).to receive(:claimant_count).and_return 1
