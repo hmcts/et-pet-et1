@@ -214,15 +214,15 @@ en:
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-
       claim_details:
         claim_details: This is your opportunity to tell us about your problem at work.
         other_known_claimants: Do you know of other people who are making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
-
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
+      your_fee:
+        is_applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
 
     hints:
       password:
@@ -295,6 +295,9 @@ en:
           You can upload more information about your claim in a Rich Text Format
           (RTF) file. You can usually save a file as an RTF by selecting File >
           Save As > Format: Rich Text Format.
+      your_fee:
+        is_applying_for_remission: Find out if you qualify for help with fees.
+
 
   helpers:
     submit:
@@ -438,6 +441,14 @@ en:
       header: Additional information
       remove_attachment: |
         Remove previously uploaded document: %{file}
+    your_fee:
+      header: Your fee
+      application_fee: Application fee
+      reduce_fee: Reduce your fee
+      remission_applied_info_heading: You don’t need to pay the above fee now.
+      remisison_applied_info_text: |
+        Instead, we’ll ask for your financial details when you’ve submitted this application. 
+        We’ll then use this information to work out what reduction you qualify for (if any) and let you know how much you’ll be charged.
 
   base_mailer:
     access_details_email:

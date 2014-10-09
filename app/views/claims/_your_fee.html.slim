@@ -1,0 +1,23 @@
+.main-column
+  fieldset.form-panel
+    legend = t '.application_fee'
+
+    p = "The standard application fee for your claim is <span class=\"strong\">£#{ fee_calculation.application_fee_after_remission }</span>.".html_safe
+    p = "If your case goes to a tribunal, you’ll have to pay a hearing fee of <span class=\"strong\">£#{ fee_calculation.hearing_fee }</span>.".html_safe
+
+  fieldset
+    legend = t '.reduce_fee'
+
+    / TODO: The input hint needs to be a hyperlink
+    / TODO: reveal.js needs to open hidden divs if true is selected
+
+    = f.input :applying_for_remission,
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label',
+      wrapper_class: 'form-group-reveal',
+      reveal: { true => :remission_applied_info }
+
+    div#remission_applied_info class="panel-indent toggle-content"
+      
+      p.strong = t '.remission_applied_info_heading'  
+      p = t '.remisison_applied_info_text'
