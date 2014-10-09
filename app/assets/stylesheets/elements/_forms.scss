@@ -66,9 +66,6 @@
   display: block;
   color: $secondary-text-colour;
   margin-bottom: 5px;
-  @include media (tablet) {
-    margin-top: 8px;
-  }
 }
 
 
@@ -83,9 +80,6 @@
   background-color: $white;
   border: 1px solid $border-colour;
   border-radius: 0;
-  &.select{
-      @include col(2/3);
-  }
 }
 
 .form-control:not([type=radio][type=checkbox]) {

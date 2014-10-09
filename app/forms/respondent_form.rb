@@ -9,7 +9,7 @@ class RespondentForm < Form
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_different_address
 
-  booleans   :was_employed, :no_acas_number
+  booleans   :no_acas_number
 
   validates :name, presence: true
 
@@ -43,7 +43,7 @@ class RespondentForm < Form
   end
 
   private def target
-    resource.respondents.first || resource.respondents.build
+    resource.primary_respondent || resource.build_primary_respondent
   end
 
   def worked_at_different_address=(v)

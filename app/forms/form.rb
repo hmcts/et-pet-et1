@@ -8,7 +8,7 @@ class Form
   PHONE_NUMBER_LENGTH  = 21
   POSTCODE_LENGTH      = 8
 
-  attr_accessor :resource
+  attr_accessor :resource, :target
 
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
@@ -46,6 +46,15 @@ class Form
     end
   end
 
+  def self.dates(*attrs)
+    attrs.each { |attribute| date attribute }
+  end
+
+  def self.date(attribute)
+    validates attribute, date: true
+    MultiParameterDate.decorate self, attribute
+  end
+
   def self.for(name)
     "#{name}_form".classify.constantize
   end
@@ -59,14 +68,13 @@ class Form
     delegate :i18n_key, to: :model_name, prefix: true
   end
 
-  def initialize(attributes={},&block)
+  def initialize(attributes={}, &block)
     assign_attributes attributes
     yield self if block_given?
   end
 
   def assign_attributes(attributes={})
-    parse_multiparameter_date_attributes(attributes)
-      .each { |key, value| send :"#{key}=", value }
+    attributes.each { |key, value| send :"#{key}=", value }
   end
 
   def persisted?
@@ -85,10 +93,8 @@ class Form
     if valid?
       target.update_attributes attributes
       resource.save
+    else
+      false
     end
-  end
-
-  private def parse_multiparameter_date_attributes(attributes)
-    MultiparameterDateParser.parse(attributes)
   end
 end

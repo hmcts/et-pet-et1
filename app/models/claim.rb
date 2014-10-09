@@ -1,8 +1,22 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
+  mount_uploader :attachment, AttachmentUploader
 
-  has_one :primary_claimant,   class_name: 'Claimant'
-  has_one :primary_respondent, class_name: 'Respondent'
+  has_one :primary_claimant,
+    -> { where primary_claimant: true },
+    class_name: 'Claimant'
+
+  has_one :primary_respondent,
+    -> { where primary_respondent: true },
+    class_name: 'Respondent'
+
+  has_many :secondary_claimants,
+    -> { where primary_claimant: false },
+    class_name: 'Claimant'
+
+  has_many :secondary_respondents,
+    -> { where primary_respondent: false },
+    class_name: 'Respondent'
 
   has_many :claimants, dependent: :destroy
   has_many :respondents, dependent: :destroy
@@ -12,6 +26,7 @@ class Claim < ActiveRecord::Base
   has_one  :payment
 
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
+  delegate :file, to: :attachment, prefix: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation

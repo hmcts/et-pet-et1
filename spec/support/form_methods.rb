@@ -53,12 +53,6 @@ module FormMethods
     choose  'claimant_has_special_needs_true'
     fill_in 'Tell us how we can help you.', with: 'I am blind.'
 
-    choose  'claimant_has_representative_true'
-
-    if seeking_remissions
-      choose  'claimant_applying_for_remission_true'
-    end
-
     click_button 'Save and continue' if submit_form
   end
 
@@ -102,7 +96,7 @@ module FormMethods
     check  "I don't have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
-    choose 'respondent_was_employed_true'
+    # choose 'respondent_was_employed_true'
 
     click_button 'Save and continue'
   end
@@ -123,33 +117,51 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_claim_details
+  def fill_in_pre_claim_pages
+    start_claim
+    fill_in_password
+    fill_in_personal_details
+    fill_in_representative_details
+    fill_in_employer_details
+    fill_in_employment_details
+  end
+
+  def fill_in_claim_type_details
     check "Unfair dismissal (including constructive dismissal)"
-
-    check "Discrimination"
-      # Checking things nested within labels is apparently FUBAR
-      label = find('label', text: "Sex (including equal pay)")
-      find("##{label['for']}").set true
-
+    label = find('label', text: "Sex (including equal pay)")
+    find("##{label['for']}").set true
     check 'Another type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',
       with: 'Boss was a bit of a douchenozzle TBH'
-    fill_in 'This is your opportunity to tell us about your problem at work',
-      with: 'It was all a bit long TBH'
+    choose 'claim_type_is_whistleblowing_true'
+    choose 'claim_type_send_claim_to_whistleblowing_entity_true'
 
-    check 'To get my old job back and compensation'
+    click_button 'Save and continue'
+  end
 
-    fill_in 'What compensation or other outcome(s) do you want?',
-      with: 'One billllllllion dollars'
+  def fill_in_claim_details
+    fill_in 'This is your opportunity to tell us about your problem at work.',
+      with: "Everybody hates me"
+    choose 'claim_details_other_known_claimants_true'
+    fill_in 'You can add the names of other people here. (optional)',
+      with: 'Charles, Faz & Stevie'
 
-    choose 'claim_other_known_claimants_true'
+    click_button 'Save and continue'
+  end
 
-    fill_in 'You can add the names of other people here.',
-      with: 'Barrington Wrigglesworth'
+  def fill_in_claim_outcome_details
+    label = find('label', text: "Compensation")
+    find("##{label['for']}").set true
+    fill_in 'What compensation or other outcome do you want? (optional)',
+      with: 'i would like a gold chain'
 
-    choose 'claim_is_whistleblowing_true'
+    click_button 'Save and continue'
+  end
 
-    choose 'claim_send_claim_to_whistleblowing_entity_true'
+  def fill_in_addtional_information
+    choose 'additional_information_has_miscellaneous_information_true'
+    fill_in 'additional_information_miscellaneous_information',
+      with: 'better late than never'
 
     click_button 'Save and continue'
   end
@@ -168,7 +180,10 @@ module FormMethods
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details
+    fill_in_claim_type_details
     fill_in_claim_details
+    fill_in_claim_outcome_details
+    fill_in_addtional_information
   end
 
   def select_recipients

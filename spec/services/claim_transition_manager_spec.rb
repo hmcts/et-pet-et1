@@ -13,15 +13,8 @@ RSpec.describe ClaimTransitionManager, type: :service do
   describe 'when resource is a ClaimantForm' do
     let(:resource) { ClaimantForm.new }
 
-    context 'when form#has_representative == false' do
-      before { allow(resource).to receive(:has_representative).and_return false }
-      its(:forward) { is_expected.to eq(:respondent) }
-    end
-
-    context 'when form#has_representative == true' do
-      before { allow(resource).to receive(:has_representative).and_return true }
-      its(:forward) { is_expected.to eq(:representative) }
-    end
+    before { allow(resource).to receive(:has_representative).and_return true }
+    its(:forward) { is_expected.to eq(:representative) }
   end
 
   describe 'when resource is a RepresentativeForm' do
@@ -32,24 +25,32 @@ RSpec.describe ClaimTransitionManager, type: :service do
   describe 'when resource is a RespondentForm' do
     let(:resource) { RespondentForm.new }
 
-    context 'when form#was_employed == false' do
-      before { allow(resource).to receive(:was_employed).and_return false }
-      its(:forward) { is_expected.to eq(:claim) }
-    end
-
-    context 'when form#was_employed == true' do
-      before { allow(resource).to receive(:was_employed).and_return true }
-      its(:forward) { is_expected.to eq(:employment) }
-    end
+    before { allow(resource).to receive(:was_employed).and_return true }
+    its(:forward) { is_expected.to eq(:employment) }
   end
 
   describe 'when resource is a EmploymentForm' do
     let(:resource) { EmploymentForm.new }
-    its(:forward)  { is_expected.to eq(:claim) }
+    its(:forward)  { is_expected.to eq(:claim_type) }
   end
 
-  describe 'when resource is a ClaimForm' do
-    let(:resource) { ClaimForm.new }
+  describe 'when resource is a ClaimTypeForm' do
+    let(:resource) { ClaimTypeForm.new }
+    its(:forward)  { is_expected.to eq(:claim_details) }
+  end
+
+  describe 'when resource is a ClaimDetailsForm' do
+    let(:resource) { ClaimDetailsForm.new }
+    its(:forward)  { is_expected.to eq(:claim_outcome) }
+  end
+
+  describe 'when resource is a ClaimOutcomeForm' do
+    let(:resource) { ClaimOutcomeForm.new }
+    its(:forward)  { is_expected.to eq(:additional_information) }
+  end
+
+  describe 'when resource is a AdditionalInformationForm' do
+    let(:resource) { AdditionalInformationForm.new }
     its(:forward)  { is_expected.to eq(:review) }
   end
 end

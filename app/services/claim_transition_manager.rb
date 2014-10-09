@@ -1,10 +1,11 @@
 class ClaimTransitionManager < TransitionManager
   transition :password       => :claimant
-  transition :claimant       => :representative, if: :has_representative
-  transition :claimant       => :respondent
+  transition :claimant       => :representative
   transition :representative => :respondent
-  transition :respondent     => :employment,     if: :was_employed
-  transition :respondent     => :claim
-  transition :employment     => :claim
-  transition :claim          => :review
+  transition :respondent     => :employment
+  transition :employment     => :claim_type
+  transition :claim_type     => :claim_details
+  transition :claim_details  => :claim_outcome
+  transition :claim_outcome  => :additional_information
+  transition :additional_information => :review
 end

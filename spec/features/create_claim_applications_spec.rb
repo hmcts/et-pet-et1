@@ -95,11 +95,39 @@ feature 'Claim applications', type: :feature do
       fill_in_employer_details
       fill_in_employment_details
 
-      expect(page).to have_text claim_heading_for(:claim)
+      expect(page).to have_text claim_heading_for(:claim_type)
+    end
+
+    scenario 'Entering claim type details' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+
+      expect(page).to have_text claim_heading_for(:claim_details)
     end
 
     scenario 'Entering claim details' do
-      complete_a_claim
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+
+      expect(page).to have_text claim_heading_for(:claim_outcome)
+    end
+
+    scenario 'Entering claim outcome details' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+      fill_in_claim_outcome_details
+
+      expect(page).to have_text claim_heading_for(:additional_information)
+    end
+
+    scenario 'Entering additonal information' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+      fill_in_claim_outcome_details
+      fill_in_addtional_information
 
       expect(page).to have_text review_heading_for(:show)
     end
@@ -114,6 +142,7 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment is not required' do
+      pending 'pending design changes in progress there is no way to indicate applying for remission'
       complete_a_claim
       click_button 'Submit the form'
 
@@ -141,16 +170,16 @@ feature 'Claim applications', type: :feature do
       expect(page.html).not_to include remission_help
     end
 
-  scenario 'Submitting the claim when payment failed' do
-    complete_a_claim seeking_remissions: false
-    click_button 'Submit the form'
+    scenario 'Submitting the claim when payment failed' do
+      complete_a_claim seeking_remissions: false
+      click_button 'Submit the form'
 
-    return_from_payment_gateway('decline')
+      return_from_payment_gateway('decline')
 
-    expect(page.html).to include completion_message(Claim.last.reference)
-    expect(page.html).not_to include table_heading('fee_paid')
-    expect(page.html).to include table_heading('fee_to_pay')
-    expect(page.html).not_to include remission_help
-  end
+      expect(page.html).to include completion_message(Claim.last.reference)
+      expect(page.html).not_to include table_heading('fee_paid')
+      expect(page.html).to include table_heading('fee_to_pay')
+      expect(page.html).not_to include remission_help
+    end
   end
 end

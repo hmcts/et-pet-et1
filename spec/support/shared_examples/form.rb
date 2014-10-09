@@ -31,7 +31,7 @@ RSpec.shared_examples 'a Form' do |attributes, block|
           each { |a| allow(target).to receive(a) }
 
         instance_eval &block
-        expect(resource).to receive(:save)
+        expect(form.resource).to receive(:save)
 
         form.save
         expect(target).to have_received(:update_attributes).with attributes.slice(*form.attributes.keys)

@@ -1,17 +1,40 @@
 .main-column
-  fieldset.form-panel
-    legend.visuallyhidden= t '.header'
-    = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
-    = f.input :organisation_name
-    = f.input :name
-    = f.input :address_building
-    = f.input :address_street
-    = f.input :address_locality
-    = f.input :address_county
-    = f.input :address_post_code, input_html: {class: 'short-input'}
-    = f.input :address_telephone_number
-    = f.input :mobile_number
-    = f.input :email_address
-    = f.input :dx_number
-    = f.input :contact_preference, collection: FormOptions::CONTACT_PREFERENCES,
-      as: :radio_buttons, item_wrapper_class: 'block-label'
+  fieldset
+    legend= t '.form_legend'
+
+    fieldset.form-panel
+      legend.form-label= t '.has_representative_label'
+      p.form-hint= t '.has_representative_hint'
+      .inline
+        label.block-label for="has_representative_yes"
+          input type="radio" name="has_representative" id="has_representative_yes" value="yes"
+          = t '.has_representative_yes'
+
+        label.block-label for="has_representative_no"
+          input type="radio" name="has_representative" id="has_representative_no" value="no" checked="checked"
+          = t '.has_representative_no'
+
+    fieldset.form-panel
+      legend= t '.representative_legend'
+
+      = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
+      = f.input :organisation_name
+      = f.input :name
+
+    fieldset.form-panel
+      legend= t '.contact_legend'
+      = f.input :address_building
+      = f.input :address_street
+      = f.input :address_locality
+      = f.input :address_county
+      = f.input :address_post_code, input_html: { class: 'short-input' }
+      = f.input :address_telephone_number
+      = f.input :mobile_number
+      = f.input :email_address
+      = f.input :dx_number
+
+      details
+        summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+          span.summary= t '.what_is_dx.detail'
+        .panel-indent#details-content-0
+          p= t '.what_is_dx.summary'
