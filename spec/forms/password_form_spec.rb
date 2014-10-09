@@ -38,7 +38,7 @@ RSpec.describe PasswordForm, :type => :form do
       it "sends an email" do
         subject.save_and_return_email = email_address
         mock_mailer = double(:mailer)
-        expect(mock_mailer).to receive(:deliver)
+        expect(mock_mailer).to receive(:deliver_later)
         expect(BaseMailer).to receive(:access_details_email).with(model, email_address).and_return(mock_mailer)
         subject.deliver_access_details
       end

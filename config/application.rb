@@ -34,5 +34,9 @@ module App
     config.product_type = ''
     # Feedback URL (URL for feedback link in phase banner)
     config.feedback_url = ''
+
+    # opt into features that will be the default in the next version of Rails
+    # (and supress the DEPRECATION warnings)
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
