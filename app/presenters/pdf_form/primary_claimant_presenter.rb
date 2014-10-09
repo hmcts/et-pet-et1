@@ -1,4 +1,4 @@
-class PdfForm::ClaimantPresenter < PdfForm::BaseDelegator
+class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
 
   def name
     first_name + ' ' + last_name

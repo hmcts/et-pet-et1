@@ -1,17 +1,26 @@
 class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
+  present :office, :primary_claimant, :representative, :employment
+
+  def respondents
+    super.map.with_index do |respondent, i|
+      PdfForm::RespondentPresenter.new(respondent, i)
+    end
+  end
+
   def name
-    primary_claimant && primary_claimant.name
+    primary_claimant.name
   end
 
   def to_h
     presenters = [office, claim, primary_claimant, representative, employment] + respondents
-    presenters.compact.map(&:to_h).reduce({}, :merge)
+    presenters.each_with_object({}) { |p, o| o.update p.to_h }
   end
 
   private
 
   def owed?
-    (Claim::PAY_COMPLAINTS - [:redundancy]).select{|type| pay_claims.include?(type) }.any?
+    claim_types = Claim::PAY_COMPLAINTS - [:redundancy]
+    claim_types.any? { |type| pay_claims.include? type }
   end
 
   def claim
@@ -50,27 +59,5 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
 
       "15" => miscellaneous_information
     }
-  end
-
-  def office
-    super && PdfForm::OfficePresenter.new(super)
-  end
-
-  def primary_claimant
-    super && PdfForm::ClaimantPresenter.new(super)
-  end
-
-  def respondents
-    super && super.each_with_index.map do |respondent, i|
-      PdfForm::RespondentPresenter.new(respondent, i)
-    end
-  end
-
-  def representative
-    super && PdfForm::RepresentativePresenter.new(super)
-  end
-
-  def employment
-    super && PdfForm::EmploymentPresenter.new(super)
   end
 end

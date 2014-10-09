@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PdfForm::ClaimantPresenter, type: :presenter do
+RSpec.describe PdfForm::PrimaryClaimantPresenter, type: :presenter do
   subject { described_class.new(claimant) }
   let(:hash) { subject.to_h }
 
