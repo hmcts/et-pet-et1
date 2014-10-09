@@ -2,86 +2,144 @@
   fieldset
     legend= t '.situation_legend'
 
+    /! Radios: main yes / no
     = f.input :was_employed,
       as: :radio_buttons,
-      wrapper_class: 'form-group-reveal',
       item_wrapper_class: 'block-label',
-      reveal: { true => :reveal_current_situation }
+      wrapper_html: { :class => 'form-group-reveal fx-publish-delegate' },
+      input_html: { :class => 'fx-publish-publisher'},
+      reveal: { true => 'main', false => 'main' }
 
-    fieldset#reveal_current_situation
+    /! reveal_current_situation
+    fieldset#reveal_current_situation.fx-hidden.fx-subscribe.fx-publish-delegate data-target="main" data-show-array='["true"]'
       legend= t '.current_situation_legend'
 
-      = f.input :current_situation,
-        collection: FormOptions::CURRENT_SITUATION,
+      /! Radios: 3 options
+      = f.input :current_situation, input_html: { class: 'fx-publish-publisher'},
+        collection: EmploymentForm::CURRENT_SITUATION,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',
-        wrapper_class: 'form-group-reveal',
-        reveal: { 'notice_period' => :end_date_wrapper, 'employment_terminated' => :employment_terminated_wrapper}
+        wrapper_html: { :class => 'form-group-reveal' },
+        reveal: { 'still_employed'        => 'sub1',
+                  'notice_period'         => 'sub1',
+                  'employment_terminated' => 'sub1'}
 
-    fieldset
-      legend= t '.employment_details_legend'
+      #employment_ppb_wrapper.fx-hidden.fx-subscribe data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
+        /! Employment details
+        fieldset#employment_details
+          legend= t '.employment_details_legend'
 
-      = f.input :job_title
+          = f.input :job_title
 
-      = f.input :start_date
+          = f.input :start_date
 
-      = f.input :end_date, wrapper_class: 'reveal-option-b'
+          = f.input :notice_period_end_date,
+            wrapper_html: { :id => 'employment_notice_period_end_date',
+                            :class => 'fx-subscribe',
+                            :'data-target' => 'sub1',
+                            :'data-show-array' => '["notice_period"]' }
 
-      = f.input :worked_notice_period_or_paid_in_lieu,
-        as: :radio_buttons,
-        item_wrapper_class: 'block-label',
-        wrapper_class: 'reveal-option-c',
-        reveal: { true => :reveal_notice_pay_period }
+          = f.input :end_date,
+            wrapper_html: { :id => 'employment_end_date',
+                            :class => 'fx-subscribe',
+                            :'data-target' => 'sub1',
+                            :'data-show-array' => '["employment_terminated"]' }
 
-      = f.input :notice_pay_period_count, wrapper_html: { id: 'reveal_notice_pay_period', class: 'panel-indent' } do
-        .inline-fields
-          = f.input :notice_pay_period_count, label: false
-          = f.input :notice_pay_period_type, label: false,
-            collection: FormOptions::NOTICE_PAY_PERIODS, as: :radio_buttons,
-            item_wrapper_class: 'slim-label'
+          /! Did you work - or get paid for - a period of notice? (optional)
+          /! reveal on option 3
+          = f.input :worked_notice_period_or_paid_in_lieu,
+            wrapper_html: { :id => 'worked_notice_period_or_paid_in_lieu',
+                            :class => 'fx-subscribe fx-publish-delegate fx-hidden',
+                            :'data-target' => 'sub1',
+                            :'data-show-array' => '["employment_terminated"]' } do
 
-      = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
+            = f.input_field :worked_notice_period_or_paid_in_lieu,
+              as: :radio_buttons,
+              :class => 'fx-publish-publisher',
+              reveal: { true => 'sub2', false => 'sub2' },
+              item_wrapper_class: 'block-label '
 
-    fieldset
-      legend= t '.pay_legend'
+            /! reveal on option yes of the above
+            = f.input :notice_pay_period_count,
+              wrapper_html: { :id => 'reveal_notice_pay_period',
+                              :class => 'fx-subscribe panel-indent fx-hidden',
+                              :'data-target' => 'sub2',
+                              :'data-show-array' => '["true"]' } do
+              .inline-fields
+                = f.input_field :notice_pay_period_count
+                = f.input :notice_pay_period_type, label: false,
+                  collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
+                  item_wrapper_class: 'slim-label'
 
-      = f.input :gross_pay, input_html: { class: 'prefix-pound' } do
-        .prefixed-field.inline-fields
-          = f.input :gross_pay, label: false, hint:false
-          = f.input :gross_pay_period_type,
-            label: false,
-            collection: FormOptions::PAY_PERIODS,
+          = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
+
+        /! Pay, pension and benefits
+        fieldset#pay_pention_benefits
+          legend= t '.pay_legend'
+
+          = f.input :gross_pay,
+            input_html: { :class => 'prefix-pound' } do
+            .prefixed-field.inline-fields
+              = f.input :gross_pay,
+                label: false,
+                hint:false
+
+              = f.input :gross_pay_period_type,
+                label: false,
+                collection: EmploymentForm::PAY_PERIODS,
+                as: :radio_buttons,
+                item_wrapper_class: 'slim-label'
+
+          = f.input :net_pay,
+            input_html: { :class => 'prefix-pound' } do
+            .prefixed-field.inline-fields
+              = f.input :net_pay,
+                label: false,
+                hint:false
+              = f.input :net_pay_period_type,
+                label: false,
+                collection: EmploymentForm::PAY_PERIODS,
+                as: :radio_buttons,
+                item_wrapper_class: 'slim-label'
+
+          = f.input :enrolled_in_pension_scheme,
             as: :radio_buttons,
-            item_wrapper_class: 'slim-label'
+            item_wrapper_class: 'block-label'
 
-      = f.input :net_pay, input_html: { class: 'prefix-pound' } do
-        .prefixed-field.inline-fields
-          = f.input :net_pay, label: false, hint:false
-          = f.input :net_pay_period_type, label: false,
-            collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
-            item_wrapper_class: 'slim-label'
+          = f.input :benefit_details,
+            as: :text,
+            input_html: { rows: 5 }
 
-      = f.input :enrolled_in_pension_scheme, as: :radio_buttons,
-        item_wrapper_class: 'block-label'
+      /! New job fieldset
+      /! reveal on option 3
+      fieldset#end_date_wrapper.fx-hidden.fx-subscribe data-target="sub1" data-show-array='["employment_terminated"]'
+        legend= t '.new_job_legend'
 
-      = f.input :benefit_details,
-        as: :text,
-        input_html: { rows: 5 }
+        = f.input :found_new_job,
+          as: :radio_buttons,
+          item_wrapper_class: 'block-label',
+          input_html: { :class => 'fx-publish-publisher'},
+          wrapper_html: { :class => 'form-group-reveal' },
+          reveal: { true => 'sub3', false => 'sub3' }
 
-    fieldset.reveal-option-c
-      legend= t '.new_job_legend'
+        /! reveal on option yes of the above
+        #reveal_new_job.panel-indent.fx-hidden.fx-subscribe data-target="sub3" data-show-array='["true"]'
+          = f.input :new_job_start_date
 
-      = f.input :found_new_job,
-        as: :radio_buttons,
-        item_wrapper_class: 'block-label',
-        wrapper_class: 'form-group-reveal',
-        reveal: { true => :reveal_new_job }
+          = f.input :new_job_gross_pay,
+            input_html: { :class => 'prefix-pound' } do
 
-      #reveal_new_job.panel-indent
-        = f.input :new_job_start_date
-        = f.input :new_job_gross_pay, input_html: { class: 'prefix-pound' } do
-        .prefixed-field.inline-fields
-          = f.input :new_job_gross_pay, label: false, hint:false
-          = f.input :new_job_gross_pay_frequency, label: false, label: false,
-          collection: FormOptions::PAY_PERIODS, as: :radio_buttons,
-          item_wrapper_class: 'slim-label'
+          .prefixed-field.inline-fields
+            = f.input :new_job_gross_pay,
+              label: false,
+              hint:false
+
+            = f.input :new_job_gross_pay_frequency,
+              label: false,
+              label: false,
+              collection: EmploymentForm::PAY_PERIODS,
+              as: :radio_buttons,
+              item_wrapper_class: 'slim-label'
+
+
+
