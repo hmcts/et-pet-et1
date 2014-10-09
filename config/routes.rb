@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   resource :guide, only: :show
 
-  resource :claim_review,       only: %i<show update>, path: 'apply/review'
-  resource :claim_confirmation, only: :show,           path: 'apply/confirmation'
+  resource :claim_review, only: %i<show update>, path: 'apply/review'
+
+  resource :claim_confirmation, only: :show, path: 'apply/confirmation' do
+    get 'generated_claim', on: :member
+  end
+
+  resource :claim_review, only: %i<show update>, path: 'apply/review'
+  resource :user_sessions, only: %i<new create show destroy>
 
   resource :claim, only: %i<create update>, path: 'apply' do
     resource :payment, only: %i<show update>, path: 'pay' do
@@ -17,8 +23,6 @@ Rails.application.routes.draw do
       get ':page', to: 'claims#show', as: :page
     end
   end
-
-  resource :user_sessions, only: %i<new create show destroy>
 
   root to: 'claims#new'
 

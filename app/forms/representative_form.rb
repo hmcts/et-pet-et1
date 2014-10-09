@@ -1,9 +1,10 @@
 class RepresentativeForm < Form
+  include AddressAttributes
+
   attributes :type, :organisation_name, :name,
              :mobile_number, :email_address, :dx_number,
              :contact_preference
 
-  include AddressAttributes
 
   validates :type, :name, presence: true
 
