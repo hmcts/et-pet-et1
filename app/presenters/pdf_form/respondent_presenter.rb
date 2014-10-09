@@ -60,21 +60,14 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
 
   def to_h
     hash = {}
-
     keys = RESPONDENT_FIELDS[@index]
-    values = [name,
-              address_building,
-              address_street,
-              address_locality,
-              address_county,
-              address_telephone_number,
-              format_postcode(address_post_code)]
 
-    hash.merge!(Hash[*keys.zip(values).flatten])
-    hash.merge!(acas_hash)
-    hash.merge!(work_address_hash) if first_respondent?
+    values = [name, address_building, address_street, address_locality, address_county,
+      address_telephone_number, format_postcode(address_post_code)]
 
-    hash
+    hash.update work_address_hash if first_respondent?
+    hash.update keys.zip(values).to_h
+    hash.update acas_hash
   end
 
   private

@@ -2,7 +2,6 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
 
   def to_h
     {
-      #  "4.1" => respondent_not_employer_text, (not used)
       "5.1 employment start" => start_date.to_s,
       "5.1 tick boxes" => tri_state(end_date.nil? || end_date.future?),
       "5.1 employment end" => end_date.to_s,

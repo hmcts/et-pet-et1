@@ -1,11 +1,11 @@
 class PdfForm::BaseDelegator < SimpleDelegator
   def format_postcode(postcode)
-    formatted_postcode = ''
     if postcode.present?
       uk_postcode = UKPostcode.new(postcode)
-      formatted_postcode = ("%-4s" % uk_postcode.outcode) + uk_postcode.incode
+      ("%-4s" % uk_postcode.outcode) + uk_postcode.incode
+    else
+      ''
     end
-    formatted_postcode
   end
 
   def use_or_off(field, options)
@@ -14,10 +14,23 @@ class PdfForm::BaseDelegator < SimpleDelegator
   end
 
   def tri_state(value, yes: 'yes')
-    {nil => 'Off', false => 'no', true => yes}[value]
+    { nil => 'Off', false => 'no', true => yes }[value]
   end
 
   def dual_state(value, yes: 'yes')
-   {nil => 'Off', false => 'Off', true => yes}[value]
+   { nil => 'Off', false => 'Off', true => yes }[value]
+  end
+
+  def self.present(*objects)
+    objects.each do |object|
+      define_method(object) do
+        value = __getobj__.send(object)
+
+        if value
+          klass = PdfForm.const_get "#{object}_presenter".classify
+          klass.new value
+        end
+      end
+    end
   end
 end
