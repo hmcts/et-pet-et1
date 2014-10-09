@@ -166,7 +166,7 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Downloading the PDF' do
-      complete_a_claim
+      complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
       click_link 'Download PDF file'
 

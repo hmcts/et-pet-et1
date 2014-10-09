@@ -31,7 +31,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_personal_details(submit_form: true, seeking_remissions: true)
+  def fill_in_personal_details(submit_form: true)
     select 'Mr', from: 'Title'
 
     fill_in 'First name', with: 'Barrington'
@@ -166,8 +166,8 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_your_fee
-    choose 'your_fee_applying_for_remission_false'
+  def fill_in_your_fee seeking_remissions: false
+    choose "your_fee_applying_for_remission_#{seeking_remissions}"
 
     click_button 'Save and continue'
   end
@@ -182,7 +182,7 @@ module FormMethods
   def complete_a_claim(options={})
     start_claim
     fill_in_password
-    fill_in_personal_details(options)
+    fill_in_personal_details
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details
@@ -190,7 +190,7 @@ module FormMethods
     fill_in_claim_details
     fill_in_claim_outcome_details
     fill_in_addtional_information
-    fill_in_your_fee
+    fill_in_your_fee(options)
   end
 
   def select_recipients
