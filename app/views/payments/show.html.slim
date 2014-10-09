@@ -1,28 +1,11 @@
-header.main-header
-  h3 Page 1 of 11
-  h1 Your fee
-.main-section
-  aside
-    h3 Get Help
-    nav
-      ul
-        li
-          = link_to('Read the guide')
-        li
-          = link_to('Sign out', user_sessions_path)
-  .main-content
-    .main-column
-      fieldset
-        legend Application fee
-        p = "The standard application fee for your claim is <span class=\"strong\">£#{fee_calculation.application_fee_after_remission}</span>".html_safe
+h1 Pay your fee
 
-        p = "If your case goes to a tribunal, you’ll have to pay a hearing fee of <span class=\"strong\">£#{fee_calculation.hearing_fee}</span>.".html_safe
+p = "From the information you’ve given us, you have to pay <strong>£#{fee_calculation.application_fee_after_remission}</strong> by debit or credit card.".html_safe
 
-      fieldset
-        legend Reduce your fee
-        = f.input :is_applying_for_remission,
-          as: :gds_check_boxes,
-          wrapper_class: 'reveal-checkbox',
-          input_html: {class: 'input-reveal'}
+p = "If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£#{fee_calculation.hearing_fee}</strong>.".html_safe
 
-        = submit_tag "Start payment", name: nil
+= form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
+  - payment_request.form_attributes.each do |k, v|
+    = hidden_field_tag k, v
+
+  = submit_tag "Start payment", name: nil
