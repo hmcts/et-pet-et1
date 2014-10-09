@@ -222,7 +222,7 @@ en:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
       your_fee:
-        is_applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
+        applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
 
     hints:
       password:
@@ -296,7 +296,7 @@ en:
           (RTF) file. You can usually save a file as an RTF by selecting File >
           Save As > Format: Rich Text Format.
       your_fee:
-        is_applying_for_remission: Find out if you qualify for help with fees.
+        applying_for_remission: Find out if you qualify for help with fees.
 
 
   helpers:

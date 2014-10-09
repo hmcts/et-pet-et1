@@ -15,7 +15,7 @@ class PasswordForm < Form
 
   def deliver_access_details
     if save_and_return_email.present?
-      BaseMailer.access_details_email(resource, save_and_return_email).deliver
+      BaseMailer.access_details_email(resource, save_and_return_email).deliver_later
     else
       true
     end
