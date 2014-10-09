@@ -47,4 +47,8 @@ class ClaimsController < ApplicationController
   helper_method def current_step
     (params[:page] || referring_step).underscore
   end
+
+  helper_method def fee_calculation
+    @fee_calculation ||= ClaimFeeCalculator.calculate claim: claim
+  end
 end
