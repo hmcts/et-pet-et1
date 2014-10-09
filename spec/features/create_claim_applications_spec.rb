@@ -129,6 +129,17 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
+      expect(page).to have_text claim_heading_for(:your_fee)
+    end
+
+    scenario 'Entering your fee details' do
+      fill_in_pre_claim_pages
+      fill_in_claim_type_details
+      fill_in_claim_details
+      fill_in_claim_outcome_details
+      fill_in_addtional_information
+      fill_in_your_fee
+
       expect(page).to have_text review_heading_for(:show)
     end
 
