@@ -447,8 +447,21 @@ en:
       reduce_fee: Reduce your fee
       remission_applied_info_heading: You don’t need to pay the above fee now.
       remisison_applied_info_text: |
-        Instead, we’ll ask for your financial details when you’ve submitted this application. 
+        Instead, we’ll ask for your financial details when you’ve submitted this application.
         We’ll then use this information to work out what reduction you qualify for (if any) and let you know how much you’ll be charged.
+      initial_fee: |
+        From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
+      hearing_fee: |
+        If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
+
+  payments:
+    show:
+      header: Pay your fee
+      application_fee: |
+        From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
+      hearing_fee: |
+        If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
+      submit: Start payment
 
   base_mailer:
     access_details_email:

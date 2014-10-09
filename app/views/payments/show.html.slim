@@ -1,11 +1,10 @@
-h1 Pay your fee
+h1 = t('.header')
 
-p = "From the information you’ve given us, you have to pay <strong>£#{fee_calculation.application_fee_after_remission}</strong> by debit or credit card.".html_safe
-
-p = "If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£#{fee_calculation.hearing_fee}</strong>.".html_safe
+p = t('.application_fee', fee: fee_calculation.application_fee_after_remission).html_safe
+p = t('.hearing_fee',     fee: fee_calculation.hearing_fee).html_safe
 
 = form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
   - payment_request.form_attributes.each do |k, v|
     = hidden_field_tag k, v
 
-  = submit_tag "Start payment", name: nil
+  = submit_tag t('.submit'), name: nil

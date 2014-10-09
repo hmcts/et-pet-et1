@@ -2,8 +2,8 @@
   fieldset.form-panel
     legend = t '.application_fee'
 
-    p = "The standard application fee for your claim is <span class=\"strong\">£#{ fee_calculation.application_fee_after_remission }</span>.".html_safe
-    p = "If your case goes to a tribunal, you’ll have to pay a hearing fee of <span class=\"strong\">£#{ fee_calculation.hearing_fee }</span>.".html_safe
+    p = t('.initial_fee', fee: fee_calculation.application_fee_after_remission).html_safe
+    p = t('.hearing_fee', fee: fee_calculation.hearing_fee).html_safe
 
   fieldset
     legend = t '.reduce_fee'
@@ -18,6 +18,6 @@
       reveal: { false => :remission_applied_info }
 
     #remission_applied_info.panel-indent.toggle-content
-      
-      h3 = t '.remission_applied_info_heading'  
+
+      h3 = t '.remission_applied_info_heading'
       p = t '.remisison_applied_info_text'

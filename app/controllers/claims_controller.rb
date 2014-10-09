@@ -49,6 +49,6 @@ class ClaimsController < ApplicationController
   end
 
   helper_method def fee_calculation
-    @fee_calculation ||= ClaimFeeCalculator.calculate claim: claim
+    @fee_calculation ||= claim.fee_calculation
   end
 end
