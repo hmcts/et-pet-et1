@@ -5,7 +5,7 @@
     = stylesheet_link_tag "application-ie7", media: "all"
   /![if IE 8]
     = stylesheet_link_tag "application-ie8", media: "all"
-  = "<!--[if gt IE 8]><!-->#{stylesheet_link_tag("application", media: "all")}<!--<![endif]-->".html_safe
+  = "<!--[if gte IE 8]><!-->#{stylesheet_link_tag("application", media: "all")}<!--<![endif]-->".html_safe
 
 - content_for :javascripts do
   = javascript_include_tag "application"
