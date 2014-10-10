@@ -152,8 +152,13 @@ RSpec.describe Claim, :type => :claim do
         and_return double(ClaimFeeCalculator::Calculation, :fee_to_pay? => true)
     end
 
+    it 'returns false' do
+      expect(subject.payment_applicable?).to be false
+    end
+
     context 'when the payment gateway is up, a fee group reference is present, and a payment is due' do
       it 'is true' do
+        pending 'payments disabled for first live trial'
         expect(subject.payment_applicable?).to be true
       end
     end

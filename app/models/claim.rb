@@ -69,9 +69,7 @@ class Claim < ActiveRecord::Base
   end
 
   def payment_applicable?
-    PaymentGateway.available? &&
-    fee_calculation.fee_to_pay? &&
-    fee_group_reference?
+    false
   end
 
   def remission_applicable?

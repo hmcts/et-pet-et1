@@ -175,6 +175,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Making payment' do
+      pending 'payments disabled for first live trial'
+
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
@@ -182,6 +184,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Returning from the payment page' do
+      pending 'payments disabled for first live trial'
+      
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
@@ -193,6 +197,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment failed' do
+      pending 'payments disabled for first live trial'
+
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
