@@ -39,6 +39,7 @@ group :development, :test do
   gem 'codeclimate-test-reporter', require: nil
   gem 'dotenv-rails'
   gem 'guard-livereload'
+  gem 'launchy'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rack-livereload'
