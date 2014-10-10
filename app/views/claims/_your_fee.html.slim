@@ -2,22 +2,27 @@
   fieldset.form-panel
     legend = t '.application_fee'
 
-    p = t('.initial_fee', fee: fee_calculation.application_fee_after_remission).html_safe
-    p = t('.hearing_fee', fee: fee_calculation.hearing_fee).html_safe
+    .callout.callout-fee
+      p 
+        span.number="£#{ fee_calculation.application_fee_after_remission }"
+        span.type Standard fee
+      p.detail This is the application fee for your claim
+      
+    .callout.callout-fee
+      p 
+        span.number="£#{ fee_calculation.hearing_fee }"
+        span.type Hearing fee
+      p.detail If your case goes to a tribunal, you’ll have to pay this fee.
 
   fieldset
     legend = t '.reduce_fee'
-
-    / TODO: The input hint needs to be a hyperlink
-    / TODO: reveal.js needs to open hidden divs if true is selected
-
+    
     = f.input :applying_for_remission,
       as: :radio_buttons,
       item_wrapper_class: 'block-label',
       wrapper_class: 'form-group-reveal',
-      reveal: { false => :remission_applied_info }
+      reveal: { true => :remission_applied_info }
 
     #remission_applied_info.panel-indent.toggle-content
-
-      h3 = t '.remission_applied_info_heading'
-      p = t '.remisison_applied_info_text'
+      h3.bold-small = t '.remission_applied_info_heading'  
+      p.font-small = t '.remisison_applied_info_text'
