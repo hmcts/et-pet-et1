@@ -1,7 +1,7 @@
 module FormOptions
   TITLES              = %i<mr mrs ms miss>.freeze
   GENDERS             = %i<male female prefer_not_to_say>.freeze
-  CONTACT_PREFERENCES = %w<email post fax>.freeze
+  CONTACT_PREFERENCES = %i<email post fax>.freeze
   COUNTRIES           = %i<united_kingdom other>.freeze
   NO_ACAS_REASON = %i<
     joint_claimant_has_acas_number
