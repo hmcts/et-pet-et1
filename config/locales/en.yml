@@ -333,6 +333,10 @@ en:
       info: Make sure you know your reference number and memorable word before you sign out (or you'll lose your work).
   guide:
     header: Guide
+    fees: Fees
+    acas_early_conciliation: |
+      Acas: early conciliation
+    writing_your_claim_statement: Writing your claim statement
 
   claims:
     new:

@@ -1,20 +1,14 @@
-header.main-header
+.main-content 
+  fieldset.form-panel
+
   h1= t("guide.header")
 
-.main-section
-  aside
-    nav
+  - cache do
+    nav.nav-guide
       ul
-        li= link_to('Return to form', claim_path)
-  .main-content
-    nav#guide-toc
-      ul
-        li: a href="#guide-fees" Fees
-        li: a href="#guide-acas-early-conciliation" Acas: early conciliation
-        li: a href="#guide-writing-your-claim-statement" Writing your claim statement
+      - @guide_presenter.file_names.each do |name|
+        li = link_to t("guide.#{ name }"), guide_path(anchor: name)
 
-    #guide-fees
-     h2 Fees
-     p You must pay an ‘issue fee’ when you submit this form and a ‘hearing fee’ just before the tribunal.
-     p You may be able to get help with paying the fees (eg, no fee or a reduced fee).
-     p The fees you pay depend on your type of case. Complex cases such as unfair dismissal and discrimination cost more than claims about unpaid wages or holiday pay. The fees  for the most common types of case are listed in the table.
+    .guide-content
+      - @guide_presenter.each_file do |contents, name|
+        article id="#{name}" = contents
