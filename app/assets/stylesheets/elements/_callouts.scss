@@ -1,0 +1,25 @@
+.callout {
+  @include span(11 of 12);
+  //@include prefix(0.25 of 12);
+  margin:$gutter-half 0;
+  padding:$gutter $gutter-half;
+
+  &.callout-reference{
+    border-left: 5px solid $border-colour;
+    background:$highlight-colour;
+  }
+  &.callout-fee{
+    border-left: 5px solid $turquoise;
+    background:lighten($turquoise, 55%);
+  }
+  p{
+    @include core-19;
+    margin:0;
+  }
+  .number{
+    @include bold-48();
+  }
+  .type{
+    @include bold-19();
+  }
+}

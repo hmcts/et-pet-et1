@@ -21,6 +21,11 @@
 .strong {
   font-weight:700;
 }
+h2.heading-medium{
+  padding-bottom:$gutter-half/2;
+  border-bottom:1px solid $border-colour;
+}
+
 legend {
   @extend .heading-medium;
   border-bottom:1px solid $border-colour;
@@ -38,10 +43,7 @@ legend {
     margin-bottom:$gutter;
   }
 }
-h2.heading-medium{
-  padding-bottom:$gutter-half/2;
-  border-bottom:1px solid $border-colour;
-}
+
 // ==========================================================================
 // Aside nav
 // ==========================================================================
@@ -50,7 +52,6 @@ aside {
     @include core-19;
   }
 }
-
 
 .label-column {
   @include container(wider);
@@ -66,11 +67,13 @@ aside {
     margin:0;
   }
 }
+
 .slim-label {
   display:inline-block;
   padding-top:$gutter-half/2;
   margin-right:$gutter-half;
 }
+
 .inline-fields {
   overflow:hidden;
   .form-group {
@@ -92,19 +95,5 @@ aside {
         margin-bottom:0;
       }
     }
-  }
-}
-
-
-.reference-callout {
-  margin:$gutter-half 0 $gutter;
-  background:$highlight-colour;
-  padding:$gutter $gutter-half;
-  p{
-    @include core-19;
-    margin:0;
-  }
-  .reference-number{
-    @include bold-48();
   }
 }
