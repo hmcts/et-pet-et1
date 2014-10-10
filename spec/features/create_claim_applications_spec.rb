@@ -170,11 +170,28 @@ feature 'Claim applications', type: :feature do
     scenario 'Downloading the PDF' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
-      click_link 'Download PDF file'
+      click_link 'Download your application'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
       expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
     end
+
+    scenario 'Viewing the confirmation page when seeking remission' do
+      complete_a_claim seeking_remissions: true
+      click_button 'Submit the form'
+
+      expect(page).to have_text 'Get help with paying your fee now'
+      expect(page).not_to have_text 'From the information you’ve given us, you have to pay'
+    end
+
+    scenario 'Viewing the confirmation page when not seeking remission' do
+      complete_a_claim seeking_remissions: false
+      click_button 'Submit the form'
+
+      expect(page).not_to have_text 'Get help with paying your fee now'
+      expect(page).to have_text 'From the information you’ve given us, you have to pay'
+    end
+
 
     scenario 'Making payment' do
       pending 'payments disabled for first live trial'
