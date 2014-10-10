@@ -1,7 +1,7 @@
 .callout {
   @include span(11 of 12);
   //@include prefix(0.25 of 12);
-  margin:$gutter-half 0 $gutter;
+  margin:$gutter-half 0;
   padding:$gutter $gutter-half;
 
   &.callout-reference{
@@ -21,6 +21,5 @@
   }
   .type{
     @include bold-19();
-    margin-left:$gutter-half/3;
   }
 }
