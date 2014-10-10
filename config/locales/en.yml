@@ -32,6 +32,10 @@ en:
           male: Male
           female: Female
           prefer_not_to_say: Prefer not to say
+        contact_preferences:
+          email: Email
+          post: Post
+          fax: Fax
         title:
           mr: Mr
           mrs: Mrs
