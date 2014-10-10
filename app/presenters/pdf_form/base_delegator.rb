@@ -35,8 +35,6 @@ module PdfForm
           value = __getobj__.send(object)
 
           if value
-            # FIXME: Find a better way to preload - autoload maybe?
-            # require Rails.root.join("app/presenters/pdf_form/#{object}_presenter.rb")
             klass = PdfForm.const_get "#{object}_presenter".classify
             klass.new value
           end
