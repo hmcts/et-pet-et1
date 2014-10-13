@@ -7,6 +7,6 @@ header.main-header
 
     = simple_form_for claim, url: claim_path do |f|
       = f.button :submit
-    = link_to t('helpers.link.claim.return'), new_user_sessions_path
+    = link_to t('helpers.link.claim.return'), new_user_session_path
 
     .content-copy = format t '.body'

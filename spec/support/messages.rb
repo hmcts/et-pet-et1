@@ -1,6 +1,10 @@
 module Messages
   include ClaimsHelper
 
+  def before_you_start_message
+    I18n.t('user_sessions.edit.header')
+  end
+
   def claim_heading_for(page)
     I18n.t("claims.#{page}.header")
   end

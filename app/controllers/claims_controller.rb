@@ -11,7 +11,7 @@ class ClaimsController < ApplicationController
     claim = Claim.create
     session[:claim_reference] = claim.reference
 
-    redirect_to page_claim_url(page: 'password')
+    redirect_to edit_user_session_url
   end
 
   def update
@@ -20,7 +20,7 @@ class ClaimsController < ApplicationController
     saved = resource.save
 
     if params[:return]
-      redirect_to user_sessions_path
+      redirect_to user_session_path
     else
       if saved
         redirect_to page_claim_path(page: transition_manager.forward)

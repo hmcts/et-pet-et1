@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resource :claim_review, only: %i<show update>, path: 'apply/review'
-  resource :user_sessions, only: %i<new create show destroy>
+  resource :user_session
 
   resource :claim, only: %i<create update>, path: 'apply' do
     resource :payment, only: %i<show update>, path: 'pay' do
