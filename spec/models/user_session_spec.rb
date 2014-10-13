@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe UserSession do
-  let(:claim) { double 'claim' }
+  let(:claim) { double 'claim', password_digest: password_digest }
   let(:reference) { 'reference' }
   let(:password) { 'password' }
+  let(:password_digest) { 'gff76tyuiy' }
 
   before do
     subject.reference = reference
@@ -37,6 +38,16 @@ describe UserSession do
     it 'does not add any errors when authentication successful' do
       expect(subject.save).to eq(true)
       expect(subject.errors).to be_empty
+    end
+
+    context 'when no password set on the claim' do
+      let(:password_digest) { '' }
+      before { allow(claim).to receive(:authenticate).and_return false }
+
+      it 'does not add errors when no password currently set' do
+        expect(subject.save).to eq(true)
+        expect(subject.errors).to be_empty
+      end
     end
 
     context 'when invalid reference' do
