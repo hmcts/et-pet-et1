@@ -1,10 +1,10 @@
 - content_for :stylesheets do
 
-  = "<!--[if IE 6]><!-->#{stylesheet_link_tag("application-ie6", media: "all")}<!--<![endif]-->".html_safe
+  = "<!--[if IE 6]> #{stylesheet_link_tag("application-ie6", media: "all")} <![endif]-->".html_safe
 
-  = "<!--[if IE 7]><!-->#{stylesheet_link_tag("application-ie7", media: "all")}<!--<![endif]-->".html_safe
+  = "<!--[if IE 7]> #{stylesheet_link_tag("application-ie7", media: "all")} <![endif]-->".html_safe
 
-  = "<!--[if IE 8]><!-->#{stylesheet_link_tag("application-ie8", media: "all")}<!--<![endif]-->".html_safe
+  = "<!--[if IE 8]> #{stylesheet_link_tag("application-ie8", media: "all")} <![endif]-->".html_safe
 
   = "<!--[if gt IE 8]><!-->#{stylesheet_link_tag("application", media: "all")}<!--<![endif]-->".html_safe
 
