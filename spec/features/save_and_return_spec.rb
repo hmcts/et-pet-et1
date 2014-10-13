@@ -4,7 +4,7 @@ feature 'Save and Return' do
   include FormMethods
   include Messages
 
-  scenario 'ending the session' do
+  scenario 'ending the session with email address' do
     start_claim
     fill_in_password
     fill_in_personal_details(submit_form: false)
@@ -12,6 +12,27 @@ feature 'Save and Return' do
     click_button 'Complete later'
     expect(page).to have_text('Saved')
     expect(page).to have_text(Claim.last.reference)
+
+    ActionMailer::Base.deliveries.clear
+    fill_in 'Email address', with: FormMethods::SAVE_AND_RETURN_EMAIL
+    click_button 'Sign out now'
+
+    mail = ActionMailer::Base.deliveries.last
+    expect(mail.subject).to include(Claim.last.reference)
+
+    expect(page).to have_text(claim_heading_for(:new))
+  end
+
+  scenario 'ending the session when email address previously entered' do
+    start_claim
+    fill_in_password_and_email
+    fill_in_personal_details(submit_form: false)
+
+    click_button 'Complete later'
+    expect(page).to have_text('Saved')
+    expect(page).to have_text(Claim.last.reference)
+
+    expect(page).not_to have_field('Email address')
     click_button 'Sign out now'
 
     expect(page).to have_text(claim_heading_for(:new))
