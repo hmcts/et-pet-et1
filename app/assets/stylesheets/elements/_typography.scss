@@ -157,3 +157,29 @@ code {
 .not-entered {
   color: $grey-1;
 }
+
+// For copy coming out of markdown
+// ==========================================================================
+.content-copy {
+  h2 {
+    @extend .bold-medium;
+    border-bottom:1px solid $grey-2;
+    margin-bottom:$gutter-half;
+  }
+  h3 {
+    @extend .bold-small;
+  }
+  p {
+    @include core-19;
+  }
+  ul {
+    @include core-19;
+  }
+}
+
+.content-block {
+  margin:$gutter-half 0;
+  &:first-child{
+    margin-top:0;
+  }
+}
