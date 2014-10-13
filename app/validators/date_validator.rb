@@ -4,7 +4,7 @@ class DateValidator < ActiveModel::EachValidator
 
     if parts.any?(&:present?)
       parsed = Date.civil *parts.map(&:to_i) rescue nil
-      record.errors.add attribute, I18n.t('errors.messages.invalid') unless parsed
+      record.errors.add(attribute) unless parsed
     end
   end
 end
