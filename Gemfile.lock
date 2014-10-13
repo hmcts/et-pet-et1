@@ -155,6 +155,10 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    logstash-event (1.1.5)
+    logstasher (0.6.1)
+      logstash-event (~> 1.1.0)
+      request_store
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -216,6 +220,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redcarpet (3.1.2)
+    request_store (1.1.0)
     responders (2.0.0)
       railties (>= 4.2.0.alpha, < 5)
     rspec-core (3.0.4)
@@ -323,6 +328,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  logstasher
   moj_template (= 0.12.0)
   pdf-forms
   pg
