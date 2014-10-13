@@ -19,7 +19,13 @@
       }
     }
     &.no-steps{
-      margin:
+      margin: $gutter 0;
+      h1 {
+        padding-bottom:$gutter-half;
+      }
+    }
+    p{
+      @include core-19;
     }
   }
 
