@@ -1,12 +1,30 @@
-header.main-header
+header.main-header.no-steps
   h1= t('.header')
   p= t('.info')
 
 .main-section
+  aside
+    h3 Get Help
+    nav
+      ul
+        li
+          = link_to('Read the guide', guide_path)
+        li
+          = link_to('Sign out', user_session_path)
   .main-content
-
     = simple_form_for claim, url: claim_path do |f|
-      = f.button :submit
-    = link_to t('helpers.link.claim.return'), new_user_session_path
+      fieldset
+        legend Before you continue
+        .content-copy
+          .content-block
+            h3 Are you in time to apply?
+            p You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening. Learn about when you can apply.
+          .content-block
+            h3 Have you contacted ACAS?
+            p In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
+
+        .inline.inline-buttons
+          = f.button :submit
+          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button'}
 
     .content-copy = format t '.body'
