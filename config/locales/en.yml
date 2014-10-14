@@ -32,6 +32,10 @@ en:
           male: Male
           female: Female
           prefer_not_to_say: Prefer not to say
+        contact_preferences:
+          email: Email
+          post: Post
+          fax: Fax
         title:
           mr: Mr
           mrs: Mrs
@@ -117,11 +121,12 @@ en:
 
     labels:
       user_session:
-        reference: Your reference number
-        password: Your memorable word
-      password:
-        password: Your memorable word (at least 5 characters long)
-        save_and_return_email: Email address
+        new:
+          reference: Your reference number
+          password: Your memorable word
+        edit:
+          password: Enter a memorable word
+          email_address: Email address
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -225,9 +230,9 @@ en:
         applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
 
     hints:
-      password:
-        password: You need this word to return to your application another time
-        save_and_return_email: Get your 'save and return' number in an email
+      user_session:
+        password: At least 5 characters
+        email_address: Get your reference number in an email
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
@@ -308,8 +313,9 @@ en:
       claim_review:
         update: Submit the form
       user_session:
-        create: Next
-        delete: Sign out now
+        create: Find my application
+        destroy: Sign out now
+        update: Save and continue
       confirmation_email:
         create: Submit the form
     link:
@@ -324,13 +330,23 @@ en:
       invalid: This memorable word does not match the reference number
 
   user_sessions:
+    reference: Your reference number is
+    edit:
+      header: Before you start
+      legend: Return to complete your application
+      subheader: Keep a note of these details
+      hint: If you don’t finish your application in this session, the only way to come back and complete it is to enter your save and return number and the memorable word you choose below.
     new:
-      header: Return to your saved form
-      info: Sign in to return to your saved form.
-      body: If you don't have your reference number and memorable word you'll have to [start a new form](/).
+      header: Return to your application
+      legend: ''
+      subheader: To return to an application you started earlier, enter your details below.
+      hint: Don't have these details? [Start a new application](/).
     show:
       header: Saved
-      info: Make sure you know your reference number and memorable word before you sign out (or you'll lose your work).
+      legend: Return to complete your application
+      subheader: Keep a note of these details
+      hint: You need this number to save your work and return to it another time
+
   guide:
     header: Guide
     fees: Fees
@@ -370,18 +386,6 @@ en:
         ## How we use your information
 
         We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
-
-    password:
-      header: Before you start
-      legend: Save and return to your application
-
-      access_details:
-        header: Keep a note of these details
-        reference: Your reference number
-        hint: You need this number to save your work and return to it another time
-
-      record_details:
-          header: Email address
 
     claimant:
       header: About you
@@ -485,3 +489,125 @@ en:
 
     reference:
       header: Reference number
+
+  # Form Errors - Handled by ActiveModel
+  activemodel:
+    errors:
+      messages:
+        too_long: |
+           "The information you have provided for this field must not exceed %{count} characters"
+      models:
+        additional_claimant:
+          attributes:
+            title:
+              blank: You must provide information for this field
+            first_name:
+              blank: You must provide information for this field
+            last_name:
+              blank: You must provide information for this field
+        claim_details:
+          attributes:
+            claim_details:
+              blank: You must provide information for this field regarding your claim
+            other_known_claimant_names:
+              blank: You must provide information for this field regarding your claim
+        claim_outcome:
+          attributes:
+            other_outcome:
+              blank: You must provide information for this field
+        claimant:
+          attributes:
+            date_of_birth:
+              invalid: The date you have provided is invalid
+            title:
+              blank: You must provide information for this field
+            gender:
+              blank: You must provide information for this field
+            first_name:
+              blank: You must provide information for this field
+            last_name:
+              blank: You must provide information for this field
+            address_country:
+              blank: You must provide information for this field
+            contact_preference:
+              blank: You must provide information for this field
+            address_building:
+              blank: You must provide information for this field
+            address_street:
+              blank: You must provide information for this field
+            address_locality:
+              blank: You must provide information for this field
+            address_county:
+              blank: You must provide information for this field
+            address_post_code:
+              blank: You must provide information for this field
+        employment:
+          attributes:
+            start_date:
+              invalid: The date you have provided is invalid
+            end_date:
+              invalid: The date you have provided is invalid
+            notice_period_end_date:
+              invalid: The date you have provided is invalid
+            new_job_start_date:
+              invalid: The date you have provided is invalid
+        password:
+          attributes:
+            password:
+              blank: You must provide information for this field
+        representative:
+          attributes:
+            type:
+              blank: You must provide information for this field
+            name:
+              blank: You must provide information for this field
+            address_country:
+              blank: You must provide information for this field
+            contact_preference:
+              blank: You must provide information for this field
+            address_building:
+              blank: You must provide information for this field
+            address_street:
+              blank: You must provide information for this field
+            address_locality:
+              blank: You must provide information for this field
+            address_county:
+              blank: You must provide information for this field
+            address_post_code:
+              blank: You must provide information for this field
+        respondent:
+          attributes:
+            name:
+              blank: You must provide information for this field
+            no_acas_number_reason:
+              blank: You must provide information for this field
+            acas_early_conciliation_certificate_number:
+              blank: You must provide information for this field
+            address_country:
+              blank: You must provide information for this field
+            contact_preference:
+              blank: You must provide information for this field
+            address_building:
+              blank: You must provide information for this field
+            address_street:
+              blank: You must provide information for this field
+            address_locality:
+              blank: You must provide information for this field
+            address_county:
+              blank: You must provide information for this field
+            address_post_code:
+              blank: You must provide information for this field
+            work_address_country:
+              blank: You must provide information for this field
+            work_contact_preference:
+              blank: You must provide information for this field
+            work_address_building:
+              blank: You must provide information for this field
+            work_address_street:
+              blank: You must provide information for this field
+            work_address_locality:
+              blank: You must provide information for this field
+            work_address_county:
+              blank: You must provide information for this field
+            work_address_post_code:
+              blank: You must provide information for this field

@@ -8,13 +8,15 @@ header.main-header
         p.detail= t('user_sessions.reference')
         span.number= claim.reference
 
-      = simple_form_for user_session, url: user_session_path, method: :delete do |f|
+      = simple_form_for user_session, url: user_session_path do |f|
         fieldset.form-panel
           legend= t('.legend')
 
-          h3.font-small= t('.subheader')
           p.form-hint= t('.hint')
 
-          = f.input :email_address if claim.email_address.blank?
+          = f.input :password, as: :string
+          = f.input :email_address
 
-          = f.button :submit, value: t('helpers.submit.user_session.destroy')
+          p= link_to 'Print this page'
+
+          = f.button :submit

@@ -3,9 +3,12 @@ header.main-header
 
 .main-section
   .main-content
-    = simple_form_for user_session do |f|
-      = f.error_notification
-      p= f.input :reference
-      p= f.input :password, as: :string
+    .main-column
+      = simple_form_for user_session, url: user_session_path do |f|
+        fieldset.form-panel
+          h3.font-small = t('.subheader')
+          p.form-hint= format t('.hint')
 
-      p= f.button :submit
+          = f.input :reference
+          = f.input :password, as: :string
+          = f.button :submit

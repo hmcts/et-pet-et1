@@ -33,7 +33,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Create a new application' do
       start_claim
-      expect(page).to have_text claim_heading_for(:password)
+      expect(page).to have_text before_you_start_message
     end
 
     scenario 'Entering word for save and return' do
@@ -50,7 +50,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Entering word and email for save and return' do
       start_claim
-      fill_in_password_and_email 'green', 'mail@example.com'
+      fill_in_password_and_email 'green', FormMethods::SAVE_AND_RETURN_EMAIL
 
       claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
@@ -175,6 +175,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Making payment' do
+      pending 'payments disabled for first live trial'
+
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
@@ -182,6 +184,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Returning from the payment page' do
+      pending 'payments disabled for first live trial'
+
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
@@ -193,6 +197,8 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment failed' do
+      pending 'payments disabled for first live trial'
+
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 

@@ -41,4 +41,10 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.after do |example|
+    if example.metadata[:type] == :feature && example.exception.present?
+      save_and_open_page
+    end
+  end
 end

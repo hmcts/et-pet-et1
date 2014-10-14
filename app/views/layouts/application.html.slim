@@ -1,14 +1,27 @@
 - content_for :stylesheets do
-  /![if IE 6]
-    = stylesheet_link_tag "application-ie6", media: "all"
-  /![if IE 7]
-    = stylesheet_link_tag "application-ie7", media: "all"
-  /![if IE 8]
-    = stylesheet_link_tag "application-ie8", media: "all"
+
+  = "<!--[if IE 6]><!-->#{stylesheet_link_tag("application-ie6", media: "all")}<!--<![endif]-->".html_safe
+
+  = "<!--[if IE 7]><!-->#{stylesheet_link_tag("application-ie7", media: "all")}<!--<![endif]-->".html_safe
+
+  = "<!--[if IE 8]><!-->#{stylesheet_link_tag("application-ie8", media: "all")}<!--<![endif]-->".html_safe
+
   = "<!--[if gt IE 8]><!-->#{stylesheet_link_tag("application", media: "all")}<!--<![endif]-->".html_safe
 
 - content_for :javascripts do
   = javascript_include_tag "application"
+
+  - if ENV.has_key?('GOOGLE_ANALYTICS_ID')
+    javascript:
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '#{ENV.fetch("GOOGLE_ANALYTICS_ID")}', 'auto');
+      ga('send', 'pageview');
+      ga('set', 'anonymizeIP', true);
+
 
 - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 

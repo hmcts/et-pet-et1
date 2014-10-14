@@ -35,6 +35,15 @@ module App
     # Feedback URL (URL for feedback link in phase banner)
     config.feedback_url = ''
 
+    config.assets.enabled = true
+
+    config.assets.precompile += %w(
+      application-ie6.css
+      application-ie7.css
+      application-ie8.css
+      *.png
+    )
+
     # opt into features that will be the default in the next version of Rails
     # (and supress the DEPRECATION warnings)
     config.active_record.raise_in_transactional_callbacks = true

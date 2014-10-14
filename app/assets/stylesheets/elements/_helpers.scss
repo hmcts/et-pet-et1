@@ -20,27 +20,6 @@
   }
 }
 
-// Want to see how the grid works?
-// add this class to the body to see how grid padding is set
-.example-highlight-grid {
-  .grid-wrapper {
-    background:  $grey-2;
-  }
-  .grid {
-    background: $grey-4;
-  }
-  .is-inner-block-highlight {
-    background: $grey-3;
-    width: 100%;
-  }
-}
-
-// Used to space the "back" link on example pages
-.example-back-link {
-  @include inline-block;
-  margin-top: $gutter;
-}
-
 // Hide, but not for screenreaders
 .visuallyhidden {
   position: absolute;

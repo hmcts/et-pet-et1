@@ -1,5 +1,5 @@
 class UserSession < PlainModel
-  attr_accessor :reference, :password
+  attr_accessor :reference, :password, :email_address
 
   validates :reference, presence: true
   validates :password, presence: true
@@ -17,7 +17,7 @@ class UserSession < PlainModel
 
   def authenticates
     if claim
-      if password.present? && !claim.authenticate(password)
+      if password.present? && claim.password_digest.present? && !claim.authenticate(password)
         errors.add(:password, I18n.t('errors.user_session.invalid'))
       end
     else

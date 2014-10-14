@@ -25,7 +25,7 @@ RSpec.describe PdfFormBuilder, type: :service do
 
       expect(pdf).to eq('pdf')
       expect(pdf_forms).to have_received(:fill_form).with(
-        et1_pdf_path, 'tmp/claim1.pdf', {fields: 'fields'})
+        et1_pdf_path, 'tmp/claim1.pdf', {fields: 'fields'}, flatten: false)
     end
 
     it 'ensure ET1 PDF exists' do

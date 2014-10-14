@@ -14,19 +14,19 @@ module FormMethods
   end
 
   def fill_in_return_form reference, word
-    visit '/user_sessions/new'
+    visit '/user_session/new'
     fill_in 'reference', with: reference
     fill_in 'memorable word', with: word
-    click_button 'Next'
+    click_button 'Find my application'
   end
 
   def fill_in_password(word='green')
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email=SAVE_AND_RETURN_EMAIL)
+  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL)
     fill_in 'memorable word', with: word
-    fill_in 'Email address', with: email if email.present?
+    fill_in 'Email address', with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
