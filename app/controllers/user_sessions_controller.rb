@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   skip_before_action :ensure_claim_exists, except: :destroy
-  before_action :get_claim_reference, only: %i<show edit update>
+  before_action :get_claim_reference, only: %i<show edit update destroy>
 
   def new
     session.clear
@@ -17,7 +17,9 @@ class UserSessionsController < ApplicationController
 
   def update
     if user_session.save
-      claim.update_attribute(:password, user_session.password)
+      claim.update_attributes(
+        password: user_session.password,
+        email_address: user_session.email_address)
       deliver_access_details
       redirect_to page_claim_path(page: 'claimant')
     else
@@ -26,6 +28,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    deliver_access_details
     session.clear
     redirect_to root_path
   end
