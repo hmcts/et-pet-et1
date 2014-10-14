@@ -7,3 +7,7 @@ var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
 	checkboxReveal = require('./modules/moj.checkbox-reveal'),
 	formHintReveal = require('./modules/moj.reveal-hints'),
 	nodeCloning = require('./modules/moj.node-cloning');
+
+
+// init the revealPubSub.
+revealPubSub.init();

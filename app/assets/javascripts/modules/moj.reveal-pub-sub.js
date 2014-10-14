@@ -5,15 +5,33 @@
  *     https://github.com/cowboy/jquery-tiny-pubsub
  */
 
-module.exports = (function() {
+module.exports = (function () {
   'use strict';
 
-  var revealPubSub = {};
+  var revealPubSub = {
+    settings: {}
+  };
+
+  /**
+   * Object to store internal defaults
+   * @type {Object}
+   */
+  var defaults = {
+    // Activate ability to apply aria attributes to subscribers
+    aria: true,
+
+    // Apply aria-hidden attributes to subscribers when
+    // as part of the bindSubscribe method
+    // NOTE: settings.aria has to be set to true as well
+    ariaHiddenOnInit: true
+  };
 
   /**
    * Init the module
    */
-  revealPubSub.init = function() {
+  revealPubSub.init = function (options) {
+    // Extend default with options and store as settings
+    this.settings = $.extend({}, defaults, options);
     this.bindPublish();
     this.bindSubscribe();
   };
@@ -43,8 +61,8 @@ module.exports = (function() {
                 data-target="eventName" />
       </div>
    */
-  revealPubSub.bindPublish = function() {
-    $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function(e) {
+  revealPubSub.bindPublish = function () {
+    $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
       var $el = $(e.target);
       $.publish($el.data('target'), $el.val());
@@ -67,29 +85,70 @@ module.exports = (function() {
             data-show-array="['true',....]">
               // Further HTML here
       </div>
+   *
+   * Optional:
+   *   See defaults.aria & defaults.ariaHiddenOnInit
+   *     - apply aria-hidden on init.
+   *     - aplly aria-hidden when the state changes on an element.
    */
-  revealPubSub.bindSubscribe = function() {
-    $('.reveal-subscribe').is(function(idx, el) {
+  revealPubSub.bindSubscribe = function () {
+    var _this = this;
+
+    $('.reveal-subscribe').is(function (idx, el) {
       var $el = $(el);
-      $.subscribe($el.data('target'), function(event, val) {
+
+      // Applying Aria Hidden attributes
+      if (_this.settings.aria && _this.settings.ariaHiddenOnInit) {
+        _this.setAriaHiddenOnInit($el);
+      }
+
+      // Subscribe to the events
+      $.subscribe($el.data('target'), function (event, val) {
+        var ariaHidden;
         if ($.inArray(val, $el.data('show-array')) !== -1) {
           $el.show();
-          return;
+          ariaHidden = false;
+        } else {
+          $el.hide();
+          ariaHidden = true;
         }
-        $el.hide();
+
+        if (_this.settings.aria) {
+          revealPubSub.setAriaHidden($el, ariaHidden);
+        }
       });
+
+
     });
   };
 
   /**
-   * Call the init method
-   * No config can be passed in but the module can
-   * be changed to handle this.
+   * Apply aria-hidden attributes to subscibers
+   * to reflect their state on init()
+   * @param {[type]} $el jQuery element
    */
-  revealPubSub.init();
+  revealPubSub.setAriaHiddenOnInit = function ($el) {
+    if (!$el.is(':visible')) {
+      revealPubSub.setAriaHidden($el, true);
+      return;
+    }
+    revealPubSub.setAriaHidden($el, false);
+  };
+
+  /**
+   * Util method that changes the aria-hidden
+   * attribute as required
+   * @param {[type]} $el  jQuery element
+   * @param {[type]} bool the aria-hidden attribute will be set to this value
+   */
+  revealPubSub.setAriaHidden = function ($el, bool) {
+    return bool ? $el.attr('aria-hidden', true) : $el.attr('aria-hidden', false);
+  };
 
   /**
    * Return the module
+   * NOTE: Call the init method outside passing any
+   *       settings to override defaults
    */
   return revealPubSub;
 }());
