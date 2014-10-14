@@ -8,7 +8,7 @@ class MarkdownRenderer
   end
 
   private def setup_redcarpet_renderer
-    renderer = Redcarpet::Render::HTML.new
-    return Redcarpet::Markdown.new(renderer, tables: true)
+    html_renderer = Redcarpet::Render::HTML.new
+    return Redcarpet::Markdown.new(html_renderer, tables: true)
   end
 end

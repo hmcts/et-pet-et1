@@ -1,26 +1,33 @@
 class GuidePresenter
-  attr_reader :file_names
 
-  def initialize(directory, file_names, renderer)
-    @directory = directory
-    @file_names = file_names
+  def initialize(file_paths, renderer)
+    @files = file_paths
     @renderer = renderer
   end
 
-  def each_file(&block)
-    file_names.each do |name|
-      html_output = render(name)
-      yield(html_output, name)
+  def each_rendered_file(&block)
+    @files.each do |file|
+      html_output = render(file)
+      basename = file_name_without_extension(file)
+      yield(basename, html_output)
     end
   end
 
+  def file_names
+    @files.map { |file| file_name_without_extension(file) }
+  end
+
   private
+
+  def file_name_without_extension(file)
+    File.basename(file).split(".").first
+  end
 
   def render(file)
     @renderer.render( contents_of file )
   end
 
-  def contents_of(file)
-    File.read("#{ @directory + file }.md")
+  def contents_of(file_path)
+    File.read file_path
   end
 end

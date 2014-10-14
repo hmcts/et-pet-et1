@@ -10,5 +10,5 @@
         li = link_to t("guide.#{ name }"), guide_path(anchor: name)
 
     .guide-content
-      - @guide_presenter.each_file do |contents, name|
+      - @guide_presenter.each_rendered_file do |name, contents|
         article id="#{name}" = contents
