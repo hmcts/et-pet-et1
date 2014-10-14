@@ -18,8 +18,9 @@ RSpec.describe MarkdownRenderer, type: :service do
   describe "#render" do
 
     let(:content_arg)         { "such render.." }
+    let(:html_safe_content)   { "so html safe.." }
     let(:redcardpet_markdown) { double(render: rendered_content) }
-    let(:rendered_content)    { double(html_safe: "some content..") }
+    let(:rendered_content)    { double(html_safe: html_safe_content) }
 
     before :each do
       allow(Redcarpet::Markdown).to receive(:new).and_return redcardpet_markdown
@@ -29,7 +30,7 @@ RSpec.describe MarkdownRenderer, type: :service do
       expect(redcardpet_markdown).to receive(:render).with content_arg
       expect(rendered_content).to receive(:html_safe)
 
-      subject.render content_arg
+      expect(subject.render(content_arg)).to eq html_safe_content
     end
   end
 end
