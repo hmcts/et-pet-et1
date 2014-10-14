@@ -1,4 +1,4 @@
-## Fees
+# Fees
 
 You must pay an ‘issue fee’ when you submit this form and a ‘hearing fee’ just before the tribunal.
  
