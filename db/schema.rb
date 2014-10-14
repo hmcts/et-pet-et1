@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013135208) do
+ActiveRecord::Schema.define(version: 20141014081047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20141013135208) do
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "worked_at_different_address",                            default: false
+    t.boolean  "worked_at_same_address",                                 default: true
     t.boolean  "primary_respondent",                                     default: false
   end
 

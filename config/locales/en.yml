@@ -172,7 +172,7 @@ en:
         work_address_street: Street
         work_address_county: County
         work_address_post_code: Postcode
-        worked_at_different_address: Did you work at the same address to the one given above?
+        worked_at_same_address: Did you work at the same address to the one given above?
         no_acas_number: I don't have an Acas number
         no_acas_number_reason: Why don't you have an Acas number?
 
