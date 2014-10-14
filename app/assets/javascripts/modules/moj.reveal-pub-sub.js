@@ -108,7 +108,18 @@ module.exports = (function () {
       // Subscribe to the events
       $.subscribe($el.data('target'), function (event, val) {
         var ariaHidden;
-        if ($.inArray(val, $el.data('show-array')) !== -1) {
+        // $.inArray returns -1 if not in the array and the
+        // array index if it is. Using ~ (Bitwise NOT) with !!
+        // returns false for -1 and true for everything else.
+        var isInArray = !!~$.inArray(val, $el.data('show-array'));
+
+        // if reverse set to true then
+        // reverse the boolean
+        // if($el.data('reverse')){
+        //   isInArray = !isInArray;
+        // }
+
+        if (isInArray) {
           $el.show();
           ariaHidden = false;
         } else {
