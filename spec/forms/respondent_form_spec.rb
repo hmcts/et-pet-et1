@@ -32,7 +32,7 @@ RSpec.describe RespondentForm, :type => :form do
       end
 
       describe "when respondent worked at a different address" do
-        before { subject.worked_at_different_address = true }
+        before { subject.worked_at_same_address = false }
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_post_code].each do |attr|
           it { is_expected.to validate_presence_of(attr) }
@@ -84,7 +84,7 @@ RSpec.describe RespondentForm, :type => :form do
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
     work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000",
-    worked_at_different_address: true, no_acas_number: "1",
+    worked_at_same_address: false, no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction" }
 
   before = proc do

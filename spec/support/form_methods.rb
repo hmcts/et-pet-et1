@@ -89,7 +89,7 @@ module FormMethods
     fill_in :respondent_address_post_code,        with: 'AT3 0AS'
     fill_in :respondent_address_telephone_number, with: '01234567890'
 
-    choose 'respondent_worked_at_different_address_false'
+    choose 'respondent_worked_at_same_address_false'
 
     within('.work-address') { fill_in_address }
 
