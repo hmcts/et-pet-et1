@@ -45,9 +45,4 @@ class RespondentForm < Form
   private def target
     resource.primary_respondent || resource.build_primary_respondent
   end
-
-  def worked_at_different_address=(v)
-    type = ActiveRecord::Type::Boolean.new
-    attributes[:worked_at_different_address] = type.type_cast_from_user(v)
-  end
 end
