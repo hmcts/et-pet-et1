@@ -3,26 +3,27 @@
     legend = t '.application_fee'
 
     .callout.callout-fee
-      p 
+      p
         span.number="£#{ fee_calculation.application_fee_after_remission } "
         span.type Standard fee
       p.detail This is the application fee for your claim
-      
+
     .callout.callout-fee
-      p 
+      p
         span.number="£#{ fee_calculation.hearing_fee } "
         span.type Hearing fee
       p.detail If your case goes to a tribunal, you’ll have to pay this fee.
 
   fieldset
     legend = t '.reduce_fee'
-    
+
     = f.input :applying_for_remission,
       as: :radio_buttons,
       item_wrapper_class: 'block-label',
-      wrapper_class: 'form-group-reveal',
-      reveal: { true => :remission_applied_info }
+      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
+      input_html: { :class => 'reveal-publish-publisher'},
+      reveal: { true => 'main', false => 'main' }
 
-    #remission_applied_info.panel-indent.toggle-content
-      h3.bold-small = t '.remission_applied_info_heading'  
+    #remission_applied_info.panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+      h3.bold-small = t '.remission_applied_info_heading'
       p.font-small = t '.remisison_applied_info_text'

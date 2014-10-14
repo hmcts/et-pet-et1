@@ -9,10 +9,11 @@
       as: :boolean,
       required: true,
       boolean_style: :inline,
-      wrapper_class: 'reveal-checkbox',
-      input_html: {class: 'input-reveal'}
+      wrapper_class: 'reveal-publish-delegate',
+      input_html: {:class => 'reveal-publish-publisher',
+                  :'data-target' => 'main'}
 
-    .panel-indent.toggle-content
+    .panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
       = f.input :no_acas_number_reason,
         collection: FormOptions::NO_ACAS_REASON,
         as: :radio_buttons,
@@ -32,11 +33,12 @@
       legend= t '.workaddress_legend'
       = f.input :worked_at_different_address,
         as: :radio_buttons,
+        wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
         item_wrapper_class: 'block-label',
-        wrapper_html: { class: 'form-group-reveal' },
-        reveal: { true => :work_address_wrapper }
+        input_html: { :class => 'reveal-publish-publisher'},
+        reveal: { true => 'sub1', false => 'sub1' }
 
-      #work_address_wrapper.panel-indent.toggle-content.work-address
+      #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["true"]'
         p.form-hint= t '.work_address'
         = f.input :work_address_building
         = f.input :work_address_street
