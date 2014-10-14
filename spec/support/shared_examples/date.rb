@@ -36,7 +36,9 @@ RSpec.shared_examples 'it parses and validates multiparameter dates', focus: tru
 
         it "adds a validation error to #{date}" do
           subject.valid?
-          expect(subject.errors[date]).to include('is invalid')
+          model_translation_path = "activemodel.errors.models.#{ described_class.model_name.name }.attributes.#{ date }.invalid"
+
+          expect(subject.errors[date]).to include I18n.t(model_translation_path)
         end
       end
     end
