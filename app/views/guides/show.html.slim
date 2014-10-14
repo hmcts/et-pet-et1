@@ -7,7 +7,7 @@
     nav.nav-guide
       ul
       - @guide_presenter.file_names.each do |name|
-        li = link_to t("guide.#{ name }"), guide_path(anchor: name)
+        li = link_to t("guide.#{name}"), guide_path(anchor: name)
 
     .guide-content
       - @guide_presenter.each_rendered_file do |name, contents|
