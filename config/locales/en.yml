@@ -41,10 +41,6 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
-        contact_preference:
-          email: Email
-          post: Post
-          fax: Fax
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom

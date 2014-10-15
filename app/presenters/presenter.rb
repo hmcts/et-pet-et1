@@ -35,6 +35,14 @@ class Presenter
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
+  def each_subsection
+    subsections.each { |subsection_name, subsection_items| proc[subsection_name, subsection_items] }
+  end
+
+  def subsections
+    raise NotImplementedError.new "Implement #{self.class}#subsections"
+  end
+
   private
 
   def method_missing meth, *args, &block

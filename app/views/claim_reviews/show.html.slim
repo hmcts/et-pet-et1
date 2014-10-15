@@ -8,19 +8,23 @@ header.main-header
 
   .main-content
     = incomplete_claim_warning
-    - presenter.each_section do |section|
+
+    - presenter.each_section do |section_name, section|
+
       table.review-table
-        caption = t ".#{section}"
-        colgroup
-          col
-          col
-          col
+        h2 = t ".sections.#{section_name}"
         tbody
-        - presenter.methods.grep(/\A#{section}_/).each do |method|
-          tr
-            th= t ".#{method}"
-            td= presenter.send(method)
-            td
-              = link_to t('.change'), page_claim_path(page: section)
+
+        - section.each_subsection do |subsection_name, subsection_items|
+          summary = t ".#{section_name}.subsections.#{subsection_name}"
+
+          - subsection_items.each do |item|
+            tr
+              th= t ".#{section_name}.#{item}"
+              - if section.send(item).present?
+                td= section.send item
+              - else
+                td
+                  span.not-entered= t '.not_entered'
 
     = render partial: 'email_addresses'
