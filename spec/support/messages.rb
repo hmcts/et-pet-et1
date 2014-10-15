@@ -14,7 +14,7 @@ module Messages
   end
 
   def completion_message(reference)
-    format I18n.t('claim_reviews.confirmation.complete', reference: reference)
+    I18n.t('claim_reviews.confirmation.complete', reference: reference)
   end
 
   def payment_message

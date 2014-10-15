@@ -80,10 +80,8 @@ en:
       add_email_address: Add email address
 
     confirmation:
-      complete: |
-        # Application complete
-
-        Your application reference number: %{reference}
+      header: Application complete
+      complete: 'Your application number: %{reference}'
 
       fee_paid: |
         ## Thank you for your payment. We’ll write to you within 5 working days.
@@ -118,3 +116,5 @@ en:
         pdf_version: PDF version of form (for your records)
         your_rtf_file: Your RTF file
         office: Tribunal office dealing with your claim
+        attached: Attached
+        download_pdf: Download PDF file

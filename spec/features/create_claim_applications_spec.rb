@@ -150,8 +150,10 @@ feature 'Claim applications', type: :feature do
 
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
-      expect(email.body).to include completion_message(Claim.last.reference)
-      expect(email.body).not_to include 'Download PDF file'
+      content = email.parts.find {|p| p.content_type.match /html/ }.body.raw_source
+
+      expect(content).to include completion_message(Claim.last.reference)
+      expect(content).to include 'Attached'
     end
 
     scenario 'Submitting the claim when payment is not required' do

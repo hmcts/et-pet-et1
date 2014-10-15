@@ -1,1 +1,8 @@
-= render partial: '/claim_reviews/confirmation'
+header.main-header
+  h1= t 'claim_reviews.confirmation.header'
+
+.main-section
+  = render partial: 'shared/aside'
+
+  .main-content
+    = render partial: '/claim_reviews/confirmation'
