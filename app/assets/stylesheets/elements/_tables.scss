@@ -27,7 +27,6 @@ table th {
 table.review-table{
   border-collapse: collapse;
   width:100%;
-  margin-bottom:2em;
   col{
     &.th{
       width:30%;
@@ -37,9 +36,10 @@ table.review-table{
     }
   }
   caption{
-    @extend .bold-medium;
+    @extend .bold-small;
     text-align:left;
-    margin-bottom:.5em;
+    background: $highlight-colour;
+    padding:$gutter-half/2 0;
   }
   th,td{
     border-bottom:1px solid $border-colour;
@@ -51,21 +51,13 @@ table.review-table{
     font-weight:400;
     color:$grey-1;
   }
-  td:nth-child(3n){
-    text-align:right;
-    padding-right:1em;
-  }
   tr:first-child{
     th,td{
       border-top:1px solid $border-colour;
     }
   }
-  tr.row{
-    th{
-      background:$highlight-colour;
-      color:$text-colour;
-      @extend .bold-small;
-    }
+  & + h2{
+    margin:$gutter 0 $gutter-half;
   }
 }
 

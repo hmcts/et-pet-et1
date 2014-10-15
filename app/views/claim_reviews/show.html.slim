@@ -11,12 +11,11 @@ header.main-header
 
     - presenter.each_section do |section_name, section|
 
-      table.review-table
-        h2 = t ".sections.#{section_name}"
-        tbody
+      h2.bold-medium = t ".sections.#{section_name}"
 
-        - section.each_subsection do |subsection_name, subsection_items|
-          summary = t ".#{section_name}.subsections.#{subsection_name}"
+      - section.each_subsection do |subsection_name, subsection_items|
+        table.review-table
+          caption = t ".#{section_name}.subsections.#{subsection_name}"
 
           - subsection_items.each do |item|
             tr
@@ -24,7 +23,7 @@ header.main-header
               - if section.send(item).present?
                 td= section.send item
               - else
-                td
-                  span.not-entered= t '.not_entered'
+                td.not-entered
+                  = t '.not_entered'
 
     = render partial: 'email_addresses'
