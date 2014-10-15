@@ -29,11 +29,6 @@ feature 'Save and Return' do
     fill_in_personal_details(submit_form: false)
 
     click_button 'Complete later'
-    expect(page).to have_text('Saved')
-    expect(page).to have_text(Claim.last.reference)
-
-    expect(page).not_to have_field('Email address')
-    click_button 'Sign out now'
 
     expect(page).to have_text(claim_heading_for(:new))
   end

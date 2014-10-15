@@ -15,6 +15,6 @@ header.main-header
           h3.font-small= t('.subheader')
           p.form-hint= t('.hint')
 
-          = f.input :email_address if claim.email_address.blank?
+          = f.input :email_address
 
           = f.button :submit, value: t('helpers.submit.user_session.destroy')
