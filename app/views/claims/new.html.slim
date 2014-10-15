@@ -27,4 +27,10 @@ header.main-header.no-steps
           = f.button :submit
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button'}
 
-    .content-copy = format t '.body'
+    .content-copy 
+      = format t '.what_you_need_to_know.body'
+      details
+        summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+          span.summary= t '.what_you_need_to_know.detail'
+        .panel-indent#details-content-0
+          p= t '.what_you_need_to_know.summary'

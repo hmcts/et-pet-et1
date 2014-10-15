@@ -51,10 +51,8 @@ en:
 
       representative:
         type:
-          citizen_advice_bureau: Citizen Advice Bureau
           free_representation_unit: Free Representation Unit
           law_centre: Law centre
-          trade_union: Trade union
           solicitor: Solicitor
           private_individual: Private individual
           trade_association: Trade association
@@ -281,7 +279,7 @@ en:
         is_whistleblowing: |
           You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties.
       claim_details:
-        claim_details: Include the background, dates and the people involved.
+        claim_details: Include the background, dates and the people involved. Limit is 5000 characters.
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -344,7 +342,7 @@ en:
       hint: Don't have these details? [Start a new application](/).
     show:
       header: Saved
-      legend: Return to complete your application
+      legend: Application number reminder
       subheader: Keep a note of these details
       hint: You need this number to save your work and return to it another time
 
@@ -355,22 +353,25 @@ en:
     new:
       header: Start your application
       info: Apply online to an employment tribunal
-      body: |
-        ## Before you start
-        
-        You'll need:
+      what_you_need_to_know: 
+        body: |
+          ## Before you start
+          * This is not a free service. [Find out about fees](/guide/#guide-fees)
+          
+          You'll need:
 
-        * your Acas early conciliation certificate number
-        * description of your claim
-        * your payslip
-        * full address of who you’re making a claim against
+          * your Acas early conciliation certificate number
+          * description of your claim
+          * your payslip
+          * full address of who you’re making a claim against
 
-        ## What you'll need to know
+          ## What you'll need to know
 
-        * services covers England, Wales and Scotland
-        * takes around 45 minutes
-        * [How we use your information](http://www.acas.org.uk/earlyconciliation)
-
+          * services covers England, Wales and Scotland
+          * takes around 45 minutes
+        detail: how we use your information
+        summary: |
+          We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
     password:
       header: Before you start
       legend: Save and return to your application
@@ -451,8 +452,9 @@ en:
       reduce_fee: Reduce your fee
       remission_applied_info_heading: You don’t need to pay the above fee now.
       remisison_applied_info_text: |
-        Instead, we’ll ask for your financial details when you’ve submitted this application.
-        We’ll then use this information to work out what reduction you qualify for (if any) and let you know how much you’ll be charged.
+        Once you’ve submitted this application, we’ll give you a link to apply for a reduction.
+
+        We’ll use the information you give us to work out what reduction (if any) you qualify for and let you know how much you’ll be charged.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
       hearing_fee: |
