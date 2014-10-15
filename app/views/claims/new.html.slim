@@ -11,11 +11,11 @@ header.main-header.no-steps
         legend Before you continue
         .content-copy
           .content-block
-            h3 Are you in time to apply?
-            p You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening. Learn about when you can apply.
+            h3 = t('.are_you_in_time_to_apply.header')
+            p = format t('.are_you_in_time_to_apply.body')
           .content-block
-            h3 Have you contacted ACAS?
-            p In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
+            h3 = t('.have_you_contacted_acas.header')
+            p = format t('.have_you_contacted_acas.body')
 
         .inline.inline-buttons
           = f.button :submit
