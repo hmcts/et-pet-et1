@@ -3,4 +3,9 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    = render partial: '/claim_reviews/confirmation'
+    header.main-header
+      h1= t 'claim_reviews.confirmation.header'
+
+    .main-section
+      .main-content
+        = render partial: '/claim_reviews/confirmation'
