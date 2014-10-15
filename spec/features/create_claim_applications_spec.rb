@@ -189,7 +189,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit the form'
 
       expect(page).not_to have_text 'Get help with paying your fee now'
-      expect(page).to have_text 'From the information you’ve given us, you have to pay'
+      expect(page).to have_text "From the information you've given us, you have to pay"
     end
 
 
