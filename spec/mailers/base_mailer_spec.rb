@@ -33,10 +33,14 @@ describe BaseMailer do
   describe '#confirmation_email' do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
     subject { described_class.confirmation_email(claim, email_addresses) }
+    let(:content) { email.parts.find {|p| p.content_type.match /html/ }.body.raw_source }
+    let(:attachment) { email.parts.find {|p| p.filename == 'filename' }.body.raw_source }
 
     before do
       allow(claim).to receive(:payment_applicable?).and_return false
       allow(claim).to receive(:remission_applicable?).and_return false
+      pdf_form = double filename: 'filename', to_pdf: 'pdf'
+      allow(PdfFormBuilder).to receive(:new).with(claim).and_return pdf_form
     end
 
     it 'has been delivered' do
@@ -49,19 +53,23 @@ describe BaseMailer do
     end
 
     it 'has reference in the body' do
-      expect(email.body).to include claim.reference
+      expect(content).to include claim.reference
     end
 
     it 'has office' do
-      expect(email.body).to include 'Birmingham'
-      expect(email.body).to include 'Phoenix House'
+      expect(content).to include 'Birmingham'
+      expect(content).to include 'Phoenix House'
+    end
+
+    it 'has attachment' do
+      expect(attachment).to eq('pdf')
     end
 
     context 'when no office' do
       let(:office) { nil }
 
       it 'does not show office details' do
-        expect(email.body).not_to include table_heading('office')
+        expect(content).not_to include table_heading('office')
       end
     end
 
@@ -71,11 +79,11 @@ describe BaseMailer do
       end
 
       it 'shows paid message' do
-        expect(email.body).to include payment_message
+        expect(content).to include payment_message
       end
 
       it 'shows amount paid' do
-        expect(email.body).to include 100
+        expect(content).to include '100'
       end
     end
 
@@ -86,13 +94,13 @@ describe BaseMailer do
       end
 
       it 'shows remission help' do
-        expect(email.body).to include remission_help
+        expect(content).to include remission_help
       end
 
       it 'does not show any payment information' do
-        expect(email.body).not_to include payment_message
-        expect(email.body).not_to include table_heading('fee_paid')
-        expect(email.body).not_to include table_heading('fee_to_pay')
+        expect(content).not_to include payment_message
+        expect(content).not_to include table_heading('fee_paid')
+        expect(content).not_to include table_heading('fee_to_pay')
       end
     end
 
@@ -105,13 +113,13 @@ describe BaseMailer do
       end
 
       it 'does not show any paid information' do
-        expect(email.body).not_to include payment_message
-        expect(email.body).not_to include table_heading('fee_paid')
+        expect(content).not_to include payment_message
+        expect(content).not_to include table_heading('fee_paid')
       end
 
       it 'shows outstanding fee' do
-        expect(email.body).to include table_heading('fee_to_pay')
-        expect(email.body).to include 100
+        expect(content).to include table_heading('fee_to_pay')
+        expect(content).to include '100'
       end
     end
   end
