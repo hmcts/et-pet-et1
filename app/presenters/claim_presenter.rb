@@ -1,30 +1,14 @@
-class ClaimPresenter < Presenter
-  SECTIONS = %w<claimant representative respondent employment claim_detail>.freeze
-
-  include ActionView::Helpers
-  include ActionView::Context
-
-  class << self
-    def delegate *args
-      options = args.extract_options!
-      section = options[:to]
-
-      args.each do |meth|
-        define_method "#{section}_#{meth}" do
-          value = send(section).send(meth)
-
-          if value.present?
-            value
-          else
-            not_entered
-          end
-        end
-      end
-    end
-  end
+class ClaimPresenter < Struct.new(:target)
+  SECTIONS = %w<claimant representative respondent employment
+    claim_type claim_details claim_outcome additional_information your_fee>.freeze
 
   def each_section
-    enumerable_sections.each { |section| proc[section] }
+    enumerable_sections.each do |section|
+      section      = send(section)
+      section_name = section.class.name.underscore.sub /_presenter\Z/, ''
+
+      proc[section_name, section]
+    end
   end
 
   private def enumerable_sections
@@ -50,26 +34,23 @@ class ClaimPresenter < Presenter
     @employment ||= EmploymentPresenter.new target.employment
   end
 
-  private def claim_detail
-    @claim_detail ||= ClaimDetailPresenter.new target
+  private def claim_type
+    @claim_type ||= ClaimTypePresenter.new target
   end
 
-  private def not_entered
-    content_tag(:span, class: 'not-entered') { I18n.t('presenters.blank') }
+  private def claim_details
+    @claim_detail ||= ClaimDetailsPresenter.new target
   end
 
-  SECTIONS.each do |section|
-    klass = "#{section}_presenter".classify.constantize
-    delegate *klass.instance_methods(false), to: section
+  private def claim_outcome
+    @claim_outcome ||= ClaimOutcomePresenter.new target
   end
 
-  def claimant_has_representative
-    yes_no(target.representative) || not_entered
+  private def additional_information
+    @additional_information ||= AdditionalInformationPresenter.new target
   end
 
-  def employed_by_employer
-    yes_no(target.employment) || not_entered
+  private def your_fee
+    @your_fee ||= YourFeePresenter.new target
   end
-
-  alias :respondent_employed_by_employer :employed_by_employer
 end

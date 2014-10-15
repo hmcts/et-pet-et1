@@ -1,78 +1,134 @@
 en:
-  presenters:
-    blank: Not entered
   claim_reviews:
     show:
+      not_entered: Not entered
       header: Check your application
       change: Change
-      info: |
-        You can change anything that's not right before sending your application.
-      incomplete_claim_summary: |
-        Your claim is incomplete.
-      incomplete_claim_message: |
-        Please go back through the form and ensure all required sections are complete
+      info: You can change anything that's not right before sending your application.
+      incomplete_claim_summary: Your claim is incomplete.
+      incomplete_claim_message: Please go back through the form and ensure all required sections are complete
 
-      claimant: Your details
-      representative: Your representative
-      respondent: Employer's details
-      claim_detail: Claim details
-      employment: Employment details
+      sections:
+        claimant: About you
+        representative: Your representative
+        respondent: Employer's details
+        employment: Employment details
+        claim_type: Claim type
+        claim_details: Claim details
+        claim_outcome: Claim outcome
+        additional_information: Additional information
+        your_fee: Your fee
 
-      claimant_full_name: Full name
-      claimant_gender: Gender
-      claimant_date_of_birth: Date of birth
-      claimant_address: Address
-      claimant_telephone_number: Telephone
-      claimant_mobile_number: Mobile
-      claimant_email_address: Email
-      claimant_contact_preference: Preferred contact
-      claimant_is_disabled: Disability
-      claimant_is_applying_for_remission: Fee remission
-      claimant_has_representative: Representative
+      claimant:
+        full_name: Full name
+        gender: Gender
+        date_of_birth: Date of birth
+        address: Address
+        telephone_number: Telephone
+        mobile_number: Mobile
+        email_address: Email
+        contact_preference: Preferred contact
+        is_disabled: Disability
+        is_applying_for_remission: Fee remission
+        has_representative: Representative
 
-      representative_type: Type of representative
-      representative_organisation_name: Organisation name
-      representative_name: Full name
-      representative_address: Address
-      representative_telephone_number: Telephone
-      representative_mobile_number: Mobile
-      representative_email_address: Email
-      representative_dx_number: DX number
-      representative_contact_preference: Preferred contact
+        subsections:
+          personal_details: Personal details
+          contact_details: Contact details
 
-      respondent_name: Name
-      respondent_address: Address
-      respondent_telephone_number: Telephone
-      respondent_employed_by_employer: Employed by employer
-      respondent_acas_early_conciliation_certificate_number: Acas number
-      respondent_no_acas_number_reason: Reason for no Acas number
+      representative:
+        has_representative: Representative
+        type: Type of representative
+        organisation_name: Organisation name
+        name: Full name
+        address: Address
+        telephone_number: Telephone
+        mobile_number: Mobile
+        email_address: Email
+        dx_number: DX number
+        contact_preference: Preferred contact
 
-      employment_job_title: Job
-      employment_start_date: Start date
-      employment_average_hours_worked_per_week: Average hours worked
-      employment_gross_pay: Pay before tax
-      employment_net_pay: Pay after tax
-      employment_enrolled_in_pension_scheme: Pension scheme
-      employment_benefit_details: Benefit details
-      employment_current_situation: Current situation
-      employment_end_date: End date
-      employment_worked_notice_period_or_paid_in_lieu: Notice period
-      employment_notice_period_end_date: Notice period end date
-      employment_notice_period_pay: Notice pay
-      employment_new_job: Another job
-      employment_new_job_gross_pay: Pay before tax at new job
+        subsections:
+          has_representative: Do you have a representative?
+          basic_details: Representative details
+          contact_details: Contact details
 
-      employment_pay_period_weekly: per week
-      employment_pay_period_monthly: per month
+      respondent:
+        name: Name
+        address: Address
+        telephone_number: Telephone
+        employed_by_employer: Employed by employer
+        acas_early_conciliation_certificate_number: Acas number
+        no_acas_number_reason: Reason for no Acas number
+        worked_at_same_address: Worked at same address?
 
-      claim_detail_types: Type(s)
-      claim_detail_claim_details: Claim details
-      claim_detail_desired_outcomes: What outcome?
-      claim_detail_other_outcome: Outcome description
-      claim_detail_other_known_claimant_names: Other known claimants
-      claim_detail_is_whistleblowing: Whistleblowing
-      claim_detail_send_claim_to_whistleblowing_entity: Send to whistleblowing body
-      claim_detail_miscellaneous_information: Other information
+        subsections:
+          basic_details: Employer details
+          contact_details: Contact details
+          work_address: Work address
+
+      employment:
+        job_title: Job
+        start_date: Start date
+        average_hours_worked_per_week: Average hours worked
+        gross_pay: Pay before tax
+        net_pay: Pay after tax
+        enrolled_in_pension_scheme: Pension scheme
+        benefit_details: Benefit details
+        current_situation: Current situation
+        end_date: End date
+        worked_notice_period_or_paid_in_lieu: Notice period
+        notice_period_end_date: Notice period end date
+        notice_period_pay: Notice pay
+        new_job: Another job
+        new_job_gross_pay: Pay before tax at new job
+        new_job_start_date: New job start date
+        pay_period_weekly: per week
+        pay_period_monthly: per month
+
+        subsections:
+          employment_situation: Employment situation
+          current_situation: Current work situation
+          details: Employment details
+          benefits: Pay, pension and benefits
+          new_job: New job
+
+      claim_type:
+        types: Type(s)
+        is_whistleblowing: Whistleblowing
+        send_claim_to_whistleblowing_entity: Send to whistleblowing body
+
+        subsections:
+          type: Claim type
+
+      claim_details:
+        claim_details: Claim details
+        other_known_claimant_names: Other known claimants
+        miscellaneous_information: Other information
+
+        subsections:
+          claim_details: Claim details
+
+      claim_outcome:
+        desired_outcomes: What outcome?
+        other_outcome: Outcome description
+
+        subsections:
+          claim_outcome: Claim outcome
+
+      additional_information:
+        miscellaneous_information: Additional information
+        attached_document: Attached document
+
+        subsections:
+          additional_information: Additional information
+
+      your_fee:
+        seeking_remission: Fee remission
+        fee: Your fee
+
+        subsections:
+          your_fee: Your fee
 
     email_addresses:
       confirmation: Email confirmation

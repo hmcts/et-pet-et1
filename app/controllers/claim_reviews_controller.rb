@@ -21,7 +21,7 @@ class ClaimReviewsController < ApplicationController
   end
 
   helper_method def email_addresses
-    claimants = claim.claimants.map(&:email_address)
+    claimants = claim.claimants.pluck(:email_address)
     representatives = [claim.representative.try(:email_address)]
 
     (claimants + representatives).reject(&:blank?)
