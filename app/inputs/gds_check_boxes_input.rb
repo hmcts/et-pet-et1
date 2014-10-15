@@ -7,8 +7,12 @@ class GdsCheckBoxesInput < SimpleForm::Inputs::BooleanInput
   def input(wrapper_options = nil)
     template.concat build_hidden_field_for_checkbox
 
-    template.label_tag('div', class: 'block-label') do
+    template.label_tag(label_target, class: 'block-label') do
       build_check_box_without_hidden_field(input_html_options) + inline_label
     end
+  end
+
+  private def label_target
+    "#{self.object_name}_#{attribute_name}"
   end
 end
