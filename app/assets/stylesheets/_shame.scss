@@ -32,15 +32,18 @@ legend {
   width:100%;
   display:block;
   padding:0 0 $gutter-half/2 0;
-  &.font-medium {
-    border:none;
-  }
   &.form-label{
     border:none;
     margin-bottom:0;
   }
   &:first-child{
     margin-bottom:$gutter;
+  }
+  &.medium{
+    @include bold-19();
+    margin-bottom:0;
+    padding-bottom:0;
+    border:none; 
   }
 }
 
@@ -63,9 +66,9 @@ aside {
 
 .form-panel {
   margin:0 0 $gutter;
-  legend.font-medium {
-    margin:0;
-  }
+}
+.fieldset-collection{
+  margin:0 0 $gutter;
 }
 
 .slim-label {
@@ -97,6 +100,7 @@ aside {
     }
   }
 }
+
 .inline-buttons{
   margin:$gutter-half 0;
 }
