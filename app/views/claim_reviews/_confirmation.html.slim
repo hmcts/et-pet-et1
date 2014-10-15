@@ -15,10 +15,9 @@ section
       tr
         td= t('.details.fee_to_pay')
         td= @claim.fee_calculation.application_fee
-    - unless controller.respond_to?(:mailer_name)
-      tr
-        td= t('.details.pdf_version')
-        td= link_to 'Download PDF file', generated_claim_claim_confirmation_url(@claim, format: 'pdf')
+    tr
+      td= t('.details.pdf_version')
+      td= controller.respond_to?(:mailer_name) ? t('.details.attached') : link_to(t('.details.download_pdf'), generated_claim_claim_confirmation_url(@claim, format: 'pdf'))
     - if @claim.office.present?
       tr
         td= t('.details.office')
