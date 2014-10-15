@@ -1,75 +1,33 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var polyfillDetail = require('./polyfills/polyfill.details'),
-  reveal = require('./modules/moj.reveal'),
-  checkboxToggle = require('./modules/moj.checkbox-toggle'),
-  selectedOption = require('./modules/moj.selected-option'),
-  checkboxReveal = require('./modules/moj.checkbox-reveal'),
-  formHintReveal = require('./modules/moj.reveal-hints'),
-  nodeCloning    = require('./modules/moj.node-cloning');
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js":[function(require,module,exports){
+var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
+	polyfillDetail = require('./polyfills/polyfill.details'),
+	//reveal = require('./modules/moj.reveal'),
+	//checkboxReveal = require('./modules/moj.checkbox-reveal'),
+	//checkboxToggle = require('./modules/moj.checkbox-toggle'),
+	revealPubSub = require('./modules/moj.reveal-pub-sub'),
+	selectedOption = require('./modules/moj.selected-option'),
+	formHintReveal = require('./modules/moj.reveal-hints'),
+	nodeCloning = require('./modules/moj.node-cloning');
 
-},{"./modules/moj.checkbox-reveal":2,"./modules/moj.checkbox-toggle":3,"./modules/moj.node-cloning":4,"./modules/moj.reveal":6,"./modules/moj.reveal-hints":5,"./modules/moj.selected-option":7,"./polyfills/polyfill.details":8}],2:[function(require,module,exports){
-/* Toggles content if checkbox is checked
-*/
-module.exports = (function() {
-  $('.reveal-checkbox').each(function(i, container){
-    var input = $(container).find('.input-reveal');
-    input.change(function(){
-      var checked = input.is(':checked');
-      $(container).next('.panel-indent').toggleClass('toggle-content', !checked);
-    });
-  });
-})();
+	revealPubSub.init();
+},{"./modules/moj.jquery-pub-sub":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.jquery-pub-sub.js","./modules/moj.node-cloning":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.node-cloning.js","./modules/moj.reveal-hints":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-hints.js","./modules/moj.reveal-pub-sub":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-pub-sub.js","./modules/moj.selected-option":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.selected-option.js","./polyfills/polyfill.details":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/polyfills/polyfill.details.js"}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.jquery-pub-sub.js":[function(require,module,exports){
+/*! Tiny Pub/Sub - v0.7.0 - 2013-01-29
+ * https://github.com/cowboy/jquery-tiny-pubsub
+ * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
+module.exports = (function(n) {
 
-},{}],3:[function(require,module,exports){
-/* Toggles disabled groups of adjacent checkboxes
-* assumes structure: .related-checkboxes-root + .related-checkboxes-collection
-*/
-module.exports = (function() {
-  var rootCheckbox = $('.related-checkboxes-root'),
-    toggleRootCheckbox = function(array, root) {
-      var checkbox = root.find('input');
-      return checkbox.prop({
-        checked : array.length
-      });
-    },
-    toggleCheckboxes = function(checked, array, val) {
-      if(checked){
-        return array.push(val);
-      } else {
-        return array.pop(array.indexOf(val));
-      }
-    };
-
-  rootCheckbox.each(function(i, root) {
-    var main = $(root),
-      collection = main.next('.related-checkboxes-collection'),
-      selectedArray = [],
-      checkboxes = collection.find('input');
-
-    main.on('change', function(){
-      var checked = main.is(':checked');
-      if(!checked){
-        $.each(selectedArray, function(i,val){
-          $(checkboxes[val]).prop('checked' , false);
-        });
-        selectedArray = [];
-      }
-    });
-
-    checkboxes.each(function(index, el) {
-      var checked,
-        checkbox = $(el);
-      checkbox.on('change', function() {
-        checked = checkbox.is(':checked');
-        toggleCheckboxes(checked, selectedArray, index);
-        toggleRootCheckbox(selectedArray, main);
-      });
-    })
-  });
-
-})();
-
-},{}],4:[function(require,module,exports){
+	var u = n({});
+	n.subscribe = function() {
+		u.on.apply(u, arguments);
+	};
+	n.unsubscribe = function() {
+		u.off.apply(u, arguments);
+	};
+	n.publish = function() {
+		u.trigger.apply(u, arguments);
+	};
+})(jQuery);
+},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.node-cloning.js":[function(require,module,exports){
 module.exports = (function() {
   var cloneSection = function(section) {
     var clone    = section.clone(),
@@ -111,7 +69,7 @@ module.exports = (function() {
   });
 })();
 
-},{}],5:[function(require,module,exports){
+},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-hints.js":[function(require,module,exports){
 // Reveals hidden hint text
 
 module.exports = (function() {
@@ -126,50 +84,198 @@ module.exports = (function() {
     }
   });
 })();
-},{}],6:[function(require,module,exports){
-// Reveals hidden content
-module.exports = (function() {
-  var reveal = {
-    init : function() {
-      $('.form-group-reveal').each(function(i, group) {
-        reveal.bindLabels(group);
-      });
-    },
-    bindLabels: function(container) {
-      var blocklabels = $(container).find('.block-label'),
-        labels = blocklabels.find('label');
+},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-pub-sub.js":[function(require,module,exports){
+/**
+ * Module dependancies:
+ *   - jQuery
+ *   - Tiny Pub / Sub
+ *     https://github.com/cowboy/jquery-tiny-pubsub
+ */
 
-      labels.each(function(i, label){
-        $(label).on('click', function(event){
-          reveal.toggleState(labels);
-        });
-      });
-    },
-    toggleState: function(labels, target) {
-      var checked;
+module.exports = (function () {
+  'use strict';
 
-      return labels.each(function(i, label){
-        var input = $(label).find('input'),
-          target = $(document.getElementById(input.attr('data-target'))),
-          checked = input.is(':checked');
+  var revealPubSub = {
+    settings: {}
+  };
 
-        if(checked) {
-          target.show();
-        } else {
-          target.hide();
-        }
+  /**
+   * Object to store internal defaults
+   * @type {Object}
+   */
+  var defaults = {
+    // Activate ability to apply aria attributes to subscribers
+    aria: true,
 
-      });
+    // Apply aria-hidden attributes to subscribers when
+    // as part of the bindSubscribe method
+    // NOTE: settings.aria has to be set to true as well
+    ariaHiddenOnInit: true,
+
+    // Trigger the click event on any :checked publishers
+    // after all the events are bound.
+    // Useful when you need to reset the state of the page
+    // after a form submit
+    triggerPubsAfterBind: true
+  };
+
+  /**
+   * Init the module
+   */
+  revealPubSub.init = function (options) {
+    // Extend default with options and store as settings
+    this.settings = $.extend({}, defaults, options);
+    this.bindSubscribe();
+    this.bindPublish();
+    if(this.settings.triggerPubsAfterBind){
+      this.triggerPublishers();
     }
   };
 
-  reveal.init();
+  /**
+   * Bind a delegated click event on the containers
+   * with publish elements.
+   *
+   * Container class: .reveal-publish-delegate
+   * Publisher class: .reveal-publish-publisher
+   *
+   * Publisher attributes:
+   * value:       The value will be used to determain if a subscriber should show/hide.
+   *              The values can be any valid string.
+   * data-target: The event name to subscribe to.
+   *
+   * Example:
+   * <div class="reveal-publish-delegate">
+        <input  name="sample" type="radio"
+                class="reveal-publish-publisher"
+                value="true"
+                data-target="eventName" />
 
-  return reveal;
+        <input  name="sample" type="radio"
+                class="reveal-publish-publisher"
+                value="false"
+                data-target="eventName" />
+      </div>
+   */
+  revealPubSub.bindPublish = function () {
+    $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function (e) {
+      e.stopPropagation(); // stop nested elements to fire event twice
+      var $el = $(e.target),
+        elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el.val();
 
-})();
+      $.publish($el.data('target'), elValue);
+    });
+  };
 
-},{}],7:[function(require,module,exports){
+  /**
+   * Bind elements that subscribe to events.
+   *
+   * Subscriber class: .reveal-subscribe
+   *
+   * Subscriber attributes:
+   * data-target:       The event name to subscibe to.
+   * data-show-array:   An array of values that will show the element,
+   *                    this corresponds to the puplisher value attribute
+   *
+   * Example:
+   *  <div  class="reveal-subscribe"
+            data-target="eventName"
+            data-show-array="['true',....]">
+              // Further HTML here
+      </div>
+   *
+   * Optional:
+   *   See defaults.aria & defaults.ariaHiddenOnInit
+   *     - apply aria-hidden on init.
+   *     - aplly aria-hidden when the state changes on an element.
+   */
+  revealPubSub.bindSubscribe = function () {
+    var _this = this;
+
+    $('.reveal-subscribe').is(function (idx, el) {
+      var $el = $(el);
+
+      // Applying Aria Hidden attributes
+      if (_this.settings.aria && _this.settings.ariaHiddenOnInit) {
+        _this.setAriaHiddenOnInit($el);
+      }
+
+      // Subscribe to the events
+      $.subscribe($el.data('target'), function (event, val) {
+        var ariaHidden;
+        // $.inArray returns -1 if not in the array and the
+        // array index if it is. Using ~ (Bitwise NOT) with !!
+        // returns false for -1 and true for everything else.
+        var isInArray = !!~$.inArray(val, $el.data('show-array'));
+
+        // if reverse set to true then
+        // reverse the boolean
+        // if($el.data('reverse')){
+        //   isInArray = !isInArray;
+        // }
+
+        if (isInArray) {
+          $el.show();
+          ariaHidden = false;
+        } else {
+          $el.hide();
+          ariaHidden = true;
+        }
+
+        if (_this.settings.aria) {
+          revealPubSub.setAriaHidden($el, ariaHidden);
+        }
+      });
+
+
+    });
+  };
+
+  /**
+   * Trigger all the click events on publishers that
+   * are :checked. This is a feature. See: this.settings.triggerPubsAfterBind.
+   * true by default.
+   */
+  revealPubSub.triggerPublishers = function () {
+    $('.reveal-publish-publisher').is(function (idx, el) {
+      var $el = $(this);
+      if($el.is(':checked')){
+        $el.trigger('click');
+      }
+    });
+  };
+
+  /**
+   * Apply aria-hidden attributes to subscibers
+   * to reflect their state on init()
+   * @param {[type]} $el jQuery element
+   */
+  revealPubSub.setAriaHiddenOnInit = function ($el) {
+    if (!$el.is(':visible')) {
+      revealPubSub.setAriaHidden($el, true);
+      return;
+    }
+    revealPubSub.setAriaHidden($el, false);
+  };
+
+  /**
+   * Util method that changes the aria-hidden
+   * attribute as required
+   * @param {[type]} $el  jQuery element
+   * @param {[type]} bool the aria-hidden attribute will be set to this value
+   */
+  revealPubSub.setAriaHidden = function ($el, bool) {
+    return bool ? $el.attr('aria-hidden', true) : $el.attr('aria-hidden', false);
+  };
+
+  /**
+   * Return the module
+   * NOTE: Call the init method outside passing any
+   *       settings to override defaults
+   */
+  return revealPubSub;
+}());
+},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.selected-option.js":[function(require,module,exports){
 /* Toggles selected option class
 * .block-label > label > input
 */
@@ -189,7 +295,7 @@ module.exports = (function() {
     });
   });
 })();
-},{}],8:[function(require,module,exports){
+},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/polyfills/polyfill.details.js":[function(require,module,exports){
 module.exports = (function () {
   // <details> polyfill
   // http://caniuse.com/#feat=details
@@ -348,4 +454,4 @@ module.exports = (function () {
 
 })();
 
-},{}]},{},[1]);
+},{}]},{},["/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js"]);
