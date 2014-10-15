@@ -1,7 +1,7 @@
 .callout {
   @include span(11 of 12);
   //@include prefix(0.25 of 12);
-  margin:$gutter-half 0;
+  margin:$gutter-half 0 $gutter;
   padding:$gutter $gutter-half;
 
   &.callout-reference{
@@ -11,6 +11,10 @@
   &.callout-fee{
     border-left: 5px solid $turquoise;
     background:lighten($turquoise, 55%);
+  }
+  &.callout-confirmation{
+    background:$turquoise;
+    color:#fff;
   }
   p{
     @include core-19;
