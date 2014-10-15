@@ -125,7 +125,7 @@ en:
           reference: Your reference number
           password: Your memorable word
         edit:
-          password: Enter a memorable word
+          password: Enter a memorable word (at least 5 characters)
           email_address: Email address
 
       claimant:
@@ -230,9 +230,6 @@ en:
         applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
 
     hints:
-      user_session:
-        password: At least 5 characters
-        email_address: Get your reference number in an email
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
@@ -333,9 +330,13 @@ en:
     reference: Your reference number is
     edit:
       header: Before you start
-      legend: Return to complete your application
+      memorable_word_legend: Returning to your application
+      application_number_legend: Application number reminder
       subheader: Keep a note of these details
-      hint: If you don’t finish your application in this session, the only way to come back and complete it is to enter your save and return number and the memorable word you choose below.
+      hint: |
+        Your application number is important.
+
+        You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
     new:
       header: Return to your application
       legend: ''
