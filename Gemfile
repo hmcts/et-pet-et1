@@ -48,7 +48,6 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
 end
-
 gem 'webmock', group: :test
 
 gem 'base32_pure'
@@ -56,6 +55,7 @@ gem 'bcrypt'
 gem 'bitmask_attributes'
 gem 'carrierwave', '~> 0.10'
 gem 'cocaine'
+gem 'compass'
 gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'govuk_frontend_toolkit', '1.2.0'
 gem 'httparty'
@@ -68,6 +68,5 @@ gem 'redcarpet', require: 'redcarpet/compat'
 gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
 gem 'state_machine', require: 'state_machine/core'
-gem 'uk_postcode'
 gem 'susy'
-gem 'compass'
+gem 'uk_postcode'
