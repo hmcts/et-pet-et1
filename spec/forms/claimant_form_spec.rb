@@ -9,7 +9,7 @@ RSpec.describe ClaimantForm, :type => :form do
 
     it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
     it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female prefer_not_to_say> }
-    it { is_expected.to ensure_inclusion_of(:contact_preference).in_array %w<email post fax> }
+    it { is_expected.to ensure_inclusion_of(:contact_preference).in_array %w<email post> }
 
     it { is_expected.to ensure_length_of(:first_name).is_at_most(100) }
     it { is_expected.to ensure_length_of(:last_name).is_at_most(100) }

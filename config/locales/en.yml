@@ -62,7 +62,6 @@ en:
         contact_preference:
           email: Email
           post: Post
-          fax: Fax
 
       respondent:
         no_acas_number_reason:
