@@ -9,7 +9,7 @@ module FormMethods
   end
 
   def end_session
-    click_button 'Complete later'
+    click_link 'Sign out'
     click_button 'Sign out now'
   end
 

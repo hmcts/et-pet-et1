@@ -9,7 +9,7 @@ feature 'Save and Return' do
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Complete later'
+    click_link 'Sign out'
     expect(page).to have_text('Saved')
     expect(page).to have_text(Claim.last.reference)
 
@@ -28,7 +28,7 @@ feature 'Save and Return' do
     fill_in_password_and_email
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Complete later'
+    click_link 'Sign out'
 
     expect(page).to have_text(claim_heading_for(:new))
   end
@@ -36,14 +36,14 @@ feature 'Save and Return' do
   scenario 'ending the session when current page invalid' do
     start_claim
     fill_in_password
-    click_button 'Complete later'
+    click_link 'Sign out'
     expect(page).to have_text('Saved')
   end
 
   scenario 'returning to existing application' do
     start_claim
     fill_in_password 'green'
-    fill_in_personal_details(submit_form: false)
+    fill_in_personal_details
     end_session
     fill_in_return_form Claim.last.reference, 'green'
 

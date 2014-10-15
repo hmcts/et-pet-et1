@@ -45,7 +45,7 @@ feature 'Claim applications', type: :feature do
       expect(claim.authenticate 'green').to eq(claim)
 
       expect(page).to have_text claim_heading_for(:claimant)
-      expect(page).to have_button('Complete later')
+      expect(page).to have_link('Sign out')
     end
 
     scenario 'Entering word and email for save and return' do
