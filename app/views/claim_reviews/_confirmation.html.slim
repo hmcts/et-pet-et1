@@ -1,12 +1,13 @@
-section= format t('.complete', reference: @claim.reference)
+section= t('.complete', reference: @claim.reference)
 section= format t('.fee_paid') if @claim.payment_present?
 section= format t('.remission_help') if @claim.remission_applicable?
 section
   h2= t('.details.header')
   table
-    tr
-      td= t('.details.date_submitted')
-      td= @claim.submitted_at
+    - if @claim.submitted_at.present?
+      tr
+        td= t('.details.date_submitted')
+        td= @claim.submitted_at
     - if @claim.payment_present?
       tr
         td= t('.details.fee_paid')

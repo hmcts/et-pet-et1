@@ -3,26 +3,24 @@ header.main-header
   h1= t('.header')
   p = t('.info')
 
-- content_for(:headeractions) do
-  .buttons-action
-    button.button Print this page
-    button.button Share this page
+.main-section
+  = render partial: 'shared/aside'
 
-= incomplete_claim_warning
+  .main-content
+    = incomplete_claim_warning
+    - presenter.each_section do |section|
+      table.review-table
+        caption = t ".#{section}"
+        colgroup
+          col
+          col
+          col
+        tbody
+        - presenter.methods.grep(/\A#{section}_/).each do |method|
+          tr
+            th= t ".#{method}"
+            td= presenter.send(method)
+            td
+              = link_to t('.change'), page_claim_path(page: section)
 
-- presenter.each_section do |section|
-  table.review-table
-    caption = t ".#{section}"
-    colgroup
-      col
-      col
-      col
-    tbody
-    - presenter.methods.grep(/\A#{section}_/).each do |method|
-      tr
-        th= t ".#{method}"
-        td= presenter.send(method)
-        td
-          = link_to t('.change'), page_claim_path(page: section)
-
-= render partial: 'email_addresses'
+    = render partial: 'email_addresses'

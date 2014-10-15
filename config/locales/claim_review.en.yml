@@ -80,10 +80,8 @@ en:
       add_email_address: Add email address
 
     confirmation:
-      complete: |
-        # Application complete
-
-        Your application reference number: %{reference}
+      header: Application complete
+      complete: 'Your application number: %{reference}'
 
       fee_paid: |
         ## Thank you for your payment. We’ll write to you within 5 working days.

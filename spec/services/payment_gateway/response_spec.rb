@@ -15,7 +15,6 @@ RSpec.describe PaymentGateway::Response, type: :service do
   describe '#valid?' do
     context 'with a valid signature' do
       it 'returns true' do
-        # binding.pry
         expect(subject.valid?).to be true
       end
     end

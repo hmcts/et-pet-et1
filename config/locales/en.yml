@@ -122,7 +122,7 @@ en:
     labels:
       user_session:
         new:
-          reference: Your reference number
+          reference: Your application number
           password: Your memorable word
         edit:
           password: Enter a memorable word (at least 5 characters)
@@ -319,15 +319,23 @@ en:
       claim:
         return: Return to your saved form
 
+  shared:
+    aside:
+      gethelp: Get help
+      read_guide: Read the guide
+      contact_us: Contact us
+      contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
+      signout: Sign out and complete later
+
   errors:
     messages:
       rtf: is not an RTF or plain text file
     user_session:
-      not_found: A claim with that reference number could not be found
-      invalid: This memorable word does not match the reference number
+      not_found: A claim with that application number could not be found
+      invalid: This memorable word does not match the application number
 
   user_sessions:
-    reference: Your reference number is
+    reference: Your application number is
     edit:
       header: Before you start
       memorable_word_legend: Returning to your application
@@ -348,12 +356,13 @@ en:
       subheader: Keep a note of these details
       hint: You need this number to save your work and return to it another time
 
-  guide:
-    header: Guide
-    fees: Fees
-    acas_early_conciliation: |
-      Acas: early conciliation
-    writing_your_claim_statement: Writing your claim statement
+  guides:
+    show:
+      header: Guide
+      fees: Fees
+      acas_early_conciliation: |
+        Acas: early conciliation
+      writing_your_claim_statement: Writing your claim statement
 
   claims:
     new:
@@ -361,7 +370,7 @@ en:
       info: Apply online to an employment tribunal
       body: |
         ## Before you start
-        
+
         You'll need:
 
         * your Acas early conciliation certificate number
@@ -381,7 +390,7 @@ en:
 
       access_details:
         header: Keep a note of these details
-        reference: Your reference number
+        reference: Your application number
         hint: You need this number to save your work and return to it another time
 
       record_details:
@@ -477,7 +486,7 @@ en:
       body: |
         Thank you for starting an employment tribunal claim form.
 
-        Your reference number is:
+        Your application number is:
 
         __%{reference}__
 
@@ -488,7 +497,7 @@ en:
       subject: Employment tribunal submitted
 
     reference:
-      header: Reference number
+      header: Application number
 
   # Form Errors - Handled by ActiveModel
   activemodel:

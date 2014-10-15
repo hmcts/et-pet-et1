@@ -3,14 +3,8 @@ header.main-header.no-steps
   p= t('.info')
 
 .main-section
-  aside
-    h3 Get Help
-    nav
-      ul
-        li
-          = link_to('Read the guide', guide_path)
-        li
-          = link_to('Sign out', user_session_path)
+  = render partial: 'shared/aside', locals: {hide: [:signout]}
+
   .main-content
     = simple_form_for claim, url: claim_path do |f|
       fieldset
