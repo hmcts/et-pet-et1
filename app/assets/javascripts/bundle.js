@@ -160,8 +160,13 @@ module.exports = (function () {
   revealPubSub.bindPublish = function () {
     $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
-      var $el = $(e.target),
-        elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el.val();
+      var $el = $(e.target);
+
+      if($el[0].tagName === "A"){
+        e.preventDefault(); // apply to links only
+      }
+
+      var elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el[0].type === 'radio' ? $el.val() : $el.data('publish-value') || 'OOOPS';
 
       $.publish($el.data('target'), elValue);
     });
@@ -193,15 +198,17 @@ module.exports = (function () {
     var _this = this;
 
     $('.reveal-subscribe').is(function (idx, el) {
-      var $el = $(el);
+      var $el = $(el), subscribeStr;
 
       // Applying Aria Hidden attributes
       if (_this.settings.aria && _this.settings.ariaHiddenOnInit) {
         _this.setAriaHiddenOnInit($el);
       }
 
+      subscribeStr = $el.data('subscribe-override') || $el.data('target');
+
       // Subscribe to the events
-      $.subscribe($el.data('target'), function (event, val) {
+      $.subscribe(subscribeStr, function (event, val) {
         var ariaHidden;
         // $.inArray returns -1 if not in the array and the
         // array index if it is. Using ~ (Bitwise NOT) with !!
