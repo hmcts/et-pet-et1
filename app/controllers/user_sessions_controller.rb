@@ -6,10 +6,6 @@ class UserSessionsController < ApplicationController
     redirect_to root_path if claim.email_address.present?
   end
 
-  def new
-    session.clear
-  end
-
   def create
     if user_session.save
       session[:claim_reference] = user_session.reference
