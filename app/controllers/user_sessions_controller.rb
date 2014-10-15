@@ -2,6 +2,10 @@ class UserSessionsController < ApplicationController
   skip_before_action :ensure_claim_exists, except: :destroy
   before_action :get_claim_reference, only: %i<show edit update destroy>
 
+  def show
+    redirect_to root_path if claim.email_address.present?
+  end
+
   def new
     session.clear
   end
@@ -28,6 +32,7 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    claim.update_attributes(email_address: user_session.email_address)
     deliver_access_details
     session.clear
     redirect_to root_path
