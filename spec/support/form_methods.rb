@@ -3,6 +3,34 @@ module FormMethods
   CLAIMANT_EMAIL = 'barrington@example.com'
   REPRESENTATIVE_EMAIL = 'rep@example.com'
 
+  extend ActiveSupport::Concern
+
+  included do
+    let(:fgr_response) do
+      {
+        "fgr"               => 511234567800,
+        "ETOfficeCode"      => 22,
+        "ETOfficeName"      => "Birmingham",
+        "ETOfficeAddress"   => "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU",
+        "ETOfficeTelephone" => "0121 600 7780"
+      }
+    end
+
+    before do
+      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
+        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+    end
+
+    around do |example|
+      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
+        to_return(:status => 200, :body => "", :headers => {})
+
+      PaymentGateway::TASK.run
+      example.run
+      PaymentGateway::TASK.stop
+    end
+  end
+
   def start_claim
     visit '/'
     click_button 'Start now'
@@ -100,8 +128,6 @@ module FormMethods
 
     check  "I don't have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
-
-    # choose 'respondent_was_employed_true'
 
     click_button 'Save and continue'
   end
