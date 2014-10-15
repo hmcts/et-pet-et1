@@ -23,7 +23,13 @@ module.exports = (function () {
     // Apply aria-hidden attributes to subscribers when
     // as part of the bindSubscribe method
     // NOTE: settings.aria has to be set to true as well
-    ariaHiddenOnInit: true
+    ariaHiddenOnInit: true,
+
+    // Trigger the click event on any :checked publishers
+    // after all the events are bound.
+    // Useful when you need to reset the state of the page
+    // after a form submit
+    triggerPubsAfterBind: true
   };
 
   /**
@@ -32,8 +38,11 @@ module.exports = (function () {
   revealPubSub.init = function (options) {
     // Extend default with options and store as settings
     this.settings = $.extend({}, defaults, options);
-    this.bindPublish();
     this.bindSubscribe();
+    this.bindPublish();
+    if(this.settings.triggerPubsAfterBind){
+      this.triggerPublishers();
+    }
   };
 
   /**
@@ -64,8 +73,10 @@ module.exports = (function () {
   revealPubSub.bindPublish = function () {
     $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
-      var $el = $(e.target);
-      $.publish($el.data('target'), $el.val());
+      var $el = $(e.target),
+        elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el.val();
+
+      $.publish($el.data('target'), elValue);
     });
   };
 
@@ -105,7 +116,18 @@ module.exports = (function () {
       // Subscribe to the events
       $.subscribe($el.data('target'), function (event, val) {
         var ariaHidden;
-        if ($.inArray(val, $el.data('show-array')) !== -1) {
+        // $.inArray returns -1 if not in the array and the
+        // array index if it is. Using ~ (Bitwise NOT) with !!
+        // returns false for -1 and true for everything else.
+        var isInArray = !!~$.inArray(val, $el.data('show-array'));
+
+        // if reverse set to true then
+        // reverse the boolean
+        // if($el.data('reverse')){
+        //   isInArray = !isInArray;
+        // }
+
+        if (isInArray) {
           $el.show();
           ariaHidden = false;
         } else {
@@ -119,6 +141,20 @@ module.exports = (function () {
       });
 
 
+    });
+  };
+
+  /**
+   * Trigger all the click events on publishers that
+   * are :checked. This is a feature. See: this.settings.triggerPubsAfterBind.
+   * true by default.
+   */
+  revealPubSub.triggerPublishers = function () {
+    $('.reveal-publish-publisher').is(function (idx, el) {
+      var $el = $(this);
+      if($el.is(':checked')){
+        $el.trigger('click');
+      }
     });
   };
 

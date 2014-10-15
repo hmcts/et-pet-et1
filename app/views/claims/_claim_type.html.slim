@@ -47,11 +47,15 @@
       = f.input :is_whistleblowing,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',
-        wrapper_class: 'form-group-reveal',
-        reveal: { true => :send_claim_to_whistleblowing_entity_wrapper }
+        input_html: { class: 'reveal-publish-publisher'},
+        wrapper_class: 'form-group-reveal reveal-publish-delegate',
+        reveal: { true => 'sub1', false => 'sub1' }
 
       = f.input :send_claim_to_whistleblowing_entity,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',
         wrapper_class: 'panel-indent toggle-content',
-        wrapper_html: { id: :send_claim_to_whistleblowing_entity_wrapper }
+        wrapper_html: { :id => :send_claim_to_whistleblowing_entity_wrapper,
+                        :class => 'reveal-subscribe',
+                        :'data-target' => 'sub1',
+                        :'data-show-array' => '["true"]' }
