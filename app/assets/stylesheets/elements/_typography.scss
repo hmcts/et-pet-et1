@@ -161,6 +161,8 @@ code {
 // For copy coming out of markdown
 // ==========================================================================
 .content-copy {
+  clear:both;
+  overflow:hidden;
   h2 {
     @extend .bold-medium;
     border-bottom:1px solid $grey-2;
