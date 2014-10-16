@@ -4,7 +4,6 @@ class ClaimsController < ApplicationController
 
   def new
     @claim = Claim.new
-    session.clear
   end
 
   def create
