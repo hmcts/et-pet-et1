@@ -11,7 +11,7 @@
       reveal: { true => 'main', false => 'main' }
 
     /! reveal_current_situation
-    fieldset#reveal_current_situation.reveal-subscribe.reveal-publish-delegate data-target="main" data-show-array='["true"]'
+    fieldset#reveal_current_situation.reveal-subscribe.reveal-publish-delegate.toggle-content data-target="main" data-show-array='["true"]'
       legend= t '.current_situation_legend'
 
       /! Radios: 3 options
@@ -24,7 +24,7 @@
                   'notice_period'         => 'sub1',
                   'employment_terminated' => 'sub1'}
 
-      #employment_ppb_wrapper.reveal-subscribe data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
+      #employment_ppb_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
         /! Employment details
         fieldset#employment_details
           legend= t '.employment_details_legend'
@@ -112,7 +112,7 @@
 
       /! New job fieldset
       /! reveal on option 3
-      fieldset#end_date_wrapper.reveal-subscribe data-target="sub1" data-show-array='["employment_terminated"]'
+      fieldset#end_date_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["employment_terminated"]'
         legend= t '.new_job_legend'
 
         = f.input :found_new_job,
@@ -123,7 +123,7 @@
           reveal: { true => 'sub3', false => 'sub3' }
 
         /! reveal on option yes of the above
-        #reveal_new_job.panel-indent.reveal-subscribe data-target="sub3" data-show-array='["true"]'
+        #reveal_new_job.panel-indent.reveal-subscribe.toggle-content data-target="sub3" data-show-array='["true"]'
           = f.input :new_job_start_date
 
           = f.input :new_job_gross_pay,
