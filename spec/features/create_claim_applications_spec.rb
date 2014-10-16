@@ -152,8 +152,18 @@ feature 'Claim applications', type: :feature do
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
       content = email.parts.find {|p| p.content_type.match /html/ }.body.raw_source
 
-      expect(content).to include completion_message(Claim.last.reference)
+      expect(content).to include completion_message
       expect(content).to include 'Attached'
+    end
+
+    scenario 'Submitting claim when no email addresses' do
+      ActionMailer::Base.deliveries = []
+      complete_a_claim seeking_remissions: false, claimant_email: false
+      click_button 'Submit the form'
+
+      expect(ActionMailer::Base.deliveries.size).to eq 0
+
+      expect(page.html).to include completion_message
     end
 
     scenario 'Submitting the claim when payment is not required' do
@@ -161,7 +171,7 @@ feature 'Claim applications', type: :feature do
       complete_a_claim
       click_button 'Submit the form'
 
-      expect(page.html).to include completion_message(Claim.last.reference)
+      expect(page.html).to include completion_message
       expect(page.html).not_to include table_heading('fee_paid')
       expect(page.html).not_to include table_heading('fee_to_pay')
       expect(page.html).to include remission_help
@@ -223,7 +233,7 @@ feature 'Claim applications', type: :feature do
 
       return_from_payment_gateway('decline')
 
-      expect(page.html).to include completion_message(Claim.last.reference)
+      expect(page.html).to include completion_message
       expect(page.html).not_to include table_heading('fee_paid')
       expect(page.html).to include table_heading('fee_to_pay')
       expect(page.html).not_to include remission_help

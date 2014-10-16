@@ -31,7 +31,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_personal_details(submit_form: true)
+  def fill_in_personal_details(options = {})
     select 'Mr', from: 'Title'
 
     fill_in 'First name', with: 'Barrington'
@@ -47,13 +47,17 @@ module FormMethods
 
     fill_in 'Alternative phone',   with: '07956000000'
 
-    choose  'claimant_contact_preference_email'
-    fill_in 'Email address', with: CLAIMANT_EMAIL
+    if options[:claimant_email] == false
+      choose 'claimant_contact_preference_post'
+    else
+      choose  'claimant_contact_preference_email'
+      fill_in 'Email address', with: CLAIMANT_EMAIL
+    end
 
     choose  'claimant_has_special_needs_true'
     fill_in 'Tell us how we can help you.', with: 'I am blind.'
 
-    click_button 'Save and continue' if submit_form
+    click_button 'Save and continue' unless options[:submit_form] == false
   end
 
   def fill_in_representative_details
@@ -166,8 +170,8 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_your_fee seeking_remissions: false
-    choose "your_fee_applying_for_remission_#{seeking_remissions}"
+  def fill_in_your_fee options={}
+    choose "your_fee_applying_for_remission_#{options[:seeking_remissions] || false}"
 
     click_button 'Save and continue'
   end
@@ -182,7 +186,7 @@ module FormMethods
   def complete_a_claim(options={})
     start_claim
     fill_in_password
-    fill_in_personal_details
+    fill_in_personal_details(options)
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details

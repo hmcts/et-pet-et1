@@ -13,8 +13,8 @@ module Messages
     I18n.t("claim_reviews.#{page}.header")
   end
 
-  def completion_message(reference)
-    I18n.t('claim_reviews.confirmation.complete', reference: reference)
+  def completion_message
+    I18n.t('claim_reviews.confirmation.header')
   end
 
   def payment_message

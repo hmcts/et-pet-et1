@@ -3,7 +3,7 @@ class ClaimReviewsController < ApplicationController
 
   def update
     claim.submit!
-    BaseMailer.confirmation_email(claim, email_address_params).deliver_later
+    BaseMailer.confirmation_email(claim, email_address_params).deliver_later if email_address_params.reject(&:blank?).any?
     redirect_to claim.payment_required? ? page_claim_path(page: 'pay') : claim_confirmation_path
   end
 
