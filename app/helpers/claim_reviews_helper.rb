@@ -11,4 +11,20 @@ module ClaimReviewsHelper
   def review_header
     I18n.t("#{current_step}.header")
   end
+
+  def email_addresses
+    claimants = claim.claimants.pluck(:email_address)
+    representatives = [claim.representative.try(:email_address)]
+
+    (claimants + representatives).reject(&:blank?)
+  end
+
+  def presenter
+    @presenter ||= ClaimPresenter.new(claim)
+  end
+
+  def confirmation_email
+    @confirmation_email ||= ConfirmationEmail.new
+  end
+
 end
