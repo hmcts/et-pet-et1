@@ -464,7 +464,7 @@ en:
       header: Prefered outcome
       claim_outcome: Your prefered claim outcome
     additional_information:
-      header: Additional information
+      header: More details
       remove_attachment: |
         Remove previously uploaded document: %{file}
     your_fee:
