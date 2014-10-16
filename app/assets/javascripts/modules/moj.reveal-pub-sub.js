@@ -71,7 +71,7 @@ module.exports = (function () {
       </div>
    */
   revealPubSub.bindPublish = function () {
-    $('.reveal-publish-delegate').on('click', '.reveal-publish-publisher', function (e) {
+    $('.reveal-publish-delegate').on('click pseudo-click', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
       var $el = $(e.target),
         elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el.val();
@@ -153,7 +153,7 @@ module.exports = (function () {
     $('.reveal-publish-publisher').is(function (idx, el) {
       var $el = $(this);
       if($el.is(':checked')){
-        $el.trigger('click');
+        $el.trigger('pseudo-click');
       }
     });
   };
