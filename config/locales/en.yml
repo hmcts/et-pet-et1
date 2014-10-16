@@ -47,6 +47,7 @@ en:
 
       representative:
         type:
+          citizen_advice_bureau: Citizens Advice Bureau
           free_representation_unit: Free Representation Unit
           law_centre: Law centre
           solicitor: Solicitor
@@ -372,11 +373,11 @@ en:
         header: Have you contacted ACAS?
         body: |
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your application. [Learn about ACAS](/guide#acas_early_conciliation)
-      what_you_need_to_know: 
+      what_you_need_to_know:
         body: |
           ## Before you start
           * This is not a free service. [Find out about fees](/guide#fees)
-          
+
           You'll need:
 
           * your Acas early conciliation certificate number
@@ -446,7 +447,7 @@ en:
       header: Your claim type
       claim_type: Claim type
       claim_type_label: Tick the type of claim(s) that matches your application best.
-      claim_type_hint: | 
+      claim_type_hint: |
         Tick the type of claim(s) that best matches your application. If your application is successful, you can discuss additional claims with the officials handling your case.
       unfair_dismissal: Unfair dismissal (including constructive dismissal)
       discrimination: Discrimination
