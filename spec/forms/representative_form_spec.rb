@@ -2,31 +2,70 @@ require 'rails_helper'
 
 RSpec.describe RepresentativeForm, :type => :form do
   describe 'validations' do
-    [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
-      it { is_expected.to validate_presence_of(attr) }
+    context 'when has_representative? == true' do
+      before { subject.has_representative = true }
+
+      [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
+        it { is_expected.to validate_presence_of(attr) }
+      end
+
+      it do
+        is_expected.to ensure_inclusion_of(:type).in_array \
+         %w<citizen_advice_bureau free_representation_unit law_centre trade_union
+             solicitor private_individual trade_association other>
+      end
+
+      it { is_expected.to ensure_length_of(:name).is_at_most(100) }
+      it { is_expected.to ensure_length_of(:organisation_name).is_at_most(100) }
+
+      it { is_expected.to ensure_length_of(:address_building).is_at_most(75) }
+      it { is_expected.to ensure_length_of(:address_street).is_at_most(75) }
+      it { is_expected.to ensure_length_of(:address_locality).is_at_most(25) }
+      it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
+      it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
+
+      it { is_expected.to ensure_length_of(:address_telephone_number).is_at_most(21) }
+      it { is_expected.to ensure_length_of(:mobile_number).is_at_most(21) }
+      it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
+
+      include_examples "Postcode validation", attribute_prefix: 'address'
     end
 
-    it do
-      is_expected.to ensure_inclusion_of(:type).in_array \
-       %w<citizen_advice_bureau free_representation_unit law_centre trade_union
-           solicitor private_individual trade_association other>
+    context 'when has_representative? == false' do
+      before { subject.has_representative = false }
+
+      [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
+        it { is_expected.to_not validate_presence_of(attr) }
+      end
+
+      it do
+        is_expected.to_not ensure_inclusion_of(:type).in_array \
+         %w<citizen_advice_bureau free_representation_unit law_centre trade_union
+             solicitor private_individual trade_association other>
+      end
+
+      it { is_expected.to_not ensure_length_of(:name).is_at_most(100) }
+      it { is_expected.to_not ensure_length_of(:organisation_name).is_at_most(100) }
+
+      it { is_expected.to_not ensure_length_of(:address_building).is_at_most(75) }
+      it { is_expected.to_not ensure_length_of(:address_street).is_at_most(75) }
+      it { is_expected.to_not ensure_length_of(:address_locality).is_at_most(25) }
+      it { is_expected.to_not ensure_length_of(:address_county).is_at_most(25) }
+      it { is_expected.to_not ensure_length_of(:address_post_code).is_at_most(8) }
+
+      it { is_expected.to_not ensure_length_of(:address_telephone_number).is_at_most(21) }
+      it { is_expected.to_not ensure_length_of(:mobile_number).is_at_most(21) }
+      it { is_expected.to_not ensure_length_of(:dx_number).is_at_most(20) }
+
+      describe 'postcode validation' do
+        before { subject.address_post_code = "FLOMP A STROOPWAFFEL" }
+
+        it 'does not perform validation' do
+          expect(subject.errors[:address_post_code]).to be_empty
+        end
+      end
     end
-
-    it { is_expected.to ensure_length_of(:name).is_at_most(100) }
-    it { is_expected.to ensure_length_of(:organisation_name).is_at_most(100) }
-
-    it { is_expected.to ensure_length_of(:address_building).is_at_most(75) }
-    it { is_expected.to ensure_length_of(:address_street).is_at_most(75) }
-    it { is_expected.to ensure_length_of(:address_locality).is_at_most(25) }
-    it { is_expected.to ensure_length_of(:address_county).is_at_most(25) }
-    it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
-
-    it { is_expected.to ensure_length_of(:address_telephone_number).is_at_most(21) }
-    it { is_expected.to ensure_length_of(:mobile_number).is_at_most(21) }
-    it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
   end
-
-include_examples "Postcode validation", attribute_prefix: 'address'
 
   attributes = {
     name: 'Saul Goodman', organisation_name: 'Better Call Saul',

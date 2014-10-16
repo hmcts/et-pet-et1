@@ -1,10 +1,11 @@
 class RepresentativeForm < Form
   include AddressAttributes
 
+  boolean :has_representative
+
   attributes :type, :organisation_name, :name,
              :mobile_number, :email_address, :dx_number,
              :contact_preference
-
 
   validates :type, :name, presence: true
 
@@ -12,6 +13,14 @@ class RepresentativeForm < Form
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 20 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
+
+  def valid?
+    if has_representative?
+      super
+    else
+      true
+    end
+  end
 
   private def target
     resource.representative || resource.build_representative
