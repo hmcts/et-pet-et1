@@ -3,17 +3,15 @@
   fieldset.form-panel
     legend= t '.header'
     = f.input :name
-
     = f.input :acas_early_conciliation_certificate_number, required: true
     = f.input :no_acas_number,
-      as: :boolean,
+      as: :gds_check_boxes,
       required: true,
-      boolean_style: :inline,
-      wrapper_class: 'reveal-publish-delegate',
+      wrapper_class: 'reveal-publish-delegate clearfix',
       input_html: { :class => 'reveal-publish-publisher',
                     :'data-target' => 'main'}
 
-    div.clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
+    .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
       .panel-indent
         = f.input :no_acas_number_reason,
           collection: FormOptions::NO_ACAS_REASON,
