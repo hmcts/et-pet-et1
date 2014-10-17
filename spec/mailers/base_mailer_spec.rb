@@ -28,6 +28,27 @@ describe BaseMailer do
     it 'has reference in body' do
       expect(email.body).to include claim.reference
     end
+
+    context 'when mailer raises exceptions' do
+      before do
+        Mail::Message.class_eval do
+          alias_method :original_original_deliver, :original_deliver
+          def original_deliver; raise Net::SMTPFatalError; end
+        end
+      end
+
+      it 'logs and rescues' do
+        expect(Rails.logger).to receive(:warn)
+        email
+      end
+
+      after do
+        Mail::Message.class_eval do
+          alias_method :original_deliver, :original_original_deliver
+        end
+      end
+    end
+
   end
 
   describe '#confirmation_email' do
