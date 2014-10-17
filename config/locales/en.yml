@@ -360,6 +360,7 @@ en:
     show:
       header: Guide
       fees: Fees
+      help_with_paying_the_fees: Help with paying the fees
       acas_early_conciliation: |
         Acas: early conciliation
       writing_your_claim_statement: Writing your claim statement
