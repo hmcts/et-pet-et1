@@ -2,7 +2,7 @@
 
 You must contact Acas (Advisory, Conciliation and Arbitration Service) to use their free ‘Early Conciliation’ service before applying to an employment tribunal.
  
-Fill in the Acas early conciliation notification form [https://ec.acas.org.uk/] or call Acas to provide your information:
+Fill in the [Acas early conciliation notification](https://ec.acas.org.uk/) form or call Acas to provide your information:
  
 ### Acas
 - Telephone: 0300 123 1100
@@ -14,7 +14,7 @@ Fill in the Acas early conciliation notification form [https://ec.acas.org.uk/] 
  
 You’ll get a certificate from Acas if conciliation doesn’t work.
  
-On the certificate is your ‘Acas early conciliation certificate number’, starting ‘R’ or ‘MU’ [I’ve checked with Daniel Thompson. Should also check with Helen Mott].  You must quote this number.
+On the certificate is your ‘Acas early conciliation certificate number’, starting ‘R’ or ‘MU’.  You must quote this number.
 
 ## Time limits
  
@@ -50,4 +50,4 @@ The tribunal must receive your claim and application for interim relief within 7
  
 If you’re applying for interim relief, you don’t have to contact Acas for early conciliation.
  
-For more information about interim relief, read ‘Making a claim to an employment tribunal’ [http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=2622]
+For more information about interim relief, read [Making a claim to an employment tribunal](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/306273/employment-tribunal-making-claim-t420.pdf)
