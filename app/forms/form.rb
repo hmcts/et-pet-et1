@@ -13,7 +13,7 @@ class Form
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
   def column_for_attribute *args
-    silence_stream(STDERR) do
+    ActiveSupport::Deprecation.silence do
       target.column_for_attribute *args
     end
   end
