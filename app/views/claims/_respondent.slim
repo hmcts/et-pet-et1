@@ -19,29 +19,29 @@
           required: true,
           item_wrapper_class: 'block-label large-label'
 
-    fieldset.form-panel
-      legend= t '.contact_legend'
-      = f.input :address_building
-      = f.input :address_street
-      = f.input :address_locality
-      = f.input :address_county
-      = f.input :address_post_code, input_html: {class: 'short-input'}
-      = f.input :address_telephone_number
+  fieldset.form-panel
+    legend= t '.contact_legend'
+    = f.input :address_building
+    = f.input :address_street
+    = f.input :address_locality
+    = f.input :address_county
+    = f.input :address_post_code, input_html: {class: 'short-input'}
+    = f.input :address_telephone_number
 
-    fieldset.form-panel
-      legend= t '.workaddress_legend'
-      = f.input :worked_at_same_address,
-        as: :radio_buttons,
-        wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
-        item_wrapper_class: 'block-label',
-        input_html: { :class => 'reveal-publish-publisher'},
-        reveal: { true => 'sub1', false => 'sub1' }
+  fieldset.form-panel
+    legend= t '.workaddress_legend'
+    = f.input :worked_at_same_address,
+      as: :radio_buttons,
+      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
+      item_wrapper_class: 'block-label',
+      input_html: { :class => 'reveal-publish-publisher'},
+      reveal: { true => 'sub1', false => 'sub1' }
 
-      #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
-        p.form-hint= t '.work_address'
-        = f.input :work_address_building
-        = f.input :work_address_street
-        = f.input :work_address_locality
-        = f.input :work_address_county
-        = f.input :work_address_post_code, input_html: {class: 'short-input'}
-        = f.input :work_address_telephone_number
+    #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
+      p.form-hint= t '.work_address'
+      = f.input :work_address_building
+      = f.input :work_address_street
+      = f.input :work_address_locality
+      = f.input :work_address_county
+      = f.input :work_address_post_code, input_html: {class: 'short-input'}
+      = f.input :work_address_telephone_number
