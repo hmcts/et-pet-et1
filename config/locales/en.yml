@@ -279,7 +279,8 @@ en:
 
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
-        claim_details: Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
+        claim_details: |
+          Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -296,7 +297,8 @@ en:
           (RTF) file. You can usually save a file as an RTF by selecting File >
           Save As > Format: Rich Text Format.
       your_fee:
-        applying_for_remission: Find out if you <a href="/guide#fees">qualify for help with fees.</a>
+        applying_for_remission: |
+          Find out if you <a href="/guide#fees">qualify for help with fees.</a>
 
 
   helpers:
@@ -414,7 +416,8 @@ en:
       form_legend: Professional (or other) help
       representative_legend: About your representative
       contact_legend: Contact details
-      has_representative_label: Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
+      has_representative_label: |
+        Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
       has_representative_yes: 'Yes'
       has_representative_no: 'No'
       has_representative_hint: ''
