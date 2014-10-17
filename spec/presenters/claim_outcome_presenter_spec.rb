@@ -11,7 +11,7 @@ RSpec.describe ClaimOutcomePresenter, type: :presenter do
   its(:desired_outcomes) do
     is_expected.
       to eq "A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)" +
-        "<br />To get another job with the same employer or associated employer, and compensation"
+        "<br />To get another job with the same employer or associated employer"
   end
 
   its(:other_outcome) { is_expected.to eq("<p>25 bags\n<br />your job</p>") }

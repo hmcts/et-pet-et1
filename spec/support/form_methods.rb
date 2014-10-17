@@ -5,7 +5,7 @@ module FormMethods
 
   def start_claim
     visit '/'
-    click_button 'Apply now'
+    click_button 'Start now'
   end
 
   def end_session

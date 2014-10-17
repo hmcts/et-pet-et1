@@ -50,6 +50,7 @@ en:
           citizen_advice_bureau: Citizens Advice Bureau
           free_representation_unit: Free Representation Unit
           law_centre: Law centre
+          trade_union: Trade union
           solicitor: Solicitor
           private_individual: Private individual
           trade_association: Trade association
@@ -87,8 +88,8 @@ en:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get my old job back and compensation
-          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
+          reinstated_employment_and_compensation: To get my old job back
+          new_employment_and_compensation: To get another job with the same employer or associated employer
       claim_type:
         discrimination_claims:
           sex_including_equal_pay: Sex (including equal pay)
@@ -110,8 +111,8 @@ en:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get my old job back and compensation
-          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
+          reinstated_employment_and_compensation: To get my old job back
+          new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
       user_session:
@@ -183,7 +184,7 @@ en:
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
-        was_employed: Are – or were – you employed by the person or organisation you're making a claim against?
+        was_employed: Were you - or are you still - employed by the person or organisation you’re making a claim against?
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -235,7 +236,7 @@ en:
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
       representative:
-        type: Acas conciliators are not representatives
+        type: Should be someone who will speak for you in court, not just someone who offered you advice at the start.
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
@@ -270,7 +271,7 @@ en:
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
-          For example, your employer hasn’t allowed you to take your statutory annual leave entitlement.
+          If you can’t see a good match for your claim or want to add a claim that doesn’t appear in the options above.
         other_claim_details: |
           For example, your employer hasn’t allowed you to take your statutory annual leave entitlement. If you know the relevant law, you can tell us here.
         is_whistleblowing: |
@@ -278,7 +279,8 @@ en:
 
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
-        claim_details: Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
+        claim_details: |
+          Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -295,7 +297,8 @@ en:
           (RTF) file. You can usually save a file as an RTF by selecting File >
           Save As > Format: Rich Text Format.
       your_fee:
-        applying_for_remission: Find out if you qualify for help with fees.
+        applying_for_remission: |
+          Find out if you <a href="/guide#fees">qualify for help with fees.</a>
 
 
   helpers:
@@ -303,7 +306,7 @@ en:
       update: Save and continue
       return: Complete later
       claim:
-        create: Apply now
+        create: Start now
       claim_review:
         update: Submit the form
       user_session:
@@ -314,7 +317,7 @@ en:
         create: Submit the form
     link:
       claim:
-        return: Return to your saved form
+        return: Return to your application
 
   shared:
     aside:
@@ -334,7 +337,7 @@ en:
   user_sessions:
     reference: Your application number is
     edit:
-      header: Before you start
+      header: Your application number
       memorable_word_legend: Returning to your application
       application_number_legend: Application number reminder
       subheader: Keep a note of these details
@@ -387,7 +390,7 @@ en:
 
           ## What you'll need to know
 
-          * services covers England, Wales and Scotland
+          * covers England, Wales and Scotland
           * takes around 45 minutes
         detail: how we use your information
         summary: |
@@ -410,26 +413,25 @@ en:
       contact_details: Contact details
     representative:
       header: Your representative
-      form_legend: Representative
-      representative_legend: Representative's details
+      form_legend: Professional (or other) help
+      representative_legend: About your representative
       contact_legend: Contact details
-      has_representative_label: Do you have a representative?
+      has_representative_label: |
+        Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
       has_representative_yes: 'Yes'
       has_representative_no: 'No'
-      has_representative_hint: Someone who has agreed to represent you (for example, to prepare  your case and/or act on  your behalf if there is a hearing).
+      has_representative_hint: ''
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg, legal firms)
 
     respondent:
-      header: Employer's details
-      form_legend: Employer's details
+      header: Who you're making a claim against
+      form_legend: Respondent's details
       contact_legend: Contact details
       workaddress_legend: Your work address
       hint: |
-        Give details about the employer, person or organisation you're making a claim
-        against (known as the 'respondent' at a tribunal). If you need to, you
-        can add more respondents later.
+        Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal. You can add more names and details later, if needed.
       work_address: Give details of your work address.
     employment:
       header: Employment detail
@@ -445,31 +447,31 @@ en:
 
     claim_type:
       header: Your claim type
-      claim_type: Claim type
+      claim_type: What your claim is about
       claim_type_label: Tick the type of claim(s) that matches your application best.
       claim_type_hint: |
         Tick the type of claim(s) that best matches your application. If your application is successful, you can discuss additional claims with the officials handling your case.
       unfair_dismissal: Unfair dismissal (including constructive dismissal)
       discrimination: Discrimination
       pay: Pay
-      other_type: Another type of claim
+      other_type: Other type of claim (not shown above)
       whistleblowing: Whistleblowing claim
 
     claim_details:
       header: Your claim details
-      claim_details: Claim details
+      claim_details: About your claim
       similar_claims: Similar claims
 
     claim_outcome:
       header: Prefered outcome
-      claim_outcome: Your prefered claim outcome
+      claim_outcome: Choose your preferred outcome(s)
     additional_information:
       header: More details
       remove_attachment: |
         Remove previously uploaded document: %{file}
     your_fee:
       header: Your fee
-      application_fee: Application fee
+      application_fee: Fee for applying
       reduce_fee: Reduce your fee
       remission_applied_info_heading: You don’t need to pay the above fee now.
       remisison_applied_info_text: |
