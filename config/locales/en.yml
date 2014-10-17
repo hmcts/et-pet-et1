@@ -298,7 +298,7 @@ en:
           Save As > Format: Rich Text Format.
       your_fee:
         applying_for_remission: |
-          Find out if you <a href="/guide#fees">qualify for help with fees.</a>
+          Find out if you <a href="/guide#help_with_paying_the_fees">qualify for help with fees.</a>
 
 
   helpers:
@@ -360,6 +360,7 @@ en:
     show:
       header: Guide
       fees: Fees
+      help_with_paying_the_fees: Help with paying the fees
       acas_early_conciliation: |
         Acas: early conciliation
       writing_your_claim_statement: Writing your claim statement
