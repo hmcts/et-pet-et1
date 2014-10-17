@@ -64,7 +64,7 @@ gem 'logstasher'
 gem 'moj_template', '0.12.0'
 gem 'pdf-forms'
 gem 'pg'
-gem 'redcarpet', require: 'redcarpet/compat'
+gem 'redcarpet'
 gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
 gem 'state_machine', require: 'state_machine/core'
