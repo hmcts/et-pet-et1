@@ -13,12 +13,13 @@
       input_html: { :class => 'reveal-publish-publisher',
                     :'data-target' => 'main'}
 
-    .panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
-      = f.input :no_acas_number_reason,
-        collection: FormOptions::NO_ACAS_REASON,
-        as: :radio_buttons,
-        required: true,
-        item_wrapper_class: 'block-label large-label'
+    div.clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
+      .panel-indent
+        = f.input :no_acas_number_reason,
+          collection: FormOptions::NO_ACAS_REASON,
+          as: :radio_buttons,
+          required: true,
+          item_wrapper_class: 'block-label large-label'
 
     fieldset.form-panel
       legend= t '.contact_legend'

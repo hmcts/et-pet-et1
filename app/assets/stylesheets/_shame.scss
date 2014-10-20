@@ -104,3 +104,11 @@ aside {
 .inline-buttons{
   margin:$gutter-half 0;
 }
+
+
+input[type=radio]{
+  background: transparent;
+  outline: none;
+  border:none;
+}
+

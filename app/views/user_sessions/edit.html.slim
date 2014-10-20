@@ -7,9 +7,10 @@ header.main-header.no-steps
   .main-content
     .main-column
 
-      .callout.callout-reference
-        p.detail= t('user_sessions.reference')
-        span.number= claim.reference
+      .clearfix
+        .callout.callout-reference style="clear:both;"
+          p.detail= t('user_sessions.reference')
+          span.number= claim.reference
 
       = simple_form_for user_session, url: user_session_path do |f|
         fieldset.form-panel
