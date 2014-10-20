@@ -12,7 +12,7 @@ module ClaimsHelper
   end
 
   def total_pages
-    transition_manager.pages
+    transition_manager.total_pages
   end
 
   private def markdown
