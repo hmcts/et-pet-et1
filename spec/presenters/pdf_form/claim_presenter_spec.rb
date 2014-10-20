@@ -19,7 +19,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
       %i<notice holiday arrears other>.each do |type|
         let(:claim) { Claim.new pay_claims: [type] }
 
-        it "returns true when '#{type}' pay complaint" do
+        it "returns yes when '#{type}' pay complaint" do
           expect(hash).to include('8.1 owed' => 'yes')
         end
       end
@@ -27,8 +27,15 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
 
     context 'when redundancy' do
       let(:claim) { Claim.new pay_claims: ['redundancy'] }
-      it "returns false when 'redundancy' pay complaint" do
+      it "returns Off when 'redundancy' pay complaint" do
         expect(hash).to include('8.1 owed' => 'Off')
+      end
+    end
+
+    context 'when whistleblowing' do
+      let(:claim) { Claim.new send_claim_to_whistleblowing_entity: true }
+      it 'returns yes when whistleblowing' do
+        expect(hash).to include('10.1' => 'yes')
       end
     end
   end
