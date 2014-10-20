@@ -55,7 +55,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
       "9.1 compensation" => dual_state(desired_outcomes?(:compensation_only)),
       "9.1 recommendation" => dual_state(desired_outcomes?(:tribunal_recommendation)),
       "9.2" => other_outcome,
-      "10.1" => dual_state(is_whistleblowing?),
+      "10.1" => dual_state(send_claim_to_whistleblowing_entity?),
 
       "15" => miscellaneous_information
     }
