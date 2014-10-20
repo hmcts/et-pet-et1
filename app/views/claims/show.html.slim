@@ -1,10 +1,10 @@
 header.main-header
-  h3 Page 1 of 11
+  h3= "Page #{current_page} of #{total_pages}"
   h1= claim_header
 
 .main-section
   = render partial: 'shared/aside'
-  
+
   .main-content
     = simple_form_for resource, url: claim_path, multipart: true do |f|
       = hidden_field_tag :page, current_step

@@ -25,7 +25,7 @@ class ClaimsController < ApplicationController
 
   private
 
-  def transition_manager
+  helper_method def transition_manager
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)
   end
 
