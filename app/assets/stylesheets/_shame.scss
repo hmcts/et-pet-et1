@@ -43,7 +43,7 @@ legend {
     @include bold-19();
     margin-bottom:0;
     padding-bottom:0;
-    border:none; 
+    border:none;
   }
 }
 
@@ -104,3 +104,11 @@ aside {
 .inline-buttons{
   margin:$gutter-half 0;
 }
+
+
+input[type=radio]{
+  background: transparent;
+  outline: none;
+  border:none;
+}
+
