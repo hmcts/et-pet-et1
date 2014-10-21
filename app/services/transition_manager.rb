@@ -1,5 +1,5 @@
 class TransitionManager
-  Transition = Struct.new(:from, :to, :condition)
+  Transition = Struct.new(:page, :from, :to, :condition)
 
   class << self
     def rules
@@ -7,7 +7,7 @@ class TransitionManager
     end
 
     def transition(rule)
-      self.rules << Transition.new(*rule.shift, rule[:if])
+      self.rules << Transition.new(self.rules.size + 1, *rule.shift, rule[:if])
     end
   end
 
@@ -16,12 +16,24 @@ class TransitionManager
   end
 
   def forward
-    if transition = candidates.find { |c| c.condition ? @resource.send(c.condition) : true }
-      transition.to
-    end
+    transition.to if transition
   end
 
-  private def candidates
+  def current_page
+    transition.page
+  end
+
+  def total_pages
+    self.class.rules.size
+  end
+
+  private
+
+  def transition
+    @transition ||= candidates.find { |c| c.condition ? @resource.send(c.condition) : true }
+  end
+
+  def candidates
     model_name = @resource.class.model_name_i18n_key
     self.class.rules.select { |t| t.from == model_name }
   end

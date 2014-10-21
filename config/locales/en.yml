@@ -365,6 +365,8 @@ en:
       writing_your_claim_statement: Writing your claim statement
 
   claims:
+    show:
+      page_number: Page %{current_page} of %{total_pages}
     new:
       header: Start your application
       info: Apply online to an employment tribunal
