@@ -1,6 +1,18 @@
 // Susy
 // ==========================================================================
 
+// Application summary page
+// ==========================================================================
+.application-summary{
+  text-align:center;
+  background-color:$panel-colour;
+  padding:1em 0;
+  margin-bottom:1em;
+  h2,h3{
+    margin-top:0;
+  }
+}
+
 // Hack to make checkbox float inline before the label
 // ==========================================================================
 .strong {
