@@ -9,11 +9,13 @@
   @include container;
 }
 .main-content{
-  @include span(first 8);
+  @include span(8 of 12);
+  @include first;
   padding-left:0;
 }
 aside{
-  @include span(last 2);
+  @include span(3 of 12);
+  @include last;
   padding-right:0;
 }
 // ==========================================================================
