@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe RepresentativeForm, :type => :form do
+  describe '#has_representative' do
+    context 'when the underlying claim does not have a representative relation' do
+      it 'is false' do
+        expect(subject.has_representative).to be false
+      end
+    end
+
+    context 'when the underlying claim does have a representative relation' do
+      before { subject.resource.representative = Representative.new }
+
+      it 'is true' do
+        expect(subject.has_representative).to be true
+      end
+    end
+  end
+
   describe 'validations' do
     context 'when has_representative? == true' do
       before { subject.has_representative = true }
