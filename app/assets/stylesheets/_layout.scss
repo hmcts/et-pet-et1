@@ -9,16 +9,21 @@
   @include container;
 }
 .main-content{
-  @include span(8 wider);
+  @include span(first 8);
+  padding-left:0;
 }
 aside{
-  @include span(3 of 12 last);
+  @include span(last 2);
+  padding-right:0;
 }
 // ==========================================================================
 // Header
 // ==========================================================================
   header {
     &.main-header{
+      h1{
+        margin:$gutter*2 0;
+      }
       h3 {
         @include core-24;
         color:$secondary-text-colour;
@@ -79,7 +84,12 @@ aside{
   }
   ul{
     padding-left:0;
-    list-style-position:inside;
+    margin-left:0;
+    list-style:none;
+    li{
+      padding-left:0;
+      margin-left:0;
+    }
   }
 }
 

@@ -137,21 +137,17 @@ p {
 
 // For copy coming out of markdown
 // ==========================================================================
-section.content-copy {
+section.content-section {
   clear:both;
   overflow:hidden;
   h2 {
-    @extend .bold-medium;
-    border-bottom:1px solid $grey-2;
-    margin-bottom:$gutter-half;
+    @extend .legend;
   }
   h3 {
     @extend .bold-small;
+    margin-bottom:0;
   }
-  p {
-    @include core-19;
-  }
-  ul {
+  p, li {
     @include core-19;
   }
 }
