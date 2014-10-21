@@ -37,8 +37,8 @@ If your monthly income (before tax and other deductions) is above these threshol
 ### Applying for help
 You must apply for help with paying your fees within 7 days of submitting your online claim. You’ll need to provide evidence or tribunal staff will reject your application and ask you to pay the full fee.
  
-Fill in the fee remission form online [www.employmenttribunals.service.gov.uk/remissions] or download the paper form [hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=4396]. 
+[Fill in the fee remission form online](http://www.employmenttribunals.service.gov.uk/remissions) or [download](https://www.employmenttribunals.service.gov.uk/form/pdf/173ET1_Claim_Form.pdf) the paper form.
  
 If your case reaches a tribunal, you’ll have to apply for help with paying your hearing fee too.
  
-Find out more about getting help with paying your fees in 'Court and tribunal fees – Do I have to pay them? EX160A' (PDF, 425KB) [http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-from-07-october-eng.pdf]
+Find out more about getting help with paying your fees in [Court and tribunal fees – Do I have to pay them?](http://www.fbu.org.uk/wp-content/uploads/2014/04/HM-Court-and-Tribunal-fees.pdf)
