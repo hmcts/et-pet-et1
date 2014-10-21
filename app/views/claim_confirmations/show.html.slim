@@ -8,7 +8,7 @@ header.main-header
     .callout.callout-confirmation
           p.detail Your application number
           span.number= claim.reference
-    .content-copy 
+    .content-section 
       - if fee_calculation.fee_to_pay?
         .content-block
           h2 Your fee_calculation
@@ -26,7 +26,7 @@ header.main-header
 
           p= link_to 'Apply for help now', 'https://www.employmenttribunals.service.gov.uk/remissions', { rel: 'external'  }
 
-      .content-block  
+      .content-block
         h2 What you should do next
 
         p = link_to("Download your application", generated_claim_claim_confirmation_url(claim, format: 'pdf')) + " and print it out"
@@ -44,7 +44,7 @@ header.main-header
         p or <br>
           DX 580003<br>
           Glasgow 17
- 
+
         p You can also send any additional documents at the same time.
 
         h2 If your claim is accepted

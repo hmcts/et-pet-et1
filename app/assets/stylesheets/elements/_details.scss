@@ -7,6 +7,7 @@ details {
   display: block;
   margin:$gutter-half/4 0 $gutter-half;
   summary {
+    @include core-19;
     display: inline-block;
     color: $govuk-blue;
     cursor: pointer;

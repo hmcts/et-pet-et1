@@ -15,7 +15,7 @@ header.main-header.no-steps
       = simple_form_for user_session, url: user_session_path do |f|
         fieldset.form-panel
           legend= t('.memorable_word_legend')
-          .content-copy
+          .content-section
             p= t('.hint')
             p= f.input :password, as: :string
 

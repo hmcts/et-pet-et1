@@ -8,19 +8,17 @@ header.main-header
     = simple_form_for claim, url: claim_path do |f|
       fieldset
         legend= t('.legend_main')
-        section.content-copy
+        section.content-section
+          .panel-indent
+            = format t('.callout')
           .content-block
-            h3 = t('.are_you_in_time_to_apply.header')
-            p = format t('.are_you_in_time_to_apply.body')
-          .content-block
-            h3 = t('.have_you_contacted_acas.header')
-            p = format t('.have_you_contacted_acas.body')
+            = format t('.before_you_continue')
 
         .inline.inline-buttons
-          = f.button :submit
+          = f.button :submit, { class: 'button-get-started' }
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button'}
 
-    section.content-copy
+    section.content-section
       = format t '.what_you_need_to_know.body'
       details
         summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
