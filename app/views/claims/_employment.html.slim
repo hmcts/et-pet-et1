@@ -80,9 +80,7 @@
           = f.input :gross_pay,
             input_html: { :class => 'prefix-pound' } do
             .prefixed-field.inline-fields
-              = f.input :gross_pay,
-                label: false,
-                hint:false
+              = f.input_field :gross_pay, as: :string
 
               = f.input :gross_pay_period_type,
                 label: false,
@@ -93,9 +91,7 @@
           = f.input :net_pay,
             input_html: { :class => 'prefix-pound' } do
             .prefixed-field.inline-fields
-              = f.input :net_pay,
-                label: false,
-                hint:false
+              = f.input_field :net_pay, as: :string
               = f.input :net_pay_period_type,
                 label: false,
                 collection: FormOptions::PAY_PERIODS,
@@ -130,9 +126,7 @@
             input_html: { :class => 'prefix-pound' } do
 
           .prefixed-field.inline-fields
-            = f.input :new_job_gross_pay,
-              label: false,
-              hint:false
+            = f.input_field :new_job_gross_pay, as: :string
 
             = f.input :new_job_gross_pay_frequency,
               label: false,
