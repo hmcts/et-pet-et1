@@ -16,7 +16,7 @@ RSpec.describe ClaimTransitionManager, type: :service do
     let(:resource) { ClaimantForm.new }
 
     it 'returns the total pages (based on the number of rules)' do
-      expect(subject.total_pages).to eq(10)
+      expect(subject.total_pages).to eq(9)
     end
   end
 
