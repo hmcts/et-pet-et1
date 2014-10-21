@@ -31,7 +31,7 @@ class ClaimantPresenter < Presenter
 
   def contact_preference
     if target.contact_preference
-      t "simple_form.options.claimant.contact_preferences.#{target.contact_preference}"
+      t "simple_form.options.claimant.contact_preference.#{target.contact_preference}"
     end
   end
 
