@@ -358,7 +358,7 @@ en:
       page_number: Page %{current_page} of %{total_pages}
     new:
       header: Start your application
-      info: Apply online to an employment tribunal
+      legend_main: Before you continue
       are_you_in_time_to_apply:
         header: Are you in time to apply?
         body: |

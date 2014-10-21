@@ -3,11 +3,22 @@
   text-align:left;
 }
 // ==========================================================================
+// Page layout
+// ==========================================================================
+.main-section{
+  @include container;
+}
+.main-content{
+  @include span(8 wider);
+}
+aside{
+  @include span(3 of 12 last);
+}
+// ==========================================================================
 // Header
 // ==========================================================================
   header {
     &.main-header{
-      @include prefix(4 of 12);
       h3 {
         @include core-24;
         color:$secondary-text-colour;
@@ -17,15 +28,6 @@
         @include bold-48();
         padding: $gutter-half 0 $gutter;
       }
-    }
-    &.no-steps{
-      margin: $gutter 0;
-      h1 {
-        padding-bottom:$gutter-half;
-      }
-    }
-    p{
-      @include core-19;
     }
   }
 
@@ -52,16 +54,11 @@ textarea.form-control{
 // ==========================================================================
 // Form layout
 // ==========================================================================
-.form-inputs{
-  // @include cf();
-}
 .form-actions{
-  //@include span(8 of 12 last);
   margin-top:2em;
 }
 .label-column {
   .block-label {
-    // @include column(0.5, $cycle: 2, $gutter: 2);
     label{
       margin-right:0;
     }
@@ -73,17 +70,9 @@ textarea.form-control{
     display: block;
   }
 }
-// ==========================================================================
-// Page layout
-// ==========================================================================
-.main-section{
-  @include container;
-}
-.main-content{
-  @include span(8 of 12 last);
-}
+
+
 aside{
-  @include span(4 of 12 first);
   h3{
     @extend .heading-medium;
     margin-top:0;
@@ -93,6 +82,7 @@ aside{
     list-style-position:inside;
   }
 }
+
 // ==========================================================================
 // Inline fields
 // ==========================================================================
