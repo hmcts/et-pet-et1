@@ -17,4 +17,16 @@ RSpec.describe ClaimOutcomeForm, :type => :form do
 
   it_behaves_like("a Form", attributes, set_resource)
 
+  subject { described_class.new { |f| f.resource = claim } }
+
+  let(:claim) do
+    Claim.new desired_outcomes: %i<compensation_only tribunal_recommendation>
+  end
+
+  describe "#desired_outcomes" do
+    it 'returns the underlying attribute, mapped to_s' do
+      expect(subject.desired_outcomes).
+        to eq claim.desired_outcomes.map(&:to_s)
+    end
+  end
 end
