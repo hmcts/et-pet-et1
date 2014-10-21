@@ -359,18 +359,22 @@ en:
     new:
       header: Start your application
       legend_main: Before you continue
-      are_you_in_time_to_apply:
-        header: Are you in time to apply?
-        body: |
+      callout: |
+        This is not a free service. [Find out about fees](/guide#fees)
+      before_you_continue: |
+          ### Are you in time to apply?
           You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
-      have_you_contacted_acas:
-        header: Have you contacted ACAS?
-        body: |
-          In most cases, you need to contact Acas for conciliation before the tribunal can consider your application. [Learn about ACAS](/guide#acas_early_conciliation)
+
+          [Learn about when you can apply](#)
+
+          ### Have you contacted ACAS?
+          In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
+
+          [Learn about ACAS](/guide#acas_early_conciliation)
+          
       what_you_need_to_know:
         body: |
           ## Before you start
-          * This is not a free service. [Find out about fees](/guide#fees)
 
           You'll need:
 
