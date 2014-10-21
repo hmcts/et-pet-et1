@@ -1,6 +1,5 @@
 class TransitionManager
   Transition = Struct.new(:page, :from, :to, :condition)
-  LAST_PAGE = 1
 
   class << self
     def rules
