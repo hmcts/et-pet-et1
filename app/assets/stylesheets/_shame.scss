@@ -26,12 +26,16 @@ h2.heading-medium{
   border-bottom:1px solid $border-colour;
 }
 
-legend {
+.legend{
   @extend .heading-medium;
   border-bottom:1px solid $border-colour;
   width:100%;
   display:block;
   padding:0 0 $gutter-half/2 0;
+}
+
+legend {
+  @extend .legend;
   &.form-label{
     border:none;
     margin-bottom:0;
@@ -66,6 +70,10 @@ aside {
 
 .form-panel {
   margin:0 0 $gutter;
+}
+fieldset{
+  margin-left:0;
+  margin-right:0;
 }
 .fieldset-collection{
   margin:0 0 $gutter;
@@ -111,4 +119,3 @@ input[type=radio]{
   outline: none;
   border:none;
 }
-
