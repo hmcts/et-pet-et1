@@ -1,7 +1,6 @@
 class TransitionManager
   Transition = Struct.new(:page, :from, :to, :condition)
-  LAST_PAGE = 1
-  
+
   class << self
     def rules
       @rules ||= []
@@ -25,7 +24,7 @@ class TransitionManager
   end
 
   def total_pages
-    self.class.rules.size + LAST_PAGE
+    self.class.rules.size
   end
 
   private
