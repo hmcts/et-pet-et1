@@ -6,7 +6,7 @@ class PdfFormBuilder
   end
 
   def filename
-    "et1_#{@presenter.name.downcase.gsub(' ', '_')}"
+    "et1_#{@presenter.name.downcase.gsub(' ', '_')}.pdf"
   end
 
   def to_pdf
