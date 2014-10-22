@@ -17,6 +17,22 @@ RSpec.describe RepresentativeForm, :type => :form do
     end
   end
 
+  describe '#save' do
+    context 'when has_representative? == false' do
+      let(:representative) { Representative.new }
+      before do
+        subject.resource.representative = representative
+        subject.has_representative = false
+      end
+
+      it 'destroys the representative relation' do
+        expect(representative).to receive :destroy
+
+        subject.save
+      end
+    end
+  end
+
   describe 'validations' do
     context 'when has_representative? == true' do
       before { subject.has_representative = true }
@@ -88,7 +104,8 @@ RSpec.describe RepresentativeForm, :type => :form do
     type: 'citizen_advice_bureau', dx_number: '1',
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
-    address_post_code: 'AT1 0AA', email_address: 'lol@example.com' }
+    address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
+    has_representative: true }
 
   before = proc do
     allow(resource).to receive(:representative)

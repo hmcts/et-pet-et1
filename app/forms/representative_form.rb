@@ -26,6 +26,14 @@ class RepresentativeForm < Form
     end
   end
 
+  def save
+    if has_representative?
+      super
+    else
+      target.destroy
+    end
+  end
+
   private def target
     resource.representative || resource.build_representative
   end
