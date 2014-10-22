@@ -9,7 +9,7 @@ RSpec.describe RepresentativeForm, :type => :form do
     end
 
     context 'when the underlying claim does have a representative relation' do
-      before { subject.resource.representative = Representative.new }
+      before { subject.resource.create_representative }
 
       it 'is true' do
         expect(subject.has_representative).to be true

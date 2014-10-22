@@ -39,7 +39,7 @@ class RespondentForm < Form
   end
 
   def was_employed
-    @was_employed ||= resource.employment.present?
+    @was_employed ||= target.persisted?
   end
 
   private def target

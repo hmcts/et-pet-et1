@@ -13,8 +13,8 @@ RSpec.describe EmploymentForm, :type => :form do
       end
     end
 
-    context 'when the underlying claim does not have an employment relation' do
-      before { subject.resource.employment = Employment.new }
+    context 'when the underlying claim has an employment relation' do
+      before { subject.resource.create_employment }
 
       it 'is true' do
         expect(subject.was_employed).to be true
