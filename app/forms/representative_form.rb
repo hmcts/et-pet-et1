@@ -15,7 +15,7 @@ class RepresentativeForm < Form
   boolean :has_representative
 
   def has_representative
-    @has_representative ||= resource.representative.present?
+    @has_representative ||= target.persisted?
   end
 
   def valid?
