@@ -1,29 +1,10 @@
 // Susy
 // ==========================================================================
 
-// Application summary page
-// ==========================================================================
-.application-summary{
-  text-align:center;
-  background-color:$panel-colour;
-  padding:1em 0;
-  margin-bottom:1em;
-  h2,h3{
-    margin-top:0;
-  }
-}
-
-// content-section
-// ==========================================================================
-
 // Hack to make checkbox float inline before the label
 // ==========================================================================
 .strong {
   font-weight:700;
-}
-h2.heading-medium{
-  padding-bottom:$gutter-half/2;
-  border-bottom:1px solid $border-colour;
 }
 
 .legend{
@@ -51,14 +32,7 @@ legend {
   }
 }
 
-// ==========================================================================
-// Aside nav
-// ==========================================================================
-aside {
-  a {
-    @include core-19;
-  }
-}
+
 
 .label-column {
   @include container(wider);
@@ -109,9 +83,6 @@ fieldset{
   }
 }
 
-.inline-buttons{
-  margin:$gutter-half 0;
-}
 
 
 input[type=radio]{
