@@ -9,6 +9,10 @@ class TransitionManager
     def transition(rule)
       self.rules << Transition.new(self.rules.size + 1, *rule.shift, rule[:if])
     end
+
+    def first_page
+      @rules.first.from
+    end
   end
 
   def initialize(resource:)

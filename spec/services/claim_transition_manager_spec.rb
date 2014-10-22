@@ -3,9 +3,14 @@ require "rails_helper"
 RSpec.describe ClaimTransitionManager, type: :service do
   let(:subject) { described_class.new resource: resource }
 
+  describe '.first_page' do
+    it 'returns the first page in the process' do
+      expect(described_class.first_page).to eq(:application_number)
+    end
+  end
+
   describe '#current_page' do
-    let(:resource) { ClaimantForm.new }
-    before { allow(resource).to receive(:has_representative).and_return true }
+    let(:resource) { ApplicationNumberForm.new }
 
     it 'returns the current page based on the current transition' do
       expect(subject.current_page).to eq(1)
@@ -16,11 +21,17 @@ RSpec.describe ClaimTransitionManager, type: :service do
     let(:resource) { ClaimantForm.new }
 
     it 'returns the total pages (based on the number of rules)' do
-      expect(subject.total_pages).to eq(9)
+      expect(subject.total_pages).to eq(10)
     end
   end
 
   describe '#forward' do
+
+    context 'when resource is a RepresentativeForm' do
+      let(:resource) { ApplicationNumberForm.new }
+      its(:forward)  { is_expected.to eq(:claimant) }
+    end
+
     context 'when resource is a ClaimantForm' do
       let(:resource) { ClaimantForm.new }
 

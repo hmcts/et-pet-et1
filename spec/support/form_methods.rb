@@ -14,7 +14,7 @@ module FormMethods
   end
 
   def fill_in_return_form reference, word
-    visit '/user_session/new'
+    visit returning_user_session_path
     fill_in 'application number', with: reference
     fill_in 'memorable word', with: word
     click_button 'Find my application'

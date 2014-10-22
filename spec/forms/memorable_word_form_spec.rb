@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MemorableWordForm, type: :form do
+RSpec.describe ApplicationNumberForm, type: :form do
 
   describe 'validations' do
     context 'presence' do

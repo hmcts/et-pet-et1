@@ -1,4 +1,4 @@
-class MemorableWordForm < Form
+class ApplicationNumberForm < Form
   
   attributes :password, :email_address
   validates :password, presence: true
