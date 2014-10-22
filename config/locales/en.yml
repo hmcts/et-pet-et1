@@ -128,7 +128,6 @@ en:
         fax_number: Fax
         has_special_needs: Do you have a disability or health condition?
         special_needs: Tell us how we can help you.
-        has_representative: Do you have a representative?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -139,6 +138,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
+        has_representative: Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -418,11 +418,6 @@ en:
       form_legend: Professional (or other) help
       representative_legend: About your representative
       contact_legend: Contact details
-      has_representative_label: |
-        Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
-      has_representative_yes: 'Yes'
-      has_representative_no: 'No'
-      has_representative_hint: ''
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg, legal firms)

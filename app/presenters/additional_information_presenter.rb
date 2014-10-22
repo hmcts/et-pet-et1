@@ -8,6 +8,6 @@ class AdditionalInformationPresenter < Presenter
   end
 
   def attached_document
-    attachment.filename
+    attachment.to_s.split('/').last
   end
 end

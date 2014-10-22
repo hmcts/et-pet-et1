@@ -3,25 +3,21 @@
     legend= t '.form_legend'
 
     fieldset.form-panel.reveal-publish-delegate
-      legend.form-label= t '.has_representative_label'
-      p.form-hint= t '.has_representative_hint'
-      .inline
-        label.block-label for="has_representative_yes"
-          input type="radio" name="has_representative" id="has_representative_yes" value="yes" class="reveal-publish-publisher" data-target="main"
-          = t '.has_representative_yes'
+      = f.input :has_representative,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal',
+        input_html: { :class => 'reveal-publish-publisher'},
+        reveal: { true => 'main', false => 'main' }
 
-        label.block-label for="has_representative_no"
-          input type="radio" name="has_representative" id="has_representative_no" value="no" class="reveal-publish-publisher" data-target="main" checked="checked"
-          = t '.has_representative_no'
-
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["yes"]'
+    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
       legend= t '.representative_legend'
 
       = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
       = f.input :organisation_name
       = f.input :name
 
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["yes"]'
+    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
       legend= t '.contact_legend'
       = f.input :address_building
       = f.input :address_street

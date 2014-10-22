@@ -61,6 +61,7 @@ module FormMethods
   end
 
   def fill_in_representative_details
+    choose 'representative_has_representative_true'
     select 'Solicitor', from: 'Type of representative'
     fill_in "Name of the representative's organisation", with: 'Better Call Saul'
     fill_in "Representative's name", with: 'Saul Goodman'
@@ -106,6 +107,8 @@ module FormMethods
   end
 
   def fill_in_employment_details
+    choose  'employment_was_employed_true'
+
     fill_in 'Job or job title', with: 'Super High Powered Exec'
 
     fill_in :employment_start_date_3i, with: '01'

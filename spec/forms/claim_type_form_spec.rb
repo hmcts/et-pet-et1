@@ -16,4 +16,21 @@ RSpec.describe ClaimTypeForm, :type => :form do
 
   it_behaves_like("a Form", attributes, set_resource)
 
+  subject { described_class.new { |f| f.resource = claim } }
+
+  let(:claim) do
+    Claim.new \
+      discrimination_claims: %i<sex_including_equal_pay disability race>,
+      pay_claims: %i<redundancy notice holiday arrears other>
+  end
+
+
+  %i<pay discrimination>.each do |type|
+    describe "##{type}_claims" do
+      it 'returns the underlying attribute, mapped to_s' do
+        expect(subject.send "#{type}_claims").
+          to eq claim.send("#{type}_claims").map(&:to_s)
+      end
+    end
+  end
 end

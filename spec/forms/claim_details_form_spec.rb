@@ -13,6 +13,22 @@ RSpec.describe ClaimDetailsForm, :type => :form do
     end
   end
 
+  describe '#other_known_claimants' do
+    context 'when #other_known_claimant_names is blank' do
+      it 'is false' do
+        expect(subject.other_known_claimants).to be false
+      end
+    end
+
+    context 'when #other_known_claimant_names is not blank' do
+      before { subject.other_known_claimant_names = "Lolly Lollington" }
+
+      it 'is true' do
+        expect(subject.other_known_claimants).to be true
+      end
+    end
+  end
+
   attributes = {
     claim_details: "I want to make a claim",
     other_known_claimants: true,

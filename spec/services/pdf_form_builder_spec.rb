@@ -15,7 +15,7 @@ RSpec.describe PdfFormBuilder, type: :service do
 
   describe '#filename' do
     it 'returns a filename' do
-      expect(subject.filename).to eq('et1_name')
+      expect(subject.filename).to eq('et1_name.pdf')
     end
   end
 

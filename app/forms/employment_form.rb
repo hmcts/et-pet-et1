@@ -10,7 +10,19 @@ class EmploymentForm < Form
 
   dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
 
-  booleans :was_employed
+  boolean :was_employed
+
+  def was_employed
+    @was_employed ||= target.persisted?
+  end
+
+  def save
+    if was_employed?
+      super
+    else
+      target.destroy
+    end
+  end
 
   private def target
     resource.employment || resource.build_employment
