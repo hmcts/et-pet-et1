@@ -13,7 +13,15 @@ class EmploymentForm < Form
   boolean :was_employed
 
   def was_employed
-    @was_employed ||= resource.employment.present?
+    @was_employed ||= target.persisted?
+  end
+
+  def save
+    if was_employed?
+      super
+    else
+      target.destroy
+    end
   end
 
   private def target

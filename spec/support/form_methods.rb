@@ -107,6 +107,8 @@ module FormMethods
   end
 
   def fill_in_employment_details
+    choose  'employment_was_employed_true'
+
     fill_in 'Job or job title', with: 'Super High Powered Exec'
 
     fill_in :employment_start_date_3i, with: '01'
