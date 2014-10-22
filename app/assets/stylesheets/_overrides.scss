@@ -1,0 +1,14 @@
+.claims {
+  .content-section {
+    h3{
+      margin-top: em(15, 16);
+      &:first-child {
+        margin-top: em(5, 16);
+      }
+    }
+    p{
+      margin-bottom: em(5, 16);
+    }
+
+  }
+}

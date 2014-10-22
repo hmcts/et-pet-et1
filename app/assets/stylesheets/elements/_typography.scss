@@ -115,7 +115,7 @@
 // Text
 p {
   @include core-19;
-  margin-top: em(5, 16 );
+  margin-top: em(5, 16);
   margin-bottom: em(20, 16);
 }
 
@@ -146,6 +146,10 @@ section.content-section {
   h3 {
     @extend .bold-small;
     margin-bottom:0;
+    & + p,
+    & + ul{
+      margin-top:0;
+    }
   }
   p, li {
     @include core-19;
