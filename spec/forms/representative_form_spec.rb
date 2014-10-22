@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.describe RepresentativeForm, :type => :form do
   describe '#has_representative' do
-    context 'when the underlying claim does not have a representative relation' do
+    before { subject.resource.representative = representative }
+    let(:representative) { Representative.new }
+
+    context 'when the representative has not been persisted' do
       it 'is false' do
         expect(subject.has_representative).to be false
       end
     end
 
-    context 'when the underlying claim does have a representative relation' do
-      before { subject.resource.representative = Representative.new }
+    context 'when the representative has been persisted' do
+      before { allow(representative).to receive_messages :persisted? => true }
 
       it 'is true' do
         expect(subject.has_representative).to be true
