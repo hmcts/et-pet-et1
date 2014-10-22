@@ -10,7 +10,10 @@ RSpec.describe AdditionalInformationPresenter, type: :presenter do
   its(:miscellaneous_information) { is_expected.to eq("<p>hey\n<br />hey</p>") }
 
   describe '#attached_document' do
-    before { allow(claim.attachment).to receive(:filename).and_return 'lolz.rtf' }
+    before do
+      allow(claim.attachment).to receive(:to_s).
+        and_return '/uploads/claim/attachment/6CV34CSM70RK0E9G/lolz.rtf'
+    end
 
     specify { expect(subject.attached_document).to eq('lolz.rtf') }
   end
