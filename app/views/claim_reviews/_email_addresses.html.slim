@@ -1,7 +1,7 @@
 - if claim.submittable?
   section
     header
-      h2.heading-medium= t '.confirmation'
+      h2= t '.confirmation'
       p.form-hint= t '.hint'
 
     = simple_form_for confirmation_email, url: request.url, method: :put do |f|
