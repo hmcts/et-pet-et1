@@ -41,11 +41,7 @@ class UserSessionsController < ApplicationController
   end
 
   def deliver_access_details
-    if user_session.email_address.present?
-      BaseMailer.access_details_email(claim, user_session.email_address).deliver_later
-    else
-      true
-    end
+    AccessDetailsMailer.deliver_later(claim)
   end
 
   helper_method def user_session
