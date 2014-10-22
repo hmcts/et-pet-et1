@@ -14,9 +14,12 @@ header.main-header
           .content-block
             = format t('.before_you_continue')
 
-        .inline.inline-buttons
           = f.button :submit, { class: 'button button-get-started' }
-          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button'}
+
+          h3 = t('.application_started_header')
+          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button button-return'}
+
+>>>>>>> updated start page
     section.content-section
       = format t '.what_you_need_to_know.body'
       details
