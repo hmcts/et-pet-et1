@@ -22,7 +22,7 @@
         wrapper_html: { :class => 'form-group-reveal' },
         reveal: { 'still_employed'        => 'sub1',
                   'notice_period'         => 'sub1',
-                  'employment_terminated' => 'sub1'}
+                  'employment_terminated' => 'sub1' }
 
       #employment_ppb_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
         /! Employment details
@@ -71,7 +71,7 @@
                   collection: FormOptions::NOTICE_PAY_PERIODS, as: :radio_buttons,
                   item_wrapper_class: 'slim-label'
 
-          = f.input :average_hours_worked_per_week, input_html: {class: 'short-input'}
+          = f.input :average_hours_worked_per_week, input_html: { class: 'short-input' }
 
         /! Pay, pension and benefits
         fieldset#pay_pention_benefits
@@ -80,7 +80,9 @@
           = f.input :gross_pay,
             input_html: { :class => 'prefix-pound' } do
             .prefixed-field.inline-fields
-              = f.input_field :gross_pay, as: :string
+              .currency_field
+                span.currency_pound £
+                = f.input_field :gross_pay, as: :string
 
               = f.input :gross_pay_period_type,
                 label: false,
@@ -91,7 +93,9 @@
           = f.input :net_pay,
             input_html: { :class => 'prefix-pound' } do
             .prefixed-field.inline-fields
-              = f.input_field :net_pay, as: :string
+              .currency_field
+                span.currency_pound £
+                = f.input_field :net_pay, as: :string
               = f.input :net_pay_period_type,
                 label: false,
                 collection: FormOptions::PAY_PERIODS,
@@ -126,7 +130,9 @@
             input_html: { :class => 'prefix-pound' } do
 
           .prefixed-field.inline-fields
-            = f.input_field :new_job_gross_pay, as: :string
+            .currency_field
+              span.currency_pound £
+              = f.input_field :new_job_gross_pay, as: :string
 
             = f.input :new_job_gross_pay_frequency,
               label: false,
