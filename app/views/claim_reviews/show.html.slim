@@ -10,12 +10,13 @@ header.main-header
 
     - presenter.each_section do |section_name, section|
 
-      h2.bold-medium = t ".sections.#{section_name}"
+      h2.table-header
+        span = t ".sections.#{section_name}"
+        = quick_edit_link_for section_name
 
       - section.each_subsection do |subsection_name, subsection_items|
         table.review-table
           caption = t ".#{section_name}.subsections.#{subsection_name}"
-
           - subsection_items.each do |item|
             tr
               th= t ".#{section_name}.#{item}"

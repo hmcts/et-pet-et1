@@ -59,34 +59,23 @@ fieldset{
   margin-right:$gutter-half;
 }
 
-.inline-fields {
-  overflow:hidden;
-  .form-group {
-    @include span(6 of 12);
-    clear:none;
-    margin-bottom:0;
-    &:first-child {
-      @include first;
-      padding-left:0;
-      input {
-        @include span(10 of 12);
-        margin-left:0;
-      }
-    }
-    &.radio_buttons {
-      @include last;
-      span.block-label {
-        margin-top:0;
-        margin-bottom:0;
-      }
-    }
-  }
+.inline-buttons{
+  margin:$gutter-half 0;
 }
-
-
 
 input[type=radio]{
   background: transparent;
   outline: none;
   border:none;
+}
+
+h2.table-header{
+  @extend .bold-medium;
+  overflow:hidden;
+  a {
+    @include core-16;
+    line-height:2;
+    float:right;
+    font-weight: 400;
+  }
 }

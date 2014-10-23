@@ -8,6 +8,8 @@ header.main-header
   .main-content
     = simple_form_for resource, url: claim_path, multipart: true do |f|
       = hidden_field_tag :page, current_step
+      = hidden_field_tag :return_to_review, params[:return_to_review]
+
       = f.error_notification
       .form-inputs
         = render current_step.to_s, f: f

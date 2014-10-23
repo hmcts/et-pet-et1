@@ -3,7 +3,7 @@ en:
     show:
       not_entered: Not entered
       header: Check your application
-      change: Change
+      edit: Edit
       info: You can change anything that's not right before sending your application.
       incomplete_claim_summary: Your claim is incomplete.
       incomplete_claim_message: Please go back through the form and ensure all required sections are complete
