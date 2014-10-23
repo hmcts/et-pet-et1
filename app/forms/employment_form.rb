@@ -33,7 +33,53 @@ class EmploymentForm < Form
     end
   end
 
-  private def target
+  def valid?
+    clear_irrelevant_fields if was_employed?
+    super
+  end
+
+  private
+
+  def clear_irrelevant_fields
+    other_situations = FormOptions::CURRENT_SITUATION.reject{|situation| situation == current_situation}
+    other_situations.each do |situation|
+      clear_method = "clear_#{situation}"
+      send(clear_method) if respond_to?(clear_method, true)
+    end
+    clear_notice_pay_period
+    clear_new_job
+  end
+
+  def clear_notice_period
+    self.notice_period_end_date = nil
+  end
+
+  def clear_employment_terminated
+    self.end_date = nil
+    self.worked_notice_period_or_paid_in_lieu = nil
+    self.found_new_job = nil
+  end
+
+  def clear_notice_pay_period
+    unless worked_notice_period_or_paid_in_lieu
+      self.notice_pay_period_count = nil
+      self.notice_pay_period_type = nil
+    end
+  end
+
+  def clear_new_job
+    unless found_new_job
+      self.new_job_start_date = nil
+      self.new_job_gross_pay = nil
+      self.new_job_gross_pay_frequency = nil
+    end
+  end
+
+  def still_employed
+    notice_period_fields + employment_terminated_fields
+  end
+
+  def target
     resource.employment || resource.build_employment
   end
 end

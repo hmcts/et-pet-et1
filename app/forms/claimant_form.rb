@@ -32,6 +32,11 @@ class ClaimantForm < Form
     @has_representative ||= resource.representative.present?
   end
 
+  def valid?
+    attributes[:special_needs] = nil unless has_special_needs?
+    super
+  end
+
   private def target
     resource.primary_claimant || resource.build_primary_claimant
   end

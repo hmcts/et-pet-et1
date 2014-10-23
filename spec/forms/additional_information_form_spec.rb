@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe AdditionalInformationForm, :type => :form do
   let(:resource) { double 'resource' }
-  subject { described_class.new { |f| f.resource = resource } }
+  subject do described_class.new { |f|
+    f.has_miscellaneous_information = true
+    f.resource = resource }
+  end
 
   describe 'validations' do
     it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
@@ -32,9 +35,8 @@ RSpec.describe AdditionalInformationForm, :type => :form do
     end
   end
 
-  describe '#save' do
+  describe '#valid?' do
     before do
-      allow(resource).to receive :save
       subject.miscellaneous_information = 'such miscellany'
     end
 
@@ -42,10 +44,9 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       before { subject.has_miscellaneous_information = true }
 
       it 'saves #miscellaneous_information to the underlying resource' do
-        expect(resource).to receive(:update_attributes).
-            with miscellaneous_information: 'such miscellany'
+        subject.valid?
 
-        subject.save
+        expect(subject.miscellaneous_information).to eq('such miscellany')
       end
     end
 
@@ -53,10 +54,9 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       before { subject.has_miscellaneous_information = false }
 
       it 'sets #miscellaneous_information to nil on the underlying resource' do
-        expect(resource).to receive(:update_attributes).
-          with miscellaneous_information: nil
+        subject.valid?
 
-        subject.save
+        expect(subject.miscellaneous_information).to be nil
       end
     end
   end

@@ -9,13 +9,9 @@ class AdditionalInformationForm < Form
     message: I18n.t('errors.messages.rtf')
   }
 
-  def save
-    if valid?
-      self.miscellaneous_information = nil unless has_miscellaneous_information?
-      super
-    else
-      false
-    end
+  def valid?
+    self.miscellaneous_information = nil unless has_miscellaneous_information?
+    super
   end
 
   def has_attachment?

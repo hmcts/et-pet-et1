@@ -34,6 +34,11 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } }
 
+  def valid?
+    self.acas_early_conciliation_certificate_number = nil if no_acas_number?
+    super
+  end
+
   def no_acas_number
     @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
   end

@@ -69,6 +69,16 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
+  describe '#valid?' do
+    it 'clears acas number when selecting no acas number' do
+      subject.acas_early_conciliation_certificate_number = 'acas'
+      subject.no_acas_number = true
+      subject.valid?
+
+      expect(subject.acas_early_conciliation_certificate_number).to be nil
+    end
+  end
+
   include_examples "Postcode validation", attribute_prefix: 'address'
   include_examples "Postcode validation", attribute_prefix: 'work_address'
 
@@ -85,7 +95,8 @@ RSpec.describe RespondentForm, :type => :form do
     work_address_locality: "Business City", work_address_county: 'Businessbury',
     work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000",
     worked_at_same_address: false, no_acas_number: "1",
-    no_acas_number_reason: "acas_has_no_jurisdiction" }
+    no_acas_number_reason: "acas_has_no_jurisdiction",
+    acas_early_conciliation_certificate_number: nil}
 
   before = proc do
     allow(resource).to receive(:primary_respondent).and_return nil
