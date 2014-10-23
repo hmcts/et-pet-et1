@@ -17,13 +17,21 @@ class ClaimsController < ApplicationController
     resource.assign_attributes params[current_step]
 
     if resource.save
-      redirect_to page_claim_path(page: transition_manager.forward)
+      redirect_to next_page
     else
       render action: :show
     end
   end
 
   private
+
+  def next_page
+    if params[:return_to_review].present?
+      claim_review_path
+    else
+      page_claim_path(page: transition_manager.forward)
+    end
+  end
 
   helper_method def transition_manager
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)
