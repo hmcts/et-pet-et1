@@ -21,7 +21,7 @@ class Respondent < ActiveRecord::Base
 
   def addresses
     association(:addresses).tap do |p|
-      (2 - p.count).times { p.build }
+      (2 - p.size).times { p.build }
     end
   end
 

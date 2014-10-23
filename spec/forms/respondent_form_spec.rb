@@ -35,7 +35,6 @@ RSpec.describe RespondentForm, :type => :form do
       end
 
       describe "when respondent worked at a different address" do
-        before { subject.worked_at_same_address = 'false' }
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_post_code].each do |attr|
           it { is_expected.to validate_presence_of(attr) }
@@ -86,7 +85,7 @@ RSpec.describe RespondentForm, :type => :form do
   describe '#save' do
     context 'when worked at same address' do
       before do
-        subject.worked_at_same_address = true
+        subject.worked_at_same_address = 'true'
       end
 
       it 'destroys the address relation' do
@@ -94,6 +93,18 @@ RSpec.describe RespondentForm, :type => :form do
 
         subject.save
       end
+    end
+  end
+
+  describe '#worked_at_same_address?' do
+    it 'true when "true"' do
+      subject.worked_at_same_address = 'true'
+      expect(subject.worked_at_same_address?).to be true
+    end
+
+    it 'false when "false"' do
+      subject.worked_at_same_address = 'false'
+      expect(subject.worked_at_same_address?).to be false
     end
   end
 

@@ -9,12 +9,12 @@ class RespondentForm < Form
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
 
-  booleans   :no_acas_number, :worked_at_same_address
+  booleans   :no_acas_number
 
   validates :name, presence: true
 
   validates :work_address_street, :work_address_locality, :work_address_building,
-            :work_address_post_code, presence: { unless: -> { worked_at_same_address } }
+            :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
 
   validates :name, length: { maximum: NAME_LENGTH }
   validates :work_address_building,
@@ -42,6 +42,10 @@ class RespondentForm < Form
   def save
     target.work_address.destroy if worked_at_same_address?
     super
+  end
+
+  def worked_at_same_address?
+    ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
   end
 
   def no_acas_number
