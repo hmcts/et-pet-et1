@@ -12,6 +12,15 @@ class EmploymentForm < Form
 
   boolean :was_employed
 
+  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
+
+  %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
+    define_method("#{attribute}=") do |v|
+      v = v.nil? ? v : v.gsub(',', '')
+      attributes[attribute] = v
+    end
+  end
+
   def was_employed
     @was_employed ||= target.persisted?
   end

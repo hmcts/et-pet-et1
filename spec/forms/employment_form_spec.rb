@@ -9,6 +9,22 @@ RSpec.describe EmploymentForm, :type => :form do
   before { subject.resource.employment = employment }
   let(:employment) { Employment.new }
 
+  describe 'validations' do
+    %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
+      it { is_expected.to validate_numericality_of(attribute).allow_nil }
+    end
+  end
+
+  %i<gross_pay net_pay new_job_gross_pay>.each do |attr|
+    describe "#{attr}=" do
+      before { subject.send "#{attr}=", '10,000' }
+
+      it 'strips commas entered by the user' do
+        expect(subject.send(attr)).to eq '10000'
+      end
+    end
+  end
+
   describe '#was_employed' do
 
     context 'when the employment model has not been persisted' do
