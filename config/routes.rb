@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  
-  root to: 'claims#new'
 
   resource :guide, only: :show
 
-  resource :user_session, only: %i<create update>, path: 'application' do
+  resource :user_session, only: %i<create update>, path: :application do
     member do
       get 'reminder'
       get 'returning'
@@ -31,7 +29,9 @@ Rails.application.routes.draw do
         get ':page', to: 'claims#show', as: :page
       end
     end
-  end # END 'apply' SCOPE
+  end
+
+  root to: 'claims#new'
 
   get 'ping' => 'ping#index'
 end
