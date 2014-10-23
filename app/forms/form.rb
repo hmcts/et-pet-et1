@@ -1,5 +1,6 @@
 class Form
   include ActiveModel::Model
+  include ActiveSupport::Callbacks
 
   ADDRESS_LINE_LENGTH  = 75
   EMAIL_ADDRESS_LENGTH = 100
@@ -9,6 +10,14 @@ class Form
   POSTCODE_LENGTH      = 8
 
   attr_accessor :resource, :target
+
+  define_callbacks :save
+
+  %i<before after>.each do |event|
+    define_singleton_method "#{ event }_save" do |callback|
+      set_callback(:save, event, callback)
+    end
+  end
 
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
@@ -91,8 +100,10 @@ class Form
 
   def save
     if valid?
-      target.update_attributes attributes
-      resource.save
+      run_callbacks :save do
+        target.update_attributes attributes
+        resource.save
+      end
     else
       false
     end
