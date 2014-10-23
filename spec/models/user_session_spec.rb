@@ -22,7 +22,7 @@ describe UserSession do
 
   describe '#authenticates' do
     it 'does not add any errors when authentication successful' do
-      expect(subject.valid?).to be_truthy
+      expect(subject.valid?).to be(true)
       expect(subject.errors).to be_empty
     end
 
@@ -32,7 +32,7 @@ describe UserSession do
       end
 
       it 'adds error' do
-        expect(subject.valid?).to be_falsey
+        expect(subject.valid?).to be(false)
         expect(subject.errors[:reference]).to include I18n.t('errors.user_session.not_found')
       end
     end
@@ -43,7 +43,7 @@ describe UserSession do
       end
 
       it 'adds error' do
-        expect(subject.valid?).to be_falsey
+        expect(subject.valid?).to be(false)
         expect(subject.errors[:password]).to include I18n.t('errors.user_session.invalid')
       end
     end
