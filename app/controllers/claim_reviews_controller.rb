@@ -16,7 +16,6 @@ class ClaimReviewsController < ApplicationController
   end
 
   def email_addresses
-    addresses = params[:confirmation_email]
-    (addresses[:email_addresses] + (addresses[:additional_email_address] || {}).values).reject(&:blank?)
+    params[:confirmation_email][:email_addresses].reject(&:blank?)
   end
 end

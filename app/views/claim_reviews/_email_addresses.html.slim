@@ -10,15 +10,5 @@
         as: :check_boxes,
         item_wrapper_class: 'block-label'
 
-      / PENDING: Until show/hide javascript is done
-      / - confirmation_email.additional_email_address.each_with_index do |value, i|
-      /   = link_to t '.add_email_address'
-      /   = f.input :additional_email_address,
-      /     as: :hash,
-      /     label: false,
-      /     input_html: { value: value, key: i, id: "additional_email_address_#{i}" },
-      /     wrapper_html: {class: 'form-group-reveal'}
-
-
       .form-actions
         = f.button :submit
