@@ -9,7 +9,7 @@ class RespondentForm < Form
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
 
-  booleans   :no_acas_number
+  booleans   :no_acas_number, :worked_at_same_address
 
   validates :name, presence: true
 
@@ -36,6 +36,11 @@ class RespondentForm < Form
 
   def valid?
     self.acas_early_conciliation_certificate_number = nil if no_acas_number?
+    super
+  end
+
+  def save
+    target.work_address.destroy if worked_at_same_address?
     super
   end
 

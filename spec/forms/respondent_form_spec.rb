@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe RespondentForm, :type => :form do
+  subject { described_class.new {|f| f.worked_at_same_address = 'false' } }
+
   describe 'validations' do
     [:name, :address_building, :address_street, :address_locality,
       :address_post_code].each do |attr|
@@ -25,6 +27,7 @@ RSpec.describe RespondentForm, :type => :form do
 
     describe 'presence of work address' do
       describe "when respondent didn't work at a different address" do
+        before { subject.worked_at_same_address = 'true' }
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_telephone_number, :work_address_post_code].each do |attr|
           it { is_expected.not_to validate_presence_of(attr) }
@@ -32,7 +35,7 @@ RSpec.describe RespondentForm, :type => :form do
       end
 
       describe "when respondent worked at a different address" do
-        before { subject.worked_at_same_address = false }
+        before { subject.worked_at_same_address = 'false' }
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_post_code].each do |attr|
           it { is_expected.to validate_presence_of(attr) }
@@ -46,7 +49,7 @@ RSpec.describe RespondentForm, :type => :form do
       end
 
       describe 'when no reason is given for its absence' do
-        before { subject.no_acas_number = true }
+        before { subject.no_acas_number = 'true' }
         it { is_expected.not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
     end
@@ -70,12 +73,27 @@ RSpec.describe RespondentForm, :type => :form do
   end
 
   describe '#valid?' do
+
     it 'clears acas number when selecting no acas number' do
       subject.acas_early_conciliation_certificate_number = 'acas'
       subject.no_acas_number = true
       subject.valid?
 
       expect(subject.acas_early_conciliation_certificate_number).to be nil
+    end
+  end
+
+  describe '#save' do
+    context 'when worked at same address' do
+      before do
+        subject.worked_at_same_address = true
+      end
+
+      it 'destroys the address relation' do
+        expect(subject.resource.build_primary_respondent.work_address).to receive :destroy
+
+        subject.save
+      end
     end
   end
 
@@ -94,7 +112,7 @@ RSpec.describe RespondentForm, :type => :form do
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
     work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000",
-    worked_at_same_address: false, no_acas_number: "1",
+    worked_at_same_address: 'false', no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction",
     acas_early_conciliation_certificate_number: nil}
 
