@@ -203,8 +203,9 @@ module FormMethods
   def select_recipients
     check CLAIMANT_EMAIL
     check REPRESENTATIVE_EMAIL
-    fill_in 'additional_email_address_1', with: 'bob@example.com'
-    fill_in 'additional_email_address_2', with: 'jane@example.com'
+    # PENDING: Until javascript show/hide can be done
+    # fill_in 'additional_email_address_1', with: 'bob@example.com'
+    # fill_in 'additional_email_address_2', with: 'jane@example.com'
     click_button 'Submit the form'
   end
 end
