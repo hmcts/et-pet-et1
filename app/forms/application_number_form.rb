@@ -1,4 +1,6 @@
 class ApplicationNumberForm < Form
+
+  after_save :deliver_access_details
   
   attributes :password, :email_address
   validates :password, presence: true
@@ -7,12 +9,7 @@ class ApplicationNumberForm < Form
     resource
   end
 
-  def save
-    super && deliver_access_details { and_allow_form_to_save = true }
-  end
-
-  private def deliver_access_details &block
+  private def deliver_access_details
     AccessDetailsMailer.deliver_later(target)
-    yield
   end
 end

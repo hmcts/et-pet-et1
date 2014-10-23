@@ -9,36 +9,31 @@ RSpec.describe ApplicationNumberForm, type: :form do
   end
 
   describe '#save' do
-    context "when save on the superclass is successful" do
+    context "if successful it runs callbacks" do
       subject { described_class.new password: "supersecure" }
 
       it "attempts to deliver access details via email" do
         expect(AccessDetailsMailer).to receive(:deliver_later)
         subject.save
       end
-
-      it "returns true allowing save to perform like an AR model" do
-        expect(subject.save).to be(true)
-      end
     end
 
-    context "when save on the superclass is unsuccessful" do
+    context "if unsuccessful it doesnt run callbacks" do
       subject { described_class.new }
 
       it "doesn't deliver access details via email" do
         expect(AccessDetailsMailer).to_not receive(:deliver_later)
         subject.save
       end
-
-      it "returns false" do
-        expect(subject.save).to be(false)
-      end
     end
   end
 
   attributes = { password: "mypassword", email_address: "such@emailaddress.com" }
 
-  set_resource = proc do form.resource = target end
+  set_resource = proc do
+    allow(AccessDetailsMailer).to receive(:deliver_later)
+    form.resource = target 
+  end
 
   it_behaves_like("a Form", attributes, set_resource)
 
