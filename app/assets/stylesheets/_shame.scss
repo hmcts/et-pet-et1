@@ -112,3 +112,13 @@ input[type=radio]{
   border:none;
 }
 
+h2.table-header{
+  @extend .bold-medium;
+  overflow:hidden;
+  a {
+    @include core-16;
+    line-height:2;
+    float:right;
+    font-weight: 400;
+  }
+}
