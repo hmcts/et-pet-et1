@@ -1,4 +1,6 @@
-class ConfirmationEmail < PlainModel
+class ConfirmationEmail
+  include ActiveModel::Model
+
   attr_accessor :email_addresses, :additional_email_address
 
   def initialize

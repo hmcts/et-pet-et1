@@ -9,8 +9,7 @@ class ClaimsController < ApplicationController
   def create
     claim = Claim.create
     session[:claim_reference] = claim.reference
-
-    redirect_to edit_user_session_url
+    redirect_to page_claim_path(page: ClaimTransitionManager.first_page)
   end
 
   def update

@@ -1,33 +1,20 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :ensure_claim_exists, except: :destroy
-  before_action :get_claim_reference, only: %i<show edit update destroy>
+  skip_before_action :ensure_claim_exists, except: :update
 
-  def show
-    redirect_to root_path if claim.email_address.present?
+  def reminder
+    redirect_to root_path if email_address_already_set?
   end
 
   def create
-    if user_session.save
+    if user_session.valid?
       session[:claim_reference] = user_session.reference
-      redirect_to page_claim_path(page: 'claimant')
+      redirect_to page_claim_path(page: :claimant)
     else
-      render 'new'
+      render :returning
     end
   end
 
   def update
-    if user_session.save
-      claim.update_attributes(
-        password: user_session.password,
-        email_address: user_session.email_address)
-      deliver_access_details
-      redirect_to page_claim_path(page: 'claimant')
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
     claim.update_attributes(email_address: user_session.email_address)
     deliver_access_details
     session.clear
@@ -36,16 +23,12 @@ class UserSessionsController < ApplicationController
 
   private
 
-  def get_claim_reference
-    user_session.reference = session[:claim_reference]
+  def deliver_access_details
+    AccessDetailsMailer.deliver_later claim
   end
 
-  def deliver_access_details
-    if user_session.email_address.present?
-      BaseMailer.access_details_email(claim, user_session.email_address).deliver_later
-    else
-      true
-    end
+  def email_address_already_set?
+    claim.email_address.present?
   end
 
   helper_method def user_session

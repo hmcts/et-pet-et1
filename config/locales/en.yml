@@ -114,13 +114,12 @@ en:
           new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
+      application_number:
+        password: Your memorable word
       user_session:
-        new:
+        returning:
           reference: Your application number
           password: Your memorable word
-        edit:
-          password: Enter a memorable word (at least 5 characters)
-          email_address: Email address
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -334,25 +333,16 @@ en:
 
   user_sessions:
     reference: Your application number is
-    edit:
-      header: Your application number
-      memorable_word_legend: Returning to your application
-      application_number_legend: Application number reminder
-      subheader: Keep a note of these details
-      hint: |
-        Your application number is important.
-
-        You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
-    new:
+    returning:
       header: Return to your application
-      legend: ''
       subheader: To return to an application you started earlier, enter your details below.
       hint: Don't have these details? [Start a new application](/).
-    show:
+    reminder:
       header: Saved
       legend: Application number reminder
       subheader: Keep a note of these details
       hint: You need this number to save your work and return to it another time
+      submit: Sign out now
 
   guides:
     show:
@@ -396,9 +386,16 @@ en:
         detail: how we use your information
         summary: |
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
-    password:
-      header: Before you start
+    application_number:
       legend: Save and return to your application
+      header: Your application number
+      memorable_word_legend: Returning to your application
+      application_number_legend: Application number reminder
+      subheader: Keep a note of these details
+      hint: |
+        Your application number is important.
+
+        You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
 
       access_details:
         header: Keep a note of these details
@@ -407,6 +404,7 @@ en:
 
       record_details:
           header: Email address
+          info: yes
 
     claimant:
       header: About you
@@ -514,6 +512,16 @@ en:
         too_long: |
            "The information you have provided for this field must not exceed %{count} characters"
       models:
+        user_session:
+          attributes:
+            password:
+              blank: You must provide information for this field
+            reference:
+              blank: You must provide information for this field
+        application_number:
+          attributes:
+            password:
+              blank: You must provide information for this field
         additional_claimant:
           attributes:
             title:
