@@ -13,7 +13,7 @@
       input_html: { :class => 'reveal-publish-publisher',
                     :'data-target' => 'main'}
 
-    div.clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
+    div.clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
       .panel-indent
         = f.input :no_acas_number_reason,
           collection: FormOptions::NO_ACAS_REASON,
@@ -39,7 +39,7 @@
         input_html: { :class => 'reveal-publish-publisher'},
         reveal: { true => 'sub1', false => 'sub1' }
 
-      #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
+      #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array="false"
         p.form-hint= t '.work_address'
         = f.input :work_address_building
         = f.input :work_address_street
