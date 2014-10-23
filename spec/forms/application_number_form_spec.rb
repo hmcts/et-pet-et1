@@ -18,7 +18,7 @@ RSpec.describe ApplicationNumberForm, type: :form do
       end
 
       it "returns true allowing save to perform like an AR model" do
-        expect(subject.save).to be_truthy
+        expect(subject.save).to be(true)
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe ApplicationNumberForm, type: :form do
       end
 
       it "returns false" do
-        expect(subject.save).to be_falsey
+        expect(subject.save).to be(false)
       end
     end
   end
