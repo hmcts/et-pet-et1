@@ -76,8 +76,6 @@ textarea.form-control{
     display: block;
   }
 }
-<<<<<<< HEAD
-
 
 aside{
   h3{
@@ -91,26 +89,6 @@ aside{
     li{
       padding-left:0;
       margin-left:0;
-    }
-  }
-}
-
-// ==========================================================================
-// Inline fields
-// ==========================================================================
-.inline-fields {
-  overflow:hidden;
-  .form-group {
-    @include span(6 of 12);
-    clear:none;
-    margin-bottom:0;
-    &:first-child {
-      @include first;
-      padding-left:0;
-      input {
-        @include span(10 of 12);
-        margin-left:0;
-      }
     }
   }
 }
