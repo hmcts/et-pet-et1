@@ -11,14 +11,14 @@ header.main-header
         section.content-section
           .panel-indent
             = format t('.callout')
-            
+
           .content-block
             = format t('.before_you_continue')
 
           = f.button :submit, { class: 'button button-get-started' }
 
           h3 = t('.application_started_header')
-          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button button-return'}
+          = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}
 
     section.content-section
       = format t '.what_you_need_to_know.body'

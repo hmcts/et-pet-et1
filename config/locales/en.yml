@@ -317,6 +317,7 @@ en:
         return: Return to your application
 
   shared:
+    reference: Your application number is
     aside:
       gethelp_header: Get help
       actions_header: Actions
@@ -333,16 +334,7 @@ en:
       invalid: This memorable word does not match the application number
 
   user_sessions:
-    reference: Your application number is
-    edit:
-      header: Your application number
-      memorable_word_legend: Returning to your application
-      application_number_legend: Online application number reminder
-      hint: |
-        Your application number is important. You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
-      print_link: Print this page
-      print_copy: to have a copy of your online application reference
-    new:
+    returning:
       header: Return to your application
       subheader: To return to an application you started earlier, enter your details below.
       hint: Don't have these details? [Start a new application](/).
@@ -400,25 +392,13 @@ en:
         summary: |
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
     application_number:
-      legend: Save and return to your application
       header: Your application number
       memorable_word_legend: Returning to your application
-      application_number_legend: Application number reminder
-      subheader: Keep a note of these details
+      application_number_legend: Online application number reminder
       hint: |
-        Your application number is important.
-
-        You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
-
-      access_details:
-        header: Keep a note of these details
-        reference: Your application number
-        hint: You need this number to save your work and return to it another time
-
-      record_details:
-          header: Email address
-          info: yes
-
+        Your application number is important. You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
+      print_link: Print this page
+      print_copy: to have a copy of your online application reference
     claimant:
       header: About you
       personal_details: Personal details
