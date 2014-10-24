@@ -26,15 +26,13 @@ class RepresentativeForm < Form
     end
   end
 
-  def save
-    if has_representative?
-      super
-    else
-      target.destroy
-    end
+  private
+
+  def clear_irrelevant_fields
+    target.destroy unless has_representative?
   end
 
-  private def target
+  def target
     resource.representative || resource.build_representative
   end
 end

@@ -3,6 +3,12 @@ require 'rails_helper'
 RSpec.describe RespondentForm, :type => :form do
   subject { described_class.new {|f| f.worked_at_same_address = 'false' } }
 
+  work_attributes = {
+    work_address_building: "2", work_address_street: "Business Lane",
+    work_address_locality: "Business City", work_address_county: 'Businessbury',
+    work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000"
+  }
+
   describe 'validations' do
     [:name, :address_building, :address_street, :address_locality,
       :address_post_code].each do |attr|
@@ -71,27 +77,25 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
-  describe '#valid?' do
-
+  describe 'callbacks' do
     it 'clears acas number when selecting no acas number' do
       subject.acas_early_conciliation_certificate_number = 'acas'
       subject.no_acas_number = true
-      subject.valid?
+      subject.run_callbacks(:save)
 
       expect(subject.acas_early_conciliation_certificate_number).to be nil
     end
-  end
 
-  describe '#save' do
     context 'when worked at same address' do
-      before do
-        subject.worked_at_same_address = 'true'
-      end
+      subject { described_class.new work_attributes }
+      before { subject.worked_at_same_address = 'true' }
 
-      it 'destroys the address relation' do
-        expect(subject.resource.build_primary_respondent.work_address).to receive :destroy
+      work_attributes.keys.each do |attr|
+        it "clears #{attr} field" do
+          subject.run_callbacks(:save)
 
-        subject.save
+          expect(subject.attributes[attr]).to be nil
+        end
       end
     end
   end
@@ -120,12 +124,9 @@ RSpec.describe RespondentForm, :type => :form do
     address_telephone_number: "01234567890", address_building: "1",
     address_street: "Business Street", address_locality: "Businesstown",
     address_county: "Businessfordshire", address_post_code: "SW1A 1AB",
-    work_address_building: "2", work_address_street: "Business Lane",
-    work_address_locality: "Business City", work_address_county: 'Businessbury',
-    work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000",
     worked_at_same_address: 'false', no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction",
-    acas_early_conciliation_certificate_number: nil}
+    acas_early_conciliation_certificate_number: nil}.merge(work_attributes)
 
   before = proc do
     allow(resource).to receive(:primary_respondent).and_return nil

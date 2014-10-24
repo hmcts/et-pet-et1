@@ -32,12 +32,13 @@ class ClaimantForm < Form
     @has_representative ||= resource.representative.present?
   end
 
-  def valid?
+  private
+
+  def clear_irrelevant_fields
     attributes[:special_needs] = nil unless has_special_needs?
-    super
   end
 
-  private def target
+  def target
     resource.primary_claimant || resource.build_primary_claimant
   end
 end

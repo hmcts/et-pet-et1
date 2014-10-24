@@ -34,11 +34,11 @@ RSpec.describe ClaimTypeForm, :type => :form do
     end
   end
 
-  describe '#valid?' do
+  describe 'callbacks' do
     it 'clears other_claim_details when selecting no' do
       subject.other_claim_details = 'other details'
       subject.is_other_type_of_claim = false
-      subject.valid?
+      subject.run_callbacks(:save)
 
       expect(subject.other_claim_details).to be nil
     end

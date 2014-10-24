@@ -9,11 +9,6 @@ class AdditionalInformationForm < Form
     message: I18n.t('errors.messages.rtf')
   }
 
-  def valid?
-    self.miscellaneous_information = nil unless has_miscellaneous_information?
-    super
-  end
-
   def has_attachment?
     resource.attachment_file.present?
   end
@@ -22,7 +17,13 @@ class AdditionalInformationForm < Form
     self.has_miscellaneous_information = miscellaneous_information.present?
   end
 
-  private def target
+  private
+
+  def clear_irrelevant_fields
+    self.miscellaneous_information = nil unless has_miscellaneous_information?
+  end
+
+  def target
     resource
   end
 end

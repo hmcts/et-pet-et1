@@ -42,11 +42,11 @@ RSpec.describe ClaimantForm, :type => :form do
     end
   end
 
-  describe '#valid?' do
+  describe 'callbacks' do
     it 'clears special needs when selecting no' do
       subject.special_needs = 'uses a crutch'
       subject.has_special_needs = false
-      subject.valid?
+      subject.run_callbacks(:save)
 
       expect(subject.special_needs).to be nil
     end

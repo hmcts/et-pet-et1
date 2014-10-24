@@ -1,13 +1,15 @@
 class RespondentForm < Form
   include AddressAttributes
 
+  WORK_ADDRESS_ATTRIBUTES = [:work_address_building,
+    :work_address_street, :work_address_locality,
+    :work_address_county, :work_address_post_code,
+    :work_address_telephone_number]
+
   attributes :organisation_name, :name,
-             :work_address_building,
-             :work_address_street, :work_address_locality,
-             :work_address_county, :work_address_post_code,
-             :work_address_telephone_number,
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
+  attributes *WORK_ADDRESS_ATTRIBUTES
 
   booleans   :no_acas_number
 
@@ -34,16 +36,6 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } }
 
-  def valid?
-    self.acas_early_conciliation_certificate_number = nil if no_acas_number?
-    super
-  end
-
-  def save
-    target.work_address.destroy if worked_at_same_address?
-    super
-  end
-
   def worked_at_same_address?
     ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
   end
@@ -56,7 +48,14 @@ class RespondentForm < Form
     @was_employed ||= resource.employment.present?
   end
 
-  private def target
+  private
+
+  def clear_irrelevant_fields
+    self.acas_early_conciliation_certificate_number = nil if no_acas_number?
+    WORK_ADDRESS_ATTRIBUTES.each {|a| attributes[a] = nil } if worked_at_same_address?
+  end
+
+  def target
     resource.primary_respondent || resource.build_primary_respondent
   end
 end

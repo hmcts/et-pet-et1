@@ -19,6 +19,10 @@ class Form
     end
   end
 
+  before_save :clear_irrelevant_fields
+  def clear_irrelevant_fields
+  end
+
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
   def column_for_attribute *args

@@ -8,12 +8,6 @@ class EmploymentForm < Form
     :notice_pay_period_type, :found_new_job, :new_job_start_date,
     :new_job_gross_pay, :new_job_gross_pay_frequency
 
-  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
-
-  boolean :was_employed
-
-  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
-
   %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
     define_method("#{attribute}=") do |v|
       v = v.nil? ? v : v.gsub(',', '')
@@ -21,33 +15,29 @@ class EmploymentForm < Form
     end
   end
 
+  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
+
+  boolean :was_employed
+
+  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
+
   def was_employed
     @was_employed ||= target.persisted?
-  end
-
-  def save
-    if was_employed?
-      super
-    else
-      target.destroy
-    end
-  end
-
-  def valid?
-    clear_irrelevant_fields if was_employed?
-    super
   end
 
   private
 
   def clear_irrelevant_fields
-    other_situations = FormOptions::CURRENT_SITUATION.reject{|situation| situation == current_situation}
-    other_situations.each do |situation|
-      clear_method = "clear_#{situation}"
-      send(clear_method) if respond_to?(clear_method, true)
+    if was_employed?
+      (FormOptions::CURRENT_SITUATION - [current_situation]).each do |situation|
+        clear_method = "clear_#{situation}"
+        send(clear_method) if respond_to?(clear_method, true)
+      end
+      clear_notice_pay_period
+      clear_new_job
+    else
+      target.destroy
     end
-    clear_notice_pay_period
-    clear_new_job
   end
 
   def clear_notice_period

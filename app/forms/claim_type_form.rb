@@ -12,16 +12,17 @@ class ClaimTypeForm < Form
     attributes[:pay_claims].map(&:to_s)
   end
 
-  def valid?
-    self.other_claim_details = nil unless is_other_type_of_claim?
-    super
-  end
-
   def is_other_type_of_claim
     self.is_other_type_of_claim = other_claim_details.present?
   end
 
-  private def target
+  private
+
+  def clear_irrelevant_fields
+    self.other_claim_details = nil unless is_other_type_of_claim?
+  end
+
+  def target
     resource
   end
 end
