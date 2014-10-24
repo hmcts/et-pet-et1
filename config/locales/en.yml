@@ -322,7 +322,7 @@ en:
       read_guide: Read the guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
-      signout: Sign out and complete later
+      signout: Sign out
 
   errors:
     messages:
@@ -333,7 +333,15 @@ en:
 
   user_sessions:
     reference: Your application number is
-    returning:
+    edit:
+      header: Your application number
+      memorable_word_legend: Returning to your application
+      application_number_legend: Online application number reminder
+      hint: |
+        Your application number is important. You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
+      print_link: Print this page
+      print_copy: to have a copy of your online application reference
+    new:
       header: Return to your application
       subheader: To return to an application you started earlier, enter your details below.
       hint: Don't have these details? [Start a new application](/).
