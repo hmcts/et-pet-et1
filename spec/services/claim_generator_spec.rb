@@ -54,7 +54,7 @@ describe ClaimGenerator, type: :service do
       claimants: [claimant],
       respondents: [respondent],
       representative: representative,
-      office: Office.new(Office, code: 12)
+      office: {code: 12}
   }
 
   subject { ClaimGenerator.new(claim) }
@@ -66,7 +66,7 @@ describe ClaimGenerator, type: :service do
     end
 
     it 'validates against the schema' do
-      xsd = Nokogiri::XML::Schema(File.read(Rails.root.join('spec/support/ETFees_v0.09.xsd')))
+      xsd = Nokogiri::XML::Schema(File.read(Rails.root.join('spec/support/ETFees.xsd')))
       doc = Nokogiri::XML(subject.to_xml)
       expect(xsd.validate(doc)).to eq([])
     end

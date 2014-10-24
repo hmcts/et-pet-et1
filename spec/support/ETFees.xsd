@@ -5,7 +5,7 @@
 			<Metadata xmlns="http://www.govtalk.gov.uk/metadata/egms">
 				<Creator>Jadu Ltd</Creator>
 				<Created>2014-07-07</Created>
-				<Modified>2014-07-17</Modified>
+				<Modified>2014-09-23</Modified>
 				<Format Schema="http://www.iana.org/assignments/media-types">text/xml</Format>
 				<Identifier>ETAPI</Identifier>
 				<Language codeListID="ISO639-2" codeListURI="http://www.loc.gov/standards/iso639-2/langcodes.html">eng</Language>
@@ -15,7 +15,7 @@
 				<ProtectiveMarking>unclassified</ProtectiveMarking>
 				<Status>DRAFT</Status>
 				<StatusDescription/>
-				<Version>0.09</Version>
+				<Version>0.15</Version>
 				<Title>ETAPI</Title>
 				<Type/>
 			</Metadata>
@@ -24,15 +24,15 @@
 	<xs:element name="ETFeesEntry">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="DocumentID" type="DocumentIDStructure"/>
-				<xs:element name="FeeGroupReference" type="FeeGroupReferenceType" nillable="true"/>
-				<xs:element name="SubmissionURN" type="SubmissionURNType"/>
+				<xs:element name="DocumentId" type="DocumentIDStructure"/>
+				<xs:element name="FeeGroupReference" type="FeeGroupReferenceType"/>
+				<xs:element name="SubmissionUrn" type="SubmissionURNType"/>
 				<xs:element name="CurrentQuantityOfClaimants" type="xs:integer"/>
 				<xs:element name="SubmissionChannel" type="SubmissionChannelType"/>
 				<xs:element name="CaseType" type="CaseTypeType"/>
 				<xs:element name="Jurisdiction" type="JurisdictionType"/>
 				<xs:element name="OfficeCode" type="OfficeCodeType"/>
-				<xs:element name="DateOfReceiptET" type="xs:dateTime"/>
+				<xs:element name="DateOfReceiptEt" type="xs:dateTime"/>
 				<xs:element name="RemissionIndicated" type="RemissionIndicatedType"/>
 				<xs:element name="Administrator" type="AdministratorType" nillable="true"/>
 				<xs:element name="Claimants">
@@ -45,7 +45,7 @@
 				<xs:element name="Respondents">
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Respondent" minOccurs="1" maxOccurs="unbounded"/>
+							<xs:element name="Respondent" type="RespondentType" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -79,16 +79,25 @@
 	<xs:complexType name="DocumentIDStructure">
 		<xs:sequence>
 			<xs:element name="DocumentName" type="xs:string" fixed="ETFeesEntry"/>
-			<xs:element name="UniqueID" type="UniqueIDDateType"/>
+			<xs:element name="UniqueId" type="UniqueIDDateType"/>
 			<xs:element name="DocumentType" type="xs:string" fixed="ETFeesEntry"/>
 			<xs:element name="TimeStamp" type="xs:dateTime"/>
 			<xs:element name="Version" type="xs:string"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="FeeGroupReferenceType">
-		<xs:restriction base="xs:long">
-			<xs:pattern value="[\d]{10}00"/>
-		</xs:restriction>
+		<xs:union>
+          <xs:simpleType>
+            <xs:restriction base='xs:string'>
+              <xs:length value="0"/>
+            </xs:restriction>
+          </xs:simpleType>
+          <xs:simpleType>
+            <xs:restriction base="xs:long">
+				<xs:pattern value="([\d]{10}00)?"/>
+			</xs:restriction>
+          </xs:simpleType>
+        </xs:union>
 	</xs:simpleType>
 	<xs:simpleType name="SubmissionURNType">
 		<xs:restriction base="xs:integer">
@@ -226,7 +235,7 @@
 			<xs:element name="Checksum">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:length value="40"/>
+						<xs:length value="32"/>
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -235,13 +244,13 @@
 	<xs:complexType name="ReceiptType">
 		<xs:sequence>
 			<xs:element name="PSP" type="xs:string"/>
-			<xs:element name="PayID" type="xs:integer"/>
+			<xs:element name="PayId" type="xs:integer"/>
 			<xs:element name="Amount" type="xs:decimal"/>
 			<xs:element name="Date" type="xs:dateTime"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="ChequeReferenceNumberType">
-		<xs:restriction base="xs:nonPositiveInteger">
+		<xs:restriction base="xs:positiveInteger">
 			<xs:totalDigits value="11"/>
 			<xs:pattern value="\d{11}"/>
 		</xs:restriction>
