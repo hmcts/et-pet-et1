@@ -318,7 +318,8 @@ en:
 
   shared:
     aside:
-      gethelp: Get help
+      gethelp_header: Get help
+      actions_header: Actions
       read_guide: Read the guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment

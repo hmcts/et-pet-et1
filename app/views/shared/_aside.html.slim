@@ -1,9 +1,11 @@
 - hide ||= []
 aside
-  h3= t '.gethelp'
   nav
+    h3= t '.gethelp_header'
     ul
       li= link_to t('.read_guide'), guide_path
       li= link_to t('.contact_us'), t('.contact_us_link')
-      - unless hide.include?(:signout)
-        li= link_to t('.signout'), reminder_user_session_path
+    - unless hide.include?(:signout)
+      h3= t '.actions_header'
+      ul
+        li= link_to t('.signout'), user_session_path
