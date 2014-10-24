@@ -21,22 +21,23 @@ aside{
 // ==========================================================================
 // Header
 // ==========================================================================
-  header {
-    &.main-header{
-      h1{
-        margin:$gutter*2 0;
-      }
-      h3 {
-        @include core-24;
-        color:$secondary-text-colour;
-        padding-top: $gutter-half;
-      }
-      h1 {
-        @include bold-48();
-        padding: $gutter-half 0 $gutter;
+header {
+  &.main-header{
+    h1{
+      @include bold-48();
+      padding:0;
+      margin:$gutter*2 0;
+    }
+    h3 {
+      @include core-24;
+      color:$secondary-text-colour;
+      padding-top: $gutter-half;
+      & + h1{
+        margin-top: $gutter-half;
       }
     }
   }
+}
 
 // ==========================================================================
 // Inputs
@@ -77,6 +78,7 @@ textarea.form-control{
     display: block;
   }
 }
+<<<<<<< HEAD
 
 
 aside{

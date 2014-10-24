@@ -1,7 +1,7 @@
 .callout {
   @include span(11 of 12);
   //@include prefix(0.25 of 12);
-  margin:$gutter-half 0 $gutter;
+  margin:0 0 $gutter*2;
   padding:$gutter $gutter-half;
 
   &.callout-reference{
