@@ -132,11 +132,11 @@ input[type=radio]{
 aside{
   h3{
     @extend .heading-medium;
-    margin-top:0;
+    margin:0 0 $gutter-half/2;
   }
   ul{
     padding-left:0;
-    margin-left:0;
+    margin:0 0 $gutter-half 0;
     list-style:none;
     li{
       padding-left:0;
