@@ -75,13 +75,11 @@ RSpec.describe RespondentForm, :type => :form do
         it { is_expected.to validate_presence_of(:no_acas_number_reason) }
       end
     end
-  end
 
-  describe 'callbacks' do
     it 'clears acas number when selecting no acas number' do
       subject.acas_early_conciliation_certificate_number = 'acas'
       subject.no_acas_number = true
-      subject.run_callbacks(:save)
+      subject.valid?
 
       expect(subject.acas_early_conciliation_certificate_number).to be nil
     end
@@ -92,7 +90,7 @@ RSpec.describe RespondentForm, :type => :form do
 
       work_attributes.keys.each do |attr|
         it "clears #{attr} field" do
-          subject.run_callbacks(:save)
+          subject.valid?
 
           expect(subject.attributes[attr]).to be nil
         end

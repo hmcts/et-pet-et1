@@ -48,7 +48,7 @@ RSpec.describe EmploymentForm, :type => :form do
 
       it 'destroys the representative relation' do
         expect(employment).to receive :destroy
-        subject.run_callbacks(:save)
+        subject.save
       end
     end
 
@@ -74,7 +74,7 @@ RSpec.describe EmploymentForm, :type => :form do
 
         context 'previously entered other information' do
           it 'clears other fields' do
-            subject.run_callbacks(:save)
+            subject.valid?
 
             expect(subject.worked_notice_period_or_paid_in_lieu).to be nil
             expect(subject.notice_period_end_date).to be nil
@@ -89,7 +89,7 @@ RSpec.describe EmploymentForm, :type => :form do
         before { subject.current_situation = :notice_period }
 
         it 'clears other fields but keeps notice period end date' do
-          subject.run_callbacks(:save)
+          subject.valid?
 
           expect(subject.notice_period_end_date).to eq date
           expect(subject.end_date).to be nil
@@ -107,7 +107,7 @@ RSpec.describe EmploymentForm, :type => :form do
             before { subject.found_new_job = false }
 
             it 'clears new job details' do
-              subject.run_callbacks(:save)
+              subject.valid?
 
               expect(subject.new_job_start_date).to be nil
               expect(subject.new_job_gross_pay).to be nil
@@ -119,7 +119,7 @@ RSpec.describe EmploymentForm, :type => :form do
             before { subject.found_new_job = true }
 
             it 'new job details are kept' do
-              subject.run_callbacks(:save)
+              subject.valid?
 
               expect(subject.new_job_start_date).to eq date
               expect(subject.new_job_gross_pay).to eq '100'
@@ -132,7 +132,7 @@ RSpec.describe EmploymentForm, :type => :form do
           context 'when selecting no notice period' do
             before { subject.worked_notice_period_or_paid_in_lieu = false }
             it 'clears notice period details' do
-              subject.run_callbacks(:save)
+              subject.valid?
 
               expect(subject.notice_pay_period_count).to be nil
               expect(subject.notice_pay_period_type).to be nil

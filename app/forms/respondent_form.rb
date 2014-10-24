@@ -13,11 +13,12 @@ class RespondentForm < Form
 
   booleans   :no_acas_number
 
-  validates :name, presence: true
+  before_validation :clear_irrelevant_fields
 
+  validates_address(self)
+  validates :name, presence: true
   validates :work_address_street, :work_address_locality, :work_address_building,
             :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
-
   validates :name, length: { maximum: NAME_LENGTH }
   validates :work_address_building,
             :work_address_street,

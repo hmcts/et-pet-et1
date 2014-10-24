@@ -9,6 +9,9 @@ class ClaimantForm < Form
 
   date       :date_of_birth
 
+  before_validation :clear_irrelevant_fields
+
+  validates_address(self)
   validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
   validates :title, inclusion: { in: FormOptions::TITLES.map(&:to_s) }

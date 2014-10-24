@@ -19,6 +19,9 @@ class EmploymentForm < Form
 
   boolean :was_employed
 
+  before_validation :clear_irrelevant_fields
+  before_save :destroy_unused_record
+
   validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
 
   def was_employed
@@ -29,15 +32,19 @@ class EmploymentForm < Form
 
   def clear_irrelevant_fields
     if was_employed?
-      (FormOptions::CURRENT_SITUATION - [current_situation]).each do |situation|
-        clear_method = "clear_#{situation}"
-        send(clear_method) if respond_to?(clear_method, true)
-      end
+      clear_unwanted_situations
       clear_notice_pay_period
       clear_new_job
-    else
-      target.destroy
     end
+  end
+
+  def destroy_unused_record
+    target.destroy unless was_employed?
+  end
+
+  def clear_unwanted_situations
+    unwanted = FormOptions::CURRENT_SITUATION - [current_situation, :still_employed]
+    unwanted.each {|situation| send("clear_#{situation}") }
   end
 
   def clear_notice_period

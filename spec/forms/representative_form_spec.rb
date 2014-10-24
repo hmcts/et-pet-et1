@@ -67,13 +67,14 @@ RSpec.describe RepresentativeForm, :type => :form do
     end
 
     context 'when has_representative? == false' do
-      before { subject.has_representative = false }
+      before { subject.has_representative = 'false' }
 
       [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
         it { is_expected.to_not validate_presence_of(attr) }
       end
 
       it do
+
         is_expected.to_not ensure_inclusion_of(:type).in_array \
          %w<citizen_advice_bureau free_representation_unit law_centre trade_union
              solicitor private_individual trade_association other>

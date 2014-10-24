@@ -3,6 +3,8 @@ class AdditionalInformationForm < Form
   attributes :miscellaneous_information, :attachment, :attachment_cache,
     :remove_attachment
 
+  before_validation :clear_irrelevant_fields
+
   validates :miscellaneous_information, length: { maximum: 5000 }
   validates :attachment, content_type: {
     in: %w<text/rtf text/plain>,

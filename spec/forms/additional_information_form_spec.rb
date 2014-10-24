@@ -33,30 +33,30 @@ RSpec.describe AdditionalInformationForm, :type => :form do
         end
       end
     end
-  end
 
-  describe 'callbacks' do
-    before do
-      subject.miscellaneous_information = 'such miscellany'
-    end
-
-    context 'when #has_miscellaneous_information? is true' do
-      before { subject.has_miscellaneous_information = true }
-
-      it 'saves #miscellaneous_information to the underlying resource' do
-        subject.run_callbacks(:save)
-
-        expect(subject.miscellaneous_information).to eq('such miscellany')
+    describe 'on #miscellaneous_information' do
+      before do
+        subject.miscellaneous_information = 'such miscellany'
       end
-    end
 
-    context 'when #has_miscellaneous_information? is true' do
-      before { subject.has_miscellaneous_information = false }
+      context 'when #has_miscellaneous_information? is true' do
+        before { subject.has_miscellaneous_information = true }
 
-      it 'sets #miscellaneous_information to nil on the underlying resource' do
-        subject.run_callbacks(:save)
+        it 'saves #miscellaneous_information to the underlying resource' do
+          subject.valid?
 
-        expect(subject.miscellaneous_information).to be nil
+          expect(subject.miscellaneous_information).to eq('such miscellany')
+        end
+      end
+
+      context 'when #has_miscellaneous_information? is false' do
+        before { subject.has_miscellaneous_information = false }
+
+        it 'sets #miscellaneous_information to nil on the underlying resource' do
+          subject.valid?
+
+          expect(subject.miscellaneous_information).to be nil
+        end
       end
     end
   end

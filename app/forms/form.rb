@@ -11,16 +11,15 @@ class Form
 
   attr_accessor :resource, :target
 
-  define_callbacks :save
+  define_callbacks :validation, :save
 
   %i<before after>.each do |event|
     define_singleton_method "#{ event }_save" do |callback|
       set_callback(:save, event, callback)
     end
-  end
-
-  before_save :clear_irrelevant_fields
-  def clear_irrelevant_fields
+    define_singleton_method "#{ event }_validation" do |callback|
+      set_callback(:validate, event, callback)
+    end
   end
 
   # TODO smarter delegation of this method to take into account delegated

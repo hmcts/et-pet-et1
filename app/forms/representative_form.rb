@@ -5,25 +5,22 @@ class RepresentativeForm < Form
              :mobile_number, :email_address, :dx_number,
              :contact_preference
 
-  validates :type, :name, presence: true
-
-  validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
-  validates :organisation_name, :name, length: { maximum: 100 }
-  validates :dx_number, length: { maximum: 20 }
-  validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
-
   boolean :has_representative
+
+  before_save :clear_irrelevant_fields
+
+  with_options if: :has_representative? do |rep|
+    validates_address(rep)
+
+    rep.validates :type, :name, presence: true
+    rep.validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
+    rep.validates :organisation_name, :name, length: { maximum: 100 }
+    rep.validates :dx_number, length: { maximum: 20 }
+    rep.validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
+  end
 
   def has_representative
     @has_representative ||= target.persisted?
-  end
-
-  def valid?
-    if has_representative?
-      super
-    else
-      true
-    end
   end
 
   private
