@@ -69,6 +69,13 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
+  describe '#reload_addresses' do
+    it 'addresses reloaded on save' do
+      expect(subject).to receive(:reload_addresses)
+      subject.run_callbacks :save
+    end
+  end
+
   include_examples "Postcode validation", attribute_prefix: 'address'
   include_examples "Postcode validation", attribute_prefix: 'work_address'
 
@@ -90,6 +97,7 @@ RSpec.describe RespondentForm, :type => :form do
   before = proc do
     allow(resource).to receive(:primary_respondent).and_return nil
     allow(resource).to receive(:build_primary_respondent).and_return target
+    allow(target).to receive(:addresses).and_return double reload: true
   end
 
   it_behaves_like("a Form", attributes, before)
