@@ -16,7 +16,7 @@
 aside{
   @include span(3 of 12);
   @include last;
-  padding-right:0;
+  padding-left:0;
 }
 // ==========================================================================
 // Header
@@ -78,8 +78,6 @@ textarea.form-control{
     display: block;
   }
 }
-<<<<<<< HEAD
-
 
 aside{
   h3{
