@@ -9,9 +9,8 @@ class ClaimantForm < Form
 
   date       :date_of_birth
 
-  before_validation :clear_irrelevant_fields
+  before_validation :reset_special_needs!, unless: :has_special_needs?
 
-  validates_address(self)
   validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
   validates :title, inclusion: { in: FormOptions::TITLES.map(&:to_s) }
@@ -37,8 +36,8 @@ class ClaimantForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    attributes[:special_needs] = nil unless has_special_needs?
+  def reset_special_needs!
+    attributes[:special_needs] = nil
   end
 
   def target

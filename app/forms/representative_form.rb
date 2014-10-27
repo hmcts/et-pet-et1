@@ -7,16 +7,20 @@ class RepresentativeForm < Form
 
   boolean :has_representative
 
-  before_save :clear_irrelevant_fields
+  before_validation :destroy_target!, unless: :has_representative?
 
-  with_options if: :has_representative? do |rep|
-    validates_address(rep)
+  validates :type, :name, presence: true
+  validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
+  validates :organisation_name, :name, length: { maximum: 100 }
+  validates :dx_number, length: { maximum: 20 }
+  validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
 
-    rep.validates :type, :name, presence: true
-    rep.validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
-    rep.validates :organisation_name, :name, length: { maximum: 100 }
-    rep.validates :dx_number, length: { maximum: 20 }
-    rep.validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
+  def valid?
+    if has_representative?
+      super
+    else
+      run_callbacks(:validation) { true }
+    end
   end
 
   def has_representative
@@ -25,8 +29,8 @@ class RepresentativeForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    target.destroy unless has_representative?
+  def destroy_target!
+    target.destroy
   end
 
   def target

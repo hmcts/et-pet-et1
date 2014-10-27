@@ -13,9 +13,9 @@ class RespondentForm < Form
 
   booleans   :no_acas_number
 
-  before_validation :clear_irrelevant_fields
+  before_validation :reset_acas_number!,  if: :no_acas_number?
+  before_validation :reset_work_address!, if: :worked_at_same_address?
 
-  validates_address(self)
   validates :name, presence: true
   validates :work_address_street, :work_address_locality, :work_address_building,
             :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
@@ -51,9 +51,12 @@ class RespondentForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    self.acas_early_conciliation_certificate_number = nil if no_acas_number?
-    WORK_ADDRESS_ATTRIBUTES.each {|a| attributes[a] = nil } if worked_at_same_address?
+  def reset_acas_number!
+    self.acas_early_conciliation_certificate_number = nil
+  end
+
+  def reset_work_address!
+    WORK_ADDRESS_ATTRIBUTES.each {|a| attributes[a] = nil }
   end
 
   def target

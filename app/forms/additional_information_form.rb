@@ -3,7 +3,7 @@ class AdditionalInformationForm < Form
   attributes :miscellaneous_information, :attachment, :attachment_cache,
     :remove_attachment
 
-  before_validation :clear_irrelevant_fields
+  before_validation :reset_miscellaneous_information!, unless: :has_miscellaneous_information?
 
   validates :miscellaneous_information, length: { maximum: 5000 }
   validates :attachment, content_type: {
@@ -21,8 +21,8 @@ class AdditionalInformationForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    self.miscellaneous_information = nil unless has_miscellaneous_information?
+  def reset_miscellaneous_information!
+    self.miscellaneous_information = nil
   end
 
   def target

@@ -19,8 +19,8 @@ class EmploymentForm < Form
 
   boolean :was_employed
 
-  before_validation :clear_irrelevant_fields
-  before_save :destroy_unused_record
+  before_validation :reset_irrelevant_fields!, if: :was_employed?
+  before_validation :destroy_target!, unless: :was_employed?
 
   validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
 
@@ -30,46 +30,37 @@ class EmploymentForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    if was_employed?
-      clear_unwanted_situations
-      clear_notice_pay_period
-      clear_new_job
-    end
+  def reset_irrelevant_fields!
+    reset_unwanted_situations!
+    reset_notice_pay_period! unless worked_notice_period_or_paid_in_lieu
+    reset_new_job! unless found_new_job
   end
 
-  def destroy_unused_record
-    target.destroy unless was_employed?
+  def destroy_target!
+    target.destroy
   end
 
-  def clear_unwanted_situations
+  def reset_unwanted_situations!
     unwanted = FormOptions::CURRENT_SITUATION - [current_situation, :still_employed]
-    unwanted.each {|situation| send("clear_#{situation}") }
+    unwanted.each { |situation| send("reset_#{situation}!") }
   end
 
-  def clear_notice_period
+  def reset_notice_period!
     self.notice_period_end_date = nil
   end
 
-  def clear_employment_terminated
-    self.end_date = nil
-    self.worked_notice_period_or_paid_in_lieu = nil
-    self.found_new_job = nil
+  def reset_employment_terminated!
+    assign_attributes end_date: nil, worked_notice_period_or_paid_in_lieu: nil,
+      found_new_job: nil
   end
 
-  def clear_notice_pay_period
-    unless worked_notice_period_or_paid_in_lieu
-      self.notice_pay_period_count = nil
-      self.notice_pay_period_type = nil
-    end
+  def reset_notice_pay_period!
+    assign_attributes notice_pay_period_count: nil, notice_pay_period_type: nil
   end
 
-  def clear_new_job
-    unless found_new_job
-      self.new_job_start_date = nil
-      self.new_job_gross_pay = nil
-      self.new_job_gross_pay_frequency = nil
-    end
+  def reset_new_job!
+    assign_attributes new_job_start_date: nil, new_job_gross_pay: nil,
+      new_job_gross_pay_frequency: nil
   end
 
   def still_employed

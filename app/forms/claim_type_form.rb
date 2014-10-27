@@ -4,7 +4,7 @@ class ClaimTypeForm < Form
   attributes :is_unfair_dismissal, :discrimination_claims, :pay_claims,
     :is_whistleblowing, :send_claim_to_whistleblowing_entity, :other_claim_details
 
-  before_validation :clear_irrelevant_fields
+  before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
 
   def discrimination_claims
     attributes[:discrimination_claims].map(&:to_s)
@@ -20,8 +20,8 @@ class ClaimTypeForm < Form
 
   private
 
-  def clear_irrelevant_fields
-    self.other_claim_details = nil unless is_other_type_of_claim?
+  def reset_claim_details!
+    self.other_claim_details = nil
   end
 
   def target
