@@ -16,7 +16,7 @@ RSpec.describe ClaimTypeForm, :type => :form do
 
   it_behaves_like("a Form", attributes, set_resource)
 
-  subject { described_class.new { |f| f.resource = claim } }
+  subject { described_class.new { |f| f.resource = claim; f.is_other_type_of_claim = true } }
 
   let(:claim) do
     Claim.new \
@@ -30,6 +30,32 @@ RSpec.describe ClaimTypeForm, :type => :form do
       it 'returns the underlying attribute, mapped to_s' do
         expect(subject.send "#{type}_claims").
           to eq claim.send("#{type}_claims").map(&:to_s)
+      end
+    end
+  end
+
+  describe 'callbacks' do
+    it 'clears other_claim_details when selecting no' do
+      subject.other_claim_details = 'other details'
+      subject.is_other_type_of_claim = false
+      subject.valid?
+
+      expect(subject.other_claim_details).to be nil
+    end
+  end
+
+  describe '#is_other_type_of_claim' do
+    context 'when there are no other claim details' do
+      it 'is false' do
+        expect(subject.is_other_type_of_claim).to be false
+      end
+    end
+
+    context 'when there is other claim details' do
+      before { subject.other_claim_details = 'details' }
+
+      it 'is true' do
+        expect(subject.is_other_type_of_claim).to be true
       end
     end
   end

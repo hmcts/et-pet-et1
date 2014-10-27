@@ -42,6 +42,16 @@ RSpec.describe ClaimantForm, :type => :form do
     end
   end
 
+  describe 'callbacks' do
+    it 'clears special needs when selecting no' do
+      subject.special_needs = 'uses a crutch'
+      subject.has_special_needs = false
+      subject.valid?
+
+      expect(subject.special_needs).to be nil
+    end
+  end
+
   include_examples "Postcode validation", attribute_prefix: 'address'
 
   attributes = {
@@ -50,7 +60,8 @@ RSpec.describe ClaimantForm, :type => :form do
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
     address_country: 'united_kingdom',
-    address_post_code: 'AT1 0AA', email_address: 'lol@example.com'
+    address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
+    special_needs: nil
   }
 
   before = proc do

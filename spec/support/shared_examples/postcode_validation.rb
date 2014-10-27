@@ -1,7 +1,5 @@
 RSpec.shared_examples 'Postcode validation' do |options|
   describe 'validating a postcode' do
-    subject { described_class.new }
-
     let(:prefix) { options[:attribute_prefix] }
     let(:errors) { subject.errors[:"#{prefix}_post_code"] }
 
