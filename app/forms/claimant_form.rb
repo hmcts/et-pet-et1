@@ -9,8 +9,6 @@ class ClaimantForm < Form
 
   date       :date_of_birth
 
-  before_validation :reset_special_needs!, unless: :has_special_needs?
-
   validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
   validates :title, inclusion: { in: FormOptions::TITLES.map(&:to_s) }
@@ -34,13 +32,7 @@ class ClaimantForm < Form
     @has_representative ||= resource.representative.present?
   end
 
-  private
-
-  def reset_special_needs!
-    attributes[:special_needs] = nil
-  end
-
-  def target
+  private def target
     resource.primary_claimant || resource.build_primary_claimant
   end
 end
