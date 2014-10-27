@@ -1,13 +1,17 @@
 fieldset.form-panel
-  legend= t '.personal_details'
+  legend= t '.legend_personal_details'
 
   = render partial: 'personal_details', locals: { f: f }
 
   = f.input :gender, collection: FormOptions::GENDERS, as: :radio_buttons,
     item_wrapper_class: 'block-label'
 
+fieldset.form-panel
+  legend= t '.legend_disability'
+
   = f.input :has_special_needs,
     as: :radio_buttons,
+    label:false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
     input_html: { :class => 'reveal-publish-publisher'},
@@ -21,16 +25,17 @@ fieldset.form-panel
                     :'data-show-array' => '["true"]' }
 
 fieldset.form-panel
-  legend= t '.contact_details'
+  legend= t '.legend_contact_details'
 
   = render partial: 'address', locals: { f: f }
 
   = f.input :address_country, collection: FormOptions::COUNTRIES, include_blank: false
-  = f.input :address_telephone_number, as: :tel
-  = f.input :mobile_number, as: :tel
+  = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
+  = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :email_address
 
   = f.input :contact_preference,
     collection: FormOptions::CONTACT_PREFERENCES,
     as: :radio_buttons,
+    wrapper_html: { class: 'form-label-bold' },
     item_wrapper_class: 'block-label'

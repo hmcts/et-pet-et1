@@ -31,7 +31,7 @@ en:
         gender:
           male: Male
           female: Female
-          prefer_not_to_say: Prefer not to say
+          prefer_not_to_say: not relevant / prefer not to say
         contact_preference:
           email: Email
           post: Post
@@ -226,13 +226,13 @@ en:
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
-          Tribunal staff can provide suitable documents and help you at a hearing
-        special_needs: |
-          For example, we can provide documents in large print, Braille and on CD; help you attend a hearing; pay for sign language interpreters; and provide hearing loops.
+          E.g. get documents in large or Braille, or have a sign language interpreter.
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
+        contact_preference: |
+          The court will send correspondence by both email and post. Only choose one if you have a strong preference.
       representative:
         type: Should be someone who will speak for you in court, not just someone who offered you advice at the start.
         respondent:
@@ -251,7 +251,7 @@ en:
         notice_period_end_date: For example, 08 04 2014
       claim:
         other_claim_details: |
-          Eg, your employer hasn’t allowed you to take your statutory annual leave entitlement
+          E.g. your employer hasn’t allowed you to take your statutory annual leave entitlement
         claim_details: |
           Include the background, dates and people involved. This helps the tribunal and employer understand the basis of your case. How do I write a claim statement?
         other_known_claimants: |
@@ -287,7 +287,7 @@ en:
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
       additional_information:
         has_miscellaneous_information: |
-          E.g., you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+          E.g. you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
         miscellaneous_information: You can provide additional information about your claim in this section.
         attachment: |
           You can upload more information about your claim in a Rich Text Format
@@ -400,9 +400,10 @@ en:
       print_link: Print this page
       print_copy: to have a copy of your online application reference
     claimant:
-      header: About you
-      personal_details: Personal details
-      contact_details: Contact details
+      header: Claimant's details
+      legend_disability: Would you like help at tribunal hearing?
+      legend_personal_details: Personal details
+      legend_contact_details: Contact details
     representative:
       header: Your representative
       form_legend: Professional (or other) help
