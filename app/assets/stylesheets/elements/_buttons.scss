@@ -1,54 +1,41 @@
 // Buttons
 // ==========================================================================
+@import "design-patterns/buttons";
 
 .button {
   @include button ($button-colour);
   margin: 0 $gutter-half $gutter-half 0;
   padding: em(10) em(15) em(5) em(15);
   vertical-align: top;
-}
-
-.button:focus {
-  outline: 3px solid $yellow;
-}
-
-// Disabled buttons
-.button[disabled="disabled"] {
-  background: $button-colour;
-}
-
-.button[disabled="disabled"]:focus {
-  outline: none;
-}
-
-// Start now buttons
-.button-get-started {
-  @include bold-24;
-  background-image: url("../images/icons/icon-pointer.png");
-  background-repeat: no-repeat;
-  background-position: 100% 50%;
-  padding: em(7) em(41) em(4) em(16);
-
-  @include device-pixel-ratio {
-    background-image: url("../images/icons/icon-pointer-2x.png");
-    background-size: 30px 19px;
+  &[disabled="disabled"] {
+    background: $button-colour;
+    &:focus {
+      outline: none;
+    }
   }
-
-  @include ie(6) {
-    background-image: url("../images/icons/icon-pointer-2x.png");
+  &:focus {
+    outline: 3px solid $yellow;
   }
-}
+  &.button-get-started {
+    @include bold-24;
+    background-image: image-url("icons/icon-pointer.png");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    padding: em(7) em(41) em(4) em(16);
+    margin: em(15, 16) 0;
 
-// Show & hide links
-details,
-summary {
-  display: block;
-}
+    @include device-pixel-ratio {
+      background-image: image-url("icons/icon-pointer-2x.png");
+      background-size: 30px 19px;
+    }
 
-details summary {
-  @extend .button-link !optional;
-}
-
-details summary:focus {
-  outline: 3px solid $yellow;
+    @include ie(6) {
+      background-image: image-url("icons/icon-pointer-2x.png");
+    }
+  }
+  &.button-return {
+    @include core-19;
+    background-color:$panel-colour;
+    color:$text-colour;
+  }
 }

@@ -114,74 +114,12 @@
 
 // Text
 p {
-  margin-top: em(5, 16 );
+  @include core-19;
+  margin-top: em(5, 16);
   margin-bottom: em(20, 16);
-
-  @include media(tablet) {
-    margin-top: em(5);
-    margin-bottom: em(20);
-  }
-
 }
 
 // Lede, or intro text
 .lede {
   @include core-24;
-}
-
-// Set a max-width for text blocks
-// Less than 75 characters per line of text
-.text {
-  // max-width: 30em;
-}
-
-
-// Code styles
-pre,
-code {
-  font-size: 13px;
-  line-height: 19px;
-  color: $black;
-  background-color: $highlight-colour;
-  border: 1px solid $border-colour;
-  padding: 3px 7px;
-}
-
-// ==========================================================================
-// ATET styles
-// ==========================================================================
-
-
-//for table cells void of any information
-// ==========================================================================
-.not-entered {
-  color: $grey-1;
-}
-
-// For copy coming out of markdown
-// ==========================================================================
-.content-copy {
-  clear:both;
-  overflow:hidden;
-  h2 {
-    @extend .bold-medium;
-    border-bottom:1px solid $grey-2;
-    margin-bottom:$gutter-half;
-  }
-  h3 {
-    @extend .bold-small;
-  }
-  p {
-    @include core-19;
-  }
-  ul {
-    @include core-19;
-  }
-}
-
-.content-block {
-  margin:$gutter-half 0;
-  &:first-child{
-    margin-top:0;
-  }
 }

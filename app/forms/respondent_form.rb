@@ -41,6 +41,8 @@ class RespondentForm < Form
     ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
   end
 
+  before_save :reload_addresses
+
   def no_acas_number
     @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
   end
@@ -61,5 +63,9 @@ class RespondentForm < Form
 
   def target
     resource.primary_respondent || resource.build_primary_respondent
+  end
+
+  def reload_addresses
+    target.addresses.reload
   end
 end

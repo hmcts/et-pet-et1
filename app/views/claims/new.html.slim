@@ -1,27 +1,26 @@
-header.main-header.no-steps
+header.main-header
   h1= t('.header')
-  p= t('.info')
 
 .main-section
   = render partial: 'shared/aside', locals: {hide: [:signout]}
 
-  .main-content
+  article.main-content
     = simple_form_for claim, url: claim_path do |f|
       fieldset
-        legend Before you continue
-        .content-copy
-          .content-block
-            h3 = t('.are_you_in_time_to_apply.header')
-            p = format t('.are_you_in_time_to_apply.body')
-          .content-block
-            h3 = t('.have_you_contacted_acas.header')
-            p = format t('.have_you_contacted_acas.body')
+        legend= t('.legend_main')
+        section.content-section
+          .panel-indent
+            = format t('.callout')
 
-        .inline.inline-buttons
-          = f.button :submit
-          = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button'}
+          .content-block
+            = format t('.before_you_continue')
 
-    .content-copy 
+          = f.button :submit, { class: 'button button-get-started' }
+
+          h3 = t('.application_started_header')
+          = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}
+
+    section.content-section
       = format t '.what_you_need_to_know.body'
       details
         summary role="button" aria={controls: 'details-content-0', expanded: 'true'}

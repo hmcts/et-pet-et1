@@ -110,15 +110,24 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
+  describe 'callbacks' do
+    let(:target) { form.resource.build_primary_respondent }
+
+    it 'addresses reloaded on save' do
+      allow(target).to receive(:enqueue_fee_group_reference_request)
+      expect(target.addresses).to receive(:reload)
+      form.save
+    end
+  end
+
   include_examples "Postcode validation", attribute_prefix: 'address'
   include_examples "Postcode validation", attribute_prefix: 'work_address'
 
   let(:model) { Claim.create }
-  let(:form) { RespondentForm.new(attributes) { |f| f.resource = model } }
+  let(:form) { described_class.new(FORM_ATTRIBUTES) { |f| f.resource = model } }
   let(:respondent) { model.respondents.first }
 
-  attributes = {
-    name: "Crappy Co. LTD",
+  FORM_ATTRIBUTES = { name: "Crappy Co. LTD",
     address_telephone_number: "01234567890", address_building: "1",
     address_street: "Business Street", address_locality: "Businesstown",
     address_county: "Businessfordshire", address_post_code: "SW1A 1AB",
@@ -129,7 +138,8 @@ RSpec.describe RespondentForm, :type => :form do
   before = proc do
     allow(resource).to receive(:primary_respondent).and_return nil
     allow(resource).to receive(:build_primary_respondent).and_return target
+    allow(target).to receive(:addresses).and_return double reload: nil
   end
 
-  it_behaves_like("a Form", attributes, before)
+  it_behaves_like("a Form", FORM_ATTRIBUTES, before)
 end

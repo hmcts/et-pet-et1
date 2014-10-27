@@ -7,7 +7,7 @@ header.main-header
   .main-content
     .main-column
       .callout.callout-reference
-        p.detail= t('user_sessions.reference')
+        p.detail= t('shared.reference')
         span.number= claim.reference
 
       = simple_form_for user_session, url: user_session_path, method: :put do |f|
