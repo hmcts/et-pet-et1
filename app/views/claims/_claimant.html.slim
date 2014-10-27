@@ -1,36 +1,37 @@
-fieldset.form-panel
-  legend role="heading" aria-level="2" = t '.personal_details'
+.main-column#main-sub-content
+    fieldset.form-panel
+      legend role="heading" aria-level="2" = t '.personal_details'
 
-  = render partial: 'personal_details', locals: { f: f }
+      = render partial: 'personal_details', locals: { f: f }
 
-  = f.input :gender, collection: FormOptions::GENDERS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+      = f.input :gender, collection: FormOptions::GENDERS, as: :radio_buttons,
+        item_wrapper_class: 'block-label'
 
-  = f.input :has_special_needs,
-    as: :radio_buttons,
-    item_wrapper_class: 'block-label',
-    wrapper_class: 'form-group-reveal reveal-publish-delegate',
-    input_html: { :class => 'reveal-publish-publisher'},
-    reveal: { true => 'main', false => 'main' }
+      = f.input :has_special_needs,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal reveal-publish-delegate',
+        input_html: { :class => 'reveal-publish-publisher'},
+        reveal: { true => 'main', false => 'main' }
 
-  = f.input :special_needs,
-    wrapper_class: 'panel-indent toggle-content',
-    wrapper_html: { id: :special_needs_wrapper,
-                    :class => 'reveal-subscribe',
-                    :'data-target' => 'main',
-                    :'data-show-array' => '["true"]' }
+      = f.input :special_needs,
+        wrapper_class: 'panel-indent toggle-content',
+        wrapper_html: { id: :special_needs_wrapper,
+                        :class => 'reveal-subscribe',
+                        :'data-target' => 'main',
+                        :'data-show-array' => '["true"]' }
 
-fieldset.form-panel
-  legend role="heading" aria-level="2" = t '.contact_details'
+    fieldset.form-panel
+      legend role="heading" aria-level="2" = t '.contact_details'
 
-  = render partial: 'address', locals: { f: f }
+      = render partial: 'address', locals: { f: f }
 
-  = f.input :address_country, collection: FormOptions::COUNTRIES, include_blank: false
-  = f.input :address_telephone_number, as: :tel
-  = f.input :mobile_number, as: :tel
-  = f.input :email_address
+      = f.input :address_country, collection: FormOptions::COUNTRIES, include_blank: false
+      = f.input :address_telephone_number, as: :tel
+      = f.input :mobile_number, as: :tel
+      = f.input :email_address
 
-  = f.input :contact_preference,
-    collection: FormOptions::CONTACT_PREFERENCES,
-    as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+      = f.input :contact_preference,
+        collection: FormOptions::CONTACT_PREFERENCES,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label'
