@@ -50,6 +50,9 @@ input[type=tel] {
   &.short-input{
     @include span(4 of 12);
   }
+  &.medium-input{
+    @include span(6 of 12);
+  }
 }
 select.form-control{
   @include span(6 of 12);
