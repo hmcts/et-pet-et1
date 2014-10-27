@@ -7,7 +7,7 @@ header.main-header
   article.main-content
     = simple_form_for claim, url: claim_path do |f|
       fieldset
-        legend= t('.legend_main')
+        legend role="heading" aria-level="2" = t('.legend_main')
         section.content-section
           .panel-indent
             = format t('.callout')

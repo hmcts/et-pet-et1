@@ -6,13 +6,13 @@
         span.number= claim.reference
 
       fieldset.form-panel
-        legend= t('.memorable_word_legend')
+        legend role="heading" aria-level="2" = t('.memorable_word_legend')
         .content-section
           = format t('.hint')
           = f.input :password, as: :string
 
       fieldset.form-panel
-        legend= t('.application_number_legend')
+        legend role="heading" aria-level="2" = t('.application_number_legend')
         = f.input :email_address
 
       p.print

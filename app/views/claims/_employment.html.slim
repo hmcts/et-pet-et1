@@ -1,6 +1,6 @@
 .main-column
   fieldset
-    legend= t '.situation_legend'
+    legend role="heading" aria-level="2" = t '.situation_legend'
 
     /! Radios: main yes / no
     = f.input :was_employed,
@@ -12,7 +12,7 @@
 
     /! reveal_current_situation
     fieldset#reveal_current_situation.reveal-subscribe.reveal-publish-delegate.toggle-content data-target="main" data-show-array='["true"]'
-      legend= t '.current_situation_legend'
+      legend role="heading" aria-level="2" = t '.current_situation_legend'
 
       /! Radios: 3 options
       = f.input :current_situation, input_html: { class: 'reveal-publish-publisher'},
@@ -27,7 +27,7 @@
       #employment_ppb_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
         /! Employment details
         fieldset#employment_details
-          legend= t '.employment_details_legend'
+          legend role="heading" aria-level="2" = t '.employment_details_legend'
 
           = f.input :job_title
 
@@ -75,7 +75,7 @@
 
         /! Pay, pension and benefits
         fieldset#pay_pention_benefits
-          legend= t '.pay_legend'
+          legend role="heading" aria-level="2" = t '.pay_legend'
 
           = f.input :gross_pay,
             input_html: { :class => 'prefix-pound' } do
@@ -113,7 +113,7 @@
       /! New job fieldset
       /! reveal on option 3
       fieldset#end_date_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["employment_terminated"]'
-        legend= t '.new_job_legend'
+        legend role="heading" aria-level="2" = t '.new_job_legend'
 
         = f.input :found_new_job,
           as: :radio_buttons,

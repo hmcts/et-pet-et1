@@ -1,5 +1,5 @@
 fieldset.form-panel
-  legend= t '.personal_details'
+  legend role="heading" aria-level="2" = t '.personal_details'
 
   = render partial: 'personal_details', locals: { f: f }
 
@@ -21,7 +21,7 @@ fieldset.form-panel
                     :'data-show-array' => '["true"]' }
 
 fieldset.form-panel
-  legend= t '.contact_details'
+  legend role="heading" aria-level="2" = t '.contact_details'
 
   = render partial: 'address', locals: { f: f }
 

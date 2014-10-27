@@ -30,7 +30,7 @@
         document.body.className = document.body.className.replace('js-enabled','');
 
 - content_for :content_override do
-  main#wrapper(role="main")
+  main#content(role="main")
     .container
         = yield
 

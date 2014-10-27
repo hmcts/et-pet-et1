@@ -1,6 +1,6 @@
 .main-column
   fieldset
-    legend= t '.form_legend'
+    legend role="heading" aria-level="2" = t '.form_legend'
 
     fieldset.form-panel.reveal-publish-delegate
       = f.input :has_representative,
@@ -11,14 +11,14 @@
         reveal: { true => 'main', false => 'main' }
 
     fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend= t '.representative_legend'
+      legend role="heading" aria-level="2" = t '.representative_legend'
 
       = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
       = f.input :organisation_name
       = f.input :name
 
     fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend= t '.contact_legend'
+      legend role="heading" aria-level="2" = t '.contact_legend'
       = f.input :address_building
       = f.input :address_street
       = f.input :address_locality

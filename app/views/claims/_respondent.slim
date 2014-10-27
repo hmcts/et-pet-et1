@@ -1,7 +1,7 @@
 .main-column
   p= t '.hint'
   fieldset.form-panel
-    legend= t '.header'
+    legend role="heading" aria-level="2" = t '.header'
     = f.input :name
     = f.input :acas_early_conciliation_certificate_number, required: true
     = f.input :no_acas_number,
@@ -20,7 +20,7 @@
           item_wrapper_class: 'block-label large-label'
 
   fieldset.form-panel
-    legend= t '.contact_legend'
+    legend role="heading" aria-level="2" = t '.contact_legend'
     = f.input :address_building
     = f.input :address_street
     = f.input :address_locality
@@ -29,7 +29,7 @@
     = f.input :address_telephone_number
 
   fieldset.form-panel
-    legend= t '.workaddress_legend'
+    legend role="heading" aria-level="2" = t '.workaddress_legend'
     = f.input :worked_at_same_address,
       as: :radio_buttons,
       wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
