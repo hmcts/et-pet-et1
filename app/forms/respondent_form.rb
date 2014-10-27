@@ -1,24 +1,21 @@
 class RespondentForm < Form
   include AddressAttributes
 
-  WORK_ADDRESS_ATTRIBUTES = [:work_address_building,
-    :work_address_street, :work_address_locality,
-    :work_address_county, :work_address_post_code,
-    :work_address_telephone_number]
-
   attributes :organisation_name, :name,
+             :work_address_building,
+             :work_address_street, :work_address_locality,
+             :work_address_county, :work_address_post_code,
+             :work_address_telephone_number,
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
-  attributes *WORK_ADDRESS_ATTRIBUTES
 
   booleans   :no_acas_number
 
-  before_validation :reset_acas_number!,  if: :no_acas_number?
-  before_validation :reset_work_address!, if: :worked_at_same_address?
-
   validates :name, presence: true
+
   validates :work_address_street, :work_address_locality, :work_address_building,
-            :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
+            :work_address_post_code, presence: { unless: -> { worked_at_same_address } }
+
   validates :name, length: { maximum: NAME_LENGTH }
   validates :work_address_building,
             :work_address_street,
@@ -37,10 +34,6 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } }
 
-  def worked_at_same_address?
-    ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
-  end
-
   before_save :reload_addresses
 
   def no_acas_number
@@ -52,14 +45,6 @@ class RespondentForm < Form
   end
 
   private
-
-  def reset_acas_number!
-    self.acas_early_conciliation_certificate_number = nil
-  end
-
-  def reset_work_address!
-    WORK_ADDRESS_ATTRIBUTES.each {|a| attributes[a] = nil }
-  end
 
   def target
     resource.primary_respondent || resource.build_primary_respondent

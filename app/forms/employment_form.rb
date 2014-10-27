@@ -8,6 +8,12 @@ class EmploymentForm < Form
     :notice_pay_period_type, :found_new_job, :new_job_start_date,
     :new_job_gross_pay, :new_job_gross_pay_frequency
 
+  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
+
+  boolean :was_employed
+
+  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
+
   %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
     define_method("#{attribute}=") do |v|
       v = v.nil? ? v : v.gsub(',', '')
@@ -15,59 +21,19 @@ class EmploymentForm < Form
     end
   end
 
-  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
-
-  boolean :was_employed
-
-  before_validation :reset_irrelevant_fields!, if: :was_employed?
-  before_validation :destroy_target!, unless: :was_employed?
-
-  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
-
   def was_employed
     @was_employed ||= target.persisted?
   end
 
-  private
-
-  def reset_irrelevant_fields!
-    reset_unwanted_situations!
-    reset_notice_pay_period! unless worked_notice_period_or_paid_in_lieu
-    reset_new_job! unless found_new_job
+  def save
+    if was_employed?
+      super
+    else
+      target.destroy
+    end
   end
 
-  def destroy_target!
-    target.destroy
-  end
-
-  def reset_unwanted_situations!
-    unwanted = FormOptions::CURRENT_SITUATION - [current_situation, :still_employed]
-    unwanted.each { |situation| send("reset_#{situation}!") }
-  end
-
-  def reset_notice_period!
-    self.notice_period_end_date = nil
-  end
-
-  def reset_employment_terminated!
-    assign_attributes end_date: nil, worked_notice_period_or_paid_in_lieu: nil,
-      found_new_job: nil
-  end
-
-  def reset_notice_pay_period!
-    assign_attributes notice_pay_period_count: nil, notice_pay_period_type: nil
-  end
-
-  def reset_new_job!
-    assign_attributes new_job_start_date: nil, new_job_gross_pay: nil,
-      new_job_gross_pay_frequency: nil
-  end
-
-  def still_employed
-    notice_period_fields + employment_terminated_fields
-  end
-
-  def target
+  private def target
     resource.employment || resource.build_employment
   end
 end

@@ -5,35 +5,36 @@ class RepresentativeForm < Form
              :mobile_number, :email_address, :dx_number,
              :contact_preference
 
-  boolean :has_representative
-
-  before_validation :destroy_target!, unless: :has_representative?
-
   validates :type, :name, presence: true
+
   validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 20 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
 
-  def valid?
-    if has_representative?
-      super
-    else
-      run_callbacks(:validation) { true }
-    end
-  end
+  boolean :has_representative
 
   def has_representative
     @has_representative ||= target.persisted?
   end
 
-  private
-
-  def destroy_target!
-    target.destroy
+  def valid?
+    if has_representative?
+      super
+    else
+      true
+    end
   end
 
-  def target
+  def save
+    if has_representative?
+      super
+    else
+      target.destroy
+    end
+  end
+
+  private def target
     resource.representative || resource.build_representative
   end
 end

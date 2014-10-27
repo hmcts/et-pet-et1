@@ -1,6 +1,6 @@
 class Form
   include ActiveModel::Model
-  extend ActiveModel::Callbacks
+  include ActiveSupport::Callbacks
 
   ADDRESS_LINE_LENGTH  = 75
   EMAIL_ADDRESS_LENGTH = 100
@@ -11,7 +11,13 @@ class Form
 
   attr_accessor :resource, :target
 
-  define_model_callbacks :save, :validation
+  define_callbacks :save
+
+  %i<before after>.each do |event|
+    define_singleton_method "#{ event }_save" do |callback|
+      set_callback(:save, event, callback)
+    end
+  end
 
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
@@ -90,10 +96,6 @@ class Form
         hash[key] = target.try key
       end
     end
-  end
-
-  def valid?
-    run_callbacks(:validation) { super }
   end
 
   def save
