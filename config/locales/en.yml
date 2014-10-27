@@ -137,7 +137,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
-        has_representative: Do you have someone who’s agreed to represent you (eg by preparing your case, sorting out correspondence and speaking for you in court)?
+        has_representative: Does the person making this claim have someone who's agreed to represent them (eg by handling correspondence and speaking in court)?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -234,7 +234,6 @@ en:
         contact_preference: |
           The court will send correspondence by both email and post. Only choose one if you have a strong preference.
       representative:
-        type: Should be someone who will speak for you in court, not just someone who offered you advice at the start.
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
@@ -405,10 +404,13 @@ en:
       legend_personal_details: Personal details
       legend_contact_details: Contact details
     representative:
-      header: Your representative
+      header: Representative' details
       form_legend: Professional (or other) help
       representative_legend: About your representative
       contact_legend: Contact details
+      contact_info: |
+        All correspondence about the case will be sent to the representative.
+        If you change the representative, you must give their contact details to officials handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg, legal firms)
