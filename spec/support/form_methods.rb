@@ -90,7 +90,7 @@ module FormMethods
 
   def fill_in_representative_details
     choose 'representative_has_representative_true'
-    select 'Solicitor', from: 'Type of representative'
+    select 'Solicitor', from: 'representative_type'
     fill_in "Name of the representative's organisation", with: 'Better Call Saul'
     fill_in "Representative's name", with: 'Saul Goodman'
 
