@@ -2,13 +2,6 @@ class Form
   include ActiveModel::Model
   extend ActiveModel::Callbacks
 
-  ADDRESS_LINE_LENGTH  = 75
-  EMAIL_ADDRESS_LENGTH = 100
-  LOCALITY_LENGTH      = 25
-  NAME_LENGTH          = 100
-  PHONE_NUMBER_LENGTH  = 21
-  POSTCODE_LENGTH      = 8
-
   attr_accessor :resource, :target
 
   define_model_callbacks :save, :validation

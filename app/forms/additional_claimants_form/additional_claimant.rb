@@ -2,7 +2,8 @@ class AdditionalClaimantsForm
   class AdditionalClaimant < Form
     attr_accessor :target
 
-    TITLES = %i<mr mrs ms miss>.freeze
+    TITLES      = %i<mr mrs ms miss>.freeze
+    NAME_LENGTH = 100
 
     include AddressAttributes
 

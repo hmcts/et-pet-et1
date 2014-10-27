@@ -16,7 +16,7 @@
 
       /! Radios: 3 options
       = f.input :current_situation, input_html: { class: 'reveal-publish-publisher'},
-        collection: FormOptions::CURRENT_SITUATION,
+        collection: EmploymentForm::CURRENT_SITUATION,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',
         wrapper_html: { :class => 'form-group-reveal' },
@@ -68,7 +68,7 @@
               .inline-fields
                 = f.input_field :notice_pay_period_count
                 = f.input :notice_pay_period_type, label: false,
-                  collection: FormOptions::NOTICE_PAY_PERIODS, as: :radio_buttons,
+                  collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
                   item_wrapper_class: 'slim-label'
 
           = f.input :average_hours_worked_per_week, input_html: { class: 'short-input' }
@@ -86,7 +86,7 @@
 
               = f.input :gross_pay_period_type,
                 label: false,
-                collection: FormOptions::PAY_PERIODS,
+                collection: EmploymentForm::PAY_PERIODS,
                 as: :radio_buttons,
                 item_wrapper_class: 'slim-label'
 
@@ -98,7 +98,7 @@
                 = f.input_field :net_pay, as: :string
               = f.input :net_pay_period_type,
                 label: false,
-                collection: FormOptions::PAY_PERIODS,
+                collection: EmploymentForm::PAY_PERIODS,
                 as: :radio_buttons,
                 item_wrapper_class: 'slim-label'
 
@@ -137,6 +137,6 @@
             = f.input :new_job_gross_pay_frequency,
               label: false,
               label: false,
-              collection: FormOptions::PAY_PERIODS,
+              collection: EmploymentForm::PAY_PERIODS,
               as: :radio_buttons,
               item_wrapper_class: 'slim-label'
