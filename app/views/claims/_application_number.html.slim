@@ -1,18 +1,21 @@
 .main-column
 
-  .clearfix
-    .callout.callout-reference style="clear:both;"
-      p.detail= t('user_sessions.reference')
-      span.number= claim.reference
+    .clearfix
+      .callout.callout-reference
+        p.detail= t('shared.reference')
+        span.number= claim.reference
 
-  fieldset.form-panel
-    legend= t('.memorable_word_legend')
-    .content-copy
-      p= t('.hint')
-      p= f.input :password, as: :string
+      fieldset.form-panel
+        legend= t('.memorable_word_legend')
+        .content-section
+          = format t('.hint')
+          = f.input :password, as: :string
 
-  fieldset.form-panel
-    legend= t('.application_number_legend')
-    = f.input :email_address
+      fieldset.form-panel
+        legend= t('.application_number_legend')
+        = f.input :email_address
 
-  p= link_to 'Print this page'
+      p.print
+        = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
+        = '&nbsp;'.html_safe
+        = t('.print_copy')
