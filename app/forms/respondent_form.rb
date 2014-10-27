@@ -6,6 +6,10 @@ class RespondentForm < Form
     :work_address_county, :work_address_post_code,
     :work_address_telephone_number]
 
+  NAME_LENGTH    = 100
+  NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
+    employer_contacted_acas interim_relief claim_against_security_services>.freeze
+
   attributes :organisation_name, :name,
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
@@ -31,7 +35,7 @@ class RespondentForm < Form
             length: { maximum: PHONE_NUMBER_LENGTH }
 
   validates :no_acas_number_reason,
-    inclusion: { in: FormOptions::NO_ACAS_REASON.map(&:to_s), allow_blank: true },
+    inclusion: { in: NO_ACAS_REASON, allow_blank: true },
     presence: { if: -> { no_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
@@ -58,7 +62,7 @@ class RespondentForm < Form
   end
 
   def reset_work_address!
-    WORK_ADDRESS_ATTRIBUTES.each {|a| attributes[a] = nil }
+    WORK_ADDRESS_ATTRIBUTES.each { |a| attributes[a] = nil }
   end
 
   def target

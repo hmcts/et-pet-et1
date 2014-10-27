@@ -1,4 +1,11 @@
 class ClaimantForm < Form
+  TITLES               = %w<mr mrs ms miss>.freeze
+  GENDERS              = %w<male female prefer_not_to_say>.freeze
+  CONTACT_PREFERENCES  = %w<email post>.freeze
+  COUNTRIES            = %w<united_kingdom other>.freeze
+  EMAIL_ADDRESS_LENGTH = 100
+  NAME_LENGTH          = 100
+
   include AddressAttributes
 
   attributes :first_name, :last_name, :date_of_birth, :address_country,
@@ -13,12 +20,12 @@ class ClaimantForm < Form
 
   validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
 
-  validates :title, inclusion: { in: FormOptions::TITLES.map(&:to_s) }
-  validates :gender, inclusion: { in: FormOptions::GENDERS.map(&:to_s) }
+  validates :title, inclusion: { in: TITLES }
+  validates :gender, inclusion: { in: GENDERS }
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-  validates :contact_preference, inclusion: { in: FormOptions::CONTACT_PREFERENCES.map(&:to_s) }
+  validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }
-  validates :address_country, inclusion: { in: FormOptions::COUNTRIES.map(&:to_s) }
+  validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
   validates :email_address, presence: { if: -> { contact_preference.email? } }, length: { maximum: EMAIL_ADDRESS_LENGTH }
 

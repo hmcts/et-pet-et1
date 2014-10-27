@@ -13,7 +13,7 @@
     fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
       legend= t '.representative_legend'
 
-      = f.input :type, collection: FormOptions::REPRESENTATIVE_TYPES, include_blank: :translate
+      = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
       = f.input :organisation_name
       = f.input :name
 
