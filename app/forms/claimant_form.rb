@@ -37,10 +37,6 @@ class ClaimantForm < Form
     @has_special_needs ||= special_needs.present?
   end
 
-  def has_representative
-    @has_representative ||= resource.representative.present?
-  end
-
   private
 
   def reset_special_needs!

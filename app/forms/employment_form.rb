@@ -67,10 +67,6 @@ class EmploymentForm < Form
       new_job_gross_pay_frequency: nil
   end
 
-  def still_employed
-    notice_period_fields + employment_terminated_fields
-  end
-
   def target
     resource.employment || resource.build_employment
   end

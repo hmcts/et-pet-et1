@@ -51,10 +51,6 @@ class RespondentForm < Form
     @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
   end
 
-  def was_employed
-    @was_employed ||= resource.employment.present?
-  end
-
   private
 
   def reset_acas_number!
