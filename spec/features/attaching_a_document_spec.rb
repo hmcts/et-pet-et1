@@ -10,7 +10,7 @@ feature 'Attaching a document' do
   let(:image_file_path) { file_path + '../phil.jpg' }
 
   def upload_file!
-    visit page_claim_path page: :additional_information
+    visit '/apply/additional-information'
     attach_file "additional_information_attachment", file_path
     click_button 'Save and continue'
   end
@@ -28,7 +28,8 @@ feature 'Attaching a document' do
   scenario 'Deleting a file' do
     upload_file!
 
-    visit page_claim_path page: :additional_information
+    visit '/apply/additional-information'
+
     check "additional_information_remove_attachment"
 
     click_button 'Save and continue'
@@ -39,7 +40,8 @@ feature 'Attaching a document' do
   scenario 'Replacing a file' do
     upload_file!
 
-    visit page_claim_path page: :additional_information
+    visit '/apply/additional-information'
+
     attach_file "additional_information_attachment", alternative_file_path
     click_button 'Save and continue'
 
@@ -47,7 +49,8 @@ feature 'Attaching a document' do
   end
 
   scenario 'Uploading a non text file' do
-    visit page_claim_path page: :additional_information
+    visit '/apply/additional-information'
+    
     attach_file "additional_information_attachment", image_file_path
     click_button 'Save and continue'
 

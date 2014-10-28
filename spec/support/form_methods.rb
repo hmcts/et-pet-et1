@@ -88,6 +88,11 @@ module FormMethods
     click_button 'Save and continue' unless options[:submit_form] == false
   end
 
+  def fill_in_additional_claimant_details
+    choose "No"
+    click_button 'Save and continue'
+  end
+
   def fill_in_representative_details
     choose 'representative_has_representative_true'
     select 'Solicitor', from: 'representative_type'
@@ -154,6 +159,7 @@ module FormMethods
     start_claim
     fill_in_password
     fill_in_personal_details
+    fill_in_additional_claimant_details
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details
@@ -216,6 +222,7 @@ module FormMethods
     start_claim
     fill_in_password
     fill_in_personal_details(options)
+    fill_in_additional_claimant_details
     fill_in_representative_details
     fill_in_employer_details
     fill_in_employment_details

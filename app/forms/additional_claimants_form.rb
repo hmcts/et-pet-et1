@@ -1,4 +1,20 @@
 class AdditionalClaimantsForm < Form
+  boolean :has_additional_claimants
+
+  before_validation :reset_additional_claimants!, unless: :has_additional_claimants
+
+  def column_for_attribute *args
+    nil
+  end
+
+  def has_additional_claimants
+    if defined? @has_additional_claimants
+      @has_additional_claimants
+    else
+      @has_additional_claimants = relation.any? &:persisted?
+    end
+  end
+
   def claimants_attributes=(attributes)
     attributes.each_with_index do |(_, claimant_attributes), index|
       claimant = relation[index] || relation.build
@@ -15,8 +31,22 @@ class AdditionalClaimantsForm < Form
       map { |c| AdditionalClaimantsForm::AdditionalClaimant.new { |ac| ac.target = c } }
   end
 
+  def build_child
+    @claimants << AdditionalClaimantsForm::AdditionalClaimant.new do |ac|
+      ac.target = relation.build
+    end
+  end
+
   def save
-    claimants.all? &:save
+    if valid?
+      run_callbacks(:save) { claimants.all?(&:save) }
+    else
+      false
+    end
+  end
+
+  def valid?
+    run_callbacks(:validation) { super && claimants.all?(&:valid?) }
   end
 
   def errors
@@ -25,7 +55,14 @@ class AdditionalClaimantsForm < Form
     end
   end
 
+  private
+
   def relation
     resource.secondary_claimants
+  end
+
+  def reset_additional_claimants!
+    relation.destroy_all
+    claimants.clear
   end
 end
