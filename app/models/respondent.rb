@@ -1,6 +1,4 @@
 class Respondent < ActiveRecord::Base
-  include JaduFormattable
-
   belongs_to :claim
   has_many   :addresses, as: :addressable
 
@@ -33,24 +31,5 @@ class Respondent < ActiveRecord::Base
 
   private def enqueue_fee_group_reference_request
     FeeGroupReferenceJob.perform_later claim, fee_group_reference_address.post_code
-  end
-
-  def primary_respondent?
-    self == claim.primary_respondent
-  end
-
-  def to_xml(options={})
-    require 'builder'
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
-    xml.Respondent do
-      xml.GroupContact primary_respondent?
-      xml.Name name
-      xml.OfficeNumber address_telephone_number
-      xml.PhoneNumber work_address_telephone_number
-      xml.Acas do
-        xml.Number acas_early_conciliation_certificate_number
-        xml.ExemptionCode exemption_code(no_acas_number_reason)
-      end
-    end
   end
 end

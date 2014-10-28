@@ -4,6 +4,6 @@ class ClaimGenerator
   end
 
   def to_xml
-    @claim.to_xml include: {claimants: {include: :address}, respondents: {include: :address}, representative: {include: :address}}
+    Jadu::ClaimSerializer.new(@claim).to_xml
   end
 end

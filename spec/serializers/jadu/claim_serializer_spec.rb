@@ -1,17 +1,7 @@
 require 'rails_helper'
 
-describe JaduFormattable, :type => :concern do
+RSpec.describe Jadu::ClaimSerializer, type: :serializer do
   let(:timestamp) { DateTime.new(2014, 10, 11, 9, 10, 58) }
-  let(:claim) { double }
-
-  subject do
-    Class.new do
-      include JaduFormattable
-      def initialize(claim)
-        @claim = claim
-      end
-    end.new(claim)
-  end
 
   describe '#timestamp' do
     before do
@@ -84,50 +74,49 @@ describe JaduFormattable, :type => :concern do
     end
   end
 
-  describe '#exemption_code' do
-    it 'maps reason to Jadu exemption code' do
-      expect(subject.exemption_code('claim_against_security_or_intelligence_services')).to eq('claim_targets')
+  describe '#to_xml' do
+    let(:timestamp) { DateTime.new(2014, 10, 11, 9, 10, 58) }
+    let(:claim) do
+      Claim.new(
+        id: 1,
+        created_at: DateTime.new(2014, 1, 2, 3, 4, 5),
+        submitted_at: DateTime.new(2014, 1, 2, 11, 40, 28),
+        fee_group_reference: 123456789000,
+        other_claim_details: '',
+        office: Office.new(code: 12)
+      )
+    end
+    subject { described_class.new claim }
+
+    before do
+      allow(subject).to receive(:claimant_count).and_return 1
+      allow(subject).to receive(:timestamp).and_return(timestamp)
+    end
+
+    it 'outputs XML according to Jadu spec' do
+      expect(subject.to_xml(indent: 2)).to eq <<-END.gsub(/^ {6}/, '')
+      <?xml version="1.0" encoding="UTF-8"?>
+      <ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd">
+        <DocumentID>
+          <DocumentName>ETFeesEntry</DocumentName>
+          <UniqueID>20140102030405</UniqueID>
+          <DocumentType>ETFeesEntry</DocumentType>
+          <TimeStamp>2014-10-11T09:10:58+00:00</TimeStamp>
+          <Version>1</Version>
+        </DocumentID>
+        <FeeGroupReference>123456789000</FeeGroupReference>
+        <SubmissionURN>1</SubmissionURN>
+        <CurrentQuantityOfClaimants>1</CurrentQuantityOfClaimants>
+        <SubmissionChannel>Web</SubmissionChannel>
+        <CaseType>Single</CaseType>
+        <Jurisdiction>1</Jurisdiction>
+        <OfficeCode>12</OfficeCode>
+        <DateOfReceiptET>2014-01-02 11:40:28 UTC</DateOfReceiptET>
+        <RemissionIndicated>NotRequested</RemissionIndicated>
+        <Administrator xsi:nil="true"/>
+      </ETFeesEntry>
+      END
     end
   end
 
-  describe '#split_first_line' do
-    it 'splits into number and name' do
-      actual = subject.building_split('123 Some Road')
-      expect(actual).to eq(['123', ' Some Road'])
-    end
-
-    it 'returns nil when no number' do
-      actual = subject.building_split('Some Road')
-      expect(actual).to eq(['', 'Some Road'])
-    end
-
-    it 'takes only first four digits' do
-      actual = subject.building_split('12345 Some Road')
-      expect(actual).to eq(['1234', '5 Some Road'])
-    end
-
-    it 'only removes digits from start of address' do
-      actual = subject.building_split('123 Some 3rd Road')
-      expect(actual).to eq(['123', ' Some 3rd Road'])
-    end
-  end
-
-  describe '#address_number' do
-    it 'returns number' do
-      actual = subject.address_number('123 Some Road')
-      expect(actual).to eq(123)
-    end
-
-    it 'return nil when no number' do
-      actual = subject.address_number('Some Road')
-      expect(actual).to be_nil
-    end
-  end
-
-  describe "#address_name" do
-    it 'returns name without spaces' do
-      actual = subject.address_name('123 Some Road')
-      expect(actual).to eq('Some Road')
-    end
-  end
 end
