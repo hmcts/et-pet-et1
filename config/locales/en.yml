@@ -213,7 +213,7 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: This is your opportunity to tell us about your problem at work.
+        claim_details: Tell us what each of your claims are about. You can write more about your claim and upload it as a separate document later.
         other_known_claimants: Do you know of other people who are making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -277,7 +277,7 @@ en:
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
         claim_details: |
-          Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
+          Include the background, dates and the people involved.
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
