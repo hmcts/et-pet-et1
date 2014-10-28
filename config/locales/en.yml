@@ -207,7 +207,7 @@ en:
 
       claim_type:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
-        is_other_type_of_claim: Another type of claim
+        is_other_type_of_claim: Other type of claim
         other_claim_details: State the other type of claim – or claims – that you’re making
         is_whistleblowing: Are you making a whistleblowing claim?
         send_claim_to_whistleblowing_entity: |
@@ -272,7 +272,7 @@ en:
         other_claim_details: |
           For example, your employer hasn’t allowed you to take your statutory annual leave entitlement. If you know the relevant law, you can tell us here.
         is_whistleblowing: |
-          You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).
+          You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).<br />
 
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
@@ -434,12 +434,13 @@ en:
       claim_type_hint: You can select more than one
 
     claim_type:
-      header: Your claim type
+      header: About the claim
       claim_type: What your claim is about
-      claim_type_label: Tick the type of claim(s) that matches your application best.
-      claim_type_hint: |
-        Tick the type of claim(s) that best matches your application. If your application is successful, you can discuss additional claims with the officials handling your case.
-      unfair_dismissal: Unfair dismissal (including constructive dismissal)
+      claim_type_label: Tick as many of the claim types below that apply. You'll also be able to provide fulle details about your case later.
+      unfair_dismissal: Unfair dismissal
+      summary:  What is this?
+      summary_detail: |
+        Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
       discrimination: Discrimination
       pay: Pay
       other_type: Other type of claim (not shown above)
