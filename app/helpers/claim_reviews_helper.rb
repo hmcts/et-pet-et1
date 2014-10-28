@@ -29,6 +29,6 @@ module ClaimReviewsHelper
 
   def quick_edit_link_for section
     link_to t('.edit') + ' ' + t('.sections.' + section).downcase,
-      page_claim_path(page: section, return_to_review: true)
+      claim_path_for(section, return_to_review: true)
   end
 end

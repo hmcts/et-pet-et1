@@ -26,6 +26,9 @@ en:
         title: Please select
       representative:
         type: Please select
+      additional_claimants:
+        claimants: :"simple_form.include_blanks.claimant"
+
     options:
       claimant:
         gender:
@@ -43,6 +46,9 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+
+      additional_claimants:
+        claimants: :"simple_form.options.claimant"
 
       representative:
         type:
@@ -138,6 +144,11 @@ en:
         address_post_code: Postcode
         address_country: Country
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
+        _destroy: 'Remove this claimant'
+
+      additional_claimants:
+        has_additional_claimants: Are other people making a claim with you (against the same employer)?
+        claimants: :"simple_form.labels.claimant"
 
       representative:
         has_representative: Does the person making this claim have someone who's agreed to represent them (eg by handling correspondence and speaking in court)?
@@ -401,6 +412,7 @@ en:
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
       print_copy: to have a copy of your online application for reference
+
     claimant:
       header: Claimant's details
       legend_disability: Would you like help at tribunal hearing?
@@ -408,6 +420,14 @@ en:
       personal_details_hint: |
         Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
       legend_contact_details: Contact details
+
+    additional_claimants:
+      header: Group claims
+      subheader: People making a claim with you
+      person: Person %{number}
+      contact_details: Contact details
+      add_fields: Add additional person
+
     representative:
       header: Representative' details
       form_legend: Professional (or other) help

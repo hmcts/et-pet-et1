@@ -47,6 +47,16 @@ feature 'Claim applications', type: :feature do
       fill_in_personal_details
 
       expect(page).to have_text page_number(3)
+      expect(page).to have_text claim_heading_for(:additional_claimants)
+    end
+
+    scenario 'Entering additional claimant details' do
+      start_claim
+      fill_in_password
+      fill_in_personal_details
+      fill_in_additional_claimant_details
+
+      expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
     end
 
@@ -54,9 +64,10 @@ feature 'Claim applications', type: :feature do
       start_claim
       fill_in_password
       fill_in_personal_details
+      fill_in_additional_claimant_details
       fill_in_representative_details
 
-      expect(page).to have_text page_number(4)
+      expect(page).to have_text page_number(5)
       expect(page).to have_text claim_heading_for(:respondent)
     end
 
@@ -64,10 +75,11 @@ feature 'Claim applications', type: :feature do
       start_claim
       fill_in_password
       fill_in_personal_details
+      fill_in_additional_claimant_details
       fill_in_representative_details
       fill_in_employer_details
 
-      expect(page).to have_text page_number(5)
+      expect(page).to have_text page_number(6)
       expect(page).to have_text claim_heading_for(:employment)
     end
 
@@ -75,11 +87,12 @@ feature 'Claim applications', type: :feature do
       start_claim
       fill_in_password
       fill_in_personal_details
+      fill_in_additional_claimant_details
       fill_in_representative_details
       fill_in_employer_details
       fill_in_employment_details
 
-      expect(page).to have_text page_number(6)
+      expect(page).to have_text page_number(7)
       expect(page).to have_text claim_heading_for(:claim_type)
     end
 
@@ -87,7 +100,7 @@ feature 'Claim applications', type: :feature do
       fill_in_pre_claim_pages
       fill_in_claim_type_details
 
-      expect(page).to have_text page_number(7)
+      expect(page).to have_text page_number(8)
       expect(page).to have_text claim_heading_for(:claim_details)
     end
 
@@ -96,7 +109,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_type_details
       fill_in_claim_details
 
-      expect(page).to have_text page_number(8)
+      expect(page).to have_text page_number(9)
       expect(page).to have_text claim_heading_for(:claim_outcome)
     end
 
@@ -106,7 +119,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_details
       fill_in_claim_outcome_details
 
-      expect(page).to have_text page_number(9)
+      expect(page).to have_text page_number(10)
       expect(page).to have_text claim_heading_for(:additional_information)
     end
 
@@ -117,7 +130,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
-      expect(page).to have_text page_number(10)
+      expect(page).to have_text page_number(11)
       expect(page).to have_text claim_heading_for(:your_fee)
     end
 

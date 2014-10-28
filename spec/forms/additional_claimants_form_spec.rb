@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe AdditionalClaimantsForm, :type => :form do
   let(:attributes) do
     {
+      has_additional_claimants: 'true',
       claimants_attributes: {
         "0" => {
           title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
@@ -108,6 +109,8 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
     end
 
     context 'when some #claimants are not valid' do
+      before { subject.has_additional_claimants = 'true' }
+
       it 'returns false' do
         expect(subject.save).to be false
       end

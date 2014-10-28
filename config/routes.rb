@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'generated_claim', on: :member
     end
 
-    resource :claim, only: %i<create update>, path: "/" do
+    resource :claim, only: :create, path: "/" do
       resource :payment, only: %i<show update>, path: :pay do
         member do
           %i<success decline>.each do |result|
@@ -25,8 +25,13 @@ Rails.application.routes.draw do
         end
       end
 
-      member do
-        get ':page', to: 'claims#show', as: :page
+      resource :additional_claimants, only: %i<show update>,
+        controller: :multiples, page: 'additional-claimants',
+        path: 'additional-claimants'
+
+      ClaimTransitionManager.pages.each do |page|
+        resource page.underscore, only: %i<show update>, controller: :claims,
+          page: page, path: page
       end
     end
   end

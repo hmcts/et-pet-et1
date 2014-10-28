@@ -9,7 +9,7 @@ class ClaimsController < ApplicationController
   def create
     claim = Claim.create
     session[:claim_reference] = claim.reference
-    redirect_to page_claim_path(page: ClaimTransitionManager.first_page)
+    redirect_to claim_path_for ClaimTransitionManager.first_page
   end
 
   def update
@@ -28,7 +28,7 @@ class ClaimsController < ApplicationController
     if params[:return_to_review].present?
       claim_review_path
     else
-      page_claim_path(page: transition_manager.forward)
+      claim_path_for transition_manager.forward
     end
   end
 
@@ -36,16 +36,12 @@ class ClaimsController < ApplicationController
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)
   end
 
-  def referring_step
-    Rails.application.routes.recognize_path(request.referer)[:page]
-  end
-
   helper_method def resource
     @form ||= Form.for(current_step).new { |f| f.resource = claim }
   end
 
   helper_method def current_step
-    (params[:page] || referring_step).underscore
+    params[:page].underscore
   end
 
   helper_method def fee_calculation
