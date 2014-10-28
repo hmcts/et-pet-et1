@@ -39,10 +39,6 @@ class Presenter
     subsections.each { |subsection_name, subsection_items| proc[subsection_name, subsection_items] }
   end
 
-  def subsections
-    raise NotImplementedError.new "Implement #{self.class}#subsections"
-  end
-
   private
 
   def method_missing meth, *args, &block

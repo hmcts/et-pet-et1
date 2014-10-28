@@ -12,8 +12,4 @@ class ClaimOutcomePresenter < Presenter
   def other_outcome
     simple_format target.other_outcome
   end
-
-  def miscellaneous_information
-    simple_format target.miscellaneous_information
-  end
 end
