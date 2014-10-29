@@ -31,6 +31,7 @@ RSpec.shared_examples 'a Form' do |attributes, block|
           each { |a| allow(target).to receive(a) }
 
         instance_eval &block
+
         expect(form.resource).to receive(:save)
 
         form.save
@@ -43,6 +44,19 @@ RSpec.shared_examples 'a Form' do |attributes, block|
 
       it 'is not saved' do
         expect(resource).not_to receive(:save)
+        form.save
+      end
+    end
+
+    context 'when target destroyed' do
+      before do
+        allow(form).to receive(:valid?).and_return false
+        allow(target).to receive(:frozen?).and_return true
+        allow(resource).to receive(:save)
+      end
+
+      it 'does not attempt to update the target' do
+        expect(target).not_to receive(:update_attributes)
         form.save
       end
     end
