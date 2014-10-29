@@ -26,7 +26,10 @@ feature 'Save and Return' do
 
   scenario 'ending the session when email address previously entered' do
     start_claim
-    fill_in_password_and_email
+    fill_in_password_and_email('green',
+        FormMethods::SAVE_AND_RETURN_EMAIL,
+        "application_number_email_address")
+
     fill_in_personal_details(submit_form: false)
 
     click_link 'Sign out'

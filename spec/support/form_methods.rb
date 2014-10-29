@@ -52,9 +52,9 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL)
+  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
     fill_in 'memorable word', with: word
-    fill_in element, with: email_address if email_address.present?
+    fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
