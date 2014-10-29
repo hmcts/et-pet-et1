@@ -5,7 +5,7 @@ class Jadu::PaymentSerializer < Jadu::BaseSerializer
       xml.Fee do
         xml.Amount amount
         xml.PRN reference
-        xml.Date created_at.xmlschema
+        xml.Date created_at.try(:xmlschema)
       end
     end
   end

@@ -1,6 +1,6 @@
 class Jadu::AddressSerializer < Jadu::BaseSerializer
   def building_split(building)
-    @building_split ||= building.strip.scan(/(^[0-9]{0,4})(.*)/).flatten
+    @building_split ||= building.strip.scan(/(^[0-9]{0,4})(.*)/).flatten if building
   end
 
   def address_number(building)

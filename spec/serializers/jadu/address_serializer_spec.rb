@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Jadu::AddressSerializer, type: :serializer do
+  subject { described_class.new Address.new }
+
   describe '#address_number' do
     it 'returns number' do
       actual = subject.address_number('123 Some Road')
@@ -19,7 +21,29 @@ RSpec.describe Jadu::AddressSerializer, type: :serializer do
       expect(actual).to eq('Some Road')
     end
   end
-  
+
+  describe '#building_split' do
+    it 'splits into number and name' do
+      actual = subject.building_split('123 Some Road')
+      expect(actual).to eq(['123', ' Some Road'])
+    end
+
+    it 'returns nil when no number' do
+      actual = subject.building_split('Some Road')
+      expect(actual).to eq(['', 'Some Road'])
+    end
+
+    it 'takes only first four digits' do
+      actual = subject.building_split('12345 Some Road')
+      expect(actual).to eq(['1234', '5 Some Road'])
+    end
+
+    it 'only removes digits from start of address' do
+      actual = subject.building_split('123 Some 3rd Road')
+      expect(actual).to eq(['123', ' Some 3rd Road'])
+    end
+  end
+
   describe '#to_xml' do
     let(:address) do
       Address.new(

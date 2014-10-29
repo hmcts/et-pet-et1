@@ -14,6 +14,7 @@ RSpec.describe Jadu::ClaimantSerializer, type: :serializer do
         address: Address.new(telephone_number: '020 1111 1111')
     end
     subject { described_class.new claimant }
+    before { allow(Jadu::AddressSerializer).to receive(:new).and_return double to_xml: nil }
 
     it 'outputs XML according to Jadu spec' do
       expect(subject.to_xml(indent: 2)).to eq <<-END.gsub(/^ {8}/, '')
