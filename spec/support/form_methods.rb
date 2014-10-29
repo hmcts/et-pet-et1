@@ -52,9 +52,9 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL)
+  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
     fill_in 'memorable word', with: word
-    fill_in 'Email address', with: email_address if email_address.present?
+    fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
@@ -173,7 +173,7 @@ module FormMethods
   end
 
   def fill_in_claim_details
-    fill_in 'This is your opportunity to tell us about your problem at work.',
+    fill_in 'claim_details_claim_details',
       with: "Everybody hates me"
     choose 'claim_details_other_known_claimants_true'
     fill_in 'You can add the names of other people here. (optional)',

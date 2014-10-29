@@ -13,7 +13,9 @@
 
       fieldset.form-panel
         legend role="heading" aria-level="2" = t('.application_number_legend')
-        = f.input :email_address
+        .content-section
+          = format t('.email_hint')
+          = f.input :email_address, label: false
 
       p.print
         = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}

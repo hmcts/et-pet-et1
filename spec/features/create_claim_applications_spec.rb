@@ -28,7 +28,9 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Entering word and email for save and return' do
       start_claim
-      fill_in_password_and_email 'green', FormMethods::SAVE_AND_RETURN_EMAIL
+      fill_in_password_and_email('green',
+        FormMethods::SAVE_AND_RETURN_EMAIL,
+        "application_number_email_address")
 
       claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
