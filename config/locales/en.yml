@@ -262,8 +262,6 @@ en:
       respondent:
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or <a href="http://www.acas.org.uk/earlyconciliation">visit the Acas website</a>.
-        address_building: |
-          May be different to your work address
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -417,11 +415,13 @@ en:
 
     respondent:
       header: Who you're making a claim against
-      form_legend: Respondent's details
+      respondent_legend: Respondent's details
+      acas_legend: Acas early conciliation certificate number
       contact_legend: Contact details
+      contact_hint: Enter the address to be used for correspondence about the case. this may be different to the claimant's work address.
       workaddress_legend: Your work address
-      hint: |
-        Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal. You can add more names and details later, if needed.
+      form_hint: |
+        Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal). You can add more names and details later, if needed.
       work_address: Give details of your work address.
     employment:
       header: Employment detail
