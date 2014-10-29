@@ -1,7 +1,7 @@
 .main-column#main-sub-content
   fieldset.form-panel
     legend role="heading" aria-level="2" = t '.legend_personal_details'
-
+    = format t('.personal_details_hint')
     = render partial: 'personal_details', locals: { f: f }
 
     = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,

@@ -152,7 +152,7 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        name: Name of employer, person or organisation
+        name: Name of main respondent
         address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
@@ -213,7 +213,7 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: This is your opportunity to tell us about your problem at work.
+        claim_details: Tell us what each of your claims are about. You can write more about your claim and upload it as a separate document later.
         other_known_claimants: Do you know of other people who are making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -231,8 +231,8 @@ en:
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
-        contact_eerence: |
-          The court will send correspondence by both email and post. Only choose one if you have a strong preference.
+        contact_preference: |
+          The court will send  correspondence by both email and post. Only choose one if you have a strong preference.
       representative:
         respondent:
         acas_early_conciliation_certificate_number: |
@@ -274,7 +274,7 @@ en:
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
         claim_details: |
-          Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a> Limit is 5000 characters.
+          Include the background, dates and the people involved. <a href="/guide#writing_your_claim_statement">What else do I need to include?</a><br>Limit is 5000 characters.
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -314,7 +314,7 @@ en:
         return: Return to your application
 
   shared:
-    reference: Your application number is
+    reference: Your online application number is
     aside:
       gethelp_header: Get help
       actions_header: Actions
@@ -358,12 +358,12 @@ en:
       header: Start your application
       legend_main: Before you continue
       callout: |
-        This is not a free service. [Find out about fees](/guide#fees)
+        This is not a free service. [Find out about fees and fee reductions](/guide#fees)
       before_you_continue: |
           ### Are you in time to apply?
           You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
 
-          [Learn about when you can apply](#)
+          [Learn about when you can apply](/guide#acas_early_conciliation)
 
           ### Have you contacted ACAS?
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
@@ -393,13 +393,16 @@ en:
       memorable_word_legend: Returning to your application
       application_number_legend: Online application number reminder
       hint: |
-        Your application number is important. You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
+        Your online application number is important. You'll have to enter it (and your memorable word) if you don’t finish your application now and want to return to it later.
+      email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
-      print_copy: to have a copy of your online application reference
+      print_copy: to have a copy of your online application for reference
     claimant:
       header: Claimant's details
       legend_disability: Would you like help at tribunal hearing?
       legend_personal_details: Personal details
+      personal_details_hint: |
+        Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
       legend_contact_details: Contact details
     representative:
       header: Representative' details
@@ -425,7 +428,7 @@ en:
       work_address: Give details of your work address.
     employment:
       header: Employment detail
-      situation_legend: Employment situation
+      situation_legend: Claimaint's employment
       current_situation_legend: Current work situation
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
@@ -436,9 +439,9 @@ en:
       claim_type_hint: You can select more than one
 
     claim_type:
-      header: Your claim type
-      claim_type: What your claim is about
-      claim_type_label: Tick the type of claim(s) that matches your application best.
+      header: About the claim
+      claim_type: Select claim type(s)
+      claim_type_label: Tick as many of the claim types below that apply. You’ll also be able to provide full details about your case later.
       claim_type_hint: |
         Tick the type of claim(s) that best matches your application. If your application is successful, you can discuss additional claims with the officials handling your case.
       unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -448,7 +451,7 @@ en:
       whistleblowing: Whistleblowing claim
 
     claim_details:
-      header: Your claim details
+      header: Claim details
       claim_details: About your claim
       similar_claims: Similar claims
 
