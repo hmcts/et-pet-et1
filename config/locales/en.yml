@@ -110,8 +110,8 @@ en:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get my old job back
-          new_employment_and_compensation: To get another job with the same employer or associated employer
+          reinstated_employment_and_compensation: To get my old job back and compensation
+          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
 
     labels:
       application_number:
@@ -231,7 +231,7 @@ en:
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
-        contact_preference: |
+        contact_eerence: |
           The court will send correspondence by both email and post. Only choose one if you have a strong preference.
       representative:
         type: Should be someone who will speak for you in court, not just someone who offered you advice at the start.
@@ -451,7 +451,7 @@ en:
       similar_claims: Similar claims
 
     claim_outcome:
-      header: Prefered outcome
+      header: Claim outcome
       claim_outcome: Choose your preferred outcome(s)
     additional_information:
       header: More details
