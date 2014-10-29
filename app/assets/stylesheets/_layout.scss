@@ -14,7 +14,7 @@
   padding-left:0;
 }
 aside{
-  @include span(3 of 12);
+  @include span(2.5 of 12);
   @include last;
   padding-left:0;
 }
@@ -49,6 +49,9 @@ input[type=tel] {
   @include span(8 of 12);
   &.short-input{
     @include span(4 of 12);
+  }
+  &.medium-input{
+    @include span(6 of 12);
   }
 }
 select.form-control{
