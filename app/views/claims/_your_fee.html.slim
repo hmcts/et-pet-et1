@@ -1,6 +1,6 @@
-.main-column
+.main-column#main-sub-content
   fieldset.form-panel
-    legend = t '.application_fee'
+    legend role="heading" aria-level="2"  = t '.application_fee'
 
     .callout.callout-fee
       p
@@ -15,7 +15,7 @@
       p.detail If your case goes to a tribunal, you’ll have to pay this fee.
 
   fieldset
-    legend = t '.reduce_fee'
+    legend role="heading" aria-level="2"  = t '.reduce_fee'
 
     = f.input :applying_for_remission,
       as: :radio_buttons,

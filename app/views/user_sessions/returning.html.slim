@@ -3,9 +3,9 @@ header.main-header
 
 .main-section
   = render partial: 'shared/aside'
-  
+
   .main-content
-    .main-column
+    .main-column#main-sub-content
       = simple_form_for user_session, url: user_session_path do |f|
         fieldset.form-panel
           h3.font-small = t('.subheader')
