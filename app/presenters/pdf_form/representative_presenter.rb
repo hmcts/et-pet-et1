@@ -1,4 +1,5 @@
 class PdfForm::RepresentativePresenter < PdfForm::BaseDelegator
+  CONTACT_PREFERENCES = %i<email post>.freeze
 
   def to_h
     {
@@ -14,7 +15,7 @@ class PdfForm::RepresentativePresenter < PdfForm::BaseDelegator
       "11.6 mobile number" => mobile_number,
       # TODO: "11.7 reference" => reference,
       "11.8 email" => email_address,
-      "11.9 tick boxes" => use_or_off(contact_preference, FormOptions::CONTACT_PREFERENCES)
+      "11.9 tick boxes" => use_or_off(contact_preference, CONTACT_PREFERENCES)
     }
   end
 end

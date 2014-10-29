@@ -1,5 +1,7 @@
 class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
-
+  GENDERS             = %i<male female prefer_not_to_say>.freeze
+  CONTACT_PREFERENCES = %i<email post>.freeze
+  
   def name
     first_name + ' ' + last_name
   end
@@ -12,7 +14,7 @@ class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
       "1.4 DOB day" => date_of_birth && ("%02d" % date_of_birth.day),
       "1.4 DOB month" => date_of_birth && ("%02d" % date_of_birth.month),
       "1.4 DOB year" => date_of_birth && date_of_birth.year.to_s,
-      "1.4 gender" => use_or_off(gender, FormOptions::GENDERS),
+      "1.4 gender" => use_or_off(gender, GENDERS),
       "1.5 number" => address_building,
       "1.5 street" => address_street,
       "1.5 town city" => address_locality,
@@ -20,7 +22,7 @@ class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
       "1.5 postcode" => format_postcode(address_post_code),
       "1.6 phone number" => address_telephone_number,
       "1.7 mobile number" => mobile_number,
-      "1.8 tick boxes" => use_or_off(contact_preference, FormOptions::CONTACT_PREFERENCES),
+      "1.8 tick boxes" => use_or_off(contact_preference, CONTACT_PREFERENCES),
       "1.9 email" => email_address,
 
       "12.1 tick box" => tri_state(special_needs.present?),
