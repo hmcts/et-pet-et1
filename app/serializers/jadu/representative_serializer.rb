@@ -2,7 +2,7 @@ class Jadu::RepresentativeSerializer < Jadu::BaseSerializer
   present :address
 
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.Representative do
       xml.Name name
       address.to_xml(options)

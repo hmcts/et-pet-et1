@@ -1,6 +1,6 @@
 class Jadu::PaymentSerializer < Jadu::BaseSerializer
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.Payment do
       xml.Fee do
         xml.Amount amount

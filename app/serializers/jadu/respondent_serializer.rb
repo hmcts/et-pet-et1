@@ -14,7 +14,7 @@ class Jadu::RespondentSerializer < Jadu::BaseSerializer
   end
 
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.Respondent do
       xml.GroupContact primary_respondent?
       xml.Name name

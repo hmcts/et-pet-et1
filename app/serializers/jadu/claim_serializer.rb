@@ -30,7 +30,7 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
   end
 
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.instruct! unless options[:skip_instruct]
     xml.ETFeesEntry(
       'xmlns' => "http://www.justice.gov.uk/ETFEES",

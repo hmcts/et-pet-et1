@@ -11,6 +11,7 @@ module Jadu
   autoload :DiversitySerializer, 'jadu/diversity_serializer'
 
   class BaseSerializer < SimpleDelegator
+    # TODO: Factor out uses of present
     def self.present(*objects)
       objects.each do |object|
         define_method(object) do
@@ -22,6 +23,10 @@ module Jadu
           end
         end
       end
+    end
+
+    def builder(options)
+      options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
     end
   end
 end

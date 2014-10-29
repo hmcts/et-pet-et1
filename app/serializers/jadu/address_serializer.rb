@@ -13,7 +13,7 @@ class Jadu::AddressSerializer < Jadu::BaseSerializer
   end
 
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.Address do
       xml.Number address_number(building)
       xml.Name address_name(building)

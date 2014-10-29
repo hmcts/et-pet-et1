@@ -2,7 +2,7 @@ class Jadu::ClaimantSerializer < Jadu::BaseSerializer
   present :address
 
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.Claimant do
       xml.GroupContact primary_claimant?
       xml.Title title

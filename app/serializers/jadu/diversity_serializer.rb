@@ -1,6 +1,6 @@
 class Jadu::DiversitySerializer < Jadu::BaseSerializer
   def to_xml(options={})
-    xml = options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
+    xml = builder(options)
     xml.UserCharacteristics do
       xml.DeclinedToAnswer true
       xml.ClaimType
