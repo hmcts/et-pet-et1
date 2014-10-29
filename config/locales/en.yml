@@ -120,6 +120,9 @@ en:
         returning:
           reference: Your application number
           password: Your memorable word
+        reminder:
+          email_address: |
+            Enter your email address to get the online application number emailed to you.
 
       claimant:
         mobile_number: Alternative phone or mobile number
