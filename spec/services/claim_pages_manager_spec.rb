@@ -13,9 +13,9 @@ RSpec.describe ClaimPagesManager, type: :service do
   describe '.page_names' do
     it 'returns an array of managed page names' do
       expect(described_class.page_names).
-        to eq %w<application-number claimant additional-claimants representative
-          respondent additional-respondents employment claim-type claim-details
-          claim-outcome additional-information your-fee review>
+        to eq %w<application-number claimant additional-claimants additional-claimants-upload
+          representative respondent additional-respondents employment claim-type
+          claim-details claim-outcome additional-information your-fee review>
     end
   end
 
@@ -42,6 +42,12 @@ RSpec.describe ClaimPagesManager, type: :service do
 
     context 'when resource is a AdditionalClaimantsForm' do
       let(:resource) { AdditionalClaimantsForm.new claim }
+      its(:current_page)  { is_expected.to eq 3 }
+      its(:forward)  { is_expected.to eq('representative') }
+    end
+
+    context 'when resource is a AdditionalClaimantsUploadForm' do
+      let(:resource) { AdditionalClaimantsUploadForm.new claim }
       its(:current_page)  { is_expected.to eq 3 }
       its(:forward)  { is_expected.to eq('representative') }
     end

@@ -64,9 +64,16 @@ RSpec.describe Claim, :type => :claim do
 
   describe '#claimant_count' do
     it 'delegates to the claimant association proxy' do
-      expect(subject.claimants).to receive(:count)
+      expect(subject.claimants).to receive(:count).and_return(0)
 
       subject.claimant_count
+    end
+
+    it 'adds the cached additonal claimants csv count' do
+      subject.additional_claimants_csv_record_count = 1
+
+      expect(subject.claimants).to receive(:count).and_return(0)
+      expect(subject.claimant_count).to eq 1
     end
   end
 

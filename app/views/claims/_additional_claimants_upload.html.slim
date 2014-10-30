@@ -1,0 +1,44 @@
+- unless resource.csv_errors.empty?
+    .validation-summary
+      - if resource.erroneous_line_number
+        #error-line
+          b = t ".error_line", line_number: resource.erroneous_line_number
+      #errors
+        - resource.csv_errors.each do |error|
+          p = error
+
+fieldset
+  legend role="heading" aria-level="2" = t '.subheader'
+
+  = f.input :has_additional_claimants,
+    as: :radio_buttons,
+    item_wrapper_class: 'block-label',
+    wrapper_class: 'form-group-reveal reveal-publish-delegate',
+    input_html: { :class => 'reveal-publish-publisher'},
+    reveal: { true => 'sub1', false => 'sub1' }
+
+  .multiples.reveal-subscribe data-target="sub1" data-show-array='["true"]'
+
+    #step_one.clearfix
+      b = t ".step_one_header"
+      p = t(".download_template").html_safe
+      p = t ".dob_info"
+
+    #step_two.clearfix
+      b = t ".step_two_header"
+      p = t ".save_csv_format"
+      p = t ".how_to_save"
+      p = t ".no_spaces"
+
+    #step_three.clearfix
+      b = t ".step_three_header"
+
+      = f.input :additional_claimants_csv, error: false do
+        - if resource.has_additional_claimants_csv?
+            = f.input :remove_additional_claimants_csv, as: :boolean,
+              inline_label: t('.remove_attachment', file: claim.additional_claimants_csv_file.filename),
+              label: false
+
+        = f.input_field :additional_claimants_csv, as: :file
+
+      = f.hidden_field :additional_claimants_csv_cache

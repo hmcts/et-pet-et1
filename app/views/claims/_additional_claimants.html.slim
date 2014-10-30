@@ -9,6 +9,10 @@ fieldset
     reveal: { true => 'sub1', false => 'sub1' }
 
   .multiples.reveal-subscribe data-target="sub1" data-show-array='["true"]'
+
+    #number_claimants_info.panel-indent
+      # = t ".number_claimants_info"
+      # = t(".csv_upload_text").html_safe
     = f.simple_fields_for :claimants do |builder|
       .multiple id=("claimant_#{builder.index}")
         fieldset
