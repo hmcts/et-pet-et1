@@ -2,11 +2,11 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
   present :representative, :payment
 
   def claimants
-    super.map {|claimant| Jadu::ClaimantSerializer.new(claimant)}
+    super.map {|claimant| Jadu::ClaimantSerializer.new(claimant) }
   end
 
   def respondents
-    super.map { |respondent| Jadu::RespondentSerializer.new(respondent) }
+    super.map {|respondent| Jadu::RespondentSerializer.new(respondent) }
   end
 
   def diversity
@@ -35,10 +35,10 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
     xml.ETFeesEntry(
       'xmlns' => "http://www.justice.gov.uk/ETFEES",
       'xmlns:xsi' => "http://www.w3.org/2001/XMLSchema-instance",
-      'xsi:noNamespaceSchemaLocation' => "ETFees_v0.09.xsd") do
+      'xsi:noNamespaceSchemaLocation' => "ETFees.xsd") do
       xml.DocumentId do
         xml.DocumentName 'ETFeesEntry'
-        xml.UniqueId created_at.to_s(:number)
+        xml.UniqueId created_at.try(:to_s, :number)
         xml.DocumentType 'ETFeesEntry'
         xml.TimeStamp timestamp.xmlschema
         xml.Version 1
@@ -49,22 +49,24 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
       xml.SubmissionChannel 'Web'
       xml.CaseType case_type
       xml.Jurisdiction jurisdiction
-      xml.OfficeCode  office.code
-      xml.DateOfReceiptEt submitted_at.xmlschema
+      xml.OfficeCode  office.try(:code)
+      xml.DateOfReceiptEt submitted_at.try(:xmlschema)
       xml.RemissionIndicated remission_indicated
       xml.Administrator('xsi:nil'=>"true")
-      xml.Claimants do
-        claimants.each{|claimant| claimant.to_xml(options) }
-      end
-      xml.Respondents do
-        respondents.each{|respondent| respondent.to_xml(options) }
-      end
-      xml.Representatives do
-        representative.to_xml(options)
-      end
+      build_xml(claimants, xml, options)
+      build_xml(respondents, xml, options)
+      build_xml([representative], xml, options)
       payment.to_xml(options) if payment
       diversity.to_xml(options)
       xml.Files
+    end
+  end
+
+  def build_xml(collection, xml, options)
+    if collection.any?
+      xml.tag!(collection.first.pluralized_name) do
+        collection.each{|relation| relation.to_xml(options) }
+      end
     end
   end
 end

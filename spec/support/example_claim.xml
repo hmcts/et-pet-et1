@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd">
+<ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees.xsd">
   <DocumentId>
     <DocumentName>ETFeesEntry</DocumentName>
     <UniqueId>20140102030405</UniqueId>
