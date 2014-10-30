@@ -62,7 +62,7 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
       xml.Representatives do
         representative.to_xml(options)
       end
-      payment.to_xml(options)
+      payment.to_xml(options) if payment
       diversity.to_xml(options)
       xml.Files
     end

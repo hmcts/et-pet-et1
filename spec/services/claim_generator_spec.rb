@@ -64,11 +64,29 @@ describe ClaimGenerator, type: :service do
       example = File.read(Rails.root.join('spec/support/example_claim.xml'))
       expect(actual).to eq(example)
     end
+  end
 
-    it 'validates against the schema' do
-      xsd = Nokogiri::XML::Schema(File.read(Rails.root.join('spec/support/ETFees.xsd')))
-      doc = Nokogiri::XML(subject.to_xml)
-      expect(xsd.validate(doc)).to eq([])
+  describe '#valid?' do
+    it 'validates against XSD' do
+      expect(subject.valid?).to be true
+    end
+
+    it 'fails to validate against XSD' do
+      claim.payment = nil
+      expect(subject.valid?).to be false
+    end
+  end
+
+  describe '#errors' do
+    it 'returns empty when valid' do
+      subject.valid?
+      expect(subject.errors).to eq []
+    end
+
+    it 'returns errors when not valid' do
+      claim.payment = nil
+      subject.valid?
+      expect(subject.errors.first.message).to match 'This element is not expected'
     end
   end
 end
