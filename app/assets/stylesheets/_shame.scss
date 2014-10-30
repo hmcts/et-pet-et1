@@ -141,3 +141,10 @@ aside{
     }
   }
 }
+
+.fee-detail{
+    @include span(11 of 12);
+    .number{
+        font-weight: 700;
+    }
+}

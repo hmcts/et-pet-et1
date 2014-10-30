@@ -2,17 +2,17 @@
   fieldset.form-panel
     legend role="heading" aria-level="2"  = t '.application_fee'
 
-    .callout.callout-fee
-      p
-        span.number="£#{ fee_calculation.application_fee_after_remission } "
-        span.type Standard fee
-      p.detail This is the application fee for your claim
+    .clearfix
+        .callout.callout-fee
+          p
+            span.number="£#{ fee_calculation.application_fee_after_remission } "
+            span.type = t '.standard_fee'
+          p.detail = t '.standard_fee_detail'
 
-    .callout.callout-fee
-      p
-        span.number="£#{ fee_calculation.hearing_fee } "
-        span.type Hearing fee
-      p.detail If your case goes to a tribunal, you’ll have to pay this fee.
+    p.fee-detail
+      = t '.hearing_fees'
+      span.number
+        = " £#{ fee_calculation.hearing_fee }"
 
   fieldset
     legend role="heading" aria-level="2"  = t '.reduce_fee'
@@ -26,4 +26,4 @@
 
     #remission_applied_info.panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
       h3.bold-small = t '.remission_applied_info_heading'
-      p.font-small = t '.remisison_applied_info_text'
+      p.font-small = t('.remisison_applied_info_text').html_safe
