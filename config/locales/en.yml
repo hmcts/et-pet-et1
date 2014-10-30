@@ -247,7 +247,7 @@ en:
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. Include overtime, commission and bonuses
-        benefit_details: Details of benefit.
+        benefit_details: Details of benefit
         end_date: For example, 08 04 2014
         new_job_start_date: For example, 08 04 2014
         notice_period_end_date: For example, 08 04 2014
