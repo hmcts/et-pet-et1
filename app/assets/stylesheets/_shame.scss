@@ -36,6 +36,9 @@ legend {
     padding-bottom:0;
     border:none;
   }
+  & + .form-hint {
+    margin-bottom: $gutter-half/2;
+  }
 }
 
 

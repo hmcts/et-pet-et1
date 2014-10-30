@@ -52,9 +52,9 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL)
+  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
     fill_in 'memorable word', with: word
-    fill_in 'Email address', with: email_address if email_address.present?
+    fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
@@ -90,7 +90,7 @@ module FormMethods
 
   def fill_in_representative_details
     choose 'representative_has_representative_true'
-    select 'Solicitor', from: 'Type of representative'
+    select 'Solicitor', from: 'representative_type'
     fill_in "Name of the representative's organisation", with: 'Better Call Saul'
     fill_in "Representative's name", with: 'Saul Goodman'
 
@@ -163,7 +163,7 @@ module FormMethods
     check "Unfair dismissal (including constructive dismissal)"
     label = find('label', text: "Sex (including equal pay)")
     find("##{label['for']}").set true
-    check 'Another type of claim'
+    check 'Other type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',
       with: 'Boss was a bit of a douchenozzle TBH'
     choose 'claim_type_is_whistleblowing_true'
@@ -173,7 +173,7 @@ module FormMethods
   end
 
   def fill_in_claim_details
-    fill_in 'This is your opportunity to tell us about your problem at work.',
+    fill_in 'claim_details_claim_details',
       with: "Everybody hates me"
     choose 'claim_details_other_known_claimants_true'
     fill_in 'You can add the names of other people here. (optional)',
