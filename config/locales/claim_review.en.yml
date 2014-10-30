@@ -132,7 +132,8 @@ en:
 
     email_addresses:
       confirmation: Email confirmation
-      hint: We'll send a copy of your completed application in the email
+      hint: |
+            We'll send a copy of your completed application and a submission confirmation to:
       add_email_address: Add email address
 
     confirmation:
