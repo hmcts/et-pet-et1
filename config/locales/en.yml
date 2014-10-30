@@ -468,12 +468,15 @@ en:
         Remove previously uploaded document: %{file}
     your_fee:
       header: Your fee
+      standard_fee: Standard fee
+      standard_fee_detail: This is the application fee for your claim
       application_fee: Fee for applying
+      hearing_fees: If your claim goes to a tribunal, you'll have to pay an additional hearing fee of
       reduce_fee: Reduce your fee
-      remission_applied_info_heading: You don’t need to pay the above fee now.
+      remission_applied_info_heading: You don’t need to pay the above fee now
       remisison_applied_info_text: |
         Once you’ve submitted this application, we’ll give you a link to apply for a reduction.
-
+        <br/><br/>
         We’ll use the information you give us to work out what reduction (if any) you qualify for and let you know how much you’ll be charged.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
