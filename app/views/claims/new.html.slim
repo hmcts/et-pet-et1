@@ -4,10 +4,10 @@ header.main-header
 .main-section
   = render partial: 'shared/aside', locals: {hide: [:signout]}
 
-  article.main-content
+  article.main-content#main-sub-content
     = simple_form_for claim, url: claim_path do |f|
       fieldset
-        legend= t('.legend_main')
+        legend role="heading" aria-level="2" = t('.legend_main')
         section.content-section
           .panel-indent
             = format t('.callout')

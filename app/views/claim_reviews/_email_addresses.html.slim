@@ -1,8 +1,8 @@
 - if claim.submittable?
   section
     header
-      h2= t '.confirmation'
-      p.form-hint= t '.hint'
+      legend role="header" aria-level="2"= t '.confirmation'
+      p= t '.hint'
 
     = simple_form_for confirmation_email, url: request.url, method: :put do |f|
       = f.input :email_addresses,

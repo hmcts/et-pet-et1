@@ -1,6 +1,6 @@
-.main-column
+.main-column#main-sub-content
   fieldset
-    legend= t '.form_legend'
+    legend role="heading" aria-level="2" = t '.form_legend'
 
     fieldset.form-panel.reveal-publish-delegate
       = f.input :has_representative,
@@ -11,23 +11,27 @@
         reveal: { true => 'main', false => 'main' }
 
     fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend= t '.representative_legend'
+      legend role="heading" aria-level="2" = t '.representative_legend'
 
-      = f.input :type, collection: RepresentativeForm::TYPES, include_blank: :translate
+      = f.input :type,
+        collection: RepresentativeForm::TYPES,
+        include_blank: :translate,
+        label: false
       = f.input :organisation_name
       = f.input :name
 
     fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend= t '.contact_legend'
+      legend role="heading" aria-level="2" = t '.contact_legend'
+      = format t('.contact_info')
       = f.input :address_building
       = f.input :address_street
       = f.input :address_locality
       = f.input :address_county
       = f.input :address_post_code, input_html: { class: 'short-input' }
-      = f.input :address_telephone_number
-      = f.input :mobile_number
-      = f.input :email_address
-      = f.input :dx_number
+      = f.input :address_telephone_number, input_html: { class: 'medium-input' }
+      = f.input :mobile_number, input_html: { class: 'medium-input' }
+      = f.input :email_address, input_html: { class: 'medium-input' }
+      = f.input :dx_number, input_html: { class: 'medium-input' }
 
       details
         summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
