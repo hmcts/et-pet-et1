@@ -50,13 +50,15 @@ RSpec.shared_examples 'a Form' do |attributes, block|
 
     context 'when target destroyed' do
       before do
-        allow(form).to receive(:valid?).and_return false
+        allow(form).to receive(:valid?).and_return true
         allow(target).to receive(:frozen?).and_return true
-        allow(resource).to receive(:save)
       end
 
       it 'does not attempt to update the target' do
+        instance_eval &block
+
         expect(target).not_to receive(:update_attributes)
+        expect(form.resource).to receive(:save)
         form.save
       end
     end

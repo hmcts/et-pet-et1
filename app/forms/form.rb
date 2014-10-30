@@ -92,10 +92,8 @@ class Form
   def save
     if valid?
       run_callbacks :save do
-        unless target.frozen?
-          target.update_attributes attributes
-          resource.save
-        end
+        target.update_attributes attributes unless target.frozen?
+        resource.save
       end
     else
       false
