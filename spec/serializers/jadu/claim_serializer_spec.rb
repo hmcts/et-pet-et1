@@ -89,18 +89,16 @@ RSpec.describe Jadu::ClaimSerializer, type: :serializer do
 
   describe '#to_xml' do
     let(:timestamp) { DateTime.new(2014, 10, 11, 9, 10, 58) }
-    let(:representative) { double to_xml: '' }
     before do
       allow(claim).to receive(:claimant_count).and_return 1
       allow(claim).to receive(:remission_claimant_count).and_return 0
-      allow(subject).to receive(:representative).and_return representative
       allow(subject).to receive(:timestamp).and_return timestamp
     end
 
     it 'outputs XML according to Jadu spec' do
       expect(subject.to_xml(indent: 2)).to eq <<-END.gsub(/^ {6}/, '')
       <?xml version="1.0" encoding="UTF-8"?>
-      <ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd">
+      <ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees.xsd">
         <DocumentId>
           <DocumentName>ETFeesEntry</DocumentName>
           <UniqueId>20140102030405</UniqueId>
@@ -118,12 +116,6 @@ RSpec.describe Jadu::ClaimSerializer, type: :serializer do
         <DateOfReceiptEt>2014-01-02T11:40:28Z</DateOfReceiptEt>
         <RemissionIndicated>NotRequested</RemissionIndicated>
         <Administrator xsi:nil="true"/>
-        <Claimants>
-        </Claimants>
-        <Respondents>
-        </Respondents>
-        <Representatives>
-        </Representatives>
         <Payment>
           <Fee>
             <Amount/>

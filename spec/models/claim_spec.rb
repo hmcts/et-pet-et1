@@ -126,13 +126,12 @@ RSpec.describe Claim, :type => :claim do
     end
 
     context 'when the minimum information is incomplete' do
-      it 'returns false' do
-        expect(attributes.none? { |key, _| described_class.new(attributes.except key).submittable? }).to be true
-      end
+      before { allow(ClaimGenerator).to receive(:new).with(subject).and_return double :valid? => false }
+      its(:submittable?) { is_expected.to be false }
     end
 
     context 'when the minimum information is complete' do
-      subject { described_class.new attributes }
+      before { allow(ClaimGenerator).to receive(:new).with(subject).and_return double :valid? => true }
       its(:submittable?) { is_expected.to be true }
     end
   end

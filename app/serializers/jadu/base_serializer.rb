@@ -28,5 +28,9 @@ module Jadu
     def builder(options)
       options[:builder] ||= ::Builder::XmlMarkup.new(indent: options[:indent])
     end
+
+    def pluralized_name
+      __getobj__.class.to_s.pluralize
+    end
   end
 end

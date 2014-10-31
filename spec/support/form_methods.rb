@@ -18,7 +18,8 @@ module FormMethods
 
     before do
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
-        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json,
+          headers: { 'Content-Type' => 'application/json' }
     end
 
     around do |example|
