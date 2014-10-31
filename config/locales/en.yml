@@ -127,8 +127,7 @@ en:
           reference: Your application number
           password: Your memorable word
         reminder:
-          email_address: |
-            Enter your email address to get the online application number emailed to you.
+          email_address: Email address
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -315,6 +314,10 @@ en:
       your_fee:
         applying_for_remission: |
           Find out if you <a href="/guide#help_with_paying_the_fees">qualify for help with fees.</a>
+      user_session:
+        reminder:
+          email_address: Get your application number in an email
+
 
 
   helpers:
@@ -336,7 +339,7 @@ en:
         return: Return to your application
 
   shared:
-    reference: Your online application number is
+    reference: Your reference number is
     aside:
       skip_link: Skip to content
       gethelp_header: Get help
@@ -359,11 +362,12 @@ en:
       subheader: To return to an application you started earlier, enter your details below.
       hint: Don't have these details? [Start a new application](/).
     reminder:
-      header: Saved
-      legend: Application number reminder
-      subheader: Keep a note of these details
-      hint: You need this number to save your work and return to it another time
+      header: Application saved
+      legend: Return to complete your application
+      subheader: |
+        Make sure you know your application number and memorable word <br />before you sign out.
       submit: Sign out now
+      print_link: Print this page
 
   guides:
     show:
