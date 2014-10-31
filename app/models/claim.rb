@@ -58,7 +58,7 @@ class Claim < ActiveRecord::Base
   end
 
   def submittable?
-    ClaimGenerator.new(self).valid?
+    ClaimGenerator.new(self).valid?(without_payment: true)
   end
 
   def fee_calculation

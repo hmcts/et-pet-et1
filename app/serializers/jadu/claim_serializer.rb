@@ -49,22 +49,31 @@ class Jadu::ClaimSerializer < Jadu::BaseSerializer
       xml.SubmissionChannel 'Web'
       xml.CaseType case_type
       xml.Jurisdiction jurisdiction
-      xml.OfficeCode  office.try(:code)
-      xml.DateOfReceiptEt submitted_at.try(:xmlschema)
+      xml.OfficeCode '%02d' % office.try(:code)
+      xml.DateOfReceiptEt (submitted_at || DateTime.now).xmlschema
       xml.RemissionIndicated remission_indicated
       xml.Administrator('xsi:nil'=>"true")
-      build_xml(claimants, xml, options)
-      build_xml(respondents, xml, options)
-      build_xml([representative], xml, options)
-      payment.to_xml(options) if payment
+      build_xml(claimants, options)
+      build_xml(respondents, options)
+      build_xml([representative], options)
+      build_payment_xml(options)
       diversity.to_xml(options)
       xml.Files
     end
   end
 
-  def build_xml(collection, xml, options)
-    if collection.any?
-      xml.tag!(collection.first.pluralized_name) do
+  def build_payment_xml(options)
+    xml = options[:builder]
+    if payment
+      payment.to_xml(options)
+    elsif options[:without_payment]
+      Jadu::PaymentSerializer.new(Payment.new amount: 0, created_at: DateTime.now).to_xml(options)
+    end
+  end
+
+  def build_xml(collection, options)
+    if collection.compact.any?
+      options[:builder].tag!(collection.first.pluralized_name) do
         collection.each{|relation| relation.to_xml(options) }
       end
     end
