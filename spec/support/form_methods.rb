@@ -163,7 +163,7 @@ module FormMethods
     check "Unfair dismissal (including constructive dismissal)"
     label = find('label', text: "Sex (including equal pay)")
     find("##{label['for']}").set true
-    check 'Another type of claim'
+    check 'Other type of claim'
     fill_in 'State the other type of claim – or claims – that you’re making',
       with: 'Boss was a bit of a douchenozzle TBH'
     choose 'claim_type_is_whistleblowing_true'

@@ -8,9 +8,9 @@
       legend.medium role="heading" aria-level="2" = t '.unfair_dismissal'
       details
         summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
-          span.summary What's this?
+          span.summary= t '.summary'
         .panel-indent#details-content-0
-          p  Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
+          p= t '.summary_detail'
       = f.input :is_unfair_dismissal,
         as: :gds_check_boxes,
         item_wrapper_class: 'block-label large-label',
