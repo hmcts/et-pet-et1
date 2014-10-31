@@ -34,4 +34,7 @@
     .container
         = yield
 
+- content_for :body_end do
+  p version #{Deployment.version_number}
+
 = render template: "layouts/moj_template"
