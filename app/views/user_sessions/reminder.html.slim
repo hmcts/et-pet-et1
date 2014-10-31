@@ -5,12 +5,12 @@ header.main-header
   = render partial: 'shared/aside'
 
   .main-content
-    .main-column
+    .main-column#main-sub-content
       .callout.callout-reference
-        p.detail= t('user_sessions.reference')
+        p.detail= t('shared.reference')
         span.number= claim.reference
 
-      = simple_form_for user_session, url: user_session_path, method: :delete do |f|
+      = simple_form_for user_session, url: user_session_path, method: :put do |f|
         fieldset.form-panel
           legend= t('.legend')
 
@@ -19,4 +19,4 @@ header.main-header
 
           = f.input :email_address
 
-          = f.button :submit, value: t('helpers.submit.user_session.destroy')
+          = f.button :submit, value: t('.submit')

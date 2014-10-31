@@ -1,14 +1,10 @@
 class Form
   include ActiveModel::Model
-
-  ADDRESS_LINE_LENGTH  = 75
-  EMAIL_ADDRESS_LENGTH = 100
-  LOCALITY_LENGTH      = 25
-  NAME_LENGTH          = 100
-  PHONE_NUMBER_LENGTH  = 21
-  POSTCODE_LENGTH      = 8
+  extend ActiveModel::Callbacks
 
   attr_accessor :resource, :target
+
+  define_model_callbacks :save, :validation
 
   # TODO smarter delegation of this method to take into account delegated
   # attributes, e.g. the ones on address
@@ -89,10 +85,16 @@ class Form
     end
   end
 
+  def valid?
+    run_callbacks(:validation) { super }
+  end
+
   def save
     if valid?
-      target.update_attributes attributes
-      resource.save
+      run_callbacks :save do
+        target.update_attributes attributes unless target.frozen?
+        resource.save
+      end
     else
       false
     end

@@ -7,32 +7,9 @@ feature 'Claim applications', type: :feature do
   include PdfMethods
 
   context 'along the happy path' do
-    before do
-      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
-        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
-    end
-
-    around do |example|
-      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
-        to_return(:status => 200, :body => "", :headers => {})
-
-      PaymentGateway::TASK.run
-      example.run
-      PaymentGateway::TASK.stop
-    end
-
-    let(:fgr_response) do
-      {
-        "fgr"               => 511234567800,
-        "ETOfficeCode"      => 22,
-        "ETOfficeName"      => "Birmingham",
-        "ETOfficeAddress"   => "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU",
-        "ETOfficeTelephone" => "0121 600 7780"
-      }
-    end
-
     scenario 'Create a new application' do
       start_claim
+      expect(page).to have_text page_number(1)
       expect(page).to have_text before_you_start_message
     end
 
@@ -44,14 +21,16 @@ feature 'Claim applications', type: :feature do
       claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
 
-      expect(page).to have_text page_number(1)
+      expect(page).to have_text page_number(2)
       expect(page).to have_text claim_heading_for(:claimant)
       expect(page).to have_link('Sign out')
     end
 
     scenario 'Entering word and email for save and return' do
       start_claim
-      fill_in_password_and_email 'green', FormMethods::SAVE_AND_RETURN_EMAIL
+      fill_in_password_and_email('green',
+        FormMethods::SAVE_AND_RETURN_EMAIL,
+        "application_number_email_address")
 
       claim = Claim.last
       expect(claim.authenticate 'green').to eq(claim)
@@ -67,7 +46,7 @@ feature 'Claim applications', type: :feature do
       fill_in_password
       fill_in_personal_details
 
-      expect(page).to have_text page_number(2)
+      expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:representative)
     end
 
@@ -77,7 +56,7 @@ feature 'Claim applications', type: :feature do
       fill_in_personal_details
       fill_in_representative_details
 
-      expect(page).to have_text page_number(3)
+      expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:respondent)
     end
 
@@ -88,7 +67,7 @@ feature 'Claim applications', type: :feature do
       fill_in_representative_details
       fill_in_employer_details
 
-      expect(page).to have_text page_number(4)
+      expect(page).to have_text page_number(5)
       expect(page).to have_text claim_heading_for(:employment)
     end
 
@@ -100,7 +79,7 @@ feature 'Claim applications', type: :feature do
       fill_in_employer_details
       fill_in_employment_details
 
-      expect(page).to have_text page_number(5)
+      expect(page).to have_text page_number(6)
       expect(page).to have_text claim_heading_for(:claim_type)
     end
 
@@ -108,7 +87,7 @@ feature 'Claim applications', type: :feature do
       fill_in_pre_claim_pages
       fill_in_claim_type_details
 
-      expect(page).to have_text page_number(6)
+      expect(page).to have_text page_number(7)
       expect(page).to have_text claim_heading_for(:claim_details)
     end
 
@@ -117,7 +96,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_type_details
       fill_in_claim_details
 
-      expect(page).to have_text page_number(7)
+      expect(page).to have_text page_number(8)
       expect(page).to have_text claim_heading_for(:claim_outcome)
     end
 
@@ -127,7 +106,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_details
       fill_in_claim_outcome_details
 
-      expect(page).to have_text page_number(8)
+      expect(page).to have_text page_number(9)
       expect(page).to have_text claim_heading_for(:additional_information)
     end
 
@@ -138,7 +117,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
-      expect(page).to have_text page_number(9)
+      expect(page).to have_text page_number(10)
       expect(page).to have_text claim_heading_for(:your_fee)
     end
 
@@ -158,7 +137,7 @@ feature 'Claim applications', type: :feature do
       select_recipients
 
       email = ActionMailer::Base.deliveries.last
-      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL, 'bob@example.com', 'jane@example.com']
+      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
       content = email.parts.find {|p| p.content_type.match /html/ }.body.raw_source
 
       expect(content).to include completion_message

@@ -43,11 +43,10 @@
 }
 
 .form-label-bold {
-  @include bold-24;
-  display: block;
-  margin-bottom: 0;
-  .form-hint {
-    @include core-19;
+  & > label {
+    @include bold-24();
+    display: block;
+    margin-bottom: 0;
   }
 }
 
@@ -58,11 +57,11 @@
   @include contain-floats;
 }
 
-
 // Hints
 
 // Form hints & examples are light grey and sit above a form control
 .form-hint {
+  @include core-16;
   display: block;
   color: $secondary-text-colour;
   margin-bottom: 5px;

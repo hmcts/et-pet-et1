@@ -1,40 +1,42 @@
 class RepresentativeForm < Form
+  TYPES = %w<citizen_advice_bureau free_representation_unit
+    law_centre trade_union solicitor private_individual trade_association other>.freeze
+
   include AddressAttributes
 
   attributes :type, :organisation_name, :name,
              :mobile_number, :email_address, :dx_number,
              :contact_preference
 
-  validates :type, :name, presence: true
+  boolean :has_representative
 
-  validates :type, inclusion: { in: FormOptions::REPRESENTATIVE_TYPES.map(&:to_s) }
+  before_validation :destroy_target!, unless: :has_representative?
+
+  validates :type, :name, presence: true
+  validates :type, inclusion: { in: TYPES }
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 20 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
-
-  boolean :has_representative
-
-  def has_representative
-    @has_representative ||= target.persisted?
-  end
 
   def valid?
     if has_representative?
       super
     else
-      true
+      run_callbacks(:validation) { true }
     end
   end
 
-  def save
-    if has_representative?
-      super
-    else
-      target.destroy
-    end
+  def has_representative
+    @has_representative ||= target.persisted?
   end
 
-  private def target
+  private
+
+  def destroy_target!
+    target.destroy
+  end
+
+  def target
     resource.representative || resource.build_representative
   end
 end

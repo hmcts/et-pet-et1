@@ -3,6 +3,34 @@ module FormMethods
   CLAIMANT_EMAIL = 'barrington@example.com'
   REPRESENTATIVE_EMAIL = 'rep@example.com'
 
+  extend ActiveSupport::Concern
+
+  included do
+    let(:fgr_response) do
+      {
+        "fgr"               => 511234567800,
+        "ETOfficeCode"      => 22,
+        "ETOfficeName"      => "Birmingham",
+        "ETOfficeAddress"   => "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU",
+        "ETOfficeTelephone" => "0121 600 7780"
+      }
+    end
+
+    before do
+      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
+        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+    end
+
+    around do |example|
+      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
+        to_return(:status => 200, :body => "", :headers => {})
+
+      PaymentGateway::TASK.run
+      example.run
+      PaymentGateway::TASK.stop
+    end
+  end
+
   def start_claim
     visit '/'
     click_button 'Start now'
@@ -14,7 +42,7 @@ module FormMethods
   end
 
   def fill_in_return_form reference, word
-    visit '/user_session/new'
+    visit returning_user_session_path
     fill_in 'application number', with: reference
     fill_in 'memorable word', with: word
     click_button 'Find my application'
@@ -24,9 +52,9 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL)
+  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
     fill_in 'memorable word', with: word
-    fill_in 'Email address', with: email_address if email_address.present?
+    fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
@@ -62,7 +90,7 @@ module FormMethods
 
   def fill_in_representative_details
     choose 'representative_has_representative_true'
-    select 'Solicitor', from: 'Type of representative'
+    select 'Solicitor', from: 'representative_type'
     fill_in "Name of the representative's organisation", with: 'Better Call Saul'
     fill_in "Representative's name", with: 'Saul Goodman'
 
@@ -100,8 +128,6 @@ module FormMethods
 
     check  "I don't have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
-
-    # choose 'respondent_was_employed_true'
 
     click_button 'Save and continue'
   end
@@ -147,7 +173,7 @@ module FormMethods
   end
 
   def fill_in_claim_details
-    fill_in 'This is your opportunity to tell us about your problem at work.',
+    fill_in 'claim_details_claim_details',
       with: "Everybody hates me"
     choose 'claim_details_other_known_claimants_true'
     fill_in 'You can add the names of other people here. (optional)',
@@ -203,8 +229,6 @@ module FormMethods
   def select_recipients
     check CLAIMANT_EMAIL
     check REPRESENTATIVE_EMAIL
-    fill_in 'additional_email_address_1', with: 'bob@example.com'
-    fill_in 'additional_email_address_2', with: 'jane@example.com'
     click_button 'Submit the form'
   end
 end

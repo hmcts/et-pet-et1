@@ -1,13 +1,11 @@
-.main-column
+.main-column#main-sub-content
   fieldset.form-panel
-    legend= t '.claim_type'
+    legend role="heading" aria-level="2" = t '.claim_type'
 
-    fieldset
-      p.font-small= t '.claim_type_label'
-      p.form-hint= t '.claim_type_hint'
+    p= t '.claim_type_label'
 
     fieldset.fieldset-collection
-      legend.medium= t '.unfair_dismissal'
+      legend.medium role="heading" aria-level="2" = t '.unfair_dismissal'
       details
         summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
           span.summary What's this?
@@ -19,7 +17,7 @@
         wrapper_class: 'input form-group'
 
     fieldset.fieldset-collection
-      legend.medium= t '.discrimination'
+      legend.medium role="heading" aria-level="2" = t '.discrimination'
       = f.input :discrimination_claims, label: false,
         collection: Claim::DISCRIMINATION_COMPLAINTS,
         as: :check_boxes,
@@ -27,14 +25,14 @@
         wrapper_class: 'label-column'
 
     fieldset.fieldset-collection
-      legend.medium= t '.pay'
+      legend.medium role="heading" aria-level="2" = t '.pay'
       = f.input :pay_claims, label: false,
         collection: Claim::PAY_COMPLAINTS, as: :check_boxes,
         item_wrapper_class: 'block-label',
         wrapper_class: 'label-column'
 
     fieldset.fieldset-collection.reveal-publish-delegate
-      legend.medium= t '.other_type'
+      legend.medium role="heading" aria-level="2" = t '.other_type'
       = f.input :is_other_type_of_claim,
         as: :gds_check_boxes,
         input_html: { :class => 'reveal-publish-publisher',
@@ -48,7 +46,7 @@
                         :'data-show-array' => 'true'}
 
     fieldset.fieldset-collection
-      legend= t '.whistleblowing'
+      legend role="heading" aria-level="2" = t '.whistleblowing'
       = f.input :is_whistleblowing,
         as: :radio_buttons,
         item_wrapper_class: 'block-label',

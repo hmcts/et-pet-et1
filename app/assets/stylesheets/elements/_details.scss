@@ -2,12 +2,15 @@
 // ==========================================================================
 // GOV.UK front end toolkit dependencies
 @import "colours";
+// Show & hide links
 
 details {
   display: block;
   margin:$gutter-half/4 0 $gutter-half;
   summary {
-    display: inline-block;
+    @extend .button-link !optional;
+    @include core-19;
+    display: block;
     color: $govuk-blue;
     cursor: pointer;
     position: relative;
@@ -24,8 +27,5 @@ details {
   }
   .arrow {
     margin-right: 0.35em;
-  }
-  .panel-indent {
-    margin-top: 0;
   }
 }

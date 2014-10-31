@@ -1,4 +1,5 @@
 class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
+  PAY_PERIODS = %i<weekly monthly>.freeze
 
   def to_h
     {
@@ -9,9 +10,9 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
       "5.2" => job_title,
       "6.1" => average_hours_worked_per_week,
       "6.2 pay before tax" => gross_pay,
-      "6.2 pay before tax tick boxes" => use_or_off(gross_pay_period_type, FormOptions::PAY_PERIODS),
+      "6.2 pay before tax tick boxes" => use_or_off(gross_pay_period_type, PAY_PERIODS),
       "6.2 normal pay" => net_pay,
-      "6.2 normal pay tick boxes" => use_or_off(net_pay_period_type, FormOptions::PAY_PERIODS),
+      "6.2 normal pay tick boxes" => use_or_off(net_pay_period_type, PAY_PERIODS),
       "6.3 tick boxes" => tri_state(worked_notice_period_or_paid_in_lieu?),
       "6.3 weeks" => notice_period('weekly'),
       "6.3 months" => notice_period('monthly'),

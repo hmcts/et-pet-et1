@@ -1,21 +1,28 @@
 class RespondentForm < Form
   include AddressAttributes
 
+  WORK_ADDRESS_ATTRIBUTES = [:work_address_building,
+    :work_address_street, :work_address_locality,
+    :work_address_county, :work_address_post_code,
+    :work_address_telephone_number]
+
+  NAME_LENGTH    = 100
+  NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
+    employer_contacted_acas interim_relief claim_against_security_services>.freeze
+
   attributes :organisation_name, :name,
-             :work_address_building,
-             :work_address_street, :work_address_locality,
-             :work_address_county, :work_address_post_code,
-             :work_address_telephone_number,
              :acas_early_conciliation_certificate_number,
              :no_acas_number_reason, :worked_at_same_address
+  attributes *WORK_ADDRESS_ATTRIBUTES
 
   booleans   :no_acas_number
 
+  before_validation :reset_acas_number!,  if: :no_acas_number?
+  before_validation :reset_work_address!, if: :worked_at_same_address?
+
   validates :name, presence: true
-
   validates :work_address_street, :work_address_locality, :work_address_building,
-            :work_address_post_code, presence: { unless: -> { worked_at_same_address } }
-
+            :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
   validates :name, length: { maximum: NAME_LENGTH }
   validates :work_address_building,
             :work_address_street,
@@ -28,21 +35,37 @@ class RespondentForm < Form
             length: { maximum: PHONE_NUMBER_LENGTH }
 
   validates :no_acas_number_reason,
-    inclusion: { in: FormOptions::NO_ACAS_REASON.map(&:to_s), allow_blank: true },
+    inclusion: { in: NO_ACAS_REASON, allow_blank: true },
     presence: { if: -> { no_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } }
 
+  def worked_at_same_address?
+    ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
+  end
+
+  before_save :reload_addresses
+
   def no_acas_number
     @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
   end
 
-  def was_employed
-    @was_employed ||= resource.employment.present?
+  private
+
+  def reset_acas_number!
+    self.acas_early_conciliation_certificate_number = nil
   end
 
-  private def target
+  def reset_work_address!
+    WORK_ADDRESS_ATTRIBUTES.each { |a| attributes[a] = nil }
+  end
+
+  def target
     resource.primary_respondent || resource.build_primary_respondent
+  end
+
+  def reload_addresses
+    target.addresses.reload
   end
 end

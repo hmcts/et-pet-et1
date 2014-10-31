@@ -22,7 +22,6 @@
       ga('send', 'pageview');
       ga('set', 'anonymizeIP', true);
 
-
 - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 
 - content_for :after_header do
@@ -31,7 +30,7 @@
         document.body.className = document.body.className.replace('js-enabled','');
 
 - content_for :content_override do
-  main#wrapper(role="main")
+  main#content(role="main")
     .container
         = yield
 

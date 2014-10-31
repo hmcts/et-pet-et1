@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Respondent, :type => :model do
   it { is_expected.to belong_to(:claim) }
-  it { is_expected.to have_many(:addresses) }
+  it { is_expected.to have_many(:addresses).autosave true }
 
   it_behaves_like "it has an address", :address
   it_behaves_like "it has an address", :work_address

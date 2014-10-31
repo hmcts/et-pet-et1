@@ -1,9 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js":[function(require,module,exports){
 var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
 	polyfillDetail = require('./polyfills/polyfill.details'),
-	//reveal = require('./modules/moj.reveal'),
-	//checkboxReveal = require('./modules/moj.checkbox-reveal'),
-	//checkboxToggle = require('./modules/moj.checkbox-toggle'),
 	revealPubSub = require('./modules/moj.reveal-pub-sub'),
 	selectedOption = require('./modules/moj.selected-option'),
 	formHintReveal = require('./modules/moj.reveal-hints'),
@@ -301,161 +298,11 @@ module.exports = (function() {
 })();
 },{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/polyfills/polyfill.details.js":[function(require,module,exports){
 module.exports = (function () {
-  // <details> polyfill
-  // http://caniuse.com/#feat=details
-
-  // FF Support for HTML5's <details> and <summary>
-  // https://bugzilla.mozilla.org/show_bug.cgi?id=591737
-
-  // http://www.sitepoint.com/fixing-the-details-element/
-
-  // Add event construct for modern browsers or IE
-  // which fires the callback with a pre-converted target reference
-  function addEvent(node, type, callback) {
-    if (node.addEventListener) {
-      node.addEventListener(type, function (e) {
-        callback(e, e.target);
-      }, false);
-    } else if (node.attachEvent) {
-      node.attachEvent('on' + type, function (e) {
-        callback(e, e.srcElement);
-      });
-    }
-  }
-
-  // Handle cross-modal click events
-  function addClickEvent(node, callback) {
-    var keydown = false;
-    addEvent(node, 'keydown', function () {
-      keydown = true;
-    });
-    addEvent(node, 'keyup', function (e, target) {
-      keydown = false;
-      if (e.keyCode === 13) { callback(e, target); }
-    });
-    addEvent(node, 'click', function (e, target) {
-      if (!keydown) { callback(e, target); }
-    });
-  }
-
-  // Get the nearest ancestor element of a node that matches a given tag name
-  function getAncestor(node, match) {
-    do {
-      if (!node || node.nodeName.toLowerCase() === match) {
-        break;
-      }
-    } while (node = node.parentNode);
-
-    return node;
-  }
-
-  // Create a started flag so we can prevent the initialisation
-  // function firing from both DOMContentLoaded and window.onload
-  var started = false;
-
-  // Initialisation function
-  function addDetailsPolyfill(list) {
-
-    // If this has already happened, just return
-    // else set the flag so it doesn't happen again
-    if (started) {
-      return;
-    }
-    started = true;
-
-    // Get the collection of details elements, but if that's empty
-    // then we don't need to bother with the rest of the scripting
-    if ((list = document.getElementsByTagName('details')).length === 0) {
-      return;
-    }
-
-    // else iterate through them to apply their initial state
-    var n = list.length, i = 0;
-    for (n; i < n; i++) {
-      var details = list[i];
-
-      // Detect native implementations
-      details.__native = typeof(details.open) == 'boolean';
-
-      // Save shortcuts to the inner summary and content elements
-      details.__summary = details.getElementsByTagName('summary').item(0);
-      details.__content = details.getElementsByTagName('div').item(0);
-
-      // If the content doesn't have an ID, assign it one now
-      // which we'll need for the summary's aria-controls assignment
-      if (!details.__content.id) {
-        details.__content.id = 'details-content-' + i;
-      }
-
-      // Add role=button to summary
-      details.__summary.setAttribute('role', 'button');
-
-      // Add aria-controls
-      details.__summary.setAttribute('aria-controls', details.__content.id);
-
-      // Set tabindex so the summary is keyboard accessible
-      details.__summary.setAttribute('tabindex', '0');
-
-      // Detect initial open/closed state
-      var detailsAttr = details.hasAttribute('open');
-      if (typeof detailsAttr !== 'undefined' && detailsAttr !== false) {
-        details.__summary.setAttribute('aria-expanded', 'true');
-        details.__content.setAttribute('aria-hidden', 'false');
-      } else {
-        details.__summary.setAttribute('aria-expanded', 'false');
-        details.__content.setAttribute('aria-hidden', 'true');
-        details.__content.style.display = 'none';
-      }
-
-      // Create a circular reference from the summary back to its
-      // parent details element, for convenience in the click handler
-      details.__summary.__details = details;
-
-      // If this is not a native implementation, create an arrow
-      // inside the summary, saving its reference as a summary property
-      if (!details.__native) {
-        var twisty = document.createElement('i');
-        twisty.className = 'arrow arrow-closed';
-        twisty.appendChild(document.createTextNode('\u25ba'));
-        details.__summary.__twisty = details.__summary.insertBefore(twisty, details.__summary.firstChild);
-      }
-    }
-
-    // Define a statechange function that updates aria-expanded and style.display
-    // Also update the arrow position
-    function statechange(summary) {
-
-      // Update aria-expanded attribute on click
-      var expanded = summary.__details.__summary.getAttribute('aria-expanded') == 'true';
-      var hidden = summary.__details.__content.getAttribute('aria-hidden') == 'true';
-
-      summary.__details.__summary.setAttribute('aria-expanded', (expanded ? 'false' : 'true'));
-      summary.__details.__content.setAttribute('aria-hidden', (hidden ? 'false' : 'true'));
-      summary.__details.__content.style.display = (expanded ? 'none' : 'block');
-
-      if (summary.__twisty) {
-        summary.__twisty.firstChild.nodeValue = (expanded ? '\u25ba' : '\u25bc');
-        summary.__twisty.setAttribute('class', (expanded ? 'arrow arrow-closed' : 'arrow arrow-open'));
-      }
-
-      return true;
-    }
-
-    // Bind a click event to handle summary elements
-    addClickEvent(document, function(e, summary) {
-      if (!(summary = getAncestor(summary, 'summary'))) {
-        return true;
-      }
-      return statechange(summary);
-    });
-  }
-
-  // Bind two load events for modern and older browsers
-  // If the first one fires it will set a flag to block the second one
-  // but if it's not supported then the second one will fire
-  addEvent(document, 'DOMContentLoaded', addDetailsPolyfill);
-  addEvent(window, 'load', addDetailsPolyfill);
-
+ /*! http://mths.be/details v0.1.0 by @mathias | includes http://mths.be/noselect v1.0.3 */
+;(function(a,f){var e=f.fn,d,c=Object.prototype.toString.call(window.opera)=='[object Opera]',g=(function(l){var j=l.createElement('details'),i,h,k;if(!('open' in j)){return false}h=l.body||(function(){var m=l.documentElement;i=true;return m.insertBefore(l.createElement('body'),m.firstElementChild||m.firstChild)}());j.innerHTML='<summary>a</summary>b';j.style.display='block';h.appendChild(j);k=j.offsetHeight;j.open=true;k=k!=j.offsetHeight;h.removeChild(j);if(i){h.parentNode.removeChild(h)}return k}(a)),b=function(i,l,k,h){var j=i.prop('open'),m=j&&h||!j&&!h;if(m){i.removeClass('open').prop('open',false).triggerHandler('close.details');l.attr('aria-expanded',false);k.hide()}else{i.addClass('open').prop('open',true).triggerHandler('open.details');l.attr('aria-expanded',true);k.show()}};e.noSelect=function(){var h='none';return this.bind('selectstart dragstart mousedown',function(){return false}).css({MozUserSelect:h,msUserSelect:h,webkitUserSelect:h,userSelect:h})};if(g){d=e.details=function(){return this.each(function(){var i=f(this),h=f('summary',i).first();h.attr({role:'button','aria-expanded':i.prop('open')}).on('click',function(){var j=i.prop('open');h.attr('aria-expanded',!j);i.triggerHandler((j?'close':'open')+'.details')})})};d.support=g}else{d=e.details=function(){return this.each(function(){var h=f(this),j=f('summary',h).first(),i=h.children(':not(summary)'),k=h.contents(':not(summary)');if(!j.length){j=f('<summary>').text('Details').prependTo(h)}if(i.length!=k.length){k.filter(function(){return this.nodeType==3&&/[^ \t\n\f\r]/.test(this.data)}).wrap('<span>');i=h.children(':not(summary)')}h.prop('open',typeof h.attr('open')=='string');b(h,j,i);j.attr('role','button').noSelect().prop('tabIndex',0).on('click',function(){j.focus();b(h,j,i,true)}).keyup(function(l){if(32==l.keyCode||(13==l.keyCode&&!c)){l.preventDefault();j.click()}})})};d.support=g}}(document,jQuery));
 })();
 
+$(function () {
+  $('details').details();
+});
 },{}]},{},["/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js"]);

@@ -2,11 +2,11 @@ module Messages
   include ClaimsHelper
 
   def page_number(page)
-    I18n.t('claims.show.page_number', current_page: page, total_pages: 9)
+    I18n.t('claims.show.page_number', current_page: page, total_pages: 10)
   end
 
   def before_you_start_message
-    I18n.t('user_sessions.edit.header')
+    I18n.t('claims.application_number.header')
   end
 
   def claim_heading_for(page)

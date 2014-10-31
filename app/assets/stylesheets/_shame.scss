@@ -1,6 +1,3 @@
-// Susy
-// ==========================================================================
-
 // Application summary page
 // ==========================================================================
 .application-summary{
@@ -13,31 +10,25 @@
   }
 }
 
-// content-copy
-// ==========================================================================
-
 // Hack to make checkbox float inline before the label
 // ==========================================================================
 .strong {
   font-weight:700;
 }
-h2.heading-medium{
-  padding-bottom:$gutter-half/2;
-  border-bottom:1px solid $border-colour;
-}
 
-legend {
+.legend{
   @extend .heading-medium;
   border-bottom:1px solid $border-colour;
   width:100%;
   display:block;
   padding:0 0 $gutter-half/2 0;
+}
+
+legend {
+  @extend .legend;
   &.form-label{
     border:none;
     margin-bottom:0;
-  }
-  &:first-child{
-    margin-bottom:$gutter;
   }
   &.medium{
     @include bold-19();
@@ -45,16 +36,12 @@ legend {
     padding-bottom:0;
     border:none;
   }
-}
-
-// ==========================================================================
-// Aside nav
-// ==========================================================================
-aside {
-  a {
-    @include core-19;
+  & + .form-hint {
+    margin-bottom: $gutter-half/2;
   }
 }
+
+
 
 .label-column {
   @include container(wider);
@@ -65,7 +52,12 @@ aside {
 }
 
 .form-panel {
+  overflow:hidden;
   margin:0 0 $gutter;
+}
+fieldset{
+  margin-left:0;
+  margin-right:0;
 }
 .fieldset-collection{
   margin:0 0 $gutter;
@@ -77,34 +69,9 @@ aside {
   margin-right:$gutter-half;
 }
 
-.inline-fields {
-  overflow:hidden;
-  .form-group {
-    @include span(6 of 12);
-    clear:none;
-    margin-bottom:0;
-    &:first-child {
-      @include first;
-      padding-left:0;
-      input {
-        @include span(10 of 12);
-        margin-left:0;
-      }
-    }
-    &.radio_buttons {
-      @include last;
-      span.block-label {
-        margin-top:0;
-        margin-bottom:0;
-      }
-    }
-  }
-}
-
 .inline-buttons{
   margin:$gutter-half 0;
 }
-
 
 input[type=radio]{
   background: transparent;
@@ -112,3 +79,72 @@ input[type=radio]{
   border:none;
 }
 
+.table-header{
+  @extend .bold-medium;
+  overflow:hidden;
+  a {
+    @include core-16;
+    line-height:2;
+    float:right;
+    font-weight: 400;
+  }
+}
+
+//for table cells void of any information
+// ==========================================================================
+.not-entered {
+  color: $grey-1;
+}
+
+// For copy coming out of markdown
+// ==========================================================================
+.content-section {
+  clear:both;
+  overflow:hidden;
+  h2 {
+    @extend .legend;
+  }
+  h3 {
+    @extend .bold-small;
+    margin-bottom:0;
+    & + p,
+    & + ul{
+      margin-top:0;
+    }
+  }
+  p, li {
+    @include core-19;
+  }
+}
+
+.content-block {
+  margin:$gutter-half 0;
+  &:first-child{
+    margin-top:0;
+  }
+}
+
+// Aside
+// ==========================================================================
+aside{
+  h3{
+    @extend .heading-medium;
+    margin:0 0 $gutter-half/2;
+  }
+  ul{
+    padding-left:0;
+    margin:0 0 $gutter-half 0;
+    list-style:none;
+    li{
+      padding-left:0;
+      margin-left:0;
+    }
+  }
+}
+
+.fee-detail{
+    @include span(11 of 12);
+    .number{
+        font-weight: 700;
+    }
+}

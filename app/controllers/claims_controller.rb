@@ -9,21 +9,28 @@ class ClaimsController < ApplicationController
   def create
     claim = Claim.create
     session[:claim_reference] = claim.reference
-
-    redirect_to edit_user_session_url
+    redirect_to page_claim_path(page: ClaimTransitionManager.first_page)
   end
 
   def update
     resource.assign_attributes params[current_step]
 
     if resource.save
-      redirect_to page_claim_path(page: transition_manager.forward)
+      redirect_to next_page
     else
       render action: :show
     end
   end
 
   private
+
+  def next_page
+    if params[:return_to_review].present?
+      claim_review_path
+    else
+      page_claim_path(page: transition_manager.forward)
+    end
+  end
 
   helper_method def transition_manager
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)

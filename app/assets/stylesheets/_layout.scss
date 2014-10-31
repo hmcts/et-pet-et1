@@ -3,31 +3,41 @@
   text-align:left;
 }
 // ==========================================================================
+// Page layout
+// ==========================================================================
+.main-section{
+  @include container;
+}
+.main-content{
+  @include span(8 of 12);
+  @include first;
+  padding-left:0;
+}
+aside{
+  @include span(2.5 of 12);
+  @include last;
+  padding-left:0;
+}
+// ==========================================================================
 // Header
 // ==========================================================================
-  header {
-    &.main-header{
-      @include prefix(4 of 12);
-      h3 {
-        @include core-24;
-        color:$secondary-text-colour;
-        padding-top: $gutter-half;
-      }
-      h1 {
-        @include bold-48();
-        padding: $gutter-half 0 $gutter;
-      }
+header {
+  &.main-header{
+    h1{
+      @include bold-48();
+      padding:0;
+      margin:$gutter*2 0;
     }
-    &.no-steps{
-      margin: $gutter 0;
-      h1 {
-        padding-bottom:$gutter-half;
+    h3 {
+      @include core-24;
+      color:$secondary-text-colour;
+      padding-top: $gutter-half;
+      & + h1{
+        margin-top: $gutter-half;
       }
-    }
-    p{
-      @include core-19;
     }
   }
+}
 
 // ==========================================================================
 // Inputs
@@ -39,6 +49,9 @@ input[type=tel] {
   @include span(8 of 12);
   &.short-input{
     @include span(4 of 12);
+  }
+  &.medium-input{
+    @include span(6 of 12);
   }
 }
 select.form-control{
@@ -52,16 +65,11 @@ textarea.form-control{
 // ==========================================================================
 // Form layout
 // ==========================================================================
-.form-inputs{
-  // @include cf();
-}
 .form-actions{
-  //@include span(8 of 12 last);
   margin-top:2em;
 }
 .label-column {
   .block-label {
-    // @include column(0.5, $cycle: 2, $gutter: 2);
     label{
       margin-right:0;
     }
@@ -73,26 +81,19 @@ textarea.form-control{
     display: block;
   }
 }
-// ==========================================================================
-// Page layout
-// ==========================================================================
-.main-section{
-  @include container;
-}
-.main-content{
-  @include span(8 of 12 last);
-}
+
 aside{
-  @include span(4 of 12 first);
   h3{
     @extend .heading-medium;
     margin-top:0;
   }
   ul{
     padding-left:0;
-    list-style-position:inside;
+    margin-left:0;
+    list-style:none;
+    li{
+      padding-left:0;
+      margin-left:0;
+    }
   }
 }
-// ==========================================================================
-// Split header
-// ==========================================================================

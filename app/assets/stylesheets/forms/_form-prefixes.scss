@@ -1,15 +1,31 @@
 .prefixed-field {
-  .form-group.integer{
-    position:relative;
-    &:before{
-      @include core-19;
-      float:left;
-      content: '\00A3';
-      background:$panel-colour;
-      border:1px solid $border-colour;
-      border-right:none;
-      padding:5px 10px 4px;
-      margin:2px 0;
+  .currency_field {
+    @include span(6 of 12);
+    @include first;
+    overflow:hidden;
+  }
+  .currency_pound {
+    @include span(1);
+    @include core-19;
+    line-height:1.8em;
+    display:inline-block;
+    text-align:center;
+    background:$panel-colour;
+    border:1px solid $border-colour;
+    border-right:none;
+  }
+  input.string {
+    @include span(11 of 12);
+    @include last;
+  }
+  .form-group.radio_buttons {
+    @include span(6 of 12);
+    @include last;
+    clear:none;
+    margin-bottom:0;
+    span.block-label {
+      margin-top:0;
+      margin-bottom:0;
     }
   }
 }

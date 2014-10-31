@@ -1,6 +1,6 @@
 class Respondent < ActiveRecord::Base
   belongs_to :claim
-  has_many   :addresses, as: :addressable
+  has_many   :addresses, as: :addressable, autosave: true
 
   ADDRESS_ATTRIBUTES = %i<building street locality county post_code
                           telephone_number>.flat_map { |a| [a, :"#{a}="] }
