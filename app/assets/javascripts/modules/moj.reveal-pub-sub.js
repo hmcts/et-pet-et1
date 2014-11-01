@@ -29,7 +29,11 @@ module.exports = (function () {
     // after all the events are bound.
     // Useful when you need to reset the state of the page
     // after a form submit
-    triggerPubsAfterBind: true
+    triggerPubsAfterBind: true,
+
+    // The character used to as delimiter
+    // between event names in data-show-array
+    dataShowArrayDelimiter: ' '
   };
 
   /**
@@ -74,9 +78,9 @@ module.exports = (function () {
     $('.reveal-publish-delegate').on('click pseudo-click', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
       var $el = $(e.target),
-        elValue = $el[0].type === 'checkbox' ? $el[0].checked : $el.val();
+        elValue = $el[0].type === 'checkbox' ? $el[0].checked.toString() : $el.val();
 
-      $.publish($el.data('target'), elValue);
+      $.publish($el.attr('data-target'), elValue);
     });
   };
 
@@ -93,7 +97,7 @@ module.exports = (function () {
    * Example:
    *  <div  class="reveal-subscribe"
             data-target="eventName"
-            data-show-array="['true',....]">
+            data-show-array="true|..]">
               // Further HTML here
       </div>
    *
@@ -114,16 +118,16 @@ module.exports = (function () {
       }
 
       // Subscribe to the events
-      $.subscribe($el.data('target'), function (event, val) {
+      $.subscribe($el.attr('data-target'), function (event, val) {
         var ariaHidden;
         // $.inArray returns -1 if not in the array and the
         // array index if it is. Using ~ (Bitwise NOT) with !!
         // returns false for -1 and true for everything else.
-        var isInArray = !!~$.inArray(val, $el.data('show-array'));
+        var isInArray = !!~$.inArray(val, $el.attr('data-show-array').split(_this.settings.dataShowArrayDelimiter));
 
         // if reverse set to true then
         // reverse the boolean
-        // if($el.data('reverse')){
+        // if($el.attr('data-reverse')){
         //   isInArray = !isInArray;
         // }
 

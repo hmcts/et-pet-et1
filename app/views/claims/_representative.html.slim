@@ -10,7 +10,7 @@
         input_html: { :class => 'reveal-publish-publisher'},
         reveal: { true => 'main', false => 'main' }
 
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
       legend role="heading" aria-level="2" = t '.representative_legend'
 
       = f.input :type,
@@ -20,7 +20,7 @@
       = f.input :organisation_name
       = f.input :name
 
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
       legend role="heading" aria-level="2" = t '.contact_legend'
       = format t('.contact_info')
       = f.input :address_building

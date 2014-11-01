@@ -16,7 +16,7 @@
                     :'data-target' => 'main' }
 
 
-    .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
+    .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
       .panel-indent
         = f.input :no_acas_number_reason,
           collection: RespondentForm::NO_ACAS_REASON,
@@ -43,11 +43,11 @@
       input_html: { :class => 'reveal-publish-publisher' },
       reveal: { true => 'sub1', false => 'sub1' }
 
-    #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
+    #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array="false"
       p.form-hint= t '.work_address'
       = f.input :work_address_building
       = f.input :work_address_street
       = f.input :work_address_locality
       = f.input :work_address_county
-      = f.input :work_address_post_code, input_html: { class: 'short-input' }
+      = f.input :work_address_post_code, input_html: {class: 'short-input'}
       = f.input :work_address_telephone_number, input_html: { class: 'medium-input' }
