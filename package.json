@@ -16,7 +16,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "postinstall" :   "node_modules/.bin/bower install",
     "buildjs":       "browserify app/assets/javascripts/index.js | uglifyjs -mc > app/assets/javascripts/bundle.js",
     "bundle":         "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
     "watch-js":       "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
