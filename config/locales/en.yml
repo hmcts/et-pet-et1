@@ -319,6 +319,7 @@ en:
   shared:
     reference: Your online application number is
     aside:
+      skip_link: Skip to content
       gethelp_header: Get help
       actions_header: Actions
       read_guide: Read the guide
