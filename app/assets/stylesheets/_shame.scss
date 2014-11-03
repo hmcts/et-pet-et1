@@ -146,4 +146,9 @@ aside{
   > h2.legend {
     margin-top:0;
   }
+  fieldset:first-child {
+    legend{
+      margin-top:0;
+    }
+  }
 }
