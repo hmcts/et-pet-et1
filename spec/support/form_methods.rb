@@ -83,7 +83,7 @@ module FormMethods
     end
 
     choose  'claimant_has_special_needs_true'
-    fill_in 'Tell us how we can help you.', with: 'I am blind.'
+    fill_in 'Tell us how we can help you', with: 'I am blind.'
 
     click_button 'Save and continue' unless options[:submit_form] == false
   end
