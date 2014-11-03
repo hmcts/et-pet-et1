@@ -1,4 +1,4 @@
-fieldset.form-panel
+fieldset
   legend role="heading" aria-level="2" = t '.legend_personal_details'
   = format t('.personal_details_hint')
   = render partial: 'personal_details', locals: { f: f }
@@ -6,7 +6,7 @@ fieldset.form-panel
   = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
     item_wrapper_class: 'block-label'
 
-fieldset.form-panel
+fieldset
   legend= t '.legend_disability'
 
   = f.input :has_special_needs,
@@ -24,7 +24,7 @@ fieldset.form-panel
                     :'data-target' => 'main',
                     :'data-show-array' => '["true"]' }
 
-fieldset.form-panel
+fieldset
   legend role="heading" aria-level="2" = t '.legend_contact_details'
 
   = render partial: 'address', locals: { f: f }

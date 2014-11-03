@@ -1,9 +1,9 @@
-fieldset.form-panel
+fieldset
   legend.heading-medium role="heading" aria-level="2" People making a claim with you
 
   p Are other people making a claim with (against the same employer)?
 
-fieldset.form-panel
+fieldset
   legend.heading-medium role="heading" aria-level="2" Details
 
   p If there are more than 5 people in the group we advise you upload the information in a spreadsheet
@@ -15,12 +15,12 @@ fieldset.form-panel
 
 = f.simple_fields_for :claimants do |builder|
   .claimant
-    fieldset.form-panel
+    fieldset
       legend.heading-medium role="heading" aria-level="2" Person <span class="index">#{builder.index + 1}</span> (making a claim with you)
 
       = render 'personal_details', f: builder
 
-    fieldset.form-panel
+    fieldset
       legend.heading-medium role="heading" aria-level="2" Contact details
 
       = render 'address', f: builder

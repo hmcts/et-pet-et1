@@ -13,14 +13,14 @@ header.main-header
           span.number= claim.reference
 
       = simple_form_for user_session, url: user_session_path do |f|
-        fieldset.form-panel
+        fieldset
           legend= t('.memorable_word_legend')
           .content-section
             = format t('.hint')
             = f.input :password, as: :string
 
         - if claim
-        fieldset.form-panel
+        fieldset
           legend= t('.application_number_legend')
           = f.input :email_address
 

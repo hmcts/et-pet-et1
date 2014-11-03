@@ -1,63 +1,62 @@
-fieldset.form-panel
-  legend role="heading" aria-level="2" = t '.claim_type'
+h2.legend = t '.claim_type'
 
-  p= t '.claim_type_label'
+p= t '.claim_type_label'
 
-  fieldset.fieldset-collection
-    legend.medium role="heading" aria-level="2" = t '.unfair_dismissal'
-    details
-      summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
-        span.summary= t '.summary'
-      .panel-indent#details-content-0
-        p= t '.summary_detail'
-    = f.input :is_unfair_dismissal,
-      as: :gds_check_boxes,
-      item_wrapper_class: 'block-label large-label',
-      wrapper_class: 'input form-group'
+fieldset
+  legend.medium role="heading" aria-level="2" = t '.unfair_dismissal'
+  details
+    summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+      span.summary= t '.summary'
+    .panel-indent#details-content-0
+      p= t '.summary_detail'
+  = f.input :is_unfair_dismissal,
+    as: :gds_check_boxes,
+    item_wrapper_class: 'block-label large-label',
+    wrapper_class: 'input form-group'
 
-  fieldset.fieldset-collection
-    legend.medium role="heading" aria-level="2" = t '.discrimination'
-    = f.input :discrimination_claims, label: false,
-      collection: Claim::DISCRIMINATION_COMPLAINTS,
-      as: :check_boxes,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'label-column'
+fieldset
+  legend.medium role="heading" aria-level="2" = t '.discrimination'
+  = f.input :discrimination_claims, label: false,
+    collection: Claim::DISCRIMINATION_COMPLAINTS,
+    as: :check_boxes,
+    item_wrapper_class: 'block-label',
+    wrapper_class: 'label-column'
 
-  fieldset.fieldset-collection
-    legend.medium role="heading" aria-level="2" = t '.pay'
-    = f.input :pay_claims, label: false,
-      collection: Claim::PAY_COMPLAINTS, as: :check_boxes,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'label-column'
+fieldset
+  legend.medium role="heading" aria-level="2" = t '.pay'
+  = f.input :pay_claims, label: false,
+    collection: Claim::PAY_COMPLAINTS, as: :check_boxes,
+    item_wrapper_class: 'block-label',
+    wrapper_class: 'label-column'
 
-  fieldset.fieldset-collection.reveal-publish-delegate
-    legend.medium role="heading" aria-level="2" = t '.other_type'
-    = f.input :is_other_type_of_claim,
-      as: :gds_check_boxes,
-      input_html: { :class => 'reveal-publish-publisher',
-                    :'data-target' => 'sub1'}
+fieldset.reveal-publish-delegate
+  legend.medium role="heading" aria-level="2" = t '.other_type'
+  = f.input :is_other_type_of_claim,
+    as: :gds_check_boxes,
+    input_html: { :class => 'reveal-publish-publisher',
+                  :'data-target' => 'sub1'}
 
-    = f.input :other_claim_details, as: :text,
-      input_html: { rows: 5 },
-      wrapper_html: { :id => :other_claim_details_wrapper,
-                      :class => 'panel-indent toggle-content reveal-subscribe',
-                      :'data-target' => 'sub1',
-                      :'data-show-array' => '[true]'}
+  = f.input :other_claim_details, as: :text,
+    input_html: { rows: 5 },
+    wrapper_html: { :id => :other_claim_details_wrapper,
+                    :class => 'panel-indent toggle-content reveal-subscribe',
+                    :'data-target' => 'sub1',
+                    :'data-show-array' => '[true]'}
 
-  fieldset.fieldset-collection
-    legend role="heading" aria-level="2" = t '.whistleblowing'
-    = f.input :is_whistleblowing,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label',
-      input_html: { class: 'reveal-publish-publisher'},
-      wrapper_class: 'form-group-reveal reveal-publish-delegate',
-      reveal: { true => 'sub2', false => 'sub2' }
+fieldset
+  legend role="heading" aria-level="2" = t '.whistleblowing'
+  = f.input :is_whistleblowing,
+    as: :radio_buttons,
+    item_wrapper_class: 'block-label',
+    input_html: { class: 'reveal-publish-publisher'},
+    wrapper_class: 'form-group-reveal reveal-publish-delegate',
+    reveal: { true => 'sub2', false => 'sub2' }
 
-    = f.input :send_claim_to_whistleblowing_entity,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'panel-indent toggle-content',
-      wrapper_html: { :id => :send_claim_to_whistleblowing_entity_wrapper,
-                      :class => 'reveal-subscribe',
-                      :'data-target' => 'sub2',
-                      :'data-show-array' => '["true"]' }
+  = f.input :send_claim_to_whistleblowing_entity,
+    as: :radio_buttons,
+    item_wrapper_class: 'block-label',
+    wrapper_class: 'panel-indent toggle-content',
+    wrapper_html: { :id => :send_claim_to_whistleblowing_entity_wrapper,
+                    :class => 'reveal-subscribe',
+                    :'data-target' => 'sub2',
+                    :'data-show-array' => '["true"]' }
