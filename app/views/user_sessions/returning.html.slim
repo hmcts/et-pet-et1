@@ -4,13 +4,12 @@ header.main-header
 .main-section
   = render partial: 'shared/aside'
 
-  .main-content
-    .main-column#main-sub-content
-      = simple_form_for user_session, url: user_session_path do |f|
-        fieldset
-          h3.font-small = t('.subheader')
-          p.form-hint= format t('.hint')
+  .main-content#main-sub-content
+    = simple_form_for user_session, url: user_session_path do |f|
+      fieldset
+        h3.font-small = t('.subheader')
+        p.form-hint= format t('.hint')
 
-          = f.input :reference
-          = f.input :password, as: :string
-          = f.button :submit
+        = f.input :reference
+        = f.input :password, as: :string
+        = f.button :submit

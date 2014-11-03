@@ -5,13 +5,13 @@ header.main-header
 .main-section
   = render partial: 'shared/aside'
 
-  .main-content
+  .main-content#main-sub-content
     = simple_form_for resource, url: claim_path, multipart: true do |f|
       = hidden_field_tag :page, current_step
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.error_notification
-      .form-inputs#main-sub-content
+      .form-fields
         = render current_step.to_s, f: f
       .form-actions
         = f.button :submit

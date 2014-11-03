@@ -2,10 +2,10 @@ header.main-header
   h1= t('.header')
   p = t('.info')
 
-.main-section#main-sub-content
+.main-section
   = render partial: 'shared/aside'
 
-  .main-content
+  .main-content#main-sub-content
     = incomplete_claim_warning
 
     - presenter.each_section do |section_name, section|

@@ -141,3 +141,9 @@ aside{
         font-weight: 700;
     }
 }
+
+.form-fields {
+  > h2.legend {
+    margin-top:0;
+  }
+}
