@@ -1,40 +1,39 @@
-.main-column#main-sub-content
-  fieldset
-    legend role="heading" aria-level="2" = t '.form_legend'
+fieldset
+  legend role="heading" aria-level="2" = t '.form_legend'
 
-    fieldset.form-panel.reveal-publish-delegate
-      = f.input :has_representative,
-        as: :radio_buttons,
-        item_wrapper_class: 'block-label',
-        wrapper_class: 'form-group-reveal',
-        input_html: { :class => 'reveal-publish-publisher'},
-        reveal: { true => 'main', false => 'main' }
+  fieldset.reveal-publish-delegate
+    = f.input :has_representative,
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label',
+      wrapper_class: 'form-group-reveal',
+      input_html: { :class => 'reveal-publish-publisher'},
+      reveal: { true => 'main', false => 'main' }
 
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend role="heading" aria-level="2" = t '.representative_legend'
+  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+    legend role="heading" aria-level="2" = t '.representative_legend'
 
-      = f.input :type,
-        collection: RepresentativeForm::TYPES,
-        include_blank: :translate,
-        label: false
-      = f.input :organisation_name
-      = f.input :name
+    = f.input :type,
+      collection: RepresentativeForm::TYPES,
+      include_blank: :translate,
+      label: false
+    = f.input :organisation_name
+    = f.input :name
 
-    fieldset.form-panel.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-      legend role="heading" aria-level="2" = t '.contact_legend'
-      = format t('.contact_info')
-      = f.input :address_building
-      = f.input :address_street
-      = f.input :address_locality
-      = f.input :address_county
-      = f.input :address_post_code, input_html: { class: 'short-input' }
-      = f.input :address_telephone_number, input_html: { class: 'medium-input' }
-      = f.input :mobile_number, input_html: { class: 'medium-input' }
-      = f.input :email_address, input_html: { class: 'medium-input' }
-      = f.input :dx_number, input_html: { class: 'medium-input' }
+  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+    legend role="heading" aria-level="2" = t '.contact_legend'
+    = format t('.contact_info')
+    = f.input :address_building
+    = f.input :address_street
+    = f.input :address_locality
+    = f.input :address_county
+    = f.input :address_post_code, input_html: { class: 'short-input' }
+    = f.input :address_telephone_number, input_html: { class: 'medium-input' }
+    = f.input :mobile_number, input_html: { class: 'medium-input' }
+    = f.input :email_address, input_html: { class: 'medium-input' }
+    = f.input :dx_number, input_html: { class: 'medium-input' }
 
-      details
-        summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
-          span.summary= t '.what_is_dx.detail'
-        .panel-indent#details-content-0
-          p= t '.what_is_dx.summary'
+    details
+      summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+        span.summary= t '.what_is_dx.detail'
+      .panel-indent#details-content-0
+        p= t '.what_is_dx.summary'

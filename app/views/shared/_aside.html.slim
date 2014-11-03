@@ -1,7 +1,7 @@
 - hide ||= []
 aside role="complementary"
-  a href="#main-sub-content" class="skiplink" Skip complementary
   nav
+    = link_to t('.skip_link'), '#main-sub-content', { class: 'skiplink' }
     h3= t '.gethelp_header'
     ul
       li= link_to t('.read_guide'), guide_path

@@ -12,10 +12,6 @@
 
 // Hack to make checkbox float inline before the label
 // ==========================================================================
-.strong {
-  font-weight:700;
-}
-
 .legend{
   @extend .heading-medium;
   border-bottom:1px solid $border-colour;
@@ -51,35 +47,18 @@ legend {
   }
 }
 
-.form-panel {
+fieldset{
   overflow:hidden;
   margin:0 0 $gutter;
 }
-fieldset{
-  margin-left:0;
-  margin-right:0;
-}
-.fieldset-collection{
-  margin:0 0 $gutter;
-}
 
-.slim-label {
-  display:inline-block;
-  padding-top:$gutter-half/2;
-  margin-right:$gutter-half;
-}
-
-.inline-buttons{
-  margin:$gutter-half 0;
-}
-
-input[type=radio]{
+input[type=radio] {
   background: transparent;
   outline: none;
   border:none;
 }
 
-.table-header{
+.table-header {
   @extend .bold-medium;
   overflow:hidden;
   a {
@@ -147,4 +126,15 @@ aside{
     .number{
         font-weight: 700;
     }
+}
+
+.form-fields {
+  > h2.legend {
+    margin-top:0;
+  }
+  fieldset:first-child {
+    legend{
+      margin-top:0;
+    }
+  }
 }

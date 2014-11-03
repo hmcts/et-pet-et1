@@ -4,19 +4,18 @@ header.main-header
 .main-section
   = render partial: 'shared/aside'
 
-  .main-content
-    .main-column#main-sub-content
-      .callout.callout-reference
-        p.detail= t('shared.reference')
-        span.number= claim.reference
+  .main-content#main-sub-content
+    .callout.callout-reference
+      p.detail= t('shared.reference')
+      span.number= claim.reference
 
-      = simple_form_for user_session, url: user_session_path, method: :put do |f|
-        fieldset.form-panel
-          legend= t('.legend')
+    = simple_form_for user_session, url: user_session_path, method: :put do |f|
+      fieldset
+        legend= t('.legend')
 
-          h3.font-small= t('.subheader')
-          p.form-hint= t('.hint')
+        h3.font-small= t('.subheader')
+        p.form-hint= t('.hint')
 
-          = f.input :email_address
+        = f.input :email_address
 
-          = f.button :submit, value: t('.submit')
+        = f.button :submit, value: t('.submit')
