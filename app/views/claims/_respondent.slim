@@ -1,53 +1,51 @@
-.main-column#main-sub-content
+fieldset.form-panel
+  legend role="heading" aria-level="2" = t '.respondent_legend'
+  = format t('.form_hint')
+  = f.input :name
 
-  fieldset.form-panel
-    legend role="heading" aria-level="2" = t '.respondent_legend'
-    = format t('.form_hint')
-    = f.input :name
-
-  fieldset.form-panel
-    legend= t '.acas_legend'
-    = f.input :acas_early_conciliation_certificate_number, required: true, label: false
-    = f.input :no_acas_number,
-      as: :gds_check_boxes,
-      required: true,
-      wrapper_class: 'reveal-publish-delegate clearfix',
-      input_html: { :class => 'reveal-publish-publisher',
-                    :'data-target' => 'main' }
+fieldset.form-panel
+  legend= t '.acas_legend'
+  = f.input :acas_early_conciliation_certificate_number, required: true, label: false
+  = f.input :no_acas_number,
+    as: :gds_check_boxes,
+    required: true,
+    wrapper_class: 'reveal-publish-delegate clearfix',
+    input_html: { :class => 'reveal-publish-publisher',
+                  :'data-target' => 'main' }
 
 
-    .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
-      .panel-indent
-        = f.input :no_acas_number_reason,
-          collection: RespondentForm::NO_ACAS_REASON,
-          as: :radio_buttons,
-          required: true,
-          item_wrapper_class: 'block-label large-label'
+  .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
+    .panel-indent
+      = f.input :no_acas_number_reason,
+        collection: RespondentForm::NO_ACAS_REASON,
+        as: :radio_buttons,
+        required: true,
+        item_wrapper_class: 'block-label large-label'
 
-  fieldset.form-panel
-    legend role="heading" aria-level="2" = t '.contact_legend'
-    p.form-hint= t('.contact_hint')
-    = f.input :address_building
-    = f.input :address_street
-    = f.input :address_locality
-    = f.input :address_county
-    = f.input :address_post_code, input_html: { class: 'short-input' }
-    = f.input :address_telephone_number, input_html: { class: 'medium-input' }
+fieldset.form-panel
+  legend role="heading" aria-level="2" = t '.contact_legend'
+  p.form-hint= t('.contact_hint')
+  = f.input :address_building
+  = f.input :address_street
+  = f.input :address_locality
+  = f.input :address_county
+  = f.input :address_post_code, input_html: { class: 'short-input' }
+  = f.input :address_telephone_number, input_html: { class: 'medium-input' }
 
-  fieldset.form-panel
-    legend role="heading" aria-level="2" = t '.workaddress_legend'
-    = f.input :worked_at_same_address,
-      as: :radio_buttons,
-      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
-      item_wrapper_class: 'block-label',
-      input_html: { :class => 'reveal-publish-publisher' },
-      reveal: { true => 'sub1', false => 'sub1' }
+fieldset.form-panel
+  legend role="heading" aria-level="2" = t '.workaddress_legend'
+  = f.input :worked_at_same_address,
+    as: :radio_buttons,
+    wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
+    item_wrapper_class: 'block-label',
+    input_html: { :class => 'reveal-publish-publisher' },
+    reveal: { true => 'sub1', false => 'sub1' }
 
-    #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
-      p.form-hint= t '.work_address'
-      = f.input :work_address_building
-      = f.input :work_address_street
-      = f.input :work_address_locality
-      = f.input :work_address_county
-      = f.input :work_address_post_code, input_html: { class: 'short-input' }
-      = f.input :work_address_telephone_number, input_html: { class: 'medium-input' }
+  #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array='["false"]'
+    p.form-hint= t '.work_address'
+    = f.input :work_address_building
+    = f.input :work_address_street
+    = f.input :work_address_locality
+    = f.input :work_address_county
+    = f.input :work_address_post_code, input_html: { class: 'short-input' }
+    = f.input :work_address_telephone_number, input_html: { class: 'medium-input' }
