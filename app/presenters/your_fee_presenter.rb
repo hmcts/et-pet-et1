@@ -1,8 +1,4 @@
 class YourFeePresenter < Presenter
-  def subsections
-    { your_fee: %i<seeking_remission fee> }
-  end
-
   def seeking_remission
     yes_no remission_claimant_count > 0
   end

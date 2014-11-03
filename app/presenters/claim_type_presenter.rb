@@ -1,8 +1,4 @@
 class ClaimTypePresenter < Presenter
-  def subsections
-    { type: %i<types is_whistleblowing send_claim_to_whistleblowing_entity> }
-  end
-
   def types
     claims = []
 

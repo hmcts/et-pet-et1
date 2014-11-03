@@ -1,10 +1,4 @@
 class RepresentativePresenter < Presenter
-  def subsections
-    { has_representative: %i<has_representative>,
-      basic_details: %i<type organisation_name name>,
-      contact_details: %i<address telephone_number mobile_number email_address dx_number contact_preference> }
-  end
-
   def has_representative
     yes_no target.present?
   end

@@ -35,8 +35,8 @@ class Presenter
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
-  def each_subsection
-    subsections.each { |subsection_name, subsection_items| proc[subsection_name, subsection_items] }
+  def each_item
+    self.class.instance_methods(false).each { |meth| proc[meth, send(meth)] }
   end
 
   private

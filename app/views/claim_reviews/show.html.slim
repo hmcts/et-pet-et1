@@ -14,14 +14,12 @@ header.main-header
         span = t ".sections.#{section_name}"
         = quick_edit_link_for section_name
 
-      - section.each_subsection do |subsection_name, subsection_items|
         table.review-table
-          caption = t ".#{section_name}.subsections.#{subsection_name}"
-          - subsection_items.each do |item|
+          - section.each_item do |name, value|
             tr
-              th= t ".#{section_name}.#{item}"
-              - if section.send(item).present?
-                td= section.send item
+              th= t ".#{section_name}.#{name}"
+              - if value.present?
+                td= value
               - else
                 td.not-entered
                   = t '.not_entered'

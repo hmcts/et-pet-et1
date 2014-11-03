@@ -1,7 +1,7 @@
 class ClaimPresenter < Struct.new(:target)
   SECTIONS = %w<claimant representative respondent employment
     claim_type claim_details claim_outcome additional_information your_fee>.freeze
-
+    
   def each_section
     enumerable_sections.each do |section|
       section      = send(section)

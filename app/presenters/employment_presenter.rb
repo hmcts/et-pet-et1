@@ -1,11 +1,4 @@
 class EmploymentPresenter < Presenter
-  def subsections
-    { current_situation: %i<current_situation>,
-      details: %i<job_title start_date end_date worked_notice_period_or_paid_in_lieu average_hours_worked_per_week>,
-      benefits: %i<gross_pay net_pay enrolled_in_pension_scheme benefit_details>,
-      new_job: %i<new_job new_job_gross_pay new_job_start_date> }
-  end
-
   present :job_title
 
   def start_date

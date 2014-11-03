@@ -1,10 +1,4 @@
 class RespondentPresenter < Presenter
-  def subsections
-    { basic_details: %i<name acas_early_conciliation_certificate_number no_acas_number_reason>,
-      contact_details: %i<address telephone_number>,
-      work_address: %i<worked_at_same_address> }
-  end
-
   present :name
 
   def address
