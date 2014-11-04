@@ -9,19 +9,23 @@ fieldset
       input_html: { :class => 'reveal-publish-publisher'},
       reveal: { true => 'main', false => 'main' }
 
+    .callout.callout-reference
+        = format t('.contact_info')
+
+
+
   fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
     legend role="heading" aria-level="2" = t '.representative_legend'
 
     = f.input :type,
       collection: RepresentativeForm::TYPES,
       include_blank: :translate,
-      label: false
+      label: t('.representative_type_legend')
     = f.input :organisation_name
     = f.input :name
 
   fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
     legend role="heading" aria-level="2" = t '.contact_legend'
-    = format t('.contact_info')
     = f.input :address_building
     = f.input :address_street
     = f.input :address_locality

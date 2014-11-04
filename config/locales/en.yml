@@ -50,7 +50,7 @@ en:
           free_representation_unit: Free Representation Unit
           law_centre: Law centre
           trade_union: Trade union
-          solicitor: Solicitor
+          lawyer: Lawyer
           private_individual: Private individual
           trade_association: Trade association
           other: Other
@@ -110,7 +110,7 @@ en:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get my old job back and compensation
+          reinstated_employment_and_compensation: To get your old job back and compensation
           new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
 
     labels:
@@ -140,7 +140,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
 
       representative:
-        has_representative: Does the person making this claim have someone who's agreed to represent them (eg by handling correspondence and speaking in court)?
+        has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence or speaking in court)?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -155,7 +155,7 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        name: Name of main respondent
+        name: Name of respondent
         address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
@@ -185,7 +185,8 @@ en:
         worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
-        was_employed: Were you - or are you still - employed by the person or organisation you’re making a claim against?
+        was_employed: Have you ever been employed by the person or organisation that you’re making this claim against?
+        new_job_gross_pay: New job pay before tax
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -202,7 +203,7 @@ en:
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
 
       additional_information:
-        has_miscellaneous_information: Do you want to tell us any additional information about your claim?
+        has_miscellaneous_information: Provide additional information about your claim
         attachment: Do you want to attach a document?
 
       confirmation_email:
@@ -226,17 +227,20 @@ en:
         applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
 
     hints:
+      address_county: Eg if London, Greater London. If Manchester, Greater Manchester
       claimant:
         date_of_birth: For example, 08 04 2014
         has_special_needs: |
-          E.g. get documents in large or Braille, or have a sign language interpreter.
+          Eg get documents in large or Braille, or have a sign language interpreter.
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
           The court will send  correspondence by both email and post. Only choose one if you have a strong preference.
+        address_county: Eg if London, Greater London. If Manchester, Greater Manchester
       representative:
+        address_county: Eg if London, Greater London. If Manchester, Greater Manchester
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
@@ -250,10 +254,10 @@ en:
         benefit_details: Details of benefit
         end_date: For example, 08 04 2014
         new_job_start_date: For example, 08 04 2014
-        notice_period_end_date: For example, 08 04 2014
+        notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end in the future, enter the date. For example, 08 04 2014
       claim:
         other_claim_details: |
-          E.g. your employer hasn’t allowed you to take your statutory annual leave entitlement
+          Eg your employer hasn’t allowed you to take your statutory annual leave entitlement
         claim_details: |
           Include the background, dates and people involved. This helps the tribunal and employer understand the basis of your case. How do I write a claim statement?
         other_known_claimants: |
@@ -263,8 +267,11 @@ en:
         miscellaneous_information: |
           Eg, you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
       respondent:
+        address_county: Eg if London, Greater London. If Manchester, Greater Manchester
+        work_address_county: Eg if London, Greater London. If Manchester, Greater Manchester
         acas_early_conciliation_certificate_number: |
-          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. For help and advice, call Acas on 0300 123 1100 or <a href="http://www.acas.org.uk/earlyconciliation">visit the Acas website</a>.
+          Nearly everyone should have this number before they fill in a claim form. You can find it on your ACAS certificate. Read more about the <a href="/guide#acas_early_conciliation">ACAS early conciliation service</a>.
+
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -277,7 +284,7 @@ en:
           <a href="https://www.gov.uk/whistleblowing" rel="external">More about whistle blowing</a>
       claim_details:
         claim_details: |
-          Include the background, dates and the people involved.
+          Include the background, dates and people involved. <a href="/guide#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -287,12 +294,13 @@ en:
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
       additional_information:
         has_miscellaneous_information: |
-          E.g. you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+          Eg you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
         miscellaneous_information: Enter more detail about your claim.
         attachment: |
-          You can upload a separate document if you need more space to describe your claim. It needs
-          to be a Rich Text Format (RTF) file. You can usually save a file as an RTF by selecting
-          <br/>File > Save As > Format: Rich Text Format
+          You can upload a separate document if you need more space to describe your claim. Please do not
+          send any evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file.
+          You can usually save a file as an RTF by selecting File > Save As > Format: Rich Text Format
+
       your_fee:
         applying_for_remission: |
           Find out if you <a href="/guide#help_with_paying_the_fees">qualify for help with fees.</a>
@@ -409,10 +417,11 @@ en:
         Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
       legend_contact_details: Contact details
     representative:
-      header: Representative' details
-      form_legend: Professional (or other) help
+      header: Representative's details
+      form_legend: The person representing you
+      representative_type_legend: Type of representative
       representative_legend: About your representative
-      contact_legend: Contact details
+      contact_legend: Representative's contact details
       contact_info: |
         All correspondence about the case will be sent to the representative.
         If you change the representative, you must give their contact details to officials handling your case.
@@ -421,18 +430,18 @@ en:
         summary: DX is a private mail system used by organisations (eg, legal firms)
 
     respondent:
-      header: Who you're making a claim against
-      respondent_legend: Respondent's details
+      header: Respondent's details
+      respondent_legend: About the respondent
       acas_legend: Acas early conciliation certificate number
-      contact_legend: Contact details
-      contact_hint: Enter the address to be used for correspondence about the case. this may be different to the claimant's work address.
+      contact_legend: Respondent's contact details
+      contact_hint: Enter the address to be used for correspondence about the case. This may be different to your work address.
       workaddress_legend: Your work address
       form_hint: |
         Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal). You can add more names and details later, if needed.
       work_address: Give details of your work address.
     employment:
-      header: Employment detail
-      situation_legend: Claimaint's employment
+      header: Employment details
+      situation_legend: Your employment details
       current_situation_legend: Current work situation
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
@@ -464,16 +473,20 @@ en:
       header: Claim outcome
       claim_outcome: Choose your preferred outcome(s)
     additional_information:
-      header: More about your claim
-      legend: More details
+      header: More about the claim
+      legend: Other important details
       remove_attachment: |
         Remove previously uploaded document: %{file}
     your_fee:
-      header: Your fee
+      header: Claim fee
       standard_fee: Standard fee
       standard_fee_detail: This is the application fee for your claim
       application_fee: Fee for applying
-      hearing_fees: If your claim goes to a tribunal, you'll have to pay an additional hearing fee of
+      hearing_fees: |
+        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <span class="number">£%{hearing_fee}</span>.
+
+        <a href="/guide#fees">See more about fees</a>
+
       reduce_fee: Reduce your fee
       remission_applied_info_heading: You don’t need to pay the above fee now
       remisison_applied_info_text: |
