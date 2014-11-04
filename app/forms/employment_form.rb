@@ -2,7 +2,6 @@ class EmploymentForm < Form
   CURRENT_SITUATION  = %i<still_employed notice_period employment_terminated>.freeze
   PAY_PERIODS        = %i<weekly monthly>.freeze
   NOTICE_PAY_PERIODS = %i<weeks months>.freeze
-  CURRENT_SITUATION  = %i<still_employed notice_period employment_terminated>.freeze
 
   attributes :job_title, :start_date, :average_hours_worked_per_week,
     :gross_pay, :gross_pay_period_type, :net_pay, :net_pay_period_type,
