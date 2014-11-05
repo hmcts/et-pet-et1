@@ -10,7 +10,7 @@ header.main-header
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.error_notification
-      .form-inputs
+      .form-fields
         = render current_step, f: f
       .form-actions
         = f.button :submit

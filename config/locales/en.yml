@@ -424,7 +424,7 @@ en:
     additional_claimants:
       header: Group claims
       subheader: People making a claim with you
-      person: Person %{number}
+      person: Claimant <span class="number">%{number}</span>
       contact_details: Contact details
       add_fields: Add additional person
 
