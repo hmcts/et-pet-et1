@@ -20,7 +20,7 @@ RSpec.describe ClaimantPresenter, type: :presenter do
   end
 
   its(:gender)        { is_expected.to eq('Male') }
-  its(:date_of_birth) { is_expected.to eq('15/01/1985') }
+  its(:date_of_birth) { is_expected.to eq('15 January 1985') }
 
   describe '#address' do
     it 'concatenates all address properties with a <br> tag' do

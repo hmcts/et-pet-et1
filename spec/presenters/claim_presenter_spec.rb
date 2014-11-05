@@ -32,33 +32,5 @@ RSpec.describe ClaimPresenter, type: :presenter do
       expect { |b| subject.each_section &b }.
         to yield_successive_args *sections.zip(presenters)
     end
-
-    %w<representative employment>.each do |relation|
-      context "when claim##{relation} is nil" do
-        before { allow(claim).to receive(relation) }
-
-        let(:sections) do
-          %w<claimant representative respondent employment
-           claim_type claim_details claim_outcome additional_information
-           your_fee> - [relation]
-        end
-
-        it "does not yield '#{relation}'" do
-          expect { |b| subject.each_section &b }.
-            to yield_successive_args *sections.zip(presenters)
-        end
-      end
-    end
-
-    %w<primary_claimant primary_respondent>.each do |relation|
-      context "when claim##{relation} is nil" do
-        before { allow(claim).to receive(relation) }
-
-        it "still yields '#{relation}'" do
-          expect { |b| subject.each_section &b }.
-            to yield_successive_args *sections.zip(presenters)
-        end
-      end
-    end
   end
 end
