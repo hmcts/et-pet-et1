@@ -3,6 +3,7 @@ var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
 	revealPubSub = require('./modules/moj.reveal-pub-sub'),
 	selectedOption = require('./modules/moj.selected-option'),
 	formHintReveal = require('./modules/moj.reveal-hints'),
-	nodeCloning = require('./modules/moj.node-cloning');
+	nodeCloning = require('./modules/moj.node-cloning'),
+	pageSpecific = require('./modules/moj.page-specific');
 
 	revealPubSub.init();

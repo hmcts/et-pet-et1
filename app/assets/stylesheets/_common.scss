@@ -1,3 +1,5 @@
-.hidden{
+.js-enabled-hidden {
+  .js-enabled & {
     display: none;
+  }
 }

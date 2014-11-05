@@ -20,44 +20,8 @@
   padding:0 0 $gutter-half/2 0;
 }
 
-legend {
-  @extend .legend;
-  &.form-label{
-    border:none;
-    margin-bottom:0;
-  }
-  &.medium{
-    @include bold-19();
-    margin-bottom:0;
-    padding-bottom:0;
-    border:none;
-  }
-  & + .form-hint {
-    margin-bottom: $gutter-half/2;
-  }
-}
-
-
-
-.label-column {
-  @include container(wider);
-  span.checkbox{
-    @include gallery(6 of 12);
-    padding-left:0;
-  }
-}
-
-fieldset{
-  overflow:hidden;
-  margin:0 0 $gutter;
-}
-
-input[type=radio] {
-  background: transparent;
-  outline: none;
-  border:none;
-}
-
+//for table cells void of any information
+// ==========================================================================
 .table-header {
   @extend .bold-medium;
   overflow:hidden;
@@ -69,8 +33,6 @@ input[type=radio] {
   }
 }
 
-//for table cells void of any information
-// ==========================================================================
 .not-entered {
   color: $grey-1;
 }
@@ -114,16 +76,16 @@ aside{
     padding-left:0;
     margin:0 0 $gutter-half 0;
     list-style:none;
-    li{
-      padding-left:0;
-      margin-left:0;
-    }
+  }
+  li{
+    padding-left:0;
+    margin-left:0;
   }
 }
 
-.fee-detail{
+.fee-detail {
     @include span(11 of 12);
-    .number{
+    .number {
         font-weight: 700;
     }
 }
@@ -132,10 +94,45 @@ aside{
   > h2.legend {
     margin-top:0;
   }
-  fieldset:first-child {
-    legend{
-      margin-top:0;
-    }
+}
+
+legend {
+  @extend .legend;
+  &.form-label{
+    border:none;
+    margin-bottom:0;
+  }
+  &.medium{
+    @include bold-19();
+    margin-bottom:0;
+    padding-bottom:0;
+    border:none;
+  }
+  & + .form-hint {
+    margin-bottom: $gutter-half/2;
+  }
+}
+
+fieldset{
+  position:relative;
+  overflow:hidden;
+  margin:0 0 $gutter;
+  legend:first-child {
+    margin-top:0;
+  }
+}
+
+input[type=radio] {
+  .lte-ie8 & {
+    background: transparent; outline: none; border:none;
+  }
+}
+
+.label-column {
+  @include container(wider);
+  span.checkbox{
+    @include gallery(6 of 12);
+    padding-left:0;
   }
 }
 
@@ -149,5 +146,16 @@ aside{
   &:hover{
     color:$link-hover-colour;
     cursor:pointer;
+  }
+}
+
+.remove-claimant{
+  display:none;
+  .js-enabled &{
+    @include core-16;
+    line-height:2em;
+    display:block;
+    position:absolute;
+    top:0;right:0;
   }
 }

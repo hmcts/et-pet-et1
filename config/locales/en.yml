@@ -427,6 +427,7 @@ en:
       person: Claimant <span class="number">%{number}</span>
       contact_details: Contact details
       add_fields: Add additional person
+      remove_claimant_link: Remove claimaint %{number}
 
     representative:
       header: Representative' details
