@@ -5,9 +5,10 @@ header.main-header
   = render partial: 'shared/aside'
 
   .main-content#main-sub-content
-    .callout.callout-reference
-      p.detail= t('shared.reference')
-      span.number= claim.reference
+    .clearfix
+      .callout.callout-reference
+        p.detail= t('shared.reference')
+        span.number= claim.reference
 
     = simple_form_for user_session, url: user_session_path, method: :put do |f|
       fieldset
