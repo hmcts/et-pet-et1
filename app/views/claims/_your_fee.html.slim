@@ -8,10 +8,7 @@ fieldset
           span.type = t '.standard_fee'
         p.detail = t '.standard_fee_detail'
 
-  p.fee-detail
-    = t '.hearing_fees'
-    span.number
-      = " £#{ fee_calculation.hearing_fee }"
+  .fee-detail = format t('.hearing_fees', hearing_fee: fee_calculation.hearing_fee)
 
 fieldset
   legend role="heading" aria-level="2"  = t '.reduce_fee'

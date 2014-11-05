@@ -11,7 +11,7 @@ en:
       sections:
         claimant: About you
         representative: Your representative
-        respondent: Employer's details
+        respondent: Respondent's details
         employment: Employment details
         claim_type: Claim type
         claim_details: Claim details
@@ -24,7 +24,7 @@ en:
         gender: Gender
         date_of_birth: Date of birth
         address: Address
-        telephone_number: Telephone
+        telephone_number: Phone
         mobile_number: Mobile
         email_address: Email
         contact_preference: Preferred contact
@@ -42,7 +42,7 @@ en:
         organisation_name: Organisation name
         name: Full name
         address: Address
-        telephone_number: Telephone
+        telephone_number: Phone
         mobile_number: Mobile
         email_address: Email
         dx_number: DX number
@@ -56,21 +56,21 @@ en:
       respondent:
         name: Name
         address: Address
-        telephone_number: Telephone
+        telephone_number: Phone
         employed_by_employer: Employed by employer
         acas_early_conciliation_certificate_number: Acas number
         no_acas_number_reason: Reason for no Acas number
         worked_at_same_address: Worked at same address?
 
         subsections:
-          basic_details: Employer details
+          basic_details: Respondent's details
           contact_details: Contact details
           work_address: Work address
 
       employment:
         job_title: Job
         start_date: Start date
-        average_hours_worked_per_week: Average hours worked
+        average_hours_worked_per_week: Average weekly hours worked
         gross_pay: Pay before tax
         net_pay: Pay after tax
         enrolled_in_pension_scheme: Pension scheme
