@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe RepresentativeForm, :type => :form do
-  describe '#has_representative' do
-    before { subject.resource.representative = representative }
-    let(:representative) { Representative.new }
+  let(:representative) { Representative.new }
+  let(:resource)       { Claim.new representative: representative }
 
+  subject { described_class.new resource }
+
+  describe '#has_representative' do
     context 'when the representative has not been persisted' do
       it 'is false' do
         expect(subject.has_representative).to be false
@@ -22,10 +24,8 @@ RSpec.describe RepresentativeForm, :type => :form do
 
   describe '#save' do
     context 'when has_representative? == false' do
-      let(:representative) { Representative.new }
       before do
-        subject.resource.representative = representative
-        subject.has_representative = false
+        subject.has_representative = 'false'
       end
 
       it 'destroys the representative relation' do
@@ -38,7 +38,7 @@ RSpec.describe RepresentativeForm, :type => :form do
 
   describe 'validations' do
     context 'when has_representative? == true' do
-      before { subject.has_representative = true }
+      before { subject.has_representative = 'true' }
 
       [:type, :name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
         it { is_expected.to validate_presence_of(attr) }
@@ -75,18 +75,10 @@ RSpec.describe RepresentativeForm, :type => :form do
     end
   end
 
-  attributes = {
-    name: 'Saul Goodman', organisation_name: 'Better Call Saul',
+  it_behaves_like "a Form", name: 'Saul Goodman', organisation_name: 'Better Call Saul',
     type: 'citizen_advice_bureau', dx_number: '1',
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
     address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
-    has_representative: true }
-
-  before = proc do
-    allow(resource).to receive(:representative)
-    allow(resource).to receive(:build_representative).and_return target
-  end
-
-  it_behaves_like("a Form", attributes, before)
+    has_representative: true
 end

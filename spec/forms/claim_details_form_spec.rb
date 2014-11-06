@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimDetailsForm, :type => :form do
+  subject { described_class.new Claim.new }
 
   describe 'validations' do
     context 'presence' do
@@ -29,14 +30,8 @@ RSpec.describe ClaimDetailsForm, :type => :form do
     end
   end
 
-  attributes = {
-    claim_details: "I want to make a claim",
-    other_known_claimants: true,
+  it_behaves_like "a Form",
+    claim_details: "I want to make a claim", other_known_claimants: 'true',
     other_known_claimant_names: "Edgar"
-  }
-
-  set_resource = proc do form.resource = target end
-
-  it_behaves_like("a Form", attributes, set_resource)
 
 end

@@ -1,9 +1,13 @@
 class AdditionalInformationForm < Form
-  booleans   :has_miscellaneous_information
-  attributes :miscellaneous_information, :attachment, :attachment_cache,
-    :remove_attachment
+  boolean   :has_miscellaneous_information
+
+  attribute :miscellaneous_information, String
+  attribute :attachment,                AttachmentUploader
+  attribute :remove_attachment,         Boolean
 
   before_validation :reset_miscellaneous_information!, unless: :has_miscellaneous_information?
+
+  delegate :attachment_cache, :attachment_cache=, to: :target
 
   validates :miscellaneous_information, length: { maximum: 5000 }
   validates :attachment, content_type: {
@@ -23,9 +27,5 @@ class AdditionalInformationForm < Form
 
   def reset_miscellaneous_information!
     self.miscellaneous_information = nil
-  end
-
-  def target
-    resource
   end
 end

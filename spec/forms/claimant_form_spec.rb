@@ -1,11 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe ClaimantForm, :type => :form do
+  let(:claimant) { Claimant.new }
+  let(:resource) { Claim.new primary_claimant: claimant }
+
+  subject { described_class.new Claim.new primary_claimant: claimant }
+
   describe 'validations' do
-    [:first_name, :last_name, :address_building, :address_street,
-     :address_locality, :address_post_code].each do |attr|
-       it { is_expected.to validate_presence_of(attr) }
-    end
+    %i<first_name last_name address_building address_street address_locality address_post_code>.
+      each { |attr| it { is_expected.to validate_presence_of(attr) } }
 
     it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
     it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female prefer_not_to_say> }
@@ -45,7 +48,7 @@ RSpec.describe ClaimantForm, :type => :form do
   describe 'callbacks' do
     it 'clears special needs when selecting no' do
       subject.special_needs = 'uses a crutch'
-      subject.has_special_needs = false
+      subject.has_special_needs = 'false'
       subject.valid?
 
       expect(subject.special_needs).to be nil
@@ -53,23 +56,13 @@ RSpec.describe ClaimantForm, :type => :form do
   end
 
   include_examples "Postcode validation", attribute_prefix: 'address'
+  it_behaves_like 'it parses dates', :date_of_birth
+  it_behaves_like "a Form",title: 'mr', gender: 'male', contact_preference: 'email',
 
-  attributes = {
-    title: 'mr', gender: 'male', contact_preference: 'email',
     first_name: 'Barrington', last_name: 'Wrigglesworth',
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
     address_country: 'united_kingdom',
     address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
-    special_needs: nil
-  }
-
-  before = proc do
-    allow(resource).to receive(:primary_claimant).and_return nil
-    allow(resource).to receive(:build_primary_claimant).and_return target
-  end
-
-  it_behaves_like "a Form", attributes, before
-  it_behaves_like 'it parses and validates multiparameter dates', :date_of_birth
-
+    special_needs: ''
 end

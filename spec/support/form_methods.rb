@@ -67,9 +67,9 @@ module FormMethods
 
     choose 'Male'
 
-    fill_in :claimant_date_of_birth_3i, with: '15'
-    fill_in :claimant_date_of_birth_2i, with: '01'
-    fill_in :claimant_date_of_birth_1i, with: '1985'
+    fill_in 'Day',   with: '15'
+    fill_in 'Month', with: '01'
+    fill_in 'Year',  with: '1985'
 
     fill_in_address
 
@@ -142,9 +142,11 @@ module FormMethods
 
     fill_in 'Job or job title', with: 'Super High Powered Exec'
 
-    fill_in :employment_start_date_3i, with: '01'
-    fill_in :employment_start_date_2i, with: '07'
-    fill_in :employment_start_date_1i, with: '2000'
+    within '.employment_start_date' do
+      fill_in 'Day',   with: '01'
+      fill_in 'Month', with: '07'
+      fill_in 'Year',  with: '2000'
+    end
 
     fill_in 'Average hours worked each week', with: 37.5
     fill_in 'Pay before tax', with: 10000

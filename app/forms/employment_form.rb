@@ -3,22 +3,37 @@ class EmploymentForm < Form
   PAY_PERIODS        = %i<weekly monthly>.freeze
   NOTICE_PAY_PERIODS = %i<weeks months>.freeze
 
-  attributes :job_title, :start_date, :average_hours_worked_per_week,
-    :gross_pay, :gross_pay_period_type, :net_pay, :net_pay_period_type,
-    :enrolled_in_pension_scheme, :benefit_details, :current_situation,
-    :end_date, :worked_notice_period_or_paid_in_lieu,
-    :notice_period_end_date, :notice_pay_period_count, :notice_pay_period_count,
-    :notice_pay_period_type, :found_new_job, :new_job_start_date,
-    :new_job_gross_pay, :new_job_gross_pay_frequency
+  attribute :average_hours_worked_per_week,        Float
+  attribute :benefit_details,                      String
+  attribute :current_situation,                    Symbol
+  attribute :end_date,                             Date
+  attribute :enrolled_in_pension_scheme,           Boolean
+  attribute :found_new_job,                        Boolean
+  attribute :gross_pay,                            Integer
+  attribute :gross_pay_period_type,                String
+  attribute :job_title,                            String
+  attribute :net_pay,                              Integer
+  attribute :net_pay_period_type,                  String
+  attribute :new_job_gross_pay,                    Integer
+  attribute :new_job_gross_pay_frequency,          String
+  attribute :new_job_start_date,                   Date
+  attribute :notice_pay_period_count,              Float
+  attribute :notice_pay_period_type,               String
+  attribute :notice_period_end_date,               Date
+  attribute :start_date,                           Date
+  attribute :worked_notice_period_or_paid_in_lieu, Boolean
 
   %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
     define_method("#{attribute}=") do |v|
-      v = v.nil? ? v : v.gsub(',', '')
-      attributes[attribute] = v
+      if v.respond_to?(:gsub)
+        super v.gsub(',', '')
+      else
+        super v
+      end
     end
   end
 
-  dates :start_date, :end_date, :notice_period_end_date, :new_job_start_date
+  dates :start_date, :end_date, :new_job_start_date, :notice_period_end_date
 
   boolean :was_employed
 

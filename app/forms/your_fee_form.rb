@@ -1,8 +1,7 @@
 class YourFeeForm < Form
-  
-  attributes :applying_for_remission
+  attribute :applying_for_remission, Boolean
 
-  private def target
+  def target
     resource.primary_claimant || resource.build_primary_claimant
   end
 end

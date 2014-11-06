@@ -1,17 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalInformationForm, :type => :form do
-  let(:resource) { double 'resource' }
-  subject do described_class.new { |f|
-    f.has_miscellaneous_information = true
-    f.resource = resource }
-  end
+  subject { described_class.new(resource) }
+
+  let(:resource) { Claim.new }
 
   describe 'validations' do
-    it { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
+    describe 'on #miscellaneous information' do
+      context 'when has_miscellaneous_information is true' do
+        before { subject.has_miscellaneous_information = 'true' }
+        it     { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
+      end
+    end
 
     describe 'on #attachment' do
       let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
+
       before do
         subject.attachment = file
         subject.valid?
@@ -40,7 +44,7 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       end
 
       context 'when #has_miscellaneous_information? is true' do
-        before { subject.has_miscellaneous_information = true }
+        before { subject.has_miscellaneous_information = 'true' }
 
         it 'saves #miscellaneous_information to the underlying resource' do
           subject.valid?
@@ -50,7 +54,7 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       end
 
       context 'when #has_miscellaneous_information? is false' do
-        before { subject.has_miscellaneous_information = false }
+        before { subject.has_miscellaneous_information = 'false' }
 
         it 'sets #miscellaneous_information to nil on the underlying resource' do
           subject.valid?
@@ -61,12 +65,11 @@ RSpec.describe AdditionalInformationForm, :type => :form do
     end
   end
 
-  describe '#has_miscellaneous_information' do
+  describe '#has_miscellaneous_information?' do
     context 'when the underlying resource' do
       context 'does have miscellaneous information' do
         before do
-          allow(resource).to receive(:miscellaneous_information).
-            and_return 'such miscellany'
+          resource.miscellaneous_information = 'such miscellany'
         end
 
         it 'returns true' do
@@ -83,8 +86,7 @@ RSpec.describe AdditionalInformationForm, :type => :form do
 
       context 'does not have miscellaneous information' do
         before do
-          allow(resource).to receive(:miscellaneous_information).
-            and_return ''
+          resource.miscellaneous_information = ''
         end
 
         it 'returns false' do

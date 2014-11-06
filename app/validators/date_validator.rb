@@ -1,10 +1,6 @@
 class DateValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    parts = 1.upto(3).map { |index| record.send("#{attribute}(#{index}i)") }
-
-    if parts.any?(&:present?)
-      parsed = Date.civil *parts.map(&:to_i) rescue nil
-      record.errors.add(attribute) unless parsed
-    end
+    # Hash failed to be coerced into Date, e.g. invalid date
+    record.errors.add(attribute) if value.is_a? Hash
   end
 end

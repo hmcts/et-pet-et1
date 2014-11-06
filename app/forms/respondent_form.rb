@@ -10,12 +10,14 @@ class RespondentForm < Form
   NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
     employer_contacted_acas interim_relief claim_against_security_services>.freeze
 
-  attributes :organisation_name, :name,
-             :acas_early_conciliation_certificate_number,
-             :no_acas_number_reason, :worked_at_same_address
-  attributes *WORK_ADDRESS_ATTRIBUTES
+  attribute :name,                                       String
+  attribute :acas_early_conciliation_certificate_number, String
+  attribute :no_acas_number_reason,                      String
+  attribute :worked_at_same_address,                     Boolean
 
-  booleans   :no_acas_number
+  WORK_ADDRESS_ATTRIBUTES.each { |a| attribute a, String } # TODO fix this shit
+
+  booleans :no_acas_number
 
   before_validation :reset_acas_number!,  if: :no_acas_number?
   before_validation :reset_work_address!, if: :worked_at_same_address?
@@ -51,6 +53,10 @@ class RespondentForm < Form
     @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
   end
 
+  def target
+    resource.primary_respondent || resource.build_primary_respondent
+  end
+
   private
 
   def reset_acas_number!
@@ -58,11 +64,7 @@ class RespondentForm < Form
   end
 
   def reset_work_address!
-    WORK_ADDRESS_ATTRIBUTES.each { |a| attributes[a] = nil }
-  end
-
-  def target
-    resource.primary_respondent || resource.build_primary_respondent
+    WORK_ADDRESS_ATTRIBUTES.each { |a| send "#{a}=", nil }
   end
 
   def reload_addresses
