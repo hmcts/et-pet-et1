@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rack-livereload'
   gem 'rspec-its', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'spring'
 end
