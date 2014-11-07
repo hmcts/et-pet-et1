@@ -71,7 +71,7 @@ RSpec.describe Claim, :type => :claim do
   end
 
   describe '#remission_claimant_count' do
-    let (:query) { double }
+    let(:query) { double }
 
     before do
       allow(subject.claimants).to receive(:where).
