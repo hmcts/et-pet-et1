@@ -6,11 +6,12 @@ class ClaimFeeCalculator < Struct.new(:claim)
   end
 
   def calculate
-    application_fee_without_remission, hearing_fee = if claim.alleges_discrimination_or_unfair_dismissal?
-      fee_calculation_for_discrimination_or_unfair_dismissal_claim
-    else
-      fee_calculation_for_other_claim
-    end
+    application_fee_without_remission, hearing_fee =
+      if claim.alleges_discrimination_or_unfair_dismissal?
+        fee_calculation_for_discrimination_or_unfair_dismissal_claim
+      else
+        fee_calculation_for_other_claim
+      end
 
     Calculation.new application_fee_without_remission, hearing_fee,
       RemissionCalculator.new(claim, application_fee_without_remission).application_fee_with_remission
