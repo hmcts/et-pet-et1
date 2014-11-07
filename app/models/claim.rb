@@ -86,7 +86,7 @@ class Claim < ActiveRecord::Base
     @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
   end
 
-  alias :setup_state_machine :state_machine
+  alias_method :setup_state_machine, :state_machine
 
   delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
 end

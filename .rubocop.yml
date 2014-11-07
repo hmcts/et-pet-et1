@@ -13,11 +13,6 @@ AllCops:
     - 'spec/rails_helper.rb'
   RunRailsCops: true
 
-Style/Alias:
-  Description: 'Use alias_method instead of alias.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#alias-method'
-  Enabled: false
-
 Style/AlignArray:
   Description: >-
                  Align the elements of an array literal if they span more than
