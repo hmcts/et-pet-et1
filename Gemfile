@@ -67,6 +67,7 @@ gem 'moj_template', '0.18.0'
 gem 'pdf-forms'
 gem 'pg'
 gem 'redcarpet'
+gem 'representable', require: 'representable/xml'
 gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
 gem 'state_machine', require: 'state_machine/core'

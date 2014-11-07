@@ -218,6 +218,25 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
+  describe "#attachments" do
+    let(:path) { Pathname.new(Rails.root) }
+
+    before do
+      subject.additional_claimants_csv = File.open(path + 'spec/support/files/file.csv')
+      subject.attachment = File.open(path + 'spec/support/files/file.rtf')
+    end
+
+    it "returns a list of attachments on the claim" do
+      filenames = subject.attachments.map { |a| File.basename(a.to_s) }
+      expect(filenames).to match_array %w<file.csv file.rtf>
+    end
+
+    it "only returns attachments that exist" do
+      subject.remove_attachment!
+      expect(subject.attachments.size).to eq 1
+    end
+  end
+
   describe '#submit!' do
     context 'transitioning state from "created"' do
       context 'when the claim is in a submittable state' do

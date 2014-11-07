@@ -18,7 +18,8 @@ module FormMethods
 
     before do
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
-        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+        with(postcode: 'AT1 4PQ').
+        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
 
     around do |example|
@@ -250,6 +251,11 @@ module FormMethods
     fill_in_claim_outcome_details
     fill_in_addtional_information
     fill_in_your_fee(options)
+  end
+
+  def complete_and_submit_claim
+    complete_a_claim
+    click_button "Submit the form"
   end
 
   def select_recipients
