@@ -59,13 +59,6 @@ Style/ClassMethods:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#def-self-singletons'
   Enabled: false
 
-Style/CommentAnnotation:
-  Description: >-
-                 Checks formatting of special comments
-                 (TODO, FIXME, OPTIMIZE, HACK, REVIEW).
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#annotate-keywords'
-  Enabled: false
-
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: false
