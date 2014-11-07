@@ -2,3 +2,9 @@ $is-ie: true;
 $ie-version: 8;
 
 @import "application";
+
+/* IE 8 shame */
+.claim_type_discrimination_claims span.checkbox{
+    width: 47%;
+    font-size: 17px;
+}

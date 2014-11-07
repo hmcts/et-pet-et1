@@ -138,3 +138,13 @@ aside{
     }
   }
 }
+
+fieldset{
+  position:relative;
+  overflow:hidden;
+  margin:0 0 $gutter;
+  legend:first-child {
+    margin-top:0;
+  }
+}
+
