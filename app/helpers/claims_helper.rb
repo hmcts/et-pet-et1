@@ -1,18 +1,12 @@
 module ClaimsHelper
+  delegate :current_page, :total_pages, to: :transition_manager
+
   def format(text)
     markdown.render(text).html_safe
   end
 
   def claim_header
     I18n.t("claims.#{current_step}.header")
-  end
-
-  def current_page
-    transition_manager.current_page
-  end
-
-  def total_pages
-    transition_manager.total_pages
   end
 
   private def markdown

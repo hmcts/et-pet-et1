@@ -1,14 +1,12 @@
 class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   present :office, :primary_claimant, :representative, :employment
 
+  delegate :name, to: :primary_claimant
+
   def respondents
     super.map.with_index do |respondent, i|
       PdfForm::RespondentPresenter.new(respondent, i)
     end
-  end
-
-  def name
-    primary_claimant.name
   end
 
   def to_h
