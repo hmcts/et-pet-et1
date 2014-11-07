@@ -1,7 +1,7 @@
 class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
   GENDERS             = %i<male female prefer_not_to_say>.freeze
   CONTACT_PREFERENCES = %i<email post>.freeze
-  
+
   def name
     first_name + ' ' + last_name
   end

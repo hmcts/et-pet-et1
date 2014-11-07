@@ -1,5 +1,4 @@
 class GuidePresenter
-
   def initialize(file_paths, renderer)
     @files = file_paths
     @renderer = renderer

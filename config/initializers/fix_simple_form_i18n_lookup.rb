@@ -2,7 +2,6 @@ module SimpleForm
   module Inputs
     class CollectionInput < Base
       def translate_collection
-
         if translated_collection = translate_from_namespace(:options)
           @collection = collection.map do |key|
             html_key = "#{key}_html".to_sym

@@ -11,7 +11,7 @@ class UserSession
     @claim ||= Claim.find_by_reference(reference)
   end
 
-  private 
+  private
 
   def presence_of_claim
     errors.add(:reference, I18n.t('errors.user_session.not_found')) unless claim

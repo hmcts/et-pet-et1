@@ -31,7 +31,7 @@ class ClaimFeeCalculator < Struct.new(:claim)
 
   def fee_calculation_for_other_claim
     case claim.claimant_count
-      when 0       then [0, 0] 
+      when 0       then [0, 0]
       when 1       then [160, 230]
       when 2..10   then [320, 460]
       when 11..200 then [640, 920]

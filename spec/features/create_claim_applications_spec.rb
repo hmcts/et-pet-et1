@@ -203,7 +203,6 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text 'From the information you’ve given us, you have to pay'
     end
 
-
     scenario 'Making payment' do
       pending 'payments disabled for first live trial'
 

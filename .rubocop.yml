@@ -209,27 +209,27 @@ Style/ElseAlignment:
 Style/EmptyLineBetweenDefs:
   Description: 'Use empty lines between defs.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#empty-lines-between-methods'
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLines:
   Description: "Don't use several empty lines in a row."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundAccessModifier:
   Description: "Keep blank lines around access modifiers."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundClassBody:
   Description: "Keeps track of empty lines around class bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundModuleBody:
   Description: "Keeps track of empty lines around module bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLinesAroundMethodBody:
   Description: "Keeps track of empty lines around method bodies."
-  Enabled: false
+  Enabled: true
 
 Style/EmptyLiteral:
   Description: 'Prefer literals to Array.new/Hash.new/String.new.'
@@ -244,7 +244,7 @@ Style/EndBlock:
 Style/EndOfLine:
   Description: 'Use Unix-style line endings.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#crlf'
-  Enabled: false
+  Enabled: true
 
 Style/EvenOdd:
   Description: 'Favor the use of Fixnum#even? && Fixnum#odd?'
@@ -676,7 +676,7 @@ Style/Tab:
 Style/TrailingBlankLines:
   Description: 'Checks trailing blank lines and final newline.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#newline-eof'
-  Enabled: false
+  Enabled: true
 
 Style/TrailingComma:
   Description: 'Checks for trailing comma in parameter lists and literals.'
@@ -686,7 +686,7 @@ Style/TrailingComma:
 Style/TrailingWhitespace:
   Description: 'Avoid trailing whitespace.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-whitespace'
-  Enabled: false
+  Enabled: true
 
 Style/TrivialAccessors:
   Description: 'Prefer attr_* methods to trivial readers/writers.'

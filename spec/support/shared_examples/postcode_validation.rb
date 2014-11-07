@@ -36,7 +36,6 @@ RSpec.shared_examples 'Postcode validation' do |options|
       end
     end
 
-
     context 'when it is a full, valid postcode' do
       before do
         subject.send :"#{prefix}_post_code=", 'W1A 1AA'

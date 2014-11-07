@@ -28,5 +28,4 @@ RSpec.describe ApplicationNumberForm, type: :form do
   end
 
   it_behaves_like "a Form", password: "mypassword", email_address: "such@emailaddress.com"
-
 end
