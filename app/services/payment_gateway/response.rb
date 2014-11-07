@@ -23,7 +23,7 @@ module PaymentGateway
     end
 
     private def params
-      @params ||= Hash[CGI.parse(request.query_string).map { |k,v| [k.upcase, v.first] }]
+      @params ||= Hash[CGI.parse(request.query_string).map { |k, v| [k.upcase, v.first] }]
     end
   end
 end

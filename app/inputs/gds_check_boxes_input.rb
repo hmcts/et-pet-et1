@@ -1,6 +1,6 @@
 class GdsCheckBoxesInput < SimpleForm::Inputs::BooleanInput
   def initialize(builder, attribute_name, column, input_type, options = {})
-    options.update as: :boolean, label:false, inline_label: true
+    options.update as: :boolean, label: false, inline_label: true
     super
   end
 

@@ -217,16 +217,6 @@ Style/SingleSpaceBeforeFirstArg:
                  and the first argument for method calls without parentheses.
   Enabled: false
 
-Style/SpaceAfterColon:
-  Description: 'Use spaces after colons.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-operators'
-  Enabled: false
-
-Style/SpaceAfterComma:
-  Description: 'Use spaces after commas.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-operators'
-  Enabled: false
-
 Style/SpaceBeforeBlockBraces:
   Description: >-
                  Checks that the left block brace has or doesn't have space
