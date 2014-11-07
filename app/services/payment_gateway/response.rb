@@ -3,13 +3,11 @@ module PaymentGateway
   # Encapsulates ePDQ response related code
   class Response < Struct.new(:request)
     def valid?
-      begin
-        EPDQ::Response.new(request.query_string).valid_signature?
-      rescue RuntimeError
-        # EPDQ::Response#valid_signature? raises error when SHASIGN is missing
-        # This error is likely if someone starts poking at the system so catch it.
-        false
-      end
+      EPDQ::Response.new(request.query_string).valid_signature?
+    rescue RuntimeError
+      # EPDQ::Response#valid_signature? raises error when SHASIGN is missing
+      # This error is likely if someone starts poking at the system so catch it.
+      false
     end
 
     def success?
