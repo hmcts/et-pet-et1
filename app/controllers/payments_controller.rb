@@ -4,15 +4,17 @@ class PaymentsController < ApplicationController
   before_action :ensure_payment_is_required
   before_action :validate_request, only: GATEWAY_RESPONSES
 
-  helper_method def payment_request
+  def payment_request
     @payment_request ||= PaymentGateway::Request.new request,
       amount: fee_calculation.application_fee_after_remission * 100,
       reference: claim.fee_group_reference
   end
 
-  helper_method def fee_calculation
+  def fee_calculation
     @fee_calculation ||= claim.fee_calculation
   end
+
+  helper_method :payment_request, :fee_calculation
 
   # BarclayCard transaction result callback actions
 

@@ -31,7 +31,9 @@ class UserSessionsController < ApplicationController
     claim.email_address.present?
   end
 
-  helper_method def user_session
+  def user_session
     @user_session ||= UserSession.new(params[:user_session])
   end
+
+  helper_method :user_session
 end

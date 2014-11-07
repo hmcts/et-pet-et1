@@ -13,7 +13,9 @@ class GuidesController < ApplicationController
 
   private
 
-  helper_method def markdown_files
+  def markdown_files
     MARKDOWN_FILES.map { |name| "#{ MARKDOWN_DIRECTORY.join(name + EXTENSION) }" }
   end
+
+  helper_method :markdown_files
 end

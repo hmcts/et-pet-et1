@@ -118,11 +118,6 @@ Style/IfUnlessModifier:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#if-as-a-modifier'
   Enabled: false
 
-Style/IndentationWidth:
-  Description: 'Use 2 spaces for indentation.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#spaces-indentation'
-  Enabled: false
-
 Style/IndentHash:
   Description: 'Checks the indentation of the first key in a hash literal.'
   Enabled: false

@@ -4,16 +4,19 @@ RSpec.describe ClaimPresenter, type: :presenter do
   subject { described_class.new claim }
 
   let(:claim) do
-    Claim.new \
+    Claim.new(
       primary_claimant: Claimant.new,
       representative: Representative.new,
       primary_respondent: Respondent.new,
       employment: Employment.new
+    )
   end
 
   let(:sections) do
-     %w<claimant representative respondent employment
-      claim_type claim_details claim_outcome additional_information your_fee>
+    %w<
+      claimant representative respondent employment claim_type claim_details
+      claim_outcome additional_information your_fee
+    >
   end
 
   it 'encapsulates a collection of presenters corresponding to each section' do

@@ -15,13 +15,18 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless claim.created?
   end
 
-  helper_method def claim
-    @claim ||= if session[:claim_reference].present?
-      Claim.find_by_reference(session[:claim_reference])
-    end
+  def claim
+    @claim ||= load_claim_from_session
   end
 
-  helper_method def claim_path_for(page, options = {})
+  def load_claim_from_session
+    return nil unless session[:claim_reference].present?
+    Claim.find_by_reference(session[:claim_reference])
+  end
+
+  def claim_path_for(page, options = {})
     send "claim_#{page}_path".underscore, options
   end
+
+  helper_method :claim, :claim_path_for
 end

@@ -32,19 +32,21 @@ class ClaimsController < ApplicationController
     end
   end
 
-  helper_method def transition_manager
+  def transition_manager
     @transition_manager ||= ClaimTransitionManager.new(resource: resource)
   end
 
-  helper_method def resource
+  def resource
     @form ||= Form.for(current_step).new(claim)
   end
 
-  helper_method def current_step
+  def current_step
     params[:page].underscore
   end
 
-  helper_method def fee_calculation
+  def fee_calculation
     @fee_calculation ||= claim.fee_calculation
   end
+
+  helper_method :transition_manager, :resource, :current_step, :fee_calculation
 end

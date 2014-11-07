@@ -4,7 +4,10 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
   subject { described_class.new Claimant.new }
 
   describe 'validations' do
-    %i<first_name last_name address_building address_street address_locality address_post_code>.each do |attr|
+    %i[
+      first_name last_name address_building address_street address_locality
+      address_post_code
+    ].each do |attr|
       it { is_expected.to validate_presence_of(attr) }
     end
 

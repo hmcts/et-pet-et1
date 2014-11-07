@@ -7,8 +7,12 @@ RSpec.describe ClaimantForm, :type => :form do
   subject { described_class.new Claim.new primary_claimant: claimant }
 
   describe 'validations' do
-    %i<first_name last_name address_building address_street address_locality address_post_code>.
-      each { |attr| it { is_expected.to validate_presence_of(attr) } }
+    %i[
+      first_name last_name address_building address_street address_locality
+      address_post_code
+    ].each do |attr|
+      it { is_expected.to validate_presence_of(attr) }
+    end
 
     it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
     it { is_expected.to ensure_inclusion_of(:gender).in_array %w<male female prefer_not_to_say> }
