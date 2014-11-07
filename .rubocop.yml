@@ -1,3 +1,18 @@
+AllCops:
+  # Exclude anything that isn't really part of our code.
+  # rails_helper is excluded because it's full of solecisms, but it's mostly
+  # generated code and copy-and-pasted snipets from READMEs.
+  Exclude:
+    - 'Guardfile'
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - '**/*.gemspec'
+    - '**/Rakefile'
+    - '**/Vagrantfile'
+    - 'spec/rails_helper.rb'
+  RunRailsCops: true
+
 # These are all the cops that are disabled in the default configuration.
 
 Style/CollectionMethods:
