@@ -151,7 +151,7 @@ feature 'Claim applications', type: :feature do
 
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      content = email.parts.find {|p| p.content_type.match /html/ }.body.raw_source
+      content = email.parts.find {|p| p.content_type.match(/html/) }.body.raw_source
 
       expect(content).to include completion_message
       expect(content).to include 'Attached'

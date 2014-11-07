@@ -813,7 +813,7 @@ Lint/AmbiguousRegexpLiteral:
   Description: >-
                  Checks for ambiguous regexp literals in the first argument of
                  a method invocation without parenthesis.
-  Enabled: false
+  Enabled: true
 
 Lint/AssignmentInCondition:
   Description: "Don't use assignment in conditions."

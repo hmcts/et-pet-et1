@@ -33,7 +33,7 @@ describe BaseMailer do
   describe '#confirmation_email' do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
     subject { described_class.confirmation_email(claim, email_addresses) }
-    let(:content) { email.parts.find {|p| p.content_type.match /html/ }.body.raw_source }
+    let(:content) { email.parts.find {|p| p.content_type.match(/html/) }.body.raw_source }
     let(:attachment) { email.parts.find {|p| p.filename == 'filename' }.body.raw_source }
 
     before do
