@@ -72,10 +72,13 @@ RSpec.describe RespondentForm, :type => :form do
     end
 
     describe 'presence of reason explaining no ACAS certificate number' do
-      let(:reasons) do
-        %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
-          employer_contacted_acas interim_relief claim_against_security_services>
-      end
+      let(:reasons) {
+        %w[
+          joint_claimant_has_acas_number acas_has_no_jurisdiction
+          employer_contacted_acas interim_relief
+          claim_against_security_services
+        ]
+      }
 
       it { is_expected.to ensure_inclusion_of(:no_acas_number_reason).in_array reasons }
 

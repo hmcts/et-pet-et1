@@ -235,11 +235,6 @@ Style/TrailingComma:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-trailing-array-commas'
   Enabled: false
 
-Style/WordArray:
-  Description: 'Use %w or %W for arrays of words.'
-  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-w'
-  Enabled: false
-
 Metrics/AbcSize:
   Description: >-
                  A calculated magnitude based on number of assignments,

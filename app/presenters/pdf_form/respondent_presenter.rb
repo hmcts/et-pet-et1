@@ -47,9 +47,7 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
     "Check Box1", "Check Box8", "Check Box15", "Check Box22", "Check Box29"
   ].freeze
 
-  ACAS_NUMBER_FIELDS = [
-    "Text2", "Text9", "Text16", "Text23", "Text30"
-  ].freeze
+  ACAS_NUMBER_FIELDS = %w[Text2 Text9 Text16 Text23 Text30].freeze
 
   def initialize(respondent, index)
     super(respondent)
