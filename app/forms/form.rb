@@ -66,7 +66,7 @@ class Form
     delegate :i18n_key, to: :model_name, prefix: true
   end
 
-  def initialize(resource, &block)
+  def initialize(resource, &_block)
     @resource = resource
     reload
     yield self if block_given?

@@ -1,5 +1,5 @@
 class HashInput < SimpleForm::Inputs::Base
-  def input(wrapper_options = nil)
+  def input(_wrapper_options = nil)
     key = input_html_options.delete(:key)
     #override the params to be in the format that rails will auto correlate back to an
     # attribute hash with key: value
