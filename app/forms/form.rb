@@ -10,7 +10,7 @@ class Form
   delegate :keys, to: :class
 
   # Allows SimpleForm to reason about types
-  def column_for_attribute attr
+  def column_for_attribute(attr)
     if attribute_set[attr]
       OpenStruct.new type: attribute_set[attr].type.to_s.demodulize.downcase.to_sym
     end

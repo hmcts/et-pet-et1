@@ -76,7 +76,6 @@ feature 'Multiple claimants' do
     end
   end
 
-
   describe 'destroying claimants' do
     before { add_some_additional_claimants }
 
@@ -118,7 +117,6 @@ feature 'Multiple claimants' do
       expect(page.current_path).not_to eq claim_additional_claimants_path
     end
   end
-
 
   def add_some_additional_claimants
     visit claim_additional_claimants_path

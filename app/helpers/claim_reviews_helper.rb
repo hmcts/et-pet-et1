@@ -27,7 +27,7 @@ module ClaimReviewsHelper
     @confirmation_email ||= ConfirmationEmail.new
   end
 
-  def quick_edit_link_for section
+  def quick_edit_link_for(section)
     link_to t('.edit') + ' ' + t('.sections.' + section).downcase,
       claim_path_for(section, return_to_review: true)
   end

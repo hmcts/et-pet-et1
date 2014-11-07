@@ -50,7 +50,7 @@ feature 'Attaching a document' do
 
   scenario 'Uploading a non text file' do
     visit '/apply/additional-information'
-    
+
     attach_file "additional_information_attachment", image_file_path
     click_button 'Save and continue'
 

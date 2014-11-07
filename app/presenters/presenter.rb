@@ -16,7 +16,7 @@ class Presenter
       end
     end
 
-    def respond_to_missing? method_name, include_private=false
+    def respond_to_missing?(method_name, include_private=false)
       if @target
         @target.respond_to? method_name, include_private
       else
@@ -31,7 +31,7 @@ class Presenter
     @target = Proxy.new target
   end
 
-  def self.present *keys
+  def self.present(*keys)
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
@@ -41,7 +41,7 @@ class Presenter
 
   private
 
-  def method_missing meth, *args, &block
+  def method_missing(meth, *args, &block)
     if target.respond_to? meth
       singleton_class.instance_eval do
         define_method(meth) { target.send meth }
@@ -53,7 +53,7 @@ class Presenter
     end
   end
 
-  def respond_to_missing? method_name, include_private=false
+  def respond_to_missing?(method_name, include_private=false)
     target.respond_to? method_name, include_private
   end
 

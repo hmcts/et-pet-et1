@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method def claim_path_for page, options = {}
+  helper_method def claim_path_for(page, options = {})
     send "claim_#{page}_path".underscore, options
   end
 end
