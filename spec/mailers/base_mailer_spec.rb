@@ -4,8 +4,12 @@ describe BaseMailer do
   include ClaimsHelper
   include Messages
 
-  let(:office) { Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')}
-  let(:claim) { Claim.create!(submitted_at: '2014-09-09', office: office, email_address: email_address) }
+  let(:office) {
+    Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')
+  }
+  let(:claim) {
+    Claim.create!(submitted_at: '2014-09-09', office: office, email_address: email_address)
+  }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
 
@@ -33,8 +37,8 @@ describe BaseMailer do
   describe '#confirmation_email' do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
     subject { described_class.confirmation_email(claim, email_addresses) }
-    let(:content) { email.parts.find {|p| p.content_type.match(/html/) }.body.raw_source }
-    let(:attachment) { email.parts.find {|p| p.filename == 'filename' }.body.raw_source }
+    let(:content) { email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source }
+    let(:attachment) { email.parts.find { |p| p.filename == 'filename' }.body.raw_source }
 
     before do
       allow(claim).to receive(:payment_applicable?).and_return false

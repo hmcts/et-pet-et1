@@ -60,7 +60,7 @@ RSpec.describe ClaimantForm, :type => :form do
 
   include_examples "Postcode validation", attribute_prefix: 'address'
   it_behaves_like 'it parses dates', :date_of_birth
-  it_behaves_like "a Form",title: 'mr', gender: 'male', contact_preference: 'email',
+  it_behaves_like "a Form", title: 'mr', gender: 'male', contact_preference: 'email',
 
     first_name: 'Barrington', last_name: 'Wrigglesworth',
     address_building: '1', address_street: 'High Street',

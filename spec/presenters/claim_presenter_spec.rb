@@ -26,7 +26,7 @@ RSpec.describe ClaimPresenter, type: :presenter do
   end
 
   describe '#each_section' do
-    let(:presenters) { sections.map { |s| subject.send s} }
+    let(:presenters) { sections.map { |s| subject.send s } }
 
     it 'yields each section name and corresponding presenter' do
       expect { |b| subject.each_section &b }.

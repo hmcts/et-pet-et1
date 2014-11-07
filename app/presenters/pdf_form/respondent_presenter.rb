@@ -1,56 +1,54 @@
 class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
   RESPONDENT_FIELDS = [
-    [ "2.1",
+    [
+      "2.1",
       "2.2 number",
       "2.2 street",
       "2.2 town city",
       "2.2 county",
       "2.2 phone number",
-      "2.2 postcode"],
-    [ "2.4 R2 name",
+      "2.2 postcode"
+    ], [
+      "2.4 R2 name",
       "2.4 R2 number",
       "2.4 R2 street",
       "2.4 R2 town",
       "2.4 R2 county",
       "2.4 R2 phone number",
-      "2.4 R2 postcode"],
-    [ "2.4 R3 name",
+      "2.4 R2 postcode"
+    ], [
+      "2.4 R3 name",
       "2.4 R3 number",
       "2.4 R3 street",
       "2.4 R3 town city",
       "2.4 R3 county",
       "2.4 R3 phone number",
-      "2.4 R3 postcode"],
-    [ "13 R4 name",
+      "2.4 R3 postcode"
+    ], [
+      "13 R4 name",
       "13 R4 number",
       "13 R4 street",
       "13 R4 town city",
       "13 R4 county",
       "13 R4 phone number",
-      "13 R4 postcode"],
-    [ "13 R5 name",
+      "13 R4 postcode"
+    ], [
+      "13 R5 name",
       "13 R5 number",
       "R5 street",
       "R5 town city",
       "R5 county",
       "R5 phone number",
-      "R5 postcode"],
+      "R5 postcode"
+    ],
   ].freeze
 
   HAS_ACAS_CHECKBOXES = [
-    "Check Box1",
-    "Check Box8",
-    "Check Box15",
-    "Check Box22",
-    "Check Box29"
+    "Check Box1", "Check Box8", "Check Box15", "Check Box22", "Check Box29"
   ].freeze
 
   ACAS_NUMBER_FIELDS = [
-    "Text2",
-    "Text9",
-    "Text16",
-    "Text23",
-    "Text30"
+    "Text2", "Text9", "Text16", "Text23", "Text30"
   ].freeze
 
   def initialize(respondent, index)

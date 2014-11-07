@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe RespondentForm, :type => :form do
-
   work_attributes = {
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
@@ -136,5 +135,4 @@ RSpec.describe RespondentForm, :type => :form do
 
   include_examples "Postcode validation", attribute_prefix: 'address'
   include_examples "Postcode validation", attribute_prefix: 'work_address'
-
 end

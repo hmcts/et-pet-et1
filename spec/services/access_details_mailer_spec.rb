@@ -8,8 +8,8 @@ RSpec.describe AccessDetailsMailer, type: :service do
       let(:claim) { Claim.create email_address: "funky@emailaddress.com" }
 
       it 'delivers access details via email' do
-        expect{ described_class.deliver_later(claim) }.
-          to change{ ActionMailer::Base.deliveries.count }.by(1)
+        expect { described_class.deliver_later(claim) }.
+          to change { ActionMailer::Base.deliveries.count }.by(1)
       end
     end
 
@@ -18,8 +18,8 @@ RSpec.describe AccessDetailsMailer, type: :service do
       let(:claim) { Claim.new }
 
       it 'doesnt deliver access details via email' do
-        expect{ described_class.deliver_later(claim) }.
-          not_to change{ ActionMailer::Base.deliveries.count }
+        expect { described_class.deliver_later(claim) }.
+          not_to change { ActionMailer::Base.deliveries.count }
       end
     end
   end
