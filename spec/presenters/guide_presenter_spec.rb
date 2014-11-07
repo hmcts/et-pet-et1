@@ -13,8 +13,8 @@ RSpec.describe GuidePresenter, type: :presenter do
       allow(File).to receive(:read).and_return mock_content
 
       expect(renderer).to receive(:render).with mock_content
-      expect{|probe| subject.each_rendered_file &probe}
-        .to yield_successive_args(%w<some_text some_content>, %w<and_more_text some_content>)
+      expect{|probe| subject.each_rendered_file &probe}.
+        to yield_successive_args(%w<some_text some_content>, %w<and_more_text some_content>)
     end
   end
 
