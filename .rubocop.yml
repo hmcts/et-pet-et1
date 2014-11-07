@@ -38,10 +38,6 @@ Style/BarePercentLiterals:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#percent-q-shorthand'
   Enabled: false
 
-Style/BlockEndNewline:
-  Description: 'Put end statement of multiline block on its own line.'
-  Enabled: false
-
 Style/Blocks:
   Description: >-
                 Avoid using {...} for multi-line blocks (multiline chaining is
