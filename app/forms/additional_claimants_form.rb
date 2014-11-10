@@ -19,22 +19,19 @@ class AdditionalClaimantsForm < Form
     attributes.each_with_index do |(_, claimant_attributes), index|
       claimant = relation[index] || relation.build
 
-      claimants[index] = AdditionalClaimantsForm::AdditionalClaimant.new(claimant_attributes) do |c|
-        c.resource = resource
-        c.target   = claimant
+      claimants[index] = AdditionalClaimantsForm::AdditionalClaimant.new(claimant) do |c|
+        c.assign_attributes claimant_attributes
       end
     end
   end
 
   def claimants
     @claimants ||= relation.tap { |c| c.build if c.empty? }.
-      map { |c| AdditionalClaimantsForm::AdditionalClaimant.new { |ac| ac.target = c } }
+      map { |c| AdditionalClaimantsForm::AdditionalClaimant.new(c) }
   end
 
   def build_child
-    @claimants << AdditionalClaimantsForm::AdditionalClaimant.new do |ac|
-      ac.target = relation.build
-    end
+    @claimants << AdditionalClaimantsForm::AdditionalClaimant.new(relation.build)
   end
 
   def save

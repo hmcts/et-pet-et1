@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe ClaimOutcomeForm, :type => :form do
+  let(:claim) do
+    Claim.new desired_outcomes: %i<compensation_only tribunal_recommendation>
+  end
+
+  subject { described_class.new claim }
 
   describe 'validations' do
     context 'character lengths' do
@@ -8,20 +13,7 @@ RSpec.describe ClaimOutcomeForm, :type => :form do
     end
   end
 
-  attributes = {
-    desired_outcomes: "such hopeful success",
-    other_outcome: "ferrari"
-  }
-
-  set_resource = proc do form.resource = target end
-
-  it_behaves_like("a Form", attributes, set_resource)
-
-  subject { described_class.new { |f| f.resource = claim } }
-
-  let(:claim) do
-    Claim.new desired_outcomes: %i<compensation_only tribunal_recommendation>
-  end
+  it_behaves_like "a Form", desired_outcomes: "such hopeful success", other_outcome: "ferrari"
 
   describe "#desired_outcomes" do
     it 'returns the underlying attribute, mapped to_s' do

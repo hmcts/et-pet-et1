@@ -37,7 +37,7 @@ class ClaimsController < ApplicationController
   end
 
   helper_method def resource
-    @form ||= Form.for(current_step).new { |f| f.resource = claim }
+    @form ||= Form.for(current_step).new(claim)
   end
 
   helper_method def current_step

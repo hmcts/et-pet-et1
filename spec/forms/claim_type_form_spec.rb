@@ -2,21 +2,14 @@ require 'rails_helper'
 
 RSpec.describe ClaimTypeForm, :type => :form do
 
-  attributes = {
-    is_other_type_of_claim: true,
-    is_unfair_dismissal: true,
-    discrimination_claims: "Disability",
-    pay_claims: "Holiday",
-    is_whistleblowing: true,
-    send_claim_to_whistleblowing_entity: false,
-    other_claim_details: "always"
-  }
+  it_behaves_like 'a Form', is_other_type_of_claim: true,
+    is_unfair_dismissal: true, discrimination_claims: ['disability'],
+    pay_claims: ['holiday'],
+    is_whistleblowing: 'true',
+    send_claim_to_whistleblowing_entity: 'false',
+    other_claim_details: 'always'
 
-  set_resource = proc do form.resource = target end
-
-  it_behaves_like("a Form", attributes, set_resource)
-
-  subject { described_class.new { |f| f.resource = claim; f.is_other_type_of_claim = true } }
+  subject { described_class.new(claim) { |f| f.is_other_type_of_claim = 'true' } }
 
   let(:claim) do
     Claim.new \
@@ -27,7 +20,7 @@ RSpec.describe ClaimTypeForm, :type => :form do
 
   %i<pay discrimination>.each do |type|
     describe "##{type}_claims" do
-      it 'returns the underlying attribute, mapped to_s' do
+      it "returns an array of strings because that's what the form builder requires" do
         expect(subject.send "#{type}_claims").
           to eq claim.send("#{type}_claims").map(&:to_s)
       end

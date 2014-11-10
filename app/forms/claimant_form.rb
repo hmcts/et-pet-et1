@@ -8,13 +8,19 @@ class ClaimantForm < Form
 
   include AddressAttributes
 
-  attributes :first_name, :last_name, :date_of_birth, :address_country,
-             :mobile_number, :fax_number, :email_address, :special_needs,
-             :title, :gender, :contact_preference
+  attribute :first_name,         String
+  attribute :last_name,          String
+  attribute :date_of_birth,      Date
+  attribute :address_country,    String
+  attribute :mobile_number,      String
+  attribute :fax_number,         String
+  attribute :email_address,      String
+  attribute :special_needs,      String
+  attribute :title,              String
+  attribute :gender,             String
+  attribute :contact_preference, String
 
-  booleans   :has_special_needs
-
-  date       :date_of_birth
+  boolean   :has_special_needs
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
 
@@ -29,21 +35,23 @@ class ClaimantForm < Form
   validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
   validates :email_address, presence: { if: -> { contact_preference.email? } }, length: { maximum: EMAIL_ADDRESS_LENGTH }
 
+  dates :date_of_birth
+
   def contact_preference
-    (attributes[:contact_preference] || "").inquiry
+    (super || "").inquiry
   end
 
   def has_special_needs
     @has_special_needs ||= special_needs.present?
   end
 
+  def target
+    resource.primary_claimant || resource.build_primary_claimant
+  end
+
   private
 
   def reset_special_needs!
-    attributes[:special_needs] = nil
-  end
-
-  def target
-    resource.primary_claimant || resource.build_primary_claimant
+    self.special_needs = nil
   end
 end

@@ -7,8 +7,12 @@ module AddressAttributes
   POSTCODE_LENGTH      = 8
 
   included do
-    attributes :address_building, :address_street, :address_locality,
-      :address_county, :address_post_code, :address_telephone_number
+    attribute :address_building,         String
+    attribute :address_street,           String
+    attribute :address_locality,         String
+    attribute :address_county,           String
+    attribute :address_post_code,        String
+    attribute :address_telephone_number, String
 
     validates :address_building, :address_street, :address_locality,
       :address_county, :address_post_code, presence: true

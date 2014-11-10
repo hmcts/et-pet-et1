@@ -1,8 +1,9 @@
 class ApplicationNumberForm < Form
-
   after_save :deliver_access_details
-  
-  attributes :password, :email_address
+
+  attribute :password,      String
+  attribute :email_address, String
+
   validates :password, presence: true
 
   def target

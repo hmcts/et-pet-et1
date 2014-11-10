@@ -16,7 +16,7 @@ feature 'Multiple claimants' do
       'Last name'  => 'Lollington',
 
       'Day'   => '15',
-      'Month' => '01',
+      'Month' => '1',
       'Year'  => '1985',
 
       'Building number or name' => '1',

@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
+  subject { described_class.new Claimant.new }
+
   describe 'validations' do
-    [:first_name, :last_name, :address_building, :address_street,
-     :address_locality, :address_post_code].each do |attr|
-       it { is_expected.to validate_presence_of(attr) }
+    %i<first_name last_name address_building address_street address_locality address_post_code>.each do |attr|
+      it { is_expected.to validate_presence_of(attr) }
     end
 
     it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
@@ -31,7 +32,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
   end
 
   let(:target) { Claimant.new }
-  subject { AdditionalClaimantsForm::AdditionalClaimant.new { |c| c.target = target } }
+  subject { AdditionalClaimantsForm::AdditionalClaimant.new(target) }
 
   describe '.model_name_i18n_key' do
     specify do
@@ -41,12 +42,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
   end
 
   describe '#column_for_attribute' do
-    it 'delegates through to target resource' do
-      expect(target).to receive(:column_for_attribute).with(:lol)
-      allow(subject).to receive(:target).and_return target
-
-      subject.column_for_attribute :lol
-    end
+    it "returns the attribute's type"
   end
 
   describe '#save' do
@@ -54,7 +50,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
       before { subject.assign_attributes attributes }
 
       it "saves the data" do
-        expect(target).to receive(:update_attributes).with attributes
+        expect(target).to receive(:update_attributes).with subject.attributes
         subject.save
       end
 

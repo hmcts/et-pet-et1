@@ -17,7 +17,7 @@ fieldset
     input_html: { :class => 'reveal-publish-publisher'},
     reveal: { true => 'main', false => 'main' }
 
-  = f.input :special_needs,
+  = f.input :special_needs, as: :text,
     wrapper_class: 'panel-indent toggle-content',
     wrapper_html: { id: :special_needs_wrapper,
                     :class => 'reveal-subscribe',

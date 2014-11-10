@@ -4,9 +4,13 @@ class RepresentativeForm < Form
 
   include AddressAttributes
 
-  attributes :type, :organisation_name, :name,
-             :mobile_number, :email_address, :dx_number,
-             :contact_preference
+  attribute :type,               String
+  attribute :name,               String
+  attribute :organisation_name,  String
+  attribute :mobile_number,      String
+  attribute :email_address,      String
+  attribute :dx_number,          String
+  attribute :contact_preference, String
 
   boolean :has_representative
 
@@ -30,13 +34,13 @@ class RepresentativeForm < Form
     @has_representative ||= target.persisted?
   end
 
+  def target
+    resource.representative || resource.build_representative
+  end
+
   private
 
   def destroy_target!
     target.destroy
-  end
-
-  def target
-    resource.representative || resource.build_representative
   end
 end

@@ -7,7 +7,7 @@ fieldset
     input_html: { :class => 'reveal-publish-publisher'},
     reveal: { true => 'main', false => 'main' }
 
-  = f.input :miscellaneous_information,
+  = f.input :miscellaneous_information, as: :text,
     label: false,
     wrapper_html: { :class => 'toggle-content reveal-subscribe',
                     :'data-target' => 'main',

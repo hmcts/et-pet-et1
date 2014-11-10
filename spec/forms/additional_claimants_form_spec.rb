@@ -9,13 +9,13 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
           title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
-          address_post_code: 'W2 3ED'
+          address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
         },
         "1" => {
           title: 'mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
-          address_post_code: 'W2 3ED'
+          address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
         }
       }
     }
@@ -23,27 +23,25 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
 
   let(:claim) { Claim.create }
 
-  subject { described_class.new.tap { |ac| ac.resource = claim } }
+  subject { described_class.new(claim) }
 
   describe '#claimants_attributes=' do
     before do
-      # AdditionalClaimantsForm#claimants will build one empty AdditionalClaimant
-      # if there are no addtional claimants for the fields_for helper
-      allow(AdditionalClaimantsForm::AdditionalClaimant).to receive(:new).
-        with(no_args).once
+      allow(claim.secondary_claimants).to receive(:build).and_return *claimants
+      allow(claim.secondary_claimants).to receive(:empty?).and_return true, false
     end
 
-    it 'builds new claimants and decorates them as AdditionalClaimants' do
-      attributes[:claimants_attributes].each do |_, v|
-        expect(AdditionalClaimantsForm::AdditionalClaimant).to receive(:new).
-          with(v).and_call_original
-      end
+    let(:claimants) { [Claimant.new, Claimant.new] }
 
+    it 'builds new claimants and decorates them as AdditionalClaimants' do
       subject.assign_attributes attributes
 
-      claim.claimants.each_with_index do |c, i|
-        expect(subject.claimants[i].target).to eq c
-        expect(subject.claimants[i].resource).to eq claim
+      subject.claimants.each_with_index do |c, i|
+        attributes[:claimants_attributes].values[i].each do |key, value|
+          expect(c.send key).to eq value
+        end
+
+        expect(subject.claimants[i].target).to eq claimants[i]
       end
     end
   end

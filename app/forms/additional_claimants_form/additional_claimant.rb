@@ -1,7 +1,6 @@
 class AdditionalClaimantsForm
   class AdditionalClaimant < Form
-    attr_accessor :target
-    boolean       :_destroy
+    boolean :_destroy
 
     TITLES      = %w<mr mrs ms miss>.freeze
     NAME_LENGTH = 100
@@ -10,9 +9,13 @@ class AdditionalClaimantsForm
 
     delegate :id, :id=, to: :resource
 
-    attributes :first_name, :last_name, :date_of_birth, :title
+    attribute :first_name,    String
+    attribute :last_name,     String
+    attribute :date_of_birth, Date
+    attribute :title,         String
+
     booleans   :has_special_needs, :has_representative
-    date       :date_of_birth
+    dates      :date_of_birth
 
     validates :title, inclusion: { in: TITLES }
     validates :title, :first_name, :last_name, presence: true
