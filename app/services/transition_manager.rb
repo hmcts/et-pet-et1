@@ -13,6 +13,10 @@ class TransitionManager
     def first_page
       @rules.first.from
     end
+
+    def pages
+      @rules.flat_map { |rule| [rule.from, rule.to ] }.uniq
+    end
   end
 
   def initialize(resource:)
@@ -38,7 +42,7 @@ class TransitionManager
   end
 
   def candidates
-    model_name = @resource.class.model_name_i18n_key
+    model_name = @resource.class.model_name_i18n_key.to_s.dasherize
     self.class.rules.select { |t| t.from == model_name }
   end
 end

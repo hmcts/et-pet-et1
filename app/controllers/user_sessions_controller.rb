@@ -8,7 +8,7 @@ class UserSessionsController < ApplicationController
   def create
     if user_session.valid?
       session[:claim_reference] = user_session.reference
-      redirect_to page_claim_path(page: :claimant)
+      redirect_to claim_path_for :claimant
     else
       render :returning
     end

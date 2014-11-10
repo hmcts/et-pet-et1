@@ -21,18 +21,72 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
 
   include_examples "Postcode validation", attribute_prefix: 'address'
 
-  attributes = {
-    title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
-    address_building: '1', address_street: 'High Street',
-    address_locality: 'Anytown', address_county: 'Anyfordshire',
-    address_post_code: 'AT1 0AA'
-  }
-
-  before = proc do
-    form.target = target
-    allow(resource).to receive(:claimants).and_return proxy
-    allow(proxy).to receive(:build).and_return target
+  let(:attributes) do
+    {
+      title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
+      address_building: '1', address_street: 'High Street',
+      address_locality: 'Anytown', address_county: 'Anyfordshire',
+      address_post_code: 'AT1 0AA'
+    }
   end
 
-  it_behaves_like("a Form", attributes, before)
+  let(:target) { Claimant.new }
+  subject { AdditionalClaimantsForm::AdditionalClaimant.new { |c| c.target = target } }
+
+  describe '.model_name_i18n_key' do
+    specify do
+      expect(described_class.model_name_i18n_key).
+        to eq(described_class.model_name.i18n_key)
+    end
+  end
+
+  describe '#column_for_attribute' do
+    it 'delegates through to target resource' do
+      expect(target).to receive(:column_for_attribute).with(:lol)
+      allow(subject).to receive(:target).and_return target
+
+      subject.column_for_attribute :lol
+    end
+  end
+
+  describe '#save' do
+    describe 'for valid attributes' do
+      before { subject.assign_attributes attributes }
+
+      it "saves the data" do
+        expect(target).to receive(:update_attributes).with attributes
+        subject.save
+      end
+
+      it 'is true' do
+        expect(subject.save).to be true
+      end
+    end
+
+    describe 'for invalid attributes' do
+      before { allow(subject).to receive(:valid?).and_return false }
+
+      it 'is not saved' do
+        expect(target).to_not receive(:update_attributes)
+        subject.save
+      end
+
+      it 'is false' do
+        expect(subject.save).to be false
+      end
+    end
+
+    describe 'when marked for destruction' do
+      before { subject._destroy = 'true' }
+
+      it 'destroys the target' do
+        expect(target).to receive :destroy
+        subject.save
+      end
+
+      it 'is true' do
+        expect(subject.save).to be true
+      end
+    end
+  end
 end

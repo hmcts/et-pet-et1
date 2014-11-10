@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
       Claim.find_by_reference(session[:claim_reference])
     end
   end
+
+  helper_method def claim_path_for page, options = {}
+    send "claim_#{page}_path".underscore, options
+  end
 end
