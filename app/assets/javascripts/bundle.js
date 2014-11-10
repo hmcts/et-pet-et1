@@ -1,13 +1,14 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
 	polyfillDetail = require('./polyfills/polyfill.details'),
 	revealPubSub = require('./modules/moj.reveal-pub-sub'),
 	selectedOption = require('./modules/moj.selected-option'),
 	formHintReveal = require('./modules/moj.reveal-hints'),
-	nodeCloning = require('./modules/moj.node-cloning');
+	removeMultiple = require('./modules/moj.remove-multiple');
 
 	revealPubSub.init();
-},{"./modules/moj.jquery-pub-sub":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.jquery-pub-sub.js","./modules/moj.node-cloning":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.node-cloning.js","./modules/moj.reveal-hints":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-hints.js","./modules/moj.reveal-pub-sub":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-pub-sub.js","./modules/moj.selected-option":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.selected-option.js","./polyfills/polyfill.details":"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/polyfills/polyfill.details.js"}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.jquery-pub-sub.js":[function(require,module,exports){
+
+},{"./modules/moj.jquery-pub-sub":2,"./modules/moj.remove-multiple":3,"./modules/moj.reveal-hints":4,"./modules/moj.reveal-pub-sub":5,"./modules/moj.selected-option":6,"./polyfills/polyfill.details":7}],2:[function(require,module,exports){
 /*! Tiny Pub/Sub - v0.7.0 - 2013-01-29
  * https://github.com/cowboy/jquery-tiny-pubsub
  * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
@@ -24,49 +25,35 @@ module.exports = (function(n) {
 		u.trigger.apply(u, arguments);
 	};
 })(jQuery);
-},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.node-cloning.js":[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 module.exports = (function() {
-  var cloneSection = function(section) {
-    var clone    = section.clone(),
-        span     = $('span.index', clone),
-        inputs   = $('input', clone);
+  'use strict';
 
-    span.text(parseInt(span.text(), 10) + 1);
-    inputs.val('');
-    inputs.each(incrementAttrs);
-    clone.insertAfter(section);
-  }
+  var removeMultiple = {},
+    claimants;
 
-  var incrementAttrs = function(_, input) {
-    var oldId = input.id;
-    var id    = oldId.replace(/_(\d+)_/, function(_, i) {
-      return '_' + (parseInt(i, 10) + 1) + '_'
+  removeMultiple.init = (function init() {
+    var container = $('.additional-claimants'),
+      claimant = container.find('.claimant');
+
+      claimants = claimant.length;
+
+    claimant.each(function(i, el) {
+      removeMultiple.bindRemoveButton($(el));
     });
+  })();
 
-    input = $(input);
+  removeMultiple.bindRemoveButton = function bindRemoveButton(claimant) {
+      var link = claimant.find('.remove-claimant');
 
-    var name = input.attr('name').replace(/\[(\d+)\]/, function(_, i) {
-      return '[' + (parseInt(i, 10) + 1) + ']'
-    });
+      link.on('click', function(event){
+        claimant.hide();
+      });
+  };
 
-    input.attr('name', name);
-    input.attr('id', id);
-  }
-
-  $('input[type=number].toggle').show().bind('change', function(event) {
-    var selector = $(event.target).data('target');
-
-    while($('.' + selector).size() < event.target.value) {
-      cloneSection($('.' + selector).last());
-    }
-
-    while($('.' + selector).size() > event.target.value) {
-      $('.' + selector).last().remove();
-    }
-  });
 })();
 
-},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-hints.js":[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 // Reveals hidden hint text
 
 module.exports = (function() {
@@ -81,7 +68,7 @@ module.exports = (function() {
     }
   });
 })();
-},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.reveal-pub-sub.js":[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 /**
  * Module dependancies:
  *   - jQuery
@@ -272,7 +259,7 @@ module.exports = (function () {
    */
   return revealPubSub;
 }());
-},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/modules/moj.selected-option.js":[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 /* Toggles selected option class
 * .block-label > label > input
 */
@@ -292,7 +279,7 @@ module.exports = (function() {
     });
   });
 })();
-},{}],"/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/polyfills/polyfill.details.js":[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 module.exports = (function () {
  /*! http://mths.be/details v0.1.0 by @mathias | includes http://mths.be/noselect v1.0.3 */
 ;(function(a,f){var e=f.fn,d,c=Object.prototype.toString.call(window.opera)=='[object Opera]',g=(function(l){var j=l.createElement('details'),i,h,k;if(!('open' in j)){return false}h=l.body||(function(){var m=l.documentElement;i=true;return m.insertBefore(l.createElement('body'),m.firstElementChild||m.firstChild)}());j.innerHTML='<summary>a</summary>b';j.style.display='block';h.appendChild(j);k=j.offsetHeight;j.open=true;k=k!=j.offsetHeight;h.removeChild(j);if(i){h.parentNode.removeChild(h)}return k}(a)),b=function(i,l,k,h){var j=i.prop('open'),m=j&&h||!j&&!h;if(m){i.removeClass('open').prop('open',false).triggerHandler('close.details');l.attr('aria-expanded',false);k.hide()}else{i.addClass('open').prop('open',true).triggerHandler('open.details');l.attr('aria-expanded',true);k.show()}};e.noSelect=function(){var h='none';return this.bind('selectstart dragstart mousedown',function(){return false}).css({MozUserSelect:h,msUserSelect:h,webkitUserSelect:h,userSelect:h})};if(g){d=e.details=function(){return this.each(function(){var i=f(this),h=f('summary',i).first();h.attr({role:'button','aria-expanded':i.prop('open')}).on('click',function(){var j=i.prop('open');h.attr('aria-expanded',!j);i.triggerHandler((j?'close':'open')+'.details')})})};d.support=g}else{d=e.details=function(){return this.each(function(){var h=f(this),j=f('summary',h).first(),i=h.children(':not(summary)'),k=h.contents(':not(summary)');if(!j.length){j=f('<summary>').text('Details').prependTo(h)}if(i.length!=k.length){k.filter(function(){return this.nodeType==3&&/[^ \t\n\f\r]/.test(this.data)}).wrap('<span>');i=h.children(':not(summary)')}h.prop('open',typeof h.attr('open')=='string');b(h,j,i);j.attr('role','button').noSelect().prop('tabIndex',0).on('click',function(){j.focus();b(h,j,i,true)}).keyup(function(l){if(32==l.keyCode||(13==l.keyCode&&!c)){l.preventDefault();j.click()}})})};d.support=g}}(document,jQuery));
@@ -301,4 +288,4 @@ module.exports = (function () {
 $(function () {
   $('details').details();
 });
-},{}]},{},["/Users/davidplews/moj_projects/atetv2/app/assets/javascripts/index.js"]);
+},{}]},{},[1])
