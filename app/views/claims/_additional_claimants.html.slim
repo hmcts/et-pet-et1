@@ -10,7 +10,7 @@ fieldset
 
   .additional-claimants.reveal-subscribe data-target="sub1" data-show-array='["true"]'
     = f.simple_fields_for :claimants do |builder|
-      div id=("claimant_#{builder.index}")
+      .claimant id=("claimant_#{builder.index}")
         fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 1).html_safe
