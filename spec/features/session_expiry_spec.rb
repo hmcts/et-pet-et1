@@ -4,8 +4,8 @@ feature 'Session Expiry', type: :feature do
   include FormMethods
   include ActiveSupport::Testing::TimeHelpers
 
-  pages = %w<claimant representative respondent employment claim_type claim_details
-    claim_outcome additional_information your_fee review>
+  pages = %w<claimant representative respondent employment claim-type claim-details
+    claim-outcome additional-information your-fee review>
 
   let(:session_expiry_time) { 1.hours.from_now + 1.second }
 
