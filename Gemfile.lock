@@ -59,6 +59,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
+    browserify-rails (0.5.0)
+      sprockets (~> 2.0)
     builder (3.2.2)
     byebug (2.7.0)
       columnize (~> 0.3)
@@ -329,6 +331,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bitmask_attributes
+  browserify-rails
   capybara
   carrierwave (~> 0.10)
   cocaine

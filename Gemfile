@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem 'browserify-rails'
 end
 
 gem 'webmock', group: :test
