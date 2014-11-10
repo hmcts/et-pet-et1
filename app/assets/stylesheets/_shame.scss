@@ -148,3 +148,9 @@ fieldset{
   }
 }
 
+// All IE fix
+input[type="radio"], input[type="checkbox"]{
+   background-color:transparent;
+   border: none;
+}
+
