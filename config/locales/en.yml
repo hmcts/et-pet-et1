@@ -386,6 +386,10 @@ en:
       submit: Sign out now
       print_link: Print this page
 
+    session_expired:
+      header: Your Session Has Expired
+      content: You have been inactive for over 60 minutes. Please log back in to complete your claim.
+
   guides:
     show:
       header: Guide

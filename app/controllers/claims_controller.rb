@@ -1,6 +1,7 @@
 class ClaimsController < ApplicationController
   before_action :ensure_claim_in_progress, only:   %i<show update>
   skip_before_action :ensure_claim_exists, except: %i<show update>
+  before_action :check_session_expiry, only: %i<show update>
 
   def new
     @claim = Claim.new

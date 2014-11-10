@@ -1,0 +1,6 @@
+en:
+  session_prompt:
+    header: |
+      Your session will will expire in <span id="session_prompt_time_left">5:00</span>
+    session_continue: Would you like to continue?
+    session_continue_button: :"simple_form.yes"
