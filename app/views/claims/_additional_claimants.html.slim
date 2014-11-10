@@ -8,14 +8,16 @@ fieldset
     input_html: { :class => 'reveal-publish-publisher'},
     reveal: { true => 'sub1', false => 'sub1' }
 
-  .additional-claimants.reveal-subscribe data-target="sub1" data-show-array='["true"]'
+  #additional-claimants.reveal-subscribe data-target="sub1" data-show-array='["true"]'
     = f.simple_fields_for :claimants do |builder|
       .claimant id=("claimant_#{builder.index}")
         fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 1).html_safe
 
-          = link_to t('.remove_claimant_link', number: builder.index + 1), 'javascript:void(0);', {class: 'remove-claimant'}
+          - if builder.index > 1
+            = link_to t('.remove_claimant_link', number: builder.index + 1), 'javascript:void(0);', { class: 'remove-claimant' }
+
 
           = render 'personal_details', f: builder
 
