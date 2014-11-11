@@ -71,6 +71,7 @@ en:
         new_job_start_date: New job start date
         pay_period_weekly: per week
         pay_period_monthly: per month
+        was_employed: Employed by employer
 
       claim_type:
         types: Type(s)

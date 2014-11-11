@@ -10,9 +10,10 @@ header.main-header
 
     - presenter.each_section do |section_name, section|
 
-      h2.table-header
-        span = t ".sections.#{section_name}"
-        = quick_edit_link_for section_name
+      .review-table-entry
+        h2.table-header
+          span = t ".sections.#{section_name}"
+          = quick_edit_link_for section_name
 
         table.review-table
           - section.each_item do |name, value|

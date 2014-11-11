@@ -104,6 +104,4 @@ class EmploymentPresenter < Presenter
       number_to_currency(pay) + ' ' + period_type(period)
     end
   end
-
-
 end

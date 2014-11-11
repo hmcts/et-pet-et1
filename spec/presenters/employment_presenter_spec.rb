@@ -66,7 +66,6 @@ RSpec.describe EmploymentPresenter, type: :presenter do
         end
       end
 
-
       describe 'current_situation' do
         context 'when still_employed' do
           before do
@@ -98,7 +97,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
               to yield_successive_args [:job_title, nil], [:start_date, "01 February 2000"],
               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
-              [:benefit_details, "Company car"], [:current_situation, "Still working for this employer, but in a notice period"],
+              [:benefit_details, "Company car"], [:current_situation, "Working a ‘notice period’ for this employer, with an end date"],
               [:notice_period_end_date, "02 December 2010"], [:new_job, "Yes"],
               [:new_job_gross_pay, nil], [:new_job_start_date, nil]
           end

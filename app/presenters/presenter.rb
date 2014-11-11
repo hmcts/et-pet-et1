@@ -1,7 +1,7 @@
 class Presenter < Struct.new(:target)
   include ActionView::Helpers
 
-  def self.present *keys
+  def self.present(*keys)
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
@@ -15,7 +15,7 @@ class Presenter < Struct.new(:target)
     self.class.instance_methods(false)
   end
 
-  def method_missing meth, *args, &block
+  def method_missing(meth, *args, &block)
     if target.respond_to? meth
       singleton_class.instance_eval do
         define_method(meth) { target.send meth }

@@ -28,7 +28,7 @@ class RepresentativePresenter < Presenter
   end
 
   private
-  
+
   def items
     if target.present?
       # Array#- doesn't preserve the receiver's ordering
