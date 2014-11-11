@@ -5,20 +5,14 @@
     "name": "UK Ministry Of Justice"
   },
   "license" : "OGL",
+  "engines": {
+    "node": ">= 0.10"
+  },
   "repository" : {
     "type" : "git",
     "url" : "https://github.com/ministryofjustice/atet"
   },
   "devDependencies": {
-    "browserify": "^5.9.1",
-    "watchify": "^1.0.1",
-    "uglifyjs": "~2.3.6"
-  },
-  "dependencies": {},
-  "scripts": {
-    "buildjs":       "browserify app/assets/javascripts/index.js | uglifyjs -mc > app/assets/javascripts/bundle.js",
-    "bundle":         "browserify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
-    "watch-js":       "watchify app/assets/javascripts/index.js -o app/assets/javascripts/bundle.js",
-    "start":          "npm run watch-js && rails s"
+    "browserify": "~> 4.1"
   }
 }
