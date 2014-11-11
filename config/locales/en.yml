@@ -77,6 +77,9 @@ en:
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It's within 7 days of the dismissal
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
+      additional_respondents:
+        respondents: :"simple_form.options.respondent"
+
       employment:
         current_situation:
           still_employed: Still working for this employer
@@ -94,6 +97,7 @@ en:
         new_job_gross_pay_frequency:
           weekly: Weekly
           monthly: Monthly
+
       claim:
         desired_outcomes:
           compensation_only: Compensation
@@ -185,8 +189,14 @@ en:
         work_address_county: County
         work_address_post_code: Postcode
         worked_at_same_address: Did you work at the same address to the one given above?
+        acas_early_conciliation_certificate_number: Acas number
         no_acas_number: I don't have an Acas number
         no_acas_number_reason: Why don't you have an Acas number?
+        _destroy: 'Remove this respondent'
+
+      additional_respondents:
+        has_additional_repsondents: Are you making a claim against another employer, person or organisation fam?
+        respondents: :"simple_form.labels.respondent"
 
       employment:
         job_title: Job title
@@ -263,6 +273,7 @@ en:
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
+
       employment:
         current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
@@ -305,6 +316,7 @@ en:
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
+
       claim_outcome:
         desired_outcomes: You can select more than one
         other_outcome: |
@@ -421,6 +433,7 @@ en:
         detail: how we use your information
         summary: |
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
+
     application_number:
       header: Your application number
       memorable_word_legend: Returning to your application
@@ -444,7 +457,7 @@ en:
       person: Claimant <span class="number">%{number}</span>
       contact_details: Contact details
       add_fields: Add additional person
-      remove_claimant_link: Remove claimaint %{number}
+      remove_claimant_link: Remove person %{number}
 
     representative:
       header: Representative's details
@@ -469,6 +482,13 @@ en:
       form_hint: |
         Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal). You can add more names and details later, if needed.
       work_address: Give details of your work address.
+
+    additional_respondents:
+      header: Additional respondents
+      person: Respondent <span class="number">%{number}</span>
+      add_fields: Add another respondent
+      remove_respondent_link: Remove respondent %{number}
+
     employment:
       header: Employment details
       situation_legend: Your employment details

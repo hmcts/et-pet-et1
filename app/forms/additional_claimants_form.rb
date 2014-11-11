@@ -3,10 +3,6 @@ class AdditionalClaimantsForm < Form
 
   before_validation :reset_additional_claimants!, unless: :has_additional_claimants
 
-  def column_for_attribute(*_args)
-    nil
-  end
-
   def has_additional_claimants
     if defined? @has_additional_claimants
       @has_additional_claimants

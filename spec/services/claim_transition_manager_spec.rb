@@ -22,8 +22,8 @@ RSpec.describe ClaimTransitionManager, type: :service do
     it 'returns an array of managed pages' do
       expect(described_class.pages).
         to eq %w<application-number claimant additional-claimants representative
-          respondent employment claim-type claim-details claim-outcome
-          additional-information your-fee review>
+          respondent additional-respondents employment claim-type claim-details
+          claim-outcome additional-information your-fee review>
     end
   end
 
@@ -31,7 +31,7 @@ RSpec.describe ClaimTransitionManager, type: :service do
     let(:resource) { ClaimantForm.new claim }
 
     it 'returns the total pages (based on the number of rules)' do
-      expect(subject.total_pages).to eq(11)
+      expect(subject.total_pages).to eq(12)
     end
   end
 
@@ -58,6 +58,11 @@ RSpec.describe ClaimTransitionManager, type: :service do
 
     context 'when resource is a RespondentForm' do
       let(:resource) { RespondentForm.new claim }
+      its(:forward) { is_expected.to eq('additional-respondents') }
+    end
+
+    context 'when resource is a AdditionalRespondentsForm' do
+      let(:resource) { AdditionalRespondentsForm.new claim }
       its(:forward) { is_expected.to eq('employment') }
     end
 
