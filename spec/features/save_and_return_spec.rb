@@ -10,11 +10,11 @@ feature 'Save and Return' do
     fill_in_personal_details(submit_form: false)
 
     click_link 'Sign out'
-    expect(page).to have_text('Saved')
+    expect(page).to have_text('Application saved')
     expect(page).to have_text(Claim.last.reference)
 
     ActionMailer::Base.deliveries.clear
-    fill_in 'Enter your email address to get the online application number emailed to you.',
+    fill_in 'Email address',
       with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_button 'Sign out now'
 
@@ -41,7 +41,7 @@ feature 'Save and Return' do
     start_claim
     fill_in_password
     click_link 'Sign out'
-    expect(page).to have_text('Saved')
+    expect(page).to have_text('Application saved')
   end
 
   scenario 'returning to existing application' do
