@@ -41,6 +41,7 @@ span.block-label {
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: $gutter-half;
+  display: block; // This wraps block level elements so needs to be block itself.
 
   label{
     @extend %block-label;

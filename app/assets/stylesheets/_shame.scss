@@ -159,3 +159,19 @@ input[type=radio] {
     top:0;right:0;
   }
 }
+
+fieldset{
+  position:relative;
+  overflow:hidden;
+  margin:0 0 $gutter;
+  legend:first-child {
+    margin-top:0;
+  }
+}
+
+// All IE fix
+input[type="radio"], input[type="checkbox"]{
+   background-color:transparent;
+   border: none;
+}
+
