@@ -47,7 +47,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'shoulda-matchers'
   gem 'spring'
-  gem 'browserify-rails'
 end
 
 gem 'webmock', group: :test
@@ -55,8 +54,10 @@ gem 'webmock', group: :test
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
+gem 'browserify-rails'
 gem 'carrierwave', '~> 0.10'
 gem 'cocaine'
+gem 'compass'
 gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'govuk_frontend_toolkit', '2.0.0'
 gem 'httparty'
@@ -68,8 +69,7 @@ gem 'pg'
 gem 'redcarpet'
 gem 'simple_form', '3.1.0rc2'
 gem "slim-rails"
+gem 'susy'
 gem 'state_machine', require: 'state_machine/core'
 gem 'uk_postcode'
-gem 'susy'
-gem 'compass'
 gem 'virtus'
