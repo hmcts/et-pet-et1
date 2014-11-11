@@ -54,6 +54,7 @@ gem 'webmock', group: :test
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
+gem 'browserify-rails'
 gem 'carrierwave', '~> 0.10'
 gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
