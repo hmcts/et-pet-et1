@@ -5,18 +5,21 @@ header.main-header
   = render partial: 'shared/aside'
 
   .main-content#main-sub-content
-    .clearfix
-      .callout.callout-reference
-        p.detail= t('shared.reference')
-        span.number= claim.reference
 
     = simple_form_for user_session, url: user_session_path, method: :put do |f|
       fieldset
         legend= t('.legend')
 
-        h3.font-small= t('.subheader')
-        p.form-hint= t('.hint')
-
+        = format t('.subheader')
+        
         = f.input :email_address
+
+        .clearfix
+          .callout.callout-reference
+            p.detail= t('shared.reference')
+            span.number= claim.reference
+
+        p.print
+          = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
 
         = f.button :submit, value: t('.submit')

@@ -45,7 +45,7 @@ RSpec.configure do |config|
   config.after do |example|
     if example.metadata[:type] == :feature && example.exception.present?
       # Uncomment to autoload failed capybara tests in the browser
-      # save_and_open_page
+      save_and_open_page
     end
   end
 end

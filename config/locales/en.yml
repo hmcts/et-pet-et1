@@ -365,7 +365,7 @@ en:
       header: Application saved
       legend: Return to complete your application
       subheader: |
-        Make sure you know your application number and memorable word <br />before you sign out.
+        Make sure you know your application number and memorable word <br> before you sign out.
       submit: Sign out now
       print_link: Print this page
 
