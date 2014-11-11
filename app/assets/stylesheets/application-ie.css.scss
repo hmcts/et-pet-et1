@@ -5,3 +5,9 @@
     width: 47%;
     font-size: 17px;
 }
+
+// Fixes weird borders and colours in IE
+input [type=radio],
+input [type="checkbox"] {
+    background-color: transparent; outline: none; border:none;
+}

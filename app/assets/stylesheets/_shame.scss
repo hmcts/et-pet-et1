@@ -122,12 +122,6 @@ fieldset{
   }
 }
 
-input[type=radio] {
-  .lte-ie8 & {
-    background: transparent; outline: none; border:none;
-  }
-}
-
 .label-column {
   @include container(wider);
   span.checkbox{
@@ -167,10 +161,4 @@ fieldset{
   legend:first-child {
     margin-top:0;
   }
-}
-
-// All IE fix
-input[type="radio"], input[type="checkbox"]{
-   background-color:transparent;
-   border: none;
 }
