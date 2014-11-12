@@ -36,8 +36,8 @@ fieldset.reveal-publish-delegate
     input_html: { :class => 'reveal-publish-publisher',
                   :'data-target' => 'sub1'}
 
-  = f.input :other_claim_details, as: :text,
-    input_html: { rows: 5 },
+  = f.input :other_claim_details, as: :text, label: false,
+    input_html: { rows: 2 },
     wrapper_html: { :id => :other_claim_details_wrapper,
                     :class => 'panel-indent toggle-content reveal-subscribe',
                     :'data-target' => 'sub1',

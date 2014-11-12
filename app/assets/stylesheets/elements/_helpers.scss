@@ -32,3 +32,9 @@
 .hidden{
   display:none;
 }
+
+.representative_type{
+    select.form-control{
+      @include span(8 of 12);
+    }
+}

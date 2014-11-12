@@ -83,7 +83,7 @@ module FormMethods
     end
 
     choose  'claimant_has_special_needs_true'
-    fill_in 'Tell us how we can help you.', with: 'I am blind.'
+    fill_in 'Discribe the assistance you require', with: 'I am blind.'
 
     click_button 'Save and continue' unless options[:submit_form] == false
   end
@@ -140,7 +140,7 @@ module FormMethods
   def fill_in_employment_details
     choose  'employment_was_employed_true'
 
-    fill_in 'Job or job title', with: 'Super High Powered Exec'
+    fill_in 'Job title', with: 'Super High Powered Exec'
 
     within '.employment_start_date' do
       fill_in 'Day',   with: '01'
@@ -172,7 +172,7 @@ module FormMethods
     label = find('label', text: "Sex (including equal pay)")
     find("##{label['for']}").set true
     check 'Other type of claim'
-    fill_in 'State the other type of claim – or claims – that you’re making',
+    fill_in :claim_type_other_claim_details,
       with: 'Boss was a bit of a douchenozzle TBH'
     choose 'claim_type_is_whistleblowing_true'
     choose 'claim_type_send_claim_to_whistleblowing_entity_true'

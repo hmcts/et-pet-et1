@@ -1,5 +1,5 @@
 class ClaimantForm < Form
-  TITLES               = %w<mr mrs ms miss>.freeze
+  TITLES               = %w<mr mrs miss ms>.freeze
   GENDERS              = %w<male female prefer_not_to_say>.freeze
   CONTACT_PREFERENCES  = %w<email post>.freeze
   COUNTRIES            = %w<united_kingdom other>.freeze
