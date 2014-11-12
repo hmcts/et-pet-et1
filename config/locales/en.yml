@@ -24,7 +24,7 @@ en:
     currency:
       format:
         unit: '£'
-        
+
   simple_form:
     include_blanks:
       claimant:
@@ -291,7 +291,6 @@ en:
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="/guide#acas_early_conciliation">Acas early conciliation service</a>.
-
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -318,8 +317,6 @@ en:
           You can upload a separate document if you need more space to describe your claim. Please do not send any
           evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file. You can usually save
           a file as an RTF by selecting File > Save As > Format: Rich Text Format
-
-
       your_fee:
         applying_for_remission: |
           Find out if you <a href="/guide#help_with_paying_the_fees">qualify for help with fees.</a>
