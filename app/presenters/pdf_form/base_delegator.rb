@@ -26,7 +26,7 @@ module PdfForm
     end
 
     def dual_state(value, yes: 'yes')
-     { nil => 'Off', false => 'Off', true => yes }[value]
+      { nil => 'Off', false => 'Off', true => yes }[value]
     end
 
     def self.present(*objects)

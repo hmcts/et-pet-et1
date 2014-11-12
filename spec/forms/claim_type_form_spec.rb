@@ -17,7 +17,6 @@ RSpec.describe ClaimTypeForm, :type => :form do
       pay_claims: %i<redundancy notice holiday arrears other>
   end
 
-
   %i<pay discrimination>.each do |type|
     describe "##{type}_claims" do
       it "returns an array of strings because that's what the form builder requires" do

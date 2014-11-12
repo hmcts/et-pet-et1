@@ -1,6 +1,6 @@
 module EPDQ
-  def self.config(options={})
-    options.each { |k,v| send :"#{k}=", v }
+  def self.config(options = {})
+    options.each { |k, v| send :"#{k}=", v }
   end
 end
 

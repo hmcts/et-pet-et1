@@ -7,7 +7,7 @@ class PeriodicTask
     @thread = Thread.new do
       Thread.stop unless run_immediately
 
-      while true
+      loop do
         block.call
         sleep every
 

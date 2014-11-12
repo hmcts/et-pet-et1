@@ -6,9 +6,12 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
 
   describe '#to_h' do
     context 'when notice period is monthly' do
-      let(:employment) { Employment.new(
-        notice_pay_period_type: 'monthly',
-        notice_pay_period_count: 1) }
+      let(:employment) {
+        Employment.new(
+          notice_pay_period_type: 'monthly',
+          notice_pay_period_count: 1
+        )
+      }
 
       it 'includes notice period in months' do
         expect(hash).to include('6.3 weeks' => nil)
@@ -17,9 +20,12 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
     end
 
     describe 'when notice period is weekly' do
-      let(:employment) { Employment.new(
-        notice_pay_period_type: 'weekly',
-        notice_pay_period_count: 1) }
+      let(:employment) {
+        Employment.new(
+          notice_pay_period_type: 'weekly',
+          notice_pay_period_count: 1
+        )
+      }
 
       it 'includes notice period in weeks' do
         expect(hash).to include('6.3 weeks' => 1)

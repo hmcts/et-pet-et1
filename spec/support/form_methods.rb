@@ -41,7 +41,7 @@ module FormMethods
     click_button 'Sign out now'
   end
 
-  def fill_in_return_form reference, word
+  def fill_in_return_form(reference, word)
     visit returning_user_session_path
     fill_in 'application number', with: reference
     fill_in 'memorable word', with: word
@@ -207,7 +207,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_your_fee options={}
+  def fill_in_your_fee(options={})
     choose "your_fee_applying_for_remission_#{options[:seeking_remissions] || false}"
 
     click_button 'Save and continue'

@@ -15,7 +15,7 @@ class RespondentForm < Form
   attribute :no_acas_number_reason,                      String
   attribute :worked_at_same_address,                     Boolean
 
-  WORK_ADDRESS_ATTRIBUTES.each { |a| attribute a, String } # TODO fix this shit
+  WORK_ADDRESS_ATTRIBUTES.each { |a| attribute a, String } # TODO: fix this shit
 
   booleans :no_acas_number
 

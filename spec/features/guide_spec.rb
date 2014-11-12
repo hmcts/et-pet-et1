@@ -1,16 +1,16 @@
 require 'rails_helper'
 
 feature 'Guide' do
-  
+
   let(:fees_header)           { "<h1>Fees</h1>" }
   let(:help_paying_header)    { "<h1>Help with paying the fees</h1>" }
   let(:acas_header)           { "<h1>Acas: early conciliation</h1>" }
   let(:writing_yours_header)  { "<h1>Writing your claim statement</h1>" }
 
-  before :each do 
+  before :each do
     visit guide_path
   end
-  
+
   scenario "User visits the guides page" do
     expect(page.html).to include(fees_header)
     expect(page.html).to include(help_paying_header)

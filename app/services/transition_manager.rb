@@ -15,7 +15,7 @@ class TransitionManager
     end
 
     def pages
-      @rules.flat_map { |rule| [rule.from, rule.to ] }.uniq
+      @rules.flat_map { |rule| [rule.from, rule.to] }.uniq
     end
   end
 

@@ -5,7 +5,7 @@ class ClaimPresenter < Struct.new(:target)
   def each_section
     enumerable_sections.each do |section|
       section      = send(section)
-      section_name = section.class.name.underscore.sub /_presenter\Z/, ''
+      section_name = section.class.name.underscore.sub(/_presenter\Z/, '')
 
       proc[section_name, section]
     end

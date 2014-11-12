@@ -10,7 +10,7 @@ class Form
   delegate :keys, to: :class
 
   # Allows SimpleForm to reason about types
-  def column_for_attribute attr
+  def column_for_attribute(attr)
     if attribute_set[attr]
       OpenStruct.new type: attribute_set[attr].type.to_s.demodulize.downcase.to_sym
     end
@@ -66,7 +66,7 @@ class Form
     delegate :i18n_key, to: :model_name, prefix: true
   end
 
-  def initialize(resource, &block)
+  def initialize(resource, &_block)
     @resource = resource
     reload
     yield self if block_given?

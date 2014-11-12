@@ -57,7 +57,7 @@ class Claim < ActiveRecord::Base
     claimants.where(applying_for_remission: true).count
   end
 
-  # TODO validate claim against JADU XSD
+  # TODO: validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
@@ -86,7 +86,7 @@ class Claim < ActiveRecord::Base
     @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
   end
 
-  alias :setup_state_machine :state_machine
+  alias_method :setup_state_machine, :state_machine
 
   delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
 end

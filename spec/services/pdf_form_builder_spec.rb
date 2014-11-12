@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PdfFormBuilder, type: :service do
   let(:pdf_forms) { double fill_form: nil }
   let(:claim) { double id: 1 }
-  let(:claim_presenter) { double name: 'name', to_h: {fields: 'fields'} }
+  let(:claim_presenter) { double name: 'name', to_h: { fields: 'fields' } }
   let(:et1_pdf_path) { 'lib/assets/et001-eng.pdf' }
   subject { described_class.new(claim) }
 
@@ -25,7 +25,7 @@ RSpec.describe PdfFormBuilder, type: :service do
 
       expect(pdf).to eq('pdf')
       expect(pdf_forms).to have_received(:fill_form).with(
-        et1_pdf_path, 'tmp/claim1.pdf', {fields: 'fields'}, flatten: false)
+        et1_pdf_path, 'tmp/claim1.pdf', { fields: 'fields' }, flatten: false)
     end
 
     it 'ensure ET1 PDF exists' do

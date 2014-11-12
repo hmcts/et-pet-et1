@@ -5,9 +5,11 @@ class ClaimConfirmationsController < ApplicationController
     redirect_to root_path unless claim.enqueued_for_submission? || claim.submitted?
   end
 
-  helper_method def fee_calculation
+  def fee_calculation
     @fee_calculation ||= claim.fee_calculation
   end
+
+  helper_method :fee_calculation
 
   def generated_claim
     respond_to do |format|

@@ -151,7 +151,7 @@ feature 'Claim applications', type: :feature do
 
       email = ActionMailer::Base.deliveries.last
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      content = email.parts.find {|p| p.content_type.match /html/ }.body.raw_source
+      content = email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source
 
       expect(content).to include completion_message
       expect(content).to include 'Attached'
@@ -202,7 +202,6 @@ feature 'Claim applications', type: :feature do
       expect(page).not_to have_text 'Get help with paying your fee now'
       expect(page).to have_text 'From the information you’ve given us, you have to pay'
     end
-
 
     scenario 'Making payment' do
       pending 'payments disabled for first live trial'

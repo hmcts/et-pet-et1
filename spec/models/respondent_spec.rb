@@ -23,7 +23,6 @@ RSpec.describe Respondent, :type => :model do
     specify { expect(subject.work_address).to eq(subject.addresses.second) }
   end
 
-
   describe '#save' do
     describe 'enqueueing the fee group reference request' do
       let(:claim) { Claim.new }
