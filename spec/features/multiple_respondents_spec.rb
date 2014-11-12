@@ -74,7 +74,6 @@ feature 'Multiple respondents'do
     end
   end
 
-
   describe 'destroying respondents' do
     before { add_some_additional_respondents }
 
@@ -116,7 +115,6 @@ feature 'Multiple respondents'do
       expect(page.current_path).not_to eq claim_additional_respondents_path
     end
   end
-
 
   def add_some_additional_respondents
     visit claim_additional_respondents_path

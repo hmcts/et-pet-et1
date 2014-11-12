@@ -79,7 +79,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
         claim.secondary_respondents.reload
 
         attributes[:respondents_attributes].each_with_index do |(_, attributes), index|
-          attributes.each { |k,v| expect(claim.secondary_respondents[index].send(k)).to eq v }
+          attributes.each { |k, v| expect(claim.secondary_respondents[index].send(k)).to eq v }
         end
       end
     end
@@ -95,7 +95,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
         claim.secondary_respondents.reload
 
         attributes[:respondents_attributes].each_with_index do |(_, attributes), index|
-          attributes.each { |k,v| expect(claim.secondary_respondents[index].send(k)).to eq v }
+          attributes.each { |k, v| expect(claim.secondary_respondents[index].send(k)).to eq v }
         end
       end
     end
