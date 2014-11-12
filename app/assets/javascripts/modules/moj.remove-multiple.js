@@ -3,8 +3,8 @@ module.exports = (function() {
 
   var removeMultiple = {
     init : function init() {
-      var container = $('.additional-claimants'),
-        claimant = container.find('.claimant');
+      var container = $('.multiples'),
+        claimant = container.find('.multiple');
 
       claimant.each(function(i, el) {
         removeMultiple.bindRemoveButton($(el));
