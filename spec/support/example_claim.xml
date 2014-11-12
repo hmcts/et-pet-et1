@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ETFeesEntry xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ETFees_v0.09.xsd">
+  <DocumentId>
+    <DocumentName>ETFeesEntry</DocumentName>
+    <UniqueId>20140102030405</UniqueId>
+    <DocumentType>ETFeesEntry</DocumentType>
+    <TimeStamp>2014-10-11T09:10:58Z</TimeStamp>
+    <Version>1</Version>
+  </DocumentId>
+  <FeeGroupReference>123456789000</FeeGroupReference>
+  <SubmissionUrn>1</SubmissionUrn>
+  <CurrentQuantityOfClaimants>1</CurrentQuantityOfClaimants>
+  <SubmissionChannel>Web</SubmissionChannel>
+  <CaseType>Single</CaseType>
+  <Jurisdiction>1</Jurisdiction>
+  <OfficeCode>12</OfficeCode>
+  <DateOfReceiptEt>2014-01-02T11:40:28Z</DateOfReceiptEt>
+  <RemissionIndicated>NotRequested</RemissionIndicated>
+  <Administrator xsi:nil="true"/>
+  <Claimants>
+    <Claimant>
+      <GroupContact>true</GroupContact>
+      <Title>Mr</Title>
+      <Forename>Bill</Forename>
+      <Surname>Jones</Surname>
+      <Address>
+        <Number>1</Number>
+        <Name>Towers</Name>
+        <Street>Marble Walk</Street>
+        <Town>Smallville</Town>
+        <County>Smallvilleshire</County>
+        <Postcode>SW1 1WS</Postcode>
+      </Address>
+      <OfficeNumber>020 1234 5678</OfficeNumber>
+      <AltPhoneNumber>020 1234 1234</AltPhoneNumber>
+      <Email>claimant@example.com</Email>
+      <Fax>020 1234 4321</Fax>
+      <PreferredContactMethod>Post</PreferredContactMethod>
+    </Claimant>
+  </Claimants>
+  <Respondents>
+    <Respondent>
+      <GroupContact>true</GroupContact>
+      <Name>Harry Hill</Name>
+      <Address>
+        <Number>1</Number>
+        <Name>Towers</Name>
+        <Street>Marble Walk</Street>
+        <Town>Smallville</Town>
+        <County>Smallvilleshire</County>
+        <Postcode>SW1 1WS</Postcode>
+      </Address>
+      <OfficeNumber>020 1234 5678</OfficeNumber>
+      <PhoneNumber>020 1234 5678</PhoneNumber>
+      <Acas>
+        <Number>123123123123</Number>
+        <ExemptionCode>outside_acas</ExemptionCode>
+      </Acas>
+    </Respondent>
+  </Respondents>
+  <Representatives>
+    <Representative>
+      <Name>Rep. Barker</Name>
+      <Address>
+        <Number>1</Number>
+        <Name>Towers</Name>
+        <Street>Marble Walk</Street>
+        <Town>Smallville</Town>
+        <County>Smallvilleshire</County>
+        <Postcode>SW1 1WS</Postcode>
+      </Address>
+      <OfficeNumber>020 1234 5678</OfficeNumber>
+      <AltPhoneNumber>020 1122 3344</AltPhoneNumber>
+      <Email>rep@example.com</Email>
+      <ClaimantOrRespondent>C</ClaimantOrRespondent>
+    </Representative>
+  </Representatives>
+  <Payment>
+    <Fee>
+      <Amount>1</Amount>
+      <PRN>1234</PRN>
+      <Date>2014-01-02T03:05:05Z</Date>
+    </Fee>
+  </Payment>
+  <UserCharacteristics>
+    <DeclinedToAnswer>true</DeclinedToAnswer>
+    <ClaimType/>
+    <Sex/>
+    <GenderIdentityBirth/>
+    <GenderIdentityNow/>
+    <SexualOrientation/>
+    <MaritalStatus/>
+    <AgeGroup/>
+    <CaringResponsibilities/>
+    <Religion/>
+    <EthnicityPartA/>
+    <EthnicityPartB/>
+    <Disability/>
+    <Pregnancy/>
+  </UserCharacteristics>
+  <Files/>
+</ETFeesEntry>

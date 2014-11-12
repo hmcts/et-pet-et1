@@ -288,4 +288,5 @@ RSpec.describe Claim, :type => :claim do
       expect(claimant.primary_claimant).to be true
     end
   end
+
 end
