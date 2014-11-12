@@ -2,7 +2,7 @@ module Messages
   include ClaimsHelper
 
   def page_number(page)
-    I18n.t('claims.show.page_number', current_page: page, total_pages: 11)
+    I18n.t('claims.show.page_number', current_page: page, total_pages: 12)
   end
 
   def before_you_start_message

@@ -25,9 +25,11 @@ Rails.application.routes.draw do
         end
       end
 
-      resource :additional_claimants, only: %i<show update>,
-        controller: :multiples, page: 'additional-claimants',
-        path: 'additional-claimants'
+      %w<claimants respondents>.each do |page|
+        resource :"additional_#{page}", only: %i<show update>,
+          controller: :multiples, page: "additional-#{page}",
+          path: "additional-#{page}"
+      end
 
       ClaimTransitionManager.pages.each do |page|
         resource page.underscore, only: %i<show update>, controller: :claims,

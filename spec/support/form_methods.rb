@@ -117,7 +117,7 @@ module FormMethods
     fill_in 'Phone',                   with: '01234567890'
   end
 
-  def fill_in_employer_details
+  def fill_in_respondent_details
     fill_in 'Name', with: 'Crappy Co, LTD'
 
     fill_in :respondent_address_building,         with: '2'
@@ -134,6 +134,11 @@ module FormMethods
     check  "I don't have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
+    click_button 'Save and continue'
+  end
+
+  def fill_in_additional_respondent_details
+    choose "No"
     click_button 'Save and continue'
   end
 
@@ -163,7 +168,8 @@ module FormMethods
     fill_in_personal_details
     fill_in_additional_claimant_details
     fill_in_representative_details
-    fill_in_employer_details
+    fill_in_respondent_details
+    fill_in_additional_respondent_details
     fill_in_employment_details
   end
 
@@ -226,7 +232,8 @@ module FormMethods
     fill_in_personal_details(options)
     fill_in_additional_claimant_details
     fill_in_representative_details
-    fill_in_employer_details
+    fill_in_respondent_details
+    fill_in_additional_respondent_details
     fill_in_employment_details
     fill_in_claim_type_details
     fill_in_claim_details
