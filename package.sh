@@ -117,7 +117,7 @@ bundle --quiet \
 rm -rf bin
 # Add the envvars defined in .env to avoid errors during the assets:precompile stage
 set -a
-. .env
+. /etc/docker_env.d/et
 set +a
 npm install
 bundle exec rake rails:update:bin
