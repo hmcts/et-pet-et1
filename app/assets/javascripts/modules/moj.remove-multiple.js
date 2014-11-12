@@ -11,7 +11,7 @@ module.exports = (function() {
       });
     },
     bindRemoveButton : function bindRemoveButton(claimant) {
-      var link = claimant.find('.remove-claimant');
+      var link = claimant.find('.remove-multiple');
 
       link.on('click', function(event){
         claimant.hide();

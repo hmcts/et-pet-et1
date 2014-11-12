@@ -143,7 +143,7 @@ fieldset{
   }
 }
 
-.remove-claimant{
+.remove-multiple{
   display:none;
   .js-enabled &{
     @include core-16;
