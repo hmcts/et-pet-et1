@@ -1,9 +1,12 @@
 language: ruby
 rvm:
 - 2.1.2
+node_js:
+- '0.10'
 addons:
   postgresql: '9.3'
 before_script:
+- npm install
 - bin/rake db:create db:migrate
 env:
   global:
