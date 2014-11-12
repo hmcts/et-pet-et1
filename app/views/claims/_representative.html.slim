@@ -9,10 +9,8 @@ fieldset
       input_html: { :class => 'reveal-publish-publisher'},
       reveal: { true => 'main', false => 'main' }
 
-    .callout.callout-reference
-        = format t('.contact_info')
-
-
+  .callout.toggle-content.reveal-subscribe.callout-reference data-target="main" data-show-array='["true"]'
+    = format t('.contact_info')
 
   fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
     legend role="heading" aria-level="2" = t '.representative_legend'

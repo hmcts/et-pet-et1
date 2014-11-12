@@ -34,7 +34,9 @@ fieldset
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :email_address
 
-  = f.input :contact_preference,
+
+  legend role="heading" aria-level="2" = t '.legend_contact_preference'
+  = f.input :contact_preference, label: false,
     collection: ClaimantForm::CONTACT_PREFERENCES,
     as: :radio_buttons,
     wrapper_html: { class: 'form-label-bold' },
