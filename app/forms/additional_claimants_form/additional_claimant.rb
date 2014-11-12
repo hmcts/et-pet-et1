@@ -2,7 +2,7 @@ class AdditionalClaimantsForm
   class AdditionalClaimant < Form
     boolean :_destroy
 
-    TITLES      = %w<mr mrs ms miss>.freeze
+    TITLES      = %w<mr mrs miss ms>.freeze
     NAME_LENGTH = 100
 
     include AddressAttributes
