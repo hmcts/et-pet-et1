@@ -1,45 +1,19 @@
-class Presenter
+class Presenter < Struct.new(:target)
   include ActionView::Helpers
-
-  class Proxy
-    def initialize(target)
-      @target = target
-    end
-
-    def method_missing(meth, *args, &blk)
-      if @target.respond_to? meth
-        @target.send(meth)
-      elsif @target
-        super
-      else
-        nil
-      end
-    end
-
-    def respond_to_missing?(method_name, include_private=false)
-      if @target
-        @target.respond_to? method_name, include_private
-      else
-        true
-      end
-    end
-  end
-
-  attr_reader :target
-
-  def initialize(target)
-    @target = Proxy.new target
-  end
 
   def self.present(*keys)
     keys.each { |key| delegate key, to: :target, allow_nil: true }
   end
 
-  def each_subsection
-    subsections.each { |subsection_name, subsection_items| proc[subsection_name, subsection_items] }
+  def each_item
+    items.each { |meth| proc[meth, send(meth)] }
   end
 
   private
+
+  def items
+    self.class.instance_methods(false)
+  end
 
   def method_missing(meth, *args, &block)
     if target.respond_to? meth
@@ -64,7 +38,7 @@ class Presenter
   end
 
   def date(date)
-    date.try :strftime, '%d/%m/%Y'
+    date.try :strftime, '%d %B %Y'
   end
 
   def simple_format(value)

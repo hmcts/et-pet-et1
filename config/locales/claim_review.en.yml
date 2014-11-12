@@ -32,10 +32,6 @@ en:
         is_applying_for_remission: Fee remission
         has_representative: Representative
 
-        subsections:
-          personal_details: Personal details
-          contact_details: Contact details
-
       representative:
         has_representative: Representative
         type: Type of representative
@@ -48,11 +44,6 @@ en:
         dx_number: DX number
         contact_preference: Preferred contact
 
-        subsections:
-          has_representative: Do you have a representative?
-          basic_details: Representative details
-          contact_details: Contact details
-
       respondent:
         name: Name
         address: Address
@@ -60,12 +51,7 @@ en:
         employed_by_employer: Employed by employer
         acas_early_conciliation_certificate_number: Acas number
         no_acas_number_reason: Reason for no Acas number
-        worked_at_same_address: Worked at same address?
-
-        subsections:
-          basic_details: Respondent's details
-          contact_details: Contact details
-          work_address: Work address
+        work_address: Work address
 
       employment:
         job_title: Job
@@ -85,50 +71,29 @@ en:
         new_job_start_date: New job start date
         pay_period_weekly: per week
         pay_period_monthly: per month
-
-        subsections:
-          employment_situation: Employment situation
-          current_situation: Current work situation
-          details: Employment details
-          benefits: Pay, pension and benefits
-          new_job: New job
+        was_employed: Employed by employer
 
       claim_type:
         types: Type(s)
         is_whistleblowing: Whistleblowing
         send_claim_to_whistleblowing_entity: Send to whistleblowing body
 
-        subsections:
-          type: Claim type
-
       claim_details:
         claim_details: Claim details
         other_known_claimant_names: Other known claimants
         miscellaneous_information: Other information
 
-        subsections:
-          claim_details: Claim details
-
       claim_outcome:
         desired_outcomes: What outcome?
         other_outcome: Outcome description
-
-        subsections:
-          claim_outcome: Claim outcome
 
       additional_information:
         miscellaneous_information: Additional information
         attached_document: Attached document
 
-        subsections:
-          additional_information: Additional information
-
       your_fee:
         seeking_remission: Fee remission
         fee: Your fee
-
-        subsections:
-          your_fee: Your fee
 
     email_addresses:
       confirmation: Email confirmation

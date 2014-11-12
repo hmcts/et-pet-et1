@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe RepresentativePresenter, type: :presenter do
   let(:subject) { described_class.new representative }
   let(:representative) do
-    double 'representative', type: :law_centre,
+    Representative.new type: :law_centre,
       organisation_name: 'Better Call Saul', name: 'Saul Goodman',
       address_building: '1', address_street: 'Lol street',
       address_locality: 'Lolzville', address_county: 'Lolzfordshire',
@@ -18,7 +18,7 @@ RSpec.describe RepresentativePresenter, type: :presenter do
   describe '#address' do
     it 'concatenates all address properties with a <br> tag' do
       expect(subject.address).
-        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z')
+        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>')
     end
   end
 
@@ -26,4 +26,24 @@ RSpec.describe RepresentativePresenter, type: :presenter do
   its(:mobile_number)      { is_expected.to eq('07956123456') }
   its(:dx_number)          { is_expected.to eq('1') }
   its(:contact_preference) { is_expected.to eq('Post') }
+
+  describe '#each_item' do
+    context 'when target.representative is blank' do
+      before { subject.target = nil }
+
+      it 'yields has_representative no' do
+        expect { |b| subject.each_item &b }.to yield_successive_args [:has_representative, 'No']
+      end
+    end
+
+    context 'when target.representative is not blank' do
+      it 'yields all the fields' do
+        expect { |b| subject.each_item &b }.
+          to yield_successive_args [:type, "Law centre"], [:organisation_name, "Better Call Saul"],
+            [:name, "Saul Goodman"], [:address, "1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>"],
+            [:telephone_number, "01234567890"], [:mobile_number, "07956123456"],
+            [:email_address, nil], [:dx_number, "1"], [:contact_preference, "Post"]
+      end
+    end
+  end
 end

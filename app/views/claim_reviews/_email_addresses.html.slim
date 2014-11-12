@@ -1,14 +1,12 @@
 - if claim.submittable?
-  section
-    header
-      legend role="header" aria-level="2"= t '.confirmation'
-      p= t '.hint'
-
     = simple_form_for confirmation_email, url: request.url, method: :put do |f|
-      = f.input :email_addresses,
-        collection: email_addresses,
-        as: :check_boxes,
-        item_wrapper_class: 'block-label'
+      fieldset.email-confirmation
+        legend role="header" aria-level="2"= t '.confirmation'
+        p.form-hint = t '.hint'
+        = f.input :email_addresses,
+          collection: email_addresses,
+          as: :check_boxes,
+          label: false
 
       .form-actions
         = f.button :submit

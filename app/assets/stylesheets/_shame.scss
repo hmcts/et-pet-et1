@@ -22,14 +22,30 @@
 
 //for table cells void of any information
 // ==========================================================================
-.table-header {
-  @extend .bold-medium;
-  overflow:hidden;
-  a {
+.review-table-entry {
+  margin:$gutter 0 $gutter*1.5;
+  &:first-child{
+    margin-top:0;
+  }
+  .table-header {
+    @extend .bold-medium;
+    overflow:hidden;
+    margin:0;
+    a {
+      @include core-16;
+      line-height:2;
+      float:right;
+      font-weight: 400;
+    }
+  }
+  .review-table{
+    margin-top:$gutter-half;
+  }
+}
+.email-confirmation {
+  border-bottom:1px solid $border-colour;
+  .checkbox label {
     @include core-16;
-    line-height:2;
-    float:right;
-    font-weight: 400;
   }
 }
 

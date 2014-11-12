@@ -1,12 +1,9 @@
 class EmploymentPresenter < Presenter
-  def subsections
-    { current_situation: %i<current_situation>,
-      details: %i<job_title start_date end_date worked_notice_period_or_paid_in_lieu average_hours_worked_per_week>,
-      benefits: %i<gross_pay net_pay enrolled_in_pension_scheme benefit_details>,
-      new_job: %i<new_job new_job_gross_pay new_job_start_date> }
-  end
-
   present :job_title
+
+  def was_employed
+    yes_no target.present?
+  end
 
   def start_date
     date target.start_date
@@ -53,12 +50,12 @@ class EmploymentPresenter < Presenter
   end
 
   def new_job
-    yes_no target.new_job_start_date
+    yes_no target.found_new_job
   end
 
   def new_job_gross_pay
     if [target.new_job_gross_pay, target.new_job_gross_pay_frequency].all? &:present?
-      "£#{target.new_job_gross_pay} #{period_type(target.new_job_gross_pay_frequency)}"
+      number_to_currency(target.new_job_gross_pay) + ' ' + period_type(target.new_job_gross_pay_frequency)
     end
   end
 
@@ -66,16 +63,45 @@ class EmploymentPresenter < Presenter
     date target.new_job_start_date
   end
 
-  private def period_type(period_type)
+  private
+
+  def items
+    if target.blank?
+      %i<was_employed>
+    else
+      super.reject { |i| items_to_omit.include? i }
+    end
+  end
+
+  def items_to_omit
+    delete = %i<was_employed>
+
+    delete.concat %i<new_job_start_date new_job_gross_pay> unless target.found_new_job?
+
+    delete.push :notice_period_pay unless target.worked_notice_period_or_paid_in_lieu?
+
+    case target.current_situation
+    when "still_employed"
+      delete.concat %i<end_date worked_notice_period_or_paid_in_lieu notice_period_end_date notice_period_pay>
+    when "notice_period"
+      delete.concat %i<end_date worked_notice_period_or_paid_in_lieu notice_period_pay>
+    when "employment_terminated"
+      delete.push :notice_period_end_date
+    end
+
+    delete
+  end
+
+  def period_type(period_type)
     t "claim_reviews.show.employment.pay_period_#{period_type}"
   end
 
-  private def pay_for(pay)
+  def pay_for(pay)
     period = target.send(:"#{pay}_period_type")
     pay    = target.send(pay)
 
     if [pay, period].all?(&:present?)
-      "£#{pay} #{period_type(period)}"
+      number_to_currency(pay) + ' ' + period_type(period)
     end
   end
 end
