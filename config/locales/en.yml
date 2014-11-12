@@ -253,6 +253,7 @@ en:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+        date_of_birth: For example, 23 04 1981
       representative:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         respondent:
