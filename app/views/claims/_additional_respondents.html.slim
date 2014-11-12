@@ -9,14 +9,14 @@ fieldset
     input_html: { :class => 'reveal-publish-publisher'},
     reveal: { true => 'sub1', false => 'sub1' }
 
-  .additional-respondents.reveal-subscribe data-target="sub1" data-show-array='["true"]'
+  .multiples.reveal-subscribe data-target="sub1" data-show-array='["true"]'
     = f.simple_fields_for :respondents do |builder|
-      .respondent id=("respondent_#{builder.index}")
+      .multiple id=("respondent_#{builder.index}")
         fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 1).html_safe
 
-          = link_to t('.remove_respondent_link', number: builder.index + 1), 'javascript:void(0);', { class: 'remove-respondent' }
+          = link_to t('.remove_respondent_link', number: builder.index + 1), 'javascript:void(0);', { class: 'remove-multiple' }
 
           = builder.input :name
 
