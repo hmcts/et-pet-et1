@@ -241,7 +241,7 @@ en:
     hints:
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
-        date_of_birth: For example, 08 04 1981
+        date_of_birth: For example, 23 04 1981
         has_special_needs: |
           Eg documents in Braille, or a sign language interpreter
         has_representative: |
@@ -261,15 +261,15 @@ en:
       employment:
         current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
-        start_date: For example, 08 04 2014 (you don't have to give the exact date if you don't know it)
+        start_date: For example, 22 04 2014 (you don't have to give the exact date if you don't know it)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         new_job_gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
         benefit_details: Details of benefit(s)
-        end_date: For example, 08 04 2014
-        new_job_start_date: For example, 08 04 2014
-        notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end, enter the date. For example, 08 04 2014
+        end_date: For example, 22 04 2014
+        new_job_start_date: For example, 22 04 2014
+        notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end, enter the date. For example, 22 04 2014
       claim:
         other_claim_details: |
           Eg your employer hasn’t allowed you to take your statutory annual leave entitlement
