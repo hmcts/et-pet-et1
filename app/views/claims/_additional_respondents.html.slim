@@ -16,7 +16,8 @@ fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 1).html_safe
 
-          = link_to t('.remove_respondent_link', number: builder.index + 1), 'javascript:void(0);', { class: 'remove-multiple' }
+          - if builder.index > 0
+            = link_to t('.remove_respondent_link', number: builder.index + 1), 'javascript:void(0);', { class: 'remove-multiple' }
 
           = builder.input :name
 
