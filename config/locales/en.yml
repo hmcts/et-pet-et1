@@ -175,7 +175,7 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        name: Name of respondent
+        name: Name
         address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
@@ -302,6 +302,12 @@ en:
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="/guide#acas_early_conciliation">Acas early conciliation service</a>.
+
+      additional_respondents:
+        has_additional_respondents: You can claim against more than one respondent. Eg if you're claiming discrimination, you may be complaining about individual(s) as well as your employer.
+        respondents:
+          address_county: Eg if London, Greater London. If Manchester, Greater Manchester
+
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -335,8 +341,6 @@ en:
       user_session:
         reminder:
           email_address: Get your application number in an email
-
-
 
   helpers:
     submit:
@@ -485,6 +489,7 @@ en:
 
     additional_respondents:
       header: Additional respondents
+      additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent <span class="number">%{number}</span>
       add_fields: Add another respondent
       remove_respondent_link: Remove respondent %{number}

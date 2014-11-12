@@ -159,7 +159,7 @@ fieldset{
   }
 }
 
-.remove-multiple{
+.remove-multiple, .remove-respondent{
   display:none;
   .js-enabled &{
     @include core-16;
