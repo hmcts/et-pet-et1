@@ -39,7 +39,7 @@ class AdditionalRespondentsForm < Form
   end
 
   def valid?
-    run_callbacks(:validation) { super && respondents.all?(&:valid?) }
+    run_callbacks(:validation) { super && respondents.map(&:valid?).all? }
   end
 
   def errors
