@@ -119,7 +119,7 @@ rm -rf bin
 set -a
 . .env
 set +a
-
+npm install
 bundle exec rake rails:update:bin
 bundle exec rake assets:precompile RAILS_ENV=production
 
