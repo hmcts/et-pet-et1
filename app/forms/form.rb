@@ -1,6 +1,7 @@
 class Form
   include ActiveModel::Model
   extend  ActiveModel::Callbacks
+  include DateParsing
   include Virtus.model
 
   attr_accessor :resource
@@ -33,24 +34,6 @@ class Form
         end
 
         alias_method :"#{a}?", a
-      end
-    end
-
-    def dates(*dates)
-      dates.each do |date|
-        validates date, date: true
-
-        # Virtus doesn't know how to cast ActionController::Parameters or hashes
-        # with stringified keys. It will obviously fail to cast a Hash with blank values
-        # which we need to handle because of the GDS date pattern
-
-        define_method("#{date}=") do |obj|
-          if obj.respond_to?(:symbolize_keys)
-            super obj.symbolize_keys if obj.values.any?(&:present?)
-          else
-            super obj
-          end
-        end
       end
     end
 

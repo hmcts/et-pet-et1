@@ -32,18 +32,31 @@ RSpec.shared_examples 'it parses dates', focus: true do |*dates|
         end
       end
 
-      context "when an invalid #{date} has been given" do
-        before do
-          subject.send "#{date}=", 'day' => 'wat', 'month' => 'da', 'year' => 'fuq'
-          subject.valid?
-        end
-
+      describe 'handling invalid dates' do
         let(:model_translation_path) do
-          "activemodel.errors.models.#{ described_class.model_name.name }.attributes.#{ date }.invalid"
+          "activemodel.errors.models.#{described_class.model_name.name}.attributes.#{date}.invalid"
         end
 
-        it "adds a validation error to #{date}" do
-          expect(subject.errors[date]).to include I18n.t(model_translation_path)
+        context "when a non-numeric #{date} has been given" do
+          before do
+            subject.send "#{date}=", 'day' => 'wat', 'month' => 'da', 'year' => 'fuq'
+            subject.valid?
+          end
+
+          it "adds a validation error to #{date}" do
+            expect(subject.errors[date]).to include I18n.t(model_translation_path)
+          end
+        end
+
+        context 'when a numeric date with out of bounds segments has been given' do
+          before do
+            subject.send "#{date}=", 'day' => '64', 'month' => '32', 'year' => '2014'
+            subject.valid?
+          end
+
+          it "adds a validation error to #{date}" do
+            expect(subject.errors[date]).to include I18n.t(model_translation_path)
+          end
         end
       end
     end
