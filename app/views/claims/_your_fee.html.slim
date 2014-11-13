@@ -3,15 +3,14 @@ fieldset
 
   .clearfix
       .callout.callout-fee
-        p
-          span.number="£#{ fee_calculation.application_fee_after_remission } "
-          span.type = t '.standard_fee'
-        p.detail = t '.standard_fee_detail'
-
-  .fee-detail = format t('.hearing_fees', hearing_fee: fee_calculation.hearing_fee)
+        = format t('.fee_callout',
+              application_fee_after_remission: fee_calculation.application_fee_after_remission,
+              hearing_fee: fee_calculation.hearing_fee)
 
 fieldset
   legend role="heading" aria-level="2"  = t '.reduce_fee'
+
+  = format t '.applying_for_remission'
 
   = f.input :applying_for_remission,
     as: :radio_buttons,
@@ -21,5 +20,4 @@ fieldset
     reveal: { true => 'main', false => 'main' }
 
   #remission_applied_info.panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-    h3.bold-small = t '.remission_applied_info_heading'
-    p.font-small = t('.remisison_applied_info_text').html_safe
+    = format t('.remission_applied_info').html_safe
