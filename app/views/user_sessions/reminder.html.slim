@@ -1,3 +1,5 @@
+- content_for(:page_title, page_title)
+
 header.main-header
   h1= t('.header')
 
@@ -11,7 +13,7 @@ header.main-header
         legend= t('.legend')
 
         = format t('.subheader')
-        
+
         = f.input :email_address
 
         .clearfix

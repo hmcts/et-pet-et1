@@ -9,6 +9,10 @@ module ClaimsHelper
     I18n.t("claims.#{current_step}.header")
   end
 
+  def claim_title
+    page_title(claim_header)
+  end
+
   private def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
