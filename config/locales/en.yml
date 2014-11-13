@@ -250,7 +250,7 @@ en:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
       your_fee:
-        applying_for_remission: Do you want to apply to get your fee reduced (known as ‘remission’)?
+        applying_for_remission: Do you want to apply for fee remission?
 
     hints:
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -336,8 +336,7 @@ en:
           evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file. You can usually save
           a file as an RTF by selecting File > Save As > Format: Rich Text Format
       your_fee:
-        applying_for_remission: |
-          Find out if you <a href="/guide#help_with_paying_the_fees">qualify for help with fees.</a>
+
       user_session:
         reminder:
           email_address: Get your application number in an email
@@ -537,17 +536,18 @@ en:
       standard_fee: Standard fee
       standard_fee_detail: This is the application fee for your claim
       application_fee: Fee
-      hearing_fees: |
-        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <span class="number">£%{hearing_fee}</span>.
+      fee_callout: |
+        This issue fee for your claim is
 
-        <a href="/guide#fees">See more about fees</a>
-
-      reduce_fee: Reduce your fee
-      remission_applied_info_heading: You don’t need to pay the above fee now
-      remisison_applied_info_text: |
-        Once you’ve submitted this application, we’ll give you a link to apply for a reduction.
+        <span class="number">£%{application_fee_after_remission}</span>
         <br/><br/>
-        We’ll use the information you give us to work out what reduction (if any) you qualify for and let you know how much you’ll be charged.
+        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees">See more about fees</a>
+
+      reduce_fee: Reducing the issue fee
+      applying_for_remission: You may be able to get the issue fee reduced (known as fee remission) if you are <a href="/guide#help_with_paying_the_fees">eligible for lower fees</a>.
+      remission_applied_info: |
+        <h3 class="bold-small">You don’t need to pay the issue fee now</h3>
+        <p class="font-small">When you've submitted this application, you'll be able to apply<br/>for fee remission. <br/><br/>If you don't qualify, you'll have to pay the full amount.</p>
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
       hearing_fee: |
