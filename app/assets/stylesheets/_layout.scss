@@ -29,10 +29,11 @@ header {
       padding:0;
       margin:$gutter*2 0;
     }
-    h3 {
+    p.page-number{
       @include core-24;
       color:$secondary-text-colour;
       padding-top: $gutter-half;
+      margin:0;
       & + h1{
         margin-top: $gutter-half;
       }
