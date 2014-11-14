@@ -7,9 +7,9 @@ header.main-header
   - cache do
     nav.nav-static-content
       ul
-      - @guide_presenter.file_names.each do |name|
+      - @presenter.file_names.each do |name|
         li = link_to t(".#{name}"), guide_path(anchor: name)
 
     .static-content
-      - @guide_presenter.each_rendered_file do |name, contents|
+      - @presenter.each_rendered_file do |name, contents|
         article id="#{name}" = contents
