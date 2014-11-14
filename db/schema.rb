@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014081047) do
+ActiveRecord::Schema.define(version: 20141111205835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20141014081047) do
     t.datetime "submitted_at"
     t.string   "attachment"
     t.string   "email_address"
+    t.integer  "remission_claimant_count",                        default: 0
   end
 
   create_table "employments", force: true do |t|

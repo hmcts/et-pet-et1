@@ -251,6 +251,7 @@ en:
         other_outcome: What compensation or other outcome do you want?
       your_fee:
         applying_for_remission: Do you want to apply for fee remission?
+        remission_claimant_count: How many in your group want to apply for fee remission?
 
     hints:
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -539,7 +540,7 @@ en:
       fee_callout: |
         This issue fee for your claim is
 
-        <span class="number">£%{application_fee_after_remission}</span>
+        <span class="number">£%{application_fee}</span>
         <br/><br/>
         If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees">See more about fees</a>
 

@@ -70,22 +70,6 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe '#remission_claimant_count' do
-    let(:query) { double }
-
-    before do
-      allow(subject.claimants).to receive(:where).
-        with(applying_for_remission: true).
-        and_return query
-    end
-
-    it 'delegates to the claimant association proxy' do
-      expect(query).to receive(:count)
-
-      subject.remission_claimant_count
-    end
-  end
-
   describe 'bitmasked attributes' do
     %i<discrimination_claims pay_claims desired_outcomes>.each do |attr|
       specify { expect(subject.send attr).to be_an(Array) }
