@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resource :guide, only: :show
 
+  resource :terms, only: :show
+
   resource :user_session, only: %i<create update>, path: :application do
     member do
       get 'reminder'
