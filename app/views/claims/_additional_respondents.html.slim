@@ -32,12 +32,14 @@ fieldset
 
 
           .clearfix.toggle-content.reveal-subscribe data-target="main-#{builder.index}" data-show-array='[true]'
-            .panel-indent
-              = builder.input :no_acas_number_reason,
-                collection: RespondentForm::NO_ACAS_REASON,
-                as: :radio_buttons,
-                required: true,
-                item_wrapper_class: 'block-label large-label'
+            fieldset.panel-indent
+                legend.visuallyhidde.form-label = t '.no_acas_number_reason'
+                = builder.input :no_acas_number_reason,
+                  label:false,
+                  collection: RespondentForm::NO_ACAS_REASON,
+                  as: :radio_buttons,
+                  required: true,
+                  item_wrapper_class: 'block-label large-label'
         fieldset
           = render 'address', f: builder
 

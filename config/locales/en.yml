@@ -400,6 +400,8 @@ en:
       writing_your_claim_statement: Writing your claim statement
 
   claims:
+    personal_details:
+      date_of_birth: Date of birth
     show:
       page_number: Page %{current_page} of %{total_pages}
     new:
@@ -447,6 +449,7 @@ en:
 
     claimant:
       header: Claimant's details
+      gender: Gender
       legend_disability: Do you require any assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
@@ -477,6 +480,7 @@ en:
 
     respondent:
       header: Respondent's details
+      no_acas_number_reason: Why don't you have an Acas number?
       respondent_legend: About the respondent
       acas_legend: Acas early conciliation certificate number
       contact_legend: Respondent's contact details
@@ -487,6 +491,7 @@ en:
       work_address: Give details of your work address.
 
     additional_respondents:
+      no_acas_number_reason: Why don't you have an Acas number?
       header: Additional respondents
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent <span class="number">%{number}</span>
