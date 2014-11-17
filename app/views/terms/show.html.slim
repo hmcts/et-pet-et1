@@ -8,7 +8,7 @@ header.main-header
     nav.nav-static-content
       ul
       - @presenter.file_names.each do |name|
-        li = link_to t(".#{name}"), guide_path(anchor: name)
+        li = link_to t(".#{name}"), terms_path(anchor: name)
 
     .static-content
       - @presenter.each_rendered_file do |name, contents|

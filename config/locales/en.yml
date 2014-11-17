@@ -399,6 +399,15 @@ en:
         Acas: early conciliation
       writing_your_claim_statement: Writing your claim statement
 
+  terms:
+    show:
+      header: Terms and conditions
+      general: Terms and conditions - General
+      applicable_law: Applicable law
+      privacy_policy: Privacy policy - Information provided by this service
+      data_protection: Data Protection Act 1998
+      disclaimer: Disclaimer
+
   claims:
     show:
       page_number: Page %{current_page} of %{total_pages}
