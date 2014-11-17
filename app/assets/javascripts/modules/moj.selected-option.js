@@ -9,6 +9,11 @@ module.exports = (function() {
     labels.each(function(i, el){
       var label = $(el),
         input = label.find('input');
+
+      if(input.is(':checked')){
+        label.addClass('selected');
+      }
+
       input.on('change', function(){
         var checked = input.is(':checked');
         if(input.is(':radio')){

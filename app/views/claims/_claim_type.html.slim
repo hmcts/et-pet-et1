@@ -10,7 +10,8 @@ fieldset
     .panel-indent#details-content-0
       p= t '.summary_detail'
   = f.input :is_unfair_dismissal,
-    as: :gds_check_boxes
+    as: :gds_check_boxes,
+    wrapper_class: 'options'
 
 fieldset
   legend.medium role="heading" aria-level="2" = t '.discrimination'
@@ -31,6 +32,7 @@ fieldset.reveal-publish-delegate
   legend.medium role="heading" aria-level="2" = t '.other_type'
   = f.input :is_other_type_of_claim,
     as: :gds_check_boxes,
+    wrapper_class: 'options',
     input_html: { :class => 'reveal-publish-publisher',
                   :'data-target' => 'sub1'}
 
