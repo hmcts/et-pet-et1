@@ -10,12 +10,12 @@ fieldset
 fieldset
   legend role="heading" aria-level="2"  = t '.reduce_fee'
 
+  = format t '.applying_for_remission'
+
   - if claim.secondary_claimants.any?
     = f.input :remission_claimant_count
 
   - else
-    = format t '.applying_for_remission'
-
     = f.input :applying_for_remission,
       as: :radio_buttons,
       item_wrapper_class: 'block-label',
