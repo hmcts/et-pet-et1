@@ -11,7 +11,9 @@ module.exports = (function() {
         input = label.find('input');
       input.on('change', function(){
         var checked = input.is(':checked');
-        labels.removeClass('selected');
+        if(input.is(':radio')){
+            labels.removeClass('selected');
+        }
         label.toggleClass('selected', checked);
       });
     });
