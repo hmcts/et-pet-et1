@@ -200,15 +200,10 @@ en:
 
       employment:
         job_title: Job title
-        start_date: Employment start date
-        average_hours_worked_per_week: Average hours worked each week
         gross_pay: Pay before tax
         net_pay: Pay after tax
         enrolled_in_pension_scheme: Are – or were – you a member of your employer's pension scheme?
         benefit_details: Do – or did – you have any benefits, like a company car?
-        current_situation: What is your current work situation?
-        end_date: Employment end date
-        worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
         was_employed: Have you ever been employed by the person or organisation that you’re making this claim against?
@@ -409,6 +404,8 @@ en:
       disclaimer: Disclaimer
 
   claims:
+    personal_details:
+      date_of_birth: Date of birth
     show:
       page_number: Page %{current_page} of %{total_pages}
     new:
@@ -456,6 +453,7 @@ en:
 
     claimant:
       header: Claimant's details
+      gender: Gender
       legend_disability: Do you require any assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
@@ -486,6 +484,7 @@ en:
 
     respondent:
       header: Respondent's details
+      no_acas_number_reason: Why don't you have an Acas number?
       respondent_legend: About the respondent
       acas_legend: Acas early conciliation certificate number
       contact_legend: Respondent's contact details
@@ -496,6 +495,7 @@ en:
       work_address: Give details of your work address.
 
     additional_respondents:
+      no_acas_number_reason: Why don't you have an Acas number?
       header: Additional respondents
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent %{number}
@@ -505,7 +505,13 @@ en:
     employment:
       header: Employment details
       situation_legend: Your employment details
+      current_situation: What is your current work situation?
       current_situation_legend: Current work situation
+      start_date: Employment start date
+      end_date: Employment end date
+      worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
+      new_job_start_date: New job start date
+      notice_period_end_date: Notice period end date
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job

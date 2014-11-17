@@ -3,7 +3,9 @@ fieldset
   = format t('.personal_details_hint')
   = render partial: 'personal_details', locals: { f: f }
 
-  = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
+  fieldset
+    legend.form-label = t '.gender'
+    = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons, label: false,
     item_wrapper_class: 'block-label'
 
 fieldset
@@ -34,10 +36,10 @@ fieldset
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :email_address
 
-
-  legend role="heading" aria-level="2" = t '.legend_contact_preference'
-  = f.input :contact_preference, label: false,
-    collection: ClaimantForm::CONTACT_PREFERENCES,
-    as: :radio_buttons,
-    wrapper_html: { class: 'form-label-bold' },
-    item_wrapper_class: 'block-label'
+  fieldset
+    legend role="heading" aria-level="2" = t '.legend_contact_preference'
+    = f.input :contact_preference, label: false,
+      collection: ClaimantForm::CONTACT_PREFERENCES,
+      as: :radio_buttons,
+      wrapper_html: { class: 'form-label-bold' },
+      item_wrapper_class: 'block-label'
