@@ -16,7 +16,7 @@ fieldset
 
   .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array='[true]'
     fieldset.panel-indent
-        legend.visuallyhidde.form-label = t '.no_acas_number_reason'
+        legend.form-label = t '.no_acas_number_reason'
         = f.input :no_acas_number_reason, label: false,
           collection: RespondentForm::NO_ACAS_REASON,
           as: :radio_buttons,
