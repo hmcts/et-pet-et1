@@ -2,30 +2,42 @@
   .currency_field {
     @include span(6 of 12);
     @include first;
+    padding:0;
     overflow:hidden;
+    border: 1px solid $border-colour;
+    background-color:$panel-colour;
   }
   .currency_pound {
     @include span(1);
     @include core-19;
-    line-height:1.8em;
+    padding-top:7px;
+    padding-bottom:4px;
     display:inline-block;
     text-align:center;
     background:$panel-colour;
-    border:1px solid $border-colour;
-    border-right:none;
+    border-right:1px solid $border-colour;
   }
   input.string {
     @include span(11 of 12);
     @include last;
+    margin:0;
+    border-color:#fff;
   }
   .form-group.radio_buttons {
     @include span(6 of 12);
     @include last;
     clear:none;
     margin-bottom:0;
-    span.block-label {
+    span.slim-label {
       margin-top:0;
       margin-bottom:0;
+      &:first-child{
+        margin-left:$gutter-half;
+        margin-right:$gutter;
+      }
+      label {
+        line-height:2;
+      }
     }
   }
 }
