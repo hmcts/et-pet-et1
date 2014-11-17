@@ -498,7 +498,7 @@ en:
     additional_respondents:
       header: Additional respondents
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
-      person: Respondent <span class="number">%{number}</span>
+      person: Respondent %{number}
       add_fields: Add another respondent
       remove_respondent_link: Remove respondent %{number}
 
