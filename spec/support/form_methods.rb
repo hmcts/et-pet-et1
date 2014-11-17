@@ -153,7 +153,7 @@ module FormMethods
       fill_in 'Year',  with: '2000'
     end
 
-    fill_in 'Average hours worked each week', with: 37.5
+    fill_in :employment_average_hours_worked_per_week, with: 37.5
     fill_in 'Pay before tax', with: 10000
     choose  'employment_gross_pay_period_type_weekly'
     fill_in 'Pay after tax',  with: 6000

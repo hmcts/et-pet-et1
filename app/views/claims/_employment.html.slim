@@ -13,15 +13,17 @@ fieldset
   fieldset#reveal_current_situation.reveal-subscribe.reveal-publish-delegate.toggle-content data-target="main" data-show-array='["true"]'
     legend role="heading" aria-level="2" = t '.current_situation_legend'
 
-    /! Radios: 3 options
-    = f.input :current_situation, input_html: { class: 'reveal-publish-publisher'},
-      collection: EmploymentForm::CURRENT_SITUATION,
-      as: :radio_buttons,
-      item_wrapper_class: 'block-label',
-      wrapper_html: { :class => 'form-group-reveal' },
-      reveal: { 'still_employed'        => 'sub1',
-                'notice_period'         => 'sub1',
-                'employment_terminated' => 'sub1' }
+    fieldset
+      legend.form-label = t '.current_situation'
+      /! Radios: 3 options
+      = f.input :current_situation, input_html: { class: 'reveal-publish-publisher'}, label: false,
+        collection: EmploymentForm::CURRENT_SITUATION,
+        as: :radio_buttons,
+        item_wrapper_class: 'block-label',
+        wrapper_html: { :class => 'form-group-reveal' },
+        reveal: { 'still_employed'        => 'sub1',
+                  'notice_period'         => 'sub1',
+                  'employment_terminated' => 'sub1' }
 
     #employment_ppb_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array='["still_employed", "notice_period" , "employment_terminated"]'
       /! Employment details
@@ -30,24 +32,26 @@ fieldset
 
         = f.input :job_title
 
-        = f.input :start_date
+        fieldset
+          legend.form-label = t '.start_date'
+          = f.input :start_date, label: false
 
-        = f.input :notice_period_end_date,
-          wrapper_html: { :id => 'employment_notice_period_end_date',
-                          :class => 'reveal-subscribe',
-                          :'data-target' => 'sub1',
-                          :'data-show-array' => '["notice_period"]' }
+        fieldset.reveal-subscribe data-target="sub1" data-show-array='["notice_period"]'
+          legend.form-label = t '.notice_period_end_date'
+          = f.input :notice_period_end_date, label: false,
+            wrapper_html: { :id => 'employment_notice_period_end_date' }
 
-        = f.input :end_date,
-          wrapper_html: { :id => 'employment_end_date',
-                          :class => 'reveal-subscribe',
-                          :'data-target' => 'sub1',
-                          :'data-show-array' => '["employment_terminated"]' }
+        fieldset.reveal-subscribe data-target="sub1" data-show-array='["employment_terminated"]'
+          legend.form-label = t '.end_date'
+          = f.input :end_date, label: false,
+            wrapper_html: { :id => 'employment_end_date' }
 
         /! Did you work - or get paid for - a period of notice? (optional)
         /! reveal on option 3
-        = f.input :worked_notice_period_or_paid_in_lieu,
-          wrapper_html: { :id => 'worked_notice_period_or_paid_in_lieu',
+        fieldset
+          legend.form-label = t '.worked_notice_period_or_paid_in_lieu'
+          = f.input :worked_notice_period_or_paid_in_lieu, label:false,
+            wrapper_html: { :id => 'worked_notice_period_or_paid_in_lieu',
                           :class => 'reveal-subscribe reveal-publish-delegate toggle-content',
                           :'data-target' => 'sub1',
                           :'data-show-array' => '["employment_terminated"]' } do
@@ -123,7 +127,9 @@ fieldset
 
       /! reveal on option yes of the above
       #reveal_new_job.panel-indent.reveal-subscribe.toggle-content data-target="sub3" data-show-array='["true"]'
-        = f.input :new_job_start_date
+        fieldset
+          legend.form-label = t '.new_job_start_date'
+          = f.input :new_job_start_date, label: false
 
         = f.input :new_job_gross_pay,
           input_html: { :class => 'prefix-pound' } do
