@@ -153,6 +153,7 @@ module.exports = (function () {
     $('.reveal-publish-publisher').is(function (idx, el) {
       var $el = $(this);
       if($el.is(':checked')){
+        $el.parent().addClass('selected');
         $el.trigger('pseudo-click');
       }
     });

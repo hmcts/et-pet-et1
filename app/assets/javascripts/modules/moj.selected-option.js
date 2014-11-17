@@ -9,9 +9,16 @@ module.exports = (function() {
     labels.each(function(i, el){
       var label = $(el),
         input = label.find('input');
+
+      if(input.is(':checked')){
+        label.addClass('selected');
+      }
+
       input.on('change', function(){
         var checked = input.is(':checked');
-        labels.removeClass('selected');
+        if(input.is(':radio')){
+            labels.removeClass('selected');
+        }
         label.toggleClass('selected', checked);
       });
     });
