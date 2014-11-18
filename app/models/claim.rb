@@ -53,10 +53,6 @@ class Claim < ActiveRecord::Base
     claimants.count
   end
 
-  def remission_claimant_count
-    claimants.where(applying_for_remission: true).count
-  end
-
   # TODO: validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|

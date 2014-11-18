@@ -4,7 +4,7 @@ fieldset
   .clearfix
       .callout.callout-fee
         = format t('.fee_callout',
-              application_fee_after_remission: fee_calculation.application_fee_after_remission,
+              application_fee: fee_calculation.application_fee,
               hearing_fee: fee_calculation.hearing_fee)
 
 fieldset
@@ -12,12 +12,16 @@ fieldset
 
   = format t '.applying_for_remission'
 
-  = f.input :applying_for_remission,
-    as: :radio_buttons,
-    item_wrapper_class: 'block-label',
-    wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
-    input_html: { :class => 'reveal-publish-publisher'},
-    reveal: { true => 'main', false => 'main' }
+  - if claim.secondary_claimants.any?
+    = f.input :remission_claimant_count
 
-  #remission_applied_info.panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
-    = format t('.remission_applied_info').html_safe
+  - else
+    = f.input :applying_for_remission,
+      as: :radio_buttons,
+      item_wrapper_class: 'block-label',
+      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
+      input_html: { :class => 'reveal-publish-publisher'},
+      reveal: { true => 'main', false => 'main' }
+
+    #remission_applied_info.panel-indent.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+      = format t('.remission_applied_info').html_safe
