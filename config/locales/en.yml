@@ -143,7 +143,7 @@ en:
         mobile_number: Alternative phone or mobile number
         fax_number: Fax
         has_special_needs: Do you have a disability or health condition?
-        special_needs: Discribe the assistance you require
+        special_needs: Describe the assistance you require
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -259,7 +259,7 @@ en:
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
-          The tribunal will send  correspondence by both email and post. Only choose one if you have a strong preference.
+          Whatever your preference please note that some documents cannot be sent electronically
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -457,12 +457,12 @@ en:
     claimant:
       header: Claimant's details
       gender: Gender
-      legend_disability: Do you require any assistance at the tribunal hearing?
+      legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
         Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
-      legend_contact_details: Contact details
-      legend_contact_preference: Best way to send correspondence to you
+      legend_contact_details: Claimant's contact details
+      legend_contact_preference: Best way to send correspondence to the claimant
 
     additional_claimants:
       header: Group claims
