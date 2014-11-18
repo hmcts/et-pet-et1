@@ -386,6 +386,11 @@ en:
       submit: Sign out now
       print_link: Print this page
 
+    session_expired:
+      header: Your session has expired
+      content: |
+        To complete your claim, please <a href="%{returning_user_session_path}">return to your application</a>.
+
   guides:
     show:
       header: Guide

@@ -1,5 +1,6 @@
 class ClaimReviewsController < ApplicationController
   before_action :ensure_claim_in_progress
+  before_action :check_session_expiry
 
   def update
     claim.submit!

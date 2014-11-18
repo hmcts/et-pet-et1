@@ -32,6 +32,7 @@
 - content_for :content_override do
   main#content(role="main")
     .container
+        = render partial: 'shared/session_prompt'
         = yield
 
 = render template: "layouts/moj_template"

@@ -17,8 +17,16 @@ class UserSessionsController < ApplicationController
   def update
     claim.update_attributes(email_address: user_session.email_address)
     deliver_access_details
-    session.clear
+    reset_session
     redirect_to root_path
+  end
+
+  def session_expired
+    reset_session
+  end
+
+  def refresh_session
+    render nothing: true
   end
 
   private

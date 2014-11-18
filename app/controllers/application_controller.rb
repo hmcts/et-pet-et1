@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
   before_action :ensure_claim_exists
+  after_action :set_session_expiry
 
   private
 
@@ -13,6 +11,16 @@ class ApplicationController < ActionController::Base
 
   def ensure_claim_in_progress
     redirect_to root_path unless claim.created?
+  end
+
+  def set_session_expiry
+    session[:expires_in] = 1.hour.from_now
+  end
+
+  def check_session_expiry
+    if Time.now > session[:expires_in]
+      redirect_to session_expired_user_session_path
+    end
   end
 
   def claim

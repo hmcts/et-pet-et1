@@ -6,8 +6,9 @@ Rails.application.routes.draw do
 
   resource :user_session, only: %i<create update>, path: :application do
     member do
-      get 'reminder'
-      get 'returning'
+      %w<reminder returning refresh-session session-expired>.each do |page|
+        get page
+      end
     end
   end
 

@@ -1,0 +1,5 @@
+header.main-header
+  h1= t('.header')
+
+  .main-content#main-sub-content
+    = format t('.content', returning_user_session_path:returning_user_session_path).html_safe

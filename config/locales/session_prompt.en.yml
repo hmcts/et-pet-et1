@@ -1,0 +1,6 @@
+en:
+  session_prompt:
+    header: |
+      Due to inactivity your session will expire in <span id="session_prompt_time_left">5:00</span>
+    session_continue: Do you need more time to complete your application?
+    session_continue_button: :"simple_form.yes"
