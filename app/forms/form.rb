@@ -85,4 +85,8 @@ class Form
   def target
     resource
   end
+
+  def form_name
+    self.class.model_name_i18n_key.to_s.dasherize
+  end
 end

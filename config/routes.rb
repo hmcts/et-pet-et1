@@ -33,7 +33,7 @@ Rails.application.routes.draw do
           path: "additional-#{page}"
       end
 
-      ClaimTransitionManager.pages.each do |page|
+      ClaimPagesManager.page_names.each do |page|
         resource page.underscore, only: %i<show update>, controller: :claims,
           page: page, path: page
       end

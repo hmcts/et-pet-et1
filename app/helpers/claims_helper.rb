@@ -1,5 +1,5 @@
 module ClaimsHelper
-  delegate :current_page, :total_pages, to: :transition_manager
+  delegate :current_page, :total_pages, to: :page_manager
 
   def format(text)
     markdown.render(text).html_safe

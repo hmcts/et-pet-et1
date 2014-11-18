@@ -9,7 +9,7 @@ class ClaimsController < ApplicationController
   def create
     claim = Claim.create
     session[:claim_reference] = claim.reference
-    redirect_to claim_path_for ClaimTransitionManager.first_page
+    redirect_to claim_path_for ClaimPagesManager.first_page
   end
 
   def update
@@ -28,12 +28,12 @@ class ClaimsController < ApplicationController
     if params[:return_to_review].present?
       claim_review_path
     else
-      claim_path_for transition_manager.forward
+      claim_path_for page_manager.forward
     end
   end
 
-  def transition_manager
-    @transition_manager ||= ClaimTransitionManager.new(resource: resource)
+  def page_manager
+    @page_manager ||= ClaimPagesManager.new(resource: resource)
   end
 
   def resource
@@ -48,5 +48,5 @@ class ClaimsController < ApplicationController
     @fee_calculation ||= claim.fee_calculation
   end
 
-  helper_method :transition_manager, :resource, :current_step, :fee_calculation
+  helper_method :page_manager, :resource, :current_step, :fee_calculation
 end
