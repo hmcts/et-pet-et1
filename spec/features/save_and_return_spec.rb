@@ -14,7 +14,7 @@ feature 'Save and Return' do
     expect(page).to have_text(Claim.last.reference)
 
     ActionMailer::Base.deliveries.clear
-    fill_in 'Email address',
+    fill_in 'Enter your email address to get your application number emailed to you.',
       with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_button 'Sign out now'
 

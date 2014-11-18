@@ -137,7 +137,7 @@ en:
           reference: Your application number
           password: Your password
         reminder:
-          email_address: Email address
+          email_address: Enter your email address to get your application number emailed to you.
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -383,7 +383,7 @@ en:
       header: Application saved
       legend: Return to complete your application
       subheader: |
-        Make sure you know your application number and password <br> before you sign out.
+       Your application has been saved. You can return to it by entering your application number and your password.
       submit: Sign out now
       print_link: Print this page
 
