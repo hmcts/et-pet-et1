@@ -37,7 +37,7 @@ module FormMethods
   end
 
   def end_session
-    click_link 'Sign out'
+    click_link 'Save and complete later'
     click_button 'Sign out now'
   end
 
@@ -53,7 +53,7 @@ module FormMethods
   end
 
   def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
-    fill_in 'memorable word', with: word
+    fill_in 'Create your password', with: word
     fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
@@ -83,7 +83,7 @@ module FormMethods
     end
 
     choose  'claimant_has_special_needs_true'
-    fill_in 'Discribe the assistance you require', with: 'I am blind.'
+    fill_in 'Describe the assistance you require', with: 'I am blind.'
 
     click_button 'Save and continue' unless options[:submit_form] == false
   end
