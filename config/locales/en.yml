@@ -131,7 +131,7 @@ en:
     labels:
       application_number:
         email_address: Enter your email address to receive your online application number
-        password: Enter your memorable word (at least 5 characters)
+        password: Create your password (at least 5 characters)
       user_session:
         returning:
           reference: Your application number
@@ -359,12 +359,12 @@ en:
     reference: Your reference number is
     aside:
       skip_link: Skip to content
-      gethelp_header: Get help
-      actions_header: Actions
-      read_guide: Read the guide
+      gethelp_header: Support
+      actions_header: CH£AN*GE ME! ;-)
+      read_guide: Guide to applying
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
-      signout: Sign out
+      signout: Save and complete later
 
   errors:
     messages:
@@ -407,8 +407,10 @@ en:
   claims:
     personal_details:
       date_of_birth: Date of birth
+
     show:
       page_number: Page %{current_page} of %{total_pages}
+
     new:
       header: Start your application
       legend_main: Before you continue
@@ -447,7 +449,7 @@ en:
     application_number:
       header: Your application number
       memorable_word_legend: Returning to your application
-      intro_text: You can save your application and return to it at any time. You will need your online application number and a memorable word, which you create below.
+      intro_text: You can save your application and return to it at any time. You will need your online application number and password, which you create below.
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
       print_copy: to have a copy of your online application for reference
@@ -516,6 +518,7 @@ en:
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job
+
     claim:
       header: Claim details
       claim_type: What type of claim(s) are you making?
@@ -542,11 +545,13 @@ en:
     claim_outcome:
       header: Claim outcome
       claim_outcome: Choose your preferred outcome(s)
+
     additional_information:
       header: More about the claim
       legend: Other important details
       remove_attachment: |
         Remove previously uploaded document: %{file}
+
     your_fee:
       header: Claim fee
       standard_fee: Standard fee
