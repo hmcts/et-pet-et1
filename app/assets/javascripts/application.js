@@ -7,11 +7,3 @@ var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
   sessionPrompt = require('./modules/moj.session-prompt');
 
 revealPubSub.init();
-
-var isClaimPath = function () {
-  return !!location.pathname.match(/^\/apply\/.*/);
-};
-
-if (isClaimPath()) {
-  sessionPrompt.init();
-}
