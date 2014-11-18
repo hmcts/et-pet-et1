@@ -9,12 +9,42 @@ module Jadu
     end
 
     def new_claim(xml, files = {})
-      NewClaim.new(@base_uri.merge('new-claim'), xml, files, **@options).do
+      parse(NewClaim.new(merge_uri('new-claim'), xml, files, **@options))
     end
 
     def fgr_et_office(postcode)
-      ETOffice.new(@base_uri.merge('fgr-et-office'), postcode, **@options).do
+      parse(ETOffice.new(merge_uri('fgr-et-office'), postcode, **@options))
     end
+
+    private
+
+    def merge_uri(partial_path)
+      @base_uri.merge(partial_path)
+    end
+
+    def parse(request)
+      ParsedResponse.new(request.do)
+    end
+  end
+
+  class ParsedResponse
+    extend Forwardable
+
+    def_delegator :to_h, :[]
+
+    def initialize(response)
+      @response = response
+    end
+
+    def ok?
+      @response.code.to_i / 100 == 2
+    end
+
+    def to_h
+      @parsed_json ||= JSON.parse(@response.body)
+    end
+
+    alias_method :to_hash, :to_h
   end
 
   class APIRequest

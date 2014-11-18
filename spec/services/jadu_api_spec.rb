@@ -100,32 +100,68 @@ RSpec.describe Jadu::NewClaim do
   end
 end
 
+RSpec.describe Jadu::ParsedResponse do
+  let(:response) { double(:response) }
+
+  it 'is OK if the status was 200' do
+    allow(response).to receive(:code) { '200' }
+    expect(described_class.new(response)).to be_ok
+  end
+
+  it 'is not OK if the status was not 200' do
+    allow(response).to receive(:code) { '400' }
+    expect(described_class.new(response)).not_to be_ok
+  end
+
+  it 'exposes JSON fields via []' do
+    json = '{"feeGroupReference":"991000185700","status":"ok"}'
+    allow(response).to receive(:body) { json }
+    expect(described_class.new(response)['feeGroupReference']).
+      to eql('991000185700')
+  end
+
+  it 'exports a hash' do
+    json = '{"feeGroupReference":"991000185700","status":"ok"}'
+    allow(response).to receive(:body) { json }
+    expected = { 'feeGroupReference' => '991000185700', 'status' => 'ok' }
+    expect(described_class.new(response).to_hash).to eql(expected)
+  end
+end
+
 RSpec.describe Jadu::API do
   subject { described_class.new(base_url, ssl_version: :TLSv1) }
   let(:base_url) { 'https://example.com/api/1/' }
-  let(:response) { double(:response) }
 
-  it 'constructs and sends an ET Office request' do
+  it 'constructs and sends an ET Office request and parses the response' do
     eto = double(:et_office)
     uri = URI.parse('https://example.com/api/1/fgr-et-office')
     postcode = 'SW1A 1AA'
+    response = double(:response)
+    parsed_response = double(:parsed_response)
 
     expect(Jadu::ETOffice).to receive(:new).
       with(uri, postcode, ssl_version: :TLSv1) { eto }
     expect(eto).to receive(:do) { response }
+    expect(Jadu::ParsedResponse).to receive(:new).
+      with(response) { parsed_response }
 
-    expect(subject.fgr_et_office(postcode)).to eql(response)
+    expect(subject.fgr_et_office(postcode)).to eql(parsed_response)
   end
 
-  it 'constructs and sends a New Claim request' do
+  it 'constructs and sends a New Claim request and parses the response' do
     claim = double(:new_claim)
     uri = URI.parse('https://example.com/api/1/new-claim')
     xml = '<xml />'
+    response = double(:response)
+    parsed_response = double(:parsed_response)
 
     expect(Jadu::NewClaim).to receive(:new).
       with(uri, xml, { 'example.pdf' => 'PDF' }, ssl_version: :TLSv1) { claim }
     expect(claim).to receive(:do) { response }
+    expect(Jadu::ParsedResponse).to receive(:new).
+      with(response) { parsed_response }
 
-    expect(subject.new_claim(xml, 'example.pdf' => 'PDF')).to eql(response)
+    expect(subject.new_claim(xml, 'example.pdf' => 'PDF')).
+      to eql(parsed_response)
   end
 end
