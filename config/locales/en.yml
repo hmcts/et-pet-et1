@@ -73,7 +73,7 @@ en:
         no_acas_number_reason:
           joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
-          employer_contacted_acas: My employer has already been in touch with Acas
+          employer_contacted_acas: My employer has already been in touch with Acas and has an early conciliation certificate number
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It's within 7 days of the dismissal
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
@@ -131,11 +131,11 @@ en:
     labels:
       application_number:
         email_address: Enter your email address to receive your online application number
-        password: Enter your memorable word (at least 5 characters)
+        password: Create your password (at least 5 characters)
       user_session:
         returning:
           reference: Your application number
-          password: Your memorable word
+          password: Your password
         reminder:
           email_address: Email address
 
@@ -143,7 +143,7 @@ en:
         mobile_number: Alternative phone or mobile number
         fax_number: Fax
         has_special_needs: Do you have a disability or health condition?
-        special_needs: Discribe the assistance you require
+        special_needs: Describe the assistance you require
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -160,7 +160,7 @@ en:
         claimants: :"simple_form.labels.claimant"
 
       representative:
-        has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence or speaking in court)?
+        has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -175,7 +175,7 @@ en:
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
-        name: Name
+        name: Name of respondent
         address_telephone_number: Phone number
         address_building: Building number or name
         address_locality: Town/city
@@ -218,7 +218,7 @@ en:
         claim_details: This is your opportunity to tell us about your problem at work, so that the tribunal and employer understand your claim. You don't have to provide evidence at this stage. How do I write a claim statement?
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome(s) do you want?
-        other_known_claimants: Do you know of other people who are making similar claims against the same employer?
+        other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
@@ -238,8 +238,8 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: Tell us what each of your claims are about. You can write more about your claim and upload it as a separate document later.
-        other_known_claimants: Do you know of other people who are making similar claims against the same employer?
+        claim_details: Tell us what each of your claims are about. If you run out of space you can write more on a separate document and upload it later in the application.
+        other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
@@ -259,7 +259,7 @@ en:
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
-          The tribunal will send  correspondence by both email and post. Only choose one if you have a strong preference.
+          Whatever your preference please note that some documents cannot be sent electronically
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -294,6 +294,7 @@ en:
         miscellaneous_information: |
           Eg you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
       respondent:
+        name: Exactly as it appears on your Acas early conciliation certificate, if you have one.
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         acas_early_conciliation_certificate_number: |
@@ -302,7 +303,7 @@ en:
       additional_respondents:
         has_additional_respondents: You can claim against more than one respondent. Eg if you're claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
-          address_county: Eg if London, Greater London. If Manchester, Greater Manchester
+          address_county: Eg if London, Greater London; if Manchester, Greater Manchester
 
       claim_type:
         is_discrimination: Discrimination
@@ -326,7 +327,7 @@ en:
       additional_information:
         has_miscellaneous_information: |
           Include anything that will help the judge come to a decision about whether your case can be  heard at an employment tribunal.  Remember that what you write may be seen by the respondent.
-        miscellaneous_information: Enter more detail about your claim.
+        miscellaneous_information: Enter more detail about your claim. Limit is 5000 characters (approx 900 words).
         attachment: |
           You can upload a separate document if you need more space to describe your claim. Please do not send any
           evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file. You can usually save
@@ -356,22 +357,22 @@ en:
         return: Return to your application
 
   shared:
-    reference: Your reference number is
+    reference: Your application number is
     aside:
       skip_link: Skip to content
-      gethelp_header: Get help
-      actions_header: Actions
-      read_guide: Read the guide
+      gethelp_header: Support
+      actions_header: Your application
+      read_guide: Application guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
-      signout: Sign out
+      signout: Save and complete later
 
   errors:
     messages:
       rtf: is not an RTF or plain text file
     user_session:
       not_found: A claim with that application number could not be found
-      invalid: This memorable word does not match the application number
+      invalid: This password does not match the application number
 
   user_sessions:
     returning:
@@ -382,7 +383,7 @@ en:
       header: Application saved
       legend: Return to complete your application
       subheader: |
-        Make sure you know your application number and memorable word <br> before you sign out.
+        Make sure you know your application number and password <br> before you sign out.
       submit: Sign out now
       print_link: Print this page
 
@@ -407,8 +408,10 @@ en:
   claims:
     personal_details:
       date_of_birth: Date of birth
+
     show:
       page_number: Page %{current_page} of %{total_pages}
+
     new:
       header: Start your application
       legend_main: Before you continue
@@ -447,7 +450,7 @@ en:
     application_number:
       header: Your application number
       memorable_word_legend: Returning to your application
-      intro_text: You can save your application and return to it at any time. You will need your online application number and a memorable word, which you create below.
+      intro_text: You can save your application and return to it at any time. You will need your online application number and password, which you create below.
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
       print_copy: to have a copy of your online application for reference
@@ -455,12 +458,12 @@ en:
     claimant:
       header: Claimant's details
       gender: Gender
-      legend_disability: Do you require any assistance at the tribunal hearing?
+      legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
         Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
-      legend_contact_details: Contact details
-      legend_contact_preference: Best way to send correspondence to you
+      legend_contact_details: Claimant's contact details
+      legend_contact_preference: Best way to send correspondence to the claimant
 
     additional_claimants:
       header: Group claims
@@ -477,8 +480,7 @@ en:
       representative_legend: About your representative
       contact_legend: Representative's contact details
       contact_info: |
-        All correspondence about the case will be sent to the representative.
-        If you change the representative, you must give their contact details to officials handling your case.
+        All correspondence about the case will be sent to the representative. If you change representative after you have submitted your application, you must give their contact details to the officials handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
@@ -516,6 +518,7 @@ en:
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job
+
     claim:
       header: Claim details
       claim_type: What type of claim(s) are you making?
@@ -542,11 +545,13 @@ en:
     claim_outcome:
       header: Claim outcome
       claim_outcome: Choose your preferred outcome(s)
+
     additional_information:
       header: More about the claim
       legend: Other important details
       remove_attachment: |
         Remove previously uploaded document: %{file}
+
     your_fee:
       header: Claim fee
       standard_fee: Standard fee
@@ -559,11 +564,15 @@ en:
         <br/><br/>
         If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees">See more about fees</a>
 
-      reduce_fee: Reducing the issue fee
-      applying_for_remission: You may be able to get the issue fee reduced (known as fee remission) if you are <a href="/guide#help_with_paying_the_fees">eligible for lower fees</a>.
+      reduce_fee: Exemption from paying fees
+      applying_for_remission_single:
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#help_with_paying_the_fees">guide on fee remissions</a>.
+      applying_for_remission_multiple:
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#help_with_paying_the_fees">guide on fee remissions</a>.
+      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: |
         <h3 class="bold-small">You don’t need to pay the issue fee now</h3>
-        <p class="font-small">When you've submitted this application, you'll be able to apply<br/>for fee remission. <br/><br/>If you don't qualify, you'll have to pay the full amount.</p>
+        <p class="font-small">When you’ve submitted this application, you’ll be able to apply for fee remission. You must do this within 7 days of submitting your claim, or your claim will be rejected.</p>
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
       hearing_fee: |
@@ -588,7 +597,7 @@ en:
 
         __%{reference}__
 
-        You need this number, and your memorable word,
+        You need this number, and your password,
         to [return to your form](http://gov.uk/) (if you don't complete it in one session).
 
     confirmation_email:
