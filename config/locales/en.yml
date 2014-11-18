@@ -387,8 +387,9 @@ en:
       print_link: Print this page
 
     session_expired:
-      header: Your Session Has Expired
-      content: You have been inactive for over 60 minutes. Please log back in to complete your claim.
+      header: Your session has expired
+      content: |
+        To complete your claim, please <a href="%{returning_user_session_path}">return to your application</a>.
 
   guides:
     show:

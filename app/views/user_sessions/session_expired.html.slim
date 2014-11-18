@@ -1,8 +1,5 @@
 header.main-header
   h1= t('.header')
 
-.main-section
-  = render partial: 'shared/aside'
-
   .main-content#main-sub-content
-    = t '.content'
+    = format t('.content', returning_user_session_path:returning_user_session_path).html_safe
