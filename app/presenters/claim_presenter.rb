@@ -1,11 +1,12 @@
 class ClaimPresenter < Struct.new(:target)
-  SECTIONS = %w<claimant representative respondent employment
-    claim_type claim_details claim_outcome additional_information your_fee>.freeze
+  SECTIONS = %w<claimant additional_claimants representative respondent
+    additional_respondents employment claim_type claim_details claim_outcome
+    additional_information your_fee>.freeze
 
   def each_section
     SECTIONS.each do |section|
       section      = send(section)
-      section_name = section.class.name.underscore.sub(/_presenter\Z/, '')
+      section_name = section.class.i18n_key
 
       proc[section_name, section]
     end
@@ -15,6 +16,10 @@ class ClaimPresenter < Struct.new(:target)
 
   def claimant
     @claimant ||= ClaimantPresenter.new target.primary_claimant
+  end
+
+  def additional_claimants
+    @additional_claimants ||= ClaimantCollectionPresenter.new target
   end
 
   def representative
@@ -27,6 +32,10 @@ class ClaimPresenter < Struct.new(:target)
 
   def employment
     @employment ||= EmploymentPresenter.new target.employment
+  end
+
+  def additional_respondents
+    @additional_respondents ||= RespondentCollectionPresenter.new target
   end
 
   def claim_type
