@@ -27,8 +27,17 @@
   &:first-child{
     margin-top:0;
   }
+  .review-table{
+    margin-top:$gutter-half;
+    th {
+      padding-left:$gutter-half/2;
+    }
+    & + .table-sub-header {
+      margin-top:0;
+    }
+  }
   .table-header {
-    @extend .bold-medium;
+    @include bold-24();
     overflow:hidden;
     margin:0;
     a {
@@ -38,8 +47,14 @@
       font-weight: 400;
     }
   }
-  .review-table{
-    margin-top:$gutter-half;
+  .table-sub-header {
+    @include bold-19();
+    margin:$gutter-half 0 0;
+    padding:$gutter-half/2;
+    background-color:$grey-4;
+    & + .review-table {
+      margin-top:0;
+    }
   }
 }
 .email-confirmation {
