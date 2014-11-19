@@ -5,7 +5,7 @@ var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
   formHintReveal = require('./modules/moj.reveal-hints'),
   removeMultiple = require('./modules/moj.remove-multiple'),
   sessionPrompt = require('./modules/moj.session-prompt'),
-  cheetJS = require('cheet.js');
+  cheetJS = require('./modules/cheet.js');
 
 cheetJS('e x p i r e 1 2 3', function () {
   $('#logo img').fadeOut().fadeIn();
