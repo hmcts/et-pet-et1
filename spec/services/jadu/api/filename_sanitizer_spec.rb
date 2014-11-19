@@ -51,4 +51,5 @@ RSpec.describe Jadu::API::FilenameSanitizer do
   sanitize 'internal space', "file#{SPACE}with#{SPACE}spaces.pdf", 'file_with_spaces.pdf'
   sanitize 'punctuation', 'test"+-@#text', 'test_text'
   sanitize 'additional periods', 'foo.bar.baz.pdf', 'foo_bar_baz.pdf'
+  sanitize 'spaces and punctuation together', 'Wow! A filename!.pdf', 'Wow_A_filename.pdf'
 end

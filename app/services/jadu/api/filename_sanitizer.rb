@@ -68,7 +68,7 @@ module Jadu
       end
 
       def replace_spaces_with_underscores(s)
-        s.gsub(/[\p{Space}\p{Cf}]+/, '_')
+        s.gsub(/[\p{Space}\p{Cf}_]+/, '_')
       end
 
       def remove_leading_junk(s)
