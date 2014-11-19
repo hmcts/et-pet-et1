@@ -9,12 +9,12 @@ feature 'Save and Return' do
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_link 'Sign out'
+    click_link 'Save and complete later'
     expect(page).to have_text('Application saved')
     expect(page).to have_text(Claim.last.reference)
 
     ActionMailer::Base.deliveries.clear
-    fill_in 'Email address',
+    fill_in 'Enter your email address to get your application number emailed to you.',
       with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_button 'Sign out now'
 
@@ -32,7 +32,7 @@ feature 'Save and Return' do
 
     fill_in_personal_details(submit_form: false)
 
-    click_link 'Sign out'
+    click_link 'Save and complete later'
 
     expect(page).to have_text(claim_heading_for(:new))
   end
@@ -40,7 +40,7 @@ feature 'Save and Return' do
   scenario 'ending the session when current page invalid' do
     start_claim
     fill_in_password
-    click_link 'Sign out'
+    click_link 'Save and complete later'
     expect(page).to have_text('Application saved')
   end
 
