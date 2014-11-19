@@ -42,13 +42,19 @@ class Claim < ActiveRecord::Base
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
 
   after_initialize :setup_state_machine
+  after_initialize :generate_application_reference
+
+  def self.find_by_reference(reference)
+    normalized = ApplicationReference.normalize(reference)
+    find_by!(application_reference: normalized)
+  end
 
   def alleges_discrimination_or_unfair_dismissal?
     discrimination_claims.any? || is_unfair_dismissal?
   end
 
   def reference
-    KeyObfuscator.new.obfuscate(id)
+    application_reference
   end
 
   def claimant_count
@@ -78,14 +84,14 @@ class Claim < ActiveRecord::Base
     fee_calculation.application_fee != fee_calculation.application_fee_after_remission
   end
 
-  class << self
-    def find_by_reference(reference)
-      find_by_id KeyObfuscator.new.unobfuscate(reference)
-    end
+  private
+
+  def state_machine
+    @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
   end
 
-  private def state_machine
-    @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
+  def generate_application_reference
+    self.application_reference ||= ApplicationReference.generate
   end
 
   alias_method :setup_state_machine, :state_machine
