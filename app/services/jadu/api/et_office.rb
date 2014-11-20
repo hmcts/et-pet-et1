@@ -5,7 +5,7 @@ module Jadu
   class API
     class ETOffice
       extend Forwardable
-      def_delegator :@api_request, :do
+      def_delegator :@api_request, :perform
 
       def initialize(uri, postcode, **options)
         params = [Multipart::StringParam.new('postcode', postcode)]

@@ -5,7 +5,7 @@ module Jadu
   class API
     class NewClaim
       extend Forwardable
-      def_delegator :@api_request, :do
+      def_delegator :@api_request, :perform
 
       def initialize(uri, xml, files, **options)
         params = string_params(xml) + file_params(files)

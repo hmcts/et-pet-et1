@@ -24,7 +24,7 @@ module Jadu
     end
 
     def parse(request)
-      ParsedResponse.new(request.do)
+      ParsedResponse.new(request.perform)
     end
   end
 end

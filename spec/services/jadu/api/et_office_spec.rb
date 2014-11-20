@@ -9,11 +9,11 @@ RSpec.describe Jadu::API::ETOffice do
     described_class.new(uri, 'SW1A 1AA', foo: 'bar')
   end
 
-  it 'forwards :do to the API request' do
+  it 'forwards :perform to the API request' do
     api_request = double(:api_request)
     allow(Jadu::API::Request).to receive(:new) { api_request }
 
-    expect(api_request).to receive(:do)
-    described_class.new(uri, 'SW1A 1AA').do
+    expect(api_request).to receive(:perform)
+    described_class.new(uri, 'SW1A 1AA').perform
   end
 end

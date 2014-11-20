@@ -13,7 +13,7 @@ RSpec.describe Jadu::API do
 
     expect(Jadu::API::ETOffice).to receive(:new).
       with(uri, postcode, ssl_version: :TLSv1) { eto }
-    expect(eto).to receive(:do) { response }
+    expect(eto).to receive(:perform) { response }
     expect(Jadu::API::ParsedResponse).to receive(:new).
       with(response) { parsed_response }
 
@@ -29,7 +29,7 @@ RSpec.describe Jadu::API do
 
     expect(Jadu::API::NewClaim).to receive(:new).
       with(uri, xml, { 'example.pdf' => 'PDF' }, ssl_version: :TLSv1) { claim }
-    expect(claim).to receive(:do) { response }
+    expect(claim).to receive(:perform) { response }
     expect(Jadu::API::ParsedResponse).to receive(:new).
       with(response) { parsed_response }
 
