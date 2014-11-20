@@ -4,13 +4,13 @@
   "author": {
     "name": "UK Ministry Of Justice"
   },
-  "license" : "OGL",
+  "license": "OGL",
   "engines": {
     "node": ">= 0.10"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/ministryofjustice/atet"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ministryofjustice/atet"
   },
   "devDependencies": {
     "browserify": "~> 4.1"
