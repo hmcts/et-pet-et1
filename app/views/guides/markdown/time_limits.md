@@ -1,4 +1,4 @@
-# Time limits
+## Time limits
 
 In most cases the tribunal must receive your claim within 3 months:
 
