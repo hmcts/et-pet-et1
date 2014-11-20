@@ -58,7 +58,7 @@ RSpec.describe Claim, :type => :claim do
 
   describe '#reference' do
     it 'returns a token based upon the primary key' do
-      obfuscator = double(:obfuscator)
+      obfuscator = KeyObfuscator.new
       allow(KeyObfuscator).to receive(:new) { obfuscator }
       allow(obfuscator).to receive(:obfuscate).with(subject.id) { 'ABC-1234' }
       expect(subject.reference).to eq('ABC-1234')
