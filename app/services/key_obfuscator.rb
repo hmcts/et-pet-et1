@@ -5,15 +5,33 @@ require 'integer_obfuscator'
 # number to a claim application. As requested by Ash Berlin.
 
 class KeyObfuscator
-  def initialize(secret: Rails.application.secrets.secret_key_base)
+  def initialize(secret: Rails.application.secrets.app_ref_secret_key)
     @obfuscator = IntegerObfuscator.new(secret)
   end
 
   def obfuscate(numeric)
-    Base32::Crockford.encode @obfuscator.obfuscate(numeric).to_s
+    format(encode(@obfuscator.obfuscate(numeric)))
   end
 
   def unobfuscate(string)
-    @obfuscator.unobfuscate Base32::Crockford.decode(string).to_i
+    @obfuscator.unobfuscate(decode(clean(string)))
+  end
+
+  private
+
+  def encode(number)
+    Base32::Crockford.encode(number)
+  end
+
+  def decode(string)
+    Base32::Crockford.decode(string).unpack('N')[0]
+  end
+
+  def format(digits)
+    digits.rjust(7, '0').scan(/\A.{3}|.{4}/).join('-')
+  end
+
+  def clean(string)
+    string.upcase.gsub(/[^0-9A-Z]/, '')
   end
 end
