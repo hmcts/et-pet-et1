@@ -8,6 +8,9 @@ class ClaimPagesManager < PageManager
   page  'additional-claimants', number: 3,
           transitions_to: 'representative'
 
+  page  'additional-claimants-upload', number: 3,
+          transitions_to: 'representative'
+
   page  'representative', number: 4,
           transitions_to: 'respondent'
 

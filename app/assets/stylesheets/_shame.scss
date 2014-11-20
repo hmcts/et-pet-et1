@@ -197,3 +197,17 @@ fieldset{
 .nav-static-content{
   margin: 0 0 $gutter;
 }
+
+
+#step_one, #step_two, #step_three{
+    p, .additional_claimants_upload_additional_claimants_csv {
+        margin-left: 70px;
+        margin-top: 0;
+    }
+    b {
+        float: left;
+    }
+    .additional_claimants_upload_additional_claimants_csv{
+        clear:none;
+    }
+}

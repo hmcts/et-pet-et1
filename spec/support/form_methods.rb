@@ -93,6 +93,16 @@ module FormMethods
     click_button 'Save and continue'
   end
 
+  def fill_in_additional_claimant_jump_to_csv_upload
+    choose "Yes"
+    click_link "spreadsheet"
+  end
+
+  def fill_in_additional_claimants_upload_details
+    choose "No"
+    click_button "Save and continue"
+  end
+
   def fill_in_representative_details
     choose 'representative_has_representative_true'
     select 'Lawyer', from: 'representative_type'

@@ -60,6 +60,32 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text claim_heading_for(:representative)
     end
 
+    scenario "Navigating between manual and CSV upload for additional claimants" do
+      start_claim
+      fill_in_password
+      fill_in_personal_details
+      fill_in_additional_claimant_jump_to_csv_upload
+
+      expect(page).to have_text page_number(3)
+      expect(page).to have_text claim_heading_for(:additional_claimants_upload)
+
+      click_link "manually"
+
+      expect(page).to have_text page_number(3)
+      expect(page).to have_text claim_heading_for(:additional_claimants)
+    end
+
+    scenario 'Entering additional claimant upload details' do
+      start_claim
+      fill_in_password
+      fill_in_personal_details
+      fill_in_additional_claimant_jump_to_csv_upload
+      fill_in_additional_claimants_upload_details
+
+      expect(page).to have_text page_number(4)
+      expect(page).to have_text claim_heading_for(:representative)
+    end
+
     scenario 'Entering representative details' do
       start_claim
       fill_in_password

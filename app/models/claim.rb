@@ -1,6 +1,7 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
   mount_uploader :attachment, AttachmentUploader
+  mount_uploader :additional_claimants_csv, AttachmentUploader
 
   has_one :primary_claimant,
     -> { where primary_claimant: true },
@@ -27,6 +28,7 @@ class Claim < ActiveRecord::Base
 
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
   delegate :file, to: :attachment, prefix: true
+  delegate :file, to: :additional_claimants_csv, prefix: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -50,7 +52,11 @@ class Claim < ActiveRecord::Base
   end
 
   def claimant_count
-    claimants.count
+    claimants.count + additional_claimants_csv_record_count
+  end
+
+  def reset_additional_claimants_count!
+    update_attribute(:additional_claimants_csv_record_count, 0)
   end
 
   # TODO: validate claim against JADU XSD
