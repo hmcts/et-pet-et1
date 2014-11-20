@@ -19,9 +19,7 @@ module Jadu
       end
 
       def file_params(files)
-        files.map { |name, content|
-          Multipart::FileParam.new(name, name, content)
-        }
+        files.map { |name, content| Multipart::FileParam.new(name, name, content) }
       end
     end
   end

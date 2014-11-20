@@ -10,20 +10,21 @@ module Multipart
     def initialize(path, *params)
       super path
       set_content_type 'multipart/form-data', 'boundary' => boundary
-      self.body = build_body(params)
+      self.body = (rendered_params(params) + coda).join(CRLF)
     end
 
     private
 
-    def build_body(params)
-      (
-        params.flat_map { |p| ["--#{boundary}", p.to_multipart] } +
-        ["--#{boundary}--", '']
-      ).join(CRLF)
+    def rendered_params(params)
+      params.flat_map { |p| ["--#{boundary}", p.to_multipart] }
     end
 
     def boundary
       @boundary ||= SecureRandom.hex
+    end
+
+    def coda
+      ["--#{boundary}--", '']
     end
   end
 
