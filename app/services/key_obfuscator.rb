@@ -32,6 +32,6 @@ class KeyObfuscator
   end
 
   def clean(string)
-    string.upcase.gsub(/\A[0O]|[^0-9A-Z]/, '')
+    string.upcase.gsub(/[^0-9A-Z]/, '')
   end
 end
