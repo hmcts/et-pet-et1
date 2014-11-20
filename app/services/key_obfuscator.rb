@@ -5,7 +5,7 @@ require 'integer_obfuscator'
 # number to a claim application. As requested by Ash Berlin.
 
 class KeyObfuscator
-  def initialize(secret: Rails.application.secrets.secret_key_base)
+  def initialize(secret: Rails.application.secrets.app_ref_secret_key)
     @obfuscator = IntegerObfuscator.new(secret)
   end
 
