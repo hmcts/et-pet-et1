@@ -12,19 +12,17 @@ header.main-header
 
     - presenter.each_section do |section_name, section|
 
-      .review-table-entry
+      div class=("review-table-entry #{section_name.dasherize}")
         h2.table-header
           span = t ".sections.#{section_name}"
           = quick_edit_link_for section_name
 
-        table.review-table
-          - section.each_item do |name, value|
-            tr
-              th= t ".#{section_name}.#{name}"
-              - if value.present?
-                td= value
-              - else
-                td.not-entered
-                  = t '.not_entered'
+        - if section.try(:children).present?
+          = render partial: 'collection',
+            locals: { section_name: section_name, presenter: section }
+
+        - else
+          = render partial: 'item',
+            locals: { section_name: section_name, presenter: section }
 
     = render partial: 'email_addresses'

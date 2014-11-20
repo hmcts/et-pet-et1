@@ -1,8 +1,33 @@
-class Presenter < Struct.new(:target)
+class Presenter
   include ActionView::Helpers
+
+  attr_accessor :target
+
+  # If a target is nil we want the presenter to still be able to send messages
+  # to the target and just return nil. This way we get "Not entered" instead of
+  # a 500. This should never happen but could if a user ends up on the review page
+  # by manually entering the URL before completing all form pages
+
+  class NullObject < BasicObject
+    def method_missing(*)
+      nil
+    end
+
+    def respond_to?(*)
+      true
+    end
+  end
+
+  def initialize(target)
+    @target = target || NullObject.new
+  end
 
   def self.present(*keys)
     keys.each { |key| delegate key, to: :target, allow_nil: true }
+  end
+
+  def self.i18n_key
+    name.underscore.sub(/_presenter\Z/, '')
   end
 
   def each_item

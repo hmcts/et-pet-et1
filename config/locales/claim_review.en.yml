@@ -1,7 +1,6 @@
 en:
   claim_reviews:
     show:
-      not_entered: Not entered
       header: Check your application
       edit: Edit
       info: You can change anything that's not right before submitting your application.
@@ -10,14 +9,25 @@ en:
 
       sections:
         claimant: About you
+        additional_claimants: Group claim
         representative: Your representative
         respondent: Respondent's details
+        additional_respondents: Additional respondents
         employment: Employment details
         claim_type: Claim type
         claim_details: Claim details
         claim_outcome: Claim outcome
         additional_information: Additional information
         your_fee: Your fee
+
+    collection:
+      additional_claimants:
+        sub_header: "Claimant %{index}"
+      additional_respondents:
+        sub_header: "Respondent %{index}"
+
+    item:
+      not_entered: Not entered
 
       claimant:
         full_name: Full name
@@ -31,6 +41,12 @@ en:
         is_disabled: Disability
         is_applying_for_remission: Fee remission
         has_representative: Representative
+
+      additional_claimants:
+        group_claim: Group claim
+        full_name: Full name
+        date_of_birth: Date of birth
+        address: Address
 
       representative:
         has_representative: Representative
@@ -50,8 +66,13 @@ en:
         telephone_number: Phone
         employed_by_employer: Employed by employer
         acas_early_conciliation_certificate_number: Acas number
-        no_acas_number_reason: Reason for no Acas number
         work_address: Work address
+
+      additional_respondents:
+        additional_respondents: Additional respondents
+        name: Name
+        address: Address
+        acas_early_conciliation_certificate_number: Acas number
 
       employment:
         job_title: Job
