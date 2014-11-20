@@ -1,18 +1,16 @@
-fieldset
-  legend role="heading" aria-level="2"  = t '.application_fee'
-
-  .clearfix
-      .callout.callout-fee
-        = format t('.fee_callout',
-              application_fee: fee_calculation.application_fee,
-              hearing_fee: fee_calculation.hearing_fee)
+.clearfix
+    .callout.callout-fee
+      = format t('.fee_callout',
+            application_fee: fee_calculation.application_fee,
+            hearing_fee: fee_calculation.hearing_fee)
 
 fieldset
-  legend role="heading" aria-level="2"  = t '.reduce_fee'
+  legend role="heading" aria-level="2" = t '.reduce_fee'
 
   - if claim.secondary_claimants.any?
     = format t '.applying_for_remission_multiple'
-    = f.input :remission_claimant_count
+    = f.input :remission_claimant_count,
+      wrapper_html: { :class => 'loner-element' }
     = format t '.applying_for_remission_multiple_note'
 
   - else
