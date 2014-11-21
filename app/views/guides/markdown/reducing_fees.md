@@ -1,6 +1,5 @@
 ## Reducing fees
 
-### Qualifying for fee reduction
 To pay a reduced fee or no fee (known as ‘fee remission’), you’ll need to prove that:
 
 * In most cases, you (and your partner if you have one) have ‘disposable capital’ of less than £3000. Disposable capital means savings and investments; it doesn’t include your main home, personal belongings, wages or benefits.<br/><br/>

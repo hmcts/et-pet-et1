@@ -23,6 +23,8 @@ If you’re making a claim with other people against the same employer, as part 
 - the number of people in the group
 - whether any in the group are applying for a reduction in fees (fee remission)
 
+__Issue fee__
+
 |Number of people named on the claim form|Type A|Mixture of type<br/>A and type B,or<br> type B claims only|
 |----------------------------------------|--------|--------------------------------------------------------|
 |Between 2 and 10|£320|£500|
@@ -31,12 +33,13 @@ If you’re making a claim with other people against the same employer, as part 
 
 If your group claim makes it to a hearing, then your group will also pay a single hearing fee.
 
+__Hearing fee__
+
 |Number of people named on the claim form|Type A|Mixture of type<br/>A and type B,or<br> type B claims only|
 |----------------------------------------|--------|--------------------------------------------------------|
 |Between 2 and 10|£460|£1900|
 |Between 11 and 200|£920|£3,800|
 |201 or more|£1,380|£5,700|
-
 
 For more detailed information about fees for group claims, please see [employment tribunal fees for groups and multiples](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/t436-eng.pdf).
 

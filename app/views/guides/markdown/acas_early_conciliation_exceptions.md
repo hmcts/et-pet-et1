@@ -18,7 +18,7 @@ If you’re applying for interim relief, you don’t have to contact Acas for ea
 
 Interim relief is a special measure where an employment tribunal can make an order for continued employment of a claimant who has has been dismissed pending a full hearing.
 
-You can only apply for interim relief if you say you’ve been dismissed for certain reasons such as whistleblowing, trade union activities or acting as a workers’ representative.
+You can only apply for interim relief if you claim you’ve been dismissed for certain reasons such as whistleblowing, trade union activities or acting as a workers’ representative.
 
 The tribunal must receive your claim and application for interim relief within 7 days of your dismissal.
 

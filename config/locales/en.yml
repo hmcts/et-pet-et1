@@ -406,7 +406,6 @@ en:
       time_limits: Time limits
       acas_early_conciliation: |
         Acas: early conciliation
-      acas_early_conciliation_certificate_number: Acas early conciliation certificate number
       acas_early_conciliation_exceptions: Exceptions to early conciliation
       fees_and_payment: Fees and payment
       fees_and_payment_working_out_your_fee: Working out your fee
