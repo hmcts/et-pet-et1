@@ -47,7 +47,6 @@ feature 'Guide' do
   let(:reducing_your_fee_div)     { "#reducing_fees" }
   let(:writing_yours_div)         { "#writing_your_claim_statement" }
 
-
   scenario "User can click time time_limits_link" do
     expect(page).to have_link(time_limits_link, href: "#{guide_path + time_limits_div}")
     expect(page.find(time_limits_div)).not_to be_nil
