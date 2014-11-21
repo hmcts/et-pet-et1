@@ -1,8 +1,8 @@
-## Acas: early conciliation
+<h2 class="legend">Acas: early conciliation</h2>
 
 Acas provides impartial information, advice and conciliation services to employers and employees on all aspects of employment law.
 
-Before applying to an employment tribunal, you must contact Acas (Advisory, Conciliation and Arbitration Service) to use their free [‘Early Conciliation’ service](http://www.acas.org.uk/earlyconciliation). This service aims to resolve any dispute without having to go to an employment tribunal.
+Before applying to an employment tribunal you have to contact Acas (Advisory, Conciliation and Arbitration Service) to use their free [Early Conciliation service](http://www.acas.org.uk/earlyconciliation). This service aims to resolve any dispute without having to go to an employment tribunal.
 
 To use this service, fill in the [Acas early conciliation notification form](http://www.acas.org.uk/index.aspx?articleid=4028) or contact Acas:
 

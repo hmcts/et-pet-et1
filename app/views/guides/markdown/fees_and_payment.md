@@ -1,4 +1,4 @@
-## Fees and payment
+<h2 class="legend">Fees and payment</h2>
 
 This is not a free service; there are two types of fee:
 

@@ -1,4 +1,4 @@
-## Time limits
+<h2 class="legend">Time limits</h2>
 
 In most cases the tribunal must receive your claim within 3 months:
 

@@ -1,4 +1,4 @@
-## Writing your claim statement
+<h2 class="legend">Writing your claim statement</h2>
 
 This is a description of your problem at work. It should support your claim and explain to the respondent (the person you're making the claim against) and the tribunal what happened. Include all relevant background information, the dates of the incidents and the people involved.
 
@@ -29,6 +29,4 @@ __Redundancy payment__
 - say whether you’ve asked your employer for payment (if so, give the date)
 - state if your claim was rejected by a redundancy payments office (if so, give the date of the rejection letter)
 
-[Take me back to the start](#top)
-
-[Take me back to my application](/)
+[Take me back to the top](#top)
