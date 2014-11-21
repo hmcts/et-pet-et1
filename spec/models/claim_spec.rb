@@ -61,6 +61,14 @@ RSpec.describe Claim, :type => :claim do
       expect(ApplicationReference).to receive(:generate) { 'ABCD-1234' }
       expect(subject.reference).to eq('ABCD-1234')
     end
+
+    it 'checks for collisions when generating' do
+      allow(ApplicationReference).to receive(:generate).
+        and_return('AAAA-1111', 'BBBB-2222', 'CCCC-3333')
+      described_class.create!(application_reference: 'AAAA-1111')
+      described_class.create!(application_reference: 'BBBB-2222')
+      expect(subject.application_reference).to eq('CCCC-3333')
+    end
   end
 
   describe '.find_by_reference' do

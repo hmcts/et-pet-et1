@@ -91,7 +91,14 @@ class Claim < ActiveRecord::Base
   end
 
   def generate_application_reference
-    self.application_reference ||= ApplicationReference.generate
+    self.application_reference ||= unique_application_reference
+  end
+
+  def unique_application_reference
+    loop do
+      ref = ApplicationReference.generate
+      return ref unless self.class.exists?(application_reference: ref)
+    end
   end
 
   alias_method :setup_state_machine, :state_machine
