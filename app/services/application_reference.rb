@@ -1,11 +1,8 @@
 require 'base32_pure'
 
 class ApplicationReference
-  def self.generate(length = 8)
-    number = SecureRandom.hex.to_i(16)
-    encoded = Base32::Crockford.encode(number)
-    truncated = encoded.rjust(length, '0')[-length..-1]
-    hyphenate(truncated)
+  def self.generate
+    hyphenate(Base32::Crockford.encode(SecureRandom.random_bytes(5)))
   end
 
   def self.normalize(str)

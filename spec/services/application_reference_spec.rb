@@ -4,15 +4,8 @@ RSpec.describe ApplicationReference do
       expect(described_class.generate).to match(/\A[0-9A-Z]{4}-[0-9A-Z]{4}\z/)
     end
 
-    it 'returns longer codes if asked' do
-      expect(described_class.generate(12)).
-        to match(/\A[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{4}\z/)
-      expect(described_class.generate(10)).
-        to match(/\A[0-9A-Z]{4}-[0-9A-Z]{4}-[0-9A-Z]{2}\z/)
-    end
-
-    it 'is always full length even if a short random number is returned' do
-      allow(SecureRandom).to receive(:hex) { '000000000000000000000000000000ff' }
+    it 'is always full length even if there are leading zero bytes' do
+      allow(SecureRandom).to receive(:random_bytes) { "\x00\x00\x00\x00\xff" }
       expect(described_class.generate).to eql('0000-007Z')
     end
 
