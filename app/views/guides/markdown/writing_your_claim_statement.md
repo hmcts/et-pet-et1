@@ -28,3 +28,7 @@ __Redundancy payment__
 
 - say whether you’ve asked your employer for payment (if so, give the date)
 - state if your claim was rejected by a redundancy payments office (if so, give the date of the rejection letter)
+
+[Take me back to the start](#top)
+
+[Take me back to my application](/)

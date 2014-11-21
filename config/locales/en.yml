@@ -433,12 +433,12 @@ en:
       header: Start your application
       legend_main: Before you continue
       callout: |
-        This is not a free service. [Find out about fees and fee reductions](/guide#fees)
+        This is not a free service. [Find out about fees and fee reductions](/guide#fees_and_payment)
       before_you_continue: |
           ### Are you in time to apply?
           You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
 
-          [Learn about when you can apply](/guide#acas_early_conciliation)
+          [Learn about when you can apply](/guide#time_limits)
 
           ### Have you contacted Acas?
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
@@ -598,13 +598,13 @@ en:
 
         <span class="number">£%{application_fee}</span>
         <br/><br/>
-        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees">See more about fees</a>
+        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees_and_payment">See more about fees</a>
 
       reduce_fee: Exemption from paying fees
       applying_for_remission_single:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#help_with_paying_the_fees">guide on fee remissions</a>.
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#help_with_paying_the_fees">guide on fee remissions</a>.
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: |
         <h3 class="bold-small">You don’t need to pay the issue fee now</h3>

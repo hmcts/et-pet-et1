@@ -1,4 +1,4 @@
-## Exceptions to early conciliation
+### Exceptions to early conciliation
 You may not have to contact Acas for early conciliation if:
 
 - you’re making the claim with another person who already has an Acas early conciliation certificate number
@@ -13,7 +13,7 @@ If you think you don’t need to contact Acas, you may want to get legal advice 
 
 
 <a name="interim_relief"></a>
-## Interim relief
+### Interim relief
 If you’re applying for interim relief, you don’t have to contact Acas for early conciliation.
 
 Interim relief is a special measure where an employment tribunal can make an order for continued employment of a claimant who has has been dismissed pending a full hearing.
