@@ -3,8 +3,7 @@ require 'rails_helper'
 feature 'Guide' do
   let(:time_limits_header)          { "<h2>Time limits</h2>" }
   let(:acas_header)                 { "<h2>Acas: early conciliation</h2>" }
-  let(:acas_certificate_header)     { "<h2>Early conciliation certificate number</h2>" }
-  let(:acas_exceptions_header)      { "<h2>Exceptions to early conciliation</h2>" }
+  let(:acas_exceptions_header)      { "<h3>Exceptions to early conciliation</h3>" }
   let(:fees_header)                 { "<h2>Fees and payment</h2>" }
   let(:working_out_your_fee_header) { "<h3>Working out your fee</h3>" }
   let(:paying_your_fee_header)      { "<h3>Paying your fee</h3>" }
@@ -18,7 +17,6 @@ feature 'Guide' do
   scenario "User visits the guides page" do
     expect(page.html).to include(time_limits_header)
     expect(page.html).to include(acas_header)
-    expect(page.html).to include(acas_certificate_header)
     expect(page.html).to include(acas_exceptions_header)
     expect(page.html).to include(fees_header)
     expect(page.html).to include(working_out_your_fee_header)
@@ -29,7 +27,6 @@ feature 'Guide' do
 
   let(:time_limits_link)          { "Time limits" }
   let(:acas_link)                 { "Acas: early conciliation" }
-  let(:acas_certificate_link)     { "Acas early conciliation certificate number" }
   let(:acas_exceptions_link)      { "Exceptions to early conciliation" }
   let(:fees_link)                 { "Fees and payment" }
   let(:working_out_your_fee_link) { "Working out your fee" }
@@ -55,11 +52,6 @@ feature 'Guide' do
   scenario "User can click time acas_link" do
     expect(page).to have_link(acas_link, href: "#{guide_path + acas_div}")
     expect(page.find(acas_div)).not_to be_nil
-  end
-
-  scenario "User can click time acas_certificate_link" do
-    expect(page).to have_link(acas_certificate_link, href: "#{guide_path + acas_certificate_div}")
-    expect(page.find(acas_certificate_div)).not_to be_nil
   end
 
   scenario "User can click time acas_exceptions_link" do
