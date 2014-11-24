@@ -10,6 +10,7 @@ en:
       sections:
         claimant: About you
         additional_claimants: Group claim
+        additional_claimants_upload: :"claim_reviews.show.sections.additional_claimants"
         representative: Your representative
         respondent: Respondent's details
         additional_respondents: Additional respondents
@@ -47,6 +48,11 @@ en:
         full_name: Full name
         date_of_birth: Date of birth
         address: Address
+
+      additional_claimants_upload:
+        group_claim: :"claim_reviews.item.additional_claimants.group_claim"
+        file_name: CSV File Name
+        number_claimants: Number Of Additional Claimants
 
       representative:
         has_representative: Representative
