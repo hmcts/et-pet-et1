@@ -186,36 +186,35 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Emailing confirmation' do
-      complete_a_claim seeking_remissions: false
+      complete_a_claim seeking_remissions: true
       select_recipients
 
       email = ActionMailer::Base.deliveries.last
-      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      content = email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source
 
-      expect(content).to include completion_message
-      expect(content).to include 'Attached'
+      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
+      expect(email.parts.first.body).to include 'Application complete'
+      expect(email.parts.last.content_type).
+        to eq "application/pdf; charset=UTF-8; filename=et1_barrington_wrigglesworth.pdf"
     end
 
     scenario 'Submitting claim when no email addresses' do
       ActionMailer::Base.deliveries = []
-      complete_a_claim seeking_remissions: false, claimant_email: false
+      complete_a_claim seeking_remissions: true, claimant_email: false
       click_button 'Submit the form'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
 
-      expect(page.html).to include completion_message
+      expect(page.title).to include 'Application complete'
     end
 
     scenario 'Submitting the claim when payment is not required' do
-      pending 'pending design changes in progress there is no way to indicate applying for remission'
-      complete_a_claim
+      complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
 
-      expect(page.html).to include completion_message
-      expect(page.html).not_to include table_heading('fee_paid')
-      expect(page.html).not_to include table_heading('fee_to_pay')
-      expect(page.html).to include remission_help
+      expect(page).to have_text     "Application complete"
+      expect(page).not_to have_text "Fee paid"
+      expect(page).not_to have_text "Fee to pay"
+      expect(page).to have_text     "Get help with paying your fee now"
     end
 
     scenario 'Downloading the PDF' do
@@ -244,8 +243,6 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Making payment' do
-      pending 'payments disabled for first live trial'
-
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
@@ -253,30 +250,23 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Returning from the payment page' do
-      pending 'payments disabled for first live trial'
-
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
-      return_from_payment_gateway
+      complete_payment
 
-      expect(page.html).to include table_heading('fee_paid')
-      expect(page.html).not_to include table_heading('fee_to_pay')
-      expect(page.html).not_to include remission_help
+      expect(page).to     have_text 'Issue fee paid' '£250.00'
+      expect(page).not_to have_text 'Get help with paying your fee now'
     end
 
     scenario 'Submitting the claim when payment failed' do
-      pending 'payments disabled for first live trial'
-
       complete_a_claim seeking_remissions: false
       click_button 'Submit the form'
 
-      return_from_payment_gateway('decline')
+      complete_payment(gateway_response: 'decline')
 
-      expect(page.html).to include completion_message
-      expect(page.html).not_to include table_heading('fee_paid')
-      expect(page.html).to include table_heading('fee_to_pay')
-      expect(page.html).not_to include remission_help
+      expect(page.current_path).to eq claim_payment_path
+      expect(page).to have_text 'Payment declined'
     end
   end
 end

@@ -4,8 +4,41 @@ html
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
     header.main-header
-      h1= t 'claim_reviews.confirmation.header'
+      h1= t '.header'
 
     .main-section
       .main-content
-        = render partial: '/claim_reviews/confirmation'
+        section= t('.complete', reference: @claim.reference)
+        section
+          - case
+          - when @claim.payment_present?
+            h2 = t('.fee_paid')
+          - when @claim.remission_applicable?
+            h2 = t('.getting_help.header')
+            p = t('.getting_help.text')
+            = link_to t('.getting_help.link_anchor_text'),
+              'https://www.employmenttribunals.service.gov.uk/remissions'
+
+        section
+          h2= t('.details.header')
+          table
+            - if @claim.submitted_at.present?
+              tr
+                td= t('.details.date_submitted')
+                td= @claim.submitted_at
+            - if @claim.payment_present?
+              tr
+                td= t('.details.fee_paid')
+                td= @claim.payment_amount
+            tr
+              td= t('.details.pdf_version')
+              td= controller.respond_to?(:mailer_name) ? t('.details.attached') : link_to(t('.details.download_pdf'), generated_claim_claim_confirmation_url(@claim, format: 'pdf'))
+            - if @claim.office.present?
+              tr
+                td= t('.details.office')
+                td
+                  address
+                    = @claim.office.name
+                    br
+                    = @claim.office.address
+                    br

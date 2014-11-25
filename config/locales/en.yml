@@ -627,6 +627,9 @@ en:
         If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
       submit: Start payment
 
+    decline:
+      payment_declined: Payment declined
+
   base_mailer:
     access_details_email:
       subject: 'Employment tribunal: %{reference}'

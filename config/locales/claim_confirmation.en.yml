@@ -4,43 +4,22 @@ en:
       header: Application complete
       callout_detail: Your application number
 
-      fee_to_pay: |
-        ## Your fee
+      what_happens_next:
+        header: What happens next
+        one: A judge will look over your claim to make sure your claim can be heard by an employment tribunal
+        two: The person you are making a claim against (respondent) will receive a copy of your claim. They will have 28 days to reply.
 
-        From the information you’ve given us, you have to pay <strong>£%{application_fee}</strong> please write a cheque for that amount payable to HM Courts & Tribunals Service
+      download_application:
+        header: Download your application
+        link_anchor_text: Download your application
 
-        If your case goes to a tribunal, you'll have to pay a hearing fee of <strong>£%{hearing_fee}</strong>.
+      submission_details:
+        header: Submission details
+        submitted_at: Application submitted
+        attachments: Attachments included
+        payment_amount: Issue fee paid
 
-      getting_help: |
-        ## Get help with paying your fee now
-
-        You must apply for a 'fee remission' within 7 calendar days of submitting this claim form (or we'll reject your claim).
-
-        <a href="https://www.employmenttribunals.service.gov.uk/remissions" rel="external">Apply for help now</a>
-
-      what_to_do_next: |
-        ## What you should do next
-
-        [Download your application](%{pdf_link}) and print it out.
-
-        Write a cheque for <strong>£%{application_fee}</strong>, make it payable to HM Courts & Tribunals Service and sign it.
-
-        Add additional documents (optional)
-
-        Send all these to:<br>
-        Employment Tribunals Central Office (Scotland)<br>
-        PO Box 27105<br>
-        GLASGOW<br>
-        G2 9JR
-
-        or <br>
-        DX 580003<br>
-        Glasgow 17
-
-        You can also send any additional documents at the same time.
-
-      if_claim_accepted: |
-        ## If your claim is accepted
-
-        * We'll send your employer a copy of your claim form and ask them to respond.
-        * In most cases, we'll also send a copy of your claim to Acas. Someone from Acas will contact you to see if you can solve the problem without going to a tribunal.
+      getting_help:
+        header: Get help with paying your fee now
+        text: You must apply for a 'fee remission' within 7 calendar days of submitting this claim form (or we'll reject your claim).
+        link_anchor_text: Apply for help now

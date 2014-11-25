@@ -225,13 +225,13 @@ module FormMethods
   end
 
   def fill_in_your_fee(options={})
-    choose "your_fee_applying_for_remission_#{options[:seeking_remissions] || false}"
+    choose "your_fee_applying_for_remission_#{options.fetch(:seeking_remissions) { false }}"
 
     click_button 'Save and continue'
   end
 
-  def return_from_payment_gateway(response='success')
-    visit "/apply/pay/#{response}?orderID=fgr&amount=250&PM=CreditCard&" +
+  def complete_payment(gateway_response: 'success')
+    visit "/apply/pay/#{gateway_response}?orderID=fgr&amount=250&PM=CreditCard&" +
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
       'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
       'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'

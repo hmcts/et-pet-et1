@@ -83,7 +83,8 @@ describe BaseMailer do
       end
 
       it 'shows paid message' do
-        expect(content).to include payment_message
+        expect(content).
+          to include "Thank you for your payment. We’ll write to you within 5 working days."
       end
 
       it 'shows amount paid' do
@@ -98,32 +99,13 @@ describe BaseMailer do
       end
 
       it 'shows remission help' do
-        expect(content).to include remission_help
+        expect(content).to include 'Get help with paying your fee'
       end
 
       it 'does not show any payment information' do
         expect(content).not_to include payment_message
         expect(content).not_to include table_heading('fee_paid')
         expect(content).not_to include table_heading('fee_to_pay')
-      end
-    end
-
-    context 'when payment failed' do
-      let(:fee_calculation) { double application_fee: 100 }
-
-      before do
-        allow(claim).to receive(:payment_applicable?).and_return true
-        allow(claim).to receive(:fee_calculation).and_return fee_calculation
-      end
-
-      it 'does not show any paid information' do
-        expect(content).not_to include payment_message
-        expect(content).not_to include table_heading('fee_paid')
-      end
-
-      it 'shows outstanding fee' do
-        expect(content).to include table_heading('fee_to_pay')
-        expect(content).to include '100'
       end
     end
   end

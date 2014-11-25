@@ -31,8 +31,9 @@ class PaymentsController < ApplicationController
   end
 
   def decline
-    claim.enqueue!
-    redirect_to claim_confirmation_path
+    flash[:alert] = t('.payment_declined')
+    # claim.increment_fee_group_reference!
+    redirect_to :action => :show
   end
 
   private
