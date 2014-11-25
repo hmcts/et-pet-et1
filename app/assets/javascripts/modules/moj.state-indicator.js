@@ -1,12 +1,11 @@
 // state indicator
-// CSS: set the z-index on a .state-indicator element
-//      and change this value using media queries
-//
-//JS: publish the state on init
-//    listen for resize and publish the state as it changes
+// This requires CSS media queries that
+// update the z-index on div.state-indicator.
+// The element will be created by the JS.
 module.exports = (function () {
 
-  // polyfil
+  // Debounce
+  // http://davidwalsh.name/function-debounce
   var debounce = function (func, wait, immediate) {
     var timeout;
     return function () {
@@ -23,22 +22,26 @@ module.exports = (function () {
     };
   };
 
+  // setting some defaults
   var stateIndicator = {
     states: {
       8001: 'mobile',
       8002: 'tablet',
       8003: 'desktop'
-    }
+    },
+    baseState: 'desktop'
   };
+
+  // Just a little shorter to write
   var si = stateIndicator;
 
   si.init = function () {
     si.bindToResize();
-    si.bindSubscribers();
   };
 
+  // Bind to the resize / onorientationchange event
   si.bindToResize = function () {
-    si.__lastDeviceState = si.__getDeviceState();
+    si.__lastDeviceState = si.getDeviceState();
     var _supports_orientation = "onorientationchange" in window;
     var _orientation_event = _supports_orientation ? "orientationchange" : "resize";
 
@@ -51,35 +54,37 @@ module.exports = (function () {
     }
   };
 
-  si.bindSubscribers = function () {
-    // Change event
-    si.subscribe('/device-state/change/', function (event, state) {
-      console.log('STATE CHANGE callback', state);
-    });
-  };
-
-  si.subscribe = function (eventName, callback) {
-    if ($.subscribe) {
-      $.subscribe(eventName, callback);
-    }
+  // Return the current state based on the
+  // z-index for the hidden element
+  // defaults to si.baseState
+  si.getDeviceState = function () {
+    var index = parseInt(si.$indicator.css('z-index'), 10);
+    return si.states[index] || si.baseState;
   };
 
   si.__init = function () {
+    // create the element
     si.__createElement();
+
+    // run the handler manually at start
     si.__handleOrientation();
   };
 
   si.__handleOrientation = debounce(function () {
-    si.__state = si.__getDeviceState();
+    si.__state = si.getDeviceState();
 
     if (si.__state !== si.__lastDeviceState) {
       // Save the new state as current
-      si.__lastDeviceState = si.__state;
 
+      // Publishes two events:
+      // - A state change occured (/device/change/)
+      // - The to / from direction (/device/move/[fromState]/to/[toState])
+      // - The actual state will be passed into the callback
       if ($.publish) {
-        $.publish('/device-state/change/', [si.__state]);
-        return;
+        $.publish('/device/change/', [si.__state]);
+        $.publish('/device/move/' + si.__lastDeviceState + '/to/' + si.__state + '/', [si.__state]);
       }
+      si.__lastDeviceState = si.__state;
     }
   }, 20);
 
@@ -91,12 +96,12 @@ module.exports = (function () {
     si.$indicator = $(si.indicator);
   };
 
-  si.__getDeviceState = function () {
-    var index = parseInt(si.$indicator.css('z-index'), 10);
-    return si.states[index] || 'desktop';
-  };
-
+  ////////////////
+  // Init steps //
+  ////////////////
+  // A little setup first
   si.__init();
+
   si.init();
 
   return stateIndicator;
