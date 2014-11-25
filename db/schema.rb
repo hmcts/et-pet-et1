@@ -11,47 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119143854) do
+ActiveRecord::Schema.define(version: 20141125031416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "addresses", force: true do |t|
-    t.string   "building"
-    t.string   "street"
-    t.string   "locality"
-    t.string   "county"
-    t.string   "post_code"
+    t.string   "building",         limit: 255
+    t.string   "street",           limit: 255
+    t.string   "locality",         limit: 255
+    t.string   "county",           limit: 255
+    t.string   "post_code",        limit: 255
     t.integer  "addressable_id"
-    t.string   "addressable_type"
+    t.string   "addressable_type", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "telephone_number"
-    t.string   "country"
+    t.string   "telephone_number", limit: 255
+    t.string   "country",          limit: 255
   end
 
   create_table "claimants", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",         limit: 255
+    t.string   "last_name",          limit: 255
     t.date     "date_of_birth"
-    t.string   "mobile_number"
-    t.string   "fax_number"
-    t.string   "email_address"
+    t.string   "mobile_number",      limit: 255
+    t.string   "fax_number",         limit: 255
+    t.string   "email_address",      limit: 255
     t.text     "special_needs"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "claim_id"
-    t.string   "gender"
-    t.string   "contact_preference"
-    t.string   "title"
-    t.boolean  "applying_for_remission", default: false
-    t.boolean  "primary_claimant",       default: false
+    t.string   "gender",             limit: 255
+    t.string   "contact_preference", limit: 255
+    t.string   "title",              limit: 255
+    t.boolean  "primary_claimant",               default: false
   end
 
   create_table "claims", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
+    t.string   "password_digest",                       limit: 255
     t.boolean  "is_unfair_dismissal"
     t.integer  "discrimination_claims"
     t.integer  "pay_claims"
@@ -68,10 +67,10 @@ ActiveRecord::Schema.define(version: 20141119143854) do
     t.datetime "submitted_at"
     t.string   "attachment"
     t.string   "email_address"
+    t.integer  "remission_claimant_count",                          default: 0
     t.string   "additional_claimants_csv"
-    t.integer  "additional_claimants_csv_record_count", default: 0
-    t.integer  "remission_claimant_count",              default: 0
-    t.string   "application_reference",                                       null: false
+    t.integer  "additional_claimants_csv_record_count",             default: 0
+    t.string   "application_reference",                                         null: false
   end
 
   add_index "claims", ["application_reference"], name: "index_claims_on_application_reference", unique: true, using: :btree
@@ -89,12 +88,12 @@ ActiveRecord::Schema.define(version: 20141119143854) do
     t.integer  "net_pay"
     t.integer  "new_job_gross_pay"
     t.float    "average_hours_worked_per_week"
-    t.string   "current_situation"
-    t.string   "gross_pay_period_type"
-    t.string   "job_title"
-    t.string   "net_pay_period_type"
-    t.string   "new_job_gross_pay_frequency"
-    t.string   "notice_pay_period_type"
+    t.string   "current_situation",                    limit: 255
+    t.string   "gross_pay_period_type",                limit: 255
+    t.string   "job_title",                            limit: 255
+    t.string   "net_pay_period_type",                  limit: 255
+    t.string   "new_job_gross_pay_frequency",          limit: 255
+    t.string   "notice_pay_period_type",               limit: 255
     t.text     "benefit_details"
     t.integer  "claim_id"
     t.datetime "created_at"
@@ -120,27 +119,27 @@ ActiveRecord::Schema.define(version: 20141119143854) do
   end
 
   create_table "representatives", force: true do |t|
-    t.string   "type"
-    t.string   "organisation_name"
-    t.string   "name"
-    t.string   "mobile_number"
-    t.string   "email_address"
-    t.string   "dx_number"
+    t.string   "type",               limit: 255
+    t.string   "organisation_name",  limit: 255
+    t.string   "name",               limit: 255
+    t.string   "mobile_number",      limit: 255
+    t.string   "email_address",      limit: 255
+    t.string   "dx_number",          limit: 255
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "contact_preference"
+    t.string   "contact_preference", limit: 255
   end
 
   create_table "respondents", force: true do |t|
-    t.string   "name"
-    t.string   "acas_early_conciliation_certificate_number"
-    t.string   "no_acas_number_reason"
+    t.string   "name",                                       limit: 255
+    t.string   "acas_early_conciliation_certificate_number", limit: 255
+    t.string   "no_acas_number_reason",                      limit: 255
     t.integer  "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "worked_at_same_address",                     default: true
-    t.boolean  "primary_respondent",                         default: false
+    t.boolean  "worked_at_same_address",                                 default: true
+    t.boolean  "primary_respondent",                                     default: false
   end
 
 end
