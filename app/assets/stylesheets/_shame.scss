@@ -203,3 +203,11 @@ legend {
         clear:none;
     }
 }
+.static-content {
+    h2{
+      @include bold-24();
+    }
+    h3 {
+      @include bold-19();
+    }
+}
