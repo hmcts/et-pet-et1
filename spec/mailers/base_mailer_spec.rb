@@ -108,5 +108,24 @@ describe BaseMailer do
         expect(content).not_to include table_heading('fee_to_pay')
       end
     end
+
+    context 'when payment failed' do
+      let(:fee_calculation) { double application_fee: 100 }
+
+      before do
+        allow(claim).to receive(:payment_applicable?).and_return true
+        allow(claim).to receive(:fee_calculation).and_return fee_calculation
+      end
+
+      it 'does not show any paid information' do
+        expect(content).not_to include payment_message
+        expect(content).not_to include table_heading('fee_paid')
+      end
+
+      it 'shows outstanding fee' do
+        expect(content).to include 'Fee to pay'
+        expect(content).to include '100'
+      end
+    end
   end
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Payments:', type: :feature, focus: true do
+feature 'Payments:', type: :feature do
   include FormMethods
   include EpdqMatchers
 

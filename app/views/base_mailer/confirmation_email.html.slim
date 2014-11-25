@@ -30,9 +30,13 @@ html
               tr
                 td= t('.details.fee_paid')
                 td= @claim.payment_amount
+            - elsif @claim.payment_applicable?
+              tr
+                td= t('.details.fee_to_pay')
+                td= @claim.fee_calculation.application_fee
             tr
               td= t('.details.pdf_version')
-              td= controller.respond_to?(:mailer_name) ? t('.details.attached') : link_to(t('.details.download_pdf'), generated_claim_claim_confirmation_url(@claim, format: 'pdf'))
+              td= t('.details.attached')
             - if @claim.office.present?
               tr
                 td= t('.details.office')

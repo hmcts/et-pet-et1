@@ -240,7 +240,5 @@ feature 'Claim applications', type: :feature do
       expect(page).not_to have_text 'Get help with paying your fee now'
       expect(page).to have_text 'From the information you’ve given us, you have to pay'
     end
-
-
   end
 end
