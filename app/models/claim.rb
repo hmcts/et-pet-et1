@@ -46,7 +46,7 @@ class Claim < ActiveRecord::Base
 
   def self.find_by_reference(reference)
     normalized = ApplicationReference.normalize(reference)
-    find_by!(application_reference: normalized)
+    find_by(application_reference: normalized)
   end
 
   def alleges_discrimination_or_unfair_dismissal?

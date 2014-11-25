@@ -81,6 +81,13 @@ RSpec.describe Claim, :type => :claim do
       claim = described_class.create!(application_reference: 'ABCD-1234')
       expect(described_class.find_by_reference('abcd-l234')).to eql(claim)
     end
+
+    context "no record is found" do
+      it "returns nil" do
+        described_class.destroy_all
+        expect(described_class.find_by_reference('ABCD-1234')).to be_nil
+      end
+    end
   end
 
   describe '#claimant_count' do
