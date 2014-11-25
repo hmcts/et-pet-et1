@@ -32,7 +32,7 @@ class PaymentsController < ApplicationController
 
   def decline
     flash[:alert] = t('.payment_declined')
-    # claim.increment_fee_group_reference!
+    claim.increment_fee_group_reference!
     redirect_to :action => :show
   end
 

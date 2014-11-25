@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Claim applications', type: :feature do
   include FormMethods
   include Messages
-  include EpdqMatchers
   include PdfMethods
 
   context 'along the happy path' do
@@ -242,31 +241,6 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text 'From the information you’ve given us, you have to pay'
     end
 
-    scenario 'Making payment' do
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
 
-      expect(page).to have_epdq_form
-    end
-
-    scenario 'Returning from the payment page' do
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
-
-      complete_payment
-
-      expect(page).to     have_text 'Issue fee paid' '£250.00'
-      expect(page).not_to have_text 'Get help with paying your fee now'
-    end
-
-    scenario 'Submitting the claim when payment failed' do
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
-
-      complete_payment(gateway_response: 'decline')
-
-      expect(page.current_path).to eq claim_payment_path
-      expect(page).to have_text 'Payment declined'
-    end
   end
 end
