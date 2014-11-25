@@ -300,4 +300,38 @@ RSpec.describe Claim, :type => :claim do
       expect(claimant.primary_claimant).to be true
     end
   end
+
+  describe '#increment_fee_group_reference!', focus: true do
+    describe 'padding the fee group reference' do
+      context 'when the fee group reference has not been previously incremented' do
+        before do
+          subject.fee_group_reference = "12345"
+          subject.increment_fee_group_reference!
+        end
+
+        it 'pads the fee group reference with "-1"' do
+          expect(subject.fee_group_reference).to eq "12345-1"
+        end
+
+        it 'updates the record' do
+          expect(subject.fee_group_reference_changed?).to be false
+        end
+      end
+
+      context 'when the fee group reference has been previously incremented' do
+        before do
+          subject.fee_group_reference = "12345-1"
+          subject.increment_fee_group_reference!
+        end
+
+        it 'increments the pad' do
+          expect(subject.fee_group_reference).to eq "12345-2"
+        end
+
+        it 'updates the record' do
+          expect(subject.fee_group_reference_changed?).to be false
+        end
+      end
+    end
+  end
 end
