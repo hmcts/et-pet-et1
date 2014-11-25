@@ -1,5 +1,6 @@
 - if claim.submittable?
   = simple_form_for confirmation_email, url: request.url, method: :put do |f|
+    = f.error_notification
     fieldset.email-confirmation
       legend role="header" aria-level="2" = t('.confirmation')
       p.form-hint = t '.hint'
