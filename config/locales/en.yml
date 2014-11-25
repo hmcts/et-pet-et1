@@ -370,6 +370,9 @@ en:
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
 
+  aria:
+    error_summary: You need to fix the errors on this page before continuing.
+
   errors:
     messages:
       rtf: is not an RTF or plain text file

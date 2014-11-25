@@ -13,6 +13,8 @@ header.main-header
         span.number= claim.reference
 
     = simple_form_for user_session, url: user_session_path, method: :put do |f|
+      = f.error_notification
+
       fieldset
         = format t('.subheader')
 

@@ -1,7 +1,3 @@
-div.error-notification
-  p
-    = message
-  ul
-    - errors.each do |anchor, error|
-      li
-        a href=anchor = error
+#error-summary.validation-summary.group aria-labelledby="error-heading" role="alert" tabindex='0'
+  h2#error-heading = t 'aria.error_summary'
+  p = message
