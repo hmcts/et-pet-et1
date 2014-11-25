@@ -84,6 +84,13 @@ class Claim < ActiveRecord::Base
     fee_calculation.application_fee != fee_calculation.application_fee_after_remission
   end
 
+  def increment_fee_group_reference!
+    if (fgr = fee_group_reference.dup)
+      fgr.sub!(/(?<=\-)\d+\Z/) { |m| m.succ } || fgr << '-1'
+      update fee_group_reference: fgr
+    end
+  end
+
   private
 
   def state_machine
