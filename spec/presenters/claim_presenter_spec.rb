@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ClaimPresenter, type: :presenter do
-  subject { described_class.new Claim.new }
+  let(:claim) { Claim.new }
+  subject { described_class.new claim }
 
   let(:sections) do
     %w<
@@ -22,6 +23,23 @@ RSpec.describe ClaimPresenter, type: :presenter do
     it 'yields each section name and corresponding presenter' do
       expect { |b| subject.each_section &b }.
         to yield_successive_args *sections.zip(presenters)
+    end
+  end
+
+  describe 'additional claimants instance type' do
+    let(:section) { 'additional_claimants' }
+
+    context 'additionals csv is present' do
+      before { claim.additional_claimants_csv = Tempfile.new('claimants.csv') }
+      it "initializes a ClaimantCsvPresenter" do
+        expect(subject.send section).to be_a ClaimantCsvPresenter
+      end
+    end
+
+    context 'no csv present' do
+      it "initializes a ClaimantCsvPresenter" do
+        expect(subject.send section).to be_a ClaimantCollectionPresenter
+      end
     end
   end
 end
