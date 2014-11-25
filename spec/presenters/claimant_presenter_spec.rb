@@ -42,13 +42,4 @@ RSpec.describe ClaimantPresenter, type: :presenter do
       specify { expect(subject.is_disabled).to eq('Yes') }
     end
   end
-
-  describe '#is_applying_for_remission' do
-    specify { expect(subject.is_applying_for_remission).to eq('No') }
-
-    context 'when the claimant is applying for remission' do
-      before { allow(claim).to receive(:applying_for_remission?).and_return true }
-      specify { expect(subject.is_applying_for_remission).to eq('Yes') }
-    end
-  end
 end

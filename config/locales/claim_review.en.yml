@@ -39,7 +39,6 @@ en:
         email_address: Email
         contact_preference: Preferred contact
         is_disabled: Disability
-        is_applying_for_remission: Fee remission
         has_representative: Representative
 
       additional_claimants:

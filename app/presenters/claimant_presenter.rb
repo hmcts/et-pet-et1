@@ -33,8 +33,4 @@ class ClaimantPresenter < Presenter
   def is_disabled
     yes_no special_needs
   end
-
-  def is_applying_for_remission
-    yes_no target.applying_for_remission?
-  end
 end
