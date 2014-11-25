@@ -36,6 +36,12 @@ module.exports = (function () {
   var si = stateIndicator;
 
   si.init = function () {
+    // create the element
+    si.__createElement();
+
+    // run the handler manually at start
+    si.__handleOrientation();
+
     si.bindToResize();
   };
 
@@ -60,14 +66,6 @@ module.exports = (function () {
   si.getDeviceState = function () {
     var index = parseInt(si.$indicator.css('z-index'), 10);
     return si.states[index] || si.baseState;
-  };
-
-  si.__init = function () {
-    // create the element
-    si.__createElement();
-
-    // run the handler manually at start
-    si.__handleOrientation();
   };
 
   si.__handleOrientation = debounce(function () {
@@ -99,9 +97,6 @@ module.exports = (function () {
   ////////////////
   // Init steps //
   ////////////////
-  // A little setup first
-  si.__init();
-
   si.init();
 
   return stateIndicator;
