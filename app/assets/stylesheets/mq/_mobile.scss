@@ -1,0 +1,29 @@
+@include media(mobile) {
+// ==========================================================================
+//_layout :68
+// ==========================================================================
+  input[type=text],
+  input[type=email],
+  input[type=tel] {
+      @include span(12 of 12);
+      &.short-input{
+        @include span(8 of 12);
+      }
+      &.medium-input{
+        @include span(12 of 12);
+      }
+  }
+  select.form-control{
+    @include span(10 of 12);
+  }
+
+  .label-column {
+    span.checkbox{
+      float:none;
+      width:100%;
+      display: block;
+      margin-left:0 !important;
+      margin-right:0 !important;
+    }
+  }
+}

@@ -127,6 +127,16 @@ aside{
   }
 }
 
+fieldset{
+  @include container;
+  position:relative;
+  overflow:hidden;
+  margin:0 0 $gutter;
+  legend:first-child {
+    margin-top:0;
+  }
+}
+
 legend {
   @extend .legend;
   &.form-label{
@@ -141,15 +151,6 @@ legend {
   }
   & + .form-hint {
     margin-bottom: $gutter-half/2;
-  }
-}
-
-fieldset{
-  position:relative;
-  overflow:hidden;
-  margin:0 0 $gutter;
-  legend:first-child {
-    margin-top:0;
   }
 }
 
@@ -182,15 +183,6 @@ fieldset{
     display:block;
     position:absolute;
     top:0;right:0;
-  }
-}
-
-fieldset{
-  position:relative;
-  overflow:hidden;
-  margin:0 0 $gutter;
-  legend:first-child {
-    margin-top:0;
   }
 }
 

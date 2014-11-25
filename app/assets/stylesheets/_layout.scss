@@ -1,24 +1,44 @@
+body {
+  @include media(mobile) {
+    &:after {
+      content : 'is-mobile';
+      display:none;
+    }
+  }
+}
+
 .container{
-  @include container(964px);
+  @include container;
   text-align:left;
-  padding-bottom:$gutter;
+  padding:0 $gutter $gutter;
 }
 // ==========================================================================
 // Page layout
 // ==========================================================================
 .main-section{
-  @include container;
+  overflow:hidden;
 }
 .main-content{
   @include span(8 of 12);
   @include first;
   padding-left:0;
+
+  @include media(mobile) {
+    @include span(12 of 12);
+  }
+
 }
 aside{
   @include span(3 of 12);
   @include last;
   padding-left:0;
+
+  @include media(mobile) {
+    display:none;
+  }
+
 }
+
 // ==========================================================================
 // Header
 // ==========================================================================
@@ -42,7 +62,7 @@ header {
 }
 
 // ==========================================================================
-// Inputs
+// Inputs, has MQ
 // ==========================================================================
 
 input[type=text],
@@ -63,7 +83,9 @@ select.form-control{
 textarea.form-control{
   width:100%;
 }
-
+input.form-control.file {
+  @include span(10 of 12);
+}
 // ==========================================================================
 // Form layout
 // ==========================================================================
