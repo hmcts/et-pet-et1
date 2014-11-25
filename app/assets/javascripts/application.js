@@ -5,5 +5,7 @@ var jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
   formHintReveal = require('./modules/moj.reveal-hints'),
   removeMultiple = require('./modules/moj.remove-multiple'),
   sessionPrompt = window.sessionPrompt = require('./modules/moj.session-prompt');
+  stateIndecator = window.stateIndecator = require('./modules/moj.state-indicator');
+
 
 revealPubSub.init();
