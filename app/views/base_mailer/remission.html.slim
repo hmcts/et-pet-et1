@@ -3,4 +3,82 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    = format t '.body', reference: @claim.reference
+
+    table style="width:100%;"
+      tr
+        td style="padding-left:60px; background-color:#000000; height:53px;"
+          img src="_img/govuk_logotype_email.png"
+
+    table style="padding-left:60px;"
+      tr
+        td
+
+          table style="width:550px; color:#fff; padding-bottom:30px;"
+            tr
+              td style="padding-bottom:30px;"
+                  img src="_img/moj_logotype_email.png"
+
+            = render partial: '/shared/emails/application_number'
+
+          table style="width:550px;"
+            tr
+              td
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  | Dear Joe
+
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  | Your application to an employment tribunal has been submitted. You have indicated that you wish to apply for <a href="">fee remission</a>.
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  | What happens next
+
+                ol
+                  li style="font-family:arial; font-size:19px; line-height:26px;"
+                    p
+                      | You have to apply for remission within 7 days, or your claim may be rejected.
+
+                  li style="font-family:arial; font-size:19px; line-height:26px;"
+                    p
+                      | A judge will look over your application to make sure your claim can be heard by an employment tribunal.
+
+                  li style="font-family:arial; font-size:19px; line-height:26px;"
+                    p
+                      | The person you are making the claim against (the respondent) will receive a copy of your claim. They will have 28 days to reply.
+
+                p style="font-family:arial; font-size:19px; line-height:26px; margin-top:30px; margin-bottom:40px;"
+                  | For more information on the claim process, please read<br /><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/306273/employment-tribunal-making-claim-t420.pdf" target="_blank">making a claim to an employment tribunal</a>
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  | Submission details
+
+          table style="width:550px;padding-bottom:30px;"
+            tr
+              td colspan="3"
+                hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+            tr
+              td valign="top"
+                p style="font-family:arial; font-size:16px; color:#6F777B;"
+                  | Application submitted
+
+              td valign="top" style="padding-left:10px;"
+                p style="font-family:arial; font-size:16px;"
+                  | On 12 January 2014 to tribunal office<br />Employment Tribunals Central Office (Scotland)
+
+            tr
+              td colspan="3"
+                hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+            tr
+              td valign="top"
+                p style="font-family:arial; font-size:16px; color:#6F777B;"
+                  | Attachments included
+
+              td valign="top" style="padding-left:10px;"
+                p style="font-family:arial; font-size:16px;"
+                  | My_Claim_File.rtf
+            tr
+              td colspan="3"
+                hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+          = render partial: '/shared/emails/footer'
