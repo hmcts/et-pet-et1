@@ -1,5 +1,5 @@
 class ClaimReviewsController < ApplicationController
-  before_action :ensure_claim_in_progress
+  redispatch_request unless: :created?
   before_action :check_session_expiry
 
   def update

@@ -1,17 +1,30 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :ensure_claim_exists
   after_action :set_session_expiry
 
+  class << self
+    def redispatch_request(opts={})
+      states = Array(opts.delete(:unless))
+
+      before_action opts do
+        destination =
+        case
+        when claim.nil?
+          root_path
+        when claim.created?
+          claim_claimant_path
+        when claim.payment_required?
+          claim_payment_path
+        when claim.enqueued_for_submission?, claim.submitted?
+          claim_confirmation_path
+        end
+
+        redirect_to destination unless states.any? { |s| claim.try s }
+      end
+    end
+  end
+
   private
-
-  def ensure_claim_exists
-    redirect_to root_path unless claim.present?
-  end
-
-  def ensure_claim_in_progress
-    redirect_to root_path unless claim.created?
-  end
 
   def set_session_expiry
     session[:expires_in] = 1.hour.from_now

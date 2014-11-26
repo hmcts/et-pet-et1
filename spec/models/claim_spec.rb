@@ -308,7 +308,7 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe '#increment_fee_group_reference!', focus: true do
+  describe '#increment_fee_group_reference!' do
     describe 'padding the fee group reference' do
       context 'when the fee group reference has not been previously incremented' do
         before do

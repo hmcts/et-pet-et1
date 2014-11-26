@@ -1,7 +1,8 @@
 class PaymentsController < ApplicationController
   GATEWAY_RESPONSES = %i<success decline>.freeze
 
-  before_action :ensure_payment_is_required
+  redispatch_request unless: :payment_required?
+
   before_action :validate_request, only: GATEWAY_RESPONSES
 
   def payment_request

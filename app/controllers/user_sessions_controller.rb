@@ -1,5 +1,5 @@
 class UserSessionsController < ApplicationController
-  skip_before_action :ensure_claim_exists, except: :update
+  redispatch_request unless: :present?, except: %i<update returning create>
 
   def reminder
     redirect_to root_path if email_address_already_set?

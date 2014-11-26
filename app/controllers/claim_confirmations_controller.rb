@@ -1,9 +1,5 @@
 class ClaimConfirmationsController < ApplicationController
-  before_action :ensure_claim_is_finished
-
-  private def ensure_claim_is_finished
-    redirect_to root_path unless claim.enqueued_for_submission? || claim.submitted?
-  end
+  redispatch_request unless: %i<enqueued_for_submission? submitted?>
 
   def fee_calculation
     @fee_calculation ||= claim.fee_calculation
