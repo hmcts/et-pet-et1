@@ -15,13 +15,13 @@ header.main-header
         li: p= t('.what_happens_next.one')
         li: p= t('.what_happens_next.two')
 
-      h2 = t('.download_application.header')
-
-      p = link_to t('.download_application.link_anchor_text'),
-        generated_claim_claim_confirmation_url(claim, format: 'pdf')
-
       table.confirmation-table
         caption = t('.submission_details.header')
+        tr role="row"
+          th = t '.download_application.header'
+          td = t '.download_application.link_html',
+            href: generated_claim_claim_confirmation_url(claim, format: 'pdf')
+
         - confirmation_presenter.each_item do |name, content|
           tr role="row"
             th = t ".submission_details.#{name}"

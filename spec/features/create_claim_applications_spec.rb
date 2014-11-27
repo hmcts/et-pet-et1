@@ -219,7 +219,7 @@ feature 'Claim applications', type: :feature do
     scenario 'Downloading the PDF' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
-      click_link 'Download your application'
+      click_link 'Save a copy'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
       expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))

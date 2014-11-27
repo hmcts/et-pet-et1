@@ -639,8 +639,7 @@ en:
         li_one: completed application
         li_one_link: "print the %{link}"
         li_two: include a cheque for the correct issue fee
-        li_three: |
-            post the claim to tribunal office [Employment Tribunals Office (Scotland)](%{link})
+        li_three_html: post the claim to tribunal office %{link}
     decline:
       payment_declined: Payment declined
 

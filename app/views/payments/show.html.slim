@@ -29,4 +29,5 @@ header.main-header
             link: link_to(t('.details.li_one'),
             generated_claim_claim_confirmation_url(claim, format: 'pdf'))).html_safe
           li= t('.details.li_two')
-          li= format t('.details.li_three', link: 'https://www.justice.gov.uk/tribunals/employment/venues')
+          li= t '.details.li_three_html',
+            link: link_to('Employment Tribunals Office (Scotland)', 'https://www.justice.gov.uk/tribunals/employment/venues')
