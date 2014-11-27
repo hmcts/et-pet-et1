@@ -322,36 +322,20 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe '#increment_fee_group_reference!' do
-    describe 'padding the fee group reference' do
-      context 'when the fee group reference has not been previously incremented' do
-        before do
-          subject.fee_group_reference = "12345"
-          subject.increment_fee_group_reference!
-        end
-
-        it 'pads the fee group reference with "-1"' do
-          expect(subject.fee_group_reference).to eq "12345-1"
-        end
-
-        it 'updates the record' do
-          expect(subject.fee_group_reference_changed?).to be false
-        end
+  describe '#payment_fee_group_reference' do
+    context 'when payment_attempts is 0' do
+      it 'is the same as the fee group reference' do
+        expect(subject.payment_fee_group_reference).
+          to eq subject.fee_group_reference
       end
+    end
 
-      context 'when the fee group reference has been previously incremented' do
-        before do
-          subject.fee_group_reference = "12345-1"
-          subject.increment_fee_group_reference!
-        end
+    context 'when payment_attempts is > 0' do
+      before { subject.payment_attempts = 100 }
 
-        it 'increments the pad' do
-          expect(subject.fee_group_reference).to eq "12345-2"
-        end
-
-        it 'updates the record' do
-          expect(subject.fee_group_reference_changed?).to be false
-        end
+      it 'equals "#{fee_group_reference}-#{payment_attempts}"' do
+        expect(subject.payment_fee_group_reference).
+          to eq "#{subject.fee_group_reference}-#{subject.payment_attempts}"
       end
     end
   end

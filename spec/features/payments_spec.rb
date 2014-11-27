@@ -38,8 +38,8 @@ feature 'Payments:', type: :feature do
         expect(page).to have_text 'Payment declined'
       end
 
-      it 'increments the claim fee group reference' do
-        expect(claim.fee_group_reference).to end_with('-1')
+      it 'increments Claim#payment_attempts' do
+        expect(claim.payment_attempts).to eq 1
       end
 
       it 'does not enqueue the claim for submission' do

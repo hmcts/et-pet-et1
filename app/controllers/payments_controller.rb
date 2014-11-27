@@ -8,7 +8,7 @@ class PaymentsController < ApplicationController
   def payment_request
     @payment_request ||= PaymentGateway::Request.new request,
       amount: fee_calculation.application_fee_after_remission * 100,
-      reference: claim.fee_group_reference
+      reference: claim.payment_fee_group_reference
   end
 
   def fee_calculation
@@ -32,7 +32,7 @@ class PaymentsController < ApplicationController
 
   def decline
     flash[:alert] = t('.payment_declined')
-    claim.increment_fee_group_reference!
+    claim.increment! :payment_attempts
     redirect_to :action => :show
   end
 
