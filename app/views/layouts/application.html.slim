@@ -39,6 +39,8 @@
 
 - content_for :content_override do
   main#content(role="main")
+    = render partial: 'shared/mobile_nav'
+
     .container
         p.flash.alert = flash[:alert]
         = render partial: 'shared/session_prompt'

@@ -363,6 +363,10 @@ en:
       message_html:  |
         GOV.UK uses cookies to make the site simpler. <a href="%{path}">Find out more about cookies</a>
     reference: Your claim number is
+    mobile_nav:
+      read_guide: Application guide
+      contact_us: Contact us
+      contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
     aside:
       skip_link: Skip to content
       gethelp_header: Support
