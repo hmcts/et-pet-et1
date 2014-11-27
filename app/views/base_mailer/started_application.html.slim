@@ -16,7 +16,7 @@ html
               td style="padding-bottom:30px;"
                   img src="_img/moj_logotype_email.png"
 
-            = render partial: '/shared/emails/application_number'
+            = render partial: 'base_mailer/shared/application_number_light'
 
 
           table style="max-width:525px;"
@@ -36,4 +36,4 @@ html
                 p style="font-family:arial; font-size:19px; line-height:26px;"
                   | Once you have submitted your claim you will receive a confirmation email.
 
-          = render partial: '/shared/emails/footer'
+         = render partial: 'base_mailer/shared/footer'
