@@ -8,7 +8,14 @@
           as: :check_boxes,
           label: false
 
+      fieldset style="margin-top:60px;"
+        legend Submit your claim
+        p
+          | This is the last opportunity to change the details of your claim online. Please check all the information above is correct before submitting.
+
+        .form-actions
+          = f.button :submit
+
+
       p.print = link_to t('.print_link').html_safe
 
-      .form-actions
-        = f.button :submit

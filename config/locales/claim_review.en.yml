@@ -18,7 +18,7 @@ en:
         claim_details: Claim details
         claim_outcome: Claim outcome
         additional_information: Additional information
-        your_fee: Your fee
+        your_fee: Issue fee
 
     collection:
       additional_claimants:
@@ -38,7 +38,7 @@ en:
         mobile_number: Mobile
         email_address: Email
         contact_preference: Preferred contact
-        is_disabled: Disability
+        is_disabled: Assistance required at the tribunal?
         has_representative: Representative
 
       additional_claimants:
@@ -105,11 +105,11 @@ en:
 
       claim_outcome:
         desired_outcomes: What outcome?
-        other_outcome: Outcome description
+        other_outcome: Outcome details
 
       additional_information:
-        miscellaneous_information: Additional information
-        attached_document: Attached document
+        miscellaneous_information: Important details
+        attached_document: Attached documents
 
       your_fee:
         seeking_remission: Fee remission
@@ -120,7 +120,7 @@ en:
         <a class="print-page" href="javascript:window.print();">Print this page</a> for your records
       confirmation: Email confirmation
       hint: |
-            We'll send a copy of your completed application and a submission confirmation to:
+            A copy of the completed application will be sent to:
       add_email_address: Add email address
 
     confirmation:

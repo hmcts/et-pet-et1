@@ -38,7 +38,7 @@ module.exports = (function() {
         count = i + 2;
       // update the string for the user
       replaceNumber(section.find('legend:first'), count);
-      replaceNumber(section.find('.remove-multiple'), count);
+      //replaceNumber(section.find('.remove-multiple'), count);
     });
 
     function replaceNumber(el, count) {

@@ -43,10 +43,10 @@ feature 'Multiple claimants' do
       end
     end
 
-    scenario "filling in a claimant and clicking 'Add additional person' does not lose the entered details" do
+    scenario "filling in a claimant and clicking 'Add more claimants' does not lose the entered details" do
       expect(page).not_to have_selector '#claimant_1'
 
-      click_button "Add additional person"
+      click_button "Add more claimants"
 
       expect(page).to have_selector '#claimant_1'
 
@@ -60,7 +60,7 @@ feature 'Multiple claimants' do
     end
 
     scenario 'adding more than one additional claimant' do
-      click_button "Add additional person"
+      click_button "Add more claimants"
 
       within '#claimant_1' do
         select 'Mr', from: 'Title'
@@ -129,7 +129,7 @@ feature 'Multiple claimants' do
       fill_in field, with: value
     end
 
-    click_button 'Add additional person'
+    click_button 'Add more claimants'
 
     within '#claimant_1' do
       select 'Mr', from: 'Title'

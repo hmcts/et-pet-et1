@@ -1,9 +1,10 @@
 .clearfix
   .callout.callout-reference
+    p = t '.application_number'
     span.number= claim.reference
 
 fieldset
-  legend role="heading" aria-level="2" = t('.memorable_word_legend')
+  / legend role="heading" aria-level="2" = t('.memorable_word_legend')
   = format t('.intro_text')
 
   = f.input :email_address

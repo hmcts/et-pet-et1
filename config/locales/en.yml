@@ -61,7 +61,7 @@ en:
           free_representation_unit: Free Representation Unit
           law_centre: Law centre
           trade_union: Trade union
-          lawyer: Lawyer
+          solicitor: Solicitor
           private_individual: Private individual
           trade_association: Trade association
           other: Other
@@ -264,7 +264,7 @@ en:
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
-          Whatever your preference please note that some documents cannot be sent electronically
+          Please note that if you have a representative (eg solicitor) then all future correspondence will be sent to them
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -465,8 +465,9 @@ en:
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     application_number:
-      header: Your application number
-      memorable_word_legend: Returning to your application
+      header: Save and complete later
+      # memorable_word_legend: Returning to your application
+      application_number: Your online application number
       intro_text: You can save your application and return to it at any time. You will need your online application number and password, which you create below.
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
@@ -478,7 +479,7 @@ en:
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
-        Information about the person or organisation making this claim (known as 'claimant' at a tribunal).
+        Information about the person or organisation making this claim (known as 'claimant').
       legend_contact_details: Claimant's contact details
       legend_contact_preference: Best way to send correspondence to the claimant
 
@@ -487,25 +488,28 @@ en:
       subheader: People making a claim with you
       person: Claimant %{number}
       contact_details: Contact details
-      add_fields: Add additional person
-      remove_claimant_link: Remove claimant %{number}
+      add_fields: Add more claimants
+      remove_claimant_link: Remove this claimant
       number_claimants_info: For 5 or fewer claimants, enter their details below.
       csv_upload_text: For 6 or more claimants, you can <a href="/apply/additional-claimants-upload">upload their details in a separate spreadsheet</a>.
 
     additional_claimants_upload:
       header: :"claims.additional_claimants.header"
       subheader: :"claims.additional_claimants.subheader"
+      steps_header: Spreadsheet for group claim
       error_line: "An error has been found on line %{line_number} of the uploaded file."
       malformatted_csv: The CSV doesn't appear to be formatted correctly.
       remove_attachment: :"claims.additional_information.remove_attachment"
       number_claimants_info: For 6 or more claimants, enter their details below.
       manual_entry_text: For up to 5 other claimants you can enter their details <a href="/apply/additional-claimants">manually</a>.
       step_one_header: Step 1
-      download_template: <a href="/assets/group-claims-template.csv">Download spreadsheet template</a>
-      dob_info: Use letters numbers and forward slashes for dates of birth (eg 01/11/1984)
+      download_template: |
+        <a href="/assets/group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
+
+      dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
       step_two_header: Step 2
       save_csv_format: Save in CSV format.
-      how_to_save: "Do this by choosing File > Save as > Format: Comma Separated Values (.csv)"
+      how_to_save: "Do this by choosing File > Save as / Export to > Format: Comma Separated Values (.csv)"
       no_spaces: Don't include spaces in the file name.
       step_three_header: Step 3
 
@@ -516,7 +520,7 @@ en:
       representative_legend: About your representative
       contact_legend: Representative's contact details
       contact_info: |
-        All correspondence about the case will be sent to the representative. If you change representative after you have submitted your application, you must give their contact details to the officials handling your case.
+        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your application, you must give their contact details to the tribunal office handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
@@ -530,7 +534,7 @@ en:
       contact_hint: Enter the address to be used for correspondence about the case. This may be different to your work address.
       workaddress_legend: Your work address
       form_hint: |
-        Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’ at a tribunal). You can add more names and details later, if needed.
+        Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’). You can add more names and details later, if needed.
       work_address: Give details of your work address.
 
     additional_respondents:
@@ -548,7 +552,7 @@ en:
       current_situation_legend: Current work situation
       start_date: Employment start date
       end_date: Employment end date
-      worked_notice_period_or_paid_in_lieu: Did you work - or get paid for - a period of notice?
+      worked_notice_period_or_paid_in_lieu: Did you work (or get paid for) a period of notice?
       new_job_start_date: New job start date
       notice_period_end_date: Notice period end date
       employment_details_legend: Employment details
