@@ -1,5 +1,5 @@
 class ClaimConfirmationsController < ApplicationController
-  redispatch_request unless: %i<enqueued_for_submission? submitted?>
+  redispatch_request unless: :immutable?
 
   def fee_calculation
     @fee_calculation ||= claim.fee_calculation

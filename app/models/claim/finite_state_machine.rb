@@ -38,6 +38,10 @@ class Claim::FiniteStateMachine
 
   private :state, :state=
 
+  def immutable?
+    submitted? || enqueued_for_submission?
+  end
+
   private def method_missing(meth, *args, &blk)
     if @claim.respond_to? meth
       @claim.send meth, *args, &blk
