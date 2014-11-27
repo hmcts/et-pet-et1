@@ -4,8 +4,8 @@ RSpec.describe ClaimantCsvPresenter, type: :presenter do
   subject { described_class.new claim }
 
   let(:claim) do
-    Claim.new do |c|
-      c.additional_claimants_csv = Tempfile.new('lol.csv')
+    Claim.new.tap do |c|
+      c.additional_claimants_csv = File.open(Rails.root + 'spec/support/files/file.csv')
       c.additional_claimants_csv_record_count = 10
     end
   end
@@ -34,7 +34,7 @@ RSpec.describe ClaimantCsvPresenter, type: :presenter do
 
   describe "#file_name" do
     it "returns the name of the file" do
-      expect(subject.file_name).to eq "lol"
+      expect(subject.file_name).to eq "file.csv"
     end
   end
 

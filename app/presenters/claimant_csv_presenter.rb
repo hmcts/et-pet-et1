@@ -4,7 +4,7 @@ class ClaimantCsvPresenter < Presenter
   end
 
   def file_name
-    target.additional_claimants_csv.file.basename
+    File.basename(target.additional_claimants_csv.to_s)
   end
 
   def number_claimants
