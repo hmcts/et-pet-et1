@@ -75,6 +75,9 @@
   overflow:hidden;
   h2 {
     @extend .legend;
+    &:first-child{
+      margin-top:0;
+    }
   }
   h3 {
     @extend .bold-small;
@@ -203,6 +206,7 @@ legend {
         clear:none;
     }
 }
+
 .static-content {
     h2{
       @include bold-24();
@@ -210,4 +214,16 @@ legend {
     h3 {
       @include bold-19();
     }
+}
+
+ol.numerical-list {
+  list-style-position:outside;
+  list-style-type: decimal;
+  padding:0 $gutter;
+  li {
+    @include bold-19();
+    p {
+      @include core-19;
+    }
+  }
 }

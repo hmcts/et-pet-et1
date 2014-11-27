@@ -1,4 +1,4 @@
-RSpec.shared_examples 'it parses dates', focus: true do |*dates|
+RSpec.shared_examples 'it parses dates' do |*dates|
   dates.each do |date|
     subject { described_class.new Claim.new }
 

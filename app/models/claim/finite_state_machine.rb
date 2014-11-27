@@ -30,8 +30,8 @@ class Claim::FiniteStateMachine
       transition :enqueued_for_submission => :submitted
     end
 
-    after_transition created: :enqueued_for_submission,
-      do: ->(claim) { claim.submitted_at = Time.now }
+    after_transition any => :enqueued_for_submission,
+      do: ->(claim) { claim.touch(:submitted_at) }
 
     after_transition do: ->(claim) { claim.save! }
   end

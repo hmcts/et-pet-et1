@@ -39,4 +39,4 @@ Rails.application.configure do
   config.middleware.use Rack::LiveReload
 end
 
-Slim::Engine.set_default_options pretty: true, sort_attrs: true
+Slim::Engine.set_default_options pretty: !Rails.env.production?, sort_attrs: true
