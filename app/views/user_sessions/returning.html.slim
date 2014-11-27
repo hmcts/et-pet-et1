@@ -8,6 +8,8 @@ header.main-header
 
   .main-content#main-sub-content
     = simple_form_for user_session, url: user_session_path do |f|
+      = f.error :base
+      
       fieldset
         h3.font-small = t('.subheader')
         p.form-hint= format t('.hint')

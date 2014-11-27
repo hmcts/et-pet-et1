@@ -381,6 +381,7 @@ en:
     user_session:
       not_found: A claim with that application number could not be found
       invalid: This password does not match the application number
+      immutable: This application has been submitted and can no longer be edited online
 
   user_sessions:
     returning:

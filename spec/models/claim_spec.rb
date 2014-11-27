@@ -341,4 +341,40 @@ RSpec.describe Claim, :type => :claim do
       end
     end
   end
+
+  describe '#immutable?' do
+    context 'when `state` is' do
+      context 'created' do
+        before { subject.state = 'created' }
+
+        it 'is false' do
+          expect(subject).not_to be_immutable
+        end
+      end
+
+      context 'payment_required' do
+        before { subject.state = 'payment_required' }
+
+        it 'is false' do
+          expect(subject).not_to be_immutable
+        end
+      end
+
+      context 'submitted' do
+        before { subject.state = 'submitted' }
+
+        it 'is true' do
+          expect(subject).to be_immutable
+        end
+      end
+
+      context 'enqueued_for_submission' do
+        before { subject.state = 'enqueued_for_submission' }
+
+        it 'is true' do
+          expect(subject).to be_immutable
+        end
+      end
+    end
+  end
 end
