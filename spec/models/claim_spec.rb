@@ -16,7 +16,7 @@ RSpec.describe Claim, :type => :claim do
   it { is_expected.to have_one(:primary_respondent).conditions primary_respondent: true }
   it { is_expected.to have_one(:payment) }
 
-  subject { described_class.new(id: 1) }
+  subject { described_class.create }
 
   %i<created_at amount reference>.each do |meth|
     describe "#payment_#{meth}" do

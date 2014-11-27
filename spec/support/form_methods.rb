@@ -231,10 +231,14 @@ module FormMethods
   end
 
   def complete_payment(gateway_response: 'success')
-    visit "/apply/pay/#{gateway_response}?orderID=fgr&amount=250&PM=CreditCard&" +
+    path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
       'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
-      'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'
+      'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+
+    visit path
+
+    raise "Gateway redirect invalid" if page.current_url.sub(page.current_host, '') == path
   end
 
   def complete_a_claim(options={})
@@ -256,6 +260,7 @@ module FormMethods
   def complete_and_submit_claim
     complete_a_claim
     click_button "Submit the form"
+    complete_payment
   end
 
   def select_recipients

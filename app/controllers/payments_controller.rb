@@ -20,7 +20,10 @@ class PaymentsController < ApplicationController
   # BarclayCard transaction result callback actions
 
   def success
-    claim = Claim.find_by fee_group_reference: params['orderID']
+    # Strip padding from FGR (FGRs are padded with an incrementing integer
+    # when retrying failed transactions)
+    reference = params['orderID'].sub(/\-\d+\Z/, '')
+    claim     = Claim.find_by fee_group_reference: reference
 
     if payment_response.success?
       claim.create_payment amount: payment_response.amount, reference: payment_response.reference
