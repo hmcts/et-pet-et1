@@ -1,12 +1,30 @@
 - content_for(:page_title, page_title)
 
-h1 = t('.header')
+header.main-header
+  h1= t '.header'
 
-p = t('.application_fee', fee: fee_calculation.application_fee_after_remission).html_safe
-p = t('.hearing_fee',     fee: fee_calculation.hearing_fee).html_safe
+.main-section
+  = render partial: 'shared/aside'
 
-= form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
-  - payment_request.form_attributes.each do |k, v|
-    = hidden_field_tag k, v
+  .main-content
 
-  = submit_tag t('.submit'), name: nil
+    h2.legend = t('.issue_fee_header')
+
+    = format t('.issue_fee')
+
+    = form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
+      - payment_request.form_attributes.each do |k, v|
+        = hidden_field_tag k, v
+
+    = submit_tag t('.submit'), name: nil, class: 'button'
+
+    details
+      summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+        span.summary= t '.details.summary'
+      .panel-indent#details-content-0
+        p= t('.details.intro')
+        h2.bold-medium= t('.details.heading')
+        ul
+          li= format t('.details.li_one', link: 'http://link_to_somewhere')
+          li= t('.details.li_two')
+          li= format t('.details.li_three', link: 'https://www.justice.gov.uk/tribunals/employment/venues')
