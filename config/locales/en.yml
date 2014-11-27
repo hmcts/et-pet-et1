@@ -365,6 +365,10 @@ en:
 
   shared:
     reference: Your application number is
+    mobile_nav:
+      read_guide: Application guide
+      contact_us: Contact us
+      contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
     aside:
       skip_link: Skip to content
       gethelp_header: Support

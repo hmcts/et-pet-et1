@@ -1,0 +1,18 @@
+nav id="navcontainer"
+  ul
+    li
+      a.menu-trigger href="#"
+        | Save and complete later
+
+    li
+      a.menu-trigger href="#"
+        | Support
+        span class="arrow arrow-down"
+
+      ul.visuallyhidden
+        li= link_to t('.read_guide'), guide_path
+        li= link_to t('.contact_us'), t('.contact_us_link')
+
+
+
+
