@@ -91,6 +91,10 @@ class Claim < ActiveRecord::Base
     end
   end
 
+  def attachments
+    self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
+  end
+
   private
 
   def state_machine
