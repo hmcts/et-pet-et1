@@ -16,7 +16,7 @@ header.main-header
       - payment_request.form_attributes.each do |k, v|
         = hidden_field_tag k, v
 
-    = submit_tag t('.submit'), name: nil, class: 'button'
+      = submit_tag t('.submit'), name: nil, class: 'button'
 
     details
       summary role="button" aria={controls: 'details-content-0', expanded: 'true'}

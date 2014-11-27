@@ -4,8 +4,6 @@ header.main-header
   h1= t '.header'
 
 .main-section
-  = render partial: 'shared/aside'
-
   .main-content#main-sub-content
     .callout.callout-confirmation
       p.detail = t '.callout_detail'
@@ -13,25 +11,28 @@ header.main-header
 
     section.content-section
       h2 = t('.what_happens_next.header')
-      ol
-        li = t('.what_happens_next.one')
-        li = t('.what_happens_next.two')
+      ol.numerical-list
+        li: p= t('.what_happens_next.one')
+        li: p= t('.what_happens_next.two')
 
       h2 = t('.download_application.header')
 
-      = link_to t('.download_application.link_anchor_text'),
+      p = link_to t('.download_application.link_anchor_text'),
         generated_claim_claim_confirmation_url(claim, format: 'pdf')
 
-      h2 = t('.submission_details.header')
-      dl
+      table.confirmation-table
+        caption = t('.submission_details.header')
         - confirmation_presenter.each_item do |name, content|
-          dt= t ".submission_details.#{name}"
-          dd= content
+          tr role="row"
+            th = t ".submission_details.#{name}"
+            td = content
 
       - if claim.remission_claimant_count > 0
         .content-block
           h2 = t('.getting_help.header')
           p = t('.getting_help.text')
-          = link_to t('.getting_help.link_anchor_text'),
+          p= link_to t('.getting_help.link_anchor_text'),
             'https://www.employmenttribunals.service.gov.uk/remissions',
             rel: 'external'
+
+      p = t('.print_link_text', link: link_to(t('.print_link'), 'javascript:window.print(0);')).html_safe
