@@ -3,6 +3,6 @@
 module.exports = (function() {
   var ariaAlert = document.getElementById('error-summary');
   if(ariaAlert) {
-    $(ariaAlert).focus();
+    ariaAlert.focus();
   }
 })();
