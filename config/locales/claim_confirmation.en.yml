@@ -26,5 +26,4 @@ en:
         text: You must apply for a 'fee remission' within 7 calendar days of submitting this claim form (or we'll reject your claim).
         link_anchor_text: Apply for help now
 
-      print_link: Print this page
-      print_link_text: "%{link} for your records"
+      print_link_html: <a href="%{link}">Print this page</a> for your records
