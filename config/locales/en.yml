@@ -134,8 +134,8 @@ en:
         password: Create your password (at least 5 characters)
       user_session:
         returning:
-          reference: Your application number
-          password: Your password
+          reference: Application number
+          password: Password
         reminder:
           email_address: Enter your email address to get your application number emailed to you.
 
@@ -243,7 +243,7 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: Tell us what each of your claims are about. If you run out of space you can write more on a separate document and upload it later in the application.
+        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the application.
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -264,7 +264,7 @@ en:
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
-          Please note that if you have a representative (eg solicitor) then all future correspondence will be sent to them
+          Please note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -274,7 +274,6 @@ en:
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
-
       additional_claimants_upload:
         has_additional_claimants: For up to 5 other claimants you can enter their details <a href="/apply/additional-claimants">manually</a>.
       employment:
@@ -306,12 +305,10 @@ en:
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         acas_early_conciliation_certificate_number: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="/guide#acas_early_conciliation">Acas early conciliation service</a>.
-
       additional_respondents:
         has_additional_respondents: You can claim against more than one respondent. Eg if you're claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
           address_county: Eg if London, Greater London; if Manchester, Greater Manchester
-
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -322,7 +319,7 @@ en:
           You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).<br />
       claim_details:
         claim_details: |
-          Include the background, dates and people involved. <a href="/guide#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
+          <a href="/guide#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -338,10 +335,13 @@ en:
         attachment: |
           You can upload a separate document if you need more space to describe your claim. Please do not send any
           evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file. You can usually save
-          a file as an RTF by selecting File > Save As > Format: Rich Text Format
+          a file as an RTF by selecting File > Save As / Export To > Format: Rich Text Format
       your_fee:
 
       user_session:
+        returning:
+          reference: This was emailed to you, if you entered an email address
+          password: You created a password at the beginning of your application
         reminder:
           email_address: Get your application number in an email
 
@@ -386,7 +386,7 @@ en:
   user_sessions:
     returning:
       header: Return to your application
-      subheader: To return to an application you started earlier, enter your details below.
+      subheader: Enter your details below
       hint: Don't have these details? [Start a new application](/).
     reminder:
       header: Application saved
@@ -472,7 +472,7 @@ en:
       intro_text: You can save your application and return to it at any time. You will need your online application number and password, which you create below.
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
-      print_copy: to have a copy of your online application for reference
+      print_copy: to have a copy of your online application number for reference
 
     claimant:
       header: Claimant's details
@@ -510,7 +510,7 @@ en:
       dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
       step_two_header: Step 2
       save_csv_format: Save in CSV format.
-      how_to_save: "Do this by choosing File > Save as / Export to > Format: Comma Separated Values (.csv)"
+      how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
       no_spaces: Don't include spaces in the file name.
       step_three_header: Step 3
 
@@ -594,7 +594,7 @@ en:
         Remove previously uploaded document: %{file}
 
     your_fee:
-      header: Claim fee
+      header: Fee
       standard_fee: Standard fee
       standard_fee_detail: This is the application fee for your claim
       application_fee: Fee

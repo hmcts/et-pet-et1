@@ -44,8 +44,8 @@ module FormMethods
 
   def fill_in_return_form(reference, word)
     visit returning_user_session_path
-    fill_in 'application number', with: reference
-    fill_in 'password', with: word
+    fill_in 'Application number', with: reference
+    fill_in 'Password', with: word
     click_button 'Find my application'
   end
 

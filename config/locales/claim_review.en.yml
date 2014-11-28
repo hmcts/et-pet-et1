@@ -3,9 +3,11 @@ en:
     show:
       header: Check your application
       edit: Edit
-      info: You can change anything that's not right before submitting your application.
+      info: Check all the information below is correct before submitting your application at the bottom of the page.
       incomplete_claim_summary: Your claim is incomplete.
       incomplete_claim_message: Please go back through the form and ensure all required sections are complete
+      print_link: |
+        <a class="print-page" href="javascript:window.print();">Print this page</a> for your records
 
       sections:
         claimant: About you
@@ -116,8 +118,8 @@ en:
         fee: Your fee
 
     email_addresses:
-      print_link: |
-        <a class="print-page" href="javascript:window.print();">Print this page</a> for your records
+      submit_warning_header: Submit your application
+      submit_warning: This is the last opportunity to change the details of your claim online. Please check all the information above is correct before submitting.
       confirmation: Email confirmation
       hint: |
             A copy of the completed application will be sent to:

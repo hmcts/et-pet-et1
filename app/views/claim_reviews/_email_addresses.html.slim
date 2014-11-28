@@ -1,7 +1,7 @@
 - if claim.submittable?
     = simple_form_for confirmation_email, url: request.url, method: :put do |f|
       fieldset.email-confirmation
-        legend role="header" aria-level="2"= t '.confirmation'
+        legend role="header" aria-level="2" = t('.confirmation')
         p.form-hint = t '.hint'
         = f.input :email_addresses,
           collection: email_addresses,
@@ -9,13 +9,10 @@
           label: false
 
       fieldset style="margin-top:60px;"
-        legend Submit your claim
-        p
-          | This is the last opportunity to change the details of your claim online. Please check all the information above is correct before submitting.
+        legend role="header" aria-level="2" = t('.submit_warning_header')
+        .panel-indent = t('.submit_warning')
 
         .form-actions
           = f.button :submit
 
-
-      p.print = link_to t('.print_link').html_safe
 

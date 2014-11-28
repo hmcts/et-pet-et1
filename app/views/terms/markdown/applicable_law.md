@@ -1,11 +1,12 @@
-# Applicable law
+<h2 class="legend">Applicable law</h2>
+
 Your use of this service and any dispute arising from its use will be governed by and construed in accordance with the laws of England and Wales, including but not limited to the:
 
 - Computer Misuse Act 1990
 - Data Protection Act 1998
 - Mental Capacity Act 2005
 
-## How to use this service responsibly
+### How to use this service responsibly
 
 There are risks in using a shared computer, such as in an internet café, to use this service. It’s your responsibility to be aware of these risks and to avoid using any computer which may leave your personal information accessible to others. You are responsible if you choose to leave a computer unprotected while signed in to the service.
 
