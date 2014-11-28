@@ -29,7 +29,11 @@ module.exports = (function () {
     // after all the events are bound.
     // Useful when you need to reset the state of the page
     // after a form submit
-    triggerPubsAfterBind: true
+    triggerPubsAfterBind: true,
+
+    // The character used to as delimiter
+    // between event names in data-show-array
+    dataShowArrayDelimiter: '|'
   };
 
   /**
@@ -40,7 +44,7 @@ module.exports = (function () {
     this.settings = $.extend({}, defaults, options);
     this.bindSubscribe();
     this.bindPublish();
-    if(this.settings.triggerPubsAfterBind){
+    if (this.settings.triggerPubsAfterBind) {
       this.triggerPublishers();
     }
   };
@@ -119,7 +123,7 @@ module.exports = (function () {
         // $.inArray returns -1 if not in the array and the
         // array index if it is. Using ~ (Bitwise NOT) with !!
         // returns false for -1 and true for everything else.
-        var isInArray = !!~$.inArray(val, $el.attr('data-show-array').split('|'));
+        var isInArray = !!~$.inArray(val, $el.attr('data-show-array').split(_this.settings.dataShowArrayDelimiter));
 
         // if reverse set to true then
         // reverse the boolean
@@ -152,7 +156,7 @@ module.exports = (function () {
   revealPubSub.triggerPublishers = function () {
     $('.reveal-publish-publisher').is(function (idx, el) {
       var $el = $(this);
-      if($el.is(':checked')){
+      if ($el.is(':checked')) {
         $el.trigger('pseudo-click');
       }
     });
