@@ -30,10 +30,17 @@ class Claim::FiniteStateMachine
       transition :enqueued_for_submission => :submitted
     end
 
+    after_transition any => :enqueued_for_submission,
+      do: ->(claim) { claim.touch(:submitted_at) }
+
     after_transition do: ->(claim) { claim.save! }
   end
 
   private :state, :state=
+
+  def immutable?
+    submitted? || enqueued_for_submission?
+  end
 
   private def method_missing(meth, *args, &blk)
     if @claim.respond_to? meth

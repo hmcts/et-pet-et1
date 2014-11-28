@@ -18,7 +18,8 @@ module FormMethods
 
     before do
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
-        with(postcode: 'AT1 4PQ').to_return body: fgr_response.to_json
+        with(postcode: 'AT1 4PQ').
+        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
 
     around do |example|
@@ -224,16 +225,20 @@ module FormMethods
   end
 
   def fill_in_your_fee(options={})
-    choose "your_fee_applying_for_remission_#{options[:seeking_remissions] || false}"
+    choose "your_fee_applying_for_remission_#{options.fetch(:seeking_remissions) { false }}"
 
     click_button 'Save and continue'
   end
 
-  def return_from_payment_gateway(response='success')
-    visit "/apply/pay/#{response}?orderID=fgr&amount=250&PM=CreditCard&" +
+  def complete_payment(gateway_response: 'success')
+    path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
       'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
-      'SHASIGN=33A55FEF5AA437A1512CFBA7AC91AF4B112A4C1AD1CD02609895EC05CFCD40B9'
+      'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+
+    visit path
+
+    raise "Gateway redirect invalid" if page.current_url.sub(page.current_host, '') == path
   end
 
   def complete_a_claim(options={})
@@ -250,6 +255,12 @@ module FormMethods
     fill_in_claim_outcome_details
     fill_in_addtional_information
     fill_in_your_fee(options)
+  end
+
+  def complete_and_submit_claim
+    complete_a_claim
+    click_button "Submit the form"
+    complete_payment
   end
 
   def select_recipients

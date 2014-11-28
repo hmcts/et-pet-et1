@@ -61,15 +61,35 @@ table.review-table{
   }
 }
 
+%caption-large {
+  @extend .bold-medium;
+  text-align:left;
+}
+
 table.files-table{
+  caption{
+    @extend %caption-large;
+  }
   border:1px solid $border-colour;
   border-bottom:none;
   margin-bottom:1em;
-  caption{
-    @extend .bold-medium;
+}
+
+table.confirmation-table {
+  caption {
+    @extend %caption-large;
+  }
+  margin:$gutter*2 0;
+  border-top:1px solid $border-colour;
+  th {
+    @include core-16;
+    color:$grey-1;
+  }
+  td {
     text-align:left;
   }
 }
+
 .static-content table {
   margin: $gutter 0;
 }

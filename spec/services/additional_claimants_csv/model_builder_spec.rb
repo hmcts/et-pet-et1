@@ -27,18 +27,18 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
   describe "#build" do
     it "returns an additional claimant model" do
-      expect(subject.build(row)).to be_kind_of model_class
+      expect(subject.build_form_claimant(row)).to be_kind_of model_class
     end
 
     it "sets attributes on the returned model" do
-      model = subject.build(row)
+      model = subject.build_form_claimant(row)
       model_attributes = model.attributes.slice(*expected_attributes.keys)
       expect(model_attributes).to eq expected_attributes
     end
 
     it "doesn't create multiple form objects" do
       expect(model_class).to receive(:new).and_call_original.once
-      2.times { subject.build(row) }
+      2.times { subject.build_form_claimant(row) }
     end
   end
 end

@@ -381,6 +381,7 @@ en:
     user_session:
       not_found: A claim with that application number could not be found
       invalid: This password does not match the application number
+      immutable: This application has been submitted and can no longer be edited online
 
   user_sessions:
     returning:
@@ -620,12 +621,28 @@ en:
 
   payments:
     show:
-      header: Pay your fee
-      application_fee: |
-        From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
-      hearing_fee: |
-        If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
-      submit: Start payment
+      header: Pay and submit claim
+      issue_fee_header: Pay the issue fee
+      issue_fee: |
+        You now need to pay the issue fee.
+
+        You will be taken to a scream where you can enter your payment details.
+
+        Once the issue fee is paid, the claim will be submitted directly to the tribunal.
+
+        After your claim is submitted, we may contact you and request that you pay additional fees.
+
+      submit: Pay and submit claim
+      details:
+        summary: Other ways to pay
+        intro: You can pay by cheque
+        heading: "You will need to:"
+        li_one: completed application
+        li_one_link: "print the %{link}"
+        li_two: include a cheque for the correct issue fee
+        li_three_html: post the claim to tribunal office %{link}
+    decline:
+      payment_declined: Payment declined
 
   base_mailer:
     access_details_email:

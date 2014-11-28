@@ -2,13 +2,13 @@ module EpdqMatchers
   extend RSpec::Matchers::DSL
 
   EPDQ_FORM_PARAMS = {
-    "SHASIGN"    => "3DF12D65A5772BB836E91EC4DAC2ACACF723B510CEAB9AF7A01B31D2B75071F6",
+    "SHASIGN"    => "25B7D94258E4EFD9B7313F36B2EE9952FCBCEAF290F32DD557F4CEC76C0D3FC8",
     "CURRENCY"   => "GBP",
     "LANGUAGE"   => "en_US",
     "ACCEPTURL"  => "http://www.example.com/apply/pay/success",
     "DECLINEURL" => "http://www.example.com/apply/pay/decline",
     "AMOUNT"     => "25000",
-    "ORDERID"    => "fgr",
+    "ORDERID"    => "511234567800",
     "PSPID"      => "ministry2"
   }.freeze
 
@@ -21,7 +21,7 @@ module EpdqMatchers
       EPDQ_FORM_PARAMS.
         select { |key, value| page.find("input##{key}").value != value }.
         map { |key, value|
-          "Expected #{key} input to == #{page.find("input##{key}").value}, got #{value}"
+          "Expected #{key} input to == #{value}, got #{page.find("input##{key}").value}"
         }.
         join "\n"
     end

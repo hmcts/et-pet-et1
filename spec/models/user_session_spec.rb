@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe UserSession do
 
-  let(:claim)           { double 'claim', password_digest: password_digest }
+  let(:claim)           { Claim.new password_digest: password_digest }
   let(:reference)       { 'reference' }
   let(:password)        { 'password' }
   let(:password_digest) { 'gff76tyuiy' }
@@ -12,6 +12,31 @@ describe UserSession do
     subject.password = password
     allow(Claim).to receive(:find_by_reference).with(reference).and_return claim
     allow(claim).to receive(:authenticate).with(password).and_return true
+  end
+
+  describe 'validations' do
+    context 'when the claim is immutable?' do
+      before { allow(claim).to receive(:immutable?).and_return true }
+
+      context 'when the password authenticates' do
+        before { subject.valid? }
+
+        it 'adds an error to base' do
+          expect(subject.errors[:base]).to include I18n.t('errors.user_session.immutable')
+        end
+      end
+
+      context 'when the password does not authenticate' do
+        before do
+          allow(claim).to receive(:authenticate).and_return false
+          subject.valid?
+        end
+
+        it 'adds no errors to base so information is not revealed to unauthorised persons' do
+          expect(subject.errors[:base]).to be_empty
+        end
+      end
+    end
   end
 
   describe '#claim' do

@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Claim applications', type: :feature do
   include FormMethods
   include Messages
-  include EpdqMatchers
   include PdfMethods
 
   context 'along the happy path' do
@@ -186,42 +185,41 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Emailing confirmation' do
-      complete_a_claim seeking_remissions: false
+      complete_a_claim seeking_remissions: true
       select_recipients
 
       email = ActionMailer::Base.deliveries.last
-      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      content = email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source
 
-      expect(content).to include completion_message
-      expect(content).to include 'Attached'
+      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
+      expect(email.parts.first.body).to include 'Application complete'
+      expect(email.parts.last.content_type).
+        to eq "application/pdf; charset=UTF-8; filename=et1_barrington_wrigglesworth.pdf"
     end
 
     scenario 'Submitting claim when no email addresses' do
       ActionMailer::Base.deliveries = []
-      complete_a_claim seeking_remissions: false, claimant_email: false
+      complete_a_claim seeking_remissions: true, claimant_email: false
       click_button 'Submit the form'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
 
-      expect(page.html).to include completion_message
+      expect(page.title).to include 'Application complete'
     end
 
     scenario 'Submitting the claim when payment is not required' do
-      pending 'pending design changes in progress there is no way to indicate applying for remission'
-      complete_a_claim
+      complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
 
-      expect(page.html).to include completion_message
-      expect(page.html).not_to include table_heading('fee_paid')
-      expect(page.html).not_to include table_heading('fee_to_pay')
-      expect(page.html).to include remission_help
+      expect(page).to have_text     "Application complete"
+      expect(page).not_to have_text "Fee paid"
+      expect(page).not_to have_text "Fee to pay"
+      expect(page).to have_text     "Get help with paying your fee now"
     end
 
     scenario 'Downloading the PDF' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit the form'
-      click_link 'Download your application'
+      click_link 'Save a copy'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
       expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
@@ -232,7 +230,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit the form'
 
       expect(page).to have_text 'Get help with paying your fee now'
-      expect(page).not_to have_text 'From the information you’ve given us, you have to pay'
+      expect(page).not_to have_text 'You now need to pay the issue fee'
     end
 
     scenario 'Viewing the confirmation page when not seeking remission' do
@@ -240,43 +238,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit the form'
 
       expect(page).not_to have_text 'Get help with paying your fee now'
-      expect(page).to have_text 'From the information you’ve given us, you have to pay'
-    end
-
-    scenario 'Making payment' do
-      pending 'payments disabled for first live trial'
-
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
-
-      expect(page).to have_epdq_form
-    end
-
-    scenario 'Returning from the payment page' do
-      pending 'payments disabled for first live trial'
-
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
-
-      return_from_payment_gateway
-
-      expect(page.html).to include table_heading('fee_paid')
-      expect(page.html).not_to include table_heading('fee_to_pay')
-      expect(page.html).not_to include remission_help
-    end
-
-    scenario 'Submitting the claim when payment failed' do
-      pending 'payments disabled for first live trial'
-
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
-
-      return_from_payment_gateway('decline')
-
-      expect(page.html).to include completion_message
-      expect(page.html).not_to include table_heading('fee_paid')
-      expect(page.html).to include table_heading('fee_to_pay')
-      expect(page.html).not_to include remission_help
+      expect(page).to have_text 'You now need to pay the issue fee'
     end
   end
 end

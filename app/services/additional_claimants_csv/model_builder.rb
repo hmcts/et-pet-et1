@@ -2,16 +2,22 @@ class AdditionalClaimantsCsv::ModelBuilder
   ATTRIBUTES = %i<title first_name last_name date_of_birth address_building
     address_street address_locality address_county address_post_code>.freeze
 
-  def build(row_data)
-    additional_claimant.tap do |form|
-      form.assign_attributes attributes_from(row_data)
-    end
+  def build_form_claimant(row_data)
+    assign_attributes(claimant_form, row_data)
+  end
+
+  def build_claimant(row_data)
+    assign_attributes(Claimant.new, row_data)
   end
 
   private
 
-  def additional_claimant
-    @additional_claimant ||= AdditionalClaimantsForm::AdditionalClaimant.new(Claimant.new)
+  def assign_attributes(model, row_data)
+    model.tap { |m| m.assign_attributes attributes_from(row_data) }
+  end
+
+  def claimant_form
+    @claimant_form ||= AdditionalClaimantsForm::AdditionalClaimant.new(Claimant.new)
   end
 
   def attributes_from(row_data)

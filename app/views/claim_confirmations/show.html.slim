@@ -4,23 +4,35 @@ header.main-header
   h1= t '.header'
 
 .main-section
-  = render partial: 'shared/aside'
-
   .main-content#main-sub-content
     .callout.callout-confirmation
-          p.detail = t '.callout_detail'
-          span.number= claim.reference
+      p.detail = t '.callout_detail'
+      span.number= claim.reference
+
     section.content-section
-      - if fee_calculation.fee_to_pay?
+      h2 = t('.what_happens_next.header')
+      ol.numerical-list
+        li: p= t('.what_happens_next.one')
+        li: p= t('.what_happens_next.two')
+
+      table.confirmation-table
+        caption = t('.submission_details.header')
+        tr role="row"
+          th = t '.download_application.header'
+          td = t '.download_application.link_html',
+            href: generated_claim_claim_confirmation_url(claim, format: 'pdf')
+
+        - confirmation_presenter.each_item do |name, content|
+          tr role="row"
+            th = t ".submission_details.#{name}"
+            td = content
+
+      - if claim.remission_claimant_count > 0
         .content-block
-          = format t('.fee_to_pay', application_fee: fee_calculation.application_fee, hearing_fee: fee_calculation.hearing_fee)
+          h2 = t('.getting_help.header')
+          p = t('.getting_help.text')
+          p= link_to t('.getting_help.link_anchor_text'),
+            'https://www.employmenttribunals.service.gov.uk/remissions',
+            rel: 'external'
 
-      - else
-        .content-block
-          = format t('.getting_help')
-
-      .content-block
-        = format t('.what_to_do_next', pdf_link: generated_claim_claim_confirmation_url(claim, format: 'pdf'), application_fee: fee_calculation.application_fee)
-
-      .content-block
-        = format t('.if_claim_accepted')
+      p = t('.print_link_text', link: link_to(t('.print_link'), 'javascript:window.print(0);')).html_safe

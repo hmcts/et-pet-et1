@@ -19,8 +19,8 @@ module ClaimReviewsHelper
     (claimants + representatives).reject(&:blank?)
   end
 
-  def presenter
-    @presenter ||= ClaimPresenter.new(claim)
+  def claim_presenter
+    @claim_presenter ||= ClaimPresenter.new(claim)
   end
 
   def confirmation_email

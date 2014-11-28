@@ -10,7 +10,7 @@ header.main-header
   .main-content#main-sub-content
     = incomplete_claim_warning
 
-    - presenter.each_section do |section_name, section|
+    - claim_presenter.each_section do |section_name, section|
 
       div class=("review-table-entry #{section_name.dasherize}")
         h2.table-header
