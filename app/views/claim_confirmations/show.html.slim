@@ -12,8 +12,13 @@ header.main-header
     section.content-section
       h2 = t('.what_happens_next.header')
       ol.numerical-list
-        li: p= t('.what_happens_next.one')
+        - unless claim.remission_claimant_count.zero?
+          li
+            p = t('.what_happens_next.one_html')
+            p= link_to t('.what_happens_next.one_link'), 'https://www.employmenttribunals.service.gov.uk/remissions', class: 'button'
+
         li: p= t('.what_happens_next.two')
+        li: p= t('.what_happens_next.three')
 
       table.confirmation-table
         caption = t('.submission_details.header')
