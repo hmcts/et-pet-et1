@@ -9,10 +9,10 @@ fieldset
       input_html: { :class => 'reveal-publish-publisher'},
       reveal: { true => 'main', false => 'main' }
 
-  .callout.toggle-content.reveal-subscribe.callout-reference data-target="main" data-show-array='["true"]'
+  .callout.toggle-content.reveal-subscribe.callout-reference data-target="main" data-show-array="true"
     = format t('.contact_info')
 
-  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
     legend role="heading" aria-level="2" = t '.representative_legend'
 
     = f.input :type,
@@ -22,7 +22,7 @@ fieldset
     = f.input :organisation_name
     = f.input :name
 
-  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array='["true"]'
+  fieldset.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
     legend role="heading" aria-level="2" = t '.contact_legend'
     = f.input :address_building
     = f.input :address_street

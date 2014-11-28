@@ -11,7 +11,7 @@ fieldset
     label: false,
     wrapper_html: { :class => 'toggle-content reveal-subscribe',
                     :'data-target' => 'main',
-                    :'data-show-array' => '["true"]' }
+                    :'data-show-array' => 'true' }
 
   = f.input :attachment do
     - if resource.has_attachment?
