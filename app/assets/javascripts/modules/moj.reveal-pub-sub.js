@@ -33,7 +33,7 @@ module.exports = (function () {
 
     // The character used to as delimiter
     // between event names in data-show-array
-    dataShowArrayDelimiter: '|'
+    dataShowArrayDelimiter: ' '
   };
 
   /**
