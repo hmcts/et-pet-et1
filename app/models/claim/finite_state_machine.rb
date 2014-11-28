@@ -12,6 +12,8 @@ class Claim::FiniteStateMachine
     super()
   end
 
+  attr_reader :claim
+
   delegate :state, :state=, to: :@claim
 
   state_machine :state, initial: :created do
@@ -30,10 +32,14 @@ class Claim::FiniteStateMachine
       transition :enqueued_for_submission => :submitted
     end
 
-    after_transition any => :enqueued_for_submission,
-      do: ->(claim) { claim.touch(:submitted_at) }
-
     after_transition do: ->(claim) { claim.save! }
+
+    after_transition any => :enqueued_for_submission, do: ->(machine) do
+      claim = machine.claim
+
+      claim.touch(:submitted_at)
+      ClaimSubmissionJob.perform_later claim
+    end
   end
 
   private :state, :state=

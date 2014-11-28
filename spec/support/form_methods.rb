@@ -16,7 +16,17 @@ module FormMethods
       }
     end
 
+    let(:submission_response) do
+      {
+        "feeGroupReference" => 511234567800,
+        "status" => 'ok'
+      }
+    end
+
     before do
+      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/new-claim').
+        to_return(body: submission_response.to_json, headers: { 'Content-Type' => 'application/json' })
+
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
         with(postcode: 'AT1 4PQ').
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
@@ -237,8 +247,6 @@ module FormMethods
       'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
 
     visit path
-
-    raise "Gateway redirect invalid" if page.current_url.sub(page.current_host, '') == path
   end
 
   def complete_a_claim(options={})

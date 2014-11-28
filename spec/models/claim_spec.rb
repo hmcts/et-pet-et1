@@ -18,6 +18,10 @@ RSpec.describe Claim, :type => :claim do
 
   subject { described_class.create }
 
+  before do
+    allow(ClaimSubmissionJob).to receive :perform_later
+  end
+
   %i<created_at amount reference>.each do |meth|
     describe "#payment_#{meth}" do
       context 'when #payment is nil' do
@@ -254,6 +258,11 @@ RSpec.describe Claim, :type => :claim do
             expect(subject.state).to eq('enqueued_for_submission')
           end
 
+          it 'creates a claim submission job' do
+            expect(ClaimSubmissionJob).to receive(:perform_later).with subject
+            subject.submit!
+          end
+
           it 'saves the claim' do
             expect(subject).to receive(:save!)
             subject.submit!
@@ -283,6 +292,11 @@ RSpec.describe Claim, :type => :claim do
       it 'transitions state to "enqueued_for_submission"' do
         subject.enqueue!
         expect(subject.state).to eq('enqueued_for_submission')
+      end
+
+      it 'creates a claim submission job' do
+        expect(ClaimSubmissionJob).to receive(:perform_later).with subject
+        subject.enqueue!
       end
 
       it 'saves the claim' do

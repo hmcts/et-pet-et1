@@ -19,6 +19,11 @@ feature 'Payments:', type: :feature do
 
   describe 'returning from the payment gateway' do
     context 'successfully' do
+      before do
+        # Don't want the job immediately "submitting" the thing
+        allow(ClaimSubmissionJob).to receive(:perform_later)
+      end
+
       before { complete_payment }
 
       it 'redirects to the confirmation page and displays the fee paid' do
