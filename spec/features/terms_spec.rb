@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'Terms' do
 
-  let(:general_header)           { "<h2>Terms and conditions - General</h2>" }
-  let(:applicable_law_header)    { "<h1>Applicable law</h1>" }
-  let(:privacy_policy_header)    { "<h1>Privacy policy - Information provided by this service</h1>" }
-  let(:data_protection_header)   { "<h1>Data Protection Act 1998</h1>" }
-  let(:disclaimer_header)        { "<h1>Disclaimer</h1>" }
+  let(:general_header)           { '<h2 class="legend">Terms and conditions - General</h2>' }
+  let(:applicable_law_header)    { '<h2 class="legend">Applicable law</h2>' }
+  let(:privacy_policy_header)    { '<h2 class="legend">Privacy policy - Information provided by this service</h2>' }
+  let(:data_protection_header)   { '<h2 class="legend">Data Protection Act 1998</h2>' }
+  let(:disclaimer_header)        { '<h2 class="legend">Disclaimer</h2>' }
 
   before :each do
     visit terms_path
