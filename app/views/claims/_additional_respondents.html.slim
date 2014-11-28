@@ -9,7 +9,7 @@ fieldset
     input_html: { :class => 'reveal-publish-publisher'},
     reveal: { true => 'sub1', false => 'sub1' }
 
-  .multiples.reveal-subscribe data-target="sub1" data-show-array='["true"]'
+  .multiples.reveal-subscribe data-target="sub1" data-show-array="true"
     = f.simple_fields_for :respondents do |builder|
       .multiple id=("respondent_#{builder.index}")
         fieldset
@@ -31,7 +31,7 @@ fieldset
                           :'data-target' => "main-#{builder.index}" }
 
 
-          .clearfix.toggle-content.reveal-subscribe data-target="main-#{builder.index}" data-show-array='[true]'
+          .clearfix.toggle-content.reveal-subscribe data-target="main-#{builder.index}" data-show-array="true"
             fieldset.panel-indent
                 legend.visuallyhidde.form-label = t '.no_acas_number_reason'
                 = builder.input :no_acas_number_reason,
