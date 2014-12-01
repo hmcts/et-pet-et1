@@ -2,6 +2,14 @@
 * .block-label > label > input
 */
 module.exports = (function() {
+
+  function toggleParentClass(input, labels, label, checked, klass) {
+    if(input.is(':radio')){
+      labels.removeClass(klass);
+    }
+    label.toggleClass(klass, checked);
+  }
+
   $('.options').each(function(i, container){
     var blocklabels = $(container).find('.block-label'),
       labels = blocklabels.find('label');
@@ -16,11 +24,14 @@ module.exports = (function() {
 
       input.on('change', function(){
         var checked = input.is(':checked');
-        if(input.is(':radio')){
-            labels.removeClass('selected');
-        }
-        label.toggleClass('selected', checked);
-      });
+        toggleParentClass(input, labels, label, checked, 'selected');
+      })
+      .on('focus', function(){
+        toggleParentClass(input, labels, label, true, 'focused');
+      })
+      .on('blur', function(){
+        toggleParentClass(input, labels, label, false, 'focused');
+      })
     });
   });
 })();
