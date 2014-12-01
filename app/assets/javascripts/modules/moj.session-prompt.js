@@ -15,6 +15,7 @@ module.exports = (function () {
     init: function (options) {
       settings = $.extend(settings, options);
       this.counter = settings.FIVE_MINUTES;
+      this.updateTimeLeftOnPrompt(this.counter);
       this.setPromptExtendSessionClickEvent();
       this.startSessionTimer();
     },
@@ -37,7 +38,7 @@ module.exports = (function () {
         this.expireSession();
       } else {
         this.counter -= settings.SECOND;
-        this.updateTimeLeftOnPrompt(this.counter / settings.SECOND);
+        this.updateTimeLeftOnPrompt(this.counter);
       }
     },
 
@@ -45,8 +46,9 @@ module.exports = (function () {
       $("#session_prompt").toggleClass("hidden");
     },
 
-    updateTimeLeftOnPrompt: function (seconds) {
-      var mins = ~~(seconds / 60);
+    updateTimeLeftOnPrompt: function (timeInMillis) {
+      var seconds = timeInMillis / settings.SECOND;
+      var mins = Math.floor(seconds / 60);
       var secs = seconds % 60;
       var time = (mins === 0) ? secs : (mins + ":" + this.padSeconds(secs));
       $('#session_prompt_time_left').text(time);
