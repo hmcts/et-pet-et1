@@ -17,6 +17,8 @@ require 'shoulda/matchers'
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+CarrierWave.root = "#{Rails.root}/spec/support"
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -47,5 +49,9 @@ RSpec.configure do |config|
       # Uncomment to autoload failed capybara tests in the browser
       # save_and_open_page
     end
+  end
+
+  config.after(:all) do
+    FileUtils.rm_rf(Dir["#{CarrierWave.root}/uploads/[^.]*"])
   end
 end
