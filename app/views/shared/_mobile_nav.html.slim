@@ -1,8 +1,8 @@
 nav id="navcontainer"
   ul
-    li
-      a.menu-trigger href="#"
-        | Save and complete later
+    - if show_signout?
+      li= link_to t('.save_and_complete'), reminder_user_session_path, { class: "menu-trigger" }
+          / | Save and complete later
 
     li
       a.menu-trigger href="#"
@@ -10,9 +10,5 @@ nav id="navcontainer"
         span class="arrow arrow-down"
 
       ul.visuallyhidden
-        li= link_to t('.read_guide'), guide_path
+        li= link_to t('.read_guide'), guide_path, { class: "yo" }
         li= link_to t('.contact_us'), t('.contact_us_link')
-
-
-
-

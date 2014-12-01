@@ -1,4 +1,3 @@
-- hide ||= []
 aside role="complementary"
   nav
     = link_to t('.skip_link'), '#main-sub-content', { class: 'skiplink' }
@@ -6,7 +5,7 @@ aside role="complementary"
     ul
       li= link_to t('.read_guide'), guide_path
       li= link_to t('.contact_us'), t('.contact_us_link')
-    - unless hide.include?(:signout)
+    - if show_signout?
       h3= t '.actions_header'
       ul
         li= link_to t('.signout'), reminder_user_session_path

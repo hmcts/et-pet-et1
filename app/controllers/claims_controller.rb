@@ -3,6 +3,8 @@ class ClaimsController < ApplicationController
 
   before_action :check_session_expiry, only: %i<show update>
 
+  before_action :hide_signout, only: %i<new>
+
   def new
     @claim = Claim.new
   end
