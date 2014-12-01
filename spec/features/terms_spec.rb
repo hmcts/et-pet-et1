@@ -34,32 +34,31 @@ feature 'Terms' do
     expect(page.html).to include(cookies_header)
   end
 
-let(:general_link)                                  { "Terms and conditions - General" }
-let(:applicable_law_link)                           { "Applicable law" }
-let(:applicable_law_responsible_use_link)           { "Responsible use of this service" }
-let(:privacy_policy_link)                           { "Privacy policy" }
-let(:privacy_policy_personal_information_link)      { "How we use your personal information" }
-let(:privacy_policy_non_personal_information_link)  { "How we use non-personal information" }
-let(:privacy_policy_data_storage_link)              { "How we keep your information safe" }
-let(:online_payment_link)                           { "Online payment" }
-let(:session_management_link)                       { "How we manage sessions" }
-let(:data_protection_link)                          { "Data Protection Act 1998" }
-let(:disclaimer_link)                               { "Disclaimer" }
-let(:cookies_link)                                  { "Cookies" }
+  let(:general_link)                                  { "Terms and conditions - General" }
+  let(:applicable_law_link)                           { "Applicable law" }
+  let(:applicable_law_responsible_use_link)           { "Responsible use of this service" }
+  let(:privacy_policy_link)                           { "Privacy policy" }
+  let(:privacy_policy_personal_information_link)      { "How we use your personal information" }
+  let(:privacy_policy_non_personal_information_link)  { "How we use non-personal information" }
+  let(:privacy_policy_data_storage_link)              { "How we keep your information safe" }
+  let(:online_payment_link)                           { "Online payment" }
+  let(:session_management_link)                       { "How we manage sessions" }
+  let(:data_protection_link)                          { "Data Protection Act 1998" }
+  let(:disclaimer_link)                               { "Disclaimer" }
+  let(:cookies_link)                                  { "Cookies" }
 
-let(:general_div)                                 { "#general" }
-let(:applicable_law_div)                          { "#applicable_law" }
-let(:applicable_law_responsible_use_div)          { "#applicable_law_responsible_use" }
-let(:privacy_policy_div)                          { "#privacy_policy" }
-let(:privacy_policy_personal_information_div)     { "#privacy_policy_personal_information" }
-let(:privacy_policy_non_personal_information_div) { "#privacy_policy_non_personal_information" }
-let(:privacy_policy_data_storage_div)             { "#privacy_policy_data_storage" }
-let(:online_payment_div)                          { "#online_payment" }
-let(:session_management_div)                      { "#session_management" }
-let(:data_protection_div)                         { "#data_protection" }
-let(:disclaimer_div)                              { "#disclaimer" }
-let(:cookies_div)                                 { "#cookies" }
-
+  let(:general_div)                                 { "#general" }
+  let(:applicable_law_div)                          { "#applicable_law" }
+  let(:applicable_law_responsible_use_div)          { "#applicable_law_responsible_use" }
+  let(:privacy_policy_div)                          { "#privacy_policy" }
+  let(:privacy_policy_personal_information_div)     { "#privacy_policy_personal_information" }
+  let(:privacy_policy_non_personal_information_div) { "#privacy_policy_non_personal_information" }
+  let(:privacy_policy_data_storage_div)             { "#privacy_policy_data_storage" }
+  let(:online_payment_div)                          { "#online_payment" }
+  let(:session_management_div)                      { "#session_management" }
+  let(:data_protection_div)                         { "#data_protection" }
+  let(:disclaimer_div)                              { "#disclaimer" }
+  let(:cookies_div)                                 { "#cookies" }
 
   scenario "User can click general link" do
     expect(page).to have_link(general_link, href: "#{terms_path + general_div}")
@@ -120,5 +119,4 @@ let(:cookies_div)                                 { "#cookies" }
     expect(page).to have_link(cookies_link, href: "#{terms_path + cookies_div}")
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
-
 end
