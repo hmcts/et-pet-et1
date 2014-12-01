@@ -419,9 +419,16 @@ en:
       header: Terms and conditions
       general: Terms and conditions - General
       applicable_law: Applicable law
-      privacy_policy: Privacy policy - Information provided by this service
+      applicable_law_responsible_use: Responsible use of this service
+      privacy_policy: Privacy policy
+      privacy_policy_personal_information: How we use your personal information
+      privacy_policy_non_personal_information: How we use non-personal information
+      privacy_policy_data_storage: How we keep your information safe
+      online_payment: Online payment
+      session_management: How we manage sessions
       data_protection: Data Protection Act 1998
       disclaimer: Disclaimer
+      cookies: Cookies
 
   claims:
     personal_details:

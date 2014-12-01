@@ -1,9 +1,7 @@
-# Terms and conditions and privacy policy
+*By using this ‘apply to an employment tribunal’ service you agree to our privacy policy and to these terms and conditions. Please read them carefully.*
+<h2 class="legend">General terms and conditions</h2>
+THESE TERMS AND CONDITIONS AFFECT YOUR RIGHTS AND LIABILITIES UNDER THE LAW. THEY GOVERN YOUR USE OF, AND RELATIONSHIP WITH, THIS ‘APPLY TO AN EMPLOYMENT TRIBUNAL’ SERVICE. THEY DO NOT APPLY TO OTHER MINISTRY OF JUSTICE (HM COURTS AND TRIBUNALS SERVICE) SERVICES, OR TO ANY DEPARTMENT OR SERVICE THAT IS LINKED TO IN THIS SERVICE.
 
-By using this service you agree to our privacy policy and to these terms and conditions. Please read them carefully.
+WE MAY OCCASIONALLY UPDATE THESE TERMS AND CONDITIONS. THIS MIGHT HAPPEN IF THERE IS A CHANGE IN THE LAW OR TO THE WAY THE SERVICE WORKS. IF THERE IS A CHANGE, YOU WILL BE ASKED TO AGREE TO THE NEW TERMS AND CONDITIONS THE NEXT TIME YOU SIGN IN, SO YOU CAN CONTINUE TO USE THIS SERVICE.
 
-<h2 class="legend">Terms and conditions - General</h2>
-These terms and conditions affect your rights and liabilities under the law. They govern your use of, and relationship with, this digital tool. They don’t apply to other Ministry of Justice (HM Courts & Tribunals Service) services, or to any other department or service that is linked to in this tool.
-
-We may occasionally update these terms and conditions. This might happen if there’s a change in the law or to the way the tool works. If there’s a change, you’ll be asked to agree to the new terms and conditions the next time you sign in, so you can continue to use the service.
-If you don't agree to the terms and conditions and privacy policy set out in this document, you should not use this service.
+IF YOU DO NOT AGREE TO THE TERMS AND CONDITIONS AND PRIVACY POLICY SET OUT IN THIS DOCUMENT, DO NOT USE THIS SERVICE.
