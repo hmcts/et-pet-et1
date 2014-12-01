@@ -13,7 +13,6 @@ feature 'Terms' do
   let(:session_management_header)                      { '<h2 class="legend">How we manage sessions</h2>' }
   let(:data_protection_header)                         { '<h2 class="legend">Data Protection Act (DPA) 1998</h2>' }
   let(:disclaimer_header)                              { '<h2 class="legend">Disclaimer</h2>' }
-  let(:cookies_header)                                 { '<h2 class="legend">Cookies</h2>' }
 
   before :each do
     visit terms_path
@@ -31,7 +30,6 @@ feature 'Terms' do
     expect(page.html).to include(session_management_header)
     expect(page.html).to include(data_protection_header)
     expect(page.html).to include(disclaimer_header)
-    expect(page.html).to include(cookies_header)
   end
 
   let(:general_link)                                  { "Terms and conditions - General" }
@@ -45,7 +43,6 @@ feature 'Terms' do
   let(:session_management_link)                       { "How we manage sessions" }
   let(:data_protection_link)                          { "Data Protection Act 1998" }
   let(:disclaimer_link)                               { "Disclaimer" }
-  let(:cookies_link)                                  { "Cookies" }
 
   let(:general_div)                                 { "#general" }
   let(:applicable_law_div)                          { "#applicable_law" }
@@ -58,7 +55,6 @@ feature 'Terms' do
   let(:session_management_div)                      { "#session_management" }
   let(:data_protection_div)                         { "#data_protection" }
   let(:disclaimer_div)                              { "#disclaimer" }
-  let(:cookies_div)                                 { "#cookies" }
 
   scenario "User can click general link" do
     expect(page).to have_link(general_link, href: "#{terms_path + general_div}")
@@ -112,11 +108,6 @@ feature 'Terms' do
 
   scenario "User can click disclaimer link" do
     expect(page).to have_link(disclaimer_link, href: "#{terms_path + disclaimer_div}")
-    expect(page.find(privacy_policy_div)).not_to be_nil
-  end
-
-  scenario "User can click cookies link" do
-    expect(page).to have_link(cookies_link, href: "#{terms_path + cookies_div}")
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 end
