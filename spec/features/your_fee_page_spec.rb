@@ -62,7 +62,7 @@ feature 'Your fee page' do
       click_button 'Save and continue'
 
       expect(page.current_path).to eq claim_your_fee_path
-      expect(page).to have_text "Please review the problems below:"
+      expect(page).to have_text "See highlighted errors below."
       expect(claim.reload.remission_claimant_count).to eq 0
     end
   end
