@@ -364,6 +364,8 @@ en:
         GOV.UK uses cookies to make the site simpler. <a href="%{path}">Find out more about cookies</a>
     reference: Your claim number is
     mobile_nav:
+      save_and_complete: Save and complete later
+      support: Support
       read_guide: Application guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment

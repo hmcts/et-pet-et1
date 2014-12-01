@@ -1,6 +1,8 @@
 class UserSessionsController < ApplicationController
   redispatch_request unless: :present?, except: %i<update returning create>
 
+  before_action :hide_signout
+
   def reminder
     redirect_to root_path if email_address_already_set?
   end

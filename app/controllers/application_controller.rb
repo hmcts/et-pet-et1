@@ -55,5 +55,13 @@ class ApplicationController < ActionController::Base
     send "claim_#{page}_path".underscore, options
   end
 
-  helper_method :claim, :claim_path_for
+  def show_signout?
+    !@hide_signout
+  end
+
+  def hide_signout
+    @hide_signout = true
+  end
+
+  helper_method :claim, :claim_path_for, :show_signout?
 end
