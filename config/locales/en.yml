@@ -131,7 +131,7 @@ en:
     labels:
       application_number:
         email_address: Enter your email address to receive your online application number
-        password: Create your password (at least 5 characters)
+        password: Create your memorable word
       user_session:
         returning:
           reference: Application number
@@ -254,6 +254,8 @@ en:
         remission_claimant_count: How many in your group want to apply for fee remission?
 
     hints:
+      application_number:
+        password: For example your surname
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
         date_of_birth: For example, 23 04 1981
@@ -274,18 +276,16 @@ en:
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
-      additional_claimants_upload:
-        has_additional_claimants: For up to 5 other claimants you can enter their details <a href="/apply/additional-claimants">manually</a>.
       employment:
         current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
-        start_date: For example, 22 04 2014 (you don't have to give the exact date if you don't know it)
+        start_date: For example, 22 04 2014 (if you don't know the exact date then put your best estimate)
         average_hours_worked_per_week: Don't include overtime
         gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         new_job_gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
         benefit_details: Details of benefit(s)
-        end_date: For example, 22 04 2014
+        end_date: For example, 22 04 2014 (if you don't know the exact date then put your best estimate)
         new_job_start_date: For example, 22 04 2014
         notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end, enter the date. For example, 22 04 2014
       claim:
@@ -358,7 +358,8 @@ en:
         destroy: Sign out now
         update: Save and continue
       confirmation_email:
-        create: Submit the form
+        create: Submit application
+        create: Confirm application
     link:
       claim:
         return: Return to your application
@@ -473,10 +474,9 @@ en:
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     application_number:
-      header: Save and complete later
-      # memorable_word_legend: Returning to your application
+      header: Returning to your application
       application_number: Your online application number
-      intro_text: You can save your application and return to it at any time. You will need your online application number and password, which you create below.
+      intro_text: You can save your application and return to it at any time. You will need your online application number and memorable word, which you create below.
       email_hint: Enter your email address to get the online application number emailed to you.
       print_link: Print this page
       print_copy: to have a copy of your online application number for reference
@@ -510,8 +510,9 @@ en:
       remove_attachment: :"claims.additional_information.remove_attachment"
       number_claimants_info: For 6 or more claimants, enter their details below.
       manual_entry_text: For up to 5 other claimants you can enter their details <a href="/apply/additional-claimants">manually</a>.
+      has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
       step_one_header: Step 1
-      download_template: |
+      download_template_html: |
         <a href="/assets/group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
 
       dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
@@ -618,9 +619,7 @@ en:
       applying_for_remission_multiple:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
-      remission_applied_info: |
-        <h3 class="bold-small">You don’t need to pay the issue fee now</h3>
-        <p class="font-small">When you’ve submitted this application, you’ll be able to apply for fee remission. You must do this within 7 days of submitting your claim, or your claim will be rejected.</p>
+      remission_applied_info: You don’t need to pay the issue fee now.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
       hearing_fee: |
