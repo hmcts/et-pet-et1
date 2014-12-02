@@ -31,16 +31,12 @@ module Jadu
       JaduXml::ClaimPresenter.new(claim).to_xml
     end
 
-    def claim_pdf
-      @claim_pdf ||= PdfFormBuilder.new(claim)
-    end
-
     def client
       API.new ENV.fetch('JADU_API_HOST')
     end
 
     def attachments
-      @attachments ||= claim.attachments.reduce({ claim_pdf.filename => claim_pdf.to_pdf }) do |o, a|
+      @attachments ||= claim.attachments.reduce({}) do |o, a|
         o.update File.basename(a.url) => a.file.read
       end
     end

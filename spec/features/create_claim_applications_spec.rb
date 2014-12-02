@@ -228,13 +228,23 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text     "Get help with paying your fee now"
     end
 
-    scenario 'Downloading the PDF' do
+    scenario 'Downloading the PDF if available' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit application'
       click_link 'Save a copy'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
       expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
+    end
+
+    scenario 'Downloading the PDF if unavailable' do
+      complete_a_claim seeking_remissions: true
+      click_button 'Submit application'
+      block_pdf_generation
+      click_link 'Save a copy'
+
+      expect(current_url).to match pdf_path
+      expect(page).to have_text "Processing a copy of your claim"
     end
 
     scenario 'Viewing the confirmation page when seeking remission' do

@@ -17,8 +17,6 @@ require 'shoulda/matchers'
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-CarrierWave.root = "#{Rails.root}/spec/support"
-
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -52,6 +50,6 @@ RSpec.configure do |config|
   end
 
   config.after(:all) do
-    FileUtils.rm_rf(Dir["#{CarrierWave.root}/uploads/[^.]*"])
+    FileUtils.rm_rf(Dir["#{Rails.root}/public/spec/uploads/[^.]*"])
   end
 end

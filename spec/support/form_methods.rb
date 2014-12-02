@@ -278,4 +278,8 @@ module FormMethods
   def deselect_representative_email
     uncheck REPRESENTATIVE_EMAIL
   end
+
+  def block_pdf_generation
+    Claim.last.remove_pdf!
+  end
 end

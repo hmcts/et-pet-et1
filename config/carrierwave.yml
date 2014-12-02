@@ -1,0 +1,19 @@
+default: &default
+  storage: :file
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  fog_credentials:
+    provider:                       'AWS'
+    aws_access_key_id:              <%= ENV.fetch('AWS_ACCESS_KEY_ID') %>
+    aws_secret_access_key:          <%= ENV.fetch('AWS_SECRET_ACCESS_KEY') %>
+    fog_directory:                  <%= ENV.fetch('S3_UPLOAD_BUCKET') %>
+    region:                         'eu-west-1'
+  fog_public:                       false
+  fog_authenticated_url_expiration: <%= ENV.fetch('S3_URL_EXPIRY') || 60 %>
+  storage:                          :fog
