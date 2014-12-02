@@ -6,7 +6,8 @@
       = f.input :email_addresses,
         collection: email_addresses,
         as: :check_boxes,
-        label: false
+        label: false,
+        input_html: { checked: true }
 
     fieldset style="margin-top:60px;"
       legend role="header" aria-level="2" = t('.submit_warning_header')

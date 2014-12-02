@@ -186,7 +186,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Emailing confirmation' do
       complete_a_claim seeking_remissions: true
-      select_recipients
+      click_button 'Submit application'
 
       email = ActionMailer::Base.deliveries.last
 
@@ -196,9 +196,21 @@ feature 'Claim applications', type: :feature do
         to eq "application/pdf; charset=UTF-8; filename=et1_barrington_wrigglesworth.pdf"
     end
 
-    scenario 'Submitting claim when no email addresses' do
+    scenario 'Deselecting email confirmations before submission' do
+      ActionMailer::Base.deliveries = []
+
+      complete_a_claim seeking_remissions: true
+      deselect_claimant_email
+      deselect_representative_email
+      click_button 'Submit application'
+
+      expect(ActionMailer::Base.deliveries.size).to eq 0
+    end
+
+    scenario 'Submitting claim when no claimant email address' do
       ActionMailer::Base.deliveries = []
       complete_a_claim seeking_remissions: true, claimant_email: false
+      deselect_representative_email
       click_button 'Submit application'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
