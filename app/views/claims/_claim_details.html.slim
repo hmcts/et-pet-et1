@@ -2,6 +2,7 @@ fieldset
   legend role="heading" aria-level="2" = t '.claim_details'
 
   = f.input :claim_details,
+    hint: t('.claim_details_hint_html', path: guide_path),
     as: :text,
     input_html: { rows: 30 }
 

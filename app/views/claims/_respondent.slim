@@ -5,7 +5,7 @@ fieldset
 
 fieldset
   legend= t '.acas_legend'
-  = f.input :acas_early_conciliation_certificate_number, required: true, label: false
+  = f.input :acas_early_conciliation_certificate_number, hint: t('.acas_early_conciliation_certificate_number_html', path:guide_path), required: true, label: false
   = f.input :no_acas_number,
     as: :gds_check_boxes,
     required: true,

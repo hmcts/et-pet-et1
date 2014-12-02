@@ -135,7 +135,7 @@ en:
       user_session:
         returning:
           reference: Application number
-          password: Password
+          password: Memorable word
         reminder:
           email_address: Enter your email address to get your application number emailed to you.
 
@@ -303,8 +303,6 @@ en:
         name: Exactly as it appears on your Acas early conciliation certificate, if you have one.
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
-        acas_early_conciliation_certificate_number: |
-          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="/guide#acas_early_conciliation">Acas early conciliation service</a>.
       additional_respondents:
         has_additional_respondents: You can claim against more than one respondent. Eg if you're claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
@@ -318,8 +316,6 @@ en:
         is_whistleblowing: |
           You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).<br />
       claim_details:
-        claim_details: |
-          <a href="/guide#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
@@ -359,7 +355,6 @@ en:
         update: Save and continue
       confirmation_email:
         create: Submit application
-        create: Confirm application
     link:
       claim:
         return: Return to your application
@@ -399,7 +394,7 @@ en:
 
     session_expired:
       header: Your session has expired
-      content: |
+      content_html: |
         To complete your claim, please <a href="%{returning_user_session_path}">return to your application</a>.
 
   guides:
@@ -441,18 +436,18 @@ en:
     new:
       header: Start your application
       legend_main: Before you continue
-      callout: |
-        This is not a free service. [Find out about fees and fee reductions](/guide#fees_and_payment)
+      callout_new: |
+        This is not a free service. [Find out about fees and fee reductions](%{path}#fees_and_payment)
       before_you_continue: |
           ### Are you in time to apply?
           You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
 
-          [Learn about when you can apply](/guide#time_limits)
+          [Learn about when you can apply](%{path}#time_limits)
 
           ### Have you contacted Acas?
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
 
-          [Learn about Acas](/guide#acas_early_conciliation)
+          [Learn about Acas](%{path}#acas_early_conciliation)
       application_started_header: Already started an application?
       what_you_need_to_know:
         body: |
@@ -499,7 +494,7 @@ en:
       add_fields: Add more claimants
       remove_claimant_link: Remove this claimant
       number_claimants_info: For 5 or fewer claimants, enter their details below.
-      csv_upload_text: For 6 or more claimants, you can <a href="/apply/additional-claimants-upload">upload their details in a separate spreadsheet</a>.
+      csv_upload_text_html: For 6 or more claimants, you can <a href="%{path}">upload their details in a separate spreadsheet</a>.
 
     additional_claimants_upload:
       header: :"claims.additional_claimants.header"
@@ -509,11 +504,10 @@ en:
       malformatted_csv: The CSV doesn't appear to be formatted correctly.
       remove_attachment: :"claims.additional_information.remove_attachment"
       number_claimants_info: For 6 or more claimants, enter their details below.
-      manual_entry_text: For up to 5 other claimants you can enter their details <a href="/apply/additional-claimants">manually</a>.
       has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
       step_one_header: Step 1
       download_template_html: |
-        <a href="/assets/group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
+        <a href="%{path}">Download spreadsheet template</a> or use your own if it follows the same format.
 
       dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
       step_two_header: Step 2
@@ -545,6 +539,8 @@ en:
       form_hint: |
         Give details of the employer, person or organisation you’re making a claim against (known as the ‘respondent’). You can add more names and details later, if needed.
       work_address: Give details of your work address.
+      acas_early_conciliation_certificate_number_html: |
+          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
 
     additional_respondents:
       no_acas_number_reason: Why don't you have an Acas number?
@@ -589,6 +585,7 @@ en:
     claim_details:
       header: Claim details
       claim_details: About your claim
+      claim_details_hint_html: <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
       similar_claims: Similar claims
 
     claim_outcome:
@@ -606,18 +603,14 @@ en:
       standard_fee: Standard fee
       standard_fee_detail: This is the application fee for your claim
       application_fee: Fee
-      fee_callout: |
-        This issue fee for your claim is
-
-        <span class="number">£%{application_fee}</span>
-        <br/><br/>
-        If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="/guide#fees_and_payment">See more about fees</a>
-
+      callout_fee_intro: This issue fee for your claim is
+      callout_fee_amount: £ %{application_fee}
+      callout_fee_footnote_html: If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
       reduce_fee: Exemption from paying fees
       applying_for_remission_single:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#reducing_fees">guide on fee remissions</a>.
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="/guide#reducing_fees">guide on fee remissions</a>.
+        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: You don’t need to pay the issue fee now.
       initial_fee: |

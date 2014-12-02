@@ -12,7 +12,7 @@ fieldset
 
     #number_claimants_info.panel-indent
       # = t ".number_claimants_info"
-      # = t(".csv_upload_text").html_safe
+      # = t(".csv_upload_text_html", path: claim_additional_claimants_upload_path)
     = f.simple_fields_for :claimants do |builder|
       .multiple id=("claimant_#{builder.index}")
         fieldset
