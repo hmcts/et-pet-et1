@@ -32,12 +32,12 @@ header.main-header
             th = t ".submission_details.#{name}"
             td = content
 
-      - if claim.remission_claimant_count > 0
-        .content-block
-          h2 = t('.getting_help.header')
-          p = t('.getting_help.text')
-          p= link_to t('.getting_help.link_anchor_text'),
-            'https://www.employmenttribunals.service.gov.uk/remissions',
-            rel: 'external'
+      / - if claim.remission_claimant_count > 0
+      /   .content-block
+      /     h2 = t('.getting_help.header')
+      /     p = t('.getting_help.text')
+      /     p= link_to t('.getting_help.link_anchor_text'),
+      /       'https://www.employmenttribunals.service.gov.uk/remissions',
+      /       rel: 'external'
 
       p = t('.print_link_html', link: 'javascript:window.print(0);')
