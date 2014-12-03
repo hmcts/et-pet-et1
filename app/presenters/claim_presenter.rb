@@ -19,7 +19,15 @@ class ClaimPresenter < Struct.new(:target)
   end
 
   def additional_claimants
-    @additional_claimants ||= ClaimantCollectionPresenter.new target
+    @additional_claimants ||= additional_claimants_class.new target
+  end
+
+  def additional_claimants_class
+    if target.additional_claimants_csv.present?
+      ClaimantCsvPresenter
+    else
+      ClaimantCollectionPresenter
+    end
   end
 
   def representative
