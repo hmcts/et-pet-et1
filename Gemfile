@@ -38,6 +38,7 @@ group :development, :test do
   gem 'capybara'
   gem 'codeclimate-test-reporter', require: nil
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
   gem 'guard-livereload'
   gem 'launchy'
   gem 'pry-byebug'
