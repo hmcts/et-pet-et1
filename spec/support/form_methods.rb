@@ -263,9 +263,11 @@ module FormMethods
     complete_payment
   end
 
-  def select_recipients
-    check CLAIMANT_EMAIL
-    check REPRESENTATIVE_EMAIL
-    click_button 'Submit application'
+  def deselect_claimant_email
+    uncheck CLAIMANT_EMAIL
+  end
+
+  def deselect_representative_email
+    uncheck REPRESENTATIVE_EMAIL
   end
 end
