@@ -1,5 +1,18 @@
 en:
   base_mailer:
+    access_details_email:
+      subject: 'Employment tribunal: %{reference}'
+      started: |
+        You have started an application to an employment tribunal.  To submit
+        your claim you need to complete your application.
+      complete_application: '[Complete Application]'
+      need_app_number: |
+        You will need your application number (above) and your password, which
+        you created at the beginning of your application.
+      about_confirmation: |
+        Once you have submitted your claim you will receive a confirmation
+        email.
+
     confirmation_email:
       header: 'Application complete'
       complete: 'Your application number: %{reference}'

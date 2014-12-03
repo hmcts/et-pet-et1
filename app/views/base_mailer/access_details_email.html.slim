@@ -22,18 +22,14 @@ html
             tr
               td
                 p style="font-family:arial; font-size:19px; line-height:26px;"
-                  | You have started an application to an employment tribunal.
-                    To submit your claim you need to complete your application.
+                  = t('.started')
 
                 p style="font-family:arial; font-size:19px; line-height:26px;"
-                  = link_to '[Complete Application]', returning_user_session_url, target: '_blank'
+                  = link_to t('.complete_application'), returning_user_session_url, target: '_blank'
                 p style="font-family:arial; font-size:19px; line-height:26px;"
-                  | You will need your application number (above) and your
-                    password, which you created at the beginning of your
-                    application.
+                  = t('.need_app_number')
 
                 p style="font-family:arial; font-size:19px; line-height:26px;"
-                  | Once you have submitted your claim you will receive a
-                    confirmation email.
+                  = t('.about_confirmation')
 
             = render partial: 'base_mailer/shared/footer'

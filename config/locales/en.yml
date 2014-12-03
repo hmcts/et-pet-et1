@@ -647,18 +647,6 @@ en:
       payment_declined: Payment declined
 
   base_mailer:
-    access_details_email:
-      subject: 'Employment tribunal: %{reference}'
-      body: |
-        Thank you for starting an employment tribunal claim form.
-
-        Your application number is:
-
-        __%{reference}__
-
-        You need this number, and your password,
-        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
-
     started_application:
       subject: 'Employment tribunal: %{reference}'
       body: |
