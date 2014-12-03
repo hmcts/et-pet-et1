@@ -6,7 +6,7 @@ feature 'Payments:', type: :feature do
 
   before do
     complete_a_claim seeking_remissions: false
-    click_button 'Submit the form'
+    click_button 'Submit application'
   end
 
   let(:claim) { Claim.last }

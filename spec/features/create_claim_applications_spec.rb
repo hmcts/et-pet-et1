@@ -199,7 +199,7 @@ feature 'Claim applications', type: :feature do
     scenario 'Submitting claim when no email addresses' do
       ActionMailer::Base.deliveries = []
       complete_a_claim seeking_remissions: true, claimant_email: false
-      click_button 'Submit the form'
+      click_button 'Submit application'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
 
@@ -208,7 +208,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Submitting the claim when payment is not required' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit the form'
+      click_button 'Submit application'
 
       expect(page).to have_text     "Application complete"
       expect(page).not_to have_text "Fee paid"
@@ -218,7 +218,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Downloading the PDF' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit the form'
+      click_button 'Submit application'
       click_link 'Save a copy'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
@@ -227,7 +227,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Viewing the confirmation page when seeking remission' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit the form'
+      click_button 'Submit application'
 
       expect(page).to have_text 'Get help with paying your fee now'
       expect(page).not_to have_text 'You now need to pay the issue fee'
@@ -235,7 +235,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Viewing the confirmation page when not seeking remission' do
       complete_a_claim seeking_remissions: false
-      click_button 'Submit the form'
+      click_button 'Submit application'
 
       expect(page).not_to have_text 'Get help with paying your fee now'
       expect(page).to have_text 'You now need to pay the issue fee'

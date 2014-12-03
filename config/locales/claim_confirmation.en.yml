@@ -2,18 +2,18 @@ en:
   claim_confirmations:
     show:
       header: Application complete
-      callout_detail: Your application number
+      callout_detail: Your claim number
 
       what_happens_next:
         header: What happens next
         one_html: You must apply for fee remission <b>within 7 days</b>, or your claim may be rejected. If you aren't eligible, you'll have to pay the full amount.
         one_link: Apply for fee remission
-        two: A judge will look over your claim to make sure your claim can be heard by an employment tribunal
+        two: A judge will review your claim to make sure your it can be heard by an employment tribunal.
         three: The person you are making a claim against (respondent) will receive a copy of your claim. They will have 28 days to reply.
 
       download_application:
         header: Download your application
-        link_html: <a href="%{href}">Save a copy</a> for your records 
+        link_html: <a href="%{href}">Save a copy</a> for your records
 
       submission_details:
         header: Submission details

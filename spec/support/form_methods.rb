@@ -45,7 +45,7 @@ module FormMethods
   def fill_in_return_form(reference, word)
     visit returning_user_session_path
     fill_in 'Application number', with: reference
-    fill_in 'Password', with: word
+    fill_in 'Memorable word', with: word
     click_button 'Find my application'
   end
 
@@ -54,7 +54,7 @@ module FormMethods
   end
 
   def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
-    fill_in 'Create your password', with: word
+    fill_in 'Create your memorable word', with: word
     fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
@@ -259,13 +259,13 @@ module FormMethods
 
   def complete_and_submit_claim
     complete_a_claim
-    click_button "Submit the form"
+    click_button "Submit application"
     complete_payment
   end
 
   def select_recipients
     check CLAIMANT_EMAIL
     check REPRESENTATIVE_EMAIL
-    click_button 'Submit the form'
+    click_button 'Submit application'
   end
 end
