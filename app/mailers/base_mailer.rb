@@ -7,12 +7,6 @@ class BaseMailer < ActionMailer::Base
       subject: t('base_mailer.access_details_email.subject', reference: @claim.reference))
   end
 
-  def started_application(claim)
-    @claim = claim
-    mail(to: @claim.email_address,
-      subject: t('base_mailer.started_application.subject', reference: @claim.reference))
-  end
-
   def submitted_application(claim)
     @claim = claim
     mail(to: @claim.email_address,

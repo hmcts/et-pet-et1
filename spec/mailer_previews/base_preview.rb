@@ -1,8 +1,4 @@
 class BaseMailerPreview < ActionMailer::Preview
-  def started_application
-    BaseMailer.started_application(Claim.last)
-  end
-
   def submitted_application
     BaseMailer.submitted_application(Claim.last)
   end

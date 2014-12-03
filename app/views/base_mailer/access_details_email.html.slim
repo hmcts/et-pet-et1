@@ -3,4 +3,39 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    = format t '.body', reference: @claim.reference
+    table style="width:100%;"
+      tr
+        td style="padding-left:60px; background-color:#000000; height:53px;"
+          img src="_img/govuk_logotype_email.png"
+
+    table style="padding-left:60px;"
+      tr
+        td
+          table style="width:550px; padding-bottom:30px;"
+            tr
+              td style="padding-bottom:30px;"
+                  img src="_img/moj_logotype_email.png"
+
+            = render partial: 'base_mailer/shared/application_number_light'
+
+          table style="max-width:525px;"
+            tr
+              td
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  | You have started an application to an employment tribunal.
+                    To submit your claim you need to complete your application.
+
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  a href="http://www.gov.uk/TODO" target="_blank"
+                    | [Complete application]
+
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  | You will need your application number (above) and your
+                    password, which you created at the beginning of your
+                    application.
+
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  | Once you have submitted your claim you will receive a
+                    confirmation email.
+
+            = render partial: 'base_mailer/shared/footer'
