@@ -63,5 +63,13 @@ class ApplicationController < ActionController::Base
     @hide_signout = true
   end
 
-  helper_method :claim, :claim_path_for, :show_signout?
+   def show_mobile_nav?
+    !@hide_mobile_nav
+  end
+
+  def hide_mobile_nav
+    @hide_mobile_nav = true
+  end
+
+  helper_method :claim, :claim_path_for, :show_signout?, :show_mobile_nav?
 end
