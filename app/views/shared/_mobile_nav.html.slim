@@ -1,13 +1,14 @@
-nav id="navcontainer"
-  ul
-    - if show_signout?
-      li= link_to t('.save_and_complete'), reminder_user_session_path, { class: "menu-trigger" }
+- if show_mobile_nav?
+  nav id="navcontainer"
+    ul
+      - if show_signout?
+        li= link_to t('.save_and_complete'), reminder_user_session_path, { class: "menu-trigger" }
 
-    li
-      a.menu-trigger href="#"
-        | Support
-        span class="arrow arrow-down"
+      li
+        a.menu-trigger href="#"
+          | Support
+          span class="arrow arrow-down"
 
-      ul.visuallyhidden
-        li= link_to t('.read_guide'), guide_path
-        li= link_to t('.contact_us'), t('.contact_us_link')
+        ul.visuallyhidden
+          li= link_to t('.read_guide'), guide_path
+          li= link_to t('.contact_us'), t('.contact_us_link')
