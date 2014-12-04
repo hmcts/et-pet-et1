@@ -3,20 +3,14 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    table style="width:100%;"
-      tr
-        td style="padding-left:60px; background-color:#000000; height:53px;"
-          img src="_img/govuk_logotype_email.png"
+    = render partial: 'base_mailer/shared/gov.uk.logo'
 
     table style="padding-left:60px;"
       tr
         td
-          table style="width:550px; padding-bottom:30px;"
-            tr
-              td style="padding-bottom:30px;"
-                  img src="_img/moj_logotype_email.png"
+          = render partial: 'base_mailer/shared/moj.logo'
 
-            = render partial: 'base_mailer/shared/application_number_light'
+          = render partial: 'base_mailer/shared/application_number_light'
 
           table style="max-width:525px;"
             tr
