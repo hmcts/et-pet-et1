@@ -25,9 +25,7 @@ header.main-header
         p= t('.details.intro')
         h2.bold-medium= t('.details.heading')
         ul
-          li= t('.details.li_one_link',
-            link: link_to(t('.details.li_one'),
-            generated_claim_claim_confirmation_url(claim, format: 'pdf'))).html_safe
+          li= t('.details.li_one_link_html', link: link_to(t('.details.li_one'), pdf_path))
           li= t('.details.li_two')
           li= t '.details.li_three_html',
             link: link_to('Employment Tribunals Office (Scotland)', 'https://www.justice.gov.uk/tribunals/employment/venues')

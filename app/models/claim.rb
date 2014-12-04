@@ -2,6 +2,7 @@ class Claim < ActiveRecord::Base
   has_secure_password validations: false
   mount_uploader :attachment, AttachmentUploader
   mount_uploader :additional_claimants_csv, AttachmentUploader
+  mount_uploader :pdf, ClaimPdfUploader
 
   has_one :primary_claimant,
     -> { where primary_claimant: true },
@@ -29,6 +30,7 @@ class Claim < ActiveRecord::Base
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
   delegate :file, to: :attachment, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
+  delegate :file, :filename, :url, :present?, :blank?, to: :pdf, prefix: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -92,6 +94,10 @@ class Claim < ActiveRecord::Base
     else
       "#{fee_group_reference}-#{payment_attempts}"
     end
+  end
+
+  def generate_pdf!
+    PdfFormBuilder.build(self) { |file| self.update pdf: file } if pdf_blank?
   end
 
   def attachments

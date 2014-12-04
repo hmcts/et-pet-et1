@@ -2,7 +2,7 @@ module PdfMethods
   def pdf_to_hash(content)
     pdftk = PdfForms.new('pdftk')
 
-    pdf = Tempfile.new('generated_pdf')
+    pdf = Tempfile.new('generated_pdf', encoding: 'ascii-8bit')
     begin
       pdf.write(content)
       pdf.close

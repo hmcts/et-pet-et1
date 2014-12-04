@@ -5,6 +5,7 @@ describe ClaimSubmissionJob, type: :job do
 
   describe '#perform' do
     it 'submits the claim' do
+      expect(claim).to receive(:generate_pdf!)
       expect(Jadu::Claim).to receive(:create).with claim
       subject.perform(claim)
     end

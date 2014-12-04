@@ -9,8 +9,8 @@ class BaseMailer < ActionMailer::Base
 
   def confirmation_email(claim, email_addresses)
     @claim = claim
-    pdf_form = PdfFormBuilder.new(@claim)
-    attachments[pdf_form.filename] = pdf_form.to_pdf
+    @claim.generate_pdf!
+    attachments[@claim.pdf_filename] = @claim.pdf_file.read
     mail(to: email_addresses, subject: t('base_mailer.confirmation_email.subject'))
   end
 end

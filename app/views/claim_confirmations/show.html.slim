@@ -24,8 +24,7 @@ header.main-header
         caption = t('.submission_details.header')
         tr role="row"
           th = t '.download_application.header'
-          td = t '.download_application.link_html',
-            href: generated_claim_claim_confirmation_url(claim, format: 'pdf')
+          td = t '.download_application.link_html', href: pdf_path, target: "_blank"
 
         - confirmation_presenter.each_item do |name, content|
           tr role="row"

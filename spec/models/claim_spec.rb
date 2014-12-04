@@ -236,6 +236,25 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
+  describe "#generate_pdf!" do
+    context "pdf has already been generated" do
+      it "does not attempt to generate another" do
+        allow(subject).to receive(:pdf_blank?).and_return false
+        expect(PdfFormBuilder).not_to receive(:build)
+        subject.generate_pdf!
+      end
+    end
+
+    context "pdf has yet to be generated" do
+      it "assigns a pdf to the model" do
+        subject = create :claim
+        subject.generate_pdf!
+
+        expect(subject.pdf_filename).to eq "et1_barrington_wrigglesworth.pdf"
+      end
+    end
+  end
+
   describe '#submit!' do
     context 'transitioning state from "created"' do
       context 'when the claim is in a submittable state' do

@@ -15,9 +15,9 @@ Rails.application.routes.draw do
   scope :apply do
     resource :claim_review, only: %i<show update>, path: :review
 
-    resource :claim_confirmation, only: :show, path: :confirmation do
-      get 'generated_claim', on: :member
-    end
+    resource :claim_confirmation, only: :show, path: :confirmation
+
+    resource :pdf, only: :show
 
     resource :claim, only: :create, path: "/" do
       resource :payment, only: %i<show update>, path: :pay do

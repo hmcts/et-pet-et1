@@ -1,35 +1,35 @@
 require 'rails_helper'
 
 RSpec.describe PdfFormBuilder, type: :service do
-  let(:pdf_forms) { double fill_form: nil }
-  let(:claim) { double id: 1 }
-  let(:claim_presenter) { double name: 'name', to_h: { fields: 'fields' } }
-  let(:et1_pdf_path) { 'lib/assets/et001-eng.pdf' }
-  subject { described_class.new(claim) }
 
-  before do
-    allow(File).to receive(:read).and_return('pdf')
-    allow(PdfForms).to receive(:new).and_return(pdf_forms)
-    allow(PdfForm::ClaimPresenter).to receive(:new).and_return(claim_presenter)
-  end
+  context "ET1 Form template" do
+    describe "ET1_PDF_PATH" do
+      it "returns the path of the template form pdf" do
+        expect(described_class::ET1_PDF_PATH).to eq "#{Rails.root}/lib/assets/et001-eng.pdf"
+      end
+    end
 
-  describe '#filename' do
-    it 'returns a filename' do
-      expect(subject.filename).to eq('et1_name.pdf')
+    it "exists" do
+      file_existence = File.exist?(described_class::ET1_PDF_PATH)
+      expect(file_existence).to eq true
     end
   end
 
-  describe '#to_pdf' do
-    it 'returns filled in ET1 pdf' do
-      pdf = subject.to_pdf
+  describe ".build" do
 
-      expect(pdf).to eq('pdf')
-      expect(pdf_forms).to have_received(:fill_form).with(
-        et1_pdf_path, 'tmp/claim1.pdf', { fields: 'fields' }, flatten: false)
+    let(:claim) { create :claim }
+
+    it "creates an instance" do
+      expect(described_class).to receive(:new).and_call_original
+      described_class.build(claim) {}
     end
 
-    it 'ensure ET1 PDF exists' do
-      expect(File).to exist(et1_pdf_path)
+    context "#perform" do
+      it "yields a pdf to the given block" do
+        described_class.build(claim) do |file|
+          expect(file).to be_kind_of Tempfile
+        end
+      end
     end
   end
 end

@@ -637,7 +637,7 @@ en:
         intro: You can pay by cheque
         heading: "You will need to:"
         li_one: completed application
-        li_one_link: "print the %{link}"
+        li_one_link_html: "print the %{link}"
         li_two: include a cheque for the correct issue fee
         li_three_html: post the claim to tribunal office %{link}
     decline:
