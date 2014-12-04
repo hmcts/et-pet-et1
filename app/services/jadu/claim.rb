@@ -36,7 +36,7 @@ module Jadu
     end
 
     def client
-      API.new ENV.fetch('JADU_API_HOST')
+      API.new ENV.fetch('JADU_API')
     end
 
     def attachments
