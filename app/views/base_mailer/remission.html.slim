@@ -19,10 +19,10 @@ html
               tr
                 td
                   p style="font-family:arial; font-size:19px; line-height:26px;"
-                    | Dear Joe
+                    | __FIRSTNAME LASTNAME__
 
                   p style="font-family:arial; font-size:19px; line-height:26px;"
-                    | Your application to an employment tribunal has been submitted. You have indicated that you wish to apply for <a href="">fee remission</a>.
+                    | Thank you for submitting your application to an employment tribunal.
 
                   p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
                     | What happens next
@@ -30,27 +30,52 @@ html
                   ol
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p
-                        | You have to apply for remission within 7 days, or your claim may be rejected.
+                        | You have said you want to apply for <a href="https://www.employmenttribunals.service.gov.uk/remissions"/>fee remission</a>. You must apply <strong>within 7 days</strong>, or your claim may be rejected.
 
                     = render partial: 'base_mailer/shared/button_fee_remission'
 
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p
-                        | A judge will look over your application to make sure your claim can be heard by an employment tribunal.
+                        | A judge will review your claim to make sure it can be heard by an employment tribunal.
 
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p
-                        | The person you are making the claim against (the respondent) will receive a copy of your claim. They will have 28 days to reply.
+                        | A copy of the claim will be sent to the respondent. They’ll have 28 days to reply.
 
                   p style="font-family:arial; font-size:19px; line-height:26px; margin-top:30px; margin-bottom:40px;"
-                    | For more information on the claim process, please read<br /><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/306273/employment-tribunal-making-claim-t420.pdf" target="_blank">making a claim to an employment tribunal</a>
+                    | For more information on the claim process, read<br /><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/306273/employment-tribunal-making-claim-t420.pdf" target="_blank">making a claim to an employment tribunal</a>
 
-                  p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
-                    | Submission details
 
           table style="width:550px;padding-bottom:30px;"
               tr
-                td colspan="3"
+                td valign="top"
+                  p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                    | Submission details
+              tr
+                td colspan="2"
+                  hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+              tr
+                td valign="top"
+                  p style="font-family:arial; font-size:16px; color:#6F777B;"
+                    | Application completed
+
+                td valign="top" style="padding-left:10px;"
+                  p style="font-family:arial; font-size:16px;"
+                    | See attached PDF
+
+              tr
+                td colspan="2"
+                  hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+              tr
+                td valign="top"
+                  p style="font-family:arial; font-size:16px; color:#6F777B;"
+                    | Attachments submitted
+
+                td valign="top" style="padding-left:10px;"
+                  p style="font-family:arial; font-size:16px;"
+                    | My_Claim_File.rtf
+              tr
+                td colspan="2"
                   hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
               tr
@@ -63,19 +88,10 @@ html
                     | On 12 January 2014 to tribunal office<br />Employment Tribunals Central Office (Scotland)
 
               tr
-                td colspan="3"
+                td colspan="2"
                   hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
-              tr
-                td valign="top"
-                  p style="font-family:arial; font-size:16px; color:#6F777B;"
-                    | Attachments included
+          p style="font-family:arial; font-size:19px; line-height:26px; margin-top:30px; margin-bottom:40px;"
+            | <a href="https://www.surveymonkey.com/s/RWLBDGK">Your feedback</a> helps us improve this service.
 
-                td valign="top" style="padding-left:10px;"
-                  p style="font-family:arial; font-size:16px;"
-                    | My_Claim_File.rtf
-              tr
-                td colspan="3"
-                  hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
-
-          = render partial: 'base_mailer/shared/footer'
+    = render partial: 'base_mailer/shared/footer'
