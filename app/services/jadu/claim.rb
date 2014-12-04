@@ -37,7 +37,7 @@ module Jadu
 
     def attachments
       @attachments ||= claim.attachments.reduce({}) do |o, a|
-        o.update File.basename(a.url) => a.file.read
+        o.update a.filename => a.file.read
       end
     end
 
