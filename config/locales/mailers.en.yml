@@ -6,7 +6,7 @@ en:
         You’ve started an application to an employment tribunal.
         To return to your application you’ll need your claim number (above),
         and memorable word.
-      complete_application: '[Complete Application]'
+      complete_application: 'Complete Application'
       about_confirmation: |
         You’ll receive a confirmation email once you’ve submitted your claim.
 

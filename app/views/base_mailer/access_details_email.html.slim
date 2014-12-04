@@ -20,8 +20,13 @@ html
                 p style="font-family:arial; font-size:19px; line-height:26px;"
                   = t('.intro')
 
-                p style="font-family:arial; font-size:19px; line-height:26px;"
-                  = link_to t('.complete_application'), returning_user_session_url, target: '_blank'
+                table cellspacing="0" cellpadding="0"
+                  tr
+                    td align="center" width="220" height="40" bgcolor="#00833e" style="border-bottom:2px solid #003519;color: #ffffff; display: block;"
+                      = link_to returning_user_session_url, target: '_blank', style: 'font-size:16px; font-family:Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block' do
+                        span style="color: #ffffff;"
+                          = t('.complete_application')
+
                 p style="font-family:arial; font-size:19px; line-height:26px;"
                   = t('.about_confirmation')
 
