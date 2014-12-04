@@ -8,9 +8,11 @@ html
     table style="padding-left:60px;"
       tr
         td
-          = render partial: 'base_mailer/shared/moj.logo'
+          table style="width:550px; color:#fff; padding-bottom:30px;"
 
-          = render partial: 'base_mailer/shared/application_number_light'
+            = render partial: 'base_mailer/shared/moj.logo'
+
+            = render partial: 'base_mailer/shared/application_number_light'
 
           table style="max-width:525px;"
             tr
