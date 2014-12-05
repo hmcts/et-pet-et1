@@ -4,7 +4,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachments
-    attachment_filenames.join tag(:br)
+    attachment_filenames.map { |f| sanitize(f) }.join tag(:br)
   end
 
   def payment_amount
