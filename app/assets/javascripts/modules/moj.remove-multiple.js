@@ -38,13 +38,11 @@ module.exports = (function() {
         count = i + 2;
       // update the string for the user
       replaceNumber(section.find('legend:first'), count);
-      //replaceNumber(section.find('.remove-multiple'), count);
     });
 
     function replaceNumber(el, count) {
       return $(el).text(function() {
-        // replace the last character which we know to be a number.
-        return $(el).text().slice(0,-1) + count;
+        return $(el).text().replace(/\d+\Z/, count);
       });
     }
   };
