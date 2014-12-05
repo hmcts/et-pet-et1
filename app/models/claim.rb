@@ -106,6 +106,11 @@ class Claim < ActiveRecord::Base
     self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
   end
 
+  def office_details
+    return '' unless office
+    [office.name, office.address].join(', ')
+  end
+
   private
 
   def state_machine
@@ -126,5 +131,5 @@ class Claim < ActiveRecord::Base
   alias_method :setup_state_machine, :state_machine
 
   delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
-  delegate :fee_to_pay?, to: :fee_calculation
+  delegate :fee_to_pay?, :application_fee, to: :fee_calculation
 end

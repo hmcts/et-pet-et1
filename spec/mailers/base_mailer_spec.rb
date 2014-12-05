@@ -4,6 +4,10 @@ describe BaseMailer do
   include ClaimsHelper
   include Messages
 
+  def table_heading(heading)
+    I18n.t("base_mailer.confirmation_email.details.#{heading}")
+  end
+
   let(:office) {
     Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')
   }
@@ -78,18 +82,19 @@ describe BaseMailer do
         let(:office) { nil }
 
         it 'does not show office details' do
-          expect(content).not_to have_text table_heading('office')
+          expect(content).not_to have_text('to tribunal office')
         end
       end
 
       context 'when paid' do
         before do
           claim.payment = Payment.new(amount: 100)
+          allow(claim).to receive(:fee_to_pay?).and_return(true)
         end
 
         it 'shows paid message' do
-          expect(content).
-            to have_text "Thank you for your payment. We’ll write to you within 5 working days."
+          expect(content).to have_text('Thank you for submitting')
+          expect(content).to have_text('Issue fee paid')
         end
 
         it 'shows amount paid' do
@@ -104,7 +109,7 @@ describe BaseMailer do
         end
 
         it 'shows remission help' do
-          expect(content).to have_text 'Get help with paying your fee'
+          expect(content).to have_text 'apply for fee remission'
         end
 
         it 'does not show any payment information' do
@@ -115,11 +120,17 @@ describe BaseMailer do
       end
 
       context 'when payment failed' do
-        let(:fee_calculation) { double application_fee: 100 }
+        let(:fee_calculation) {
+          double('fee_calculation', application_fee: 100, fee_to_pay?: true)
+        }
 
         before do
           allow(claim).to receive(:payment_applicable?).and_return true
           allow(claim).to receive(:fee_calculation).and_return fee_calculation
+        end
+
+        it 'shows the intro for payment failure' do
+          expect(content).to include('we weren’t able to process your payment')
         end
 
         it 'does not show any paid information' do
@@ -128,7 +139,7 @@ describe BaseMailer do
         end
 
         it 'shows outstanding fee' do
-          expect(content).to have_text 'Fee to pay'
+          expect(content).to have_text table_heading('fee_to_pay')
           expect(content).to have_text '100'
         end
       end

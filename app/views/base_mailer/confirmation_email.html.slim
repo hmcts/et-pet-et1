@@ -3,46 +3,137 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    header.main-header
-      h1= t '.header'
 
-    .main-section
-      .main-content
-        section= t('.complete', reference: @claim.reference)
-        section
-          - case
-          - when @claim.payment_present?
-            h2 = t('.fee_paid')
-          - when @claim.remission_applicable?
-            h2 = t('.getting_help.header')
-            p = t('.getting_help.text')
-            = link_to t('.getting_help.link_anchor_text'),
-              'https://www.employmenttribunals.service.gov.uk/remissions'
+    table style="width:100%;"
+      tr
+        td style="padding-left:60px; background-color:#000000; height:53px;"
+          img src="_img/govuk_logotype_email.png"
 
-        section
-          h2= t('.details.header')
-          table
-            - if @claim.submitted_at.present?
-              tr
-                td= t('.details.date_submitted')
-                td= @claim.submitted_at
-            - if @claim.payment_present?
-              tr
-                td= t('.details.fee_paid')
-                td= @claim.payment_amount
-            - elsif @claim.payment_applicable?
-              tr
-                td= t('.details.fee_to_pay')
-                td= @claim.fee_calculation.application_fee
+    table style="padding-left:60px;"
+      tr
+        td
+          table style="width:550px; padding-bottom:30px;"
             tr
-              td= t('.details.pdf_version')
-              td= t('.details.attached')
-            - if @claim.office.present?
-              tr
-                td= t('.details.office')
-                td
-                  address
-                    = @claim.office.name
-                    br
-                    = @claim.office.address
-                    br
+              td style="padding-bottom:30px;"
+                img src="_img/moj_logotype_email.png"
+            tr
+              td
+                p style="font-family:arial; font-size:40px; font-weight:bold;"
+                  = t '.header'
+
+            = render partial: 'base_mailer/shared/application_number_dark'
+
+          table style="max-width:550px;"
+            tr
+              td
+                p style="font-family:arial; font-size:19px"
+                  - if @claim.unpaid? && @claim.fee_to_pay?
+                    - if @claim.claimant_count > 1
+                      = t('.intro.payment_not_processed.group')
+                    - else
+                      = t('.intro.payment_not_processed.single')
+                  - else
+                    - if @claim.claimant_count > 1
+                      = t('.intro.normal.group')
+                    - else
+                      = t('.intro.normal.single')
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  = t('.what_happens_next')
+
+                ol
+                  - if @claim.unpaid? && @claim.fee_to_pay?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.contact_re_payment')
+
+                  - if @claim.remission_applicable?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.must_apply_for_remission')
+
+                      table cellspacing="0" cellpadding="0"
+                        tr
+                          td align="center" width="220" height="40" bgcolor="#00833e" style="border-bottom:2px solid #003519;color: #ffffff; display: block;"
+                            = link_to 'https://www.employmenttribunals.service.gov.uk/remissions', target: '_blank', style: 'font-size:16px; font-family:Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block' do
+                              span style="color: #ffffff;"
+                                = t('.apply_for_fee_remission')
+
+                  li style="font-family:arial; font-size:19px; line-height:26px;"
+                    p= t('.judge_will_review')
+
+                  li style="font-family:arial; font-size:19px; line-height:26px;"
+                    p= t('.sent_to_respondent')
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  = t('.details.header')
+
+                table style="width:550px;padding-bottom:30px;"
+                  tr
+                    td colspan="3"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                  tr
+                    td valign="top"
+                      p style="font-family:arial; font-size:16px; color:#6F777B;"
+                        = t('.details.claim_completed')
+
+                    td valign="top" style="padding-left:10px;"
+                      p style="font-family:arial; font-size:16px;"
+                        = t('.details.see_attached_pdf')
+
+                  - if @claim.attachments.any?
+                    tr
+                      td colspan="3"
+                        hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                    tr
+                      td valign="top"
+                        p style="font-family:arial; font-size:16px; color:#6F777B;"
+                          = t('.details.attachments_submitted')
+
+                      td valign="top" style="padding-left:10px;"
+                        - @claim.attachments.each do |attachment|
+                          p style="font-family:arial; font-size:16px;"
+                            = attachment.filename
+
+                  tr
+                    td colspan="3"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                  tr
+                    td valign="top"
+                      p style="font-family:arial; font-size:16px; color:#6F777B;"
+                        = t('.details.claim_submitted')
+
+                    td valign="top" style="padding-left:10px;"
+                      p style="font-family:arial; font-size:16px;"
+                        = t('.details.submitted_on', date: @claim.submitted_at.to_date.to_formatted_s(:long))
+                        = t('.details.submitted_to', office: @claim.office_details) if @claim.office
+
+                  - if @claim.fee_to_pay?
+                    tr
+                      td colspan="3"
+                        hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                    - if @claim.unpaid?
+                      tr
+                        td valign="top"
+                          p style="font-family:arial; font-size:16px; color:#6F777B;"
+                            = t('.details.fee_to_pay')
+
+                        td valign="top" style="padding-left:10px;"
+                          p style="font-family:arial; font-size:16px;"
+                            = money(@claim.application_fee)
+
+                    - else
+                      tr
+                        td valign="top"
+                          p style="font-family:arial; font-size:16px; color:#6F777B;"
+                            = t('.details.fee_paid')
+
+                        td valign="top" style="padding-left:10px;"
+                          p style="font-family:arial; font-size:16px;"
+                            = money(@claim.payment_amount)
+
+                  tr
+                    td colspan="3"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"

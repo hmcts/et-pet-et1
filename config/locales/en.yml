@@ -695,9 +695,6 @@ en:
         You need this number, and your password,
         to [return to your form](http://gov.uk/) (if you don't complete it in one session).
 
-    confirmation_email:
-      subject: Employment tribunal submitted
-
     reference:
       header: Application number
 

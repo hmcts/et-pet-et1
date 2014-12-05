@@ -191,7 +191,7 @@ feature 'Claim applications', type: :feature do
       email = ActionMailer::Base.deliveries.last
 
       expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      expect(email.parts.first.body).to include 'Application complete'
+      expect(email.parts.first.body).to include('Thank you for submitting')
       expect(email.parts.last.content_type).
         to eq "application/pdf; charset=UTF-8; filename=et1_barrington_wrigglesworth.pdf"
     end
