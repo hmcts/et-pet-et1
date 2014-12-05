@@ -83,7 +83,7 @@ class Claim < ActiveRecord::Base
   end
 
   def unpaid?
-    !payment_present?
+    payment.blank?
   end
 
   def remission_applicable?

@@ -61,16 +61,13 @@ RSpec.describe Claim, :type => :claim do
   end
 
   describe '#unpaid?' do
-    let(:payment) { double :payment }
-    before { allow(subject).to receive(:payment).and_return payment }
-
     it 'is true when payment is not present' do
-      allow(payment).to receive(:present?).and_return false
+      allow(subject).to receive(:payment).and_return nil
       expect(subject.unpaid?).to be true
     end
 
     it 'is false when payment is present' do
-      allow(payment).to receive(:present?).and_return true
+      allow(subject).to receive(:payment).and_return double(:payment)
       expect(subject.unpaid?).to be false
     end
   end
