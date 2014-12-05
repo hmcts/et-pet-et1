@@ -25,10 +25,6 @@ describe BaseMailer do
       expect(email.to).to eq [email_address]
     end
 
-    it 'has reference in the subject' do
-      expect(email.subject).to have_text claim.reference
-    end
-
     it 'has reference in body' do
       expect(email.body).to have_text claim.reference
     end

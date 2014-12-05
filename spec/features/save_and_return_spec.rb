@@ -19,7 +19,7 @@ feature 'Save and Return' do
     click_button 'Sign out now'
 
     mail = ActionMailer::Base.deliveries.last
-    expect(mail.subject).to include(Claim.last.reference)
+    expect(mail.body).to include(Claim.last.reference)
 
     expect(page).to have_text(claim_heading_for(:new))
   end

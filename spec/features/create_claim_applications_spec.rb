@@ -35,7 +35,7 @@ feature 'Claim applications', type: :feature do
       expect(claim.authenticate 'green').to eq(claim)
 
       mail = ActionMailer::Base.deliveries.last
-      expect(mail.subject).to include(claim.reference)
+      expect(mail.body).to include(claim.reference)
 
       expect(page).to have_text claim_heading_for(:claimant)
     end
