@@ -38,32 +38,39 @@ feature 'Your fee page' do
   end
 
   context 'multiple claimants' do
-    before { claim.secondary_claimants.create }
+    {
+      "from DB"  => ->(c) { c.secondary_claimants.create },
+      "from CSV" => ->(c) { c.update additional_claimants_csv_record_count: 1 }
+    }.each do |description, setup|
+      context description do
+        before { setup.call(claim) }
 
-    scenario 'indicating remission' do
-      visit claim_your_fee_path
+        scenario 'indicating remission' do
+          visit claim_your_fee_path
 
-      %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
 
-      fill_in "How many in your group want to apply for fee remission?", with: 2
+          fill_in "How many in your group want to apply for fee remission?", with: 2
 
-      click_button 'Save and continue'
+          click_button 'Save and continue'
 
-      expect(claim.reload.remission_claimant_count).to eq 2
-    end
+          expect(claim.reload.remission_claimant_count).to eq 2
+        end
 
-    scenario 'trying to set remission claimants > number of claimants' do
-      visit claim_your_fee_path
+        scenario 'trying to set remission claimants > number of claimants' do
+          visit claim_your_fee_path
 
-      %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
 
-      fill_in "How many in your group want to apply for fee remission?", with: 200
+          fill_in "How many in your group want to apply for fee remission?", with: 200
 
-      click_button 'Save and continue'
+          click_button 'Save and continue'
 
-      expect(page.current_path).to eq claim_your_fee_path
-      expect(page).to have_text "See highlighted errors below."
-      expect(claim.reload.remission_claimant_count).to eq 0
+          expect(page.current_path).to eq claim_your_fee_path
+          expect(page).to have_text "See highlighted errors below."
+          expect(claim.reload.remission_claimant_count).to eq 0
+        end
+      end
     end
   end
 end

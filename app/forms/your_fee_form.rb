@@ -8,6 +8,10 @@ class YourFeeForm < Form
 
   before_save ->(form) { form.remission_claimant_count = 0 }, unless: :remission_claimant_count?
 
+  def has_secondary_claimants?
+    target.secondary_claimants.any? || target.additional_claimants_csv_record_count > 0
+  end
+
   def applying_for_remission=(bool)
     bool = ActiveRecord::Type::Boolean.new.type_cast_from_user bool
     self.remission_claimant_count = bool ? 1 : 0
