@@ -106,7 +106,7 @@ html
 
                     td valign="top" style="padding-left:10px;"
                       p style="font-family:arial; font-size:16px;"
-                        = t('.details.submitted_on', date: @claim.submitted_at.to_date.to_formatted_s(:long))
+                        = t('.details.submitted_on', date: @claim.submitted_at && @claim.submitted_at.to_date.to_formatted_s(:long))
                         = t('.details.submitted_to', office: @claim.office_details) if @claim.office
 
                   - if @claim.fee_to_pay?
