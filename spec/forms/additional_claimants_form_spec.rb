@@ -113,5 +113,11 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
         expect(subject.save).to be false
       end
     end
+
+    it 'removes the additional claimants csv from the claim' do
+      expect(claim).to receive(:delete_additional_claimants_csv!)
+
+      subject.save
+    end
   end
 end

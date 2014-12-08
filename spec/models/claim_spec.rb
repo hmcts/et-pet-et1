@@ -109,14 +109,21 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe "#reset_additional_claimants_count!" do
+  describe "#delete_additional_claimants_csv!" do
     it "resets the additional cliamants count for csv's back to zero" do
       subject.additional_claimants_csv_record_count = 1
 
-      expect { subject.reset_additional_claimants_count! }.
+      expect { subject.delete_additional_claimants_csv! }.
         to change { subject.additional_claimants_csv_record_count }.
-        from(1).
-        to(0)
+        from(1).to(0)
+    end
+
+    it "removes the csv" do
+      subject.additional_claimants_csv = Tempfile.new('claimants.csv')
+
+      expect { subject.delete_additional_claimants_csv! }.
+        to change { subject.additional_claimants_csv.present? }.
+        from(true).to(false)
     end
   end
 
