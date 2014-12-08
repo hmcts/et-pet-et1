@@ -13,17 +13,19 @@ en:
 
       download_application:
         header: Download your application
-        link_html: <a href="%{href}" target="%{target}">Save a copy</a> for your records 
+        link_html: <a href="%{href}" target="%{target}">Save a copy</a> for your records
 
       submission_details:
         header: Submission details
-        submitted_at: Application submitted
+        submission_information: Application submitted
         attachments: Attachments included
         payment_amount: Issue fee paid
+        submission_without_office: Submitted %{date}
+        submission_with_office: Submitted %{date} to tribunal office %{office}
 
-      getting_help:
-        header: Get help with paying your fee now
-        text: You must apply for a 'fee remission' within 7 calendar days of submitting this claim form (or we'll reject your claim).
-        link_anchor_text: Apply for help now
+      print_link_html: <a href="javascript:window.print(0);">Print this page</a> for your records
 
-      print_link_html: <a href="%{link}">Print this page</a> for your records
+      pel_info: |
+        If you have any questions, contact the Public Enquiry Line:
+        England & Wales 0300 123 1024
+        Scotland 0141 354 8574
