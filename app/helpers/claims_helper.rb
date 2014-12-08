@@ -13,11 +13,6 @@ module ClaimsHelper
     page_title(claim_header)
   end
 
-  def money(amount)
-    return '' unless amount
-    ('£%.2f' % amount).sub(/\.00$/, '')
-  end
-
   private def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end

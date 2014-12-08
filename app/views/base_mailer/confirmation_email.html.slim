@@ -122,7 +122,7 @@ html
 
                         td valign="top" style="padding-left:10px;"
                           p style="font-family:arial; font-size:16px;"
-                            = money(@claim.application_fee)
+                            = number_to_currency(@claim.application_fee)
 
                     - else
                       tr
@@ -132,7 +132,7 @@ html
 
                         td valign="top" style="padding-left:10px;"
                           p style="font-family:arial; font-size:16px;"
-                            = money(@claim.payment_amount)
+                            = number_to_currency(@claim.payment_amount)
 
                   tr
                     td colspan="3"
