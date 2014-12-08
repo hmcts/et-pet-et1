@@ -1,6 +1,18 @@
 CarrierWave.configure do |config|
-  properties = "#{Rails.root}/config/carrierwave.yml"
-  YAML.load_file(properties)[Rails.env].each { |k, v| config.send "#{k}=", v }
+  if Rails.env.production?
+    config.storage                          :fog
+    config.fog_public                       false
+    config.fog_directory                    ENV.fetch('S3_UPLOAD_BUCKET')
+    config.fog_authenticated_url_expiration ENV.fetch('S3_URL_EXPIRY')
+    config.fog_credentials = {
+      provider:              'aws',
+      region:                'eu-west-1',
+      aws_access_key_id:     ENV.fetch('AWS_ACCESS_KEY_ID'),
+      aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY')
+    }
+  else
+    config.storage :file
+  end
 
   Dir["#{Rails.root}/app/uploaders/*.rb"].each { |file| require file }
 
