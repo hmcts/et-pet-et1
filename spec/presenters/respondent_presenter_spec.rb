@@ -32,7 +32,7 @@ RSpec.describe RespondentPresenter, type: :presenter do
 
       its(:acas_early_conciliation_certificate_number) do
         is_expected.
-          to eq("Acas doesn't have the power to conciliate on some or all of my claim")
+          to eq("Acas doesn’t have the power to conciliate on some or all of my claim")
       end
     end
   end

@@ -89,7 +89,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         result = setup_csv_validator(valid_csv_data, invalid_header)
 
         expect(result.success).to eq false
-        expect(result.errors).to eq ["The CSV doesn't appear to be formatted correctly."]
+        expect(result.errors).to eq ["The CSV doesn’t appear to be formatted correctly."]
       end
     end
   end
