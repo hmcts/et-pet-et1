@@ -27,13 +27,13 @@ html
             tr
               td
                 p style="font-family:arial; font-size:19px"
-                  - if @claim.unpaid? && @claim.fee_to_pay?
-                    - if @claim.claimant_count > 1
+                  - if @confirmation.payment_failed?
+                    - if @confirmation.group?
                       = t('.intro.payment_not_processed.group')
                     - else
                       = t('.intro.payment_not_processed.single')
                   - else
-                    - if @claim.claimant_count > 1
+                    - if @confirmation.group?
                       = t('.intro.normal.group')
                     - else
                       = t('.intro.normal.single')
@@ -42,11 +42,11 @@ html
                   = t('.what_happens_next')
 
                 ol
-                  - if @claim.unpaid? && @claim.fee_to_pay?
+                  - if @confirmation.payment_failed?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.contact_re_payment')
 
-                  - if @claim.remission_applicable?
+                  - if @confirmation.remission_applicable?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.must_apply_for_remission')
 
@@ -80,20 +80,18 @@ html
                       p style="font-family:arial; font-size:16px;"
                         = t('.details.see_attached_pdf')
 
-                  - if @claim.attachments.any?
-                    tr
-                      td colspan="3"
-                        hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+                  tr
+                    td colspan="3"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
-                    tr
-                      td valign="top"
-                        p style="font-family:arial; font-size:16px; color:#6F777B;"
-                          = t('.details.attachments_submitted')
+                  tr
+                    td valign="top"
+                      p style="font-family:arial; font-size:16px; color:#6F777B;"
+                        = t('.details.attachments_submitted')
 
-                      td valign="top" style="padding-left:10px;"
-                        - @claim.attachments.each do |attachment|
-                          p style="font-family:arial; font-size:16px;"
-                            = attachment.filename
+                    td valign="top" style="padding-left:10px;"
+                      p style="font-family:arial; font-size:16px;"
+                        = @confirmation.attachments
 
                   tr
                     td colspan="3"
@@ -106,33 +104,25 @@ html
 
                     td valign="top" style="padding-left:10px;"
                       p style="font-family:arial; font-size:16px;"
-                        = t('.details.submitted_on', date: @claim.submitted_at && @claim.submitted_at.to_date.to_formatted_s(:long))
-                        = t('.details.submitted_to', office: @claim.office_details) if @claim.office
+                        = t('.details.submitted_on', date: @confirmation.submitted_at)
+                        = t('.details.submitted_to', office: @confirmation.office_details) if @confirmation.office?
 
-                  - if @claim.fee_to_pay?
+                  - if @confirmation.fee_to_pay?
                     tr
                       td colspan="3"
                         hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
-                    - if @claim.unpaid?
-                      tr
-                        td valign="top"
-                          p style="font-family:arial; font-size:16px; color:#6F777B;"
+                    tr
+                      td valign="top"
+                        p style="font-family:arial; font-size:16px; color:#6F777B;"
+                          - if @confirmation.paid?
+                            = t('.details.fee_paid')
+                          - else
                             = t('.details.fee_to_pay')
 
-                        td valign="top" style="padding-left:10px;"
-                          p style="font-family:arial; font-size:16px;"
-                            = number_to_currency(@claim.application_fee)
-
-                    - else
-                      tr
-                        td valign="top"
-                          p style="font-family:arial; font-size:16px; color:#6F777B;"
-                            = t('.details.fee_paid')
-
-                        td valign="top" style="padding-left:10px;"
-                          p style="font-family:arial; font-size:16px;"
-                            = number_to_currency(@claim.payment_amount)
+                      td valign="top" style="padding-left:10px;"
+                        p style="font-family:arial; font-size:16px;"
+                          = @confirmation.payment_amount
 
                   tr
                     td colspan="3"

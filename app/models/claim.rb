@@ -106,11 +106,6 @@ class Claim < ActiveRecord::Base
     self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
   end
 
-  def office_details
-    return '' unless office
-    [office.name, office.address].join(', ')
-  end
-
   private
 
   def state_machine
