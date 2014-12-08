@@ -11,8 +11,8 @@ RSpec.describe AdditionalInformationPresenter, type: :presenter do
 
   describe '#attached_document' do
     before do
-      allow(claim.attachment).to receive(:to_s).
-        and_return '/uploads/claim/attachment/6CV34CSM70RK0E9G/lolz.rtf'
+      allow(claim.additional_information_rtf).to receive(:to_s).
+        and_return '/uploads/claim/additional_information_rtf/6CV34CSM70RK0E9G/lolz.rtf'
     end
 
     specify { expect(subject.attached_document).to eq('lolz.rtf') }

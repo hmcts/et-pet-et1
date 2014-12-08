@@ -22,7 +22,7 @@ feature 'XML Generation' do
     before do
       Claim.last.tap do |claim|
         claim.additional_claimants_csv = File.open(root_path + 'spec/support/files/file.csv')
-        claim.attachment = File.open(root_path + 'spec/support/files/file.rtf')
+        claim.additional_information_rtf = File.open(root_path + 'spec/support/files/file.rtf')
         claim.save
       end
     end

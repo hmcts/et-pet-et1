@@ -1,8 +1,8 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
-  mount_uploader :attachment, AttachmentUploader
-  mount_uploader :additional_claimants_csv, AttachmentUploader
-  mount_uploader :pdf, ClaimPdfUploader
+  mount_uploader :additional_information_rtf, AttachmentUploader
+  mount_uploader :additional_claimants_csv,   AttachmentUploader
+  mount_uploader :pdf,                        ClaimPdfUploader
 
   has_one :primary_claimant,
     -> { where primary_claimant: true },
@@ -28,7 +28,7 @@ class Claim < ActiveRecord::Base
   has_one  :payment
 
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
-  delegate :file, to: :attachment, prefix: true
+  delegate :file, to: :additional_information_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
   delegate :file, :filename, :url, :present?, :blank?, to: :pdf, prefix: true
 

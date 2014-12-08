@@ -34,10 +34,10 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
   end
 
   context 'when attachments are present' do
-    let(:path) { Pathname.new "/uploads/claim/attachment/#{claim.reference}" }
+    let(:path) { Pathname.new "/uploads/claim/additional_information_rtf/#{claim.reference}" }
 
     before do
-      allow(claim).to receive(:attachment).and_return path + 'lolz.rtf'
+      allow(claim).to receive(:additional_information_rtf).and_return path + 'lolz.rtf'
       allow(claim).to receive(:additional_claimants_csv).and_return path + 'peepz.csv'
     end
 

@@ -13,13 +13,13 @@ fieldset
                     :'data-target' => 'main',
                     :'data-show-array' => 'true' }
 
-  = f.input :attachment do
-    - if resource.has_attachment?
-        = f.input :remove_attachment, as: :boolean,
-          inline_label: t('.remove_attachment',
-          file: claim.attachment_file.filename),
+  = f.input :additional_information_rtf do
+    - if resource.has_additional_information_rtf?
+        = f.input :remove_additional_information_rtf, as: :boolean,
+          inline_label: t('.remove_additional_information_rtf',
+          file: claim.additional_information_rtf_file.filename),
           label: false
 
-    = f.input_field :attachment, as: :file
+    = f.input_field :additional_information_rtf, as: :file
 
-  = f.hidden_field :attachment_cache
+  = f.hidden_field :additional_information_rtf_cache

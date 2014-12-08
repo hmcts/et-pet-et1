@@ -11,7 +11,7 @@ feature 'Attaching a document' do
 
   def upload_file!
     visit '/apply/additional-information'
-    attach_file "additional_information_attachment", file_path
+    attach_file "additional_information_additional_information_rtf", file_path
     click_button 'Save and continue'
   end
 
@@ -22,7 +22,7 @@ feature 'Attaching a document' do
 
   scenario 'Attaching a file' do
     upload_file!
-    expect(claim.reload.attachment_file.read).to eq File.read(file_path)
+    expect(claim.reload.additional_information_rtf_file.read).to eq File.read(file_path)
   end
 
   scenario 'Deleting a file' do
@@ -30,11 +30,11 @@ feature 'Attaching a document' do
 
     visit '/apply/additional-information'
 
-    check "additional_information_remove_attachment"
+    check "additional_information_remove_additional_information_rtf"
 
     click_button 'Save and continue'
 
-    expect(claim.reload.attachment.present?).to be false
+    expect(claim.reload.additional_information_rtf.present?).to be false
   end
 
   scenario 'Replacing a file' do
@@ -42,19 +42,19 @@ feature 'Attaching a document' do
 
     visit '/apply/additional-information'
 
-    attach_file "additional_information_attachment", alternative_file_path
+    attach_file "additional_information_additional_information_rtf", alternative_file_path
     click_button 'Save and continue'
 
-    expect(claim.reload.attachment_file.read).to eq File.read(alternative_file_path)
+    expect(claim.reload.additional_information_rtf_file.read).to eq File.read(alternative_file_path)
   end
 
   scenario 'Uploading a non text file' do
     visit '/apply/additional-information'
 
-    attach_file "additional_information_attachment", image_file_path
+    attach_file "additional_information_additional_information_rtf", image_file_path
     click_button 'Save and continue'
 
     expect(page).to have_text('is not an RTF or plain text file')
-    expect(claim.attachment).not_to be_present
+    expect(claim.additional_information_rtf).not_to be_present
   end
 end
