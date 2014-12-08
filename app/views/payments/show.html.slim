@@ -17,15 +17,3 @@ header.main-header
         = hidden_field_tag k, v
 
       = submit_tag t('.submit'), name: nil, class: 'button'
-
-    details
-      summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
-        span.summary= t '.details.summary'
-      .panel-indent#details-content-0
-        p= t('.details.intro')
-        h2.bold-medium= t('.details.heading')
-        ul
-          li= t('.details.li_one_link_html', link: link_to(t('.details.li_one'), pdf_path))
-          li= t('.details.li_two')
-          li= t '.details.li_three_html',
-            link: link_to('Employment Tribunals Office (Scotland)', 'https://www.justice.gov.uk/tribunals/employment/venues')

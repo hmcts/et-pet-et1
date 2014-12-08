@@ -608,23 +608,11 @@ en:
       header: Pay and submit claim
       issue_fee_header: Pay the issue fee
       issue_fee: |
-        You now need to pay the issue fee.
+        To submit your claim you need to pay the issue fee.
 
-        You will be taken to a screen where you can enter your payment details.
-
-        Once the issue fee is paid, the claim will be submitted directly to the tribunal.
-
-        After your claim is submitted, we may contact you and request that you pay additional fees.
+        You’ll be asked to enter your payment details on the next screen.
 
       submit: Pay and submit claim
-      details:
-        summary: Other ways to pay
-        intro: You can pay by cheque
-        heading: "You will need to:"
-        li_one: completed claim
-        li_one_link_html: "print the %{link}"
-        li_two: include a cheque for the correct issue fee
-        li_three_html: post the claim to tribunal office %{link}
     decline:
       payment_declined: Payment declined
 
