@@ -112,10 +112,6 @@ describe BaseMailer do
           expect(content).to have_text 'apply for fee remission'
         end
 
-        it 'shows the intro for payment failure' do
-          expect(content).to include('we weren’t able to process your payment')
-        end
-
         it 'does not show any payment information' do
           expect(content).not_to have_text payment_message
           expect(content).not_to have_text table_heading('fee_paid')
