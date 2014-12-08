@@ -20,6 +20,6 @@ Interim relief is a special measure where an employment tribunal can make an ord
 
 You can only apply for interim relief if you claim you’ve been dismissed for certain reasons such as whistleblowing, trade union activities or acting as a workers’ representative.
 
-The tribunal must receive your claim and application for interim relief within 7 days of your dismissal.
+The tribunal must receive your claim and claim for interim relief within 7 days of your dismissal.
 
 If the tribunal agrees to give you interim relief, your employer has to continue your employment until the hearing considers the major part of your claim. You’ll receive your salary or wages until the case is decided.

@@ -1,8 +1,8 @@
 en:
   base_mailer:
     confirmation_email:
-      header: 'Application complete'
-      complete: 'Your application number: %{reference}'
+      header: 'Claim complete'
+      complete: 'Your claim number: %{reference}'
       fee_paid: Thank you for your payment. We’ll write to you within 5 working days.
 
       getting_help:

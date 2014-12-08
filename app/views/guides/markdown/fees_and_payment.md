@@ -2,5 +2,5 @@
 
 This is not a free service; there are two types of fee:
 
-- __Issue__ fee for considering your application
+- __Issue__ fee for considering your claim
 - __Hearing__ fee for having your case heard at tribunal, if it reaches that far

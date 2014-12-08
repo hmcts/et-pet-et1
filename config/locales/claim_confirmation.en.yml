@@ -1,7 +1,7 @@
 en:
   claim_confirmations:
     show:
-      header: Application complete
+      header: Claim complete
       callout_detail: Your claim number
 
       what_happens_next:
@@ -12,12 +12,12 @@ en:
         three: The person you are making a claim against (respondent) will receive a copy of your claim. They will have 28 days to reply.
 
       download_application:
-        header: Download your application
-        link_html: <a href="%{href}" target="%{target}">Save a copy</a> for your records 
+        header: Download your claim
+        link_html: <a href="%{href}" target="%{target}">Save a copy</a> for your records
 
       submission_details:
         header: Submission details
-        submitted_at: Application submitted
+        submitted_at: Claim submitted
         attachments: Attachments included
         payment_amount: Issue fee paid
 

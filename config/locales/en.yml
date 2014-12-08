@@ -130,14 +130,14 @@ en:
 
     labels:
       application_number:
-        email_address: Enter your email address to receive your online application number
+        email_address: Enter your email address to receive your online claim number
         password: Create your memorable word
       user_session:
         returning:
-          reference: Application number
+          reference: Claim number
           password: Memorable word
         reminder:
-          email_address: Enter your email address to get your application number emailed to you.
+          email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -243,7 +243,7 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the application.
+        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim.
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -337,9 +337,9 @@ en:
       user_session:
         returning:
           reference: This was emailed to you, if you entered an email address
-          password: You created a password at the beginning of your application
+          password: You created a password at the beginning of your claim
         reminder:
-          email_address: Get your application number in an email
+          email_address: Get your claim number in an email
 
   helpers:
     submit:
@@ -350,22 +350,22 @@ en:
       claim_review:
         update: Submit the form
       user_session:
-        create: Find my application
+        create: Find my claim
         destroy: Sign out now
         update: Save and continue
       confirmation_email:
-        create: Submit application
+        create: Submit claim
     link:
       claim:
-        return: Return to your application
+        return: Return to your claim
 
   shared:
-    reference: Your application number is
+    reference: Your claim number is
     aside:
       skip_link: Skip to content
       gethelp_header: Support
-      actions_header: Your application
-      read_guide: Application guide
+      actions_header: Your claim
+      read_guide: Claim guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
@@ -378,27 +378,27 @@ en:
       rtf: is not an RTF or plain text file
       csv: is not a CSV
     user_session:
-      not_found: A claim with that application number could not be found
-      invalid: This password does not match the application number
-      immutable: This application has been submitted and can no longer be edited online
+      not_found: A claim with that claim number could not be found
+      invalid: This password does not match the claim number
+      immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
     returning:
-      header: Return to your application
+      header: Return to your claim
       subheader: Enter your details below
-      hint: Don't have these details? [Start a new application](/).
+      hint: Don't have these details? [Start a new claim](/).
     reminder:
-      header: Application saved
-      legend: Return to complete your application
+      header: Claim saved
+      legend: Return to complete your claim
       subheader: |
-       Your application has been saved. You can return to it by entering your application number and your password.
+       Your claim has been saved. You can return to it by entering your claim number and your password.
       submit: Sign out now
       print_link: Print this page
 
     session_expired:
       header: Your session has expired
       content_html: |
-        To complete your claim, please <a href="%{returning_user_session_path}">return to your application</a>.
+        To complete your claim, please <a href="%{returning_user_session_path}">return to your claim</a>.
 
   guides:
     show:
@@ -437,7 +437,7 @@ en:
       page_number: Page %{current_page} of %{total_pages}
 
     new:
-      header: Start your application
+      header: Start your claim
       legend_main: Before you continue
       callout_new: |
         This is not a free service. [Find out about fees and fee reductions](%{path}#fees_and_payment)
@@ -448,10 +448,10 @@ en:
           [Learn about when you can apply](%{path}#time_limits)
 
           ### Have you contacted Acas?
-          In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
+          In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
 
           [Learn about Acas](%{path}#acas_early_conciliation)
-      application_started_header: Already started an application?
+      application_started_header: Already started an claim?
       what_you_need_to_know:
         body: |
           ## Before you start
@@ -472,12 +472,12 @@ en:
           We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     application_number:
-      header: Returning to your application
-      application_number: Your online application number
-      intro_text: You can save your application and return to it at any time. You will need your online application number and memorable word, which you create below.
-      email_hint: Enter your email address to get the online application number emailed to you.
+      header: Returning to your claim
+      application_number: Your online claim number
+      intro_text: You can save your claim and return to it at any time. You will need your online claim number and memorable word, which you create below.
+      email_hint: Enter your email address to get the online claim number emailed to you.
       print_link: Print this page
-      print_copy: to have a copy of your online application number for reference
+      print_copy: to have a copy of your online claim number for reference
 
     claimant:
       header: Claimant's details
@@ -526,7 +526,7 @@ en:
       representative_legend: About your representative
       contact_legend: Representative's contact details
       contact_info: |
-        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your application, you must give their contact details to the tribunal office handling your case.
+        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must give their contact details to the tribunal office handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
@@ -604,7 +604,7 @@ en:
     your_fee:
       header: Fee
       standard_fee: Standard fee
-      standard_fee_detail: This is the application fee for your claim
+      standard_fee_detail: This is the claim fee for your claim
       application_fee: Fee
       callout_fee_intro: This issue fee for your claim is
       callout_fee_amount: £ %{application_fee}
@@ -614,7 +614,7 @@ en:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
-      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
+      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: You don’t need to pay the issue fee now.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
@@ -639,7 +639,7 @@ en:
         summary: Other ways to pay
         intro: You can pay by cheque
         heading: "You will need to:"
-        li_one: completed application
+        li_one: completed claim
         li_one_link_html: "print the %{link}"
         li_two: include a cheque for the correct issue fee
         li_three_html: post the claim to tribunal office %{link}
@@ -652,7 +652,7 @@ en:
       body: |
         Thank you for starting an employment tribunal claim form.
 
-        Your application number is:
+        Your claim number is:
 
         __%{reference}__
 
@@ -663,7 +663,7 @@ en:
       subject: Employment tribunal submitted
 
     reference:
-      header: Application number
+      header: Claim number
 
   # Form Errors - Handled by ActiveModel
   activemodel:
