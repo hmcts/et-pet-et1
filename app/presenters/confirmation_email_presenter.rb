@@ -1,6 +1,4 @@
 class ConfirmationEmailPresenter < ConfirmationPresenter
-  present :remission_applicable?, :fee_calculation, :reference, :fee_to_pay?
-
   def office?
     target.office.present?
   end
