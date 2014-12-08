@@ -4,8 +4,7 @@ class ConfirmationEmailPresenter < ConfirmationPresenter
   end
 
   def office_details
-    return '' unless target.office
-    [target.office.name, target.office.address].join(', ')
+    [target.office.name, target.office.address].join(', ') if office
   end
 
   def paid?
