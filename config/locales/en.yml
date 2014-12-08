@@ -659,6 +659,54 @@ en:
         You need this number, and your password,
         to [return to your form](http://gov.uk/) (if you don't complete it in one session).
 
+    started_application:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your application number is:
+
+        __%{reference}__
+
+        You need this number, and your password,
+        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+    submitted_application:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your application number is:
+
+        __%{reference}__
+
+        You need this number, and your password,
+        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+    unsuccessful_application:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your application number is:
+
+        __%{reference}__
+
+        You need this number, and your password,
+        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
+    remission:
+      subject: 'Employment tribunal: %{reference}'
+      body: |
+        Thank you for starting an employment tribunal claim form.
+
+        Your application number is:
+
+        __%{reference}__
+
+        You need this number, and your password,
+        to [return to your form](http://gov.uk/) (if you don't complete it in one session).
+
     confirmation_email:
       subject: Employment tribunal submitted
 
