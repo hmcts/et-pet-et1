@@ -109,6 +109,17 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
+  describe "#reset_additional_claimants_count!" do
+    it "resets the additional cliamants count for csv's back to zero" do
+      subject.additional_claimants_csv_record_count = 1
+
+      expect { subject.reset_additional_claimants_count! }.
+        to change { subject.additional_claimants_csv_record_count }.
+        from(1).
+        to(0)
+    end
+  end
+
   describe 'bitmasked attributes' do
     %i<discrimination_claims pay_claims desired_outcomes>.each do |attr|
       specify { expect(subject.send attr).to be_an(Array) }
