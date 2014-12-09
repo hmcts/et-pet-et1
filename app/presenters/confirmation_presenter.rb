@@ -1,6 +1,12 @@
 class ConfirmationPresenter < Presenter
-  def submitted_at
-    date(target.submitted_at)
+  def submission_information
+    if office.present? && remission_claimant_count.zero?
+      I18n.t 'claim_confirmations.show.submission_details.submission_with_office',
+        date: date(target.submitted_at), office: [office.name, office.address].join(', ')
+    else
+      I18n.t 'claim_confirmations.show.submission_details.submission_without_office',
+        date: date(target.submitted_at)
+    end
   end
 
   def attachments
@@ -21,7 +27,6 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachment_filenames
-    [additional_information_rtf, additional_claimants_csv].
-      map { |a| a.to_s.split('/').last }.compact
+    [additional_information_rtf, additional_claimants_csv].map(&:filename).compact
   end
 end

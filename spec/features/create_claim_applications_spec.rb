@@ -225,7 +225,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text     "Application complete"
       expect(page).not_to have_text "Fee paid"
       expect(page).not_to have_text "Fee to pay"
-      expect(page).to have_text     "Get help with paying your fee now"
+      expect(page).to have_text     "Apply for fee remission"
     end
 
     scenario 'Downloading the PDF if available' do
@@ -251,7 +251,7 @@ feature 'Claim applications', type: :feature do
       complete_a_claim seeking_remissions: true
       click_button 'Submit application'
 
-      expect(page).to have_text 'Get help with paying your fee now'
+      expect(page).to have_text 'Apply for fee remission'
       expect(page).not_to have_text 'You now need to pay the issue fee'
     end
 
@@ -259,7 +259,7 @@ feature 'Claim applications', type: :feature do
       complete_a_claim seeking_remissions: false
       click_button 'Submit application'
 
-      expect(page).not_to have_text 'Get help with paying your fee now'
+      expect(page).not_to have_text 'Apply for fee remission'
       expect(page).to have_text 'You now need to pay the issue fee'
     end
   end
