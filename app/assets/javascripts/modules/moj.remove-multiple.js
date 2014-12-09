@@ -6,13 +6,18 @@ module.exports = (function() {
     multiples = container.find('.multiple');
 
   removeMultiple.init = function() {
-    multiples.each(function(i, el) {
-      var checkbox = $(el).find('.destroy-checkbox');
-      //bind the remove method
-      removeMultiple.bindRemoveButton(el, checkbox);
-      // hide if already checked
-      el.style.display = checkbox.is(':checked') ? 'none' : 'block';
-    });
+
+    if(multiples.length <= 1) {
+      multiples.find('.remove-multiple').hide();
+    } else {
+      multiples.each(function(i, el) {
+        var checkbox = $(el).find('.destroy-checkbox');
+        //bind the remove method
+        removeMultiple.bindRemoveButton(el, checkbox);
+        // hide if already checked
+        el.style.display = checkbox.is(':checked') ? 'none' : 'block';
+      });
+    }
     //update the counter
     removeMultiple.updateCount();
   };
@@ -21,7 +26,7 @@ module.exports = (function() {
     var link = $(el).find('.remove-multiple');
 
     //hide on click and check the hidden checkbox
-    link.on('click', function(event){
+    link.on('click', function(){
       el.style.display = 'none';
 
       checkbox.prop('checked', true);

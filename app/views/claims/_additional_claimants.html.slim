@@ -19,8 +19,7 @@ fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 2)
 
-          - if builder.index > 0
-            = link_to t('.remove_claimant_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
+          = link_to t('.remove_claimant_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
 
           = render 'personal_details', f: builder
 
