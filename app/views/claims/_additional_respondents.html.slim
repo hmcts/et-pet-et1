@@ -16,8 +16,7 @@ fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 2)
 
-          - if builder.index > 0
-            = link_to t('.remove_respondent_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
+          = link_to t('.remove_respondent_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
 
           = builder.input :name
 
@@ -33,7 +32,7 @@ fieldset
 
           .clearfix.toggle-content.reveal-subscribe data-target="main-#{builder.index}" data-show-array="true"
             fieldset.panel-indent
-                legend.visuallyhidde.form-label = t '.no_acas_number_reason'
+                legend.visuallyhidden.form-label = t '.no_acas_number_reason'
                 = builder.input :no_acas_number_reason,
                   label:false,
                   collection: RespondentForm::NO_ACAS_REASON,
