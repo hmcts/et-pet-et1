@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201210140) do
+ActiveRecord::Schema.define(version: 20141208200535) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20141201210140) do
     t.string   "fee_group_reference"
     t.string   "state"
     t.datetime "submitted_at"
-    t.string   "attachment"
+    t.string   "additional_information_rtf"
     t.string   "email_address"
     t.string   "additional_claimants_csv"
     t.integer  "remission_claimant_count",              default: 0

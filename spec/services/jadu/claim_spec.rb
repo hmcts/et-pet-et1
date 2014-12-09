@@ -21,7 +21,7 @@ RSpec.describe Jadu::Claim, type: :service do
 
   let(:attachments) do
     { "et1_barrington_wrigglesworth.pdf" => claim.pdf_file.read,
-      "file.rtf" => claim.attachment_file.read,
+      "file.rtf" => claim.additional_information_rtf_file.read,
       "file.csv" => claim.additional_claimants_csv_file.read }
   end
 

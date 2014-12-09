@@ -38,7 +38,7 @@ fieldset
       = f.input :additional_claimants_csv, error: false do
         - if resource.has_additional_claimants_csv?
             = f.input :remove_additional_claimants_csv, as: :boolean,
-              inline_label: t('.remove_attachment', file: claim.additional_claimants_csv_file.filename),
+              inline_label: t('.remove_additional_claimants_csv', file: claim.additional_claimants_csv_file.filename),
               label: false
 
         = f.input_field :additional_claimants_csv, as: :file

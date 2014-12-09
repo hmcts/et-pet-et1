@@ -233,7 +233,7 @@ RSpec.describe Claim, :type => :claim do
 
     before do
       subject.additional_claimants_csv = File.open(path + 'spec/support/files/file.csv')
-      subject.attachment = File.open(path + 'spec/support/files/file.rtf')
+      subject.additional_information_rtf = File.open(path + 'spec/support/files/file.rtf')
     end
 
     it "returns a list of attachments on the claim" do
@@ -242,7 +242,7 @@ RSpec.describe Claim, :type => :claim do
     end
 
     it "only returns attachments that exist" do
-      subject.remove_attachment!
+      subject.remove_additional_information_rtf!
       expect(subject.attachments.size).to eq 1
     end
   end

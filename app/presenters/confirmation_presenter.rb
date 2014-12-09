@@ -21,7 +21,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachment_filenames
-    [attachment, additional_claimants_csv].
+    [additional_information_rtf, additional_claimants_csv].
       map { |a| a.to_s.split('/').last }.compact
   end
 end

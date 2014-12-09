@@ -3,13 +3,10 @@ require 'rails_helper'
 RSpec.describe JaduXml::FilePresenter, type: :presenter do
   let(:claim) {
     # access a carrierwave sanitized file..
-    Claim.new do |c|
-      c.attachment = File.open(Rails.root + 'spec/support/files/file.rtf')
-    end
+    Claim.new { |c| c.additional_information_rtf = File.open(Rails.root + 'spec/support/files/file.rtf') }
   }
-  let(:file) { claim.attachment }
 
-  subject { described_class.new file }
+  subject { described_class.new claim.additional_information_rtf }
 
   describe "decorated methods" do
     describe "#filename" do

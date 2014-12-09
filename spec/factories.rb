@@ -11,7 +11,7 @@ FactoryGirl.define do
 
     is_unfair_dismissal true
 
-    attachment do
+    additional_information_rtf do
       Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'
     end
 

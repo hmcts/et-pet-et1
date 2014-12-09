@@ -13,11 +13,11 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       end
     end
 
-    describe 'on #attachment' do
+    describe 'on #additional_information_rtf' do
       let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
 
       before do
-        subject.attachment = file
+        subject.additional_information_rtf = file
         subject.valid?
       end
 
@@ -25,7 +25,7 @@ RSpec.describe AdditionalInformationForm, :type => :form do
         let(:file) { File.open(path + 'file.rtf') }
 
         it 'does nothing' do
-          expect(subject.errors[:attachment]).to be_empty
+          expect(subject.errors[:additional_information_rtf]).to be_empty
         end
       end
 
@@ -33,7 +33,7 @@ RSpec.describe AdditionalInformationForm, :type => :form do
         let(:file) { File.open(path + 'phil.jpg') }
 
         it 'adds an error message to the attribute' do
-          expect(subject.errors[:attachment]).to include(I18n.t 'errors.messages.rtf')
+          expect(subject.errors[:additional_information_rtf]).to include(I18n.t 'errors.messages.rtf')
         end
       end
     end
