@@ -551,7 +551,7 @@ en:
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent %{number}
       add_fields: Add another respondent
-      remove_respondent_link: Remove respondent %{number}
+      remove_respondent_link: Remove this respondent
 
     employment:
       header: Employment details
