@@ -9,19 +9,25 @@ module Jadu
     end
 
     def perform
-      if operation.ok?
-        claim.update fee_group_reference: operation['feeGroupReference'] if operation['feeGroupReference']
-        claim.finalize!
-      else
-        raise StandardError.new <<-EOS.strip_heredoc
-          Application #{claim.reference} was rejected by Jadu with error #{operation['errorCode']}
-          Description: #{operation['errorDescription']}
-          Details: #{operation['details']}
-        EOS
-      end
+      operation.ok? ? finalize_claim : request_error
     end
 
     private
+
+    def finalize_claim
+      if operation['feeGroupReference']
+        claim.update fee_group_reference: operation['feeGroupReference']
+      end
+      claim.finalize!
+    end
+
+    def request_error
+      raise StandardError.new <<-EOS.strip_heredoc
+        Application #{claim.reference} was rejected by Jadu with error #{operation['errorCode']}
+        Description: #{operation['errorDescription']}
+        Details: #{operation['details']}
+      EOS
+    end
 
     def operation
       @operation ||= client.new_claim(serialized_claim, attachments)
@@ -39,14 +45,6 @@ module Jadu
       @attachments ||= claim.attachments.reduce({}) do |o, a|
         o.update a.filename => a.file.read
       end
-    end
-
-    def filename_for(attachment)
-      File.basename claim.send(attachment).url
-    end
-
-    def file_contents_for(attachment)
-      claim.send(attachment).file.read
     end
   end
 end
