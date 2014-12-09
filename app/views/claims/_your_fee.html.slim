@@ -9,7 +9,7 @@ fieldset
 fieldset
   legend role="heading" aria-level="2"  = t '.reduce_fee'
 
-  - if claim.secondary_claimants.any?
+  - if resource.has_secondary_claimants?
     = format t('.applying_for_remission_multiple', path: guide_path)
     = f.input :remission_claimant_count
     = format t '.applying_for_remission_multiple_note'

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe YourFeeForm, :type => :form do
+RSpec.describe YourFeeForm, type: :form do
   it_behaves_like("a Form", remission_claimant_count: 0)
 
   subject { described_class.new claim }
@@ -66,6 +66,36 @@ RSpec.describe YourFeeForm, :type => :form do
 
       it 'sets remission_claimant_count as 0' do
         expect(subject.remission_claimant_count).to eq 1
+      end
+    end
+  end
+
+  describe '#has_secondary_claimants?' do
+    context 'secondary_claimants' do
+      before { claim.additional_claimants_csv_record_count = 0 }
+
+      it 'returns true when not empty' do
+        claim.secondary_claimants.create
+        expect(subject.has_secondary_claimants?).to eq true
+      end
+
+      it 'returns false when empty' do
+        claim.secondary_claimants.delete_all
+        expect(subject.has_secondary_claimants?).to eq false
+      end
+    end
+
+    context 'additional_claimants_csv_record_count' do
+      before { claim.secondary_claimants.delete_all }
+
+      it 'returns true when greater than zero' do
+        claim.additional_claimants_csv_record_count = 1
+        expect(subject.has_secondary_claimants?).to eq true
+      end
+
+      it 'returns false when zero' do
+        claim.additional_claimants_csv_record_count = 0
+        expect(subject.has_secondary_claimants?).to eq false
       end
     end
   end
