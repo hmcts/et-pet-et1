@@ -67,7 +67,7 @@ module JaduXml
     end
 
     def administrator
-      1
+      -1
     end
 
     def payment

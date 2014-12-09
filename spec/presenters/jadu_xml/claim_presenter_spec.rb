@@ -69,7 +69,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
       end
     end
 
-    its(:administrator) { is_expected.to eq 1 }
+    its(:administrator) { is_expected.to eq -1 }
     its(:payment) { is_expected.to be_kind_of JaduXml::Payment }
 
     describe "#files" do
