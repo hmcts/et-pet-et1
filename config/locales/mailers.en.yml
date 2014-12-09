@@ -41,15 +41,11 @@ en:
         We’ll contact you within 5 working days to arrange payment.
       must_apply_for_remission: |
         You have said you want to apply for fee remission.
-        You must apply within 7 days, or your claim may be rejected.
-      apply_for_fee_remission: |
-        Apply for fee remission
-      judge_will_review: |
-        A judge will review your claim to make sure it can be heard by an
-        employment tribunal.
-      sent_to_respondent: |
-        A copy of the claim will be sent to the respondent.
-        They’ll have 28 days to reply.
+        You must apply within 7 days or your claim may be rejected.
+      copy_sent_to_respondent: |
+        A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
+      we_will_contact_you:
+        We’ll contact you to explain the next steps.
       details:
         header: Submission details
         claim_completed: Claim completed
@@ -60,3 +56,7 @@ en:
         submitted_to: to tribunal office %{office}
         fee_paid: Issue fee paid
         fee_to_pay: Issue fee payment
+
+    shared:
+      button_fee_remission:
+        apply_for_fee_remission: Apply for fee remission

@@ -4,18 +4,15 @@ html
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
 
-    table style="width:100%;"
-      tr
-        td style="padding-left:60px; background-color:#000000; height:53px;"
-          img src="_img/govuk_logotype_email.png"
+    = render partial: 'base_mailer/shared/gov.uk.logo'
 
     table style="padding-left:60px;"
       tr
         td
           table style="width:550px; padding-bottom:30px;"
-            tr
-              td style="padding-bottom:30px;"
-                img src="_img/moj_logotype_email.png"
+
+            = render partial: 'base_mailer/shared/moj.logo'
+
             tr
               td
                 p style="font-family:arial; font-size:40px; font-weight:bold;"
@@ -24,6 +21,10 @@ html
             = render partial: 'base_mailer/shared/application_number_dark'
 
           table style="max-width:550px;"
+            tr
+              td
+                p style="font-family:arial; font-size:19px"
+                  | Firstname Lastname
             tr
               td
                 p style="font-family:arial; font-size:19px"
@@ -50,82 +51,78 @@ html
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.must_apply_for_remission')
 
-                      table cellspacing="0" cellpadding="0"
-                        tr
-                          td align="center" width="220" height="40" bgcolor="#00833e" style="border-bottom:2px solid #003519;color: #ffffff; display: block;"
-                            = link_to 'https://www.employmenttribunals.service.gov.uk/remissions', target: '_blank', style: 'font-size:16px; font-family:Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block' do
-                              span style="color: #ffffff;"
-                                = t('.apply_for_fee_remission')
+                      = render partial: 'base_mailer/shared/button_fee_remission'
 
                   li style="font-family:arial; font-size:19px; line-height:26px;"
-                    p= t('.judge_will_review')
+                    p= t('.copy_sent_to_respondent')
 
-                  li style="font-family:arial; font-size:19px; line-height:26px;"
-                    p= t('.sent_to_respondent')
+                  - if @confirmation.payment_failed?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.we_will_contact_you')
 
                 p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
                   = t('.details.header')
 
                 table style="width:550px;padding-bottom:30px;"
                   tr
-                    td colspan="3"
+                    td colspan="2"
                       hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
                   tr
-                    td valign="top"
+                    td valign="top" width="185"
                       p style="font-family:arial; font-size:16px; color:#6F777B;"
                         = t('.details.claim_completed')
 
-                    td valign="top" style="padding-left:10px;"
+                    td valign="top"
                       p style="font-family:arial; font-size:16px;"
                         = t('.details.see_attached_pdf')
 
                   tr
-                    td colspan="3"
+                    td colspan="2"
                       hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
                   tr
-                    td valign="top"
+                    td valign="top" width="185"
                       p style="font-family:arial; font-size:16px; color:#6F777B;"
                         = t('.details.attachments_submitted')
 
-                    td valign="top" style="padding-left:10px;"
+                    td valign="top"
                       p style="font-family:arial; font-size:16px;"
                         = @confirmation.attachments
 
                   tr
-                    td colspan="3"
+                    td colspan="2"
                       hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
                   tr
-                    td valign="top"
+                    td valign="top" width="185"
                       p style="font-family:arial; font-size:16px; color:#6F777B;"
                         = t('.details.claim_submitted')
 
-                    td valign="top" style="padding-left:10px;"
+                    td valign="top"
                       p style="font-family:arial; font-size:16px;"
                         = t('.details.submitted_on', date: @confirmation.submitted_at)
                         = t('.details.submitted_to', office: @confirmation.office_details) if @confirmation.office?
 
                   - if @confirmation.fee_to_pay?
                     tr
-                      td colspan="3"
+                      td colspan="2"
                         hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
                     tr
-                      td valign="top"
+                      td valign="top" width="185"
                         p style="font-family:arial; font-size:16px; color:#6F777B;"
                           - if @confirmation.paid?
                             = t('.details.fee_paid')
                           - else
                             = t('.details.fee_to_pay')
 
-                      td valign="top" style="padding-left:10px;"
+                      td valign="top"
                         p style="font-family:arial; font-size:16px;"
                           = @confirmation.payment_amount
 
                   tr
-                    td colspan="3"
+                    td colspan="2"
                       hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
-            = render partial: 'base_mailer/shared/footer'
+        = render partial: 'base_mailer/shared/footer'
