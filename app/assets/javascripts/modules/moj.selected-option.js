@@ -3,11 +3,12 @@
 */
 
 module.exports = (function() {
+  'use strict';
 
   var selectedOption = {},
-  options = $('.options'),
-  change_class = 'selected',
-  focusblur_class = 'add-focus';
+    options = $('.options'),
+    change_class = 'selected',
+    focusblur_class = 'add-focus';
 
   selectedOption.init = function() {
     options.each(function(i, container){
@@ -21,19 +22,19 @@ module.exports = (function() {
   selectedOption.bindInputEvents = function(input_group) {
     input_group.each(function(i, blocklabel){
       var container = $(blocklabel),
-      siblings = container.siblings().find('label'),
-      input = container.find('input'),
-      is_radio = input.is(':radio'),
-      label = container.find('label');
+        siblings = container.siblings().find('label'),
+        input = container.find('input'),
+        is_radio = input.is(':radio'),
+        label = container.find('label');
 
       input.on('change', function(){
-        var checked = input.is(':checked');
+        var is_checked = input.is(':checked');
 
-        if(checked && is_radio) {
+        if(is_checked && is_radio) {
           siblings.removeClass(change_class);
         }
 
-        label.toggleClass(change_class, checked);
+        label.toggleClass(change_class, is_checked);
 
       })
       .on('focus', function(){
