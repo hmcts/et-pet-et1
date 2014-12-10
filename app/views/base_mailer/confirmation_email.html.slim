@@ -90,11 +90,11 @@ html
                     td colspan="2"
                       hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
 
-            / REMISSION ONLY
-            tr
-              td colspan="2"
-                p style="font-family:arial; font-size:16px;"
-                  = t '.further_information_html'
+            - if @presenter.remission_applicable?
+              tr
+                td colspan="2"
+                  p style="font-family:arial; font-size:16px;"
+                    = t '.remisison_further_information_html'
 
             tr
               td

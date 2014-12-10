@@ -53,7 +53,7 @@ en:
         submitted_to: to tribunal office %{office}
         payment_amount: Issue fee paid
         fee_to_pay: Issue fee payment
-      further_information_html: |
+      remisison_further_information_html: |
           For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
       feedback_html: |
         <a href="%{href}">Your feedback</a> helps us improve this service. Help us keep track.
