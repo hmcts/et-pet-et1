@@ -12,40 +12,37 @@ en:
     access_details_email:
       subject: 'Employment tribunal: complete your claim'
       intro: |
-        You’ve started an claim to an employment tribunal.
-        To return to your claim you’ll need your claim number (above),
-        and memorable word.
+        You’ve started a claim to an employment tribunal. To return to your claim you’ll need your claim number (above), and memorable word.
       complete_claim: 'Complete claim'
       about_confirmation: |
         You’ll receive a confirmation email once you’ve submitted your claim.
 
     confirmation_email:
-      subject: Employment tribunal submitted
+      subject: 'Employment tribunal: claim submitted'
       header: Claim submitted
       intro:
         normal:
           single: |
             Thank you for submitting your claim to an employment tribunal.
           group: |
-            Thank you for submitting your group claim to an employment tribunal.
+            Thank you for submitting your claim to an employment tribunal.
         payment_not_processed:
           single: |
-            Your claim to an employment tribunal has been submitted but
-            unfortunately we weren’t able to process your payment.
+            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
           group: |
-            Your group claim to an employment tribunal has been submitted, but
-            unfortunately we weren’t able to process your payment.
+            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
       what_happens_next: |
         What happens next:
       contact_re_payment: |
         We’ll contact you within 5 working days to arrange payment.
       must_apply_for_remission: |
-        You have said you want to apply for fee remission.
-        You must apply within 7 days or your claim may be rejected.
+        You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
       copy_sent_to_respondent: |
         A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
-      we_will_contact_you:
-        We’ll contact you to explain the next steps.
+      we_will_contact_you: |
+        We’ll contact you when your claim has been sent to the respondent and explain the next steps.
+      remission_we_will_contact_you: |
+        We’ll review your claim for remission and contact you to explain the next steps.
       details:
         header: Submission details
         claim_completed: Claim completed
@@ -56,6 +53,12 @@ en:
         submitted_to: to tribunal office %{office}
         payment_amount: Issue fee paid
         fee_to_pay: Issue fee payment
+      further_information_html: |
+          For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
+      feedback_html: |
+        <a href="%{href}">Your feedback</a> helps us improve this service. Help us keep track.
+      diversity_html: |
+        Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
 
     shared:
       button_fee_remission:
