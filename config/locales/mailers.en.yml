@@ -37,7 +37,7 @@ en:
         We’ll contact you within 5 working days to arrange payment.
       must_apply_for_remission: |
         You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
-      copy_sent_to_respondent: |
+      no_remission_copy_sent_to_respondent: |
         A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
       we_will_contact_you: |
         We’ll contact you when your claim has been sent to the respondent and explain the next steps.

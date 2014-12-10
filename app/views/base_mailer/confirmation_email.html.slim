@@ -45,8 +45,9 @@ html
 
                       = render partial: 'base_mailer/shared/button_fee_remission'
 
-                  li style="font-family:arial; font-size:19px; line-height:26px;"
-                    p= t('.copy_sent_to_respondent')
+                  - unless @presenter.remission_applicable?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.no_remission_copy_sent_to_respondent')
 
                   - if @presenter.remission_applicable?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
