@@ -24,30 +24,21 @@ html
             tr
               td
                 p style="font-family:arial; font-size:19px"
-                  | Firstname Lastname
+                  = @presenter.primary_claimant_full_name
             tr
               td
                 p style="font-family:arial; font-size:19px"
-                  - if @confirmation.payment_failed?
-                    - if @confirmation.group?
-                      = t('.intro.payment_not_processed.group')
-                    - else
-                      = t('.intro.payment_not_processed.single')
-                  - else
-                    - if @confirmation.group?
-                      = t('.intro.normal.group')
-                    - else
-                      = t('.intro.normal.single')
+                  = @presenter.payment_information
 
                 p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
                   = t('.what_happens_next')
 
                 ol
-                  - if @confirmation.payment_failed?
+                  - if @presenter.payment_failed?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.contact_re_payment')
 
-                  - if @confirmation.remission_applicable?
+                  - if @presenter.remission_applicable?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.must_apply_for_remission')
 
@@ -56,7 +47,7 @@ html
                   li style="font-family:arial; font-size:19px; line-height:26px;"
                     p= t('.copy_sent_to_respondent')
 
-                  - if @confirmation.payment_failed?
+                  - if @presenter.payment_failed?
                     li style="font-family:arial; font-size:19px; line-height:26px;"
                       p= t('.we_will_contact_you')
 
@@ -77,34 +68,7 @@ html
                       p style="font-family:arial; font-size:16px;"
                         = t('.details.see_attached_pdf')
 
-                  tr
-                    td colspan="2"
-                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
-
-                  tr
-                    td valign="top" width="185"
-                      p style="font-family:arial; font-size:16px; color:#6F777B;"
-                        = t('.details.attachments_submitted')
-
-                    td valign="top"
-                      p style="font-family:arial; font-size:16px;"
-                        = @confirmation.attachments
-
-                  tr
-                    td colspan="2"
-                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
-
-                  tr
-                    td valign="top" width="185"
-                      p style="font-family:arial; font-size:16px; color:#6F777B;"
-                        = t('.details.claim_submitted')
-
-                    td valign="top"
-                      p style="font-family:arial; font-size:16px;"
-                        = t('.details.submitted_on', date: @confirmation.submitted_at)
-                        = t('.details.submitted_to', office: @confirmation.office_details) if @confirmation.office?
-
-                  - if @confirmation.fee_to_pay?
+                  - @presenter.each_item do |name, content|
                     tr
                       td colspan="2"
                         hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
@@ -112,14 +76,12 @@ html
                     tr
                       td valign="top" width="185"
                         p style="font-family:arial; font-size:16px; color:#6F777B;"
-                          - if @confirmation.paid?
-                            = t('.details.fee_paid')
-                          - else
-                            = t('.details.fee_to_pay')
+                          = t(".details.#{name}")
+
 
                       td valign="top"
                         p style="font-family:arial; font-size:16px;"
-                          = @confirmation.payment_amount
+                          = content
 
                   tr
                     td colspan="2"

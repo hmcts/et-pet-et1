@@ -30,6 +30,8 @@ FactoryGirl.define do
     pay_claims             %i<redundancy notice holiday arrears other>
     desired_outcomes       %i<compensation_only tribunal_recommendation>
 
+    submitted_at { Time.now }
+
     trait :payment_no_remission do
       remission_claimant_count 0
     end

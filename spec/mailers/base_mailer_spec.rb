@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe BaseMailer do
+describe BaseMailer, type: :mailer do
   include ClaimsHelper
   include Messages
 
@@ -8,12 +8,10 @@ describe BaseMailer do
     I18n.t("base_mailer.confirmation_email.details.#{heading}")
   end
 
-  let(:office) {
-    Office.new(name: 'Birmingham', address: 'Phoenix House, 1-3 Newhall Street')
-  }
-  let(:claim) {
-    Claim.create!(submitted_at: '2014-09-09', office: office, email_address: email_address)
-  }
+  let(:claim) do
+    create(:claim, submitted_at: '2014-09-09', email_address: email_address)
+  end
+
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
 
@@ -70,8 +68,8 @@ describe BaseMailer do
       end
 
       it 'has office' do
-        expect(content).to have_text 'Birmingham'
-        expect(content).to have_text 'Phoenix House'
+        expect(content).
+          to have_text 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
       end
 
       it 'has attachment' do
@@ -79,7 +77,7 @@ describe BaseMailer do
       end
 
       context 'when no office' do
-        let(:office) { nil }
+        before { claim.office = nil }
 
         it 'does not show office details' do
           expect(content).not_to have_text('to tribunal office')
@@ -88,7 +86,6 @@ describe BaseMailer do
 
       context 'when paid' do
         before do
-          claim.payment = Payment.new(amount: 100)
           allow(claim).to receive(:fee_to_pay?).and_return(true)
         end
 
@@ -98,7 +95,7 @@ describe BaseMailer do
         end
 
         it 'shows amount paid' do
-          expect(content).to have_text '100'
+          expect(content).to have_text 'Issue fee paid' '£250.00'
         end
       end
 
@@ -120,11 +117,13 @@ describe BaseMailer do
       end
 
       context 'when payment failed' do
-        let(:fee_calculation) {
-          double('fee_calculation', application_fee: 100, fee_to_pay?: true)
-        }
+        let(:fee_calculation) do
+          instance_double(ClaimFeeCalculator::Calculation, application_fee: 100, fee_to_pay?: true)
+        end
 
         before do
+          claim.payment = nil
+
           allow(claim).to receive(:payment_applicable?).and_return true
           allow(claim).to receive(:fee_calculation).and_return fee_calculation
         end
@@ -133,14 +132,12 @@ describe BaseMailer do
           expect(content).to include('we weren’t able to process your payment')
         end
 
-        it 'does not show any paid information' do
-          expect(content).not_to have_text payment_message
-          expect(content).not_to have_text table_heading('fee_paid')
+        it 'explains payment was unsuccessful' do
+          expect(content).to have_text 'Issue fee paid' 'Unable to process payment'
         end
 
-        it 'shows outstanding fee' do
-          expect(content).to have_text table_heading('fee_to_pay')
-          expect(content).to have_text '100'
+        it 'does not show outstanding fee' do
+          expect(content).to_not have_text '£250.00'
         end
       end
     end

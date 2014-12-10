@@ -50,11 +50,11 @@ en:
         header: Submission details
         claim_completed: Claim completed
         see_attached_pdf: See attached PDF
-        attachments_submitted: Attachments submitted
-        claim_submitted: Claim submitted
+        attachments: Attachments submitted
+        submission_information: Claim submitted
         submitted_on: "on %{date} "
         submitted_to: to tribunal office %{office}
-        fee_paid: Issue fee paid
+        payment_amount: Issue fee paid
         fee_to_pay: Issue fee payment
 
     shared:
