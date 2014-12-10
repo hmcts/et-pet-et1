@@ -27,7 +27,7 @@ module FormMethods
       stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/new-claim').
         to_return(body: submission_response.to_json, headers: { 'Content-Type' => 'application/json' })
 
-      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
+      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office').
         with(postcode: 'AT1 4PQ').
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
