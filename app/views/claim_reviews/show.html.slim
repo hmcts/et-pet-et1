@@ -12,8 +12,8 @@ header.main-header
 
     - claim_presenter.each_section do |section_name, section|
 
-      div class=("review-table-entry #{section_name.dasherize}")
-        h2.table-header
+      div class=("review-list-entry #{section_name.dasherize}")
+        h2.list-header
           span = t ".sections.#{section_name}"
           = quick_edit_link_for section_name
 

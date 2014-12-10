@@ -30,7 +30,7 @@ feature 'Multiple claimants/respondents on the review page' do
     end
 
     it "does show a list of additional claimants" do
-      within '.review-table-entry.additional-claimants' do
+      within '.review-list-entry.additional-claimants' do
         expect(page.text).
           to have_text 'Claimant 2' +
                        'Full name' 'Barry Obama' +
@@ -62,7 +62,7 @@ feature 'Multiple claimants/respondents on the review page' do
     end
 
     it "does show a list of additional respondents" do
-      within '.review-table-entry.additional-respondents' do
+      within '.review-list-entry.additional-respondents' do
         expect(page.text).
           to have_text 'Respondent 2' +
                        'Name' 'Barry Obama' +
