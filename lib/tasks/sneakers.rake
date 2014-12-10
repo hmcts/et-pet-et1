@@ -1,4 +1,5 @@
 require 'sneakers/runner'
+require 'action_mailer/delivery_job'
 
 task :environment
 
@@ -9,7 +10,7 @@ namespace :sneakers do
       Rails.application.eager_load! unless Rails.application.config.eager_load
     end
 
-    workers = (ActiveJob::Base.subclasses + [ActionMailer::DeliveryJob]).map do |klass|
+    workers = ActiveJob::Base.subclasses.map do |klass|
       klass.const_set("Wrapper", Class.new(ActiveJob::QueueAdapters::SneakersAdapter::JobWrapper) do
         from_queue klass.queue_name
       end)
