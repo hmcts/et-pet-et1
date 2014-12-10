@@ -13,7 +13,7 @@ module JaduXml
     property :submission_channel, as: "SubmissionChannel", exec_context: :decorator
     property :case_type, as: "CaseType", exec_context: :decorator
     property :jurisdiction, as: "Jurisdiction", exec_context: :decorator
-    property :office_code, as: "OfficeCode", exec_context: :decorator
+    property :office_code, as: "OfficeCode", exec_context: :decorator, render_nil: true
     property :date_of_receipt, as: "DateOfReceiptEt", exec_context: :decorator
     property :remission_indicated, as: "RemissionIndicated", exec_context: :decorator
     property :administrator, as: "Administrator", exec_context: :decorator
@@ -36,7 +36,7 @@ module JaduXml
       :remission_claimant_count, :representative, :attachments,
       :alleges_discrimination_or_unfair_dismissal?, to: :represented
 
-    delegate :code, to: :office, prefix: true
+    delegate :code, to: :office, prefix: true, allow_nil: true
 
     def claimants
       AdditionalClaimantsCsv::ClaimantCollection.new(represented).prepare
