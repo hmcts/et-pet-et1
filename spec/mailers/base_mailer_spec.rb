@@ -99,11 +99,11 @@ describe BaseMailer, type: :mailer do
 
         it 'shows paid message' do
           expect(content).to have_text('Thank you for submitting')
-          expect(content).to have_text('Issue fee paid')
+          expect(content).to have_text('Issue fee paid:')
         end
 
         it 'shows amount paid' do
-          expect(content).to have_text 'Issue fee paid' '£250.00'
+          expect(content).to have_text 'Issue fee paid:' '£250.00'
         end
       end
 
@@ -141,7 +141,7 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'explains payment was unsuccessful' do
-          expect(content).to have_text 'Issue fee paid' 'Unable to process payment'
+          expect(content).to have_text 'Issue fee paid:' 'Unable to process payment'
         end
 
         it 'does not show outstanding fee' do
