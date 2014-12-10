@@ -45,20 +45,20 @@ en:
         We’ll review your claim for remission and contact you to explain the next steps.
       details:
         header: Submission details
-        claim_completed: Claim completed
+        claim_completed: 'Claim completed:'
         see_attached_pdf: See attached PDF
-        attachments: Attachments submitted
-        submission_information: Claim submitted
+        attachments: 'Additional documents:'
+        submission_information: 'Claim submitted:'
         submitted_on: "on %{date} "
         submitted_to: to tribunal office %{office}
-        payment_amount: Issue fee paid
-        fee_to_pay: Issue fee payment
+        payment_amount: 'Issue fee paid:'
+        fee_to_pay: 'Issue fee payment:'
       remisison_further_information_html: |
           For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
       feedback_html: |
-        <a href="%{href}">Your feedback</a> helps us improve this service. Help us keep track.
+        <a href="%{href}">Your feedback</a> helps us improve this service.
       diversity_html: |
-        Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
+        Help us keep track. Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
 
     shared:
       button_fee_remission:
