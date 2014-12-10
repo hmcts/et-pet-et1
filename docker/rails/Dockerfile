@@ -24,6 +24,7 @@ ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
 # ...put your own build instructions here...
 # install service files for runit
 ADD docker/rails/unicorn.service /etc/service/unicorn/run
+ADD docker/rails/sneakers.service /etc/service/sneakers/run
 
 # The way this base image handles envvars is pretty strange
 COPY docker/app_env_vars /etc/container_environment/
