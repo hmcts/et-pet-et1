@@ -45,6 +45,18 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
       end
     end
 
+    describe '#office_code' do
+      it "delegates to the claims office" do
+        expect(claim.office).to receive(:code)
+        subject.office_code
+      end
+
+      it "allows nils" do
+        claim.office = nil
+        expect { subject.office_code }.not_to raise_error
+      end
+    end
+
     describe "#date_of_receipt" do
       let(:time) { Time.now }
       it "returns the claims submitted at time" do
