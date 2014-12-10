@@ -27,6 +27,10 @@ describe BaseMailer, type: :mailer do
       expect(email.to).to eq [email_address]
     end
 
+    it "has a subject" do
+      expect(email.subject).to eq "Employment tribunal: complete your claim"
+    end
+
     it 'has reference in body' do
       expect(email.body).to have_text claim.reference
     end
@@ -57,6 +61,10 @@ describe BaseMailer, type: :mailer do
       it 'has been delivered' do
         email
         expect(ActionMailer::Base.deliveries).to be_present
+      end
+
+      it "has a subject" do
+        expect(email.subject).to eq "Employment tribunal: claim submitted"
       end
 
       it 'has recipients' do

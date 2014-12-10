@@ -3,8 +3,8 @@ class BaseMailer < ActionMailer::Base
 
   def access_details_email(claim)
     @claim = claim
-    mail(to: @claim.email_address,
-      subject: t('base_mailer.access_details_email.subject', reference: @claim.reference))
+
+    mail(to: @claim.email_address, subject: t('base_mailer.access_details_email.subject'))
   end
 
   def confirmation_email(claim, email_addresses)
