@@ -452,24 +452,6 @@ en:
 
           [Learn about Acas](%{path}#acas_early_conciliation)
       application_started_header: Already started an claim?
-      what_you_need_to_know:
-        body: |
-          ## Before you start
-
-          You’ll need:
-
-          * your Acas early conciliation certificate number
-          * description of your claim
-          * your payslip
-          * full address of who you’re making a claim against
-
-          ## What you’ll need to know
-
-          * covers England, Wales and Scotland
-          * takes around 45 minutes
-        detail: how we use your information
-        summary: |
-          We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
 
     application_number:
       header: Returning to your claim
@@ -626,23 +608,10 @@ en:
       header: Pay and submit claim
       issue_fee_header: Pay the issue fee
       issue_fee: |
-        You now need to pay the issue fee.
+        To submit your claim you need to pay the issue fee.
 
-        You will be taken to a screen where you can enter your payment details.
-
-        Once the issue fee is paid, the claim will be submitted directly to the tribunal.
-
-        After your claim is submitted, we may contact you and request that you pay additional fees.
-
+        You’ll be asked to enter your payment details on the next screen.
       submit: Pay and submit claim
-      details:
-        summary: Other ways to pay
-        intro: You can pay by cheque
-        heading: "You will need to:"
-        li_one: completed claim
-        li_one_link_html: "print the %{link}"
-        li_two: include a cheque for the correct issue fee
-        li_three_html: post the claim to tribunal office %{link}
     decline:
       payment_declined: Payment declined
 

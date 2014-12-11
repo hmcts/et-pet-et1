@@ -215,14 +215,14 @@ feature 'Claim applications', type: :feature do
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
 
-      expect(page.title).to include 'Claim complete'
+      expect(page.title).to include 'Claim submitted'
     end
 
     scenario 'Submitting the claim when payment is not required' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit claim'
 
-      expect(page).to have_text     "Claim complete"
+      expect(page).to have_text     "Claim submitted"
       expect(page).not_to have_text "Fee paid"
       expect(page).not_to have_text "Fee to pay"
       expect(page).to have_text     "Apply for fee remission"
@@ -260,7 +260,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit claim'
 
       expect(page).not_to have_text 'Apply for fee remission'
-      expect(page).to have_text 'You now need to pay the issue fee'
+      expect(page).to have_text 'To submit your claim you need to pay the issue fee'
     end
   end
 end
