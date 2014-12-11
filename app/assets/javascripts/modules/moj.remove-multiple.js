@@ -47,7 +47,7 @@ module.exports = (function() {
 
     function replaceNumber(el, count) {
       return $(el).text(function() {
-        return $(el).text().replace(/\d+\Z/, count);
+        return $(el).text().replace(/\d+/g, count);
       });
     }
   };
