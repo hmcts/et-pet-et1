@@ -8,7 +8,7 @@ module JaduXml
     end
 
     def checksum
-      Digest::MD5.file(represented.path).hexdigest
+      Digest::MD5.hexdigest(represented.read)
     end
   end
 end
