@@ -24,6 +24,7 @@ en:
         submission_with_office: Submitted %{date} to tribunal office %{office}
 
       print_link_html: <a href="javascript:window.print(0);">Print this page</a> for your records
+      unprocessable_payment: Unable to process payment
 
       pel_info: |
         If you have any questions, contact the Public Enquiry Line:

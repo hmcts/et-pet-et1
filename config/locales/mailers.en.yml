@@ -1,22 +1,65 @@
 en:
   base_mailer:
+    footer:
+      contact_us: Contact us
+      if_you_are_unsure: |
+        If you’re not sure whether an email is from the Ministry of Justice then:
+      do_not_reply: |
+        do not reply to it or click any links
+      forward_it: |
+        forward it to security@digital.justice.gov.uk
+
+    access_details_email:
+      subject: 'Employment tribunal: complete your claim'
+      intro: |
+        You’ve started a claim to an employment tribunal. To return to your claim you’ll need your claim number (above), and memorable word.
+      complete_claim: 'Complete claim'
+      about_confirmation: |
+        You’ll receive a confirmation email once you’ve submitted your claim.
+
     confirmation_email:
-      header: 'Application complete'
-      complete: 'Your application number: %{reference}'
-      fee_paid: Thank you for your payment. We’ll write to you within 5 working days.
-
-      getting_help:
-        header: Get help with paying your fee
-        text: You must apply for a 'fee remission' within 7 calendar days of submitting this claim form (or we'll reject your claim).
-        link_anchor_text: Apply for a 'fee remission'
-
+      subject: 'Employment tribunal: claim submitted'
+      header: Claim submitted
+      intro:
+        normal:
+          single: |
+            Thank you for submitting your claim to an employment tribunal.
+          group: |
+            Thank you for submitting your claim to an employment tribunal.
+        payment_not_processed:
+          single: |
+            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
+          group: |
+            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
+      what_happens_next: |
+        What happens next:
+      contact_re_payment: |
+        We’ll contact you within 5 working days to arrange payment.
+      must_apply_for_remission: |
+        You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
+      no_remission_copy_sent_to_respondent: |
+        A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
+      we_will_contact_you: |
+        We’ll contact you when your claim has been sent to the respondent and explain the next steps.
+      remission_we_will_contact_you: |
+        We’ll review your claim for remission and contact you to explain the next steps.
       details:
-        header: Claim details summary
-        date_submitted: Date you sent your claim
-        fee_to_pay: Fee to pay
-        fee_paid: Fee paid
-        pdf_version: PDF version of form (for your records)
-        your_rtf_file: Your RTF file
-        office: Tribunal office dealing with your claim
-        attached: Attached
-        download_pdf: Download PDF file
+        header: Submission details
+        claim_completed: 'Claim completed:'
+        see_attached_pdf: See attached PDF
+        attachments: 'Additional documents:'
+        submission_information: 'Claim submitted:'
+        submitted_on: "on %{date} "
+        submitted_to: to tribunal office %{office}
+        payment_amount: 'Issue fee paid:'
+        fee_to_pay: 'Issue fee payment:'
+      remisison_further_information_html: |
+          For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
+      feedback_html: |
+        <a href="%{href}">Your feedback</a> helps us improve this service.
+      diversity_html: |
+        Help us keep track. Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
+
+    shared:
+      button_fee_remission:
+        apply_for_fee_remission: Apply for fee remission

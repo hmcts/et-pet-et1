@@ -29,6 +29,33 @@ FactoryGirl.define do
     discrimination_claims  %i<sex_including_equal_pay disability race>
     pay_claims             %i<redundancy notice holiday arrears other>
     desired_outcomes       %i<compensation_only tribunal_recommendation>
+
+    submitted_at { Time.now }
+
+    trait :payment_no_remission do
+      remission_claimant_count 0
+    end
+
+    trait :remission_only do
+      remission_claimant_count 1
+      payment nil
+    end
+
+    trait :group_payment_with_remission do
+      remission_claimant_count 2
+      after(:create) { |claim| create_list :claimant, 2, claim: claim }
+    end
+
+    trait :payment_no_remission_payment_failed do
+      remission_claimant_count 0
+      payment nil
+    end
+
+    trait :group_payment_with_remission_payment_failed do
+      remission_claimant_count 2
+      payment nil
+      after(:create) { |claim| create_list :claimant, 2, claim: claim }
+    end
   end
 
   factory :claimant do

@@ -79,9 +79,11 @@ class Claim < ActiveRecord::Base
   end
 
   def payment_applicable?
-    PaymentGateway.available? &&
-    fee_calculation.fee_to_pay? &&
-    fee_group_reference?
+    PaymentGateway.available? && fee_to_pay? && fee_group_reference?
+  end
+
+  def unpaid?
+    payment.blank?
   end
 
   def remission_applicable?
@@ -124,4 +126,5 @@ class Claim < ActiveRecord::Base
   alias_method :setup_state_machine, :state_machine
 
   delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
+  delegate :fee_to_pay?, :application_fee, to: :fee_calculation
 end

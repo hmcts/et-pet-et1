@@ -3,4 +3,31 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    = format t '.body', reference: @claim.reference
+    = render partial: 'base_mailer/shared/gov.uk.logo'
+
+    table style="padding-left:60px;"
+      tr
+        td
+          table style="width:550px; padding-bottom:30px;"
+
+            = render partial: 'base_mailer/shared/moj.logo'
+
+            = render partial: 'base_mailer/shared/application_number_light'
+
+          table style="max-width:525px;"
+            tr
+              td
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  = t('.intro')
+
+                table cellspacing="0" cellpadding="0"
+                  tr
+                    td align="center" width="220" height="40" bgcolor="#00833e" style="border-bottom:2px solid #003519;color: #ffffff; display: block;"
+                      = link_to returning_user_session_url, target: '_blank', style: 'font-size:16px; font-family:Arial, sans-serif; text-decoration: none; line-height:40px; width:100%; display:inline-block' do
+                        span style="color: #ffffff;"
+                          = t('.complete_claim')
+
+                p style="font-family:arial; font-size:19px; line-height:26px;"
+                  = t('.about_confirmation')
+
+        = render partial: 'base_mailer/shared/footer'

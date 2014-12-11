@@ -3,46 +3,101 @@ html
   head
     meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
   body
-    header.main-header
-      h1= t '.header'
 
-    .main-section
-      .main-content
-        section= t('.complete', reference: @claim.reference)
-        section
-          - case
-          - when @claim.payment_present?
-            h2 = t('.fee_paid')
-          - when @claim.remission_applicable?
-            h2 = t('.getting_help.header')
-            p = t('.getting_help.text')
-            = link_to t('.getting_help.link_anchor_text'),
-              'https://www.employmenttribunals.service.gov.uk/remissions'
+    = render partial: 'base_mailer/shared/gov.uk.logo'
 
-        section
-          h2= t('.details.header')
-          table
-            - if @claim.submitted_at.present?
-              tr
-                td= t('.details.date_submitted')
-                td= @claim.submitted_at
-            - if @claim.payment_present?
-              tr
-                td= t('.details.fee_paid')
-                td= @claim.payment_amount
-            - elsif @claim.payment_applicable?
-              tr
-                td= t('.details.fee_to_pay')
-                td= @claim.fee_calculation.application_fee
+    table style="padding-left:60px;"
+      tr
+        td
+          table style="width:550px; padding-bottom:30px;"
+
+            = render partial: 'base_mailer/shared/moj.logo'
+
+            = render partial: 'base_mailer/shared/application_number_dark'
+
             tr
-              td= t('.details.pdf_version')
-              td= t('.details.attached')
-            - if @claim.office.present?
+              td
+                p style="font-family:arial; font-size:19px"
+                  = @presenter.primary_claimant_full_name
+
+            tr
+              td
+                p style="font-family:arial; font-size:19px"
+                  = @presenter.payment_information
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  = t('.what_happens_next')
+
+                ol
+                  - if @presenter.payment_failed?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.contact_re_payment')
+
+                  - if @presenter.remission_applicable?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.must_apply_for_remission')
+
+                      = render partial: 'base_mailer/shared/button_fee_remission'
+
+                  - unless @presenter.remission_applicable?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.no_remission_copy_sent_to_respondent')
+
+                  - if @presenter.remission_applicable?
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.remission_we_will_contact_you')
+                  - else
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.we_will_contact_you')
+
+                p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
+                  = t('.details.header')
+
+                table style="width:550px;padding-bottom:30px;"
+                  tr
+                    td colspan="2"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                  tr
+                    td valign="top" width="185"
+                      p style="font-family:arial; font-size:16px; color:#6F777B;"
+                        = t('.details.claim_completed')
+
+                    td valign="top"
+                      p style="font-family:arial; font-size:16px;"
+                        = t('.details.see_attached_pdf')
+
+                  - @presenter.each_item do |name, content|
+                    tr
+                      td colspan="2"
+                        hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+                    tr
+                      td valign="top" width="185"
+                        p style="font-family:arial; font-size:16px; color:#6F777B;"
+                          = t(".details.#{name}")
+
+
+                      td valign="top"
+                        p style="font-family:arial; font-size:16px;"
+                          = content
+                  tr
+                    td colspan="2"
+                      hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
+
+            - if @presenter.remission_applicable?
               tr
-                td= t('.details.office')
-                td
-                  address
-                    = @claim.office.name
-                    br
-                    = @claim.office.address
-                    br
+                td colspan="2"
+                  p style="font-family:arial; font-size:16px;"
+                    = t '.remisison_further_information_html'
+
+            tr
+              td
+                p style="font-family:arial; font-size:19px"
+                  = t('.feedback_html', href: 'https://www.surveymonkey.com/s/FH3QFS8')
+            tr
+              td
+                p style="font-family:arial; font-size:19px"
+                  = t('.diversity_html', href: 'https://www.employmenttribunals.service.gov.uk/forms/form/175/en/diversity_monitoring_questionnaire')
+
+        = render partial: 'base_mailer/shared/footer'

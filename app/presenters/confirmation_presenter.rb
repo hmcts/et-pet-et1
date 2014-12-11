@@ -2,19 +2,23 @@ class ConfirmationPresenter < Presenter
   def submission_information
     if office.present? && remission_claimant_count.zero?
       I18n.t 'claim_confirmations.show.submission_details.submission_with_office',
-        date: date(target.submitted_at), office: [office.name, office.address].join(', ')
+        date: date(submitted_at), office: [office.name, office.address].join(', ')
     else
       I18n.t 'claim_confirmations.show.submission_details.submission_without_office',
-        date: date(target.submitted_at)
+        date: date(submitted_at)
     end
   end
 
   def attachments
-    attachment_filenames.map { |f| sanitize(f) }.join tag(:br)
+    attachment_filenames.map { |f| sanitize(f) }.join(tag :br).html_safe
   end
 
   def payment_amount
-    number_to_currency target.payment_amount
+    if payment.present?
+      number_to_currency target.payment_amount
+    else
+      I18n.t 'claim_confirmations.show.unprocessable_payment'
+    end
   end
 
   private
