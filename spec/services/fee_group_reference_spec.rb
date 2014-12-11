@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe FeeGroupReference, type: :service do
   describe '.create' do
     let(:request) do
-      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-office').
+      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office').
         with(postcode: 'SW1A 1AA').to_return body: json,
           headers: { 'Content-Type' => 'application/json' }
     end

@@ -25,7 +25,7 @@ class FeeGroupReference
 
   private def request
     @request ||= HTTParty.post \
-      URI.join(ENV['JADU_API'], 'fgr-office'),
+      URI.join(ENV['JADU_API'], 'fgr-et-office'),
       body: { postcode: @postcode },
       headers: { 'Accept' => 'application/json' }
   end
