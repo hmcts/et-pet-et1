@@ -249,3 +249,16 @@ ol.numerical-list {
   }
 }
 //==========================================================================//
+//
+// IE Radio button colors
+label{
+  .radio_buttons, .gds_check_boxes{
+    background: $panel-colour;
+    border: none;
+  }
+  &.selected{
+    .radio_buttons, .gds_check_boxes{
+      background: $white;
+    }
+  }
+}
