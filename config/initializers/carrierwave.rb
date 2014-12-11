@@ -3,7 +3,6 @@ CarrierWave.configure do |config|
     config.storage                          :fog
     config.fog_public                       = false
     config.fog_directory                    = ENV.fetch('S3_UPLOAD_BUCKET')
-    config.fog_authenticated_url_expiration = ENV.fetch('S3_URL_EXPIRY')
     config.fog_credentials = {
       provider:              'AWS',
       region:                'eu-west-1',
