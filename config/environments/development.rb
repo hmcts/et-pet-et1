@@ -38,6 +38,12 @@ Rails.application.configure do
 
   #Rack livereload for frontend development
   config.middleware.use Rack::LiveReload
+
+  config.action_mailer.default_url_options = {
+    host: 'localhost', protocol: 'http', port: 3000
+  }
+
+  config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
 end
 
-Slim::Engine.set_default_options pretty: !Rails.env.production?, sort_attrs: true
+Slim::Engine.set_default_options pretty: true, sort_attrs: true

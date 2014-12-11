@@ -89,4 +89,18 @@ Rails.application.configure do
   # This line is optional, it allows you to set a custom value for the @source field of the log event
   config.logstasher.source = 'logstasher'
 
+  config.action_mailer.default_url_options = {
+    host: ENV.fetch('SENDING_HOST'), protocol: 'https'
+  }
+
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch('SMTP_HOSTNAME'),
+    port: ENV.fetch('SMTP_PORT'),
+    domain: ENV.fetch('SENDING_HOST'),
+    user_name: ENV.fetch('SMTP_USERNAME'),
+    password: ENV.fetch('SMTP_PASSWORD'),
+    authentication: :login,
+    enable_starttls_auto: true
+  }
+
 end
