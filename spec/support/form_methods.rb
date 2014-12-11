@@ -54,9 +54,9 @@ module FormMethods
 
   def fill_in_return_form(reference, word)
     visit returning_user_session_path
-    fill_in 'Application number', with: reference
+    fill_in 'Claim number', with: reference
     fill_in 'Memorable word', with: word
-    click_button 'Find my application'
+    click_button 'Find my claim'
   end
 
   def fill_in_password(word='green')
@@ -117,8 +117,8 @@ module FormMethods
   def fill_in_representative_details
     choose 'representative_has_representative_true'
     select 'Solicitor', from: 'representative_type'
-    fill_in "Name of the representative's organisation", with: 'Better Call Saul'
-    fill_in "Representative's name", with: 'Saul Goodman'
+    fill_in "Name of the representative’s organisation", with: 'Better Call Saul'
+    fill_in "Representative’s name", with: 'Saul Goodman'
 
     fill_in_address
 
@@ -152,7 +152,7 @@ module FormMethods
 
     within('.work-address') { fill_in_address }
 
-    check  "I don't have an Acas number"
+    check  "I don’t have an Acas number"
     choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
 
     click_button 'Save and continue'
@@ -267,7 +267,7 @@ module FormMethods
 
   def complete_and_submit_claim
     complete_a_claim
-    click_button "Submit application"
+    click_button "Submit claim"
     complete_payment
   end
 

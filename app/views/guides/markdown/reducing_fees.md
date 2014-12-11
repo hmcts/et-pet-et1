@@ -30,19 +30,19 @@ If your monthly income (before tax and other deductions) is more than these amou
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for a fee reduction
-Before applying for a reduction in fees you should complete and submit your online application.
+Before applying for a reduction in fees you should complete and submit your online claim.
 
-You must apply for a reduction in your fees (known as fee remission) within 7 days of submitting your application online.
+You must apply for a reduction in your fees (known as fee remission) within 7 days of submitting your claim online.
 
-You’ll need to provide evidence or your application will be rejected and you’ll be asked to pay the full fee. [Download a fee remission form](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-from-07-october-eng.pdf).
+You’ll need to provide evidence or your claim will be rejected and you’ll be asked to pay the full fee. [Download a fee remission form](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-from-07-october-eng.pdf).
 
 If your case reaches a tribunal, you’ll need to apply for help with paying your hearing fee separately.
 
 
 ### Reducing fees for groups
-Before applying for a reduction in fees you should complete and submit your online application.
+Before applying for a reduction in fees you should complete and submit your online claim.
 
-If you’re making a claim with other people against the same employer, within the same online application, then your group will pay a single fee.
+If you’re making a claim with other people against the same employer, within the same online claim, then your group will pay a single fee.
 
 Individual claimants within a group can apply for fee remission by following the process outlined in the ‘[applying for help with fees](#applying_for_a_fee_reduction)’ section.
 
