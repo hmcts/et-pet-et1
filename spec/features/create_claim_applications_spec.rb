@@ -186,7 +186,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Emailing confirmation' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
       email = ActionMailer::Base.deliveries.last
 
@@ -202,7 +202,7 @@ feature 'Claim applications', type: :feature do
       complete_a_claim seeking_remissions: true
       deselect_claimant_email
       deselect_representative_email
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
     end
@@ -211,18 +211,18 @@ feature 'Claim applications', type: :feature do
       ActionMailer::Base.deliveries = []
       complete_a_claim seeking_remissions: true, claimant_email: false
       deselect_representative_email
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
       expect(ActionMailer::Base.deliveries.size).to eq 0
 
-      expect(page.title).to include 'Application complete'
+      expect(page.title).to include 'Claim submitted'
     end
 
     scenario 'Submitting the claim when payment is not required' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
-      expect(page).to have_text     "Application complete"
+      expect(page).to have_text     "Claim submitted"
       expect(page).not_to have_text "Fee paid"
       expect(page).not_to have_text "Fee to pay"
       expect(page).to have_text     "Apply for fee remission"
@@ -230,7 +230,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Downloading the PDF if available' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit application'
+      click_button 'Submit claim'
       click_link 'Save a copy'
 
       expect(page.response_headers['Content-Type']).to eq "application/pdf"
@@ -239,7 +239,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Downloading the PDF if unavailable' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit application'
+      click_button 'Submit claim'
       block_pdf_generation
       click_link 'Save a copy'
 
@@ -249,7 +249,7 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Viewing the confirmation page when seeking remission' do
       complete_a_claim seeking_remissions: true
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
       expect(page).to have_text 'Apply for fee remission'
       expect(page).not_to have_text 'You now need to pay the issue fee'
@@ -257,10 +257,10 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Viewing the confirmation page when not seeking remission' do
       complete_a_claim seeking_remissions: false
-      click_button 'Submit application'
+      click_button 'Submit claim'
 
       expect(page).not_to have_text 'Apply for fee remission'
-      expect(page).to have_text 'You now need to pay the issue fee'
+      expect(page).to have_text 'To submit your claim you need to pay the issue fee'
     end
   end
 end

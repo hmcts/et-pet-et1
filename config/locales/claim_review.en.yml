@@ -1,9 +1,9 @@
 en:
   claim_reviews:
     show:
-      header: Check your application
+      header: Check your claim
       edit: Edit
-      info: Check all the information below is correct before submitting your application at the bottom of the page.
+      info: Check all the information below is correct before submitting your claim at the bottom of the page.
       incomplete_claim_summary: Your claim is incomplete.
       incomplete_claim_message: Please go back through the form and ensure all required sections are complete
       print_link: |
@@ -14,7 +14,7 @@ en:
         additional_claimants: Group claim
         additional_claimants_upload: :"claim_reviews.show.sections.additional_claimants"
         representative: Your representative
-        respondent: Respondent's details
+        respondent: Respondent’s details
         additional_respondents: Additional respondents
         employment: Employment details
         claim_type: Claim type
@@ -124,9 +124,9 @@ en:
         fee: Your fee
 
     email_addresses:
-      submit_warning_header: Submit your application
+      submit_warning_header: Submit your claim
       submit_warning: This is the last opportunity to change the details of your claim online. Please check all the information above is correct before submitting.
       confirmation: Email confirmation
       hint: |
-            A copy of the completed application will be sent to:
+            A copy of the completed claim will be sent to:
       add_email_address: Add email address

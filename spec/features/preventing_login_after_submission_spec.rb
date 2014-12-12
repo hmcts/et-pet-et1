@@ -12,6 +12,6 @@ feature 'Login after submission', type: :feature do
     fill_in_return_form claim.reference, 'lololol'
 
     expect(page.current_path).to eq user_session_path
-    expect(page).to have_text "This application has been submitted and can no longer be edited online"
+    expect(page).to have_text "This claim has been submitted and can no longer be edited online"
   end
 end

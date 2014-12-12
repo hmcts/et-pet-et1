@@ -16,7 +16,7 @@ The amount you are charged depends on the type of claim you are making. Type B c
 Read more about [employment tribunal fees for individuals](http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=2762).
 
 ### Group claims
-If you’re making a claim with other people against the same employer, as part of the same online application, then your group will pay a single issue fee. The amount your group pays depends on:
+If you’re making a claim with other people against the same employer, as part of the same online claim, then your group will pay a single issue fee. The amount your group pays depends on:
 
 - the type of claim you are making
 - the types of claims the rest of the group are making

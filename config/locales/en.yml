@@ -71,10 +71,10 @@ en:
 
       respondent:
         no_acas_number_reason:
-          joint_claimant_has_acas_number: Another person I'm making the claim with has an Acas early conciliation certificate number
-          acas_has_no_jurisdiction: Acas doesn't have the power to conciliate on some or all of my claim
+          joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
+          acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas and has an early conciliation certificate number
-          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It's within 7 days of the dismissal
+          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It’s within 7 days of the dismissal
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
@@ -130,14 +130,14 @@ en:
 
     labels:
       application_number:
-        email_address: Enter your email address to receive your online application number
+        email_address: Enter your email address to receive your online claim number
         password: Create your memorable word
       user_session:
         returning:
-          reference: Application number
+          reference: Claim number
           password: Memorable word
         reminder:
-          email_address: Enter your email address to get your application number emailed to you.
+          email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
         mobile_number: Alternative phone or mobile number
@@ -151,7 +151,7 @@ en:
         address_county: County
         address_post_code: Postcode
         address_country: Country
-        applying_for_remission: Do you want to get help paying your fee (known as 'fee remission')?
+        applying_for_remission: Do you want to get help paying your fee (known as ’fee remission’)?
         _destroy: 'Remove this claimant'
 
       additional_claimants:
@@ -173,8 +173,8 @@ en:
         address_county: County
         address_post_code: Postcode
         type: Type of representative
-        organisation_name: Name of the representative's organisation
-        name: Representative's name
+        organisation_name: Name of the representative’s organisation
+        name: Representative’s name
         mobile_number: Alternative phone or mobile number
         dx_number: Document exchange (DX) number
         contact_preference: Best way to send correspondence to your representative
@@ -195,8 +195,8 @@ en:
         work_address_post_code: Postcode
         worked_at_same_address: Did you work at the same address to the one given above?
         acas_early_conciliation_certificate_number: Acas number
-        no_acas_number: I don't have an Acas number
-        no_acas_number_reason: Why don't you have an Acas number?
+        no_acas_number: I don’t have an Acas number
+        no_acas_number_reason: Why don’t you have an Acas number?
         _destroy: 'Remove this respondent'
 
       additional_respondents:
@@ -207,7 +207,7 @@ en:
         job_title: Job title
         gross_pay: Pay before tax
         net_pay: Pay after tax
-        enrolled_in_pension_scheme: Are – or were – you a member of your employer's pension scheme?
+        enrolled_in_pension_scheme: Are – or were – you a member of your employer’s pension scheme?
         benefit_details: Do – or did – you have any benefits, like a company car?
         found_new_job: Have you got a new job?
         notice_pay_period_count: For how many weeks or months did you get paid?
@@ -220,7 +220,7 @@ en:
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
         other_claim_details: State the other type of claim(s) that you’re making
-        claim_details: This is your opportunity to tell us about your problem at work, so that the tribunal and employer understand your claim. You don't have to provide evidence at this stage. How do I write a claim statement?
+        claim_details: This is your opportunity to tell us about your problem at work, so that the tribunal and employer understand your claim. You don’t have to provide evidence at this stage. How do I write a claim statement?
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome(s) do you want?
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
@@ -233,7 +233,7 @@ en:
         additional_information_rtf: Do you want to attach a document?
 
       confirmation_email:
-        email_addresses: Select or enter the recipients you'd like to send a copy to
+        email_addresses: Select or enter the recipients you’d like to send a copy to
 
       claim_type:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -243,7 +243,7 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the application.
+        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim.
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -275,17 +275,17 @@ en:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         respondent:
         acas_early_conciliation_certificate_number: |
-          This is on the certificate that Acas sends if conciliation doesn't work. The number starts with 'R' or 'MU'.
+          This is on the certificate that Acas sends if conciliation doesn’t work. The number starts with ’R’ or ’MU’.
       employment:
         current_situation: In relation to the employer you are making a claim against
         job_title: The job you were doing at the time of the problem at work
-        start_date: For example, 22 04 2014 (if you don't know the exact date then put your best estimate)
-        average_hours_worked_per_week: Don't include overtime
-        gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
-        new_job_gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don't include any overtime payments
+        start_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
+        average_hours_worked_per_week: Don’t include overtime
+        gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
+        new_job_gross_pay: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
         net_pay: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
         benefit_details: Details of benefit(s)
-        end_date: For example, 22 04 2014 (if you don't know the exact date then put your best estimate)
+        end_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
         new_job_start_date: For example, 22 04 2014
         notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end, enter the date. For example, 22 04 2014
       claim:
@@ -298,13 +298,13 @@ en:
         other_outcome: |
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
         miscellaneous_information: |
-          Eg you may want to tell us why your claim is late, or whether you've spoken to your employer about the problem at work
+          Eg you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
       respondent:
         name: Exactly as it appears on your Acas early conciliation certificate, if you have one.
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       additional_respondents:
-        has_additional_respondents: You can claim against more than one respondent. Eg if you're claiming discrimination, you may be complaining about individual(s) as well as your employer.
+        has_additional_respondents: You can claim against more than one respondent. Eg if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
           address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claim_type:
@@ -337,9 +337,9 @@ en:
       user_session:
         returning:
           reference: This was emailed to you, if you entered an email address
-          password: You created a password at the beginning of your application
+          password: You created a password at the beginning of your claim
         reminder:
-          email_address: Get your application number in an email
+          email_address: Get your claim number in an email
 
   helpers:
     submit:
@@ -350,22 +350,22 @@ en:
       claim_review:
         update: Submit the form
       user_session:
-        create: Find my application
+        create: Find my claim
         destroy: Sign out now
         update: Save and continue
       confirmation_email:
-        create: Submit application
+        create: Submit claim
     link:
       claim:
-        return: Return to your application
+        return: Return to your claim
 
   shared:
-    reference: Your application number is
+    reference: Your claim number is
     aside:
       skip_link: Skip to content
       gethelp_header: Support
-      actions_header: Your application
-      read_guide: Application guide
+      actions_header: Your claim
+      read_guide: Claim guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
@@ -378,27 +378,27 @@ en:
       rtf: is not an RTF or plain text file
       csv: is not a CSV
     user_session:
-      not_found: A claim with that application number could not be found
-      invalid: This password does not match the application number
-      immutable: This application has been submitted and can no longer be edited online
+      not_found: A claim with that claim number could not be found
+      invalid: This password does not match the claim number
+      immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
     returning:
-      header: Return to your application
+      header: Return to your claim
       subheader: Enter your details below
-      hint: Don't have these details? [Start a new application](/).
+      hint: Don’t have these details? [Start a new claim](/).
     reminder:
-      header: Application saved
-      legend: Return to complete your application
+      header: Claim saved
+      legend: Return to complete your claim
       subheader: |
-       Your application has been saved. You can return to it by entering your application number and your password.
+       Your claim has been saved. You can return to it by entering your claim number and your password.
       submit: Sign out now
       print_link: Print this page
 
     session_expired:
       header: Your session has expired
       content_html: |
-        To complete your claim, please <a href="%{returning_user_session_path}">return to your application</a>.
+        To complete your claim, please <a href="%{returning_user_session_path}">return to your claim</a>.
 
   guides:
     show:
@@ -437,7 +437,7 @@ en:
       page_number: Page %{current_page} of %{total_pages}
 
     new:
-      header: Start your application
+      header: Start your claim
       legend_main: Before you continue
       callout_new: |
         This is not a free service. [Find out about fees and fee reductions](%{path}#fees_and_payment)
@@ -448,45 +448,27 @@ en:
           [Learn about when you can apply](%{path}#time_limits)
 
           ### Have you contacted Acas?
-          In most cases, you need to contact Acas for conciliation before the tribunal can consider your application.
+          In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
 
           [Learn about Acas](%{path}#acas_early_conciliation)
-      application_started_header: Already started an application?
-      what_you_need_to_know:
-        body: |
-          ## Before you start
-
-          You'll need:
-
-          * your Acas early conciliation certificate number
-          * description of your claim
-          * your payslip
-          * full address of who you’re making a claim against
-
-          ## What you'll need to know
-
-          * covers England, Wales and Scotland
-          * takes around 45 minutes
-        detail: how we use your information
-        summary: |
-          We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
+      application_started_header: Already started an claim?
 
     application_number:
-      header: Returning to your application
-      application_number: Your online application number
-      intro_text: You can save your application and return to it at any time. You will need your online application number and memorable word, which you create below.
-      email_hint: Enter your email address to get the online application number emailed to you.
+      header: Returning to your claim
+      application_number: Your online claim number
+      intro_text: You can save your claim and return to it at any time. You will need your online claim number and memorable word, which you create below.
+      email_hint: Enter your email address to get the online claim number emailed to you.
       print_link: Print this page
-      print_copy: to have a copy of your online application number for reference
+      print_copy: to have a copy of your online claim number for reference
 
     claimant:
-      header: Claimant's details
+      header: Claimant’s details
       gender: Gender
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
-        Information about the person or organisation making this claim (known as 'claimant').
-      legend_contact_details: Claimant's contact details
+        Information about the person or organisation making this claim (known as ’claimant’).
+      legend_contact_details: Claimant’s contact details
       legend_contact_preference: Best way to send correspondence to the claimant
 
     additional_claimants:
@@ -504,7 +486,7 @@ en:
       subheader: :"claims.additional_claimants.subheader"
       steps_header: Spreadsheet for group claim
       error_line: "An error has been found on line %{line_number} of the uploaded file."
-      malformatted_csv: The CSV doesn't appear to be formatted correctly.
+      malformatted_csv: The CSV doesn’t appear to be formatted correctly.
       remove_additional_claimants_csv: :"claims.additional_information.remove_additional_information_rtf"
       number_claimants_info: For 6 or more claimants, enter their details below.
       has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
@@ -516,27 +498,27 @@ en:
       step_two_header: Step 2
       save_csv_format: Save in CSV format.
       how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
-      no_spaces: Don't include spaces in the file name.
+      no_spaces: Don’t include spaces in the file name.
       step_three_header: Step 3
 
     representative:
-      header: Representative's details
+      header: Representative’s details
       form_legend: The person representing you
       representative_type_legend: Type of representative
       representative_legend: About your representative
-      contact_legend: Representative's contact details
+      contact_legend: Representative’s contact details
       contact_info: |
-        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your application, you must give their contact details to the tribunal office handling your case.
+        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must give their contact details to the tribunal office handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
 
     respondent:
-      header: Respondent's details
-      no_acas_number_reason: Why don't you have an Acas number?
+      header: Respondent’s details
+      no_acas_number_reason: Why don’t you have an Acas number?
       respondent_legend: About the respondent
       acas_legend: Acas early conciliation certificate number
-      contact_legend: Respondent's contact details
+      contact_legend: Respondent’s contact details
       contact_hint: Enter the address to be used for correspondence about the case. This may be different to your work address.
       workaddress_legend: Your work address
       form_hint: |
@@ -546,7 +528,7 @@ en:
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
 
     additional_respondents:
-      no_acas_number_reason: Why don't you have an Acas number?
+      no_acas_number_reason: Why don’t you have an Acas number?
       header: Additional respondents
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent %{number}
@@ -575,7 +557,7 @@ en:
     claim_type:
       header: About the claim
       claim_type: What your claim is about
-      claim_type_label: Tick as many of the claim types below that apply. You'll also be able to provide full details about your case later.
+      claim_type_label: Tick as many of the claim types below that apply. You’ll also be able to provide full details about your case later.
       unfair_dismissal: Unfair dismissal
       summary:  What is this?
       summary_detail: |
@@ -604,17 +586,17 @@ en:
     your_fee:
       header: Fee
       standard_fee: Standard fee
-      standard_fee_detail: This is the application fee for your claim
+      standard_fee_detail: This is the claim fee for your claim
       application_fee: Fee
       callout_fee_intro: This issue fee for your claim is
       callout_fee_amount: £ %{application_fee}
-      callout_fee_footnote_html: If your claim goes to a tribunal, you'll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
+      callout_fee_footnote_html: If your claim goes to a tribunal, you’ll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
       reduce_fee: Exemption from paying fees
       applying_for_remission_single:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
-      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this application. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
+      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: You don’t need to pay the issue fee now.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
@@ -626,23 +608,10 @@ en:
       header: Pay and submit claim
       issue_fee_header: Pay the issue fee
       issue_fee: |
-        You now need to pay the issue fee.
+        To submit your claim you need to pay the issue fee.
 
-        You will be taken to a screen where you can enter your payment details.
-
-        Once the issue fee is paid, the claim will be submitted directly to the tribunal.
-
-        After your claim is submitted, we may contact you and request that you pay additional fees.
-
+        You’ll be asked to enter your payment details on the next screen.
       submit: Pay and submit claim
-      details:
-        summary: Other ways to pay
-        intro: You can pay by cheque
-        heading: "You will need to:"
-        li_one: completed application
-        li_one_link_html: "print the %{link}"
-        li_two: include a cheque for the correct issue fee
-        li_three_html: post the claim to tribunal office %{link}
     decline:
       payment_declined: Payment declined
 

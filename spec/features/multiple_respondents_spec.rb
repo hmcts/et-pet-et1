@@ -62,7 +62,7 @@ feature 'Multiple respondents'do
           fill_in field, with: value
         end
 
-        check "I don't have an Acas number"
+        check "I don’t have an Acas number"
 
         choose "My claim is against the Security Service, Secret Intelligence Service or GCHQ"
       end
@@ -132,7 +132,7 @@ feature 'Multiple respondents'do
         fill_in field, with: value
       end
 
-      check "I don't have an Acas number"
+      check "I don’t have an Acas number"
 
       choose "My claim is against the Security Service, Secret Intelligence Service or GCHQ"
     end
