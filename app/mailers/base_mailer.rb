@@ -8,7 +8,6 @@ class BaseMailer < ActionMailer::Base
   end
 
   def confirmation_email(claim, email_addresses)
-    claim.generate_pdf!
     attachments[claim.pdf_filename] = claim.pdf_file.read
     @presenter = ConfirmationEmailPresenter.new(claim)
 

@@ -3,6 +3,7 @@ class ClaimReviewsController < ApplicationController
   before_action :check_session_expiry
 
   def update
+    claim.generate_pdf!
     claim.submit!
     attempt_send_confirmation_email
     redirect_to claim.payment_required? ? claim_payment_path : claim_confirmation_path
