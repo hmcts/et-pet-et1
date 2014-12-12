@@ -365,7 +365,7 @@ en:
       skip_link: Skip to content
       gethelp_header: Support
       actions_header: Your claim
-      read_guide: Claim guide
+      read_guide: Guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
@@ -451,7 +451,7 @@ en:
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
 
           [Learn about Acas](%{path}#acas_early_conciliation)
-      application_started_header: Already started an claim?
+      application_started_header: Already started a claim?
 
     application_number:
       header: Returning to your claim
