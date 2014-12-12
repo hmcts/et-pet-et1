@@ -50,11 +50,13 @@
   }
   .review-list {
     dt,dd{
-      width:100%;
+      width:auto;
+      display:block;
       float:none;
     }
     dt {
       padding-bottom:0;
+      text-indent:0;
     }
     dd{
       padding-top:$gutter-half/2;
