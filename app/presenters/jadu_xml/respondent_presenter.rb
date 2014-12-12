@@ -3,8 +3,8 @@ module JaduXml
     property :primary_respondent, as: "GroupContact"
     property :name, as: "Name"
     property :address, extend: JaduXml::AddressPresenter, class: Address
-    property :work_address_telephone_number, as: "OfficeNumber"
-    property :address_telephone_number, as: "PhoneNumber"
+    property :work_address_telephone_number, as: "OfficeNumber", render_nil: true
+    property :address_telephone_number, as: "PhoneNumber", render_nil: true
     property :acas, extend: JaduXml::AcasPresenter, exec_context: :decorator
 
     def acas

@@ -24,8 +24,8 @@ module JaduXml
     collection :respondents, extend: JaduXml::RespondentPresenter,
       class: Respondent, wrap: "Respondents"
 
-    property :representative, as: "Representative",
-      extend: JaduXml::RepresentativePresenter, wrap: "Representatives"
+    collection :representative, extend: JaduXml::RepresentativePresenter,
+      exec_context: :decorator, render_empty: true, wrap: "Representatives"
 
     property :payment, extend: JaduXml::PaymentPresenter, exec_context: :decorator
 
@@ -68,6 +68,10 @@ module JaduXml
 
     def administrator
       -1
+    end
+
+    def representative
+      Array(represented.representative)
     end
 
     def payment
