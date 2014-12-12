@@ -211,6 +211,14 @@ ol.numerical-list {
       float:right;
       font-weight: 400;
     }
+    & + h3 {
+      @include bold-19();
+      margin:0;
+      padding:$gutter-half/2 0;
+      background-color: $highlight-colour;
+      border-bottom:1px solid $border-colour;
+      text-indent:$gutter-half/2;
+    }
   }
 }
 .review-list {
@@ -228,6 +236,7 @@ ol.numerical-list {
     font-weight:400;
     color:$grey-1;
     float:left;
+    text-indent:$gutter-half/2;
   }
   dd{
     float:right;
