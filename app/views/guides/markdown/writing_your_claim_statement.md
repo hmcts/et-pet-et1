@@ -22,7 +22,7 @@ __Pay__
 
 - state how much you’re claiming and explain how you worked it out
 - explain why you think you should receive this payment (include dates and rate of pay)
-- if you are claiming more than one type of payment, provide amounts for each one
+- if you’re claiming more than one type of payment, provide amounts for each one
 
 __Redundancy payment__
 

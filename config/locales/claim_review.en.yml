@@ -127,6 +127,8 @@ en:
       submit_warning_header: Submit your claim
       submit_warning: This is the last opportunity to change the details of your claim online. Please check all the information above is correct before submitting.
       confirmation: Email confirmation
+      submit_with_remission: Submit claim
+      submit_go_to_payment: Submit claim and proceed to payment
       hint: |
             A copy of the completed claim will be sent to:
       add_email_address: Add email address

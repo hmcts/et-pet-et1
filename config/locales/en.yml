@@ -73,7 +73,7 @@ en:
         no_acas_number_reason:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
-          employer_contacted_acas: My employer has already been in touch with Acas and has an early conciliation certificate number
+          employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It’s within 7 days of the dismissal
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
@@ -83,7 +83,7 @@ en:
       employment:
         current_situation:
           still_employed: Still working for this employer
-          notice_period: Working a ‘notice period’ for this employer, with an end date
+          notice_period: Working a notice period for this employer
           employment_terminated: No longer working for this employer
         notice_pay_period_type:
           weeks: Weeks
@@ -130,7 +130,7 @@ en:
 
     labels:
       application_number:
-        email_address: Enter your email address to receive your online claim number
+        email_address: Enter your email address to receive your claim number
         password: Create your memorable word
       user_session:
         returning:
@@ -151,7 +151,7 @@ en:
         address_county: County
         address_post_code: Postcode
         address_country: Country
-        applying_for_remission: Do you want to get help paying your fee (known as ’fee remission’)?
+        applying_for_remission: Do you want to get help paying your fee (known as ‘fee remission’)?
         _destroy: 'Remove this claimant'
 
       additional_claimants:
@@ -277,7 +277,7 @@ en:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn’t work. The number starts with ’R’ or ’MU’.
       employment:
-        current_situation: In relation to the employer you are making a claim against
+        current_situation: In relation to the employer you’re making a claim against
         job_title: The job you were doing at the time of the problem at work
         start_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
         average_hours_worked_per_week: Don’t include overtime
@@ -354,7 +354,7 @@ en:
         destroy: Sign out now
         update: Save and continue
       confirmation_email:
-        create: Submit claim
+        create: Submit claim and proceed to payment
     link:
       claim:
         return: Return to your claim
@@ -365,7 +365,7 @@ en:
       skip_link: Skip to content
       gethelp_header: Support
       actions_header: Your claim
-      read_guide: Claim guide
+      read_guide: Guide
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
@@ -442,7 +442,7 @@ en:
       callout_new: |
         This is not a free service. [Find out about fees and fee reductions](%{path}#fees_and_payment)
       before_you_continue: |
-          ### Are you in time to apply?
+          ### Are you in time?
           You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
 
           [Learn about when you can apply](%{path}#time_limits)
@@ -451,15 +451,15 @@ en:
           In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
 
           [Learn about Acas](%{path}#acas_early_conciliation)
-      application_started_header: Already started an claim?
+      application_started_header: Already started a claim?
 
     application_number:
       header: Returning to your claim
-      application_number: Your online claim number
-      intro_text: You can save your claim and return to it at any time. You will need your online claim number and memorable word, which you create below.
-      email_hint: Enter your email address to get the online claim number emailed to you.
+      application_number: Your claim number
+      intro_text: You can save your claim and return to it at any time. You will need your claim number and memorable word, which you create below.
+      email_hint: Enter your email address to get the claim number emailed to you.
       print_link: Print this page
-      print_copy: to have a copy of your online claim number for reference
+      print_copy: to have a copy of your claim number for reference
 
     claimant:
       header: Claimant’s details
@@ -467,7 +467,7 @@ en:
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
       personal_details_hint: |
-        Information about the person or organisation making this claim (known as ’claimant’).
+        Information about the person or organisation making this claim (known as the ‘claimant’).
       legend_contact_details: Claimant’s contact details
       legend_contact_preference: Best way to send correspondence to the claimant
 

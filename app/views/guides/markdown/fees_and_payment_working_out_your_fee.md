@@ -1,5 +1,5 @@
 ### Working out your fee
-The amount you are charged depends on the type of claim you are making. Type B claims are more complicated and are charged a higher fee. See below for the most common claims and the amount charged for dealing with them.
+The amount you’re charged depends on the type of claim you’re making. Type B claims are more complicated and are charged a higher fee. See below for the most common claims and the amount charged for dealing with them.
 
 |Claim|Type|Issue fee|Hearing fee*|Total|
 |-----|----|---------|------------|-----|
@@ -18,7 +18,7 @@ Read more about [employment tribunal fees for individuals](http://hmctsformfinde
 ### Group claims
 If you’re making a claim with other people against the same employer, as part of the same online claim, then your group will pay a single issue fee. The amount your group pays depends on:
 
-- the type of claim you are making
+- the type of claim you’re making
 - the types of claims the rest of the group are making
 - the number of people in the group
 - whether any in the group are applying for a reduction in fees (fee remission)

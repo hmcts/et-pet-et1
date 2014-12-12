@@ -31,4 +31,12 @@ module ClaimReviewsHelper
     link_to t('.edit') + ' ' + t('.sections.' + section).downcase,
       claim_path_for(section, return_to_review: true)
   end
+
+  def submit_button_text
+    if claim.remission_applicable?
+      t '.submit_with_remission'
+    else
+      t '.submit_go_to_payment'
+    end
+  end
 end
