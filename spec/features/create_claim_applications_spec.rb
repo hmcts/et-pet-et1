@@ -184,38 +184,21 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text review_heading_for(:show)
     end
 
-    scenario 'Emailing confirmation' do
+    scenario 'Saving the confirmation email recipients' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit claim'
 
-      email = ActionMailer::Base.deliveries.last
-
-      expect(email.to).to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
-      expect(email.parts.first.body).to include('Thank you for submitting')
-      expect(email.parts.last.content_type).
-        to eq "application/pdf; charset=UTF-8; filename=et1_barrington_wrigglesworth.pdf"
+      expect(Claim.last.confirmation_email_recipients).
+        to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
     end
 
-    scenario 'Deselecting email confirmations before submission' do
-      ActionMailer::Base.deliveries = []
-
+    scenario 'Deselecting email confirmation recipients before submission' do
       complete_a_claim seeking_remissions: true
       deselect_claimant_email
       deselect_representative_email
       click_button 'Submit claim'
 
-      expect(ActionMailer::Base.deliveries.size).to eq 0
-    end
-
-    scenario 'Submitting claim when no claimant email address' do
-      ActionMailer::Base.deliveries = []
-      complete_a_claim seeking_remissions: true, claimant_email: false
-      deselect_representative_email
-      click_button 'Submit claim'
-
-      expect(ActionMailer::Base.deliveries.size).to eq 0
-
-      expect(page.title).to include 'Claim submitted'
+      expect(Claim.last.confirmation_email_recipients).to be_empty
     end
 
     scenario 'Submitting the claim when payment is not required' do
