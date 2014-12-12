@@ -96,8 +96,7 @@ FactoryGirl.define do
     name                    "Ministry of Justice"
     no_acas_number_reason   "employer_contacted_acas"
     worked_at_same_address  false
-
-    after(:build) { build_list(:address, 2) }
+    addresses               { create_list(:address, 2) }
   end
 
   factory :payment do
