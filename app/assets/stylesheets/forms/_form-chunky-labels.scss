@@ -10,7 +10,7 @@
 }
 
 .options{
-  overflow:hidden;
+  @extend %clearfix;
   > span.block-label{
     float:left;
     &:last-child{

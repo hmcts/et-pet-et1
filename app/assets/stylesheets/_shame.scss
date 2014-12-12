@@ -37,8 +37,7 @@
 // For copy coming out of markdown
 // ==========================================================================
 .content-section {
-  clear:both;
-  overflow:hidden;
+  @extend %clearfix;
   h2 {
     @extend .legend;
     &:first-child{
@@ -98,8 +97,8 @@ aside{
 
 fieldset{
   @include container;
+  @extend %clearfix;
   position:relative;
-  overflow:hidden;
   margin:0 0 $gutter;
   legend:first-child {
     margin-top:0;
