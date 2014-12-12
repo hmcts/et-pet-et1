@@ -32,6 +32,18 @@ FactoryGirl.define do
 
     submitted_at { Time.now }
 
+    trait :without_additional_claimants_csv do
+      additional_claimants_csv nil
+    end
+
+    trait :without_representative do
+      representative nil
+    end
+
+    trait :with_pdf do
+      after(:create) { |claim| claim.generate_pdf! }
+    end
+
     trait :payment_no_remission do
       remission_claimant_count 0
     end
