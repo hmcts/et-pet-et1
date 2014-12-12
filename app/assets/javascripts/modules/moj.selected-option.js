@@ -6,7 +6,7 @@ module.exports = (function() {
   'use strict';
 
   var selectedOption = {},
-    options = $('.options'),
+    options = $('.options, .check_boxes'),
     change_class = 'selected',
     focusblur_class = 'add-focus';
 
