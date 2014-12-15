@@ -41,20 +41,14 @@ describe BaseMailer, type: :mailer do
     let(:content) { email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source }
     let(:attachment) { email.parts.find(&:filename) }
 
-    subject { described_class.confirmation_email(claim, email_addresses) }
+    subject { described_class.confirmation_email(claim) }
 
     before do
+      claim.confirmation_email_recipients = email_addresses
       allow(claim).to receive(:payment_applicable?).and_return false
       allow(claim).to receive(:remission_applicable?).and_return false
       allow(claim).to receive(:pdf_filename).and_return "such.pdf"
       allow(claim).to receive(:pdf_file).and_return Tempfile.new('such.pdf')
-    end
-
-    context "pre delivery" do
-      it 'attempts pdf generation on the claim' do
-        expect(claim).to receive(:generate_pdf!)
-        subject.deliver_now
-      end
     end
 
     context "post delivery" do
