@@ -4,9 +4,6 @@ feature 'Session Expiry', type: :feature do
   include FormMethods
   include ActiveSupport::Testing::TimeHelpers
 
-  pages = %w<claimant representative respondent employment claim-type claim-details
-    claim-outcome additional-information your-fee review>
-
   let(:session_expiry_time) { 1.hours.from_now + 1.second }
 
   context 'within the context of creating a claim' do
@@ -14,7 +11,7 @@ feature 'Session Expiry', type: :feature do
 
       before(:each) { start_claim }
 
-      pages.each do |page_name|
+      ClaimPagesManager.page_names.each do |page_name|
         scenario "a user is directed to a session expiry page for page: #{page_name}" do
           travel_to session_expiry_time do
             visit("#{page_name}")
