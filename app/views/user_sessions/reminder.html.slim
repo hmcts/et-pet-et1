@@ -16,7 +16,7 @@ header.main-header
       = f.error_notification
 
       fieldset
-        = format t('.subheader')
+        p = t('.subheader')
 
         p
           = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}

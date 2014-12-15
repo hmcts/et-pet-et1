@@ -1,6 +1,6 @@
 fieldset
   legend role="heading" aria-level="2" = t '.legend_personal_details'
-  = format t('.personal_details_hint')
+  p = t '.personal_details_hint'
   = render partial: 'personal_details', locals: { f: f }
 
   fieldset

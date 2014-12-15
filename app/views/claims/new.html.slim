@@ -12,10 +12,16 @@ header.main-header
         legend role="heading" aria-level="2" = t('.legend_main')
         section.content-section
           .panel-indent
-            = format t('.callout_new', path: guide_path)
+            p = t('.callout_new_html', path: guide_path)
 
           .content-block
-            = format t('.before_you_continue', path: guide_path)
+            h3 = t('.in_time_header')
+            p = t('.in_time_body')
+            p = t('.in_time_link_html', path: guide_path)
+
+            h3 = t('.contacted_acas_header')
+            p = t('.contacted_acas_body')
+            p = t('.contacted_acas_link_html', path: guide_path)
 
           = f.button :submit, { class: 'button button-get-started' }
 

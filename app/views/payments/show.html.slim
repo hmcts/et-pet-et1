@@ -10,7 +10,7 @@ header.main-header
 
     h2.legend = t('.issue_fee_header')
 
-    = format t('.issue_fee')
+    p = t('.issue_fee_html')
 
     = form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
       - payment_request.form_attributes.each do |k, v|
