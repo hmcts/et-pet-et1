@@ -4,8 +4,7 @@
     span.number= claim.reference
 
 fieldset
-  / legend role="heading" aria-level="2" = t('.memorable_word_legend')
-  = format t('.intro_text')
+  p = t('.intro_text')
 
   = f.input :email_address
   = f.input :password, as: :string

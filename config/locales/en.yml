@@ -386,7 +386,7 @@ en:
     returning:
       header: Return to your claim
       subheader: Enter your details below
-      hint: Don’t have these details? [Start a new claim](/).
+      hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
     reminder:
       header: Claim saved
       legend: Return to complete your claim
@@ -397,8 +397,7 @@ en:
 
     session_expired:
       header: Your session has expired
-      content_html: |
-        To complete your claim, please <a href="%{returning_user_session_path}">return to your claim</a>.
+      content_html: To complete your claim, please <a href="%{returning_user_session_path}">return to your claim</a>.
 
   guides:
     show:
@@ -439,18 +438,14 @@ en:
     new:
       header: Start your claim
       legend_main: Before you continue
-      callout_new: |
-        This is not a free service. [Find out about fees and fee reductions](%{path}#fees_and_payment)
-      before_you_continue: |
-          ### Are you in time?
-          You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
-
-          [Learn about when you can apply](%{path}#time_limits)
-
-          ### Have you contacted Acas?
-          In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
-
-          [Learn about Acas](%{path}#acas_early_conciliation)
+      callout_new_html: |
+        This is not a free service. <a href="%{path}#fees_and_payment">Find out about fees and fee reductions</a>
+      in_time_header: Are you in time?
+      in_time_body: You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
+      in_time_link_html: <a href="%{path}#time_limits">Learn about when you can apply</a>
+      contacted_acas_header: Have you contacted Acas?
+      contacted_acas_body: In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
+      contacted_acas_link_html: <a href="%{path}#acas_early_conciliation">Learn about Acas</a>
       application_started_header: Already started a claim?
 
     application_number:
@@ -466,8 +461,7 @@ en:
       gender: Gender
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: Personal details
-      personal_details_hint: |
-        Information about the person or organisation making this claim (known as the ‘claimant’).
+      personal_details_hint: Information about the person or organisation making this claim (known as the ‘claimant’).
       legend_contact_details: Claimant’s contact details
       legend_contact_preference: Best way to send correspondence to the claimant
 
@@ -592,11 +586,11 @@ en:
       callout_fee_amount: £ %{application_fee}
       callout_fee_footnote_html: If your claim goes to a tribunal, you’ll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
       reduce_fee: Exemption from paying fees
-      applying_for_remission_single:
+      applying_for_remission_single_html:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
-      applying_for_remission_multiple:
+      applying_for_remission_multiple_html:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
-      applying_for_remission_multiple_note: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
+      applying_for_remission_multiple_note_html: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info: You don’t need to pay the issue fee now.
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
@@ -607,10 +601,7 @@ en:
     show:
       header: Pay and submit claim
       issue_fee_header: Pay the issue fee
-      issue_fee: |
-        To submit your claim you need to pay the issue fee.
-
-        You’ll be asked to enter your payment details on the next screen.
+      issue_fee_html: To submit your claim you need to pay the issue fee. <br/>You’ll be asked to enter your payment details on the next screen.
       submit: Pay and submit claim
     decline:
       payment_declined: Payment declined
