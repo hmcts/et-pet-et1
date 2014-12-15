@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-feature 'XML Generation' do
-  include FormMethods
+feature 'XML Generation', type: :feature do
+  include ActiveSupport::Testing::TimeHelpers
+
+  before(:each)   { travel_to(Date.new 2014, 9, 29) }
 
   let(:claim)     { create :claim }
   let(:claim_xml) { JaduXml::ClaimPresenter.new(claim).to_xml }
@@ -55,7 +57,7 @@ feature 'XML Generation' do
         to match_array %w<file.csv file.rtf et1_barrington_wrigglesworth.pdf>
 
       expect(doc.xpath("//Checksum").children.map(&:to_s)).
-        to match_array %w<ee7d09ca06cab35f40f4a6b6d76704a7 58d5af93e8ee5b89e93eb13b750f8301 42f1bc8b7f9934a33fd47128a59269e9>
+        to match_array %w<ee7d09ca06cab35f40f4a6b6d76704a7 58d5af93e8ee5b89e93eb13b750f8301 1d6c803f59b049b1acfc3a36b51562a3>
     end
   end
 end
