@@ -126,9 +126,9 @@ FactoryGirl.define do
     enrolled_in_pension_scheme           true
     found_new_job                        false
     worked_notice_period_or_paid_in_lieu false
-    end_date                             3.weeks.ago
-    new_job_start_date                   3.days.ago
-    start_date                           10.years.ago
+    end_date                             { 3.weeks.ago }
+    new_job_start_date                   { 3.days.ago }
+    start_date                           { 10.years.ago }
     gross_pay                            4000
     net_pay                              3000
     new_job_gross_pay                    4000
