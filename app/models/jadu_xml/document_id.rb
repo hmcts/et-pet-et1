@@ -4,7 +4,7 @@ module JaduXml
 
     def initialize
       @name = "ETFeesEntry"
-      @id = Time.now.to_s(:number)
+      @id = Time.zone.now.to_s(:number)
       @type = "ETFeesEntry"
       @time = Time.zone.now.xmlschema
       @version = 1
