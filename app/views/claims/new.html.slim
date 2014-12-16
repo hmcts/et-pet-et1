@@ -27,3 +27,16 @@ header.main-header
 
           h3 = t('.application_started_header')
           = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}
+
+    section.content-section
+      h2 = t '.before_you_start.header'
+      p = t '.before_you_start.body_html'
+
+      h2 = t '.what_you_need_to_know.header'
+      p = t '.what_you_need_to_know.body_html'
+
+      details
+       summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+         span.summary= t '.detail'
+       .panel-indent#details-content-0
+         p= t '.summary'

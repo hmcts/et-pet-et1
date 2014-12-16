@@ -447,6 +447,27 @@ en:
       contacted_acas_body: In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
       contacted_acas_link_html: <a href="%{path}#acas_early_conciliation">Learn about Acas</a>
       application_started_header: Already started a claim?
+      before_you_start:
+        header: Before you start
+        body_html: |
+          You'll need:
+          <ul>
+            <li>your Acas early conciliation certificate number</li>
+            <li>description of your claim</li>
+            <li>your payslip</li>
+            <li>full address of who you’re making a claim against</li>
+          </ul>
+      what_you_need_to_know:
+        header: What you'll need to know
+        body_html: |
+          <ul>
+            <li>covers England, Wales and Scotland</li>
+            <li>takes around 45 minutes</li>
+          </ul>
+      detail: how we use your information
+      summary: |
+          We send a copy of this form to Acas and the person or organisation you make a claim against. We put the information you give us onto a computer so that we can monitor progress and produce statistics. Information provided on this form is passed to the Department for Business, Innovation and Skills for research into the use and effectiveness of employment tribunals.
+
 
     application_number:
       header: Returning to your claim
