@@ -5,10 +5,10 @@ class AdditionalClaimantsUploadForm < Form
   attribute :remove_additional_claimants_csv, Boolean
 
   delegate :additional_claimants_csv_cache, :additional_claimants_csv_cache=,
-    :additional_claimants_csv_record_count=, :remove_additional_claimants_csv!,
-    :additional_claimants_csv_file, :reset_additional_claimants_count!, to: :target
+    :additional_claimants_csv_record_count=, :additional_claimants_csv_file,
+    :delete_additional_claimants_csv!, to: :target
 
-  before_validation :remove_csv!, unless: :has_additional_claimants
+  before_validation :delete_additional_claimants_csv!, unless: :has_additional_claimants
 
   with_options if: :has_additional_claimants do |form|
     form.validates :additional_claimants_csv, presence: true
@@ -40,16 +40,7 @@ class AdditionalClaimantsUploadForm < Form
     errors[:erroneous_line_number].first
   end
 
-  private
-
-  def valid_so_far?
+  private def valid_so_far?
     errors.empty?
-  end
-
-  def remove_csv!
-    if has_additional_claimants_csv?
-      remove_additional_claimants_csv!
-      reset_additional_claimants_count!
-    end
   end
 end

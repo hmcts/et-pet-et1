@@ -1,7 +1,7 @@
 class AdditionalClaimantsForm < Form
   boolean :has_additional_claimants
 
-  before_validation :reset_additional_claimants!, unless: :has_additional_claimants
+  before_validation :delete_additional_claimants!, unless: :has_additional_claimants
 
   def has_additional_claimants
     if defined? @has_additional_claimants
@@ -32,7 +32,7 @@ class AdditionalClaimantsForm < Form
 
   def save
     if valid?
-      run_callbacks(:save) { claimants.all?(&:save) }
+      run_callbacks(:save) { claimants.all?(&:save) && super }
     else
       false
     end
@@ -54,8 +54,8 @@ class AdditionalClaimantsForm < Form
     resource.secondary_claimants
   end
 
-  def reset_additional_claimants!
-    relation.destroy_all
+  def delete_additional_claimants!
+    target.delete_secondary_claimants!
     claimants.clear
   end
 end

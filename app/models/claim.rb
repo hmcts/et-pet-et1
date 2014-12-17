@@ -29,8 +29,11 @@ class Claim < ActiveRecord::Base
 
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
   delegate :file, to: :additional_information_rtf, prefix: true
-  delegate :file, to: :additional_claimants_csv, prefix: true
+  delegate :file, :present?, to: :additional_claimants_csv, prefix: true
   delegate :file, :filename, :url, :present?, :blank?, to: :pdf, prefix: true
+
+  before_save :delete_additional_claimants_csv!, if: :additional_claimants_csv_added?
+  before_save :delete_secondary_claimants!,      if: :additional_claimants_manually_added?
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -63,11 +66,15 @@ class Claim < ActiveRecord::Base
     claimants.count + additional_claimants_csv_record_count
   end
 
-  def reset_additional_claimants_count!
+  def delete_additional_claimants_csv!
+    remove_additional_claimants_csv!
     update_attribute(:additional_claimants_csv_record_count, 0)
   end
 
-  # TODO: validate claim against JADU XSD
+  def delete_secondary_claimants!
+    secondary_claimants.delete_all
+  end
+
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
@@ -107,6 +114,14 @@ class Claim < ActiveRecord::Base
   end
 
   private
+
+  def additional_claimants_csv_added?
+    !additional_claimants_csv_changed? && additional_claimants_csv_present? && secondary_claimants.any?
+  end
+
+  def additional_claimants_manually_added?
+    additional_claimants_csv_present? && additional_claimants_csv_changed?
+  end
 
   def state_machine
     @state_machine ||= Claim::FiniteStateMachine.new(claim: self)

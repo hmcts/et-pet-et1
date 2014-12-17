@@ -91,14 +91,21 @@ RSpec.describe Claim, :type => :claim do
     end
   end
 
-  describe "#reset_additional_claimants_count!" do
-    it "resets the additional cliamants count for csv's back to zero" do
+  describe "#delete_additional_claimants_csv!" do
+    it "resets the additional claimants count for csv's back to zero" do
       subject.additional_claimants_csv_record_count = 1
 
-      expect { subject.reset_additional_claimants_count! }.
+      expect { subject.delete_additional_claimants_csv! }.
         to change { subject.additional_claimants_csv_record_count }.
         from(1).
         to(0)
+    end
+
+    it "removes the additional claimants csv file" do
+      subject.additional_claimants_csv = Tempfile.new('some.csv')
+
+      expect { subject.delete_additional_claimants_csv! }.
+        to change { subject.additional_claimants_csv_file.present? }
     end
   end
 
@@ -397,6 +404,43 @@ RSpec.describe Claim, :type => :claim do
 
         it 'is true' do
           expect(subject).to be_immutable
+        end
+      end
+    end
+  end
+
+  describe '#save' do
+    context 'secondary claimants are present' do
+      context 'additional claimants csv present & unchanged' do
+
+        before do
+          allow(subject).to receive(:additional_claimants_csv_changed?).and_return(false)
+          subject.additional_claimants_csv = Tempfile.new('some.csv')
+          subject.secondary_claimants.create
+        end
+
+        it 'removes the additional claimants csv file' do
+          expect { subject.save }.to change { subject.additional_claimants_csv_file.present? }
+        end
+
+        it 'doesnt remove the secondary claimants' do
+          expect { subject.save }.to_not change { subject.secondary_claimants.present? }
+        end
+      end
+
+      context 'additional claimants csv present & changed i.e just added' do
+        before do
+          allow(subject).to receive(:additional_claimants_csv_changed?).and_return(true)
+          subject.additional_claimants_csv = Tempfile.new('some.csv')
+          subject.secondary_claimants.create
+        end
+
+        it 'doesnt remove the additional claimants csv file' do
+          expect { subject.save }.not_to change { subject.additional_claimants_csv_file.present? }
+        end
+
+        it 'removes the secondary claimants' do
+          expect { subject.save }.to change { subject.secondary_claimants.count }.from(1).to(0)
         end
       end
     end
