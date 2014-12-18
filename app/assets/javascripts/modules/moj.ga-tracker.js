@@ -1,40 +1,29 @@
-module.exports = (function ($) {
-
-  // To DO
-  // Radios to fire jsut once
+module.exports = (function($) {
 
   var gaTracker = {
-    error: {
-      type: 'event',
-      label: 'error'
-    }
+    debug: false
   };
 
-  gaTracker.init = function () {
+  gaTracker.init = function() {
     gaTracker.bindListners();
-    gaTracker.errorHook();
   };
 
   gaTracker.bindListners = function () {
-    $('[data-ga-type]').on('click', function (e) {
-      var $el = $(e.currentTarget),
-        data = {
-          type: $el.data('ga-type'),
-          label: $el.data('ga-label')
-        };
+    $('[data-ga-tracking]').on('click', function(e){
+      if(gaTracker.debug){
+        e.preventDefault();
+      }
+      var data = {
+        eventType: $(e.currentTarget).data('ga-tracking-event'),
+        url: $(e.currentTarget).data('ga-tracking-url')
+      };
       gaTracker.gaProxy(data);
     });
   };
 
-  gaTracker.errorHook = function () {
-    $('#error-summary').is(function () {
-      gaTracker.gaProxy(gaTracker.error);
-    });
-  };
-
   gaTracker.gaProxy = function (data) {
-    if (ga) {
-      ga('send', data.type, data.label);
+    if(ga){
+      ga('send', data.eventType, data.url);
     }
   };
 
