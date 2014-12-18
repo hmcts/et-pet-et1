@@ -9,21 +9,23 @@ header.main-header
       = f.error_notification
 
       fieldset
-        legend role="heading" aria-level="2" = t('.legend_main')
+
         section.content-section
-          .panel-indent
-            p = t('.callout_new_html', path: guide_path)
+          .panel-indent.panel-grey
+            p = t '.callout.header_html'
+            p = t('.callout.body_html', path:guide_path)
 
           .content-block
-            h3 = t('.in_time_header')
-            p = t('.in_time_body')
-            p = t('.in_time_link_html', path: guide_path)
+            h2 = t '.are_you_in_time.legend'
+            p = t('.are_you_in_time.body_html', path:guide_path)
 
-            h3 = t('.contacted_acas_header')
-            p = t('.contacted_acas_body')
-            p = t('.contacted_acas_link_html', path: guide_path)
 
-          = f.button :submit, { class: 'button button-get-started' }
+            h2 = t '.have_you_contacted_acas.legend'
+            p = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
 
-          h3 = t('.application_started_header')
-          = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}
+            h2 = t '.what_you_need_to_know.legend'
+            p = t('.what_you_need_to_know.body_html', path: guide_path)
+
+          .clearfix
+            = f.button :submit, { class: 'button' }
+            = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}

@@ -27,7 +27,7 @@ feature 'Session Expiry', type: :feature do
     scenario "a users session doesn't expire" do
       visit "/"
       travel_to session_expiry_time do
-        click_button "Start now"
+        click_button "Start a new claim"
         expect(page).not_to have_text "Your session has expired"
       end
     end

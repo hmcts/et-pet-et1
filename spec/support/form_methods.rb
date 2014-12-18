@@ -44,7 +44,7 @@ module FormMethods
 
   def start_claim
     visit '/'
-    click_button 'Start now'
+    click_button 'Start a new claim'
   end
 
   def end_session

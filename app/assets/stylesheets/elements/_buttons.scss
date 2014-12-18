@@ -16,26 +16,10 @@
   &:focus {
     outline: 3px solid $yellow;
   }
-  &.button-get-started {
-    @include bold-24;
-    background-image: image-url("icons/icon-pointer.png");
-    background-repeat: no-repeat;
-    background-position: 100% 50%;
-    padding: em(7) em(41) em(4) em(16);
-    margin: em(15, 16) 0;
-
-    @include device-pixel-ratio {
-      background-image: image-url("icons/icon-pointer-2x.png");
-      background-size: 30px 19px;
-    }
-
-    @include ie(6) {
-      background-image: image-url("icons/icon-pointer-2x.png");
-    }
-  }
   &.button-return {
     @include core-19;
-    background-color:$panel-colour;
-    color:$text-colour;
+    background-color: $light-blue;
+    color: $white;
+    height: 23px;
   }
 }
