@@ -1,5 +1,8 @@
 module.exports = (function ($) {
 
+  // To DO
+  // Radios to fire jsut once
+
   var gaTracker = {
     error: {
       type: 'event',
@@ -13,7 +16,7 @@ module.exports = (function ($) {
   };
 
   gaTracker.bindListners = function () {
-    $('[data-ga-tracking-type]').on('click', function (e) {
+    $('[data-ga-type]').on('click', function (e) {
       var $el = $(e.currentTarget),
         data = {
           type: $el.data('ga-type'),
