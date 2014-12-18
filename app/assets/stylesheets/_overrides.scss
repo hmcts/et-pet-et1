@@ -39,4 +39,10 @@ aside {
     }
 
   }
+  &.new{
+    .main-header h1{
+        @include pad(0,4);
+        padding-left:0;
+    }
+  }
 }

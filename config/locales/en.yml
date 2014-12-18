@@ -346,7 +346,7 @@ en:
       update: Save and continue
       return: Complete later
       claim:
-        create: Start now
+        create: Start a new claim
       claim_review:
         update: Submit the form
       user_session:
@@ -357,7 +357,7 @@ en:
         create: Submit claim and proceed to payment
     link:
       claim:
-        return: Return to your claim
+        return: Return to a claim
 
   shared:
     reference: Your claim number is
@@ -436,18 +436,29 @@ en:
       page_number: Page %{current_page} of %{total_pages}
 
     new:
-      header: Start your claim
-      legend_main: Before you continue
-      callout_new_html: |
-        This is not a free service. <a href="%{path}#fees_and_payment">Find out about fees and fee reductions</a>
-      in_time_header: Are you in time?
-      in_time_body: You usually have to apply to the tribunal within 3 months of your employment ending or the problem happening.
-      in_time_link_html: <a href="%{path}#time_limits">Learn about when you can apply</a>
-      contacted_acas_header: Have you contacted Acas?
-      contacted_acas_body: In most cases, you need to contact Acas for conciliation before the tribunal can consider your claim.
-      contacted_acas_link_html: <a href="%{path}#acas_early_conciliation">Learn about Acas</a>
+      header: Make a claim to an employment tribunal
       application_started_header: Already started a claim?
 
+      callout:
+        header_html: <strong>This is not a free service</strong>
+        body_html: |
+          Find out about <a href="%{path}/#fees_and_payment">fees and applying for a reduction in fees</a>.
+      are_you_in_time:
+        legend: Are you in time?
+        body_html: |
+          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
+      have_you_contacted_acas:
+        legend: Have you contacted Acas?
+        body_html: |
+          Before applying to an employment tribunal you have to contact Acas to use their free <a href="%{path}">Early Conciliation service</a>.
+      what_you_need_to_know:
+        legend: What you’ll need
+        body_html: |
+          <ul>
+            <li>your <a href="%{path}/#acas_early_conciliation">Acas early conciliation certificate number</a></li>
+            <li>details of your claim including the background, dates and people involved</li>
+            <li>credit or debit card details </li>
+          </ul>
     application_number:
       header: Returning to your claim
       application_number: Your claim number
