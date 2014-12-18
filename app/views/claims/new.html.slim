@@ -27,5 +27,5 @@ header.main-header
             p = t('.what_you_need_to_know.body_html', path: guide_path)
 
           .clearfix
-            = f.button :submit, { class: 'button' }
-            = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button-link'}
+            = f.button :submit, { class: 'button', :data => { 'ga-type' => 'event', 'ga-label' => 'start-a-new-claim' }}
+            = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button-link', :data => { 'ga-type' => 'event', 'ga-label' => 'return-to-a-claim' }}
