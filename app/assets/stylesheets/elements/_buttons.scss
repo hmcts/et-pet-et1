@@ -5,7 +5,6 @@ $blue: #005ea5;
 
 %button {
   margin: 0 $gutter-half $gutter-half 0;
-  padding: em(10) em(15) em(5) em(15);
   vertical-align: top;
   &:focus {
     outline: 3px solid $yellow;
@@ -15,6 +14,8 @@ $blue: #005ea5;
 .button {
   @include button ($button-colour);
   @extend %button;
+  padding-top: $gutter/4;
+  padding-bottom: $gutter/4;
   &[disabled="disabled"] {
     background: $button-colour;
     &:focus {
@@ -27,5 +28,7 @@ $blue: #005ea5;
 .button-link {
   @include button ($blue);
   @extend %button;
+  padding-top: $gutter/4;
+  padding-bottom: $gutter/4;
   color: $white;
 }
