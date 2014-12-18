@@ -11,7 +11,7 @@ header.main-header
       fieldset
 
         section.content-section
-          .panel-indent.panel-grey
+          .panel-indent
             p = t '.callout.header_html'
             p = t('.callout.body_html', path:guide_path)
 
@@ -28,4 +28,4 @@ header.main-header
 
           .clearfix
             = f.button :submit, { class: 'button' }
-            = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button button-return'}
+            = link_to t('helpers.link.claim.return'), returning_user_session_path, {class: 'button-link'}

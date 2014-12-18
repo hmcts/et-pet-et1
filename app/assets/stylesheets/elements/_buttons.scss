@@ -1,25 +1,31 @@
 // Buttons
 // ==========================================================================
 @import "design-patterns/buttons";
+$blue: #005ea5;
 
-.button {
-  @include button ($button-colour);
+%button {
   margin: 0 $gutter-half $gutter-half 0;
   padding: em(10) em(15) em(5) em(15);
   vertical-align: top;
+  &:focus {
+    outline: 3px solid $yellow;
+  }
+}
+
+.button {
+  @include button ($button-colour);
+  @extend %button;
   &[disabled="disabled"] {
     background: $button-colour;
     &:focus {
       outline: none;
     }
   }
-  &:focus {
-    outline: 3px solid $yellow;
-  }
-  &.button-return {
-    @include core-19;
-    background-color: $light-blue;
-    color: $white;
-    height: 23px;
-  }
+
+}
+
+.button-link {
+  @include button ($blue);
+  @extend %button;
+  color: $white;
 }

@@ -446,11 +446,11 @@ en:
       are_you_in_time:
         legend: Are you in time?
         body_html: |
-          You usually have make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
+          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
-          Before applying to an employment tribunal you have to contact Acas to <a href="%{path}">use their free Early Conciliation service</a>.
+          Before applying to an employment tribunal you have to contact Acas to use their free <a href="%{path}">Early Conciliation service</a>.
       what_you_need_to_know:
         legend: What you’ll need
         body_html: |
