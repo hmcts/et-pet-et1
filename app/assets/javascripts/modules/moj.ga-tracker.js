@@ -1,7 +1,7 @@
 module.exports = (function ($) {
+  'use strict';
 
-  // To DO
-  // Radios to fire jsut once
+  //console.log(ga);
 
   var gaTracker = {
     error: {
@@ -12,29 +12,36 @@ module.exports = (function ($) {
 
   gaTracker.init = function () {
     gaTracker.bindListners();
-    gaTracker.errorHook();
+    gaTracker.errorMessageCheck();
   };
 
   gaTracker.bindListners = function () {
+    var $el, data;
     $('[data-ga-type]').on('click', function (e) {
-      var $el = $(e.currentTarget),
+      $el = $(e.currentTarget);
+      if (!$el.data('hasClicked')) {
         data = {
           type: $el.data('ga-type'),
           label: $el.data('ga-label')
         };
-      gaTracker.gaProxy(data);
+
+        $el.data('hasClicked', true);
+        gaTracker.gaProxy(data);
+      }
     });
   };
 
-  gaTracker.errorHook = function () {
+  gaTracker.errorMessageCheck = function () {
     $('#error-summary').is(function () {
       gaTracker.gaProxy(gaTracker.error);
     });
   };
 
   gaTracker.gaProxy = function (data) {
-    if (ga) {
+    try {
       ga('send', data.type, data.label);
+    } catch (d) {
+      // mmm not sure about this.
     }
   };
 
