@@ -25,7 +25,7 @@ $blue: #005ea5;
 
 }
 
-.button-link {
+.button-return {
   @include button ($blue);
   @extend %button;
   padding-top: $gutter/4;
