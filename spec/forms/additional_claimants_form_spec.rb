@@ -104,6 +104,11 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
       it 'returns true' do
         expect(subject.save).to be true
       end
+
+      it 'calls the superclass save method' do
+        expect(claim).to receive(:save).at_least(:once)
+        subject.save
+      end
     end
 
     context 'when some #claimants are not valid' do
