@@ -639,7 +639,7 @@ en:
         application_number:
           attributes:
             password:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please create a memorable word so you can return to your claim"
         additional_claimant:
           attributes:
             title:
@@ -665,30 +665,32 @@ en:
         claimant:
           attributes:
             date_of_birth:
-              invalid: The date you have provided is invalid
+              invalid: "Error (field invalid): Please enter your date of birth in the correct format (DD/MM/YYYY)"
             title:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please select a title from the list"
             gender:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please select your gender, or select prefer not to say"
             first_name:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter your first name"
             last_name:
-              blank: You must provide information for this field
-            address_country:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter your last name"
+            special_needs:
+              blank: "Error (field blank): Please say whether you require assistance at the tribunal hearing"
             contact_preference:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please say whether you’d like correspondence to be sent to the claimant by post or email"
             address_building:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please say whether you require assistance at the tribunal hearing"
             address_street:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the street of your address"
             address_locality:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the town or city of your address"
             address_county:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the county of your address. If London, please put Greater London"
             address_post_code:
-              blank: You must provide information for this field
-              invalid: You must provide a valid post code
+              blank: "Error (field blank): Please enter your postcode"
+              invalid: "Error (field invalid): Please enter a valid UK postcode. If you live abroad please enter SW55 9QT"
+            email_address:
+              blank: "Error (field blank): Please enter your email address"
         employment:
           attributes:
             start_date:
@@ -706,23 +708,26 @@ en:
         representative:
           attributes:
             type:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please select which type of representative you have"
             name:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the name of your representative's organisation"
             address_country:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldZ
             contact_preference:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldC
             address_building:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the building name or number of your representative’s address"
             address_street:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the street of your representative’s address"
             address_locality:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the town or city of your representative’s address"
             address_county:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the county of your representative’s address"
             address_post_code:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter your representative’s postcode"
+              invalid: "Error (field blank): Please enter a valid postcode or if your representative lives abroad, please enter SW55 9QT"
+            email_address:
+              blank: "Error (field blank): Please enter your representative’s email address"
         respondent:
           attributes:
             name:
