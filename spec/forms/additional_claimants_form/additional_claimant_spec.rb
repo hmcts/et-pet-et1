@@ -23,7 +23,9 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
     it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
   end
 
-  include_examples "Postcode validation", attribute_prefix: 'address'
+  include_examples "Postcode validation",
+    attribute_prefix: 'address',
+    error_message: 'is invalid'
 
   let(:attributes) do
     {

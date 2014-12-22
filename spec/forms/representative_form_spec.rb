@@ -63,7 +63,9 @@ RSpec.describe RepresentativeForm, :type => :form do
       it { is_expected.to ensure_length_of(:mobile_number).is_at_most(21) }
       it { is_expected.to ensure_length_of(:dx_number).is_at_most(20) }
 
-      include_examples "Postcode validation", attribute_prefix: 'address'
+      include_examples "Postcode validation",
+        attribute_prefix: 'address',
+        error_message: 'is invalid'
     end
 
     context 'when has_representative? == false' do

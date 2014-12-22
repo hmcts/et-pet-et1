@@ -136,6 +136,11 @@ RSpec.describe RespondentForm, :type => :form do
     end
   end
 
-  include_examples "Postcode validation", attribute_prefix: 'address'
-  include_examples "Postcode validation", attribute_prefix: 'work_address'
+  include_examples "Postcode validation",
+    attribute_prefix: 'address',
+    error_message: 'is invalid'
+
+  include_examples "Postcode validation",
+    attribute_prefix: 'work_address',
+    error_message: 'is invalid'
 end

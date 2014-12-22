@@ -688,6 +688,7 @@ en:
               blank: You must provide information for this field
             address_post_code:
               blank: You must provide information for this field
+              invalid: You must provide a valid post code
         employment:
           attributes:
             start_date:
