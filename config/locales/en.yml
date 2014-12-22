@@ -731,36 +731,35 @@ en:
         respondent:
           attributes:
             name:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please provide the name of the person or organisation you are making the claim against"
             no_acas_number_reason:
-              blank: You must provide information for this field
+              blank: "Error (field blank): You have said that you don’t have an Acas early conciliation number. Please select a reason from the list"
             acas_early_conciliation_certificate_number:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please provide your Acas early conciliation number. If you don’t have one, please select ‘ I don't have an Acas number’ below"
             address_country:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldee
             contact_preference:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldrr
             address_building:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the building name or number from the respondent’s address"
             address_street:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the street from the respondent’s address"
             address_locality:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the town or city from the respondent’s address"
             address_county:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the county from the respondent’s address"
             address_post_code:
-              blank: You must provide information for this field
-            work_address_country:
-              blank: You must provide information for this field
-            work_contact_preference:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the respondent’s postcode"
+              invalid: "Error (field blank): Please enter a valid UK postcode or if the respondent lives abroad, please enter SW55 9QT"
             work_address_building:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the building name or number of your work address"
             work_address_street:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the street of your work address"
             work_address_locality:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the town or city of your work address"
             work_address_county:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the county of your work address"
             work_address_post_code:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the postcode of your work address"
+              invalid: "Error (field invalid): Please enter a valid UK postcode or if you live abroad please enter SW55 9QT"
+
