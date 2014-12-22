@@ -378,8 +378,8 @@ en:
       rtf: is not an RTF or plain text file
       csv: is not a CSV
     user_session:
-      not_found: A claim with that claim number could not be found
-      invalid: This password does not match the claim number
+      not_found: "Error (field invalid): You have entered an invalid claim number"
+      invalid: "Error (field invalid) The memorable word you have entered has not been recognised"
       immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
@@ -627,9 +627,11 @@ en:
         user_session:
           attributes:
             password:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter the memorable word you created at the beginning of your claim"
+              invalid: "Error (field invalid) The memorable word you have entered has not been recognised"
             reference:
-              blank: You must provide information for this field
+              blank: "Error (field blank): Please enter your claim number"
+              invalid: "Error (field invalid): You have entered an invalid claim number"
         application_number:
           attributes:
             password:
