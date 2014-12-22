@@ -300,7 +300,6 @@ en:
         miscellaneous_information: |
           Eg you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
       respondent:
-        name: Exactly as it appears on your Acas early conciliation certificate, if you have one.
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       additional_respondents:
