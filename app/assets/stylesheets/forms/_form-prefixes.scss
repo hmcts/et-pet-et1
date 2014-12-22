@@ -1,4 +1,5 @@
 .prefixed-field {
+  @extend %clearfix; 
   .currency_field {
     @include span(6 of 12);
     @include first;
@@ -29,14 +30,16 @@
     clear:none;
     margin-bottom:0;
     span.slim-label {
+      @extend .block-label;
       margin-top:0;
       margin-bottom:0;
-      &:first-child{
-        margin-left:$gutter-half;
-        margin-right:$gutter;
-      }
       label {
-        line-height:2;
+        line-height:.2;
+        background-color:#fff;
+        border-color:#fff;
+      }
+      input {
+        top:7px;
       }
     }
   }

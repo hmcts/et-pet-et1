@@ -66,10 +66,47 @@
     }
   }
   //==========================================================================//
-  //.claims {
+  // .review-list
+  //==========================================================================//
   .claims.new{
     .main-header h1{
         @include pad(0,0);
     }
   }
+  //==========================================================================//
+  // .slim-label
+  //==========================================================================//
+  .prefixed-field {
+    .currency_field {
+      width:100%;
+      float:none;
+    }
+    .form-group.radio_buttons {
+      width:100%;
+      float:none;
+      clear:both;
+      margin:$gutter-half 0 $gutter;
+      padding:0;
+      span.slim-label {
+        margin-top:0;
+        margin-bottom:0;
+        width:47%;
+        &:first-child{
+          margin-right:0;
+        }
+        &:last-child{
+          float:right;
+        }
+        label {
+          background-color:$grey-3;
+          line-height:1;
+        }
+        input {
+          top:13px;
+        }
+      }
+    }
+  }
+
+
 }
