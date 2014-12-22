@@ -12,7 +12,7 @@ module.exports = (function() {
 
   selectedOption.init = function() {
     options.each(function(i, container){
-      var input_group = $(container).find('.block-label');
+      var input_group = $(container).find('.block-label, .slim-label');
 
       selectedOption.bindInputEvents(input_group);
 
