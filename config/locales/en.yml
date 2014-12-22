@@ -655,9 +655,9 @@ en:
         claim_details:
           attributes:
             claim_details:
-              blank: You must provide information for this field regarding your claim
+              blank: "Error (field blank): You must enter details of your claim here. If you want to upload your claim statement in a separate document, please type ‘ see attached’ in the box"
             other_known_claimant_names:
-              blank: You must provide information for this field regarding your claim
+              blank: "Error (field blank): Please list the names of other people who are making a similar claim"
         claim_outcome:
           attributes:
             other_outcome:
