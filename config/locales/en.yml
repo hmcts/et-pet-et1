@@ -345,7 +345,7 @@ en:
       update: Save and continue
       return: Complete later
       claim:
-        create: Start a new claim
+        create: Start a claim
       claim_review:
         update: Submit the form
       user_session:
