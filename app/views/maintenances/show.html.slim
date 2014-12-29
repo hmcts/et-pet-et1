@@ -1,0 +1,10 @@
+- content_for(:page_title, page_title)
+
+header.main-header
+  h1= t '.header'
+
+.main-content
+  - cache do
+    .static-content
+      - @presenter.each_rendered_file do |name, contents|
+        article id="#{name}" = contents

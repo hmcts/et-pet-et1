@@ -431,6 +431,10 @@ en:
     show:
       header: Cookies
 
+  maintenances:
+    show:
+      header: Maintenance
+
   claims:
     personal_details:
       date_of_birth: Date of birth
