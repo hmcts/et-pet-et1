@@ -427,6 +427,10 @@ en:
       disclaimer: Disclaimer
       cookies: Cookies
 
+  maintenances:
+    show:
+      header: Maintenance
+
   claims:
     personal_details:
       date_of_birth: Date of birth
