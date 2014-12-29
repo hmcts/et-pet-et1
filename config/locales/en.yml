@@ -433,7 +433,7 @@ en:
 
   maintenances:
     show:
-      header: Maintenance
+      header: Service unavailable
 
   claims:
     personal_details:

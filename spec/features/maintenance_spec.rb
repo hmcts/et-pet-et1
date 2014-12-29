@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Maintenance' do
-  let(:service_suspended_message)          { '<p>The service is currently suspended.</p>' }
+  let(:service_suspended_message)          { '<p>The employment tribunal online service is currently unavailable. Please check back later.</p>' }
 
   before :each do
     visit maintenance_path
