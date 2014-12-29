@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resource :terms, only: :show
 
+  resource :cookies, only: :show
+
   resource :user_session, only: %i<create update>, path: :application do
     member do
       %w<reminder returning refresh-session session-expired>.each do |page|
