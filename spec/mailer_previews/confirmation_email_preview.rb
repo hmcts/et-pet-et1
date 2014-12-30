@@ -19,8 +19,8 @@ class ConfirmationEmailPreview < ActionMailer::Preview
     claim_for :group_payment_with_remission_payment_failed
   end
 
-  private def claim_for(trait, email='user@example.com')
-    claim = FactoryGirl.create(:claim, trait)
-    BaseMailer.confirmation_email(claim, email)
+  private def claim_for(trait)
+    claim = FactoryGirl.create(:claim, :with_pdf, trait)
+    BaseMailer.confirmation_email(claim)
   end
 end
