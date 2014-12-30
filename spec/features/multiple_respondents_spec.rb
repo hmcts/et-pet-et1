@@ -6,6 +6,9 @@ feature 'Multiple respondents' do
   let(:claim) { Claim.create password: 'lollolol' }
 
   before do
+    stub_request(:post, "https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office").
+      with(body: "postcode=SW1A%201AA", headers: { 'Accept' => 'application/json' })
+
     visit new_user_session_path
     fill_in_return_form claim.reference, 'lollolol'
   end
