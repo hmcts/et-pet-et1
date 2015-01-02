@@ -6,7 +6,11 @@ class ClaimantForm < Form
   EMAIL_ADDRESS_LENGTH = 100
   NAME_LENGTH          = 100
 
-  include AddressAttributes
+  include AddressAttributes.but_skip_postcode_validation
+
+  validates :address_post_code,
+    post_code: true, length: { maximum: POSTCODE_LENGTH },
+    unless: :international_address?
 
   attribute :first_name,         String
   attribute :last_name,          String
@@ -32,8 +36,10 @@ class ClaimantForm < Form
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }
   validates :address_country, inclusion: { in: COUNTRIES }
-  validates :fax_number,    presence: { if: -> { contact_preference.fax? } }
-  validates :email_address, presence: { if: -> { contact_preference.email? } }, length: { maximum: EMAIL_ADDRESS_LENGTH }
+  validates :fax_number,    presence: { if: :contact_preference_fax? }
+  validates :email_address, presence: { if: :contact_preference_email? }, length: { maximum: EMAIL_ADDRESS_LENGTH }
+
+  delegate :fax?, :email?, to: :contact_preference, prefix: true
 
   dates :date_of_birth
 
@@ -50,6 +56,10 @@ class ClaimantForm < Form
   end
 
   private
+
+  def international_address?
+    address_country != 'united_kingdom'
+  end
 
   def reset_special_needs!
     self.special_needs = nil
