@@ -46,3 +46,12 @@ aside {
     }
   }
 }
+// Cookies page
+// ==========================================================================
+.cookies {
+  table {
+    tr:nth-child(even), th {
+      background-color: #f8f8f8;
+    }
+  }
+}

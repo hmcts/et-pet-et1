@@ -1,49 +1,49 @@
-Apply to an Employment Tribunal (ATET) puts small files (known as ‘cookies’) onto your computer to collect information about how you browse the site.
-Cookies are used to:
+The ‘make a claim to an employment tribunal’ website stores small files (known as cookies), on your computer. They are used to improve your experience of using the website.
 
-* measure how you use the website so it can be updated and improved based on your needs
-* remember the notifications you’ve seen so that we don’t show them to you again
+<h3>Cookies are used to:</h3>
 
-ATET cookies aren’t used to identify you personally.
-You’ll normally see a message on the site before we store a cookie on your computer.
-Find out more about how to manage cookies.
+* measure how you use the website so it can be improved
+* remember the notifications you’ve seen so that you don’t see them again
 
-<h2 class="legend">How cookies are used on ATET</h2>
-__Measuring website usage (Google Analytics)__
+Cookies on the ‘make a claim to an employment tribunal’ service aren’t used to identify you personally.
 
-We use Google Analytics software to collect information about how you use ATET. We do this to help make sure the site is meeting the needs of its users and to help us make improvements.
-Google Analytics stores information about:
+Find out [how to manage cookies](http://www.aboutcookies.org/).
 
-* the pages you visit on ATET - how long you spend on each ATET page 
-* how you got to the site 
-* what you click on while you’re visiting the site
+<h2 class="legend">How cookies are used</h2>
+<h3>Measuring website usage (Google Analytics)</h3>
 
-We don’t collect or store your personal information (eg your name or address) so this information can’t be used to identify who you are.
-We don’t allow Google to use or share our analytics data.
+We use Google Analytics software to collect information about how you use the ‘make a claim to an employment tribunal’ service. Google Analytics stores the following information:
 
-Google Analytics sets the following cookies:
+* the pages you visit
+* what you click on
+* how long you spend on each page 
+* how you got to the website (eg from a search engine) 
 
-|Col head 1|Col head 2|Col head 3|
+We don’t collect or store personal information (eg your name or address), in cookies so the information can’t be used to identify you. We don’t allow Google to use or share our analytics data. Google Analytics uses the following cookies:
+
+|Name|Purpose|Expires|
 |----------|----------|----------|
-|xxx|xxxx|xxxx|
-
-
+|_utma|Determines the number of unique visitors to the website|2 years|
+|_utmb|Works with _utmc to calculate the average length of time you spend on the website|61 minutes|
+|_utmc|Works with _utmb to monitor when you close your browser|when you close your browser|
+|_utmz|Provides information about how you reached the website (For example from another website or search engine)|6 months|
+|_ga|Manages the deployment of the cookies above|2 years|
 
 You can [opt out of Google Analytics cookies](https://tools.google.com/dlpage/gaoptout).
 
-__Our introductory message__
+<h3>Your progress when using the service</h3>
 
-You may see a pop-up welcome message when you first visit PVB. We’ll store a cookie so that your computer knows you’ve seen it and knows not to show it again.
+When using the ‘make a claim to an employment tribunal’ website, we'll set a cookie to remember your progress. This cookie doesn’t store your personal data and is deleted when your session ends.
 
-|Col head 1|Col head 2|Col head 3|
+
+|Name|Purpose|Expires|
 |----------|----------|----------|
-|xxx|xxxx|xxxx|
+|\_app\_session|The information you enter is stored on the server for the length of time you stay on the page. This can be up to 60 minutes, with the option to extend for another 60 minutes. After you’ve downloaded the completed PDF, this data is deleted from our servers.|60 mins (or when your session expires)|
 
 
-__Session__
+<h3>Our introductory message</h3>
+You may see a pop-up welcome message when you first visit the ‘make a claim to an employment tribunal’ website. We’ll set a cookie so that your computer knows you’ve seen it and does not show it again.
 
-The PVB service does not store your prisoner and visitor information. The details you enter are encrypted and temporarily stored on your computer until your booking request is sent.
-
-|Col head 1|Col head 2|Col head 3|
+|Name|Purpose|Expires|
 |----------|----------|----------|
-|xxx|xxxx|xxxx|
+|seen\_cookie\_message|Lets your computer know that you have already seen our cookie message|1 month|
