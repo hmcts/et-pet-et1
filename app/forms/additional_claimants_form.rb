@@ -1,7 +1,10 @@
 class AdditionalClaimantsForm < Form
   boolean :has_additional_claimants
 
+  delegate :delete_additional_claimants_csv!, to: :target
+
   before_validation :reset_additional_claimants!, unless: :has_additional_claimants
+  before_save :delete_additional_claimants_csv!
 
   def has_additional_claimants
     if defined? @has_additional_claimants

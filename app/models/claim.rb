@@ -63,7 +63,8 @@ class Claim < ActiveRecord::Base
     claimants.count + additional_claimants_csv_record_count
   end
 
-  def reset_additional_claimants_count!
+  def delete_additional_claimants_csv!
+    remove_additional_claimants_csv!
     update_attribute(:additional_claimants_csv_record_count, 0)
   end
 
