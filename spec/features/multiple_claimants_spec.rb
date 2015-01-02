@@ -44,13 +44,13 @@ feature 'Multiple claimants' do
     end
 
     scenario "filling in a claimant and clicking 'Add more claimants' does not lose the entered details" do
-      expect(page).not_to have_selector '#claimant_1'
+      expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
 
-      expect(page).to have_selector '#claimant_1'
+      expect(page).to have_selector '#resource_1'
 
-      within '#claimant_0' do
+      within '#resource_0' do
         expect(page).to have_select('Title', selected: 'Mrs')
 
         attributes.each do |field, value|
@@ -62,7 +62,7 @@ feature 'Multiple claimants' do
     scenario 'adding more than one additional claimant' do
       click_button "Add more claimants"
 
-      within '#claimant_1' do
+      within '#resource_1' do
         select 'Mr', from: 'Title'
 
         secondary_attributes.each do |field, value|
@@ -82,7 +82,7 @@ feature 'Multiple claimants' do
     scenario 'deleting arbitrary claimants' do
       visit claim_additional_claimants_path
 
-      within '#claimant_1' do
+      within '#resource_1' do
         check 'Remove this claimant'
       end
 
@@ -131,7 +131,7 @@ feature 'Multiple claimants' do
 
     click_button 'Add more claimants'
 
-    within '#claimant_1' do
+    within '#resource_1' do
       select 'Mr', from: 'Title'
 
       secondary_attributes.each do |field, value|

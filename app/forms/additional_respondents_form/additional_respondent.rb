@@ -1,5 +1,5 @@
 class AdditionalRespondentsForm
-  class AdditionalRespondent < Form
+  class AdditionalRespondent < CollectionForm::Resource
     NAME_LENGTH    = 100
     NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
       employer_contacted_acas interim_relief claim_against_security_services>.freeze
@@ -27,25 +27,6 @@ class AdditionalRespondentsForm
 
     def no_acas_number
       @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
-    end
-
-    def valid?
-      if _destroy?
-        true
-      else
-        super
-      end
-    end
-
-    def save
-      case
-      when _destroy?
-        !!target.destroy
-      when valid?
-        !!target.update_attributes(attributes)
-      else
-        false
-      end
     end
 
     private
