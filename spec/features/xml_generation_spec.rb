@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 feature 'XML Generation', type: :feature do
-  include ActiveSupport::Testing::TimeHelpers
-
   before(:each)   { travel_to(Date.new 2014, 9, 29) }
 
   let(:claim)     { create :claim }
