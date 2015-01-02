@@ -42,6 +42,8 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
+  config.include ActiveSupport::Testing::TimeHelpers
+
   config.after do |example|
     if example.metadata[:type] == :feature && example.exception.present?
       # Uncomment to autoload failed capybara tests in the browser

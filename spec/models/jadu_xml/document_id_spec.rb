@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::DocumentId, type: :model do
-  include ActiveSupport::Testing::TimeHelpers
-
   before(:each) { travel_to Date.new(2014, 9, 29) }
 
   its(:name)    { is_expected.to eq "ETFeesEntry" }

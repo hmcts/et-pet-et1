@@ -19,7 +19,7 @@ FactoryGirl.define do
       Rack::Test::UploadedFile.new 'spec/support/files/file.csv'
     end
 
-    fee_group_reference { "%010d00" % rand(9999999999) }
+    fee_group_reference "511234567800"
 
     claim_details       'I am sad'
     other_claim_details 'Really sad'
@@ -30,7 +30,14 @@ FactoryGirl.define do
     pay_claims             %i<redundancy notice holiday arrears other>
     desired_outcomes       %i<compensation_only tribunal_recommendation>
 
+    password 'lollolol'
+
     submitted_at { Time.now }
+
+    trait :not_submitted do
+      submitted_at nil
+      state        'created'
+    end
 
     trait :without_additional_claimants_csv do
       additional_claimants_csv nil
@@ -67,6 +74,16 @@ FactoryGirl.define do
       remission_claimant_count 2
       payment nil
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
+    end
+
+    trait :no_fee_group_reference do
+      office nil
+      fee_group_reference ""
+    end
+
+    trait :no_attachments do
+      additional_information_rtf nil
+      additional_claimants_csv nil
     end
   end
 

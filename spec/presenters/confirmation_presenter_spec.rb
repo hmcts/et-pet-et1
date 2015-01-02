@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe ConfirmationPresenter, type: :presenter do
   subject { described_class.new claim }
 
-  let(:payment) { Payment.new amount: 250 }
+  let(:claim) { create :claim }
 
-  let(:claim) do
-    Claim.create! state: 'submitted', submitted_at: Date.civil(2014, 1, 1)
+  around do |example|
+    travel_to(Time.new(2014).utc) { example.run }
   end
 
   describe 'submission_information' do
@@ -31,6 +31,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
 
     context 'when there is no associated fee office' do
+      let(:claim) { create :claim, :no_fee_group_reference }
       it 'is the submission date' do
         expect(subject.submission_information).
         to eq 'Submitted 01 January 2014'
@@ -38,43 +39,46 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
   end
 
+  its(:payment_amount) { is_expected.to eq '£250.00' }
+  its(:attachments) { is_expected.to eq 'file.rtf<br />file.csv' }
+
   describe '#each_item' do
     it 'yields the submission information' do
       expect { |b| subject.each_item &b }.
-        to yield_successive_args [:submission_information, 'Submitted 01 January 2014']
+        to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+        [:attachments, "file.rtf<br />file.csv"],
+        [:payment_amount, "£250.00"]
     end
-  end
 
-  context 'when payment information is present' do
-    before { claim.payment = payment }
+    context 'when payment fails' do
+      let(:claim) { create :claim, :payment_no_remission_payment_failed }
 
-    describe '#each_item' do
-      it 'yields the payment information' do
+      it 'yields payment failure message' do
         expect { |b| subject.each_item &b }.
-          to yield_successive_args [:submission_information, 'Submitted 01 January 2014'],
-            [:payment_amount, '£250.00']
+          to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+          [:attachments, "file.rtf<br />file.csv"],
+          [:payment_amount, "Unable to process payment"]
       end
     end
 
-    its(:payment_amount) { is_expected.to eq '£250.00' }
-  end
+    context 'when no payment applies' do
+      let(:claim) { create :claim, :remission_only }
 
-  context 'when attachments are present' do
-    before do
-      allow(claim).to receive(:additional_information_rtf).
-        and_return instance_double(AttachmentUploader, filename: 'lolz.rtf')
-      allow(claim).to receive(:additional_claimants_csv).
-        and_return instance_double(AttachmentUploader, filename: 'peepz.csv')
-    end
-
-    describe '#each_item' do
-      it 'yields the payment information' do
+      it 'yields no payment or fee office information' do
         expect { |b| subject.each_item &b }.
-        to yield_successive_args [:submission_information, 'Submitted 01 January 2014'],
-        [:attachments, 'lolz.rtf<br />peepz.csv']
+          to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
+          [:attachments, "file.rtf<br />file.csv"]
       end
     end
 
-    its(:attachments) { is_expected.to eq 'lolz.rtf<br />peepz.csv' }
+    context 'when no attachments were uploaded' do
+      let(:claim) { create :claim, :no_attachments }
+
+      it 'yields no attachment information' do
+        expect { |b| subject.each_item &b }.
+        to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+        [:payment_amount, "£250.00"]
+      end
+    end
   end
 end

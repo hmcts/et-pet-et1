@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature 'Session Expiry', type: :feature do
   include FormMethods
-  include ActiveSupport::Testing::TimeHelpers
 
   let(:session_expiry_time) { 1.hours.from_now + 1.second }
 

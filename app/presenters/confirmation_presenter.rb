@@ -9,6 +9,10 @@ class ConfirmationPresenter < Presenter
     end
   end
 
+  def payment_failed?
+    fee_to_pay? && payment.blank?
+  end
+
   def attachments
     attachment_filenames.map { |f| sanitize(f) }.join(tag :br).html_safe
   end
@@ -24,10 +28,14 @@ class ConfirmationPresenter < Presenter
   private
 
   def items
-    super.tap do |i|
-      i.delete :attachments if attachment_filenames.empty?
-      i.delete :payment_amount unless target.payment.present?
+    %i<submission_information attachments payment_amount>.tap do |arr|
+      arr.delete :attachments if attachment_filenames.empty?
+      arr.delete :payment_amount unless fee_to_pay?
     end
+  end
+
+  def payment_type
+    payment_failed? ? :payment_not_processed : :normal
   end
 
   def attachment_filenames

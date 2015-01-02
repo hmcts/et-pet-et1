@@ -12,13 +12,23 @@ header.main-header
     section.content-section
       h2 = t('.what_happens_next.header')
       ol.numerical-list
-        - unless claim.remission_claimant_count.zero?
+        - if confirmation_presenter.payment_failed?
           li
-            p = t('.what_happens_next.one_html')
-            p= link_to t('.what_happens_next.one_link'), 'https://www.employmenttribunals.service.gov.uk/remissions', class: 'button'
+            p= p= t('.what_happens_next.payment_failed')
+        - if confirmation_presenter.remission_applicable?
+          li
+            p= t('.what_happens_next.apply_for_remission')
+            p= link_to t('.what_happens_next.remission_link_text'),
+            'https://www.employmenttribunals.service.gov.uk/remissions',
+            class: 'button'
+          li
+            p= t('.what_happens_next.next_steps_remission')
 
-        li: p= t('.what_happens_next.two')
-        li: p= t('.what_happens_next.three')
+        -else
+          li
+            p= t('.what_happens_next.send_to_respondent')
+          li
+            p= t('.what_happens_next.next_steps')
 
       table.confirmation-table
         caption = t('.submission_details.header')
