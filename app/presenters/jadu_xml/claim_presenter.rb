@@ -4,11 +4,11 @@ module JaduXml
 
     node_attribute :xmlns, as: "xmlns", value: "http://www.justice.gov.uk/ETFEES"
     node_attribute :xsi, as: "xmlns:xsi", value: "http://www.w3.org/2001/XMLSchema-instance"
-    node_attribute :location, as: "xsi:noNamespaceSchemaLocation", value: "ETFees_v0.09.xsd"
+    node_attribute :location, as: "xsi:noNamespaceSchemaLocation", value: "ETFees_v0.20.xsd"
 
     property :document_id, extend: JaduXml::DocumentIdPresenter, exec_context: :decorator
     property :fee_group_reference, as: "FeeGroupReference"
-    property :id, as: "SubmissionUrn"
+    property :reference, as: "SubmissionUrn"
     property :claimant_count, as: "CurrentQuantityOfClaimants"
     property :submission_channel, as: "SubmissionChannel", exec_context: :decorator
     property :case_type, as: "CaseType", exec_context: :decorator

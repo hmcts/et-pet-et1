@@ -16,9 +16,9 @@ RSpec.describe JaduXml::Payment, type: :model do
   its(:fee) { is_expected.to eq subject }
 
   describe "#amount" do
-    it "returns application fee after remission * 100" do
+    it "returns application fee after remission" do
       allow(subject).to receive(:application_fee_after_remission).and_return 1
-      expect(subject.amount).to eq 100
+      expect(subject.amount).to eq 1
     end
   end
 

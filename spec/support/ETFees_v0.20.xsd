@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.justice.gov.uk/ETFEES" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.justice.gov.uk/ETFEES" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:annotation>
+		<xs:appinfo>
+			<Metadata xmlns="http://www.govtalk.gov.uk/metadata/egms">
+				<Creator>Jadu Ltd</Creator>
+				<Created>2014-07-07</Created>
+				<Modified>2014-12-17</Modified>
+				<Format Schema="http://www.iana.org/assignments/media-types">text/xml</Format>
+				<Identifier>ETAPI</Identifier>
+				<Language codeListID="ISO639-2" codeListURI="http://www.loc.gov/standards/iso639-2/langcodes.html">eng</Language>
+				<Publisher>Jadu Ltd, Universe House, 1 Merus Court, Leicester, Leicestershire, LE19 1RJ</Publisher>
+				<ConformsTo>http://www.w3.org/2001/XMLSchema</ConformsTo>
+				<Copyright/>
+				<ProtectiveMarking>unclassified</ProtectiveMarking>
+				<Status>DRAFT</Status>
+				<StatusDescription/>
+				<Version>0.20</Version>
+				<Title>ETAPI</Title>
+				<Type/>
+			</Metadata>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:element name="ETFeesEntry">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="DocumentId" type="DocumentIDStructure"/>
+				<xs:element name="FeeGroupReference" type="FeeGroupReferenceType"/>
+				<xs:element name="SubmissionUrn" type="SubmissionURNType"/>
+				<xs:element name="CurrentQuantityOfClaimants" type="xs:integer"/>
+				<xs:element name="SubmissionChannel" type="SubmissionChannelType"/>
+				<xs:element name="CaseType" type="CaseTypeType"/>
+				<xs:element name="Jurisdiction" type="JurisdictionType"/>
+				<xs:element name="OfficeCode" type="OfficeCodeType"/>
+				<xs:element name="DateOfReceiptEt" type="xs:dateTime"/>
+				<xs:element name="RemissionIndicated" type="RemissionIndicatedType"/>
+				<xs:element name="Administrator" type="AdministratorType" nillable="true"/>
+				<xs:element name="Claimants">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Claimant" type="ClaimantType" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Respondents">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Respondent" type="RespondentType" minOccurs="1" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Representatives">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Representative" type="RepresentativeType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Payment">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Fee" type="FeeType"/>
+							<xs:element name="Receipt" type="ReceiptType" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="ChequeReferenceNumber" type="ChequeReferenceNumberType" minOccurs="0" maxOccurs="1"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Files">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="File" type="FileType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="DocumentIDStructure">
+		<xs:sequence>
+			<xs:element name="DocumentName" type="xs:string" fixed="ETFeesEntry"/>
+			<xs:element name="UniqueId" type="UniqueIDDateType"/>
+			<xs:element name="DocumentType" type="xs:string" fixed="ETFeesEntry"/>
+			<xs:element name="TimeStamp" type="xs:dateTime"/>
+			<xs:element name="Version" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="FeeGroupReferenceType">
+		<xs:union>
+          <xs:simpleType>
+            <xs:restriction base='xs:string'>
+              <xs:length value="0"/>
+            </xs:restriction>
+          </xs:simpleType>
+          <xs:simpleType>
+            <xs:restriction base="xs:long">
+				<xs:pattern value="([\d]{10}00)?"/>
+			</xs:restriction>
+          </xs:simpleType>
+        </xs:union>
+	</xs:simpleType>
+	<xs:simpleType name="SubmissionURNType">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="0"/>
+			<xs:maxLength value="255"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SubmissionChannelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="CSO"/>
+			<xs:enumeration value="Web"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="UniqueIDDateType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[2][0][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CaseTypeType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Multiple"/>
+			<xs:enumeration value="Single"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="JurisdictionType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="GroupContactType">
+		<xs:restriction base="xs:boolean"/>
+	</xs:simpleType>
+	<xs:simpleType name="OfficeCodeType">
+		<xs:union>
+          <xs:simpleType>
+            <xs:restriction base='xs:string'>
+              <xs:length value="0"/>
+            </xs:restriction>
+          </xs:simpleType>
+          <xs:simpleType>
+            <xs:restriction base="xs:integer">
+				<xs:pattern value="\d{2}"/>
+			</xs:restriction>
+          </xs:simpleType>
+        </xs:union>
+	</xs:simpleType>
+	<xs:simpleType name="RemissionIndicatedType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Indicated"/>
+			<xs:enumeration value="NotRequested"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ClaimantType">
+		<xs:sequence>
+			<xs:element name="GroupContact" type="GroupContactType"/>
+			<xs:element name="Title" type="TitleType"/>
+			<xs:element name="Forename" type="NameType"/>
+			<xs:element name="Surname" type="NameType"/>
+			<xs:element name="Address" type="AddressType"/>
+			<xs:element name="OfficeNumber" type="PhoneNumberType"/>
+			<xs:element name="AltPhoneNumber" type="PhoneNumberType"/>
+			<xs:element name="Email" type="EmailAddressType"/>
+			<xs:element name="Fax" type="PhoneNumberType"/>
+			<xs:element name="PreferredContactMethod"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AddressType">
+		<xs:sequence>
+			<xs:element name="Line" type="AddressLineType"/>
+			<xs:element name="Street" type="AddressLineType"/>
+			<xs:element name="Town" type="TownType"/>
+			<xs:element name="County" type="CountyType"/>
+			<xs:element name="Postcode" type="PostcodeType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AddressLineType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="75"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TownType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CountyType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PostcodeType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NameType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PhoneNumberType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="21"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EmailAddressType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TitleType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FileType">
+		<xs:sequence>
+			<xs:element name="Filename" type="xs:string"/>
+			<xs:element name="Checksum">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ReceiptType">
+		<xs:sequence>
+			<xs:element name="PSP" type="xs:string"/>
+			<xs:element name="PayId" type="xs:integer"/>
+			<xs:element name="Amount" type="xs:decimal"/>
+			<xs:element name="Date" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ChequeReferenceNumberType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{6}-[0-9]{4}/[0-9]{1}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RepresentativeType">
+		<xs:sequence>
+			<xs:element name="Name" type="NameType"/>
+			<xs:element name="Address" type="AddressType"/>
+			<xs:element name="OfficeNumber" type="PhoneNumberType"/>
+			<xs:element name="AltPhoneNumber" type="PhoneNumberType"/>
+			<xs:element name="Email" type="EmailAddressType"/>
+			<xs:element name="ClaimantOrRespondent" type="ClaimantOrRespondentType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ClaimantOrRespondentType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="R"/>
+			<xs:enumeration value="C"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="RespondentType">
+		<xs:sequence>
+			<xs:element name="GroupContact" type="GroupContactType"/>
+			<xs:element name="Name" type="NameType"/>
+			<xs:element name="Address" type="AddressType"/>
+			<xs:element name="OfficeNumber" type="PhoneNumberType"/>
+			<xs:element name="PhoneNumber" type="PhoneNumberType"/>
+			<xs:element name="Acas" type="AcasType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AcasType">
+		<xs:sequence>
+			<xs:element name="Number" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="32"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ExemptionCode" type="AcasExemptionType" minOccurs="0" maxOccurs="1" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AcasExemptionType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="havent_contacted_acas"/>
+			<xs:enumeration value="claim_targets"/>
+			<xs:enumeration value="interim_relief"/>
+			<xs:enumeration value="employer_contacted_acas"/>
+			<xs:enumeration value="outside_acas"/>
+			<xs:enumeration value="other_claimant"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="FeeAmountType">
+		<xs:restriction base="xs:double"/>
+	</xs:simpleType>
+	<xs:complexType name="FeeType">
+		<xs:sequence>
+			<xs:element name="Amount" type="FeeAmountType"/>
+			<xs:element name="PRN" type="PaymentReferenceType"/>
+			<xs:element name="Date" type="xs:dateTime"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="PaymentReferenceType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AdministratorType">
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+</xs:schema>
+

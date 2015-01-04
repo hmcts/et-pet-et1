@@ -21,6 +21,8 @@ FactoryGirl.define do
 
     fee_group_reference "511234567800"
 
+    additional_claimants_csv_record_count 5
+
     claim_details       'I am sad'
     other_claim_details 'Really sad'
     other_outcome       'I wanna take him to the cleaners!'
@@ -39,8 +41,14 @@ FactoryGirl.define do
       state        'created'
     end
 
+    trait :single_claimant do
+      without_additional_claimants_csv
+      after(:create) { |claim| claim.secondary_claimants.clear }
+    end
+
     trait :without_additional_claimants_csv do
       additional_claimants_csv nil
+      additional_claimants_csv_record_count 0
     end
 
     trait :without_representative do
@@ -55,25 +63,29 @@ FactoryGirl.define do
       remission_claimant_count 0
     end
 
-    trait :remission_only do
-      remission_claimant_count 1
+    trait :payment_failed do
       payment nil
     end
 
+    trait :remission_only do
+      remission_claimant_count 6
+      payment_failed
+    end
+
     trait :group_payment_with_remission do
+      without_additional_claimants_csv
       remission_claimant_count 2
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
     end
 
     trait :payment_no_remission_payment_failed do
-      remission_claimant_count 0
-      payment nil
+      payment_no_remission
+      payment_failed
     end
 
     trait :group_payment_with_remission_payment_failed do
-      remission_claimant_count 2
-      payment nil
-      after(:create) { |claim| create_list :claimant, 2, claim: claim }
+      group_payment_with_remission
+      payment_failed
     end
 
     trait :no_fee_group_reference do
@@ -134,6 +146,7 @@ FactoryGirl.define do
   end
 
   factory :office do
+    code      11
     name      "Birmingham"
     address   "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"
     telephone "0121 600 7780"
