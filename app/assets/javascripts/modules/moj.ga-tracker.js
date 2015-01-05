@@ -38,11 +38,7 @@ module.exports = (function ($) {
   };
 
   gaTracker.gaProxy = function (data) {
-    try {
-      ga('send', data.type, data.label);
-    } catch (d) {
-      // mmm not sure about this.
-    }
+    ga('send', data.type, data.label);
   };
 
   gaTracker.init();
