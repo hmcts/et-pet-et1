@@ -12,7 +12,10 @@ RSpec.describe ClaimantForm, :type => :form do
         before { subject.address_country = 'united_kingdom' }
 
         it { is_expected.to ensure_length_of(:address_post_code).is_at_most(8) }
-        include_examples "Postcode validation", attribute_prefix: 'address'
+
+        include_examples "Postcode validation",
+          attribute_prefix: 'address',
+          error_message: 'You must provide a valid post code'
       end
 
       context 'when address_country is not united_kingdom' do
