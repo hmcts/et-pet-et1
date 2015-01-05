@@ -29,16 +29,18 @@
     javascript:
         document.body.className = document.body.className.replace('js-enabled','');
 
+= render partial: 'shared/cookie_message'
+
 - content_for :footer_support_links do
   li= link_to "Guide", guide_path
   li= link_to "Terms and Conditions", terms_path
+  li= link_to "Cookies", cookies_path
   li= link_to "Contact us", 'http://www.justice.gov.uk/contacts/hmcts/tribunals/employment'
 
 - content_for :content_override do
   main#content(role="main")
     .container
         p.flash.alert = flash[:alert]
-
         = render partial: 'shared/session_prompt'
         = yield
 
