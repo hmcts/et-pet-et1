@@ -14,7 +14,8 @@ class Claim < ActiveRecord::Base
 
   has_many :secondary_claimants,
     -> { where primary_claimant: false },
-    class_name: 'Claimant'
+    class_name: 'Claimant',
+    after_add: -> (c, _) { c.remove_additional_claimants_csv! }
 
   has_many :secondary_respondents,
     -> { where primary_respondent: false },
@@ -46,6 +47,9 @@ class Claim < ActiveRecord::Base
   after_initialize :setup_state_machine
   after_initialize :generate_application_reference
 
+  before_update -> { secondary_claimants.destroy_all },
+    if: :additional_claimants_csv_changed?
+
   def self.find_by_reference(reference)
     normalized = ApplicationReference.normalize(reference)
     find_by(application_reference: normalized)
@@ -63,8 +67,10 @@ class Claim < ActiveRecord::Base
     claimants.count + additional_claimants_csv_record_count
   end
 
-  def reset_additional_claimants_count!
+  def remove_additional_claimants_csv!
     update_attribute(:additional_claimants_csv_record_count, 0)
+    super
+    save
   end
 
   # TODO: validate claim against JADU XSD

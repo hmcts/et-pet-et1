@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
   if Rails.env.production?
-    config.storage                          :fog
-    config.fog_public                       = false
-    config.fog_directory                    = ENV.fetch('S3_UPLOAD_BUCKET')
+    config.storage :fog
+    config.fog_public      = false
+    config.fog_directory   = ENV.fetch('S3_UPLOAD_BUCKET')
     config.fog_credentials = {
       provider:              'AWS',
       region:                'eu-west-1',

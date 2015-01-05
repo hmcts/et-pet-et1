@@ -22,6 +22,45 @@ RSpec.describe Claim, :type => :claim do
     allow(ClaimSubmissionJob).to receive :perform_later
   end
 
+  describe 'callbacks' do
+    let(:claim) { create :claim }
+
+    describe 'after_update' do
+      context 'when additional_claimants_csv changed' do
+        before do
+          allow(claim).
+            to receive(:additional_claimants_csv_changed?).and_return(true)
+        end
+
+        it 'destroys all secondary_claimants' do
+          expect(claim.secondary_claimants).to receive(:destroy_all)
+          claim.save
+        end
+      end
+
+      context 'when additional_claimants_csv did not change' do
+        before do
+          allow(claim).
+          to receive(:additional_claimants_csv_changed?).and_return(false)
+        end
+
+        it 'destroys all secondary_claimants' do
+          expect(claim.secondary_claimants).to_not receive(:destroy_all)
+          claim.save
+        end
+      end
+    end
+
+    describe 'after_add on secondary_claimants' do
+      it 'deletes additional_claimants_csv and resets additional claimants counter' do
+        claim.secondary_claimants.create
+
+        expect(claim.additional_claimants_csv_record_count).to be_zero
+        expect(claim.additional_claimants_csv.url).to be_blank
+      end
+    end
+  end
+
   %i<created_at amount reference>.each do |meth|
     describe "#payment_#{meth}" do
       context 'when #payment is nil' do
@@ -88,17 +127,6 @@ RSpec.describe Claim, :type => :claim do
 
       expect(subject.claimants).to receive(:count).and_return(0)
       expect(subject.claimant_count).to eq 1
-    end
-  end
-
-  describe "#reset_additional_claimants_count!" do
-    it "resets the additional cliamants count for csv's back to zero" do
-      subject.additional_claimants_csv_record_count = 1
-
-      expect { subject.reset_additional_claimants_count! }.
-        to change { subject.additional_claimants_csv_record_count }.
-        from(1).
-        to(0)
     end
   end
 

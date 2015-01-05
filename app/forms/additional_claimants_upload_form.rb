@@ -49,7 +49,6 @@ class AdditionalClaimantsUploadForm < Form
   def remove_csv!
     if has_additional_claimants_csv?
       remove_additional_claimants_csv!
-      reset_additional_claimants_count!
     end
   end
 end
