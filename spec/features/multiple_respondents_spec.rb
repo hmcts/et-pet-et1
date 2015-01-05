@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Multiple respondents'do
+feature 'Multiple respondents' do
   include FormMethods
 
   let(:claim) { Claim.create password: 'lollolol' }
@@ -40,13 +40,13 @@ feature 'Multiple respondents'do
     end
 
     scenario "filling in a respondent and clicking 'Add another respondent' does not lose the entered details" do
-      expect(page).not_to have_selector '#respondent_1'
+      expect(page).not_to have_selector '#resource_1'
 
       click_button "Add another respondent"
 
-      expect(page).to have_selector '#respondent_1'
+      expect(page).to have_selector '#resource_1'
 
-      within '#respondent_0' do
+      within '#resource_0' do
 
         attributes.each do |field, value|
           expect(page).to have_field(field, with: value)
@@ -57,7 +57,7 @@ feature 'Multiple respondents'do
     scenario 'adding more than one additional respondent' do
       click_button "Add another respondent"
 
-      within '#respondent_1' do
+      within '#resource_1' do
         secondary_attributes.each do |field, value|
           fill_in field, with: value
         end
@@ -80,7 +80,7 @@ feature 'Multiple respondents'do
     scenario 'deleting arbitrary respondents' do
       visit claim_additional_respondents_path
 
-      within '#respondent_1' do
+      within '#resource_1' do
         check 'Remove this respondent'
       end
 
@@ -127,7 +127,7 @@ feature 'Multiple respondents'do
 
     click_button 'Add another respondent'
 
-    within '#respondent_1' do
+    within '#resource_1' do
       secondary_attributes.each do |field, value|
         fill_in field, with: value
       end

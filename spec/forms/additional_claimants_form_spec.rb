@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe AdditionalClaimantsForm, :type => :form do
   let(:attributes) do
     {
-      has_additional_claimants: 'true',
-      claimants_attributes: {
+      has_collection: 'true',
+      collection_attributes: {
         "0" => {
           title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
           address_building: '1', address_street: 'High Street',
@@ -27,21 +27,21 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
 
   describe '#claimants_attributes=' do
     before do
-      allow(claim.secondary_claimants).to receive(:build).and_return *claimants
+      allow(claim.secondary_claimants).to receive(:build).and_return *collection
       allow(claim.secondary_claimants).to receive(:empty?).and_return true, false
     end
 
-    let(:claimants) { [Claimant.new, Claimant.new] }
+    let(:collection) { [Claimant.new, Claimant.new] }
 
     it 'builds new claimants and decorates them as AdditionalClaimants' do
       subject.assign_attributes attributes
 
-      subject.claimants.each_with_index do |c, i|
-        attributes[:claimants_attributes].values[i].each do |key, value|
+      subject.collection.each_with_index do |c, i|
+        attributes[:collection_attributes].values[i].each do |key, value|
           expect(c.send key).to eq value
         end
 
-        expect(subject.claimants[i].target).to eq claimants[i]
+        expect(subject.collection[i].target).to eq collection[i]
       end
     end
   end
@@ -50,20 +50,20 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
     before { claimant }
 
     let(:claimant) { claim.secondary_claimants.build }
-    let(:form)     { subject.claimants.first }
+    let(:form)     { subject.collection.first }
 
     it 'decorates any secondary claimants in an AdditionalClaimant' do
-      expect(subject.claimants.length).to be 1
+      expect(subject.collection.length).to be 1
       expect(form).to be_a Form
       expect(form.target).to eq claimant
     end
   end
 
   describe '#errors' do
-    before { 3.times { claim.claimants.create } }
+    before { 3.times { claim.secondary_claimants.create } }
 
     it 'maps the errors of #claimants' do
-      expect(subject.errors[:claimants]).to include *subject.claimants.map(&:errors)
+      expect(subject.errors[:collection]).to include *subject.collection.map(&:errors)
     end
   end
 
@@ -74,7 +74,7 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
         subject.save
         claim.secondary_claimants.reload
 
-        attributes[:claimants_attributes].each_with_index do |(_, attributes), index|
+        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }
         end
       end
@@ -90,7 +90,7 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
         subject.save
         claim.secondary_claimants.reload
 
-        attributes[:claimants_attributes].each_with_index do |(_, attributes), index|
+        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }
         end
       end
@@ -107,7 +107,7 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
     end
 
     context 'when some #claimants are not valid' do
-      before { subject.has_additional_claimants = 'true' }
+      before { subject.has_collection = 'true' }
 
       it 'returns false' do
         expect(subject.save).to be false

@@ -53,7 +53,7 @@ en:
           other: Outside United Kingdom
 
       additional_claimants:
-        claimants: :"simple_form.options.claimant"
+        collection: :"simple_form.options.claimant"
 
       representative:
         type:
@@ -78,7 +78,7 @@ en:
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
-        respondents: :"simple_form.options.respondent"
+        collection: :"simple_form.options.respondent"
 
       employment:
         current_situation:
@@ -155,9 +155,9 @@ en:
         _destroy: 'Remove this claimant'
 
       additional_claimants:
-        has_additional_claimants: |
+        has_collection: |
           Are other people making a claim with you (against the same employer or organisation)?
-        claimants: :"simple_form.labels.claimant"
+        collection: :"simple_form.labels.claimant"
 
       additional_claimants_upload:
         has_additional_claimants: Do you want to upload details of 6 claimants or more?
@@ -200,8 +200,8 @@ en:
         _destroy: 'Remove this respondent'
 
       additional_respondents:
-        has_additional_repsondents: Are you making a claim against another employer, person or organisation fam?
-        respondents: :"simple_form.labels.respondent"
+        has_collection: Are you making a claim against another employer, person or organisation fam?
+        collection: :"simple_form.labels.respondent"
 
       employment:
         job_title: Job title
@@ -488,7 +488,7 @@ en:
       person: Claimant %{number}
       contact_details: Contact details
       add_fields: Add more claimants
-      remove_claimant_link: Remove this claimant
+      remove_resource_link: Remove this claimant
       number_claimants_info: For 5 or fewer claimants, enter their details below.
       csv_upload_text_html: For 6 or more claimants, you can <a href="%{path}">upload their details in a separate spreadsheet</a>.
 
@@ -544,7 +544,7 @@ en:
       additional_respondents_intro: Are you making a claim against another employer, person or organisation?
       person: Respondent %{number}
       add_fields: Add another respondent
-      remove_respondent_link: Remove this respondent
+      remove_resource_link: Remove this respondent
 
     employment:
       header: Employment details

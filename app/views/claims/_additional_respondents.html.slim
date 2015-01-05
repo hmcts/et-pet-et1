@@ -1,7 +1,7 @@
 fieldset
   p = t('.additional_respondents_intro')
 
-  = f.input :has_additional_respondents,
+  = f.input :has_collection,
     as: :radio_buttons,
     label: false,
     item_wrapper_class: 'block-label',
@@ -10,13 +10,13 @@ fieldset
     reveal: { true => 'sub1', false => 'sub1' }
 
   .multiples.reveal-subscribe data-target="sub1" data-show-array="true"
-    = f.simple_fields_for :respondents do |builder|
-      .multiple id=("respondent_#{builder.index}")
+    = f.simple_fields_for :collection do |builder|
+      .multiple id=("resource_#{builder.index}")
         fieldset
           legend role="heading" aria-level="2"
             = t('.person', number: builder.index + 2)
 
-          = link_to t('.remove_respondent_link'), 'javascript:void(0);', { class: 'remove-multiple' }
+          = link_to t('.remove_resource_link'), 'javascript:void(0);', { class: 'remove-resource' }
 
           = builder.input :name
 
@@ -49,4 +49,4 @@ fieldset
               wrapper_class: 'input',
               input_html: { class: 'destroy-checkbox' }
 
-    = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_respondent'
+    = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'

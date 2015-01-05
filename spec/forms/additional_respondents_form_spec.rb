@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe AdditionalRespondentsForm, :type => :form do
   let(:attributes) do
     {
-      has_additional_respondents: 'true',
-      respondents_attributes: {
+      has_collection: 'true',
+      collection_attributes: {
         "0" => {
           name: 'Butch McTaggert', acas_early_conciliation_certificate_number: '1',
           address_building: '1', address_street: 'High Street',
@@ -29,37 +29,37 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
 
   subject { described_class.new(claim) }
 
-  describe '#respondents_attributes=' do
+  describe '#collection_attributes=' do
     before do
-      allow(claim.secondary_respondents).to receive(:build).and_return *respondents
+      allow(claim.secondary_respondents).to receive(:build).and_return *collection
       allow(claim.secondary_respondents).to receive(:empty?).and_return true, false
     end
 
-    let(:respondents) { [Respondent.new, Respondent.new] }
+    let(:collection) { [Respondent.new, Respondent.new] }
 
     it 'builds new respondents and decorates them as AdditionalRespondents' do
       subject.assign_attributes attributes
 
-      subject.respondents.each_with_index do |c, i|
-        attributes[:respondents_attributes].values[i].each do |key, value|
+      subject.collection.each_with_index do |c, i|
+        attributes[:collection_attributes].values[i].each do |key, value|
           expect(c.send key).to eq value
         end
 
-        expect(subject.respondents[i].target).to eq respondents[i]
+        expect(subject.collection[i].target).to eq collection[i]
       end
     end
   end
 
-  describe '#respondents' do
-    before { respondent }
+  describe '#collection' do
+    before { resource }
 
-    let(:respondent) { claim.secondary_respondents.build }
-    let(:form)     { subject.respondents.first }
+    let(:resource) { claim.secondary_respondents.build }
+    let(:form)     { subject.collection.first }
 
     it 'decorates any secondary respondents in an AdditionalRespondent' do
-      expect(subject.respondents.length).to be 1
+      expect(subject.collection.length).to be 1
       expect(form).to be_a Form
-      expect(form.target).to eq respondent
+      expect(form.target).to eq resource
     end
   end
 
@@ -67,7 +67,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
     before { 3.times { claim.respondents.create } }
 
     it 'maps the errors of #respondents' do
-      expect(subject.errors[:respondents]).to include *subject.respondents.map(&:errors)
+      expect(subject.errors[:collection]).to include *subject.collection.map(&:errors)
     end
   end
 
@@ -78,7 +78,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
         subject.save
         claim.secondary_respondents.reload
 
-        attributes[:respondents_attributes].each_with_index do |(_, attributes), index|
+        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_respondents[index].send(k)).to eq v }
         end
       end
@@ -94,7 +94,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
         subject.save
         claim.secondary_respondents.reload
 
-        attributes[:respondents_attributes].each_with_index do |(_, attributes), index|
+        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_respondents[index].send(k)).to eq v }
         end
       end
@@ -110,8 +110,8 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
       end
     end
 
-    context 'when some #respondents are not valid' do
-      before { subject.has_additional_respondents = 'true' }
+    context 'when some respondents are not valid' do
+      before { subject.has_collection = 'true' }
 
       it 'returns false' do
         expect(subject.save).to be false
