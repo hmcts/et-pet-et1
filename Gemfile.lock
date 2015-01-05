@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/carrierwaveuploader/carrierwave.git
+  revision: 56873b07105396e0f1cfdd5e38be930dc3dcd362
+  ref: 56873b07105396e0f1cfdd5e38be930dc3dcd362
+  specs:
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/ministryofjustice/epdq.git
   revision: b6e7d30886078bd9884e7167fef3f125ad70a8dc
   specs:
@@ -78,11 +89,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    carrierwave (0.10.0)
-      activemodel (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      json (>= 1.7)
-      mime-types (>= 1.16)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     chunky_png (1.3.1)
@@ -435,7 +441,7 @@ DEPENDENCIES
   bitmask_attributes
   browserify-rails
   capybara
-  carrierwave (~> 0.10)
+  carrierwave!
   cocaine
   codeclimate-test-reporter
   compass
