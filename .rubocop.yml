@@ -251,6 +251,9 @@ Metrics/MethodLength:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#short-methods'
   Enabled: false
 
+Metrics/ClassLength:
+  Enabled: false
+
 Lint/AmbiguousOperator:
   Description: >-
                  Checks for ambiguous operators in the first argument of a

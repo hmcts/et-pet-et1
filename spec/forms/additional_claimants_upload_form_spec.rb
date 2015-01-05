@@ -78,8 +78,6 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     it "removes stale data" do
       expect(resource).to receive(:remove_additional_claimants_csv!)
-      expect(resource).to receive(:reset_additional_claimants_count!)
-
       subject.save
     end
   end

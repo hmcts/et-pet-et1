@@ -75,6 +75,10 @@ FactoryGirl.define do
     trait :group_payment_with_remission do
       without_additional_claimants_csv
       remission_claimant_count 2
+      with_secondary_claimants
+    end
+
+    trait :with_secondary_claimants do
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
     end
 
