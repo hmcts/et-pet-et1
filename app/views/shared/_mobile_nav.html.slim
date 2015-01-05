@@ -5,9 +5,9 @@
         li= link_to t('.save_and_complete'), reminder_user_session_path, { class: "menu-trigger" }
 
       li
-        a.menu-trigger href="#"
-          | Support
-          span class="arrow arrow-down"
+        a.menu-trigger href="javascript:void(0);"
+          = t('.support')
+          span.arrow.arrow-down
 
         ul.visuallyhidden
           li= link_to t('.read_guide'), guide_path

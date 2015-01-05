@@ -48,7 +48,9 @@ module FormMethods
   end
 
   def end_session
-    click_link 'Save and complete later'
+    within 'aside' do
+      click_link 'Save and complete later'
+    end
     click_button 'Sign out now'
   end
 
