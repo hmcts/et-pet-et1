@@ -8,7 +8,7 @@ module JaduXml
     end
 
     def amount
-      application_fee_after_remission * 100
+      application_fee_after_remission
     end
 
     def date
