@@ -1,0 +1,2283 @@
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica");
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@font-face {
+  font-family: GDS-Logo;
+  src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica");
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 24, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+/* line 32, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+.hidden {
+  display: none;
+}
+
+/* line 37, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+.representative_type select.form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 66.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+
+/* line 7, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+#content {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+@media (max-width: 640px) {
+  /* line 7, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  #content {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 13, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-xxlarge {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 13, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-xxlarge {
+    font-size: 53px;
+    line-height: 1.03774;
+  }
+}
+
+/* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-xlarge {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.04167;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-xlarge {
+    font-size: 32px;
+    line-height: 1.09375;
+  }
+}
+
+/* line 19, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-large {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 19, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-large {
+    font-size: 24px;
+    line-height: 1.04167;
+  }
+}
+
+/* line 22, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-medium {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 22, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-medium {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* line 25, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-small {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 25, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-small {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.font-xsmall {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .font-xsmall {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 33, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-xxlarge {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 33, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-xxlarge {
+    font-size: 53px;
+    line-height: 1.03774;
+  }
+}
+
+/* line 36, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-xlarge {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.04167;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 36, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-xlarge {
+    font-size: 32px;
+    line-height: 1.09375;
+  }
+}
+
+/* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-large {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-large {
+    font-size: 24px;
+    line-height: 1.04167;
+  }
+}
+
+/* line 42, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-medium, table.files-table caption, table.confirmation-table caption {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 42, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-medium, table.files-table caption, table.confirmation-table caption {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* line 45, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-small, table.review-table caption, .content-section h3 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 45, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-small, table.review-table caption, .content-section h3 {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 48, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.bold-xsmall {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 48, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .bold-xsmall {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 57, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.heading-xlarge {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.04167;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 0.46875em;
+  margin-bottom: 0.9375em;
+  margin-top: 0.625em;
+  margin-bottom: 1.25em;
+}
+@media (max-width: 640px) {
+  /* line 57, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .heading-xlarge {
+    font-size: 32px;
+    line-height: 1.09375;
+  }
+}
+/* line 68, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.heading-xlarge .heading-secondary {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 27px;
+  line-height: 1.11111;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #6f777b;
+}
+@media (max-width: 640px) {
+  /* line 68, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .heading-xlarge .heading-secondary {
+    font-size: 20px;
+    line-height: 1.11111;
+  }
+}
+
+/* line 77, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.heading-large {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.04167em;
+  margin-bottom: 0.41667em;
+  margin-top: 1.25em;
+  margin-bottom: 0.55556em;
+}
+@media (max-width: 640px) {
+  /* line 77, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .heading-large {
+    font-size: 24px;
+    line-height: 1.04167;
+  }
+}
+
+/* line 90, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.heading-medium, .validation-summary h2, aside h3, .legend, .content-section h2, legend {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  margin-top: 1.875em;
+  margin-bottom: 0.83333em;
+}
+@media (max-width: 640px) {
+  /* line 90, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .heading-medium, .validation-summary h2, aside h3, .legend, .content-section h2, legend {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* line 103, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.heading-small {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 0.625em;
+  margin-bottom: 0.3125em;
+  margin-top: 1.05263em;
+}
+@media (max-width: 640px) {
+  /* line 103, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .heading-small {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 116, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  margin-top: 0.3125em;
+  margin-bottom: 1.25em;
+}
+@media (max-width: 640px) {
+  /* line 116, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  p {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 123, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+.lede {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 123, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_typography.scss */
+  .lede {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* line 4, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_layout.scss */
+#wrapper {
+  text-align: center;
+  padding-bottom: 30px;
+  padding-bottom: 90px;
+}
+
+/* line 17, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_layout.scss */
+#content {
+  text-align: left;
+  margin: 0 auto;
+  width: auto;
+  max-width: 1020px;
+  width: 1020px;
+  zoom: 1;
+}
+/* line 13, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 24, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_layout.scss */
+.inner-block {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+/* line 30, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_layout.scss */
+#global-cookie-message .inner-block,
+#global-header-bar .inner-block {
+  margin: 0;
+}
+
+/* line 5, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-group,
+.form-group-reveal {
+  clear: both;
+  zoom: 1;
+  margin-bottom: 15px;
+  margin-bottom: 30px;
+}
+/* line 13, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+.form-group:after,
+.form-group-reveal:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-group.radio_buttons > label.radio {
+  clear: none;
+  margin-right: 15px;
+}
+
+/* line 20, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-group-related {
+  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-title {
+  margin-bottom: 30px;
+  margin-bottom: 45px;
+}
+
+/* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-label {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  margin-bottom: 5px;
+}
+@media (max-width: 640px) {
+  /* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+  .form-label {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 46, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-label-bold > label {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+  display: block;
+  margin-bottom: 0;
+}
+@media (max-width: 640px) {
+  /* line 46, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+  .form-label-bold > label {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+
+/* line 54, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-block {
+  float: left;
+  width: 100%;
+  zoom: 1;
+}
+/* line 13, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_helpers.scss */
+.form-block:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 63, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-hint {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #6f777b;
+  margin-bottom: 5px;
+}
+@media (max-width: 640px) {
+  /* line 63, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+  .form-hint {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 75, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-control {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #bfc1c3;
+  border-radius: 0;
+}
+@media (max-width: 640px) {
+  /* line 75, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+  .form-control {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 84, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-control:not([type=radio][type=checkbox]) {
+  -webkit-appearance: none;
+}
+
+/* line 91, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-radio {
+  display: block;
+  margin: 10px 0;
+}
+
+/* line 95, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-radio input {
+  vertical-align: middle;
+  margin: -4px 5px 0 0;
+}
+
+/* line 102, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-checkbox {
+  display: block;
+  margin: 15px 0;
+}
+
+/* line 106, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.form-checkbox input {
+  vertical-align: middle;
+  margin: -2px 5px 0 0;
+}
+
+/* line 119, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_forms.scss */
+.js-enabled .toggle-content {
+  display: none;
+}
+
+/* line 2, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary {
+  border: 3px solid #df3034;
+  padding: 15px 30px;
+  margin-bottom: 30px;
+}
+
+/* line 12, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary ul {
+  margin-top: 10px;
+}
+
+/* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary li,
+.validation-summary p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+  .validation-summary li,
+  .validation-summary p {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 21, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary p {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+/* line 26, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary a {
+  color: #df3034;
+}
+
+/* line 33, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-summary .heading-small {
+  margin-top: 15px;
+}
+
+/* line 58, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+.validation-message {
+  display: block;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  color: #df3034;
+}
+@media (max-width: 640px) {
+  /* line 58, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-validation.scss */
+  .validation-message {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 3, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.know-date-input label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 8, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.know-date-input .form-group {
+  width: 50px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 0;
+  clear: none;
+}
+
+/* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.know-date-input .know-date-year {
+  width: 70px;
+}
+
+/* line 20, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.know-date-input .form-group input {
+  width: 100%;
+}
+
+/* line 29, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.touch .date-of-birth {
+  display: none;
+}
+
+/* line 34, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.no-touch .native-date-of-birth {
+  display: none;
+}
+
+/* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.touch .native-date-of-birth {
+  display: block;
+}
+
+/* line 44, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-date-of-birth.scss */
+.touch input[type="date"] {
+  min-height: 36px;
+}
+
+/* line 1, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+label.block-label, span.block-label label, .prefixed-field .form-group.radio_buttons span.slim-label label {
+  float: none;
+  clear: left;
+  background: #dee0e2;
+  border: 1px solid #dee0e2;
+  padding: 18px 30px 15px 45px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* line 14, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.options > span.block-label, .prefixed-field .form-group.radio_buttons .options > span.slim-label {
+  float: left;
+}
+/* line 16, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.options > span.block-label:last-child, .prefixed-field .form-group.radio_buttons .options > span.slim-label:last-child {
+  margin-right: 0;
+}
+
+/* line 26, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+label.block-label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 39, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+span.block-label, .prefixed-field .form-group.radio_buttons span.slim-label {
+  clear: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 15px;
+  display: block;
+}
+/* line 46, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+span.block-label label, .prefixed-field .form-group.radio_buttons span.slim-label label {
+  display: block;
+  margin: 0;
+}
+/* line 51, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+span.block-label label:hover, .prefixed-field .form-group.radio_buttons span.slim-label label:hover {
+  border-color: #0b0c0c;
+}
+/* line 55, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+span.block-label.large-label, .prefixed-field .form-group.radio_buttons span.large-label.slim-label {
+  margin-right: 0;
+  float: none;
+}
+
+/* line 61, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.block-label:hover, .prefixed-field .form-group.radio_buttons span.slim-label:hover {
+  border-color: #0b0c0c;
+}
+
+/* line 66, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.block-label input, .prefixed-field .form-group.radio_buttons span.slim-label input {
+  position: absolute;
+  top: 18px;
+  left: 15px;
+  cursor: pointer;
+  width: auto;
+}
+
+/* line 75, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.inline .block-label, .inline .prefixed-field .form-group.radio_buttons span.slim-label, .prefixed-field .form-group.radio_buttons .inline span.slim-label {
+  clear: none;
+  margin-right: 15px;
+}
+
+/* line 83, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.js-enabled .add-focus {
+  outline: 3px solid #ffbf47;
+}
+
+/* line 88, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.js-enabled .block-label input:focus, .js-enabled .prefixed-field .form-group.radio_buttons span.slim-label input:focus, .prefixed-field .form-group.radio_buttons .js-enabled span.slim-label input:focus {
+  outline: none;
+}
+
+/* line 93, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+.js-enabled .selected {
+  background: #fff;
+  border-color: #0b0c0c;
+}
+
+/* line 98, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-chunky-labels.scss */
+label abbr {
+  display: none;
+}
+
+/* line 1, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+.field_with_errors {
+  border-left: 3px solid #df3034;
+  padding: 15px 0 15px 15px;
+}
+/* line 4, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+.field_with_errors input,
+.field_with_errors select {
+  border: 2px solid #df3034;
+}
+
+/* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+.error {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #df3034;
+}
+@media (max-width: 640px) {
+  /* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+  .error {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 14, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+.validation-summary {
+  background: #fef7f7;
+  margin: 30px 0;
+}
+/* line 17, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-errors.scss */
+.validation-summary h2 {
+  margin: 0;
+}
+
+/* line 3, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .currency_field {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #bfc1c3;
+  background-color: #dee0e2;
+}
+/* line 11, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .currency_pound {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 8.33333%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  padding-top: 7px;
+  padding-bottom: 4px;
+  display: inline-block;
+  text-align: center;
+  background: #dee0e2;
+  border-right: 1px solid #bfc1c3;
+}
+@media (max-width: 640px) {
+  /* line 11, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+  .prefixed-field .currency_pound {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 21, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field input.string {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 91.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  float: right;
+  margin: 0;
+  border-color: #fff;
+}
+/* line 27, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .form-group.radio_buttons {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  float: right;
+  clear: none;
+  margin-bottom: 0;
+}
+/* line 32, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .form-group.radio_buttons span.slim-label {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* line 36, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .form-group.radio_buttons span.slim-label label {
+  line-height: .2;
+  background-color: #fff;
+  border-color: #fff;
+}
+/* line 41, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/forms/_form-prefixes.scss */
+.prefixed-field .form-group.radio_buttons span.slim-label input {
+  top: 7px;
+}
+
+/* line 5, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_panels.scss */
+.panel-indent {
+  border-left: 5px solid #dee0e2;
+  margin: 7.5px 0 30px;
+  padding: 15px 0 15px 15px;
+}
+/* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_panels.scss */
+.panel-indent legend {
+  margin-top: 0;
+}
+/* line 12, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_panels.scss */
+.panel-indent p:only-child {
+  margin: 0;
+}
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_panels.scss */
+.panel-indent .form-group:last-child {
+  margin-bottom: 0;
+}
+/* line 19, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_panels.scss */
+.panel-indent.panel-grey {
+  background-color: #dee0e2;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 45, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content {
+  zoom: 1;
+}
+/* line 46, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/_shims.scss */
+#content:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+@-o-viewport {
+  width: device-width;
+}
+/* line 6, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button, .button-return {
+  margin: 0 15px 15px 0;
+  vertical-align: top;
+}
+/* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button:focus, .button-return:focus {
+  outline: 3px solid #ffbf47;
+}
+
+/* line 14, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button {
+  background-color: #00823b;
+  position: relative;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  display: inline;
+  padding: 0.3em 0.6em 0.2em 0.6em;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0 2px 0 #003518;
+  -moz-box-shadow: 0 2px 0 #003518;
+  box-shadow: 0 2px 0 #003518;
+  border-bottom: 2px solid #003518;
+  font-size: 1em;
+  line-height: 1.25;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  color: #fff;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+}
+/* line 49, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:visited {
+  background-color: #00823b;
+}
+/* line 52, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:hover, .button:focus {
+  background-color: #00692f;
+}
+/* line 56, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:active {
+  top: 2px;
+  -webkit-box-shadow: 0 0 0 #00823b;
+  -moz-box-shadow: 0 0 0 #00823b;
+  box-shadow: 0 0 0 #00823b;
+}
+/* line 62, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button.disabled, .button[disabled="disabled"], .button[disabled] {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+/* line 66, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button.disabled:hover, .button[disabled="disabled"]:hover, .button[disabled]:hover {
+  cursor: default;
+  background-color: #00823b;
+}
+/* line 70, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button.disabled:active, .button[disabled="disabled"]:active, .button[disabled]:active {
+  top: 0;
+  -webkit-box-shadow: 0 2px 0 #003518;
+  -moz-box-shadow: 0 2px 0 #003518;
+  box-shadow: 0 2px 0 #003518;
+  border-bottom: 2px solid #003518;
+}
+/* line 82, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:link, .button:hover, .button:focus, .button:visited {
+  color: #fff;
+}
+/* line 100, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:before {
+  content: "";
+  height: 110%;
+  width: 100%;
+  display: block;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 110, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button:active:before {
+  top: -10%;
+  height: 120%;
+}
+/* line 123, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button[rel="external"]:after {
+  display: none;
+  content: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 132, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button[type="submit"], .button[type="reset"], .button[type="button"] {
+  filter: chroma(color=#000000);
+}
+/* line 138, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button[type=submit].button {
+  filter: none;
+}
+/* line 19, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button[disabled="disabled"] {
+  background: #00823b;
+}
+/* line 21, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button[disabled="disabled"]:focus {
+  outline: none;
+}
+
+/* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_buttons.scss */
+.button-return {
+  background-color: #005ea5;
+  position: relative;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  display: inline;
+  padding: 0.3em 0.6em 0.2em 0.6em;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-box-shadow: 0 2px 0 #003259;
+  -moz-box-shadow: 0 2px 0 #003259;
+  box-shadow: 0 2px 0 #003259;
+  border-bottom: 2px solid #003259;
+  font-size: 1em;
+  line-height: 1.25;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;
+  color: #fff;
+  padding-top: 7.5px;
+  padding-bottom: 7.5px;
+  color: #fff;
+}
+/* line 49, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:visited {
+  background-color: #005ea5;
+}
+/* line 52, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:hover, .button-return:focus {
+  background-color: #004f8b;
+}
+/* line 56, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:active {
+  top: 2px;
+  -webkit-box-shadow: 0 0 0 #005ea5;
+  -moz-box-shadow: 0 0 0 #005ea5;
+  box-shadow: 0 0 0 #005ea5;
+}
+/* line 62, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return.disabled, .button-return[disabled="disabled"], .button-return[disabled] {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+/* line 66, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return.disabled:hover, .button-return[disabled="disabled"]:hover, .button-return[disabled]:hover {
+  cursor: default;
+  background-color: #005ea5;
+}
+/* line 70, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return.disabled:active, .button-return[disabled="disabled"]:active, .button-return[disabled]:active {
+  top: 0;
+  -webkit-box-shadow: 0 2px 0 #003259;
+  -moz-box-shadow: 0 2px 0 #003259;
+  box-shadow: 0 2px 0 #003259;
+  border-bottom: 2px solid #003259;
+}
+/* line 82, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:link, .button-return:hover, .button-return:focus, .button-return:visited {
+  color: #fff;
+}
+/* line 100, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:before {
+  content: "";
+  height: 110%;
+  width: 100%;
+  display: block;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 110, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return:active:before {
+  top: -10%;
+  height: 120%;
+}
+/* line 123, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return[rel="external"]:after {
+  display: none;
+  content: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+/* line 132, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return[type="submit"], .button-return[type="reset"], .button-return[type="button"] {
+  filter: chroma(color=#000000);
+}
+/* line 138, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/govuk_frontend_toolkit-2.0.0/app/assets/stylesheets/design-patterns/_buttons.scss */
+.button-return[type=submit].button {
+  filter: none;
+}
+
+/* line 4, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* line 10, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table th,
+table td {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  padding: 0.73684em 1.05263em 0.52632em 0;
+  text-align: left;
+  color: #0b0c0c;
+  border-bottom: 1px solid #bfc1c3;
+}
+@media (max-width: 640px) {
+  /* line 10, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+  table th,
+  table td {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 20, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table th {
+  font-weight: 700;
+}
+
+/* line 27, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+/* line 31, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table col.th {
+  width: 30%;
+}
+/* line 34, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table col.td:first-child {
+  width: 30%;
+}
+/* line 38, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table caption {
+  text-align: left;
+  background: #f8f8f8;
+  padding: 7.5px 0;
+}
+/* line 44, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table th, table.review-table td {
+  border-bottom: 1px solid #bfc1c3;
+  vertical-align: top;
+  padding-right: 0;
+  width: 30%;
+}
+/* line 50, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table th {
+  font-weight: 400;
+  color: #6f777b;
+}
+/* line 55, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table tr:first-child th, table.review-table tr:first-child td {
+  border-top: 1px solid #bfc1c3;
+}
+/* line 59, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.review-table + h2 {
+  margin: 30px 0 15px;
+}
+
+/* line 64, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.files-table caption, table.confirmation-table caption {
+  text-align: left;
+}
+
+/* line 69, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.files-table {
+  border: 1px solid #bfc1c3;
+  border-bottom: none;
+  margin-bottom: 1em;
+}
+
+/* line 78, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.confirmation-table {
+  margin: 60px 0;
+  border-top: 1px solid #bfc1c3;
+}
+/* line 84, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.confirmation-table th {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  color: #6f777b;
+}
+@media (max-width: 640px) {
+  /* line 84, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+  table.confirmation-table th {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+/* line 88, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+table.confirmation-table td {
+  text-align: left;
+}
+
+/* line 93, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_tables.scss */
+.static-content table {
+  margin: 30px 0;
+}
+
+/* line 7, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details {
+  display: block;
+  margin: 3.75px 0 15px;
+}
+/* line 10, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details summary {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+  color: #005ea5;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 0.26316em;
+}
+@media (max-width: 640px) {
+  /* line 10, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+  details summary {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 18, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details summary:hover {
+  color: #2e8aca;
+}
+/* line 21, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details summary:focus {
+  outline: 3px solid #ffbf47;
+}
+/* line 25, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details .summary {
+  text-decoration: underline;
+}
+/* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_details.scss */
+details .arrow {
+  margin-right: 0.35em;
+}
+
+/* default state */
+/* line 3, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_state-indicator.scss */
+.state-indicator {
+  position: absolute;
+  top: -999em;
+  left: -999em;
+  z-index: 8001;
+}
+
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_state-indicator.scss */
+.state-indicator {
+  z-index: 8002;
+}
+
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_state-indicator.scss */
+.state-indicator {
+  z-index: 8003;
+}
+
+/* line 1, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 91.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  margin: 0 0 60px;
+  padding: 30px 15px;
+}
+/* line 11, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout.callout-reference {
+  border-left: 5px solid #bfc1c3;
+  background: #f8f8f8;
+}
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout.callout-fee {
+  border-left: 5px solid #28a197;
+  background: #e8f9f8;
+}
+/* line 19, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout.callout-confirmation {
+  background: #28a197;
+  color: #fff;
+}
+/* line 23, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  margin: 0;
+}
+@media (max-width: 640px) {
+  /* line 23, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+  .callout p {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 27, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout .number {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.04167;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 27, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+  .callout .number {
+    font-size: 32px;
+    line-height: 1.09375;
+  }
+}
+/* line 30, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+.callout .type {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 30, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/elements/_callouts.scss */
+  .callout .type {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 1, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_helpers.scss */
+.options, .prefixed-field, .main-section, .content-section, fieldset {
+  zoom: 1;
+}
+/* line 3, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_helpers.scss */
+.options:before, .prefixed-field:before, .main-section:before, .content-section:before, fieldset:before, .options:after, .prefixed-field:after, .main-section:after, .content-section:after, fieldset:after {
+  content: "";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+/* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_helpers.scss */
+.options:after, .prefixed-field:after, .main-section:after, .content-section:after, fieldset:after {
+  clear: both;
+}
+
+/* line 1, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+.container {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 0 30px 30px;
+}
+/* line 12, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+.container:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+/* line 12, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+.main-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 66.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  padding-left: 0;
+}
+
+/* line 22, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+aside {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 25%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  float: right;
+}
+
+/* line 37, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+header.main-header h1 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1.04167;
+  font-weight: 700;
+  text-transform: none;
+  padding: 0;
+  margin: 60px 0;
+}
+@media (max-width: 640px) {
+  /* line 37, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+  header.main-header h1 {
+    font-size: 32px;
+    line-height: 1.09375;
+  }
+}
+/* line 42, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+header.main-header p.page-number {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  color: #6f777b;
+  padding-top: 15px;
+  margin: 0;
+}
+@media (max-width: 640px) {
+  /* line 42, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+  header.main-header p.page-number {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+/* line 47, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+header.main-header p.page-number + h1 {
+  margin-top: 15px;
+}
+
+/* line 58, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+input[type=text],
+input[type=email],
+input[type=tel] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 66.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+/* line 62, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+input[type=text].short-input,
+input[type=email].short-input,
+input[type=tel].short-input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 33.33333%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+/* line 65, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+input[type=text].medium-input,
+input[type=email].medium-input,
+input[type=tel].medium-input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+
+/* line 69, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+select.form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+
+/* line 73, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+textarea.form-control {
+  width: 100%;
+}
+
+/* line 76, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+input.form-control.file {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 83.33333%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+
+/* line 82, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+.form-actions {
+  margin-top: 2em;
+}
+
+/* line 87, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+.label-column .block-label label, .label-column .prefixed-field .form-group.radio_buttons span.slim-label label, .prefixed-field .form-group.radio_buttons .label-column span.slim-label label {
+  margin-right: 0;
+}
+
+/* line 93, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+.block-label.large-label, .prefixed-field .form-group.radio_buttons span.large-label.slim-label {
+  float: none;
+  display: block;
+}
+
+/* line 100, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+aside h3 {
+  margin-top: 0;
+}
+/* line 104, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+aside ul {
+  padding-left: 0;
+  margin-left: 0;
+  list-style: none;
+}
+/* line 108, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_layout.scss */
+aside ul li {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* line 2, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_common.scss */
+.js-enabled .js-enabled-hidden {
+  display: none;
+}
+
+/* line 3, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.application-summary {
+  text-align: center;
+  background-color: #dee0e2;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}
+/* line 8, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.application-summary h2, .application-summary h3 {
+  margin-top: 0;
+}
+
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.legend, .content-section h2, legend {
+  border-bottom: 1px solid #bfc1c3;
+  width: 100%;
+  display: block;
+  padding: 0 0 7.5px 0;
+}
+
+/* line 26, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.email-confirmation {
+  border-bottom: 1px solid #bfc1c3;
+}
+/* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.email-confirmation .checkbox label {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 28, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .email-confirmation .checkbox label {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 33, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.not-entered {
+  color: #6f777b;
+}
+
+/* line 43, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-section h2:first-child {
+  margin-top: 0;
+}
+/* line 47, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-section h3 {
+  margin-bottom: 0;
+}
+/* line 50, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-section h3 + p, .content-section h3 + ul {
+  margin-top: 0;
+}
+/* line 55, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-section p, .content-section li {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 55, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .content-section p, .content-section li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 60, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-block {
+  margin: 15px 0;
+}
+/* line 62, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.content-block:first-child {
+  margin-top: 0;
+}
+
+/* line 70, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+aside h3 {
+  margin: 0 0 7.5px;
+}
+/* line 74, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+aside ul {
+  padding-left: 0;
+  margin: 0 0 15px 0;
+  list-style: none;
+}
+/* line 79, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+aside li {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* line 85, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.fee-detail {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 91.66667%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+}
+/* line 87, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.fee-detail .number {
+  font-weight: 700;
+}
+
+/* line 93, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.form-fields > h2.legend, .content-section .form-fields > h2 {
+  margin-top: 0;
+}
+
+/* line 98, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+fieldset {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin: 0 0 30px;
+}
+/* line 12, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+fieldset:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 103, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+fieldset legend:first-child {
+  margin-top: 0;
+}
+
+/* line 110, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+legend.form-label {
+  border: none;
+  margin-bottom: 0;
+}
+/* line 114, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+legend.medium {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
+}
+@media (max-width: 640px) {
+  /* line 114, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  legend.medium {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 120, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+legend + .form-hint {
+  margin-bottom: 7.5px;
+}
+
+/* line 125, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.label-column {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+.label-column:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 127, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.label-column span.checkbox {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
+  padding-left: 0.83333%;
+  padding-right: 0.83333%;
+  padding-left: 0;
+}
+/* line 66, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/susy-2.1.3/sass/susy/language/susy/_gallery.scss */
+.label-column span.checkbox:nth-child(2n + 1) {
+  margin-left: 0;
+  margin-right: -100%;
+  clear: both;
+}
+/* line 66, /Users/davidplews/.rvm/gems/ruby-2.1.5/gems/susy-2.1.3/sass/susy/language/susy/_gallery.scss */
+.label-column span.checkbox:nth-child(2n + 2) {
+  margin-left: 50%;
+  margin-right: -100%;
+  clear: none;
+}
+
+/* line 133, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.hyperlink {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+  background: none;
+  outline: none;
+  border: none;
+  color: #005ea5;
+  text-decoration: underline;
+}
+@media (max-width: 640px) {
+  /* line 133, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .hyperlink {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 140, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.hyperlink:hover {
+  color: #2e8aca;
+  cursor: pointer;
+}
+
+/* line 146, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.remove-multiple, .remove-respondent {
+  display: none;
+}
+/* line 148, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.js-enabled .remove-multiple, .js-enabled .remove-respondent {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 2em;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media (max-width: 640px) {
+  /* line 148, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .js-enabled .remove-multiple, .js-enabled .remove-respondent {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+/* line 157, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.nav-static-content {
+  margin: 0 0 30px;
+}
+
+/* line 163, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+#step_one p, #step_one .additional_claimants_upload_additional_claimants_csv, #step_two p, #step_two .additional_claimants_upload_additional_claimants_csv, #step_three p, #step_three .additional_claimants_upload_additional_claimants_csv {
+  margin-left: 70px;
+  margin-top: 0;
+}
+/* line 167, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+#step_one b, #step_two b, #step_three b {
+  float: left;
+}
+/* line 170, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+#step_one .additional_claimants_upload_additional_claimants_csv, #step_two .additional_claimants_upload_additional_claimants_csv, #step_three .additional_claimants_upload_additional_claimants_csv {
+  clear: none;
+}
+
+/* line 176, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.static-content h2 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 176, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .static-content h2 {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+/* line 179, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.static-content h3 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 179, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .static-content h3 {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 184, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+ol.numerical-list {
+  list-style-position: outside;
+  list-style-type: decimal;
+  padding: 0 30px;
+}
+/* line 188, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+ol.numerical-list li {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 188, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  ol.numerical-list li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+/* line 190, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+ol.numerical-list li p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 190, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  ol.numerical-list li p {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 198, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list-entry {
+  margin: 30px 0 45px;
+}
+/* line 200, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list-entry:first-child {
+  margin-top: 0;
+}
+/* line 203, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list-entry .list-header {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.25;
+  font-weight: 700;
+  text-transform: none;
+  overflow: hidden;
+  margin: 0;
+  border-bottom: 1px solid #bfc1c3;
+}
+@media (max-width: 640px) {
+  /* line 203, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .review-list-entry .list-header {
+    font-size: 18px;
+    line-height: 1.2;
+  }
+}
+/* line 208, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list-entry .list-header a {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 2;
+  float: right;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  /* line 208, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .review-list-entry .list-header a {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+/* line 214, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list-entry .list-header + h3 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 700;
+  text-transform: none;
+  margin: 0;
+  padding: 7.5px 0;
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #bfc1c3;
+  text-indent: 7.5px;
+}
+@media (max-width: 640px) {
+  /* line 214, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .review-list-entry .list-header + h3 {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 224, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list {
+  width: 100%;
+  border-bottom: 1px solid #bfc1c3;
+  overflow: hidden;
+  margin: 0;
+}
+/* line 229, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dt, .review-list dd {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  vertical-align: top;
+  padding: 15px 0;
+  width: 50%;
+}
+@media (max-width: 640px) {
+  /* line 229, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .review-list dt, .review-list dd {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+/* line 235, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dt {
+  font-weight: 400;
+  color: #6f777b;
+  float: left;
+  text-indent: 7.5px;
+}
+/* line 241, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dd {
+  float: right;
+  margin-left: 0;
+  word-wrap: break-word;
+}
+/* line 245, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dd p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 245, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+  .review-list dd p {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+/* line 247, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dd p:only-child {
+  margin: 0;
+}
+/* line 250, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list dd p:first-child {
+  margin-top: 0;
+}
+/* line 255, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+.review-list + h2 {
+  margin: 30px 0 15px;
+}
+
+/* line 263, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+label .radio_buttons, label .gds_check_boxes {
+  background: #dee0e2;
+  border: none;
+}
+/* line 268, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_shame.scss */
+label.selected .radio_buttons, label.selected .gds_check_boxes {
+  background: #fff;
+}
+
+/* line 5, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+aside a {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  /* line 5, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+  aside a {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+/* line 17, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.application-summary {
+  text-align: center;
+  background-color: #dee0e2;
+  padding: 1em 0;
+  margin-bottom: 1em;
+}
+/* line 22, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.application-summary h2, .application-summary h3 {
+  margin-top: 0;
+}
+
+/* line 31, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.claims .content-section h3 {
+  margin-top: 0.9375em;
+}
+/* line 33, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.claims .content-section h3:first-child {
+  margin-top: 0.3125em;
+}
+/* line 37, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.claims .content-section p {
+  margin-bottom: 0.3125em;
+}
+/* line 43, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/_overrides.scss */
+.claims.new .main-header h1 {
+  padding-left: 0.83333%;
+  padding-right: 34.16667%;
+  padding-left: 0;
+}
+
+/* IE shame */
+/* Checkboxes side by side /apply/claim_type */
+/* line 4, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/application-ie.css.scss */
+.claim_type_discrimination_claims span.checkbox,
+.claim_type_pay_claims span.checkbox {
+  width: 47%;
+  font-size: 17px;
+}
+
+/* line 11, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/application-ie.css.scss */
+input [type=radio],
+input [type="checkbox"] {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+/* line 9, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/application-ie7.css.scss */
+.claim_type_discrimination_claims span.checkbox,
+.claim_type_pay_claims span.checkbox {
+  width: 45%;
+}
+
+/* line 15, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/application-ie7.css.scss */
+.callout {
+  float: none;
+}
+
+/* line 22, /Users/davidplews/moj_projects/atetv2/app/assets/stylesheets/application-ie7.css.scss */
+#content {
+  line-height: 19px;
+}
