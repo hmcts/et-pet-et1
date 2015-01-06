@@ -626,6 +626,9 @@ en:
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
+      attributes:
+        first_name:
+          blank: "OMG"
       messages:
         too_long: |
            The information you have provided for this field must not exceed %{count} characters
@@ -642,6 +645,26 @@ en:
           attributes:
             password:
               blank: "Error (field blank): Please create a memorable word so you can return to your claim"
+        additional_claimants_form/additional_claimant:
+          attributes:
+            title:
+              blank: "Error (field blank): Please enter the title of the additional claimant"
+            first_name:
+              blank: "Error (field blank): Please enter the first name of the additional claimant"
+            last_name:
+              blank: "Error (field blank): Please enter your last name of the additional claimant"
+            address_building:
+              blank: "Error (field blank): Please enter the building name or number of the additional claimant’s address"
+            address_street:
+              blank: "Error (field blank): Please enter the street of the additional claimant’s address"
+            address_locality:
+              blank: "Error (field blank): Please enter the town or city of the additional claimant’s address"
+            address_county:
+              blank: "Error (field blank): Please enter the county of the additional claimant’s address"
+            address_post_code:
+              blank: "Error (field blank): Please enter the additional claimant’s postcode"
+              invalid: "Error (field invalid): Please enter a valid UK postcode or if you live abroad, enter SW55 9QT"
+
         additional_claimant:
           attributes:
             title:
@@ -681,7 +704,7 @@ en:
             contact_preference:
               blank: "Error (field blank): Please say whether you’d like correspondence to be sent to the claimant by post or email"
             address_building:
-              blank: "Error (field blank): Please say whether you require assistance at the tribunal hearing"
+              blank: "Error (field blank): Please enter the building number or name from your address"
             address_street:
               blank: "Error (field blank): Please enter the street of your address"
             address_locality:
@@ -764,4 +787,26 @@ en:
             work_address_post_code:
               blank: "Error (field blank): Please enter the postcode of your work address"
               invalid: "Error (field invalid): Please enter a valid UK postcode or if you live abroad please enter SW55 9QT"
+        additional_respondents_form/additional_respondent:
+          attributes:
+            title:
+              blank: "Error (field blank): Please select a title from the list"
+            name:
+              blank: "Error (field blank):Please provide the name of the additional person or organisation you are making the claim against"
+            acas_early_conciliation_certificate_number:
+              blank: "Error (field blank): Please provide your Acas early conciliation number. If you don’t have one, please select ‘ I don't have an Acas number’ below"
+              invalid: "acas invalid"
+            no_acas_number_reason:
+              blank: "Error (field blank): You have said that you don’t have an Acas early conciliation number. Please select a reason from the list"
+            address_building:
+              blank: "Error (field blank): Please enter the building name or number from the additional respondent’s address"
+            address_street:
+              blank: "Error (field blank): Please enter the street of the additional respondent’s address"
+            address_locality:
+              blank: "Error (field blank): Please enter the town or city of the additional respondent’s address"
+            address_county:
+              blank: "Error (field blank): Please enter the county of the additional respondent’s address"
+            address_post_code:
+              blank: "Error (field blank): Please enter the additional respondent's postcode"
+              invalid: "Error (field invalid): Please enter a valid UK postcode or if you live abroad, enter SW55 9QT"
 
