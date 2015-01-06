@@ -43,20 +43,8 @@ module Jadu
 
     def attachments
       @attachments ||= claim.attachments.reduce({}) do |o, a|
-        o.update filename(a) => a.file.read
+        o.update CarrierwaveFilename.for(a) => a.file.read
       end
-    end
-
-    # CarrierWave::Uploader::Base#filename is totally broken, i.e. You can't get
-    # the filename unless you assigned that file to that particular instance.
-    # If you later query the DB and try to get the filename from that instance
-    # it will be nil.
-    #
-    # This method normalizes the file URL for file and S3 backends. S3 private
-    # URLs have query params so can't directly be use with File.basename.
-
-    def filename(attachment)
-      File.basename URI.parse(attachment.url).path
     end
   end
 end

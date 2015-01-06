@@ -40,6 +40,10 @@ class AdditionalClaimantsUploadForm < Form
     errors[:erroneous_line_number].first
   end
 
+  def attachment_filename
+    CarrierwaveFilename.for additional_claimants_csv
+  end
+
   private
 
   def valid_so_far?
