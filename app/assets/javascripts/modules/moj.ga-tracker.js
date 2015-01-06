@@ -1,13 +1,13 @@
 module.exports = (function ($) {
   'use strict';
-
-  //console.log(ga);
+  var ga = window.ga || undefined;
 
   var gaTracker = {
     error: {
       type: 'event',
       label: 'error'
-    }
+    },
+    ga: window.ga || undefined
   };
 
   gaTracker.init = function () {
@@ -38,7 +38,9 @@ module.exports = (function ($) {
   };
 
   gaTracker.gaProxy = function (data) {
-    ga('send', data.type, data.label);
+    if(ga){
+      ga('send', data.type, data.label);
+    }
   };
 
   gaTracker.init();
