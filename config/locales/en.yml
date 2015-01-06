@@ -463,7 +463,7 @@ en:
             <li>credit or debit card details </li>
           </ul>
     application_number:
-      header: Returning to your claim
+      header: Saving your claim
       application_number: Your claim number
       intro_text: You can save your claim and return to it at any time. You will need your claim number and memorable word, which you create below.
       email_hint: Enter your email address to get the claim number emailed to you.
