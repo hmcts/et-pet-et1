@@ -6,7 +6,8 @@ module.exports = (function ($) {
     error: {
       type: 'event',
       label: 'error'
-    }
+    },
+    ga: window.ga || undefined
   };
 
   gaTracker.init = function () {
