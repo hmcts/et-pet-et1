@@ -1,8 +1,15 @@
 class UserSessionsController < ApplicationController
-  redispatch_request unless: :present?, except: %i<update returning create>
+  redispatch_request unless: :present?, except: %i<new create>
 
-  def reminder
-    redirect_to root_path if email_address_already_set?
+  def destroy
+    case
+    when claim.email_address.present?
+      logout
+    when params[:user_session].present?
+      send_access_details_and_logout
+    else
+      render 'reminder'
+    end
   end
 
   def create
@@ -10,33 +17,29 @@ class UserSessionsController < ApplicationController
       session[:claim_reference] = user_session.reference
       redirect_to claim_path_for :claimant
     else
-      render :returning
+      render :new
     end
   end
 
-  def update
-    claim.update_attributes(email_address: user_session.email_address)
-    deliver_access_details
-    reset_session
-    redirect_to root_path
-  end
-
-  def session_expired
-    reset_session
-  end
-
-  def refresh_session
+  def touch
     render nothing: true
   end
 
   private
 
-  def deliver_access_details
-    AccessDetailsMailer.deliver_later claim
+  def logout
+    reset_session
+    redirect_to root_path
   end
 
-  def email_address_already_set?
-    claim.email_address.present?
+  def send_access_details_and_logout
+    claim.update_attributes(email_address: user_session.email_address)
+    deliver_access_details
+    logout
+  end
+
+  def deliver_access_details
+    AccessDetailsMailer.deliver_later claim
   end
 
   def user_session

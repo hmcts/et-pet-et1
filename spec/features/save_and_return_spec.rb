@@ -4,12 +4,25 @@ feature 'Save and Return' do
   include FormMethods
   include Messages
 
+  scenario 'ending the session actually ends the session' do
+    start_claim
+    fill_in_password
+    fill_in_personal_details(submit_form: false)
+
+    click_button 'Save and complete later'
+    click_button 'Sign out now'
+
+    visit claim_claimant_path
+
+    expect(page.current_path).to_not eq claim_claimant_path
+  end
+
   scenario 'ending the session with email address' do
     start_claim
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_link 'Save and complete later'
+    click_button 'Save and complete later'
     expect(page).to have_text('Claim saved')
     expect(page).to have_text(Claim.last.reference)
 
@@ -32,7 +45,7 @@ feature 'Save and Return' do
 
     fill_in_personal_details(submit_form: false)
 
-    click_link 'Save and complete later'
+    click_button 'Save and complete later'
 
     expect(page).to have_text(claim_heading_for(:new))
   end
@@ -40,7 +53,7 @@ feature 'Save and Return' do
   scenario 'ending the session when current page invalid' do
     start_claim
     fill_in_password
-    click_link 'Save and complete later'
+    click_button 'Save and complete later'
     expect(page).to have_text('Claim saved')
   end
 

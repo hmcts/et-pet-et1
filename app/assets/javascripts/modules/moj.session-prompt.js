@@ -59,13 +59,13 @@ module.exports = (function () {
     },
 
     expireSession: function () {
-      location.href = location.protocol + "//" + location.host + "/application/session-expired";
+      location.href = location.protocol + "//" + location.host + "/apply/session/expired";
     },
 
     refreshSession: function () {
       clearInterval(this.timerRef);
       $.ajax({
-        url: "/application/refresh-session"
+        url: "/apply/session/touch"
       }).done(
         $.proxy(function () {
           this.togglePromptVisibility();
