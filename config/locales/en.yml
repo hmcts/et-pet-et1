@@ -434,6 +434,10 @@ en:
     show:
       header: Cookies
 
+  maintenances:
+    show:
+      header: Service unavailable
+
   claims:
     personal_details:
       date_of_birth: Date of birth
