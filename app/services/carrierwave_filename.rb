@@ -1,6 +1,8 @@
 module CarrierwaveFilename
-  def for(attachment)
-    attachment.file.path.split('/').last if attachment.file
+  def for(attachment, underscore: false)
+    file = attachment.file && attachment.file.path.split('/').last
+
+    underscore ? file.tr('-', '_') : file
   end
 
   extend self

@@ -39,6 +39,23 @@ RSpec.describe Jadu::Claim, type: :service do
       Jadu::Claim.create claim
     end
 
+    context 'when the attachment filenames have underscores' do
+      let(:claim) { create :claim, :hyphenated_attachment_filenames }
+
+      let(:attachments) do
+        { "et1_barrington_wrigglesworth.pdf" => claim.pdf_file.read,
+          "file_lol.rtf" => claim.additional_information_rtf_file.read,
+          "file_lol.csv" => claim.additional_claimants_csv_file.read }
+      end
+
+      it 'converts the hyphens to underscores' do
+        expect(api_double).to receive(:new_claim).
+          with(xml_double, attachments).and_return successful_api_response
+
+        Jadu::Claim.create claim
+      end
+    end
+
     describe 'on failure' do
       before do
         allow(api_double).to receive(:new_claim).

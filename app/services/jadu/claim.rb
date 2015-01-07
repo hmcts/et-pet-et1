@@ -43,7 +43,7 @@ module Jadu
 
     def attachments
       @attachments ||= claim.attachments.reduce({}) do |o, a|
-        o.update CarrierwaveFilename.for(a) => a.file.read
+        o.update CarrierwaveFilename.for(a, underscore: true) => a.file.read
       end
     end
   end
