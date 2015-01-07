@@ -101,6 +101,16 @@ FactoryGirl.define do
       additional_information_rtf nil
       additional_claimants_csv nil
     end
+
+    trait :hyphenated_attachment_filenames do
+      additional_claimants_csv do
+        Rack::Test::UploadedFile.new 'spec/support/files/file-lol.csv'
+      end
+
+      additional_information_rtf do
+        Rack::Test::UploadedFile.new 'spec/support/files/file-lol.rtf'
+      end
+    end
   end
 
   factory :claimant do
