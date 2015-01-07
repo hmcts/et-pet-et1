@@ -23,6 +23,10 @@ class AdditionalInformationForm < Form
     self.has_miscellaneous_information = miscellaneous_information.present?
   end
 
+  def attachment_filename
+    CarrierwaveFilename.for additional_information_rtf
+  end
+
   private def reset_miscellaneous_information!
     self.miscellaneous_information = nil
   end

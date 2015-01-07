@@ -4,7 +4,7 @@ module JaduXml
     property :checksum, as: "Checksum", exec_context: :decorator
 
     def filename
-      File.basename(represented.to_s)
+      CarrierwaveFilename.for(represented)
     end
 
     def checksum

@@ -8,10 +8,9 @@ describe BaseMailer, type: :mailer do
     I18n.t("base_mailer.confirmation_email.details.#{heading}")
   end
 
-  let(:claim) do
-    create(:claim, submitted_at: '2014-09-09', email_address: email_address)
-  end
+  include_context 'block pdf generation'
 
+  let(:claim) { create(:claim, :with_pdf, email_address: email_address) }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
 
@@ -47,8 +46,6 @@ describe BaseMailer, type: :mailer do
       claim.confirmation_email_recipients = email_addresses
       allow(claim).to receive(:payment_applicable?).and_return false
       allow(claim).to receive(:remission_applicable?).and_return false
-      allow(claim).to receive(:pdf_filename).and_return "such.pdf"
-      allow(claim).to receive(:pdf_file).and_return Tempfile.new('such.pdf')
     end
 
     context "post delivery" do
@@ -74,8 +71,8 @@ describe BaseMailer, type: :mailer do
           to have_text 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
       end
 
-      it 'has attachment' do
-        expect(attachment.filename).to eq('such.pdf')
+      it 'has an attachment' do
+        expect(attachment.filename).to eq('et1_barrington_wrigglesworth.pdf')
       end
 
       context 'when no office' do

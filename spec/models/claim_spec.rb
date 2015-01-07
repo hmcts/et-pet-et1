@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Claim, :type => :claim do
+RSpec.describe Claim, type: :claim do
   it { is_expected.to have_secure_password }
 
   it { is_expected.to have_many(:claimants).dependent(:destroy) }
@@ -22,6 +22,8 @@ RSpec.describe Claim, :type => :claim do
     allow(ClaimSubmissionJob).to receive :perform_later
   end
 
+  include_context 'block pdf generation'
+
   describe 'callbacks' do
     let(:claim) { create :claim }
 
@@ -41,7 +43,7 @@ RSpec.describe Claim, :type => :claim do
       context 'when additional_claimants_csv did not change' do
         before do
           allow(claim).
-          to receive(:additional_claimants_csv_changed?).and_return(false)
+            to receive(:additional_claimants_csv_changed?).and_return(false)
         end
 
         it 'destroys all secondary_claimants' do
@@ -239,40 +241,29 @@ RSpec.describe Claim, :type => :claim do
   end
 
   describe "#attachments" do
-    let(:path) { Pathname.new(Rails.root) }
+    subject { create :claim, :with_pdf }
 
-    before do
-      subject.additional_claimants_csv = File.open(path + 'spec/support/files/file.csv')
-      subject.additional_information_rtf = File.open(path + 'spec/support/files/file.rtf')
+    it "returns a list of attachment uplaoders on the claim" do
+      subject.attachments.each do |a|
+        expect(a).to be_kind_of CarrierWave::Uploader::Base
+      end
     end
 
-    it "returns a list of attachments on the claim" do
-      filenames = subject.attachments.map { |a| File.basename(a.to_s) }
-      expect(filenames).to match_array %w<file.csv file.rtf>
-    end
+    specify { expect(subject.attachments.size).to eq 3 }
 
     it "only returns attachments that exist" do
       subject.remove_additional_information_rtf!
-      expect(subject.attachments.size).to eq 1
+      expect(subject.attachments.size).to eq 2
     end
   end
 
   describe "#generate_pdf!" do
-    context "pdf has already been generated" do
-      it "does not attempt to generate another" do
-        allow(subject).to receive(:pdf_blank?).and_return false
-        expect(PdfFormBuilder).not_to receive(:build)
-        subject.generate_pdf!
-      end
-    end
+    subject { create :claim }
 
-    context "pdf has yet to be generated" do
-      it "assigns a pdf to the model" do
-        subject = create :claim
-        subject.generate_pdf!
-
-        expect(subject.pdf_filename).to eq "et1_barrington_wrigglesworth.pdf"
-      end
+    it "assigns a pdf to the model" do
+      subject.generate_pdf!
+      expect(subject[:pdf]).to eq "et1_barrington_wrigglesworth.pdf"
+      expect(subject.pdf.file).not_to be_nil
     end
   end
 

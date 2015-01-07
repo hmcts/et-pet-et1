@@ -8,7 +8,8 @@ class BaseMailer < ActionMailer::Base
   end
 
   def confirmation_email(claim)
-    attachments[claim.pdf_filename] = claim.pdf_file.read
+    filename = CarrierwaveFilename.for(claim.pdf)
+    attachments[filename] = claim.pdf_file.read
     @presenter = ConfirmationEmailPresenter.new(claim)
 
     mail(to: claim.confirmation_email_recipients, subject: t('base_mailer.confirmation_email.subject'))

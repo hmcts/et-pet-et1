@@ -31,7 +31,7 @@ class Claim < ActiveRecord::Base
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
   delegate :file, to: :additional_information_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
-  delegate :file, :filename, :url, :present?, :blank?, to: :pdf, prefix: true
+  delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
 
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
@@ -105,7 +105,7 @@ class Claim < ActiveRecord::Base
   end
 
   def generate_pdf!
-    PdfFormBuilder.build(self) { |file| self.update pdf: file } if pdf_blank?
+    PdfFormBuilder.build(self) { |file| self.update pdf: file }
   end
 
   def attachments

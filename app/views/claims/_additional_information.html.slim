@@ -17,7 +17,7 @@ fieldset
     - if resource.has_additional_information_rtf?
         = f.input :remove_additional_information_rtf, as: :boolean,
           inline_label: t('.remove_additional_information_rtf',
-          file: claim.additional_information_rtf_file.filename),
+            file: resource.attachment_filename),
           label: false
 
     = f.input_field :additional_information_rtf, as: :file
