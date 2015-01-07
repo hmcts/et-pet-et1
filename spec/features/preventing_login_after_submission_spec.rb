@@ -8,7 +8,7 @@ feature 'Login after submission', type: :feature do
   end
 
   scenario 'User attepts login after claim has been submitted' do
-    visit returning_user_session_path
+    visit new_user_session_path
     fill_in_return_form claim.reference, 'lololol'
 
     expect(page.current_path).to eq user_session_path

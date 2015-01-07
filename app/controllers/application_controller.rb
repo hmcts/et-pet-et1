@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def check_session_expiry
     if Time.now > session[:expires_in]
-      redirect_to session_expired_user_session_path
+      redirect_to expired_user_session_path
     end
   end
 

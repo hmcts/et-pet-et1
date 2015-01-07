@@ -22,7 +22,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(2)
       expect(page).to have_text claim_heading_for(:claimant)
-      expect(page).to have_link('Save and complete later')
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering word and email for save and return' do

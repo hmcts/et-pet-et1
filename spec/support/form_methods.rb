@@ -48,12 +48,12 @@ module FormMethods
   end
 
   def end_session
-    click_link 'Save and complete later'
+    click_button 'Save and complete later'
     click_button 'Sign out now'
   end
 
   def fill_in_return_form(reference, word)
-    visit returning_user_session_path
+    visit new_user_session_path
     fill_in 'Claim number', with: reference
     fill_in 'Memorable word', with: word
     click_button 'Find my claim'

@@ -9,7 +9,7 @@ feature 'Attaching a document' do
   let(:invalid_file_path) { file_path + './phil.jpg' }
 
   before do
-    visit returning_user_session_path
+    visit new_user_session_path
     fill_in_return_form claim.reference, 'lollolol'
   end
 

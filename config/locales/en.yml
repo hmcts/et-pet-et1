@@ -133,10 +133,10 @@ en:
         email_address: Enter your email address to receive your claim number
         password: Create your memorable word
       user_session:
-        returning:
+        new:
           reference: Claim number
           password: Memorable word
-        reminder:
+        destroy:
           email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
@@ -334,10 +334,10 @@ en:
       your_fee:
 
       user_session:
-        returning:
+        new:
           reference: This was emailed to you, if you entered an email address
           password: You created a password at the beginning of your claim
-        reminder:
+        destroy:
           email_address: Get your claim number in an email
 
   helpers:
@@ -385,7 +385,7 @@ en:
       immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
-    returning:
+    new:
       header: Return to your claim
       subheader: Enter your details below
       hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
@@ -397,9 +397,9 @@ en:
       submit: Sign out now
       print_link: Print this page
 
-    session_expired:
+    expired:
       header: Your session has expired
-      content_html: To complete your claim, please <a href="%{returning_user_session_path}">return to your claim</a>.
+      content_html: To complete your claim, please <a href="%{new_user_session_path}">return to your claim</a>.
 
   guides:
     show:

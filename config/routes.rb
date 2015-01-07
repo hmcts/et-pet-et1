@@ -1,25 +1,11 @@
 Rails.application.routes.draw do
-
-  resource :guide, only: :show
-
-  resource :terms, only: :show
-
-  resource :cookies, only: :show
-
-  resource :user_session, only: %i<create update>, path: :application do
-    member do
-      %w<reminder returning refresh-session session-expired>.each do |page|
-        get page
-      end
-    end
-  end
-
   scope :apply do
-    resource :claim_review, only: %i<show update>, path: :review
-
+    resource :guide,              only: :show
+    resource :terms,              only: :show
+    resource :cookies,            only: :show
+    resource :claim_review,       only: %i<show update>, path: :review
+    resource :pdf,                only: :show
     resource :claim_confirmation, only: :show, path: :confirmation
-
-    resource :pdf, only: :show
 
     resource :claim, only: :create, path: "/" do
       resource :payment, only: %i<show update>, path: :pay do
@@ -41,9 +27,17 @@ Rails.application.routes.draw do
           page: page, path: page
       end
     end
+
+    get 'ping' => 'ping#index'
+
+    resource :user_session, only: %i<create destroy new>, path: :session do
+      member do
+        get :touch
+        get :expired
+      end
+    end
   end
 
-  root to: 'claims#new'
-
-  get 'ping' => 'ping#index'
+  get '/apply' => 'claims#new'
+  root to: redirect('/apply')
 end

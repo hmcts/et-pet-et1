@@ -4,7 +4,7 @@ feature 'Confirmation page' do
   include FormMethods
 
   before do
-    visit returning_user_session_path
+    visit new_user_session_path
     fill_in_return_form claim.reference, 'lollolol'
 
     visit claim_review_path
