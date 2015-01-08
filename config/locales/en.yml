@@ -648,7 +648,7 @@ en:
         additional_claimants_form/additional_claimant:
           attributes:
             title:
-              blank: "Error (field blank): Please enter the title of the additional claimant"
+              inclusion: "Error (field blank): Please enter the title of the additional claimant"
             first_name:
               blank: "Error (field blank): Please enter the first name of the additional claimant"
             last_name:
