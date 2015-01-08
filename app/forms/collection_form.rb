@@ -41,7 +41,10 @@ class CollectionForm < Form
 
   def save
     if valid?
-      run_callbacks(:save) { collection.all?(&:save) }
+      run_callbacks(:save) do
+        resource.save
+        collection.all?(&:save)
+      end
     else
       false
     end
