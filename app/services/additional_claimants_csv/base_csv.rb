@@ -6,7 +6,7 @@ class AdditionalClaimantsCsv::BaseCsv < Struct.new(:claim)
   end
 
   def csv_collection
-    CSV.open(csv_path, headers: true).lazy
+    CSV.new(additional_claimants_csv.read, headers: true).lazy
   end
 
   def model_builder

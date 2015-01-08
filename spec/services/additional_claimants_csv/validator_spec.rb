@@ -98,8 +98,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
     file = Tempfile.new('example.csv')
     file.write([header, *rows].join("\n"))
     file.close
-
-    mock = double(additional_claimants_csv: file)
-    return described_class.new(mock).validate
+    claim = create :claim, additional_claimants_csv: file
+    return described_class.new(claim).validate
   end
 end
