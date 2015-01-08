@@ -4,7 +4,7 @@ class ClaimantCsvPresenter < Presenter
   end
 
   def file_name
-    File.basename(target.additional_claimants_csv.to_s)
+    CarrierwaveFilename.for additional_claimants_csv
   end
 
   def number_claimants
