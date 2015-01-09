@@ -15,7 +15,7 @@ RSpec.describe ClaimantForm, :type => :form do
 
         include_examples "Postcode validation",
           attribute_prefix: 'address',
-          error_message: 'You must provide a valid post code'
+          error_message: 'Please enter a valid UK postcode. If you live abroad please enter SW55 9QT'
       end
 
       context 'when address_country is not united_kingdom' do

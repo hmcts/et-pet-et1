@@ -58,7 +58,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
 
   include_examples "Postcode validation",
     attribute_prefix: 'address',
-    error_message: 'is invalid'
+    error_message: 'Please enter a valid UK postcode or if you live abroad, enter SW55 9QT'
 
   let(:attributes) do
     {
