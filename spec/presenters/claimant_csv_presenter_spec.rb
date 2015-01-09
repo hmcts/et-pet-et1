@@ -3,12 +3,7 @@ require 'rails_helper'
 RSpec.describe ClaimantCsvPresenter, type: :presenter do
   subject { described_class.new claim }
 
-  let(:claim) do
-    Claim.new.tap do |c|
-      c.additional_claimants_csv = File.open(Rails.root + 'spec/support/files/file.csv')
-      c.additional_claimants_csv_record_count = 10
-    end
-  end
+  let(:claim) { create :claim }
 
   describe ".i18n_key" do
     it "returns the i18n_key" do
@@ -40,7 +35,7 @@ RSpec.describe ClaimantCsvPresenter, type: :presenter do
 
   describe "#number_claimants" do
     it "returns the number of claimant models in the csv" do
-      expect(subject.number_claimants).to eq 10
+      expect(subject.number_claimants).to eq 5
     end
   end
 end

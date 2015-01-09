@@ -46,16 +46,18 @@ RSpec.describe Claim, type: :claim do
             to receive(:additional_claimants_csv_changed?).and_return(false)
         end
 
-        it 'destroys all secondary_claimants' do
+        it 'does not destroy secondary_claimants' do
           expect(claim.secondary_claimants).to_not receive(:destroy_all)
           claim.save
         end
       end
     end
 
-    describe 'after_add on secondary_claimants' do
+    describe 'after_update when adding secondary_claimants' do
       it 'deletes additional_claimants_csv and resets additional claimants counter' do
-        claim.secondary_claimants.create
+        claim.secondary_claimants.build
+
+        claim.save
 
         expect(claim.additional_claimants_csv_record_count).to be_zero
         expect(claim.additional_claimants_csv.url).to be_blank
