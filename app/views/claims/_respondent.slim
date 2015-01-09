@@ -10,8 +10,8 @@ fieldset
     as: :gds_check_boxes,
     required: true,
     wrapper_class: 'reveal-publish-delegate clearfix options',
-    input_html: { :class => 'reveal-publish-publisher',
-                  :'data-target' => 'main' }
+    input_html: { :class => 'reveal-publish-publisher', :data => { 'ga-type' => 'event', 'ga-label' => 'no-acas-number' },
+              :'data-target' => 'main' }
 
 
   .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"

@@ -12,8 +12,8 @@
   = javascript_include_tag "application"
 
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID')
-  javascript:
-    gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
+    javascript:
+      gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
 
 - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 

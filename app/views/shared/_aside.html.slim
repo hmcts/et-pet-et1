@@ -4,8 +4,8 @@ aside role="complementary"
     = link_to t('.skip_link'), '#main-sub-content', { class: 'skiplink' }
     h3= t '.gethelp_header'
     ul
-      li= link_to t('.read_guide'), guide_path
-      li= link_to t('.contact_us'), t('.contact_us_link')
+      li= link_to t('.read_guide'), guide_path, :data => { 'ga-type' => 'event', 'ga-label' => 'guide' }
+      li= link_to t('.contact_us'), t('.contact_us_link'), :data => { 'ga-type' => 'event', 'ga-label' => 'contact-us' }
     - unless hide.include?(:signout)
       h3= t '.actions_header'
       ul
