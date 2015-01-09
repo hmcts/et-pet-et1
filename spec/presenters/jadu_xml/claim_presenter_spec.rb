@@ -6,7 +6,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
 
   describe "decorated methods" do
     its(:claimants) { is_expected.to be_kind_of Enumerable }
-    its(:document_id) { is_expected.to be_kind_of JaduXml::DocumentId }
+    its(:document_id) { is_expected.to eq claim }
     its(:submission_channel) { is_expected.to eq "Web" }
 
     describe "#case_type" do
@@ -83,7 +83,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
 
     its(:administrator)   { is_expected.to eq -1 }
     its(:representative)  { is_expected.to be_kind_of Array }
-    its(:payment)         { is_expected.to be_kind_of JaduXml::Payment }
+    its(:payment)         { is_expected.to eq claim }
 
     describe "#files" do
       it "delegates to the 'represented' method" do

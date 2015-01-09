@@ -175,14 +175,41 @@ feature 'Generating XML for a claim', type: :feature do
     end
 
     describe 'Payment' do
-      it 'has an Amount(in pounds)' do
-        expect(xpath('//Payment/Fee/Amount')).to eq "500"
+      describe 'Fee' do
+        it 'has an Amount(in pounds) exclusive of remission discounts' do
+          expect(xpath('//Payment/Fee/Amount')).to eq claim.fee_calculation.application_fee.to_s
+        end
+        it 'has a PRN(alias for fee group reference)' do
+          expect(xpath('//Payment/Fee/PRN')).to eq claim.fee_group_reference
+        end
+        it 'has a Date' do
+          expect(xpath('//Payment/Fee/Date')).to eq "2014-09-29T00:00:00Z"
+        end
       end
-      it 'has a PRN' do
-        expect(xpath('//Payment/Fee/PRN')).to eq claim.fee_group_reference
-      end
-      it 'has a Date' do
-        expect(xpath('//Payment/Fee/Date')).to eq "2014-09-29T00:00:00Z"
+
+      describe 'Receipt' do
+        context 'a successful payment was made by the claimant' do
+          it 'has a PSP(Payment Service Provider)' do
+            expect(xpath('//Payment/Receipt/PSP')).to eq "Barclaycard"
+          end
+          it 'has a PayId' do
+            expect(xpath('//Payment/Receipt/PayId')).to match(/^[0-9]{1,8}$/)
+          end
+          it 'has an Amount' do
+            expect(xpath('//Payment/Receipt/Amount')).to eq "250"
+          end
+          it 'has a Date' do
+            expect(xpath('//Payment/Receipt/Date')).to eq "2014-09-29T00:00:00Z"
+          end
+        end
+
+        context 'no payment was made' do
+          include_context 'assign claim', :payment_failed
+
+          it 'does not contain a Receipt' do
+            expect(xpath('//Payment/Receipt')).to be_empty
+          end
+        end
       end
     end
 

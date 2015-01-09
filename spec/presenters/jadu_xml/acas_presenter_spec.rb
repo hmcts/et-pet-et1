@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe JaduXml::Acas, type: :model do
+RSpec.describe JaduXml::AcasPresenter, type: :presenter do
   let(:respondent) { Respondent.new }
   subject { described_class.new respondent }
 
   describe "delegated methods" do
-    it { is_expected.to delegate_method(:acas_early_conciliation_certificate_number).to(:respondent) }
-    it { is_expected.to delegate_method(:no_acas_number_reason).to(:respondent) }
+    it { is_expected.to delegate_method(:acas_early_conciliation_certificate_number).to(:represented) }
+    it { is_expected.to delegate_method(:no_acas_number_reason).to(:represented) }
   end
 
   describe "#exemption_code" do

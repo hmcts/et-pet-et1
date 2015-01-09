@@ -6,11 +6,8 @@ RSpec.describe JaduXml::RespondentPresenter, type: :presenter do
 
   describe "decorated methods" do
     describe "#acas" do
-      it "returns a jadu xml acas instance" do
-        expect(JaduXml::Acas).to receive(:new).
-          with(respondent).and_call_original
-
-        expect(subject.acas).to be_kind_of JaduXml::Acas
+      it "returns the respondent to be consumed by the acas presenter" do
+        expect(subject.acas).to eq respondent
       end
     end
   end

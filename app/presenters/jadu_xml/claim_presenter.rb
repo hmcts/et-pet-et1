@@ -43,7 +43,7 @@ module JaduXml
     end
 
     def document_id
-      JaduXml::DocumentId.new
+      represented
     end
 
     def submission_channel
@@ -75,7 +75,7 @@ module JaduXml
     end
 
     def payment
-      JaduXml::Payment.new(represented)
+      represented
     end
 
     def files
