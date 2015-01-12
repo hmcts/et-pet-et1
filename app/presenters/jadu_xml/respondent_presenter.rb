@@ -8,7 +8,7 @@ module JaduXml
     property :acas, extend: JaduXml::AcasPresenter, exec_context: :decorator
 
     def acas
-      JaduXml::Acas.new(represented)
+      represented
     end
   end
 end

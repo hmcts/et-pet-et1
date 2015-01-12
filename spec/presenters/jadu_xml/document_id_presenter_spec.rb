@@ -1,7 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe JaduXml::DocumentId, type: :model do
-  before(:each) { travel_to Date.new(2014, 9, 29) }
+RSpec.describe JaduXml::DocumentIdPresenter, type: :presenter do
+  around { |example| travel_to Date.new(2014, 9, 29) { example.run } }
+
+  subject { described_class.new(Object.new) }
 
   its(:name)    { is_expected.to eq "ETFeesEntry" }
   its(:type)    { is_expected.to eq "ETFeesEntry" }
