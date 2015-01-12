@@ -49,4 +49,7 @@ fieldset
               wrapper_class: 'input',
               input_html: { class: 'destroy-checkbox' }
 
-    = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'
+    - if resource.collection.length >= 3
+        p= t '.additional_respondents_limit'
+    - else
+        = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'
