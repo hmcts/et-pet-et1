@@ -151,7 +151,33 @@ feature 'Generating XML for a claim', type: :feature do
         expect(xpath("//Respondent/Name")).to eq "Ministry of Justice"
         expect(xpath("//Respondent/Address/Street")).to eq "Petty France"
         expect(xpath("//Respondent/PhoneNumber")).to eq "020 7123 4567"
-        expect(xpath("//Respondent/Acas/ExemptionCode")).to eq "employer_contacted_acas"
+      end
+
+      describe 'Respondents' do
+        it 'contains a Respondents details' do
+          expect(xpath("//Respondent/GroupContact")).to eq "true"
+          expect(xpath("//Respondent/Name")).to eq "Ministry of Justice"
+          expect(xpath("//Respondent/Address/Street")).to eq "Petty France"
+          expect(xpath("//Respondent/PhoneNumber")).to eq "020 7123 4567"
+        end
+
+        describe 'Acas element' do
+          context 'with an acas number' do
+            include_context 'assign claim', :respondent_with_acas_number
+
+            it 'contains a Number' do
+              expect(xpath("//Respondent/Acas/Number")).to eq "SOMEACASNUMBER"
+              expect(xpath("//Respondent/Acas/ExemptionCode")).to be_empty
+            end
+          end
+
+          context 'with no acas number' do
+            it 'contains an ExemptionCode' do
+              expect(xpath("//Respondent/Acas/ExemptionCode")).to eq "employer_contacted_acas"
+              expect(xpath("//Respondent/Acas/Number")).to be_empty
+            end
+          end
+        end
       end
     end
 
