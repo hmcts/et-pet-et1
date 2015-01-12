@@ -72,7 +72,7 @@ feature 'Multiple claimants' do
 
       click_button 'Save and continue'
 
-      expect(claim.secondary_claimants.pluck(:first_name)).to eq %w<Persephone Pegasus>
+      expect(claim.secondary_claimants.pluck(:first_name)).to match_array %w<Persephone Pegasus>
     end
   end
 
