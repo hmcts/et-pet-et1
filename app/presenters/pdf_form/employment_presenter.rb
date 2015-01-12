@@ -3,10 +3,10 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
 
   def to_h
     {
-      "5.1 employment start" => start_date.to_s,
+      "5.1 employment start" => format_date(start_date),
       "5.1 tick boxes" => tri_state(end_date.nil? || end_date.future?),
-      "5.1 employment end" => end_date.to_s,
-      "5.1 not ended" => notice_period_end_date.to_s,
+      "5.1 employment end" => format_date(end_date),
+      "5.1 not ended" => format_date(notice_period_end_date),
       "5.2" => job_title,
       "6.1" => average_hours_worked_per_week,
       "6.2 pay before tax" => gross_pay,
@@ -19,7 +19,7 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
       "6.4 tick boxes" => tri_state(enrolled_in_pension_scheme?),
       "6.5" => benefit_details,
       "7.1 tick boxes" => tri_state(found_new_job),
-      "7.2" => new_job_start_date.to_s,
+      "7.2" => format_date(new_job_start_date),
       "7.3" => new_job_gross_pay
     }
   end

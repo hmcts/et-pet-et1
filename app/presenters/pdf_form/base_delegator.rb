@@ -29,6 +29,10 @@ module PdfForm
       { nil => 'Off', false => 'Off', true => yes }[value]
     end
 
+    def format_date(date)
+      date.try(:strftime, "%d/%m/%Y")
+    end
+
     def self.present(*objects)
       objects.each do |object|
         define_method(object) do
