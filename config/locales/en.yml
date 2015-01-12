@@ -74,7 +74,7 @@ en:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’. It’s within 7 days of the dismissal
+          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’.
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
@@ -243,7 +243,6 @@ en:
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
-        claim_details: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim.
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
       claim_outcome:
@@ -287,7 +286,7 @@ en:
         benefit_details: Details of benefit(s)
         end_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
         new_job_start_date: For example, 22 04 2014
-        notice_period_end_date: If your employer has given you ‘notice’ that your employment will come to an end, enter the date. For example, 22 04 2014
+        notice_period_end_date: The date your employment ends. For example, 22 04 2014
       claim:
         other_claim_details: |
           Eg your employer hasn’t allowed you to take your statutory annual leave entitlement
@@ -322,10 +321,10 @@ en:
       claim_outcome:
         desired_outcomes: You can select more than one
         other_outcome: |
-           If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later - or leave this section blank if you don’t know.
+           If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
       additional_information:
         has_miscellaneous_information: |
-          Include anything that will help the judge come to a decision about whether your case can be  heard at an employment tribunal.  Remember that what you write may be seen by the respondent.
+          Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
         miscellaneous_information: Enter more detail about your claim. Limit is 5000 characters (approx 900 words).
         additional_information_rtf: |
           You can upload a separate document if you need more space to describe your claim. Please do not send any
@@ -466,9 +465,9 @@ en:
             <li>credit or debit card details </li>
           </ul>
     application_number:
-      header: Returning to your claim
+      header: Saving your claim
       application_number: Your claim number
-      intro_text: You can save your claim and return to it at any time. You will need your claim number and memorable word, which you create below.
+      intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
       email_hint: Enter your email address to get the claim number emailed to you.
       print_link: Print this page
       print_copy: to have a copy of your claim number for reference
@@ -519,7 +518,7 @@ en:
       representative_legend: About your representative
       contact_legend: Representative’s contact details
       contact_info: |
-        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must give their contact details to the tribunal office handling your case.
+        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must send their contact details to the tribunal office handling your case.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
@@ -568,7 +567,7 @@ en:
     claim_type:
       header: About the claim
       claim_type: What your claim is about
-      claim_type_label: Tick as many of the claim types below that apply. You’ll also be able to provide full details about your case later.
+      claim_type_label: Select at least one of the claim types below.
       unfair_dismissal: Unfair dismissal
       summary:  What is this?
       summary_detail: |
@@ -581,7 +580,8 @@ en:
     claim_details:
       header: Claim details
       claim_details: About your claim
-      claim_details_hint_html: <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>. Limit is 5000 characters (approx 900 words).
+      claim_details_html: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
+      claim_details_hint_html: If you are making a claim against more than 4 respondents, put their details here. Limit is 5000 characters (approx 900 words).
       similar_claims: Similar claims
 
     claim_outcome:
