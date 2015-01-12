@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :claim do
     association :primary_claimant,   factory: :claimant, primary_claimant: true
-    association :primary_respondent, factory: :respondent, primary_respondent: true
+    association :primary_respondent, factory: :respondent
     association :representative
     association :employment
     association :payment
@@ -111,6 +111,10 @@ FactoryGirl.define do
         Rack::Test::UploadedFile.new 'spec/support/files/file-lol.rtf'
       end
     end
+
+    trait :respondent_with_acas_number do
+      association :primary_respondent, factory: %i<respondent with_acas_number>
+    end
   end
 
   factory :claimant do
@@ -148,10 +152,16 @@ FactoryGirl.define do
   end
 
   factory :respondent do
+    primary_respondent      true
     name                    "Ministry of Justice"
     no_acas_number_reason   "employer_contacted_acas"
     worked_at_same_address  false
     addresses               { create_list(:address, 2) }
+
+    trait :with_acas_number do
+      no_acas_number_reason nil
+      acas_early_conciliation_certificate_number "SOMEACASNUMBER"
+    end
   end
 
   factory :payment do
