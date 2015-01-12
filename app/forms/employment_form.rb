@@ -42,6 +42,11 @@ class EmploymentForm < Form
 
   validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
 
+  validates :new_job_gross_pay_frequency, presence: { if: :new_job_gross_pay? }
+  validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
+  validates :gross_pay_period_type,       presence: { if: :gross_pay? }
+  validates :net_pay_period_type,         presence: { if: :net_pay? }
+
   def was_employed
     @was_employed ||= target.persisted?
   end
