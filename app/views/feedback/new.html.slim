@@ -1,0 +1,12 @@
+h1= t '.header'
+
+p= t '.copy'
+
+h2= t '.sub_header'
+
+= simple_form_for(resource, url: feedback_path) do |f|
+  = f.input :comments, as: :text
+  = f.input :suggestions, as: :text
+  = f.input :email_address
+
+  = f.submit

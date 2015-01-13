@@ -28,8 +28,8 @@
     = render partial: 'shared/mobile_nav'
     .container
       = render partial: 'shared/feedback_link'
-      .flash.alert
-        = flash[:alert]
+      p.flash.alert = flash[:alert]
+      p.flash.notice = flash[:notice]
       = render partial: 'shared/session_prompt'
       = yield
 
