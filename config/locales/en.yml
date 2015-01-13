@@ -229,7 +229,6 @@ en:
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
 
       additional_information:
-        has_miscellaneous_information: Do you want to provide additional information about your claim?
         additional_information_rtf: Do you want to attach a document?
 
       confirmation_email:
@@ -323,8 +322,6 @@ en:
         other_outcome: |
            If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
       additional_information:
-        has_miscellaneous_information: |
-          Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
         miscellaneous_information: Enter more detail about your claim. Limit is 5000 characters (approx 900 words).
         additional_information_rtf: |
           You can upload a separate document if you need more space to describe your claim. Please do not send any
@@ -582,7 +579,7 @@ en:
       header: Claim details
       claim_details: About your claim
       claim_details_html: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
-      claim_details_hint_html: If you are making a claim against more than 4 respondents, put their details here. Limit is 5000 characters (approx 900 words).
+      claim_details_hint_html: Limit is 5000 characters (approx 900 words).
       similar_claims: Similar claims
 
     claim_outcome:
@@ -592,6 +589,9 @@ en:
     additional_information:
       header: More about the claim
       legend: Other important details
+      has_miscellaneous_information: Do you want to provide additional information about your claim? (optional)
+      has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
+      additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
       remove_additional_information_rtf: |
         Remove previously uploaded document: %{file}
 
