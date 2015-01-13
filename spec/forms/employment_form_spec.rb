@@ -13,6 +13,22 @@ RSpec.describe EmploymentForm, :type => :form do
     %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
       it { is_expected.to validate_numericality_of(attribute).allow_nil }
     end
+
+    { :new_job_gross_pay_frequency => :new_job_gross_pay, :notice_pay_period_type => :notice_pay_period_count,
+      :gross_pay_period_type => :gross_pay, :net_pay_period_type => :net_pay }.
+      each do |type, pay|
+        describe "#{type}" do
+          context "when #{pay} is true" do
+            before { subject.send "#{pay}=", "100" }
+
+            it { is_expected.to validate_presence_of type }
+          end
+
+          context "when #{pay} is false" do
+            it { is_expected.to_not validate_presence_of type }
+          end
+        end
+      end
   end
 
   %i<gross_pay net_pay new_job_gross_pay>.each do |attr|
