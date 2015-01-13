@@ -13,7 +13,6 @@ en:
       subject: 'Employment tribunal: complete your claim'
       intro: |
         You’ve started a claim to an employment tribunal. To return to your claim you’ll need your claim number (above), and memorable word.
-      complete_claim: 'Complete claim'
       about_confirmation: |
         You’ll receive a confirmation email once you’ve submitted your claim.
 
@@ -63,3 +62,6 @@ en:
     shared:
       button_fee_remission:
         apply_for_fee_remission: Apply for fee remission
+      button_complete_claim:
+        complete_claim: 'Complete claim'
+
