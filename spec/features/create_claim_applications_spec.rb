@@ -5,6 +5,8 @@ feature 'Claim applications', type: :feature do
   include Messages
   include PdfMethods
 
+  around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
+
   context 'along the happy path' do
     scenario 'Create a new application' do
       start_claim

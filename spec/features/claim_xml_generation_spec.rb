@@ -248,7 +248,7 @@ feature 'Generating XML for a claim', type: :feature do
       end
       it 'has Checksum(s)' do
         expect(xpath_collection("//Files/File/Checksum")).
-          to match_array %w<ee7d09ca06cab35f40f4a6b6d76704a7 58d5af93e8ee5b89e93eb13b750f8301 29a4b89896139f349267a7130fa39e65>
+          to match_array %w<ee7d09ca06cab35f40f4a6b6d76704a7 58d5af93e8ee5b89e93eb13b750f8301 2e8c57f80b37129030867a4b003c6629>
       end
     end
   end

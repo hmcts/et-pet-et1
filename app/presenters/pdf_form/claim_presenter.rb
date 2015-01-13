@@ -23,6 +23,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
 
   def claim
     {
+      "date received" => format_date(submitted_at),
       "2.4 tick box" => dual_state(respondents.count > 1),
       "3.1 tick boxes" => tri_state(other_known_claimant_names.present?),
       "3.1 if yes" => other_known_claimant_names,
