@@ -3,7 +3,7 @@ You may not have to contact Acas for early conciliation if:
 
 - you’re making the claim with another person who already has an Acas early conciliation certificate number
 - Acas doesn't have the power to conciliate on some or all of your claim
-- your employer has already been in touch with Acas
+- your employer has already been in touch with Acas. You’ll need to provide evidence of this
 - you’re making a claim about a certain type of unfair dismissal that allows you to apply for '[interim relief](#interim_relief)' and it’s within 7 days of the dismissal
 - your claim is against the Security Service, Secret Intelligence Service or GCHQ
 

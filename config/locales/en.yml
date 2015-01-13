@@ -473,10 +473,9 @@ en:
       header: Claimant’s details
       gender: Gender
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
-      legend_personal_details: Personal details
-      personal_details_hint: Information about the person or organisation making this claim (known as the ‘claimant’).
+      legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details
-      legend_contact_preference: Best way to send correspondence to the claimant
+      legend_contact_preference: Best way to send correspondence to you (the claimant)
 
     additional_claimants:
       header: Group claims
