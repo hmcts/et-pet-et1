@@ -15,7 +15,7 @@ class AdditionalClaimantsUploadForm < Form
     form.validates :additional_claimants_csv, content_type: {
       in: %w<text/csv text/plain>,
       message: I18n.t('errors.messages.csv')
-    }
+    }, unless: :remove_additional_claimants_csv
     form.validates :additional_claimants_csv,
       additional_claimants_csv: true, if: :valid_so_far?
   end
@@ -51,8 +51,6 @@ class AdditionalClaimantsUploadForm < Form
   end
 
   def remove_csv!
-    if has_additional_claimants_csv?
-      remove_additional_claimants_csv!
-    end
+    remove_additional_claimants_csv! if has_additional_claimants_csv?
   end
 end

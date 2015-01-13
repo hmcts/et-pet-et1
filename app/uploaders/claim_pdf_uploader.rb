@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ClaimPdfUploader < CarrierWave::Uploader::Base
+class ClaimPdfUploader < BaseUploader
   def filename
     if file && claimant
       name = "#{claimant.first_name}_#{claimant.last_name}".downcase
