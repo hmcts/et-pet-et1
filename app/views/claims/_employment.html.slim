@@ -6,7 +6,7 @@ fieldset
     as: :radio_buttons,
     item_wrapper_class: 'block-label',
     wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
-    input_html: { :class => 'reveal-publish-publisher'},
+    input_html: { :class => 'reveal-publish-publisher', :data => { 'ga-type' => 'event', 'ga-label' => 'have-you-been-employed' }},
     reveal: { true => 'main', false => 'main' }
 
   /! reveal_current_situation
