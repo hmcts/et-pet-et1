@@ -270,3 +270,11 @@ label{
     }
   }
 }
+//==========================================================================//
+// returning error message styles
+.error{
+    .validation-summary{
+        color: $black;
+    }
+}
+

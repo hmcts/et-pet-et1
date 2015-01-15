@@ -378,7 +378,10 @@ en:
     user_session:
       not_found: A claim with that claim number could not be found
       invalid: This password does not match the claim number
-      immutable: This claim has been submitted and can no longer be edited online
+      immutable: |
+        <div aria-labelledby="error-heading" class="validation-summary group" id="error-summary" role="alert" tabindex="0">
+          This claim has been submitted and can no longer be edited online
+        </div>
 
   user_sessions:
     new:
