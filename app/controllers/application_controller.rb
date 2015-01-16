@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include SignoutVisibility
+
   protect_from_forgery with: :exception
   after_action :set_session_expiry
 
@@ -55,21 +57,5 @@ class ApplicationController < ActionController::Base
     send "claim_#{page}_path".underscore, options
   end
 
-  def show_signout?
-    !@hide_signout
-  end
-
-  def hide_signout
-    @hide_signout = true
-  end
-
-   def show_mobile_nav?
-    !@hide_mobile_nav
-  end
-
-  def hide_mobile_nav
-    @hide_mobile_nav = true
-  end
-
-  helper_method :claim, :claim_path_for, :show_signout?, :show_mobile_nav?
+  helper_method :claim, :claim_path_for
 end

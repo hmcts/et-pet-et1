@@ -1,4 +1,6 @@
 class MarkdownController < ActionController::Base
+  include SignoutVisibility
+
   layout 'application'
 
   RENDERER_INSTANCE = MarkdownRenderer.new
@@ -20,14 +22,4 @@ class MarkdownController < ActionController::Base
       "#{ self.class.markdown_path.join(name + '.md') }"
     end
   end
-
-  def show_mobile_nav?
-    !@hide_mobile_nav
-  end
-
-  def hide_mobile_nav
-    @hide_mobile_nav = true
-  end
-
-  helper_method :show_mobile_nav?, :show_signout?
 end
