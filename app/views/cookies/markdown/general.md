@@ -7,7 +7,7 @@ The ‘make a claim to an employment tribunal’ website stores small files (kno
 
 Cookies on the ‘make a claim to an employment tribunal’ service aren’t used to identify you personally.
 
-Find out [how to manage cookies](http://www.aboutcookies.org/).
+Find out <a href="http://www.aboutcookies.org/" rel="external" title="how to manage cookies">how to manage cookies</a>.
 
 <h2 class="legend">How cookies are used</h2>
 <h3>Measuring website usage (Google Analytics)</h3>
@@ -29,7 +29,7 @@ We don’t collect or store personal information (eg your name or address), in c
 |_utmz|Provides information about how you reached the website (For example from another website or search engine)|6 months|
 |_ga|Manages the deployment of the cookies above|2 years|
 
-You can [opt out of Google Analytics cookies](https://tools.google.com/dlpage/gaoptout).
+You can <a href="https://tools.google.com/dlpage/gaoptout" rel="external" title="opt out of Google Analytics cookies">opt out of Google Analytics cookies</a>.
 
 <h3>Your progress when using the service</h3>
 

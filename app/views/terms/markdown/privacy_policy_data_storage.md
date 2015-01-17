@@ -1,9 +1,9 @@
 <h2 class="legend">How we keep your information safe</h2>
 MOJ takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure database is kept entirely within the European Economic Area (EEA).
 
-MOJ use the Amazon Web Services (AWS) to store your data. By submitting your information, you consent to the [AWS Terms and Conditions](http://aws.amazon.com/service-terms/)
+MOJ use the Amazon Web Services (AWS) to store your data. By submitting your information, you consent to the <a href="http://aws.amazon.com/service-terms/" rel="external" title="AWS Terms and Conditions">AWS Terms and Conditions</a>
 
-This service uses Sendgrid to route emails. Because of the global nature of internet infrastructure, we can't guarantee that information contained in emails sent from this service will be routed within the EEA. By submitting your information, you consent to the [Sendgrid terms and conditions](https://sendgrid.com/tos).
+This service uses Sendgrid to route emails. Because of the global nature of internet infrastructure, we can't guarantee that information contained in emails sent from this service will be routed within the EEA. By submitting your information, you consent to the <a href="https://sendgrid.com/tos" rel="external" title="Sendgrid terms and conditions">Sendgrid terms and conditions</a>.
 
 We’ll never share your information with other organisations for their marketing, market research or commercial purposes, and we don’t pass on your personal information to any other websites.
 
@@ -11,7 +11,7 @@ We’ll never share your information with other organisations for their marketin
 Personal data submitted via the online service is stored for 12 months on our secure servers within EEA. Any data is deleted after this period.
 
 ### How non-personal data is stored
-Non-personal session information as described in the above section is stored on our secure servers within EEA. It is also stored outside of Europe in the USA. By using this service, you consent to the [Google Analytics terms and conditions](http://www.google.co.uk/analytics/terms/us.html).
+Non-personal session information as described in the above section is stored on our secure servers within EEA. It is also stored outside of Europe in the USA. By using this service, you consent to the <a href="http://www.google.co.uk/analytics/terms/us.html" rel="external" title="Google Analytics terms and conditions">Google Analytics terms and conditions</a>.
 
 ### Keeping your data secure
 Transmitting information over the internet is generally not completely secure, and we cannot guarantee the security of your data. We do however use SSL to encrypt all data transferred to and received from our server.

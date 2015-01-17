@@ -13,7 +13,7 @@ The amount you’re charged depends on the type of claim you’re making. Type B
 |Discrimination|B|£250|£950|£1200|
 |Whistleblowing|B|£250|£950|£1200|
 
-Read more about [employment tribunal fees for individuals](http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=2762).
+Read more about <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=2762" rel="external" title="employment tribunal fees for individuals">employment tribunal fees for individuals</a>.
 
 ### Group claims
 If you’re making a claim with other people against the same employer, as part of the same online claim, then your group will pay a single issue fee. The amount your group pays depends on:
@@ -41,7 +41,7 @@ __Hearing fee__
 |Between 11 and 200|£920|£3,800|
 |201 or more|£1,380|£5,700|
 
-For more detailed information about fees for group claims, please see [employment tribunal fees for groups and multiples](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/t436-eng.pdf).
+For more detailed information about fees for group claims, please see <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/t436-eng.pdf" rel="external" title="employment tribunal fees for groups and multiples">employment tribunal fees for groups and multiples</a>.
 
 
 
