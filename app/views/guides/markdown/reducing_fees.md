@@ -34,7 +34,7 @@ Before applying for a reduction in fees you should complete and submit your onli
 
 You must apply for a reduction in your fees (known as fee remission) within 7 days of submitting your claim online.
 
-You’ll need to provide evidence or your claim will be rejected and you’ll be asked to pay the full fee. [Download a fee remission form](http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-from-07-october-eng.pdf).
+You’ll need to provide evidence or your claim will be rejected and you’ll be asked to pay the full fee. <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-from-07-october-eng.pdf" rel="external">Download a fee remission form</a>.
 
 If your case reaches a tribunal, you’ll need to apply for help with paying your hearing fee separately.
 
