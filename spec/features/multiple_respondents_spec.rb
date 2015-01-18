@@ -70,7 +70,7 @@ feature 'Multiple respondents' do
       click_button 'Save and continue'
 
       expect(claim.secondary_respondents.pluck(:name)).
-        to eq ['Butch McTaggert', 'Pablo Noncer']
+        to match_array ['Butch McTaggert', 'Pablo Noncer']
     end
   end
 
