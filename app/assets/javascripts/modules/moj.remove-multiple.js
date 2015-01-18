@@ -17,9 +17,23 @@ module.exports = (function() {
         // hide if already checked
         el.style.display = checkbox.is(':checked') ? 'none' : 'block';
       });
+      //check for new entry and scroll to it. assume there are no errors (dont override if they exist)
+      if($('#error-summary').is(':hidden')){
+        removeMultiple.checkForNewEntry();
+      }
     }
     //update the counter
     removeMultiple.updateCount();
+  };
+
+  removeMultiple.checkForNewEntry = function() {
+    //assume new multiple is at the bottom and the first name (required) are empty
+    var last_multiple = multiples.filter(':last'),
+      name_fields = last_multiple.find('input.medium-input');
+    if(!name_fields.val()) {
+      // scroll there
+      $('html,body').animate({scrollTop: last_multiple.offset().top},'slow');
+    }
   };
 
   removeMultiple.bindRemoveButton = function(el, checkbox) {
