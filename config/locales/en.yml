@@ -341,7 +341,7 @@ en:
       update: Save and continue
       return: Complete later
       claim:
-        create: Start a new claim
+        create: Start a claim
       claim_review:
         update: Submit the form
       user_session:
@@ -369,15 +369,15 @@ en:
       signout: Save and complete later
 
   aria:
-    error_summary: You need to fix the errors on this page before continuing.
+    error_summary: Errors on page
 
   errors:
     messages:
       rtf: is not an RTF or plain text file
       csv: is not a CSV
     user_session:
-      not_found: A claim with that claim number could not be found
-      invalid: This password does not match the claim number
+      not_found: " You have entered an invalid claim number"
+      invalid: " The memorable word you have entered has not been recognised"
       immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
@@ -626,6 +626,7 @@ en:
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
+      attributes:
       messages:
         too_long: |
            The information you have provided for this field must not exceed %{count} characters
@@ -633,13 +634,35 @@ en:
         user_session:
           attributes:
             password:
-              blank: You must provide information for this field
+              blank: Please enter the memorable word you created at the beginning of your claim
+              invalid: The memorable word you have entered has not been recognised
             reference:
-              blank: You must provide information for this field
+              blank: Please enter your claim number
+              invalid: You have entered an invalid claim number
         application_number:
           attributes:
             password:
-              blank: You must provide information for this field
+              blank: Please create a memorable word so you can return to your claim
+        additional_claimants_form/additional_claimant:
+          attributes:
+            title:
+              inclusion: Please enter the title of the additional claimant
+            first_name:
+              blank: Please enter the first name of the additional claimant
+            last_name:
+              blank: Please enter the last name of the additional claimant
+            address_building:
+              blank: Please enter the building name or number from the additional claimant’s address
+            address_street:
+              blank: Please enter the street from the additional claimant’s address
+            address_locality:
+              blank: Please enter the town or city from the additional claimant’s address
+            address_county:
+              blank: Please enter the county from the additional claimant’s address
+            address_post_code:
+              blank: Please enter the additional claimant’s postcode
+              invalid: Please enter a valid UK postcode or if you live abroad, enter SW55 9QT
+
         additional_claimant:
           attributes:
             title:
@@ -655,9 +678,9 @@ en:
         claim_details:
           attributes:
             claim_details:
-              blank: You must provide information for this field regarding your claim
+              blank: You must enter details of your claim here. If you want to upload your claim statement in a separate document, please type ‘see attached’ in the box
             other_known_claimant_names:
-              blank: You must provide information for this field regarding your claim
+              blank: Please list the names of other people who are making a similar claim
         claim_outcome:
           attributes:
             other_outcome:
@@ -665,30 +688,32 @@ en:
         claimant:
           attributes:
             date_of_birth:
-              invalid: The date you have provided is invalid
+              invalid: Please enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
             title:
-              blank: You must provide information for this field
+              blank: Please select a title from the list
             gender:
-              blank: You must provide information for this field
+              blank: Please select the claimant’s gender, or select ‘prefer not to say’
             first_name:
-              blank: You must provide information for this field
+              blank: Please enter the claimant’s first name
             last_name:
-              blank: You must provide information for this field
-            address_country:
-              blank: You must provide information for this field
+              blank: Please enter the claimant’s last name
+            special_needs:
+              blank: Please say whether you require assistance at the tribunal hearing
             contact_preference:
-              blank: You must provide information for this field
+              blank: Please say whether you’d like correspondence to be sent to the claimant by post or email
             address_building:
-              blank: You must provide information for this field
+              blank: Please enter the building number or name from the claimant’s address
             address_street:
-              blank: You must provide information for this field
+              blank: Please enter the street from the claimant’s address
             address_locality:
-              blank: You must provide information for this field
+              blank: Please enter the town or city from the claimant’s address
             address_county:
-              blank: You must provide information for this field
+              blank: Please enter the county from the claimant’s address
             address_post_code:
-              blank: You must provide information for this field
-              invalid: You must provide a valid post code
+              blank: Please enter the claimant’s postcode
+              invalid: Please enter a valid UK postcode. If the claimant lives abroad please enter SW55 9QT
+            email_address:
+              blank: Please enter the claimant’s email address
         employment:
           attributes:
             start_date:
@@ -706,56 +731,80 @@ en:
         representative:
           attributes:
             type:
-              blank: You must provide information for this field
+              blank: Please select which type of representative you have
             name:
-              blank: You must provide information for this field
+              blank: Please enter your representative’s name
             address_country:
               blank: You must provide information for this field
             contact_preference:
               blank: You must provide information for this field
             address_building:
-              blank: You must provide information for this field
+              blank: Please enter the building name or number from your representative’s address
             address_street:
-              blank: You must provide information for this field
+              blank: Please enter the street from your representative’s address
             address_locality:
-              blank: You must provide information for this field
+              blank: Please enter the town or city from your representative’s address
             address_county:
-              blank: You must provide information for this field
+              blank: Please enter the county from your representative’s address
             address_post_code:
-              blank: You must provide information for this field
+              blank: Please enter your representative’s postcode
+              invalid: Please enter a valid postcode or if your representative lives abroad, please enter SW55 9QT
+            email_address:
+              blank: Please enter your representative’s email address
         respondent:
           attributes:
             name:
-              blank: You must provide information for this field
+              blank: Please provide the name of the person or organisation you are making the claim against
             no_acas_number_reason:
-              blank: You must provide information for this field
+              blank: You have said that you don’t have an Acas early conciliation number. Please select a reason from the list
             acas_early_conciliation_certificate_number:
-              blank: You must provide information for this field
+              blank: Please provide your Acas early conciliation number. If you don’t have one, please select ‘I don't have an Acas number’
             address_country:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldee
             contact_preference:
-              blank: You must provide information for this field
+              blank: You must provide information for this fieldrr
             address_building:
-              blank: You must provide information for this field
+              blank: Please enter the building name or number from the respondent’s address
             address_street:
-              blank: You must provide information for this field
+              blank: Please enter the street from the respondent’s address
             address_locality:
-              blank: You must provide information for this field
+              blank: Please enter the town or city from the respondent’s address
             address_county:
-              blank: You must provide information for this field
+              blank: Please enter the county from the respondent’s address
             address_post_code:
-              blank: You must provide information for this field
-            work_address_country:
-              blank: You must provide information for this field
-            work_contact_preference:
-              blank: You must provide information for this field
+              blank: Please enter the respondent’s postcode
+              invalid: Please enter a valid UK postcode or if the respondent lives abroad, please enter SW55 9QT
             work_address_building:
-              blank: You must provide information for this field
+              blank: Please enter the building name or number of your work address
             work_address_street:
-              blank: You must provide information for this field
+              blank: Please enter the street of your work address
             work_address_locality:
-              blank: You must provide information for this field
+              blank: Please enter the town or city of your work address
             work_address_county:
-              blank: You must provide information for this field
+              blank: Please enter the county of your work address
             work_address_post_code:
-              blank: You must provide information for this field
+              blank: Please enter the postcode of your work address
+              invalid: Please enter a valid UK postcode or if you live abroad please enter SW55 9QT
+        additional_respondents_form/additional_respondent:
+          attributes:
+            title:
+              blank: Please select a title from the list
+            name:
+              blank: Please provide the name of the additional person or organisation you are making the claim against
+            acas_early_conciliation_certificate_number:
+              blank: Please provide your Acas early conciliation number. If you don’t have one, please select ‘ I don't have an Acas number’ below
+              invalid: "acas invalid"
+            no_acas_number_reason:
+              blank: You have said that you don’t have an Acas early conciliation number. Please select a reason from the list
+            address_building:
+              blank: Please enter the building name or number from the additional respondent’s address
+            address_street:
+              blank: Please enter the street from the additional respondent’s address
+            address_locality:
+              blank: Please enter the town or city from the additional respondent’s address
+            address_county:
+              blank: Please enter the county from the additional respondent’s address
+            address_post_code:
+              blank: Please enter the additional respondent's postcode
+              invalid: Please enter a valid UK postcode or if you live abroad, enter SW55 9QT
+

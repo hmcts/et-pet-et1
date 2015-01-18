@@ -99,7 +99,7 @@ feature 'Attaching a document' do
         click_button 'Save and continue'
 
         expect(page).to have_text('An error has been found on line 4 of the uploaded file.')
-        expect(page).to have_text('Postcode - is invalid')
+        expect(page).to have_text('Postcode - Please enter a valid UK postcode or if you live abroad, enter SW55 9QT')
         expect(page).to have_text('Date of birth - is invalid')
         expect(claim.additional_claimants_csv).not_to be_present
       end
