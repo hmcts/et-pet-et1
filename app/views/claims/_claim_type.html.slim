@@ -48,7 +48,7 @@ fieldset
   = f.input :is_whistleblowing,
     as: :radio_buttons,
     item_wrapper_class: 'block-label',
-    input_html: { class: 'reveal-publish-publisher'},
+    input_html: { class: 'reveal-publish-publisher ga-vpv'},
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
     reveal: { true => 'sub2', false => 'sub2' }
 
@@ -56,6 +56,7 @@ fieldset
     as: :radio_buttons,
     item_wrapper_class: 'block-label',
     wrapper_class: 'panel-indent toggle-content',
+    input_html: { class: 'ga-vpv'},
     wrapper_html: { :id => :send_claim_to_whistleblowing_entity_wrapper,
                     :class => 'reveal-subscribe',
                     :'data-target' => 'sub2',
