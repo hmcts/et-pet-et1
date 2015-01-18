@@ -1,12 +1,14 @@
 nav id="navcontainer"
   ul
     - if show_signout?
-      li= link_to t('.save_and_complete'), reminder_user_session_path, { class: "menu-trigger" }
+      li
+        span
+          = link_to t('.save_and_complete'), reminder_user_session_path
 
     li
-      a.menu-trigger href="javascript:void(0);"
-        = t('.support')
-        span.arrow.arrow-down
+      span.menu-trigger
+        a href="javascript:void(0);"
+          = t('.support')
 
       ul.visuallyhidden
         li= link_to t('.read_guide'), guide_path

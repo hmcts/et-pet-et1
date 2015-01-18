@@ -1,61 +1,42 @@
 #navcontainer {
-  text-align: right;
-  margin: 0 30px;
-  ul{
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    position: relative;
-    padding: 2px 0;
-    //margin-bottom: 2em;
-    a{
-      padding: 0px 5px;
+  display: none;
+  @include media(mobile) {
+    display: block;
+    text-align: right;
+    margin: 0 $gutter-half;
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      position: relative;
+      padding: 2px 0 0;
+      a{
+        padding: 0 5px;
+      }
+      ul{ // second level
+        font-size: 80%;
+        width: 100%;
+        border: 1px solid #bfc1c3;
+        border-width: 1px 0px;
+        margin-top:10px;
+        line-height: 30px;
+      }
     }
-    ul{ // second level
-      font-size: 80%;
-      // position: absolute;
-      // top: 23px;
-      // left: 0;
-      width: 100%;
-      border: 1px solid #bfc1c3;
-      border-width: 1px 0px;
-      margin-top:10px;
-      line-height: 30px;
-      li{
-        display: inline;
+    li{
+      display: inline;
+      margin:0;
+    }
+    .menu-trigger {
+      &:after {
+        content: '▲';
+        color:$grey-3;
+      }
+      &.active {
+        &:after {
+          content: '▼';
+          color:$grey-3;
+        }
       }
     }
   }
-  li{
-    display: inline;
-    margin: 0 0 0px;
-  }
-}
-
-@include media(mobile) {
-
-}
-@include media(tablet) {
-  #navcontainer{
-      display: none;
-    }
-}
-@include media(desktop) {
-  #navcontainer{
-    display: none;
-  }
-}
-
-.arrow{
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  display: inline-block;
-  border-bottom: 5px solid #bfc1c3;
-  margin-left: 5px;
-}
-.arrow-down {
-  border-bottom: 0;
-  border-top: 5px solid #bfc1c3;
 }
