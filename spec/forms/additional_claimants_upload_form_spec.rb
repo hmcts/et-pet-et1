@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
-  let(:resource) { Claim.new }
+  let(:resource) { create :claim, :no_attachments }
   let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
   let(:file) { File.open(path + 'file.csv') }
 
