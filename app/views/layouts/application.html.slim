@@ -17,11 +17,6 @@
 
 - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 
-- content_for :after_header do
-  /![if lte IE 6]
-    javascript:
-        document.body.className = document.body.className.replace('js-enabled','');
-
 - content_for :footer_support_links do
   li= link_to "Guide", guide_path
   li= link_to "Terms and Conditions", terms_path
