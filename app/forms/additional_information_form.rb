@@ -15,7 +15,7 @@ class AdditionalInformationForm < Form
   validates :additional_information_rtf, content_type: {
     in: %w<text/rtf text/plain>,
     message: I18n.t('errors.messages.rtf')
-  }, unless: :remove_additional_information_rtf
+  }
 
   def has_additional_information_rtf?
     resource.additional_information_rtf_file.present?

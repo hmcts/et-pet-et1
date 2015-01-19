@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
   config.fog_directory   = ENV.fetch('S3_UPLOAD_BUCKET')
   config.fog_credentials = credentials
 
-  unless Rails.env.production?
+  if Rails.env.test?
     Fog.mock!
     connection = Fog::Storage.new(credentials)
     connection.directories.create key: ENV.fetch('S3_UPLOAD_BUCKET')
