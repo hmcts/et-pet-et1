@@ -355,9 +355,6 @@ en:
         return: Return to a claim
 
   shared:
-    cookie_message:
-      message_html:  |
-        GOV.UK uses cookies to make the site simpler. <a href="%{path}">Find out more about cookies</a>
     reference: Your claim number is
     aside:
       skip_link: Skip to content
@@ -367,8 +364,8 @@ en:
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
-    feeback_statement_html: |
-      This is a new service - <a href="%{path}">your feedback</a> will help us to improve it.
+    feedback_link:
+      feedback_statement_html: This is a new service - <a href="%{path}">your feedback</a> will help us to improve it.
   aria:
     error_summary: Errors on page
 

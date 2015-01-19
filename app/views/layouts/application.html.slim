@@ -26,8 +26,10 @@
 - content_for :content_override do
   main#content(role="main")
     .container
-        p.flash.alert = flash[:alert]
-        = render partial: 'shared/session_prompt'
-        = yield
+      = render partial: 'shared/feedback_link'
+      .flash.alert
+        = flash[:alert]
+      = render partial: 'shared/session_prompt'
+      = yield
 
 = render template: "layouts/moj_template"
