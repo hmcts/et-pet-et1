@@ -367,7 +367,8 @@ en:
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
-
+    feeback_statement_html: |
+      This is a new service - <a href="%{path}">your feedback</a> will help us to improve it.
   aria:
     error_summary: Errors on page
 
@@ -807,4 +808,3 @@ en:
             address_post_code:
               blank: Please enter the additional respondent's postcode
               invalid: Please enter a valid UK postcode or if you live abroad, enter SW55 9QT
-
