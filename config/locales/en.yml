@@ -452,7 +452,7 @@ en:
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
-          Before applying to an employment tribunal you have to contact Acas to use their free <a href="%{path}">Early Conciliation service</a>.
+          Before applying to an employment tribunal you have to contact Acas to use their free <a href="%{path}" rel="external">Early Conciliation service</a>.
       what_you_need_to_know:
         legend: What you’ll need
         body_html: |
@@ -807,4 +807,3 @@ en:
             address_post_code:
               blank: Please enter the additional respondent's postcode
               invalid: Please enter a valid UK postcode or if you live abroad, enter SW55 9QT
-
