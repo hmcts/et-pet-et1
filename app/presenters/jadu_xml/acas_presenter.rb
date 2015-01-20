@@ -5,7 +5,7 @@ module JaduXml
       "acas_has_no_jurisdiction"                        => "outside_acas",
       "employer_contacted_acas"                         => "employer_contacted_acas",
       "interim_relief"                                  => "interim_relief",
-      "claim_against_security_or_intelligence_services" => "claim_targets"
+      "claim_against_security_services"                 => "claim_targets"
     }.freeze
 
     property :acas_early_conciliation_certificate_number, as: "Number"
