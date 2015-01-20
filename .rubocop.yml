@@ -77,6 +77,10 @@ Style/EachWithObject:
   Description: 'Prefer `each_with_object` over `inject` or `reduce`.'
   Enabled: false
 
+Style/EmptyLinesAroundBlockBody:
+  Description: 'Extra empty line detected at block body beginning'
+  Enabled: false
+
 Style/FormatString:
   Description: 'Enforce the use of Kernel#sprintf, Kernel#format or String#%.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#sprintf'
