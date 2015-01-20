@@ -12,10 +12,10 @@ RSpec.describe JaduXml::FilePresenter, type: :presenter do
       end
 
       context 'when the filename is hyphenated' do
-        let(:claim) { create :claim, :hyphenated_attachment_filenames }
+        let(:claim) { create :claim, :non_sanitized_attachment_filenames }
 
         it 'replaces the hyphens with underscores' do
-          expect(subject.filename).to eq "file_lol.rtf"
+          expect(subject.filename).to eq "file_lol_biz_v1.rtf"
         end
       end
     end
