@@ -10,6 +10,13 @@ RSpec.describe JaduXml::AcasPresenter, type: :presenter do
   end
 
   describe "#exemption_code" do
+    it 'maps all exemption types' do
+      RespondentForm::NO_ACAS_REASON.each do |reason|
+        mock_acas_reason(reason)
+        expect(subject.exemption_code).to be_present
+      end
+    end
+
     context "respondents no acas number reason returns" do
       context "joint_claimant_has_acas_number" do
         before { mock_acas_reason("joint_claimant_has_acas_number") }
@@ -31,8 +38,8 @@ RSpec.describe JaduXml::AcasPresenter, type: :presenter do
         its(:exemption_code) { is_expected.to eq "interim_relief" }
       end
 
-      context "claim_against_security_or_intelligence_services" do
-        before { mock_acas_reason("claim_against_security_or_intelligence_services") }
+      context "claim_against_security_services" do
+        before { mock_acas_reason("claim_against_security_services") }
         its(:exemption_code) { is_expected.to eq "claim_targets" }
       end
     end
