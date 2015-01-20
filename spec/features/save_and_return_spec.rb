@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Save and Return' do
   include FormMethods
   include Messages
+  include MailMatchers
 
   scenario 'ending the session actually ends the session' do
     start_claim
@@ -38,7 +39,7 @@ feature 'Save and Return' do
     click_button 'Sign out now'
 
     mail = ActionMailer::Base.deliveries.last
-    expect(mail.body).to include(Claim.last.reference)
+    expect(mail).to match_pattern Claim.last.reference
 
     expect(page).to have_text(claim_heading_for(:new))
   end

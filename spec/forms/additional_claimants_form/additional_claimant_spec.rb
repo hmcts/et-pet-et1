@@ -11,7 +11,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
       it { is_expected.to validate_presence_of(attr) }
     end
 
-    it { is_expected.to ensure_inclusion_of(:title).in_array %w<mr mrs miss ms> }
+    it { is_expected.to validate_inclusion_of(:title).in_array %w<mr mrs miss ms> }
 
     it { is_expected.to ensure_length_of(:first_name).is_at_most(100) }
     it { is_expected.to ensure_length_of(:last_name).is_at_most(100) }

@@ -45,7 +45,7 @@ RSpec.describe RepresentativeForm, :type => :form do
       end
 
       it do
-        is_expected.to ensure_inclusion_of(:type).in_array \
+        is_expected.to validate_inclusion_of(:type).in_array \
          %w<citizen_advice_bureau free_representation_unit law_centre trade_union
              solicitor private_individual trade_association other>
       end

@@ -1,0 +1,38 @@
+Claim number: <%= @presenter.reference %>
+
+<%= @presenter.primary_claimant_full_name %>
+
+<%= @presenter.payment_information -%>
+
+<%= t('.what_happens_next') -%>
+<%- if @presenter.payment_failed? %>
+  - <%= t('.contact_re_payment') -%>
+<%- end %>
+<%- if @presenter.remission_applicable? %>
+  - <%= t('.must_apply_for_remission') -%>
+    <%= t('.apply_for_fee_remission') -%>: https://www.employmenttribunals.service.gov.uk/remissions
+<%- end %>
+<%- unless @presenter.remission_applicable? %>
+  - <%= t('.must_apply_for_remission') -%>
+<%- end %>
+<%- if @presenter.remission_applicable? %>
+  - <%= t('.remission_we_will_contact_you') -%>
+<%- else %>
+  - <%= t('.we_will_contact_you') -%>
+<%- end %>
+
+<%= t('.details.header') %>:
+<%= t('.details.claim_completed') %> <%= t('.details.see_attached_pdf') %>
+<%- @presenter.each_item do |name, content| %>
+<%= t(".details.#{name}") %> <%= content %>
+<%- end %>
+
+<%= t('.feedback_text') -%> https://www.surveymonkey.com/s/FH3QFS8
+
+<%= t('.diversity_text') -%> https://www.employmenttribunals.service.gov.uk/forms/form/175/en/diversity_monitoring_questionnaire
+
+<%= t('.footer.contact_us') %>: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
+
+<%= t('.footer.if_you_are_unsure') -%>
+  - <%= t('.footer.do_not_reply') -%>
+  - <%= t('.footer.forward_it') -%>

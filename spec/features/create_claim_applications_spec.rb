@@ -4,6 +4,7 @@ feature 'Claim applications', type: :feature do
   include FormMethods
   include Messages
   include PdfMethods
+  include MailMatchers
 
   around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
@@ -37,7 +38,7 @@ feature 'Claim applications', type: :feature do
       expect(claim.authenticate 'green').to eq(claim)
 
       mail = ActionMailer::Base.deliveries.last
-      expect(mail.body).to include(claim.reference)
+      expect(mail).to match_pattern claim.reference
 
       expect(page).to have_text claim_heading_for(:claimant)
     end
