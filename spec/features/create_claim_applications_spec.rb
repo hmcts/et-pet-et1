@@ -216,10 +216,9 @@ feature 'Claim applications', type: :feature do
     scenario 'Downloading the PDF if available' do
       complete_a_claim seeking_remissions: true
       click_button 'Submit claim'
-      click_link 'Save a copy'
 
-      expect(page.response_headers['Content-Type']).to eq "application/pdf"
-      expect(pdf_to_hash(page.body)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
+      expect(page.find_link('Save a copy')['href']).to eq pdf_path
+      expect(pdf_to_hash(Claim.last.pdf.read)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
     end
 
     scenario 'Downloading the PDF if unavailable' do

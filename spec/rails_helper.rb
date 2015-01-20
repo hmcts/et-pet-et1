@@ -50,8 +50,4 @@ RSpec.configure do |config|
       # save_and_open_page
     end
   end
-
-  config.after(:all) do
-    FileUtils.rm_rf(Dir["#{Rails.root}/public/spec/uploads/[^.]*"])
-  end
 end

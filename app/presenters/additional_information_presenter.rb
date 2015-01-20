@@ -4,6 +4,6 @@ class AdditionalInformationPresenter < Presenter
   end
 
   def attached_document
-    additional_information_rtf.to_s.split('/').last
+    CarrierwaveFilename.for additional_information_rtf
   end
 end

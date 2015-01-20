@@ -5,9 +5,11 @@ class AdditionalInformationForm < Form
   attribute :additional_information_rtf,        AttachmentUploader
   attribute :remove_additional_information_rtf, Boolean
 
+  before_validation :remove_additional_information_rtf!, if: :remove_additional_information_rtf
   before_validation :reset_miscellaneous_information!, unless: :has_miscellaneous_information?
 
-  delegate :additional_information_rtf_cache, :additional_information_rtf_cache=, to: :target
+  delegate :additional_information_rtf_cache, :additional_information_rtf_cache=,
+    :remove_additional_information_rtf!, to: :target
 
   validates :miscellaneous_information, length: { maximum: 5000 }
   validates :additional_information_rtf, content_type: {

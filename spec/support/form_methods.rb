@@ -280,6 +280,9 @@ module FormMethods
   end
 
   def block_pdf_generation
-    Claim.last.remove_pdf!
+    Claim.last.tap do |c|
+      c.remove_pdf = true
+      c.save!
+    end
   end
 end

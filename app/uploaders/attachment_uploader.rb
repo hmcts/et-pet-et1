@@ -1,4 +1,4 @@
 # encoding: utf-8
 
-class AttachmentUploader < CarrierWave::Uploader::Base
+class AttachmentUploader < BaseUploader
 end
