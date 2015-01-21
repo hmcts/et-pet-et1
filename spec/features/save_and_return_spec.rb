@@ -67,4 +67,14 @@ feature 'Save and Return' do
     expect(page).to have_text(claim_heading_for(:claimant))
     expect(page).to have_field('Last name', with: 'Wrigglesworth')
   end
+
+  context 'memorable word not set' do
+    scenario 'returning to an existing application' do
+      start_claim
+      end_session
+      fill_in_return_form Claim.last.reference, 'memorable word was not set'
+
+      expect(page).to have_text 'Return to your claim'
+    end
+  end
 end

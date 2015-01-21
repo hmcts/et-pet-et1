@@ -57,6 +57,10 @@ class Claim < ActiveRecord::Base
     find_by(application_reference: normalized)
   end
 
+  def authenticate(password)
+    password_digest? && super
+  end
+
   def alleges_discrimination_or_unfair_dismissal?
     discrimination_claims.any? || is_unfair_dismissal?
   end
