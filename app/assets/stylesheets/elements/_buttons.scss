@@ -32,3 +32,18 @@ $blue: #005ea5;
   padding-bottom: $gutter/4;
   color: $white;
 }
+
+.button-hyperlink {
+  @include core-19;
+  background:none;
+  outline:none;
+  border:none;
+  color:$link-colour;
+  text-decoration:underline;
+  text-align:left;
+  padding:0;
+  &:hover{
+    color:$link-hover-colour;
+    cursor:pointer;
+  }
+}
