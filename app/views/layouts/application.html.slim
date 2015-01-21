@@ -25,6 +25,7 @@
 
 - content_for :content_override do
   main#content(role="main")
+    = render partial: 'shared/mobile_nav'
     .container
       = render partial: 'shared/feedback_link'
       .flash.alert

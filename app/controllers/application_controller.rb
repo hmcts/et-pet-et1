@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  include SignoutVisibility
+  
   protect_from_forgery with: :exception
   after_action :set_session_expiry
 

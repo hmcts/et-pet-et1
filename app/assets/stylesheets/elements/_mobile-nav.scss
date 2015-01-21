@@ -1,0 +1,42 @@
+#navcontainer {
+  display: none;
+  @include media(mobile) {
+    display: block;
+    text-align: right;
+    margin: 0 $gutter-half;
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      position: relative;
+      padding: 2px 0 0;
+      a{
+        padding: 0 5px;
+      }
+      ul{ // second level
+        font-size: 80%;
+        width: 100%;
+        border: 1px solid $grey-3;
+        border-width: 1px 0px;
+        margin-top:10px;
+        line-height: 30px;
+      }
+    }
+    li{
+      display: inline;
+      margin:0;
+    }
+    .menu-trigger {
+      &:after {
+        content: '▲';
+        color:$grey-3;
+      }
+      &.active {
+        &:after {
+          content: '▼';
+          color:$grey-3;
+        }
+      }
+    }
+  }
+}
