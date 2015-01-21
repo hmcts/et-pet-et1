@@ -4,7 +4,6 @@ header.main-header
   h1= t('.header')
 
 .main-section
-  = render partial: 'shared/aside', locals: {hide: [:signout]}
 
   .main-content#main-sub-content
     .clearfix
@@ -28,3 +27,5 @@ header.main-header
           = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
 
         = f.button :submit, value: t('.submit'), class: 'ga-event'
+
+  = render partial: 'shared/aside', locals: {hide: [:signout]}

@@ -5,7 +5,6 @@ header.main-header
   p = t('.info')
 
 .main-section
-  = render partial: 'shared/aside'
 
   .main-content#main-sub-content
     = incomplete_claim_warning
@@ -28,3 +27,5 @@ header.main-header
     = render partial: 'email_addresses'
 
     p.print = link_to t('.print_link').html_safe
+
+  = render partial: 'shared/aside'

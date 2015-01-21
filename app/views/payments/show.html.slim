@@ -4,7 +4,6 @@ header.main-header
   h1= t '.header'
 
 .main-section
-  = render partial: 'shared/aside'
 
   .main-content
 
@@ -17,3 +16,5 @@ header.main-header
         = hidden_field_tag k, v
 
       = submit_tag t('.submit'), name: nil, class: 'button'
+
+  = render partial: 'shared/aside'

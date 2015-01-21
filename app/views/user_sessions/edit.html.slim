@@ -4,7 +4,6 @@ header.main-header
   h1= t('.header')
 
 .main-section
-  = render partial: 'shared/aside'
 
   .main-content#main-sub-content
     .clearfix
@@ -32,3 +31,5 @@ header.main-header
         = t('.print_copy')
 
       = f.button :submit
+
+  = render partial: 'shared/aside'

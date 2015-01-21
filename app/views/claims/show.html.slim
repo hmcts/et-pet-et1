@@ -5,7 +5,6 @@ header.main-header
   h1= claim_header
 
 .main-section
-  = render partial: 'shared/aside'
 
   .main-content
     = simple_form_for resource, url: request.path, multipart: true do |f|
@@ -16,3 +15,5 @@ header.main-header
         = render current_step, f: f
       .form-actions
         = f.button :submit
+
+  = render partial: 'shared/aside'
