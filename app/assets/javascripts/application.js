@@ -6,6 +6,7 @@ var gaTracker = window.gaTracker = require('./modules/moj.ga-tracking'),
   formHintReveal = require('./modules/moj.reveal-hints'),
   removeMultiple = require('./modules/moj.remove-multiple'),
   stateIndicator = require('./modules/moj.state-indicator'),
+  mobileNav = require('./modules/moj.mobile-nav'),
   sessionPrompt = window.sessionPrompt = require('./modules/moj.session-prompt');
 
 

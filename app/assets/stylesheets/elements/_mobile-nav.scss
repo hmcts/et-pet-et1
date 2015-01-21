@@ -3,23 +3,25 @@
   @include media(mobile) {
     display: block;
     text-align: right;
-    margin: 0 $gutter-half;
+    margin: 0 $gutter;
+    border-bottom: 1px solid $grey-3;
+    padding:5px 0;
     ul{
       padding: 0;
       margin: 0;
       list-style-type: none;
       position: relative;
-      padding: 2px 0 0;
-      a{
-        padding: 0 5px;
-      }
       ul{ // second level
-        font-size: 80%;
+        @include core-16;
+        display:none;
         width: 100%;
-        border: 1px solid $grey-3;
-        border-width: 1px 0px;
+        border-top: 1px solid $grey-3;
         margin-top:10px;
         line-height: 30px;
+        padding:5px 0 0;
+        a {
+          padding-left:10px;
+        }
       }
     }
     li{
@@ -27,6 +29,7 @@
       margin:0;
     }
     .menu-trigger {
+      padding-left:10px;
       &:after {
         content: '▲';
         color:$grey-3;
@@ -34,7 +37,6 @@
       &.active {
         &:after {
           content: '▼';
-          color:$grey-3;
         }
       }
     }
