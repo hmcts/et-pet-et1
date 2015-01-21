@@ -1,14 +1,12 @@
 - hide ||= []
 aside role="complementary"
-  nav
-    = link_to t('.skip_link'), '#main-sub-content', { class: 'skiplink' }
-    h3= t '.gethelp_header'
+  h3= t '.gethelp_header'
+  ul
+    li= link_to t('.read_guide'), guide_path , { class: 'ga-event' }
+    li= link_to t('.contact_us'), t('.contact_us_link'), { rel: 'external', class: 'ga-event' }
+  - unless hide.include?(:signout)
+    h3= t '.actions_header'
     ul
-      li= link_to t('.read_guide'), guide_path , { class: 'ga-event' }
-      li= link_to t('.contact_us'), t('.contact_us_link'), { rel: 'external', class: 'ga-event' }
-    - unless hide.include?(:signout)
-      h3= t '.actions_header'
-      ul
-        li= button_to t('.signout'),
-          { controller: :user_sessions, action: :destroy },
-          method: :delete, class: 'hyperlink ga-event'
+      li= button_to t('.signout'),
+        { controller: :user_sessions, action: :destroy },
+        method: :delete, class: 'hyperlink ga-event'

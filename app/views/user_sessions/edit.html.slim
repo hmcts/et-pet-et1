@@ -1,12 +1,11 @@
 - content_for(:page_title, page_title)
 
-header.main-header
+header.main-header role="banner"
   h1= t('.header')
 
 .main-section
-  = render partial: 'shared/aside'
 
-  .main-content#main-sub-content
+  .main-content
     .clearfix
       .callout.callout-reference style="clear:both;"
         p.detail= t('user_sessions.reference')
@@ -32,3 +31,5 @@ header.main-header
         = t('.print_copy')
 
       = f.button :submit
+
+  = render partial: 'shared/aside'

@@ -1,12 +1,11 @@
 - content_for(:page_title, page_title)
 
-header.main-header
+header.main-header role="banner"
   h1= t('.header')
 
 .main-section
-  = render partial: 'shared/aside', locals: {hide: [:signout]}
 
-  .main-content#main-sub-content
+  .main-content
     = simple_form_for user_session, url: user_session_path do |f|
       = f.error :base
 
@@ -20,3 +19,5 @@ header.main-header
         = f.button :submit
 
         p.form-hint= t('.hint_html', path: root_path)
+
+  = render partial: 'shared/aside', locals: {hide: [:signout]}

@@ -1,10 +1,9 @@
-header.main-header
+header.main-header role="banner"
   h1= t('.header')
 
 .main-section
-  = render partial: 'shared/aside', locals: {hide: [:signout]}
 
-  article.main-content#main-sub-content
+  .main-content
     = simple_form_for claim, url: claim_path do |f|
       = f.error_notification
 
@@ -29,3 +28,5 @@ header.main-header
           .clearfix
             = f.button :submit, { class: 'button ga-event' }
             = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
+
+  = render partial: 'shared/aside', locals: {hide: [:signout]}

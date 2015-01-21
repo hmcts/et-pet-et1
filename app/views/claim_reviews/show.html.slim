@@ -1,13 +1,12 @@
 - content_for(:page_title, page_title)
 
-header.main-header
+header.main-header role="banner"
   h1= t('.header')
   p = t('.info')
 
 .main-section
-  = render partial: 'shared/aside'
 
-  .main-content#main-sub-content
+  .main-content
     = incomplete_claim_warning
 
     - claim_presenter.each_section do |section_name, section|
@@ -28,3 +27,5 @@ header.main-header
     = render partial: 'email_addresses'
 
     p.print = link_to t('.print_link').html_safe
+
+  = render partial: 'shared/aside'
