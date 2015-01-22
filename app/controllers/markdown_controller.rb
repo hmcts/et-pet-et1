@@ -1,4 +1,6 @@
 class MarkdownController < ActionController::Base
+  include SignoutVisibility
+
   layout 'application'
 
   RENDERER_INSTANCE = MarkdownRenderer.new

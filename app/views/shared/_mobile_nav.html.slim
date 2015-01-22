@@ -1,0 +1,15 @@
+nav#navcontainer role="navigation"
+  ul
+    - if show_signout?
+      li
+        span
+          = link_to t('.save_and_complete'), new_user_session_path
+
+    li
+      span.menu-trigger
+        a href="javascript:void(0);"
+          = t('.support')
+
+      ul
+        li= link_to t('.read_guide'), guide_path
+        li= link_to t('.contact_us'), t('.contact_us_link')

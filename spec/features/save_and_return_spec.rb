@@ -9,7 +9,10 @@ feature 'Save and Return' do
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Save and complete later'
+    within 'aside' do
+      click_button 'Save and complete later'
+    end
+
     click_button 'Sign out now'
 
     visit claim_claimant_path
@@ -22,7 +25,10 @@ feature 'Save and Return' do
     fill_in_password
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Save and complete later'
+    within 'aside' do
+      click_button 'Save and complete later'
+    end
+
     expect(page).to have_text('Claim saved')
     expect(page).to have_text(Claim.last.reference)
 
@@ -45,7 +51,9 @@ feature 'Save and Return' do
 
     fill_in_personal_details(submit_form: false)
 
-    click_button 'Save and complete later'
+    within 'aside' do
+      click_button 'Save and complete later'
+    end
 
     expect(page).to have_text(claim_heading_for(:new))
   end
@@ -53,7 +61,11 @@ feature 'Save and Return' do
   scenario 'ending the session when current page invalid' do
     start_claim
     fill_in_password
-    click_button 'Save and complete later'
+
+    within 'aside' do
+      click_button 'Save and complete later'
+    end
+
     expect(page).to have_text('Claim saved')
   end
 

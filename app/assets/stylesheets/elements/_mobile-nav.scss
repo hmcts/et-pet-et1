@@ -1,0 +1,44 @@
+#navcontainer {
+  display: none;
+  @include media(mobile) {
+    display: block;
+    text-align: right;
+    margin: 0 $gutter;
+    border-bottom: 1px solid $grey-3;
+    padding:5px 0;
+    ul{
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      position: relative;
+      ul{ // second level
+        @include core-16;
+        display:none;
+        width: 100%;
+        border-top: 1px solid $grey-3;
+        margin-top:10px;
+        line-height: 30px;
+        padding:5px 0 0;
+        a {
+          padding-left:10px;
+        }
+      }
+    }
+    li{
+      display: inline;
+      margin:0;
+    }
+    .menu-trigger {
+      padding-left:10px;
+      &:after {
+        content: '▲';
+        color:$grey-3;
+      }
+      &.active {
+        &:after {
+          content: '▼';
+        }
+      }
+    }
+  }
+}
