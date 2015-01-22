@@ -28,7 +28,7 @@ feature 'Save and Return' do
     within 'aside' do
       click_button 'Save and complete later'
     end
-    
+
     expect(page).to have_text('Claim saved')
     expect(page).to have_text(Claim.last.reference)
 
