@@ -41,6 +41,12 @@ module.exports = (function () {
           eventCategory: elm.type,
           eventLabel: (elm.type === 'submit' ? elm.value : elm.id)
         };
+      },
+      BUTTON: function (elm) {
+        return {
+          eventCategory: elm.type,
+          eventLabel: elm.innerHTML
+        };
       }
     },
 
