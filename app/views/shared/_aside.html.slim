@@ -7,6 +7,5 @@ aside role="complementary"
   - unless hide.include?(:signout)
     h3= t '.actions_header'
     ul
-      li= button_to t('.signout'),
-        { controller: :user_sessions, action: :destroy },
-        method: :delete, class: 'hyperlink ga-event'
+      li= button_to({ controller: :user_sessions, action: :destroy },
+      { method: :delete, class: 'button-hyperlink ga-event' }) { t(".signout") }
