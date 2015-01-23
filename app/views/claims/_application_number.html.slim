@@ -3,11 +3,12 @@
     p = t '.application_number'
     span.number= claim.reference
 
-fieldset
+.content-section
   p = t('.intro_text')
 
-  = f.input :email_address
-  = f.input :password, as: :string
+  fieldset
+    = f.input :email_address
+    = f.input :password, as: :string
 
 p.print
   = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}

@@ -7,26 +7,24 @@ header.main-header role="banner"
     = simple_form_for claim, url: claim_path do |f|
       = f.error_notification
 
-      fieldset
+      section.content-section
+        .panel-indent
+          p = t '.callout.header_html'
+          p = t('.callout.body_html', path:guide_path)
 
-        section.content-section
-          .panel-indent
-            p = t '.callout.header_html'
-            p = t('.callout.body_html', path:guide_path)
-
-          .content-block
-            h2 = t '.are_you_in_time.legend'
-            p = t('.are_you_in_time.body_html', path:guide_path)
+        .content-block
+          h2 = t '.are_you_in_time.legend'
+          p = t('.are_you_in_time.body_html', path:guide_path)
 
 
-            h2 = t '.have_you_contacted_acas.legend'
-            p = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
+          h2 = t '.have_you_contacted_acas.legend'
+          p = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
 
-            h2 = t '.what_you_need_to_know.legend'
-            p = t('.what_you_need_to_know.body_html', path: guide_path)
+          h2 = t '.what_you_need_to_know.legend'
+          p = t('.what_you_need_to_know.body_html', path: guide_path)
 
-          .clearfix
-            = f.button :submit, { class: 'button ga-event' }
-            = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
+        .clearfix
+          = f.button :submit, { class: 'button ga-event' }
+          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
 
   = render partial: 'shared/aside', locals: {hide: [:signout]}
