@@ -37,7 +37,9 @@
 // For copy coming out of markdown
 // ==========================================================================
 .content-section {
-  @extend %clearfix;
+  legend:first-child {
+    margin-top:0;
+  }
   h2 {
     @extend .legend;
     &:first-child{
@@ -95,6 +97,7 @@ aside{
   }
 }
 
+.content-section,
 fieldset{
   @include container;
   @extend %clearfix;
@@ -143,7 +146,8 @@ legend {
   }
 }
 
-.remove-multiple, .remove-respondent{
+.remove-multiple,
+.remove-respondent{
   display:none;
   .js-enabled &{
     @include core-16;
