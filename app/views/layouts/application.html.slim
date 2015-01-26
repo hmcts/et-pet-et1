@@ -27,8 +27,10 @@
   main#content(role="main")
     .container
       = render partial: 'shared/feedback_link'
-      .flash.alert
-        = flash[:alert]
+      - %w<info notice alert>.each do |type|
+        - next unless flash[type].present?
+        div class="flash #{type}"
+          = flash[type]
       = render partial: 'shared/session_prompt'
       = yield
 
