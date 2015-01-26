@@ -400,6 +400,8 @@ en:
     expired:
       header: Your session has expired
       content_html: To complete your claim, please <a href="%{new_user_session_path}">return to your claim</a>.
+    destroy:
+      logout: You have been logged out
 
   guides:
     show:
