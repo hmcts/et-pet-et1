@@ -22,7 +22,7 @@ cat <<EOT
     }
   }
   output {
-    redis { host => "$LOGSTASH_SERVER" data_type => "list" key => "logstash" }
+    redis { host => "$LOGSTASH_SERVER" data_type => "list" key => "$LOGSTASH_KEY" }
   }
 
 EOT
