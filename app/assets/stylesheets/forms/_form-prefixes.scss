@@ -1,5 +1,6 @@
-.prefixed-field {
-  @extend %clearfix; 
+.prefixed-field,
+.slim-fieldset {
+  @extend %clearfix;
   .currency_field {
     @include span(6 of 12);
     @include first;
@@ -24,7 +25,7 @@
     margin:0;
     border-color:#fff;
   }
-  .form-group.radio_buttons {
+.form-group.radio_buttons {
     @include span(6 of 12);
     @include last;
     clear:none;
@@ -42,5 +43,16 @@
         top:7px;
       }
     }
+  }
+}
+
+.slim-fieldset {
+  input.string {
+    @include span(5 of 12);
+    @include first;
+    border-color:$border-colour;
+  }
+  .form-group.radio_buttons {
+    @include span(6 of 12);
   }
 }

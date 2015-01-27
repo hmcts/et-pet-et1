@@ -13,8 +13,7 @@ fieldset
     = f.simple_fields_for :collection do |builder|
       .multiple id=("resource_#{builder.index}")
         fieldset
-          legend role="heading" aria-level="2"
-            = t('.person', number: builder.index + 2)
+          legend= t('.person', number: builder.index + 2)
 
           = link_to t('.remove_resource_link'), 'javascript:void(0);', { class: 'remove-multiple' }
 

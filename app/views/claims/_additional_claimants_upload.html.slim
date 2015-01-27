@@ -8,7 +8,7 @@
           p = error
 
 fieldset
-  legend role="heading" aria-level="2" = t '.subheader'
+  legend= t '.subheader'
 
   = f.input :has_additional_claimants,
     hint: t('.has_additional_claimants_html', path: claim_additional_claimants_path),
@@ -19,7 +19,7 @@ fieldset
     reveal: { true => 'sub1', false => 'sub1' }
 
   fieldset.multiples.reveal-subscribe data-target="sub1" data-show-array="true"
-    legend role="heading" aria-level="2" = t '.steps_header'
+    legend= t '.steps_header'
 
     #step_one.clearfix
       b = t ".step_one_header"

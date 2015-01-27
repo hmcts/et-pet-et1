@@ -1,5 +1,5 @@
 fieldset
-  legend role="heading" aria-level="2" = t '.claim_outcome'
+  legend= t '.claim_outcome'
 
   = f.input :desired_outcomes,
     collection: Claim::DESIRED_OUTCOMES,
