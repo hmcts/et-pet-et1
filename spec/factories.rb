@@ -104,11 +104,11 @@ FactoryGirl.define do
 
     trait :non_sanitized_attachment_filenames do
       additional_claimants_csv do
-        Rack::Test::UploadedFile.new 'spec/support/files/file-lol.biz.v1.csv'
+        Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.csv'
       end
 
       additional_information_rtf do
-        Rack::Test::UploadedFile.new 'spec/support/files/file-lol.biz.v1.rtf'
+        Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.rtf'
       end
     end
 

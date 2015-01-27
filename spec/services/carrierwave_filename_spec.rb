@@ -10,18 +10,18 @@ RSpec.describe CarrierwaveFilename, type: :service do
         expect(described_class.for(subject)).to eq 'file.csv'
       end
 
-      context 'handling hyphenated filenames' do
+      context 'handling filenames with non alphanumeric characters' do
         let(:claim) { create :claim, :non_sanitized_attachment_filenames }
 
         context 'when underscore = true' do
-          it 'returns the filename with non alphanumerics converted to underscores' do
-            expect(described_class.for(subject, underscore: true)).to eq 'file_lol_biz_v1.csv'
+          it 'returns the filename with underscores' do
+            expect(described_class.for(subject, underscore: true)).to eq 'file_l_o_l_biz__v1_.csv'
           end
         end
 
         context 'when underscore = false' do
-          it 'returns the filename inclusive of non alphanumeric characters' do
-            expect(described_class.for(subject)).to eq 'file-lol.biz.v1.csv'
+          it 'returns the filename unchanged' do
+            expect(described_class.for(subject)).to eq 'file-l_o_l.biz._v1_.csv'
           end
         end
       end
