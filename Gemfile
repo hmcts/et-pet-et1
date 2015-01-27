@@ -37,7 +37,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'capybara'
   gem 'codeclimate-test-reporter', require: nil
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '0.11.1'
   gem 'factory_girl_rails'
   gem 'guard-livereload'
   gem 'launchy'
