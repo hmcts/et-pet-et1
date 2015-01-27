@@ -130,9 +130,11 @@ GEM
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dotenv (1.0.2)
-    dotenv-rails (1.0.2)
-      dotenv (= 1.0.2)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
+    dotenv-rails (0.11.1)
+      dotenv (= 0.11.1)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -474,7 +476,7 @@ DEPENDENCIES
   cocaine
   codeclimate-test-reporter
   compass
-  dotenv-rails
+  dotenv-rails (= 0.11.1)
   epdq!
   factory_girl_rails
   fog

@@ -1,5 +1,5 @@
 fieldset
-  legend role="heading" aria-level="2" = t '.respondent_legend'
+  legend= t '.respondent_legend'
   p = t('.form_hint')
   = f.input :name
 
@@ -16,15 +16,15 @@ fieldset
 
   .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
     fieldset.panel-indent
-        legend.form-label = t '.no_acas_number_reason'
-        = f.input :no_acas_number_reason, label: false,
-          collection: RespondentForm::NO_ACAS_REASON,
-          as: :radio_buttons,
-          required: true,
-          item_wrapper_class: 'block-label large-label'
+      legend.form-label = t '.no_acas_number_reason'
+      = f.input :no_acas_number_reason, label: false,
+        collection: RespondentForm::NO_ACAS_REASON,
+        as: :radio_buttons,
+        required: true,
+        item_wrapper_class: 'block-label large-label'
 
 fieldset
-  legend role="heading" aria-level="2" = t '.contact_legend'
+  legend= t '.contact_legend'
   p.form-hint= t('.contact_hint')
   = f.input :address_building
   = f.input :address_street
@@ -34,7 +34,7 @@ fieldset
   = f.input :address_telephone_number, input_html: { class: 'medium-input' }
 
 fieldset
-  legend role="heading" aria-level="2" = t '.workaddress_legend'
+  legend= t '.workaddress_legend'
   = f.input :worked_at_same_address,
     as: :radio_buttons,
     wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},

@@ -1,13 +1,12 @@
-fieldset
 
-  .clearfix
-      .callout.callout-fee
-        p = t ('.callout_fee_intro')
-        span.number = t('.callout_fee_amount', application_fee: fee_calculation.application_fee)
-        p = t('.callout_fee_footnote_html', hearing_fee: fee_calculation.hearing_fee, path: guide_path)
+.clearfix
+  .callout.callout-fee
+    p = t ('.callout_fee_intro')
+    span.number = t('.callout_fee_amount', application_fee: fee_calculation.application_fee)
+    p = t('.callout_fee_footnote_html', hearing_fee: fee_calculation.hearing_fee, path: guide_path)
 
 fieldset
-  legend role="heading" aria-level="2"  = t '.reduce_fee'
+  legend= t '.reduce_fee'
 
   - if resource.has_secondary_claimants?
     p = t('.applying_for_remission_multiple_html', path: guide_path)

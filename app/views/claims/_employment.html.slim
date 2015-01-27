@@ -1,5 +1,5 @@
 fieldset
-  legend role="heading" aria-level="2" = t '.situation_legend'
+  legend= t '.situation_legend'
 
   /! Radios: main yes / no
   = f.input :was_employed,
@@ -10,8 +10,8 @@ fieldset
     reveal: { true => 'main', false => 'main' }
 
   /! reveal_current_situation
-  fieldset#reveal_current_situation.reveal-subscribe.reveal-publish-delegate.toggle-content data-target="main" data-show-array="true"
-    legend role="heading" aria-level="2" = t '.current_situation_legend'
+  #reveal_current_situation.reveal-subscribe.reveal-publish-delegate.toggle-content data-target="main" data-show-array="true"
+    h2.legend= t '.current_situation_legend'
 
     fieldset
       legend.form-label = t '.current_situation'
@@ -28,7 +28,7 @@ fieldset
     #employment_ppb_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array="still_employed notice_period employment_terminated"
       /! Employment details
       fieldset#employment_details
-        legend role="heading" aria-level="2" = t '.employment_details_legend'
+        legend= t '.employment_details_legend'
 
         = f.input :job_title
 
@@ -68,8 +68,8 @@ fieldset
                             :class => 'reveal-subscribe panel-indent toggle-content',
                             :'data-target' => 'sub2',
                             :'data-show-array' => 'true' } do
-            .inline-fields
-              = f.input_field :notice_pay_period_count
+            .inline-fields.slim-fieldset
+              = f.input_field :notice_pay_period_count, {type: 'text', class: 'string'}
               = f.input :notice_pay_period_type, label: false,
                 collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
                 item_wrapper_class: 'slim-label'
@@ -77,8 +77,8 @@ fieldset
         = f.input :average_hours_worked_per_week, input_html: { class: 'short-input' }
 
       /! Pay, pension and benefits
-      fieldset#pay_pention_benefits
-        legend role="heading" aria-level="2" = t '.pay_legend'
+      fieldset#pay_pension_benefits
+        legend= t '.pay_legend'
 
         = f.input :gross_pay,
           input_html: { :class => 'prefix-pound' } do
@@ -116,7 +116,7 @@ fieldset
     /! New job fieldset
     /! reveal on option 3
     fieldset#end_date_wrapper.reveal-subscribe.toggle-content data-target="sub1" data-show-array="employment_terminated"
-      legend role="heading" aria-level="2" = t '.new_job_legend'
+      legend= t '.new_job_legend'
 
       = f.input :found_new_job,
         as: :radio_buttons,

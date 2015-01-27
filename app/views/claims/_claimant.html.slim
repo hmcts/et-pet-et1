@@ -1,5 +1,5 @@
 fieldset
-  legend role="heading" aria-level="2" = t '.legend_personal_details'
+  legend= t '.legend_personal_details'
   = render partial: 'personal_details', locals: { f: f }
 
   fieldset
@@ -26,7 +26,7 @@ fieldset
                     :'data-show-array' => 'true' }
 
 fieldset
-  legend role="heading" aria-level="2" = t '.legend_contact_details'
+  legend= t '.legend_contact_details'
 
   = render partial: 'address', locals: { f: f }
 
@@ -36,7 +36,7 @@ fieldset
   = f.input :email_address
 
   fieldset
-    legend role="heading" aria-level="2" = t '.legend_contact_preference'
+    legend= t '.legend_contact_preference'
     = f.input :contact_preference, label: false,
       collection: ClaimantForm::CONTACT_PREFERENCES,
       as: :radio_buttons,
