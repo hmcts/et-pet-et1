@@ -1,3 +1,3 @@
-#error-summary.validation-summary.group aria-labelledby="error-heading" role="alert" tabindex='0'
+#error-summary.validation-summary.group role="alert" tabindex='0' aria={ labelledby: 'error-heading', describedby: 'error-message' } 
   h2#error-heading = t 'aria.error_summary'
-  p = message
+  p#error-message = message

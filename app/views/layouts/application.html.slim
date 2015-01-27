@@ -30,8 +30,7 @@
       = render partial: 'shared/feedback_link'
       - %w<info notice alert>.each do |type|
         - next unless flash[type].present?
-        div class="flash #{type}"
-          = flash[type]
+        = render partial: 'shared/flash_message', locals: { type: type }
       = render partial: 'shared/session_prompt'
       = yield
 
