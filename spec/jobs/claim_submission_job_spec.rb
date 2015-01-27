@@ -25,10 +25,16 @@ describe ClaimSubmissionJob, type: :job do
       context 'when there are confirmation email recipients' do
         before do
           allow(claim).to receive(:confirmation_email_recipients?).and_return true
+          allow(claim).to receive(:create_event).with 'confirmation_email_sent'
         end
 
         it 'sends the confirmation email' do
           expect(mailer).to receive(:deliver)
+          subject.perform(claim)
+        end
+
+        it 'creates an email log event' do
+          expect(claim).to receive(:create_event).with 'confirmation_email_sent'
           subject.perform(claim)
         end
       end

@@ -38,6 +38,7 @@ class Claim::FiniteStateMachine
       claim = machine.claim
 
       claim.touch(:submitted_at)
+      claim.create_event Event::ENQUEUED
       ClaimSubmissionJob.perform_later claim
     end
   end
