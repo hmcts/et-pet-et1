@@ -39,13 +39,13 @@ RSpec.describe Jadu::Claim, type: :service do
       Jadu::Claim.create claim
     end
 
-    context 'when the attachment filenames have underscores' do
+    context 'when the attachment filenames have non alphanumeric characters' do
       let(:claim) { create :claim, :non_sanitized_attachment_filenames }
 
       let(:attachments) do
         { "et1_barrington_wrigglesworth.pdf" => claim.pdf_file.read,
-          "file_lol_biz_v1.rtf" => claim.additional_information_rtf_file.read,
-          "file_lol_biz_v1.csv" => claim.additional_claimants_csv_file.read }
+          "file_l_o_l_biz__v1_.rtf" => claim.additional_information_rtf_file.read,
+          "file_l_o_l_biz__v1_.csv" => claim.additional_claimants_csv_file.read }
       end
 
       it 'converts the hyphens to underscores' do
