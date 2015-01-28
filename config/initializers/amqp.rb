@@ -7,8 +7,9 @@ if Rails.env.production?
     durable: true,
     handler: Sneakers::Handlers::Maxretry,
     log:     'log/sneakers.log',
-    timeout_job_after: 15, # Timeout job after 15 seconds
-    retry_timeout: 120_000 # TTL of 2 minutes before routing to deadletter queue
+    timeout_job_after: ENV.fetch('SNEAKERS_TIMEOUT_S').to_i,
+    retry_timeout: ENV.fetch('SNEAKERS_RETRY_TTL_MS').to_i, #milliseconds
+    max_retries: ENV.fetch('SNEAKERS_MAX_RETRIES').to_i
 
   Rails.application.config.active_job.queue_adapter = :sneakers
 end
