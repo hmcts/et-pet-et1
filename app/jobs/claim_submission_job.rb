@@ -4,6 +4,10 @@ class ClaimSubmissionJob < ActiveJob::Base
   def perform(claim)
     claim.generate_pdf!
     Jadu::Claim.create claim
-    BaseMailer.confirmation_email(claim).deliver if claim.confirmation_email_recipients?
+
+    if claim.confirmation_email_recipients?
+      BaseMailer.confirmation_email(claim).deliver
+      claim.create_event Event::CONFIRMATION_EMAIL_SENT
+    end
   end
 end

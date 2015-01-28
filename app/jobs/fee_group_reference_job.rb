@@ -3,6 +3,7 @@ class FeeGroupReferenceJob < ActiveJob::Base
 
   def perform(claim, postcode)
     fee_group_reference = FeeGroupReference.create postcode: postcode
+    claim.create_event Event::FEE_GROUP_REFERENCE_REQUEST
     claim.update! fee_group_reference: fee_group_reference.reference
     claim.create_office!(
       code:      fee_group_reference.office_code,

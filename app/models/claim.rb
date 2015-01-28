@@ -4,6 +4,8 @@ class Claim < ActiveRecord::Base
   mount_uploader :additional_claimants_csv,   AttachmentUploader
   mount_uploader :pdf,                        ClaimPdfUploader
 
+  after_create -> { create_event Event::CREATED }
+
   has_one :primary_claimant,
     -> { where primary_claimant: true },
     class_name: 'Claimant'
@@ -19,6 +21,8 @@ class Claim < ActiveRecord::Base
   has_many :secondary_respondents,
     -> { where primary_respondent: false },
     class_name: 'Respondent'
+
+  has_many :events
 
   has_many :claimants, dependent: :destroy
   has_many :respondents, dependent: :destroy
@@ -55,6 +59,10 @@ class Claim < ActiveRecord::Base
   def self.find_by_reference(reference)
     normalized = ApplicationReference.normalize(reference)
     find_by(application_reference: normalized)
+  end
+
+  def create_event(event, actor: 'app', message: nil)
+    events.create event: event, actor: actor, message: message
   end
 
   def authenticate(password)
@@ -111,6 +119,7 @@ class Claim < ActiveRecord::Base
 
   def generate_pdf!
     PdfFormBuilder.build(self) { |file| self.update pdf: file }
+    create_event Event::PDF_GENERATED
   end
 
   def attachments

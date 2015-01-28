@@ -27,6 +27,12 @@ RSpec.describe Claim, type: :claim do
   describe 'callbacks' do
     let(:claim) { create :claim }
 
+    describe 'after_create' do
+      it 'creates a "created" event' do
+        expect(subject.events.first[:event]).to eq 'created'
+      end
+    end
+
     describe 'after_update' do
       context 'when additional_claimants_csv changed' do
         before do
@@ -262,10 +268,17 @@ RSpec.describe Claim, type: :claim do
   describe "#generate_pdf!" do
     subject { create :claim }
 
+    before { allow(subject).to receive(:create_event) }
+
     it "assigns a pdf to the model" do
       subject.generate_pdf!
       expect(subject[:pdf]).to eq "et1_barrington_wrigglesworth.pdf"
       expect(subject.pdf.file).not_to be_nil
+    end
+
+    it 'generates a log event' do
+      expect(subject).to receive(:create_event).with 'pdf_generated'
+      subject.generate_pdf!
     end
   end
 
@@ -301,7 +314,10 @@ RSpec.describe Claim, type: :claim do
             subject.submit!
           end
 
-          it 'enqueues the claim for submission'
+          it 'creates a log event' do
+            expect(subject).to receive(:create_event).with 'enqueued'
+            subject.submit!
+          end
         end
       end
 
@@ -337,8 +353,10 @@ RSpec.describe Claim, type: :claim do
         subject.enqueue!
       end
 
-      it 'enqueues the claim for submission'
-
+      it 'creates a log event' do
+        expect(subject).to receive(:create_event).with 'enqueued'
+        subject.enqueue!
+      end
     end
   end
 
@@ -420,6 +438,23 @@ RSpec.describe Claim, type: :claim do
           expect(subject).to be_immutable
         end
       end
+    end
+  end
+
+  describe '#create_event' do
+    let(:event) { subject.events.last }
+
+    it 'creates an event on the claim with the current state of the claim' do
+      subject.create_event 'lel', message: 'funny'
+
+      { event: 'lel', actor: 'app', message: 'funny', claim_state: 'created' }.each do |k, v|
+        expect(event[k]).to eq v
+      end
+    end
+
+    it 'can override the actor' do
+      subject.create_event 'lel', actor: 'user'
+      expect(event[:actor]).to eq 'user'
     end
   end
 end

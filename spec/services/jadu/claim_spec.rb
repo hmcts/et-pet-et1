@@ -9,13 +9,17 @@ RSpec.describe Jadu::Claim, type: :service do
 
   let(:successful_api_response) do
     double(:successful_api_response, ok?: true).tap do |d|
-      allow(d).to receive(:[])
+      hash = { 'feeGroupReference' => '12345678900' }
+      allow(d).to receive(:values_at) { |*k| hash.values_at *k }
+      allow(d).to receive(:[]) { |k| hash[k] }
     end
   end
 
   let(:failure_api_response) do
     double(:failure_api_response, ok?: false).tap do |d|
-      allow(d).to receive(:[])
+      hash = { 'errorCode' => '1', 'errorDescription' => 'herp', 'details' => 'derp' }
+      allow(d).to receive(:values_at) { |*k| hash.values_at *k }
+      allow(d).to receive(:[]) { |k| hash[k] }
     end
   end
 
@@ -35,6 +39,14 @@ RSpec.describe Jadu::Claim, type: :service do
     it 'submits a claim to Jadu' do
       expect(api_double).to receive(:new_claim).
         with(xml_double, attachments).and_return successful_api_response
+
+      Jadu::Claim.create claim
+    end
+
+    it 'creates a log event' do
+      allow(api_double).to receive(:new_claim).
+        with(xml_double, attachments).and_return successful_api_response
+      expect(claim).to receive(:create_event).with 'received_by_jadu'
 
       Jadu::Claim.create claim
     end
@@ -64,6 +76,14 @@ RSpec.describe Jadu::Claim, type: :service do
 
       it 'raises an execption' do
         expect { Jadu::Claim.create claim }.to raise_error StandardError
+      end
+
+      it 'creates a log event' do
+        expect(claim).to receive(:create_event).with 'rejected_by_jadu', message: "1 herp derp"
+        begin
+          Jadu::Claim.create claim
+        rescue StandardError
+        end
       end
 
       it 'does not update the claim' do

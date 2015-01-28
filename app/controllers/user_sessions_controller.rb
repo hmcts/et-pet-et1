@@ -15,6 +15,7 @@ class UserSessionsController < ApplicationController
   def create
     if user_session.valid?
       session[:claim_reference] = user_session.reference
+      claim.create_event Event::LOGIN, actor: 'user'
       redirect_to claim_path_for :claimant
     else
       render :new
@@ -28,6 +29,7 @@ class UserSessionsController < ApplicationController
   private
 
   def logout
+    claim.create_event Event::LOGOUT, actor: 'user'
     reset_session
     redirect_to root_path
   end
@@ -40,6 +42,7 @@ class UserSessionsController < ApplicationController
 
   def deliver_access_details
     AccessDetailsMailer.deliver_later claim
+    claim.create_event Event::DELIVER_ACCESS_DETAILS, message: "Sent to #{claim.email_address}"
   end
 
   def user_session

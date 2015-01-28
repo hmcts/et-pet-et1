@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212155144) do
+ActiveRecord::Schema.define(version: 20150127155238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "addresses", force: true do |t|
+  create_table "addresses", force: :cascade do |t|
     t.string   "building",         limit: 255
     t.string   "street",           limit: 255
     t.string   "locality",         limit: 255
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.string   "country",          limit: 255
   end
 
-  create_table "claimants", force: true do |t|
+  create_table "claimants", force: :cascade do |t|
     t.string   "first_name",         limit: 255
     t.string   "last_name",          limit: 255
     t.date     "date_of_birth"
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.boolean  "primary_claimant",               default: false
   end
 
-  create_table "claims", force: true do |t|
+  create_table "claims", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest",                       limit: 255
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
 
   add_index "claims", ["application_reference"], name: "index_claims_on_application_reference", unique: true, using: :btree
 
-  create_table "employments", force: true do |t|
+  create_table "employments", force: :cascade do |t|
     t.boolean  "enrolled_in_pension_scheme"
     t.boolean  "found_new_job"
     t.boolean  "worked_notice_period_or_paid_in_lieu"
@@ -103,7 +103,17 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.datetime "updated_at"
   end
 
-  create_table "offices", force: true do |t|
+  create_table "events", force: :cascade do |t|
+    t.integer  "claim_id"
+    t.string   "event"
+    t.string   "actor"
+    t.string   "message"
+    t.string   "claim_state"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "offices", force: :cascade do |t|
     t.integer  "code"
     t.string   "name"
     t.string   "address"
@@ -113,7 +123,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.integer  "claim_id"
   end
 
-  create_table "payments", force: true do |t|
+  create_table "payments", force: :cascade do |t|
     t.integer  "amount"
     t.integer  "claim_id"
     t.string   "reference"
@@ -121,7 +131,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "representatives", force: true do |t|
+  create_table "representatives", force: :cascade do |t|
     t.string   "type",               limit: 255
     t.string   "organisation_name",  limit: 255
     t.string   "name",               limit: 255
@@ -134,7 +144,7 @@ ActiveRecord::Schema.define(version: 20141212155144) do
     t.string   "contact_preference", limit: 255
   end
 
-  create_table "respondents", force: true do |t|
+  create_table "respondents", force: :cascade do |t|
     t.string   "name",                                       limit: 255
     t.string   "acas_early_conciliation_certificate_number", limit: 255
     t.string   "no_acas_number_reason",                      limit: 255

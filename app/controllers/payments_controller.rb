@@ -20,13 +20,9 @@ class PaymentsController < ApplicationController
   # BarclayCard transaction result callback actions
 
   def success
-    # Strip padding from FGR (FGRs are padded with an incrementing integer
-    # when retrying failed transactions)
-    reference = params['orderID'].sub(/\-\d+\Z/, '')
-    claim     = Claim.find_by fee_group_reference: reference
-
     if payment_response.success?
       claim.create_payment amount: payment_response.amount, reference: payment_response.reference
+      claim.create_event Event::PAYMENT_RECEIVED
     end
 
     claim.enqueue!
@@ -34,6 +30,7 @@ class PaymentsController < ApplicationController
   end
 
   def decline
+    claim.create_event Event::PAYMENT_DECLINED
     flash[:alert] = t('.payment_declined')
     claim.increment! :payment_attempts
     redirect_to :action => :show
@@ -52,5 +49,18 @@ class PaymentsController < ApplicationController
 
   def ensure_payment_is_required
     render nothing: true unless claim.payment_required?
+  end
+
+  # We want to be able to process a payment even if the session expired
+  def claim
+    # Strip padding from FGR (FGRs are padded with an incrementing integer
+    # when retrying failed transactions)
+    @claim ||= begin
+      if params['orderID'].present?
+        Claim.find_by fee_group_reference: params['orderID'].sub(/\-\d+\Z/, '')
+      else
+        super
+      end
+    end
   end
 end

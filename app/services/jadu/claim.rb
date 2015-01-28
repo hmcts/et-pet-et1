@@ -9,7 +9,17 @@ module Jadu
     end
 
     def perform
-      operation.ok? ? finalize_claim : request_error
+      if operation.ok?
+        claim.create_event Event::RECEIVED_BY_JADU
+        finalize_claim
+      else
+        claim.create_event Event::REJECTED_BY_JADU,
+          message: operation.
+            values_at('errorCode', 'errorDescription', 'details').
+            select(&:present?).join(' ')
+
+        request_error
+      end
     end
 
     private
