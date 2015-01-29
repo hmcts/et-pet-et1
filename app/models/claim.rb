@@ -1,8 +1,8 @@
 class Claim < ActiveRecord::Base
-  has_secure_password validations: false
   mount_uploader :additional_information_rtf, AttachmentUploader
   mount_uploader :additional_claimants_csv,   AttachmentUploader
   mount_uploader :pdf,                        ClaimPdfUploader
+  include MemorableWord
 
   after_create { create_event Event::CREATED }
 
@@ -66,10 +66,6 @@ class Claim < ActiveRecord::Base
     events.create event: event, actor: actor, message: message
   end
 
-  def authenticate(password)
-    password_digest? && super
-  end
-
   def alleges_discrimination_or_unfair_dismissal?
     discrimination_claims.any? || is_unfair_dismissal?
   end
@@ -87,7 +83,6 @@ class Claim < ActiveRecord::Base
     super
   end
 
-  # TODO: validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
