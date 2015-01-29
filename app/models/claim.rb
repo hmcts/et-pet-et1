@@ -1,8 +1,6 @@
 class Claim < ActiveRecord::Base
-  mount_uploader :additional_information_rtf, AttachmentUploader
-  mount_uploader :additional_claimants_csv,   AttachmentUploader
-  mount_uploader :pdf,                        ClaimPdfUploader
   include MemorableWord
+  include ClaimAttachments
   include BitmaskedComplaintsOutcomes
 
   after_create { create_event Event::CREATED }
@@ -32,11 +30,8 @@ class Claim < ActiveRecord::Base
   has_one  :office, dependent: :destroy
   has_one  :payment
 
-  delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
-  delegate :file, to: :additional_information_rtf, prefix: true
-  delegate :file, to: :additional_claimants_csv, prefix: true
-  delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
-
+  delegate :amount, :created_at, :reference, :present?,
+    to: :payment, prefix: true, allow_nil: true
 
   after_initialize :setup_state_machine
   after_initialize :generate_application_reference
@@ -107,10 +102,6 @@ class Claim < ActiveRecord::Base
   def generate_pdf!
     PdfFormBuilder.build(self) { |file| self.update pdf: file }
     create_event Event::PDF_GENERATED
-  end
-
-  def attachments
-    self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
   end
 
   private
