@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /rails
-echo "Starting sneakers"           >>/rails/log/sneakers.log
-exec bundle exec rake sneakers:work    >>/rails/log/sneakers.log 2>&1
+echo "Starting sneakers"
+exec bundle exec rake sneakers:work
 
