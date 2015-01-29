@@ -1,4 +1,4 @@
-module ClaimAttachments
+module CarrierwaveAttachments
   extend ActiveSupport::Concern
 
   included do

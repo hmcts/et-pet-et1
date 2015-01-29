@@ -1,6 +1,6 @@
 class Claim < ActiveRecord::Base
   include MemorableWord
-  include ClaimAttachments
+  include CarrierwaveAttachments
   include BitmaskedComplaintsOutcomes
 
   has_one :primary_claimant,
