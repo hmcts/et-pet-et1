@@ -3,8 +3,6 @@ class Claim < ActiveRecord::Base
   include ClaimAttachments
   include BitmaskedComplaintsOutcomes
 
-  after_create { create_event Event::CREATED }
-
   has_one :primary_claimant,
     -> { where primary_claimant: true },
     class_name: 'Claimant'
@@ -32,6 +30,8 @@ class Claim < ActiveRecord::Base
 
   delegate :amount, :created_at, :reference, :present?,
     to: :payment, prefix: true, allow_nil: true
+
+  after_create -> { create_event Event::CREATED }
 
   after_initialize :setup_state_machine
   after_initialize :generate_application_reference
