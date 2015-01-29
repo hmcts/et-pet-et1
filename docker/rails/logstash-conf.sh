@@ -1,4 +1,8 @@
 #!/bin/bash
+for file in unicorn.log production.log logstash_production.json sneakers.log;
+  do touch /rails/log/$file
+done
+
 cat <<EOT
 
   input {
