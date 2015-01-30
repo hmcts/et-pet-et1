@@ -53,6 +53,7 @@ end
 
 gem 'webmock', group: :test
 
+gem 'activeadmin', github: 'activeadmin', ref: '156877'
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
