@@ -4,7 +4,7 @@ class Claim < ActiveRecord::Base
   mount_uploader :additional_claimants_csv,   AttachmentUploader
   mount_uploader :pdf,                        ClaimPdfUploader
 
-  after_create -> { create_event Event::CREATED }
+  after_create { create_event Event::CREATED }
 
   has_one :primary_claimant,
     -> { where primary_claimant: true },
@@ -50,15 +50,16 @@ class Claim < ActiveRecord::Base
   after_initialize :setup_state_machine
   after_initialize :generate_application_reference
 
-  before_update -> { secondary_claimants.destroy_all },
+  delegate :destroy_all, :any?, to: :secondary_claimants, prefix: true
+
+  before_update :secondary_claimants_destroy_all,
     if: :additional_claimants_csv_changed?
 
   before_update :remove_additional_claimants_csv!,
-    if: -> { secondary_claimants.any? }
+    if: :secondary_claimants_any?
 
   def self.find_by_reference(reference)
-    normalized = ApplicationReference.normalize(reference)
-    find_by(application_reference: normalized)
+    find_by application_reference: ApplicationReference.normalize(reference)
   end
 
   def create_event(event, actor: 'app', message: nil)
@@ -145,6 +146,23 @@ class Claim < ActiveRecord::Base
 
   alias_method :setup_state_machine, :state_machine
 
-  delegate *Claim::FiniteStateMachine.instance_methods, to: :state_machine
   delegate :fee_to_pay?, :application_fee, to: :fee_calculation
+
+  private
+
+  def respond_to_missing?(meth, include_private=false)
+    if state_machine.respond_to?(meth)
+      true
+    else
+      super
+    end
+  end
+
+  def method_missing(meth, *args, &blk)
+    if state_machine.respond_to? meth
+      state_machine.send meth, *args, &blk
+    else
+      super
+    end
+  end
 end
