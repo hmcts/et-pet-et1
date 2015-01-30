@@ -1,12 +1,27 @@
-h1= t '.header'
+- content_for(:page_title, t('.header'))
 
-p= t '.copy'
+header.main-header role="banner"
+  h1= t '.header'
 
-h2= t '.sub_header'
+.main-section
 
-= simple_form_for(resource, url: feedback_path) do |f|
-  = f.input :comments, as: :text
-  = f.input :suggestions, as: :text
-  = f.input :email_address
+  .main-content
+    .panel-indent
+      p= t '.copy'
 
-  = f.submit
+    fieldset
+      legend= t '.sub_header'
+      = simple_form_for(resource, url: feedback_path) do |f|
+        .form-fields
+          = f.input :comments,
+            as: :text,
+            input_html: { rows: 10 }
+          = f.input :suggestions,
+            as: :text,
+            input_html: { rows: 10 }
+          = f.input :email_address
+
+        .form-actions
+          = f.button :submit
+
+  = render partial: 'shared/aside', locals: {hide: [:signout]}
