@@ -28,7 +28,7 @@ RSpec.describe PdfsController, type: :controller do
 
   def url_path_part_for(claim)
     ["https://",
-      "buckoff.s3-eu-west-1.amazonaws.com/",
+      "#{ENV.fetch('S3_UPLOAD_BUCKET')}.s3-eu-west-1.amazonaws.com/",
       "uploads/claim/pdf/",
       "#{claim.reference}/",
       "et1_barrington_wrigglesworth.pdf",

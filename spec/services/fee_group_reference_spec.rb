@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe FeeGroupReference, type: :service do
   describe '.create' do
     let(:request) do
-      stub_request(:post, "https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office").
+      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
         with(body: "postcode=SW1%201AA", headers: { 'Accept' => 'application/json' }).
         to_return(body: json, headers: { 'Content-Type' => 'application/json' })
     end

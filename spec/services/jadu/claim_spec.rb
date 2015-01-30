@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Jadu::Claim, type: :service do
   let(:api_double) { instance_double Jadu::API }
-  let(:endpoint)   { "https://etapi.employmenttribunals.service.gov.uk/1/" }
+  let(:endpoint)   { "#{ENV.fetch('JADU_API')}" }
   let(:xml)        { instance_double JaduXml::ClaimPresenter, to_xml: xml_double }
   let(:xml_double) { double :xml }
   let(:claim)      { create :claim }

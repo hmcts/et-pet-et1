@@ -24,14 +24,14 @@ module FormMethods
     end
 
     before do
-      stub_request(:post, 'https://etapi.employmenttribunals.service.gov.uk/1/new-claim').
+      stub_request(:post, "#{ENV.fetch('JADU_API')}new-claim").
         to_return(body: submission_response.to_json, headers: { 'Content-Type' => 'application/json' })
 
-      stub_request(:post, "https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office").
+      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
         with(body: "postcode=SW1%201AA", headers: { 'Accept' => 'application/json' }).
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
 
-      stub_request(:post, "https://etapi.employmenttribunals.service.gov.uk/1/fgr-et-office").
+      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
         with(body: "postcode=AT1%204PQ", headers: { 'Accept' => 'application/json' }).
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
@@ -248,7 +248,7 @@ module FormMethods
     path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
       'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
       'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
-      'SHASIGN=067B5D65DDA8C7726366995579E27B49E20D2778AB71715398EE17BA4A7EDA21'
+      'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
 
     visit path
   end
