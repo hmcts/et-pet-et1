@@ -36,6 +36,10 @@ Rails.application.routes.draw do
         get :expired
       end
     end
+
+    constraints(ip: /81\.134\.202\.290|127\.0\.0\.1/) do
+      ActiveAdmin.routes(self)
+    end
   end
 
   get '/apply' => 'claims#new'
