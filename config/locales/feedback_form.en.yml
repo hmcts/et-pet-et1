@@ -1,0 +1,25 @@
+en:
+  feedback:
+    new:
+      header: Your feedback
+      copy: |
+        Please don't include any personal or financial details, such as your National
+        Insurance or credit card numbers
+      sub_header: Service feedback
+    create:
+      sent: Thank you for your feedback
+
+  simple_form:
+    labels:
+      feedback:
+        comments: What did work well for you?
+        suggestions: How can we improve this service?
+
+    hints:
+      feedback:
+        email_address: If you'd like us to contact you for more feedback
+
+  helpers:
+    submit:
+      feedback:
+        create: Send feedback
