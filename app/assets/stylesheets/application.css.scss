@@ -2,6 +2,9 @@
 @import "susy";
 @import "config";
 
+// MOJDS HELPERS
+@import "helpers";
+
 // GDS toolkit
 @import "colours";
 @import "measurements";
@@ -28,7 +31,6 @@
 @import "elements/callouts";
 @import "elements/mobile-nav";
 
-@import "helpers";
 @import "layout";
 @import "common";
 @import "shame";

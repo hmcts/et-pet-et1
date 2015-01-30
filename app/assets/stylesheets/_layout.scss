@@ -7,7 +7,7 @@
 // Page layout
 // ==========================================================================
 .main-section{
-  @extend %clearfix;
+  @include clearfix;
 }
 .main-content{
   @include span(8 of 12);
