@@ -17,7 +17,7 @@ class RespondentForm < Form
 
   WORK_ADDRESS_ATTRIBUTES.each { |a| attribute a, String } # TODO: fix this shit
 
-  booleans :no_acas_number
+  boolean :no_acas_number
 
   before_validation :reset_acas_number!,  if: :no_acas_number?
   before_validation :reset_work_address!, if: :worked_at_same_address?

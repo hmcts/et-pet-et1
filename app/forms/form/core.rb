@@ -42,17 +42,19 @@ class Form
         end
 
         def booleans(*attrs)
-          attrs.each do |a|
-            define_method(a) { instance_variable_get :"@#{a}" }
+          attrs.each &method(:boolean)
+        end
 
-            type = ActiveRecord::Type::Boolean.new
+        def boolean(attr)
+          define_method(attr) { instance_variable_get :"@#{attr}" }
 
-            define_method(:"#{a}=") do |v|
-              instance_variable_set :"@#{a}", type.type_cast_from_user(v)
-            end
+          type = ActiveRecord::Type::Boolean.new
 
-            alias_method :"#{a}?", a
+          define_method(:"#{attr}=") do |v|
+            instance_variable_set :"@#{attr}", type.type_cast_from_user(v)
           end
+
+          alias_method :"#{attr}?", attr
         end
 
         def for(name)
@@ -63,7 +65,6 @@ class Form
           ActiveModel::Name.new(self, nil, name.underscore.sub(/_form\Z/, ''))
         end
 
-        alias_method :boolean, :booleans
         delegate :i18n_key, to: :model_name, prefix: true
       end
     end
