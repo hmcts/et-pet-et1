@@ -16,4 +16,8 @@ class ConfirmationEmailPresenter < ConfirmationPresenter
   def claim_type
     claimant_count > 1 ? :single : :group
   end
+
+  def file_separator
+    ', '
+  end
 end

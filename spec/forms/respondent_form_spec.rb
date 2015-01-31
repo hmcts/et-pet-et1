@@ -13,8 +13,7 @@ RSpec.describe RespondentForm, :type => :form do
     address_county: "Businessfordshire", address_post_code: "SW1A 1AB",
     worked_at_same_address: 'false', no_acas_number: "1",
     no_acas_number_reason: "acas_has_no_jurisdiction",
-    acas_early_conciliation_certificate_number: '',
-    worked_at_same_address: 'false' }.merge(work_attributes)
+    acas_early_conciliation_certificate_number: '' }.merge(work_attributes)
 
   it_behaves_like("a Form", attributes)
 
@@ -80,7 +79,7 @@ RSpec.describe RespondentForm, :type => :form do
         ]
       }
 
-      it { is_expected.to ensure_inclusion_of(:no_acas_number_reason).in_array reasons }
+      it { is_expected.to validate_inclusion_of(:no_acas_number_reason).in_array reasons }
 
       describe 'when and ACAS number is given' do
         before { subject.no_acas_number = 'false' }

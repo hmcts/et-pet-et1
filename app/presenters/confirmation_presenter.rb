@@ -14,7 +14,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachments
-    attachment_filenames.map { |f| sanitize(f) }.join(tag :br).html_safe
+    attachment_filenames.map { |f| sanitize(f) }.join(file_separator).html_safe
   end
 
   def payment_amount
@@ -26,6 +26,10 @@ class ConfirmationPresenter < Presenter
   end
 
   private
+
+  def file_separator
+    tag :br
+  end
 
   def items
     %i<submission_information attachments payment_amount>.tap do |arr|

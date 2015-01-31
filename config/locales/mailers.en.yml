@@ -17,6 +17,7 @@ en:
         You’ll receive a confirmation email once you’ve submitted your claim.
 
     confirmation_email:
+      footer: :base_mailer.footer
       subject: 'Employment tribunal: claim submitted'
       header: Claim submitted
       intro:
@@ -31,11 +32,12 @@ en:
           group: |
             Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
       what_happens_next: |
-        What happens next:
+        What happens next
       contact_re_payment: |
         We’ll contact you within 5 working days to arrange payment.
       must_apply_for_remission: |
         You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
+      apply_for_fee_remission: Apply for fee remission
       no_remission_copy_sent_to_respondent: |
         A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
       we_will_contact_you: |
@@ -56,12 +58,15 @@ en:
           For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
       feedback_html: |
         <a href="%{href}">Your feedback</a> helps us improve this service.
+      feedback_text: |
+        Your feedback helps us improve this service:
       diversity_html: |
         Help us keep track. Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
+      diversity_text: |
+        Help us keep track. Please complete our diversity monitoring questionnaire.
 
     shared:
       button_fee_remission:
         apply_for_fee_remission: Apply for fee remission
       button_complete_claim:
         complete_claim: 'Complete claim'
-

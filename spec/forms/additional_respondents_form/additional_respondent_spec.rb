@@ -34,7 +34,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
           employer_contacted_acas interim_relief claim_against_security_services>
       end
 
-      it { is_expected.to ensure_inclusion_of(:no_acas_number_reason).in_array reasons }
+      it { is_expected.to validate_inclusion_of(:no_acas_number_reason).in_array reasons }
 
       describe 'when and ACAS number is given' do
         before { subject.no_acas_number = 'false' }

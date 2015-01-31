@@ -3,6 +3,7 @@ require "rails_helper"
 describe BaseMailer, type: :mailer do
   include ClaimsHelper
   include Messages
+  include MailMatchers
 
   def table_heading(heading)
     I18n.t("base_mailer.confirmation_email.details.#{heading}")
@@ -31,13 +32,12 @@ describe BaseMailer, type: :mailer do
     end
 
     it 'has reference in body' do
-      expect(email.body).to have_text claim.reference
+      expect(email).to match_pattern claim.reference
     end
   end
 
   describe '#confirmation_email' do
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
-    let(:content) { email.parts.find { |p| p.content_type.match(/html/) }.body.raw_source }
     let(:attachment) { email.parts.find(&:filename) }
 
     subject { described_class.confirmation_email(claim) }
@@ -63,12 +63,12 @@ describe BaseMailer, type: :mailer do
       end
 
       it 'has reference in the body' do
-        expect(content).to have_text claim.reference
+        expect(email).to match_pattern claim.reference
       end
 
       it 'has office' do
-        expect(content).
-          to have_text 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
+        expect(email).
+          to match_pattern 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
       end
 
       it 'has an attachment' do
@@ -79,7 +79,7 @@ describe BaseMailer, type: :mailer do
         before { claim.office = nil }
 
         it 'does not show office details' do
-          expect(content).not_to have_text('to tribunal office')
+          expect(email).not_to match_pattern 'to tribunal office'
         end
       end
 
@@ -89,12 +89,12 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows paid message' do
-          expect(content).to have_text('Thank you for submitting')
-          expect(content).to have_text('Issue fee paid:')
+          expect(email).to match_pattern('Thank you for submitting')
+          expect(email).to match_pattern('Issue fee paid:')
         end
 
         it 'shows amount paid' do
-          expect(content).to have_text 'Issue fee paid:' '£250.00'
+          expect(email).to match_pattern '£250.00'
         end
       end
 
@@ -105,13 +105,13 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows remission help' do
-          expect(content).to have_text 'apply for fee remission'
+          expect(email).to match_pattern 'apply for fee remission'
         end
 
         it 'does not show any payment information' do
-          expect(content).not_to have_text payment_message
-          expect(content).not_to have_text table_heading('fee_paid')
-          expect(content).not_to have_text table_heading('fee_to_pay')
+          expect(email).not_to match_pattern payment_message
+          expect(email).not_to match_pattern table_heading('fee_paid')
+          expect(email).not_to match_pattern table_heading('fee_to_pay')
         end
       end
 
@@ -128,15 +128,16 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows the intro for payment failure' do
-          expect(content).to include('we weren’t able to process your payment')
+          expect(email).
+            to match_pattern 'we weren’t able to process your payment'
         end
 
         it 'explains payment was unsuccessful' do
-          expect(content).to have_text 'Issue fee paid:' 'Unable to process payment'
+          expect(email).to match_pattern 'Unable to process payment'
         end
 
         it 'does not show outstanding fee' do
-          expect(content).to_not have_text '£250.00'
+          expect(email).to_not match_pattern '£250.00'
         end
       end
     end
