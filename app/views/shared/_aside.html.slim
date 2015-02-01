@@ -1,10 +1,9 @@
-- hide ||= []
 aside role="complementary"
   h3= t '.gethelp_header'
   ul
     li= link_to t('.read_guide'), guide_path , { class: 'ga-event' }
     li= link_to t('.contact_us'), t('.contact_us_link'), { rel: 'external', class: 'ga-event' }
-  - unless hide.include?(:signout)
+  - if show_signout?
     h3= t '.actions_header'
     ul
       li= button_to({ controller: :user_sessions, action: :destroy },

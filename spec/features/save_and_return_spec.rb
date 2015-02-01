@@ -84,7 +84,6 @@ feature 'Save and Return' do
   context 'memorable word not set' do
     scenario 'returning to an existing application' do
       start_claim
-      end_session
       fill_in_return_form Claim.last.reference, 'memorable word was not set'
 
       expect(page).to have_text 'Return to your claim'

@@ -35,7 +35,7 @@ class PageManager
     self.class.pages.map(&:number).compact.uniq.size
   end
 
-  private def page
+  protected def page
     @page ||= self.class.pages.find { |p| p.name == @resource.form_name }
   end
 end

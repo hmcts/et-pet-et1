@@ -39,4 +39,8 @@ class ClaimPagesManager < PageManager
           transitions_to: 'review'
 
   page  'review'
+
+  def hide_signout?
+    page.name == 'application-number'
+  end
 end

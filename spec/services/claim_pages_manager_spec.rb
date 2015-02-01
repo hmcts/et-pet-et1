@@ -32,78 +32,91 @@ RSpec.describe ClaimPagesManager, type: :service do
       let(:resource) { ApplicationNumberForm.new claim }
       its(:current_page)  { is_expected.to eq 1 }
       its(:forward)  { is_expected.to eq('claimant') }
+      its(:hide_signout?) { is_expected.to be_truthy }
     end
 
     context 'when resource is a ClaimantForm' do
       let(:resource) { ClaimantForm.new claim }
       its(:current_page)  { is_expected.to eq 2 }
       its(:forward) { is_expected.to eq('additional-claimants') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a AdditionalClaimantsForm' do
       let(:resource) { AdditionalClaimantsForm.new claim }
       its(:current_page)  { is_expected.to eq 3 }
       its(:forward)  { is_expected.to eq('representative') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a AdditionalClaimantsUploadForm' do
       let(:resource) { AdditionalClaimantsUploadForm.new claim }
       its(:current_page)  { is_expected.to eq 3 }
       its(:forward)  { is_expected.to eq('representative') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a RepresentativeForm' do
       let(:resource) { RepresentativeForm.new claim }
       its(:current_page)  { is_expected.to eq 4 }
       its(:forward)  { is_expected.to eq('respondent') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a RespondentForm' do
       let(:resource) { RespondentForm.new claim }
       its(:current_page)  { is_expected.to eq 5 }
       its(:forward) { is_expected.to eq('additional-respondents') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a AdditionalRespondentsForm' do
       let(:resource) { AdditionalRespondentsForm.new claim }
       its(:current_page)  { is_expected.to eq 6 }
       its(:forward) { is_expected.to eq('employment') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a EmploymentForm' do
       let(:resource) { EmploymentForm.new claim }
       its(:current_page)  { is_expected.to eq 7 }
       its(:forward)  { is_expected.to eq('claim-type') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a ClaimTypeForm' do
       let(:resource) { ClaimTypeForm.new claim }
       its(:current_page)  { is_expected.to eq 8 }
       its(:forward)  { is_expected.to eq('claim-details') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a ClaimDetailsForm' do
       let(:resource) { ClaimDetailsForm.new claim }
       its(:current_page)  { is_expected.to eq 9 }
       its(:forward)  { is_expected.to eq('claim-outcome') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a ClaimOutcomeForm' do
       let(:resource) { ClaimOutcomeForm.new claim }
       its(:current_page)  { is_expected.to eq 10 }
       its(:forward)  { is_expected.to eq('additional-information') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a AdditionalInformationForm' do
       let(:resource) { AdditionalInformationForm.new claim }
       its(:current_page)  { is_expected.to eq 11 }
       its(:forward)  { is_expected.to eq('your-fee') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
 
     context 'when resource is a YourFeeForm' do
       let(:resource) { YourFeeForm.new claim }
       its(:current_page)  { is_expected.to eq 12 }
       its(:forward)  { is_expected.to eq('review') }
+      its(:hide_signout?) { is_expected.to be_falsey }
     end
   end
 end

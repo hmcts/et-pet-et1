@@ -9,15 +9,20 @@ feature 'Claim applications', type: :feature do
   around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
   context 'along the happy path' do
+    scenario 'Hitting the start page' do
+      visit '/'
+      expect(page).not_to have_button 'Save and complete later'
+    end
+
     scenario 'Create a new application' do
       start_claim
       expect(page).to have_text page_number(1)
       expect(page).to have_text before_you_start_message
+      expect(page).not_to have_button 'Save and complete later'
     end
 
     scenario 'Entering word for save and return' do
       start_claim
-      expect(page).to_not have_button('Complete later')
       fill_in_password 'green'
 
       claim = Claim.last
@@ -50,6 +55,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering additional claimant details' do
@@ -60,6 +66,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario "Navigating between manual and CSV upload for additional claimants" do
@@ -70,11 +77,13 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants_upload)
+      expect(page).to have_button('Save and complete later')
 
       click_link "manually"
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering additional claimant upload details' do
@@ -86,6 +95,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering representative details' do
@@ -97,6 +107,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(5)
       expect(page).to have_text claim_heading_for(:respondent)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering respondent details' do
@@ -109,6 +120,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(6)
       expect(page).to have_text claim_heading_for(:additional_respondents)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering additional respondent details' do
@@ -122,6 +134,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(7)
       expect(page).to have_text claim_heading_for(:employment)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering employment details' do
@@ -136,6 +149,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(8)
       expect(page).to have_text claim_heading_for(:claim_type)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering claim type details' do
@@ -144,6 +158,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(9)
       expect(page).to have_text claim_heading_for(:claim_details)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering claim details' do
@@ -153,6 +168,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(10)
       expect(page).to have_text claim_heading_for(:claim_outcome)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering claim outcome details' do
@@ -163,6 +179,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(11)
       expect(page).to have_text claim_heading_for(:additional_information)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering additonal information' do
@@ -174,6 +191,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text page_number(12)
       expect(page).to have_text claim_heading_for(:your_fee)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Entering your fee details' do
@@ -185,6 +203,7 @@ feature 'Claim applications', type: :feature do
       fill_in_your_fee
 
       expect(page).to have_text review_heading_for(:show)
+      expect(page).to have_button('Save and complete later')
     end
 
     scenario 'Saving the confirmation email recipients' do
