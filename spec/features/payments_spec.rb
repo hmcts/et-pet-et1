@@ -14,6 +14,7 @@ feature 'Payments:', type: :feature do
   describe 'the payment page' do
     it 'contains a form to take the user to the payment gateway' do
       expect(page).to have_epdq_form
+      expect(page).to have_signout_button
     end
   end
 
