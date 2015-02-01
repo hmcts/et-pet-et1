@@ -31,7 +31,7 @@ feature 'Save and Return' do
     end
 
     expect(page).to have_text('Claim saved')
-    expect(page).not_to have_button('Save and complete later')
+    expect(page).not_to have_signout_button
     expect(page).to have_text(Claim.last.reference)
 
     ActionMailer::Base.deliveries.clear
@@ -69,7 +69,7 @@ feature 'Save and Return' do
     end
 
     expect(page).to have_text('Claim saved')
-    expect(page).not_to have_button('Save and complete later')
+    expect(page).not_to have_signout_button
   end
 
   scenario 'returning to existing application' do
@@ -89,7 +89,7 @@ feature 'Save and Return' do
       fill_in_return_form Claim.last.reference, 'memorable word was not set'
 
       expect(page).to have_text 'Return to your claim'
-      expect(page).not_to have_button('Save and complete later')
+      expect(page).not_to have_signout_button
     end
   end
 end
