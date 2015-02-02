@@ -1,6 +1,6 @@
 .prefixed-field,
 .slim-fieldset {
-  @extend %clearfix;
+  @include clearfix;
   .currency_field {
     @include span(6 of 12);
     @include first;

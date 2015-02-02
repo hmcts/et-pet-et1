@@ -100,7 +100,7 @@ aside{
 .content-section,
 fieldset{
   @include container;
-  @extend %clearfix;
+  @include clearfix;
   position:relative;
   margin:0 0 $gutter;
   legend:first-child {
