@@ -389,6 +389,8 @@ en:
       header: Return to your claim
       subheader: Enter your details below
       hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
+    create:
+      header: Return to your claim
     reminder:
       header: Claim saved
       legend: Return to complete your claim
