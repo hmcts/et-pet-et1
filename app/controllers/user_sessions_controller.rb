@@ -1,6 +1,8 @@
 class UserSessionsController < ApplicationController
   redispatch_request unless: :present?, except: %i<new create>
 
+  before_action :hide_signout
+
   def destroy
     case
     when claim.email_address.present?

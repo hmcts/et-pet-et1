@@ -1,4 +1,6 @@
 class FeedbackController < ApplicationController
+  before_action :hide_signout
+
   def create
     resource.assign_attributes params[:feedback]
     resource.save

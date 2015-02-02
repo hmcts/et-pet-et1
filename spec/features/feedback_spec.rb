@@ -6,6 +6,8 @@ RSpec.feature 'Feedback form' do
   scenario 'filling in the feedback form' do
     visit feedback_path
 
+    expect(page).not_to have_signout_button
+
     fill_in 'What did work well for you?',      with: 'lél'
     fill_in 'How can we improve this service?', with: 'get #rekt'
     fill_in 'Email address',                    with: 'lewl@example.com'

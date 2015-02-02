@@ -2,6 +2,7 @@ class ClaimsController < ApplicationController
   redispatch_request unless: :created?, only: %i<show update>
 
   before_action :check_session_expiry, only: %i<show update>
+  before_action :hide_signout, only: %i<new show>
 
   def new
     @claim = Claim.new
@@ -47,6 +48,10 @@ class ClaimsController < ApplicationController
 
   def fee_calculation
     @fee_calculation ||= claim.fee_calculation
+  end
+
+  def hide_signout
+    super if action_name == 'new' || page_manager.hide_signout?
   end
 
   helper_method :page_manager, :resource, :current_step, :fee_calculation
