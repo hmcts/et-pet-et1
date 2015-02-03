@@ -14,6 +14,9 @@
 .validation-summary{
   background:lighten($error-colour, 45%);
   margin: $gutter 0;
+  .main-content & {
+    margin-top:0;
+  }
   h2{
     @extend .heading-medium;
     margin:0;
