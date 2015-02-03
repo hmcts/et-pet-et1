@@ -3,4 +3,4 @@ en:
     header_html: |
       Due to inactivity your session will expire in <span id="session_prompt_time_left"></span>
     session_continue: Do you need more time to complete your claim?
-    session_continue_button: :"simple_form.yes"
+    session_continue_button: Yes, I need more time to complete my claim

@@ -48,7 +48,9 @@ feature 'Your fee page' do
         scenario 'indicating remission' do
           visit claim_your_fee_path
 
-          %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          within '.form-fields' do
+            %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          end
 
           fill_in "How many in your group want to apply for fee remission?", with: 2
 
@@ -60,7 +62,9 @@ feature 'Your fee page' do
         scenario 'trying to set remission claimants > number of claimants' do
           visit claim_your_fee_path
 
-          %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          within '.form-fields' do
+            %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
+          end
 
           fill_in "How many in your group want to apply for fee remission?", with: 200
 
