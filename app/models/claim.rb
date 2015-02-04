@@ -87,7 +87,6 @@ class Claim < ActiveRecord::Base
     super
   end
 
-  # TODO: validate claim against JADU XSD
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?
@@ -119,8 +118,10 @@ class Claim < ActiveRecord::Base
   end
 
   def generate_pdf!
-    PdfFormBuilder.build(self) { |file| self.update pdf: file }
-    create_event Event::PDF_GENERATED
+    if pdf_blank?
+      PdfFormBuilder.build(self) { |file| self.update pdf: file }
+      create_event Event::PDF_GENERATED
+    end
   end
 
   def attachments

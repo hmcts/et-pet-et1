@@ -270,15 +270,25 @@ RSpec.describe Claim, type: :claim do
 
     before { allow(subject).to receive(:create_event) }
 
-    it "assigns a pdf to the model" do
-      subject.generate_pdf!
-      expect(subject[:pdf]).to eq "et1_barrington_wrigglesworth.pdf"
-      expect(subject.pdf.file).not_to be_nil
+    context 'claim without a pdf assigned' do
+      it "assigns a pdf to the model" do
+        subject.generate_pdf!
+        expect(subject[:pdf]).to eq "et1_barrington_wrigglesworth.pdf"
+        expect(subject.pdf.file).not_to be_nil
+      end
+
+      it 'generates a log event' do
+        expect(subject).to receive(:create_event).with 'pdf_generated'
+        subject.generate_pdf!
+      end
     end
 
-    it 'generates a log event' do
-      expect(subject).to receive(:create_event).with 'pdf_generated'
-      subject.generate_pdf!
+    context 'claim with a pdf already assigned' do
+      it 'doesnt generate another pdf' do
+        allow(subject).to receive(:pdf_blank?).and_return(false)
+        expect(PdfFormBuilder).not_to receive(:build)
+        subject.generate_pdf!
+      end
     end
   end
 
@@ -293,6 +303,11 @@ RSpec.describe Claim, type: :claim do
           it 'transitions state to "payment_required"' do
             subject.submit!
             expect(subject.state).to eq('payment_required')
+          end
+
+          it 'creates a pdf generation job' do
+            expect(PdfGenerationJob).to receive(:perform_later).with subject
+            subject.submit!
           end
         end
 
