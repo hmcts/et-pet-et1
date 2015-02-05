@@ -1,0 +1,37 @@
+en:
+  payments:
+    show:
+      header: Pay your fee
+      issue_fee: |
+        When you've paid the issue fee, the local tribunal office will review your claim
+      contact_us_html: |
+        <a href="%{path}" rel="external">Contact us</a> if you have any questions.
+      contact_us_link: :'shared.aside.contact_us_link'
+
+      callout:
+        title: You need to pay the issue fee to submit your claim.
+        fee_amount: £%{fee}
+
+      pay_by_cheque:
+        button_text: To pay by cheque
+        save_pdf_html: <a href="%{href}" target="%{target}">Save a PDF</a> of your claim and print it out.
+        cheque_amount: Write a cheque for £%{fee}, made payable to HMCTS.
+        post_cheque: Post your claim form and cheque to the correct address below.
+        if_england_wales: |
+           If the person or organisation you're making a claim against is based in England or Wales:
+        england_wales_address_html: |
+          Employment Tribunal Central Office<br/>
+          PO Box 10218<br/>
+          Leicester<br/>
+          LE1 8EG
+        if_scotland: |
+          If the person or organisation you're making a claim against is based in Scotland:
+        scotland_address_html: |
+          Employment Tribunal Central Office<br/>
+          PO Box 27105<br/>
+          Glasgow<br/>
+          G2 9JR
+
+      submit: Pay issue fee
+    decline:
+      payment_declined: Payment declined

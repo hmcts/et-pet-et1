@@ -622,15 +622,6 @@ en:
       hearing_fee: |
         If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
 
-  payments:
-    show:
-      header: Pay and submit claim
-      issue_fee_header: Pay the issue fee
-      issue_fee_html: To submit your claim you need to pay the issue fee. <br/>You’ll be asked to enter your payment details on the next screen.
-      submit: Pay and submit claim
-    decline:
-      payment_declined: Payment declined
-
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:

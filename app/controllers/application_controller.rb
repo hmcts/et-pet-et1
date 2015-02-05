@@ -10,26 +10,26 @@ class ApplicationController < ActionController::Base
 
   class << self
     def redispatch_request(opts={})
-      state = opts.delete(:unless)
-      before_action(opts) { redispatch_request!(state) }
+      states = Array(opts.delete(:unless))
+      before_action(opts) do
+        redispatch_request! unless states.any? { |state| claim.try state }
+      end
     end
   end
 
   private
 
-  def redispatch_request!(state)
-    unless claim.try(state)
-      redirect_to case
-                  when claim.nil?
-                    root_path
-                  when claim.created?
-                    claim_claimant_path
-                  when claim.payment_required?
-                    claim_payment_path
-                  when claim.immutable?
-                    claim_confirmation_path
-                  end
-    end
+  def redispatch_request!
+    redirect_to case
+                when claim.nil?
+                  root_path
+                when claim.created?
+                  claim_claimant_path
+                when claim.payment_required?
+                  claim_payment_path
+                when claim.immutable?
+                  claim_confirmation_path
+                end
   end
 
   def set_session_expiry
