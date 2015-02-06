@@ -34,6 +34,10 @@ class Claim::FiniteStateMachine
 
     after_transition do: ->(claim) { claim.save! }
 
+    after_transition :created => :payment_required, do: ->(machine) do
+      PdfGenerationJob.perform_later machine.claim
+    end
+
     after_transition any => :enqueued_for_submission, do: ->(machine) do
       claim = machine.claim
 
