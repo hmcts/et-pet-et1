@@ -4,17 +4,34 @@ header.main-header role="banner"
   h1= t '.header'
 
 .main-section
-
   .main-content
 
-    h2.legend = t('.issue_fee_header')
-
-    p = t('.issue_fee_html')
+    .clearfix
+      .callout.callout-fee
+        p = t('.callout.title')
+        span.number = t('.callout.fee_amount', fee: fee_calculation.application_fee)
 
     = form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
       - payment_request.form_attributes.each do |k, v|
         = hidden_field_tag k, v
 
       = submit_tag t('.submit'), name: nil, class: 'button'
+
+    p = t('.issue_fee')
+    p = t('.contact_us_html', path: t('.contact_us_link'))
+
+    details
+      summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+        span.summary= t('.pay_by_cheque.button_text')
+      .panel-indent#details-content-0
+        ol
+          li = t('.pay_by_cheque.save_pdf_html', href: pdf_path, target: "_blank")
+          li = t('.pay_by_cheque.cheque_amount', fee: fee_calculation.application_fee)
+          li = t('.pay_by_cheque.post_cheque')
+
+        p = t('.pay_by_cheque.if_england_wales')
+        p = t('.pay_by_cheque.england_wales_address_html')
+        p = t('.pay_by_cheque.if_scotland')
+        p = t('.pay_by_cheque.scotland_address_html')
 
   = render partial: 'shared/aside'

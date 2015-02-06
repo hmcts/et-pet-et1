@@ -271,7 +271,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit claim'
 
       expect(page).not_to have_text 'Apply for fee remission'
-      expect(page).to have_text 'To submit your claim you need to pay the issue fee'
+      expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
     end
   end
 end

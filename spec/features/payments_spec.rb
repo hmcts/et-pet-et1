@@ -14,7 +14,20 @@ feature 'Payments:', type: :feature do
   describe 'the payment page' do
     it 'contains a form to take the user to the payment gateway' do
       expect(page).to have_epdq_form
-      expect(page).to have_signout_button
+    end
+
+    it 'contains a callout with the fee to pay' do
+      callout_element = page.find('div.callout')
+      expect(callout_element).to have_text '£250'
+    end
+
+    specify { expect(page).to have_signout_button }
+
+    it 'contains a link to a PDF of the claim' do
+      block_pdf_generation
+      click_link 'Save a PDF'
+      expect(current_url).to match pdf_path
+      expect(page).to have_text "Processing a copy of your claim"
     end
   end
 

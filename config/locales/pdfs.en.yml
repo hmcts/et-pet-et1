@@ -4,5 +4,3 @@ en:
       header: Processing a copy of your claim
       will_redirect: |
         You will be redirected to a copy of your claim. Do not navigate away from this page.
-      email_entered: |
-        If you entered an email address before submitting you will be sent a copy of your claim in an email.
