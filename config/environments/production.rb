@@ -83,7 +83,7 @@ Rails.application.configure do
   # Custom Logging
   config.log_level = :info
   config.logstasher.enabled = true
-  config.logstasher.suppress_app_log = false
+  config.logstasher.suppress_app_log = true
   config.logstasher.log_level = Logger::INFO
   config.logstasher.logger_path = "#{Rails.root}/log/logstash_#{Rails.env}.json"
   # This line is optional, it allows you to set a custom value for the @source field of the log event
