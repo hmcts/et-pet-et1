@@ -46,7 +46,11 @@ cat <<EOT
         drop {}
     }
   }
-
+  filter {
+     if ([@fields][path] =~ "ping.json") {
+        drop {}
+    }
+  }
   output {
     redis { host => "$LOGSTASH_SERVER" data_type => "list" key => "$LOGSTASH_KEY" }
   }

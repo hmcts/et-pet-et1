@@ -21,6 +21,11 @@ cat <<EOT
       add_field => [ "format",    "json" ]
     }
   }
+  filter {
+     if ([@fields][request_uri] =~ "ping.json") {
+        drop {}
+    }
+  }
   output {
     redis { host => "$LOGSTASH_SERVER" data_type => "list" key => "$LOGSTASH_KEY" }
   }
