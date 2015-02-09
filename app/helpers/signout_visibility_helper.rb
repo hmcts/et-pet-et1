@@ -1,14 +1,13 @@
 module SignoutVisibilityHelper
   def show_signout?
-    return unless action_name == 'show'
-
     case controller_name
-    when 'claims'
-      params[:page] != 'application-number'
-    when *%w<claim_reviews payments multiples>
-      true
-    else
-      false
+    when 'claims'                              then applicable_claim_page?
+    when *%w<claim_reviews payments multiples> then true
+    else false
     end
+  end
+
+  private def applicable_claim_page?
+    action_name != 'new' && params[:page] != 'application-number'
   end
 end

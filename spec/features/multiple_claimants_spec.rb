@@ -74,6 +74,14 @@ feature 'Multiple claimants' do
 
       expect(claim.secondary_claimants.pluck(:first_name)).to match_array %w<Persephone Pegasus>
     end
+
+    scenario 'a user can still save & complete later' do
+      expect(page).to have_signout_button
+
+      click_button "Add more claimants"
+
+      expect(page).to have_signout_button
+    end
   end
 
   describe 'destroying claimants' do
