@@ -12,14 +12,14 @@ if Rails.env.production?
     max_retries: ENV.fetch('SNEAKERS_MAX_RETRIES').to_i,
     hooks: {
         before_fork: -> {
-           Sneakers::logger.info('Worker: Disconnect from the database')
-           ActiveRecord::Base.connection_pool.disconnect!
+          Sneakers.logger.info('Worker: Disconnect from the database')
+          ActiveRecord::Base.connection_pool.disconnect!
         },
         after_fork: -> {
           config = Rails.application.config.database_configuration[Rails.env]
           config['pool'] = ENV.fetch('SNEAKERS_DB_POOL', 1).to_i #Limit the number of TCP connections per worker
           ActiveRecord::Base.establish_connection(config)
-          Sneakers::logger.info('Worker: Reconnect to the database')
+          Sneakers.logger.info('Worker: Reconnect to the database')
         }
     }
 
