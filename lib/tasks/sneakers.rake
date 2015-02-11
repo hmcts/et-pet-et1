@@ -11,7 +11,7 @@ namespace :sneakers do
     end
 
     workers = ActiveJob::Base.subclasses.map do |klass|
-      klass.const_set("Wrapper", Class.new(ActiveJob::QueueAdapters::SneakersAdapter::JobWrapper) do
+      klass.const_set("Wrapper", Class.new(ETJobWrapper) do
         from_queue klass.queue_name,
                      :headers => {
                        :'x-dead-letter-exchange' => "#{klass.queue_name}-retry"
