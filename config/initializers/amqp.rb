@@ -17,7 +17,7 @@ if Rails.env.production?
         },
         after_fork: -> {
           config = Rails.application.config.database_configuration[Rails.env]
-          config['pool'] = ENV['SNEAKERS_DB_POOL'] || 1 #Limit the number of TCP connections per worker
+          config['pool'] = ENV.fetch('SNEAKERS_DB_POOL', 1).to_i #Limit the number of TCP connections per worker
           ActiveRecord::Base.establish_connection(config)
           Sneakers::logger.info('Worker: Reconnect to the database')
         }
