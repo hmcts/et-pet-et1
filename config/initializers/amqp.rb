@@ -25,3 +25,11 @@ if Rails.env.production?
 
   Rails.application.config.active_job.queue_adapter = :sneakers
 end
+
+class ETJobWrapper < ActiveJob::QueueAdapters::SneakersAdapter::JobWrapper
+  def work(*)
+    ActiveRecord::Base.connection_pool.with_connection do
+      super
+    end
+  end
+end
