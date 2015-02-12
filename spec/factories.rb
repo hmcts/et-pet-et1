@@ -94,7 +94,7 @@ FactoryGirl.define do
 
     trait :no_fee_group_reference do
       office nil
-      fee_group_reference ""
+      fee_group_reference nil
     end
 
     trait :no_attachments do

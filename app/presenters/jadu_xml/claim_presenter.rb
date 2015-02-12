@@ -7,7 +7,7 @@ module JaduXml
     node_attribute :location, as: "xsi:noNamespaceSchemaLocation", value: "ETFees_v0.20.xsd"
 
     property :document_id, extend: JaduXml::DocumentIdPresenter, exec_context: :decorator
-    property :fee_group_reference, as: "FeeGroupReference"
+    property :fee_group_reference, as: "FeeGroupReference", render_nil: true
     property :reference, as: "SubmissionUrn"
     property :claimant_count, as: "CurrentQuantityOfClaimants"
     property :submission_channel, as: "SubmissionChannel", exec_context: :decorator
