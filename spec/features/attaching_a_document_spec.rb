@@ -19,9 +19,9 @@ feature 'Attaching a document' do
 
     context 'Uploading a valid RTF file' do
       before :each do
-        visit '/apply/additional-information'
-        attach_file "additional_information_additional_information_rtf", rtf_file_path
-        click_button 'Save and continue'
+        visit '/apply/claim-details'
+        attach_file "claim_details_additional_information_rtf", rtf_file_path
+        fill_in_claim_details
       end
 
       scenario 'Attaching the file' do
@@ -29,16 +29,16 @@ feature 'Attaching a document' do
       end
 
       scenario 'Deleting the file' do
-        visit '/apply/additional-information'
-        check "additional_information_remove_additional_information_rtf"
+        visit '/apply/claim-details'
+        check "claim_details_remove_additional_information_rtf"
         click_button 'Save and continue'
 
         expect(claim.reload.additional_information_rtf.present?).to be false
       end
 
       scenario 'Replacing the file' do
-        visit '/apply/additional-information'
-        attach_file "additional_information_additional_information_rtf", alternative_rtf_file_path
+        visit '/apply/claim-details'
+        attach_file "claim_details_additional_information_rtf", alternative_rtf_file_path
         click_button 'Save and continue'
 
         expect(claim.reload.additional_information_rtf_file.read).to eq File.read(alternative_rtf_file_path)
@@ -46,8 +46,8 @@ feature 'Attaching a document' do
     end
 
     scenario 'Uploading a non text file' do
-      visit '/apply/additional-information'
-      attach_file "additional_information_additional_information_rtf", invalid_file_path
+      visit '/apply/claim-details'
+      attach_file "claim_details_additional_information_rtf", invalid_file_path
       click_button 'Save and continue'
 
       expect(page).to have_text('is not an RTF')

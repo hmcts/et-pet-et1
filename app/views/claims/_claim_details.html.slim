@@ -1,11 +1,23 @@
 h2.legend= t '.claim_details'
 
 p= t('.claim_details_html', path: guide_path)
+p= t('.upload_details')
 
 = f.input :claim_details, label: false,
   hint: t('.claim_details_hint_html', path: guide_path),
   as: :text,
   input_html: { rows: 30 }
+
+legend= t '.upload_document'
+p= t '.additional_information_rtf'
+= f.input :additional_information_rtf, label: false do
+  - if resource.has_additional_information_rtf?
+    = f.input :remove_additional_information_rtf, as: :boolean,
+      inline_label: t('.remove_additional_information_rtf',
+        file: resource.attachment_filename),
+        label: false
+  = f.input_field :additional_information_rtf, as: :file
+= f.hidden_field :additional_information_rtf_cache
 
 fieldset
   legend= t '.similar_claims'

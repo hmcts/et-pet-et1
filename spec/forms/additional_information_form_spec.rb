@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalInformationForm, :type => :form do
+RSpec.describe AdditionalInformationForm, type: :form do
   subject { described_class.new(resource) }
 
   let(:resource) { Claim.new }
@@ -10,39 +10,6 @@ RSpec.describe AdditionalInformationForm, :type => :form do
       context 'when has_miscellaneous_information is true' do
         before { subject.has_miscellaneous_information = 'true' }
         it     { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(5000) }
-      end
-    end
-
-    describe 'on #additional_information_rtf' do
-      let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
-
-      before do
-        subject.additional_information_rtf = file
-        subject.valid?
-      end
-
-      context 'when its value is a rtf document' do
-        let(:file) { File.open(path + 'file.rtf') }
-
-        it 'does nothing' do
-          expect(subject.errors[:additional_information_rtf]).to be_empty
-        end
-      end
-
-      context 'when its value is a plain text document' do
-        let(:file) { File.open(path + 'lel.txt') }
-
-        it 'adds an error message to the attribute' do
-          expect(subject.errors[:additional_information_rtf]).to include(I18n.t 'errors.messages.rtf')
-        end
-      end
-
-      context 'when its value is not a rtf document' do
-        let(:file) { File.open(path + 'phil.jpg') }
-
-        it 'adds an error message to the attribute' do
-          expect(subject.errors[:additional_information_rtf]).to include(I18n.t 'errors.messages.rtf')
-        end
       end
     end
 

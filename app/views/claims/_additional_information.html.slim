@@ -17,15 +17,3 @@ fieldset
     wrapper_html: { :class => 'toggle-content reveal-subscribe',
                     :'data-target' => 'main',
                     :'data-show-array' => 'true' }
-
-  = f.input :additional_information_rtf do
-    - if resource.has_additional_information_rtf?
-        = f.input :remove_additional_information_rtf, as: :boolean,
-          inline_label: t('.remove_additional_information_rtf',
-            file: resource.attachment_filename),
-          label: false
-
-    = f.input_field :additional_information_rtf, as: :file
-
-  = f.hidden_field :additional_information_rtf_cache
-  p.form-hint = t('.upload_limit')
