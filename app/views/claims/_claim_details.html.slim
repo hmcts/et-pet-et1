@@ -9,15 +9,14 @@ p= t('.upload_details')
   input_html: { rows: 30 }
 
 legend= t '.upload_document'
-p= t '.additional_information_rtf'
-= f.input :additional_information_rtf, label: false do
-  - if resource.has_additional_information_rtf?
-    = f.input :remove_additional_information_rtf, as: :boolean,
-      inline_label: t('.remove_additional_information_rtf',
+= f.input :claim_details_rtf do
+  - if resource.has_claim_details_rtf?
+    = f.input :remove_claim_details_rtf, as: :boolean,
+      inline_label: t('.remove_claim_details_rtf',
         file: resource.attachment_filename),
         label: false
-  = f.input_field :additional_information_rtf, as: :file
-= f.hidden_field :additional_information_rtf_cache
+  = f.input_field :claim_details_rtf, as: :file
+= f.hidden_field :claim_details_rtf_cache
 
 fieldset
   legend= t '.similar_claims'

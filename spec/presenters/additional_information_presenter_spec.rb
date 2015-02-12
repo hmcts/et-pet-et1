@@ -8,5 +8,4 @@ RSpec.describe AdditionalInformationPresenter, type: :presenter do
   end
 
   its(:miscellaneous_information) { is_expected.to eq("<p>hey\n<br />hey</p>") }
-  its(:attached_document) { is_expected.to eq('file.rtf') }
 end

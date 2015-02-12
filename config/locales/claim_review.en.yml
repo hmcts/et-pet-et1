@@ -110,6 +110,7 @@ en:
         claim_details: Claim details
         other_known_claimant_names: Other known claimants
         miscellaneous_information: Other information
+        attached_document: Attached documents
 
       claim_outcome:
         desired_outcomes: What outcome?
@@ -117,7 +118,6 @@ en:
 
       additional_information:
         miscellaneous_information: Important details
-        attached_document: Attached documents
 
       your_fee:
         seeking_remission: Fee remission

@@ -14,11 +14,11 @@ RSpec.describe ClaimDetailsForm, :type => :form do
     end
   end
 
-  describe 'on #additional_information_rtf' do
+  describe 'on #claim_details_rtf' do
     let(:path) { Rails.root + 'spec/support/files' }
 
     before do
-      subject.additional_information_rtf = file
+      subject.claim_details_rtf = file
       subject.valid?
     end
 
@@ -26,7 +26,7 @@ RSpec.describe ClaimDetailsForm, :type => :form do
       let(:file) { File.open(path + 'file.rtf') }
 
       it 'does nothing' do
-        expect(subject.errors[:additional_information_rtf]).to be_empty
+        expect(subject.errors[:claim_details_rtf]).to be_empty
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe ClaimDetailsForm, :type => :form do
       let(:file) { File.open(path + 'phil.jpg') }
 
       it 'adds an error message to the attribute' do
-        expect(subject.errors[:additional_information_rtf]).to include(I18n.t 'errors.messages.rtf')
+        expect(subject.errors[:claim_details_rtf]).to include(I18n.t 'errors.messages.rtf')
       end
     end
   end

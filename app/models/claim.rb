@@ -1,6 +1,6 @@
 class Claim < ActiveRecord::Base
   has_secure_password validations: false
-  mount_uploader :additional_information_rtf, AttachmentUploader
+  mount_uploader :claim_details_rtf,          AttachmentUploader
   mount_uploader :additional_claimants_csv,   AttachmentUploader
   mount_uploader :pdf,                        ClaimPdfUploader
 
@@ -32,7 +32,7 @@ class Claim < ActiveRecord::Base
   has_one  :payment
 
   delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
-  delegate :file, to: :additional_information_rtf, prefix: true
+  delegate :file, to: :claim_details_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
   delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
 

@@ -229,9 +229,6 @@ en:
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
 
-      additional_information:
-        additional_information_rtf: Do you want to attach a document?
-
       confirmation_email:
         email_addresses: Select or enter the recipients you’d like to send a copy to
 
@@ -245,6 +242,7 @@ en:
       claim_details:
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
+        claim_details_rtf: If you need more space, you can upload a separate document here.
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
@@ -316,6 +314,9 @@ en:
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
+        claim_details_rtf: |
+          The document needs to be in Rich Text Format (RTF). You can usually save a file
+          as RTF by selecting File> Save As> Export To> Format: Rich Text Format
 
       claim_outcome:
         desired_outcomes: You can select more than one
@@ -496,7 +497,7 @@ en:
       steps_header: Spreadsheet for group claim
       error_line: "An error has been found on line %{line_number} of the uploaded file."
       malformatted_csv: The CSV doesn’t appear to be formatted correctly.
-      remove_additional_claimants_csv: :"claims.claim_details.remove_additional_information_rtf"
+      remove_additional_claimants_csv: :"claims.claim_details.remove_claim_details_rtf"
       number_claimants_info: For 6 or more claimants, enter their details below.
       has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
       step_one_header: Step 1
@@ -580,14 +581,11 @@ en:
       header: Claim details
       claim_details: About your claim
       claim_details_html: |
-        Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
+        Include the background, dates and people involved. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
       upload_details: If you need more space, you can upload a separate document below.
       claim_details_hint_html: Limit is 5000 characters (approx 900 words).
-      upload_document: Upload Document
-      additional_information_rtf: |
-        The document needs to be in Rich Text Format (RTF). You can usually save a file
-        as RTF by selecting File> Save As> Export To> Format: Rich Text Format
-      remove_additional_information_rtf: |
+      upload_document: Upload document
+      remove_claim_details_rtf: |
         Remove previously uploaded document: %{file}
       similar_claims: Similar claims
 

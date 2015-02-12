@@ -11,7 +11,7 @@ FactoryGirl.define do
 
     is_unfair_dismissal true
 
-    additional_information_rtf do
+    claim_details_rtf do
       Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'
     end
 
@@ -98,7 +98,7 @@ FactoryGirl.define do
     end
 
     trait :no_attachments do
-      additional_information_rtf nil
+      claim_details_rtf nil
       additional_claimants_csv nil
     end
 
@@ -107,7 +107,7 @@ FactoryGirl.define do
         Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.csv'
       end
 
-      additional_information_rtf do
+      claim_details_rtf do
         Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.rtf'
       end
     end

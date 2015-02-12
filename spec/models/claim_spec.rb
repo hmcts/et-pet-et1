@@ -294,7 +294,7 @@ RSpec.describe Claim, type: :claim do
     specify { expect(subject.attachments.size).to eq 3 }
 
     it "only returns attachments that exist" do
-      expect { subject.remove_additional_information_rtf! }.
+      expect { subject.remove_claim_details_rtf! }.
         to change { subject.attachments.size }.
         from(3).to(2)
     end
