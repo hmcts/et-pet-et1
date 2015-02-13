@@ -125,8 +125,8 @@ en:
         desired_outcomes:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get your old job back and compensation
-          new_employment_and_compensation: To get another job with the same employer or associated employer, and compensation
+          reinstated_employment_and_compensation: To get your old job back
+          new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
       application_number:
