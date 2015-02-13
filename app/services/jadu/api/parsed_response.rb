@@ -5,7 +5,7 @@ module Jadu
     class ParsedResponse
       extend Forwardable
 
-      def_delegator :to_h, :[]
+      def_delegators :to_h, :values_at, :[]
 
       def initialize(response)
         @response = response
