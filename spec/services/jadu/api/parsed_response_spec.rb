@@ -28,8 +28,8 @@ RSpec.describe Jadu::API::ParsedResponse do
       to match_array(['991000185700', 'ok'])
   end
 
-  it '#to_hash' do
+  it '#to_h' do
     expected = { 'feeGroupReference' => '991000185700', 'status' => 'ok' }
-    expect(described_class.new(response).to_hash).to eql(expected)
+    expect(described_class.new(response).to_h).to eql(expected)
   end
 end

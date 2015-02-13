@@ -18,8 +18,6 @@ module Jadu
       def to_h
         @parsed_json ||= JSON.parse(@response.body)
       end
-
-      alias_method :to_hash, :to_h
     end
   end
 end
