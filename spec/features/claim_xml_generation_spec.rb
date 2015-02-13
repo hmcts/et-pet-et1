@@ -50,8 +50,15 @@ feature 'Generating XML for a claim', type: :feature do
       end
     end
 
-    it 'has a FeeGroupReference' do
-      expect(xpath('//FeeGroupReference')).to eq claim.fee_group_reference
+    describe 'FeeGroupReference' do
+      context 'fgr request failed' do
+        include_context 'assign claim', :no_fee_group_reference
+        specify { expect(xpath('//FeeGroupReference')).to be_empty }
+      end
+
+      context 'fgr request was successful' do
+        specify { expect(xpath('//FeeGroupReference')).to eq claim.fee_group_reference }
+      end
     end
 
     it 'has a SubmissionUrn equal to the unique application reference' do
@@ -205,9 +212,18 @@ feature 'Generating XML for a claim', type: :feature do
         it 'has an Amount(in pounds) exclusive of remission discounts' do
           expect(xpath('//Payment/Fee/Amount')).to eq claim.fee_calculation.application_fee.to_s
         end
-        it 'has a PRN(alias for fee group reference)' do
-          expect(xpath('//Payment/Fee/PRN')).to eq claim.fee_group_reference
+
+        describe 'PRN(alias for fee group reference)' do
+          context 'fgr request failed' do
+            let(:claim) { create :claim, :no_fee_group_reference }
+            specify { expect(xpath('//Payment/Fee/PRN')).to be_empty }
+          end
+
+          context 'fgr request was successful' do
+            specify { expect(xpath('//Payment/Fee/PRN')).to eq claim.fee_group_reference }
+          end
         end
+
         it 'has a Date' do
           expect(xpath('//Payment/Fee/Date')).to eq "2014-09-29T00:00:00Z"
         end
