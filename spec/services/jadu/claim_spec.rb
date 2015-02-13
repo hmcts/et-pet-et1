@@ -11,7 +11,7 @@ RSpec.describe Jadu::Claim, type: :service do
 
   let(:successful_api_response) do
     Jadu::API::ParsedResponse.new \
-      double(code: 200, body: { 'feeGroupReference' => '1234567890' }.to_json )
+      double(code: 200, body: { 'feeGroupReference' => '1234567890' }.to_json)
   end
 
   let(:failure_api_response) do
