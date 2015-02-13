@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Jadu::Claim, type: :service do
+  include_context 'block pdf generation'
+
   let(:api_double) { instance_double Jadu::API }
   let(:endpoint)   { "#{ENV.fetch('JADU_API')}" }
   let(:xml)        { instance_double JaduXml::ClaimPresenter, to_xml: xml_double }
