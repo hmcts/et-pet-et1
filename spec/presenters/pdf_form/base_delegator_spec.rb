@@ -4,11 +4,25 @@ RSpec.describe PdfForm::BaseDelegator, type: :presenter do
   subject { described_class.new(nil) }
 
   describe '#format_postcode' do
-    it 'returns padded postcodes' do
-      expect(subject.format_postcode('W1A 1HQ')).to eq('W1A 1HQ')
-      expect(subject.format_postcode('M1 1AA')).to eq('M1  1AA')
-      expect(subject.format_postcode('DN55 1PT')).to eq('DN551PT')
-      expect(subject.format_postcode('A99AA')).to eq('A9  9AA')
+    context 'for valid UK postcodes' do
+      it 'returns padded, formatted postcodes' do
+        expect(subject.format_postcode('w1a 1hq')).to eq('W1A 1HQ')
+        expect(subject.format_postcode('m1 1aa')).to eq('M1  1AA')
+        expect(subject.format_postcode('dn551pt')).to eq('DN551PT')
+        expect(subject.format_postcode('a99aa')).to eq('A9  9AA')
+      end
+    end
+
+    context 'for invalid uk postcodes, i.e. international postcodes' do
+      it 'does not format the result' do
+        expect(subject.format_postcode('123 45')).to eq('123 45')
+      end
+    end
+
+    context 'for nil' do
+      it 'returns an empty string' do
+        expect(subject.format_postcode(nil)).to eq('')
+      end
     end
   end
 
