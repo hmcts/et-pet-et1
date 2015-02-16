@@ -12,7 +12,9 @@ feature 'Quick edit' do
     translation = "#{I18n.t('claim_reviews.show.sections.' + section.underscore)}"
 
     scenario "editing '#{translation}'" do
-      click_link "Edit #{translation.downcase}"
+      within(".#{section}") do
+        click_link 'Edit'
+      end
       expect(page.current_path).to eq "/apply/#{section}"
       click_button 'Save and continue'
       expect(page.current_path).to eq "/apply/review"
