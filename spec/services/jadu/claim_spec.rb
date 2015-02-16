@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Jadu::Claim, type: :service do
+  include_context 'block pdf generation'
+
   let(:api_double) { instance_double Jadu::API }
   let(:endpoint)   { "#{ENV.fetch('JADU_API')}" }
   let(:xml)        { instance_double JaduXml::ClaimPresenter, to_xml: xml_double }
@@ -8,19 +10,13 @@ RSpec.describe Jadu::Claim, type: :service do
   let(:claim)      { create :claim }
 
   let(:successful_api_response) do
-    double(:successful_api_response, ok?: true).tap do |d|
-      hash = { 'feeGroupReference' => '12345678900' }
-      allow(d).to receive(:values_at) { |*k| hash.values_at *k }
-      allow(d).to receive(:[]) { |k| hash[k] }
-    end
+    Jadu::API::ParsedResponse.new \
+      double(code: 200, body: { 'feeGroupReference' => '1234567890' }.to_json)
   end
 
   let(:failure_api_response) do
-    double(:failure_api_response, ok?: false).tap do |d|
-      hash = { 'errorCode' => '1', 'errorDescription' => 'herp', 'details' => 'derp' }
-      allow(d).to receive(:values_at) { |*k| hash.values_at *k }
-      allow(d).to receive(:[]) { |k| hash[k] }
-    end
+    Jadu::API::ParsedResponse.new \
+      double(code: 400, body: { 'errorCode' => '1', 'errorDescription' => 'herp', 'details' => 'derp' }.to_json)
   end
 
   let(:attachments) do

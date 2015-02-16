@@ -3,9 +3,7 @@ require 'forwardable'
 module Jadu
   class API
     class ParsedResponse
-      extend Forwardable
-
-      def_delegator :to_h, :[]
+      delegate :[], :values_at, to: :to_h
 
       def initialize(response)
         @response = response
@@ -18,8 +16,6 @@ module Jadu
       def to_h
         @parsed_json ||= JSON.parse(@response.body)
       end
-
-      alias_method :to_hash, :to_h
     end
   end
 end
