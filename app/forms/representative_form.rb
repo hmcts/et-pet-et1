@@ -1,7 +1,5 @@
 class RepresentativeForm < Form
-  TYPES = %w<citizen_advice_bureau free_representation_unit
-    law_centre trade_union solicitor private_individual trade_association other>.freeze
-
+  include RepresentativeType
   include AddressAttributes
 
   attribute :type,               String

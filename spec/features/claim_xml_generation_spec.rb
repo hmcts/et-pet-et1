@@ -18,7 +18,7 @@ feature 'Generating XML for a claim', type: :feature do
     let(:claim) { create :claim, claim_options }
 
     it 'validates against the JADU XSD' do
-      xsd = Nokogiri::XML::Schema(File.read(Rails.root + 'spec/support/ETFees_v0.20.xsd'))
+      xsd = Nokogiri::XML::Schema(File.read(Rails.root + 'spec/support/ETFees_v0.21.xsd'))
       doc = Nokogiri::XML(claim_xml)
 
       expect(xsd.validate(doc)).to be_empty
@@ -203,6 +203,7 @@ feature 'Generating XML for a claim', type: :feature do
           expect(xpath("//Representative/Address/Street")).to eq "Petty France"
           expect(xpath("//Representative/OfficeNumber")).to eq "020 7123 4567"
           expect(xpath("//Representative/ClaimantOrRespondent")).to eq "C"
+          expect(xpath("//Representative/Type")).to eq "Law Centre"
         end
       end
     end
