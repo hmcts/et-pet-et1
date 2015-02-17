@@ -83,8 +83,13 @@ class Claim < ActiveRecord::Base
   end
 
   def remove_additional_claimants_csv!
-    update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
-    super
+    super.tap do
+      update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
+    end
+  end
+
+  def remove_pdf!
+    super.tap { update_column(:pdf, nil) }
   end
 
   def submittable?
@@ -118,10 +123,9 @@ class Claim < ActiveRecord::Base
   end
 
   def generate_pdf!
-    if pdf_blank?
-      PdfFormBuilder.build(self) { |file| self.update pdf: file }
-      create_event Event::PDF_GENERATED
-    end
+    remove_pdf! if pdf_present?
+    PdfFormBuilder.build(self) { |file| self.update pdf: file }
+    create_event Event::PDF_GENERATED
   end
 
   def attachments
