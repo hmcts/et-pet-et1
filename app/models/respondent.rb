@@ -11,17 +11,11 @@ class Respondent < ActiveRecord::Base
   before_save :enqueue_fee_group_reference_request, if: :needs_fee_group_reference?
 
   def address
-    addresses.first
+    addresses.detect(&:primary?) || addresses.build(primary: true)
   end
 
   def work_address
-    addresses.second
-  end
-
-  def addresses
-    association(:addresses).tap do |p|
-      2.times { p.build } if p.empty?
-    end
+    addresses.reject(&:primary?).first || addresses.build(primary: false)
   end
 
   private
