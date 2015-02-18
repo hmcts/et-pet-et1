@@ -3,6 +3,41 @@ require 'rails_helper'
 RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
   subject { described_class.new(claim) }
 
+  %i<other_outcome claim_details other_claim_details miscellaneous_information>.each do |meth|
+    describe "##{meth}" do
+      let(:claim) { create :claim }
+
+      before do
+        allow(claim).to receive(meth).and_return <<-EOS.strip_heredoc
+          I don't know how to do paragraphs
+
+
+
+
+
+          look
+
+
+          i am thick
+
+          bai
+        EOS
+      end
+
+      it 'removes superfluous carriage returns' do
+        expect(subject.send meth).to eq <<-EOS.strip_heredoc
+          I don't know how to do paragraphs
+
+          look
+
+          i am thick
+
+          bai
+        EOS
+      end
+    end
+  end
+
   describe '#name' do
     let(:claimant) { double 'Claimant', first_name: 'first', last_name: 'last' }
     let(:claim) { double 'Claim', primary_claimant: claimant }

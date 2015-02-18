@@ -14,7 +14,27 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
     presenters.each_with_object({}) { |p, o| o.update p.to_h }
   end
 
+  def other_outcome
+    strip_extraneous_whitespace super
+  end
+
+  def claim_details
+    strip_extraneous_whitespace super
+  end
+
+  def other_claim_details
+    strip_extraneous_whitespace super
+  end
+
+  def miscellaneous_information
+    strip_extraneous_whitespace super
+  end
+
   private
+
+  def strip_extraneous_whitespace(str)
+    str.gsub(/(\r?\n){2,}/, "\n\n") if str
+  end
 
   def owed?
     claim_types = Claim::PAY_COMPLAINTS - [:redundancy]
