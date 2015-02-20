@@ -41,7 +41,8 @@ class RespondentForm < Form
     presence: { if: -> { no_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
-    presence: { unless: -> { no_acas_number? } }
+    presence: { unless: -> { no_acas_number? } },
+    acas: true
 
   def worked_at_same_address?
     ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])

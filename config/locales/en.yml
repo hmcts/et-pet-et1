@@ -760,10 +760,11 @@ en:
               blank: You have said that you don’t have an Acas early conciliation number. Please select a reason from the list
             acas_early_conciliation_certificate_number:
               blank: Please provide your Acas early conciliation number. If you don’t have one, please select ‘I don't have an Acas number’
+              invalid: You have provided an invalid Acas early conciliation number.
             address_country:
-              blank: You must provide information for this fieldee
+              blank: You must provide information for this field
             contact_preference:
-              blank: You must provide information for this fieldrr
+              blank: You must provide information for this field
             address_building:
               blank: Please enter the building name or number from the respondent’s address
             address_street:
