@@ -6,9 +6,14 @@ module JaduXml
     property :mobile_number, as: "AltPhoneNumber", render_nil: true
     property :email_address, as: "Email", render_nil: true
     property :claimant_or_respondent, as: "ClaimantOrRespondent", exec_context: :decorator
+    property :type, as: "Type", exec_context: :decorator
 
     def claimant_or_respondent
       "C"
+    end
+
+    def type
+      RepresentativeType.convert_for_jadu(represented.type)
     end
   end
 end

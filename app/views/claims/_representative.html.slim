@@ -17,7 +17,7 @@ fieldset
     legend= t '.representative_legend'
 
     = f.input :type,
-      collection: RepresentativeForm::TYPES,
+      collection: RepresentativeType::TYPES,
       include_blank: :translate,
       label: t('.representative_type_legend')
     = f.input :organisation_name
