@@ -13,8 +13,7 @@ class AdditionalInformationForm < Form
 
   validates :miscellaneous_information, length: { maximum: 5000 }
   validates :additional_information_rtf, content_type: {
-    in: %w<text/rtf text/plain>,
-    message: I18n.t('errors.messages.rtf')
+    in: %w<text/rtf>, message: I18n.t('errors.messages.rtf')
   }
 
   def has_additional_information_rtf?
