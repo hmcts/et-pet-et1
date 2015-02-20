@@ -23,6 +23,7 @@ RSpec.describe Claim, type: :claim do
   end
 
   include_context 'block pdf generation'
+  let(:pdf) { Tempfile.new 'such' }
 
   describe 'callbacks' do
     let(:claim) { create :claim }
@@ -260,8 +261,19 @@ RSpec.describe Claim, type: :claim do
     specify { expect(subject.attachments.size).to eq 3 }
 
     it "only returns attachments that exist" do
-      subject.remove_additional_information_rtf!
-      expect(subject.attachments.size).to eq 2
+      expect { subject.remove_additional_information_rtf! }.
+        to change { subject.attachments.size }.
+        from(3).to(2)
+    end
+  end
+
+  describe '#remove_pdf!' do
+    before { subject.pdf = pdf }
+
+    it 'removes the pdf' do
+      expect { subject.remove_pdf! }.
+        to change { subject.pdf_present? }.
+        from(true).to(false)
     end
   end
 
@@ -284,9 +296,10 @@ RSpec.describe Claim, type: :claim do
     end
 
     context 'claim with a pdf already assigned' do
-      it 'doesnt generate another pdf' do
-        allow(subject).to receive(:pdf_blank?).and_return(false)
-        expect(PdfFormBuilder).not_to receive(:build)
+      before { subject.pdf = pdf }
+      it 'removes the existing pdf before creating another' do
+        expect(subject).to receive(:remove_pdf!)
+        expect(PdfFormBuilder).to receive(:build)
         subject.generate_pdf!
       end
     end
