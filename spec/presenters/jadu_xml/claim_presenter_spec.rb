@@ -28,7 +28,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
     describe "#jurisdiction" do
       context "discrimination or unfair dismissal is true" do
         it "returns 2" do
-          allow(claim).to receive(:alleges_discrimination_or_unfair_dismissal?).
+          allow(claim).to receive(:attracts_higher_fee?).
             and_return true
 
           expect(subject.jurisdiction).to eq 2
@@ -37,7 +37,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
 
       context "discrimination or unfair dismissal is false" do
         it "returns 1" do
-          allow(claim).to receive(:alleges_discrimination_or_unfair_dismissal?).
+          allow(claim).to receive(:attracts_higher_fee?).
             and_return false
 
           expect(subject.jurisdiction).to eq 1
