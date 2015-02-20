@@ -62,6 +62,24 @@ RSpec.describe RespondentForm, :type => :form do
       describe 'when ACAS number is indicated' do
         before { subject.no_acas_number = 'false' }
         it     { is_expected.to validate_presence_of(:acas_early_conciliation_certificate_number) }
+
+        describe 'ACAS format validation' do
+          { one_char_ten_digits:  'X123456/12/12',
+            two_chars_ten_digits: 'XX123456/12/12'
+          }.each do |key, acas_value|
+            it "#{key.to_s.humanize} validates correctly" do
+              subject.acas_early_conciliation_certificate_number = acas_value
+              expect(subject.valid?).to be_truthy
+              expect(subject.errors).to be_empty
+            end
+          end
+
+          it 'adds an error if the format is invalid' do
+            subject.acas_early_conciliation_certificate_number = 'invalid'
+            expect(subject.valid?).to be_falsey
+            expect(subject.errors).not_to be_empty
+          end
+        end
       end
 
       describe 'when no ACAS number is indicated' do
