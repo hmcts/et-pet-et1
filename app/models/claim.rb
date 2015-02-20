@@ -70,8 +70,8 @@ class Claim < ActiveRecord::Base
     password_digest? && super
   end
 
-  def alleges_discrimination_or_unfair_dismissal?
-    discrimination_claims.any? || is_unfair_dismissal?
+  def attracts_higher_fee?
+    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing?
   end
 
   def reference

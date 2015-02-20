@@ -34,7 +34,7 @@ module JaduXml
 
     delegate :claimant_count, :other_claim_details, :office, :submitted_at,
       :remission_claimant_count, :representative, :attachments,
-      :alleges_discrimination_or_unfair_dismissal?, to: :represented
+      :attracts_higher_fee?, to: :represented
 
     delegate :code, to: :office, prefix: true, allow_nil: true
 
@@ -55,7 +55,7 @@ module JaduXml
     end
 
     def jurisdiction
-      alleges_discrimination_or_unfair_dismissal? ? 2 : 1
+      attracts_higher_fee? ? 2 : 1
     end
 
     def date_of_receipt

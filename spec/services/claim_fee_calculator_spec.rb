@@ -10,7 +10,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
       context 'when the claim pertains to discrimination or unfair dismissal' do
         before do
           allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
+            to receive(:attracts_higher_fee?).
             and_return true
         end
 
@@ -58,7 +58,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
       context 'when the claim does not pertain to discrimination or unfair dismissal' do
         before do
           allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
+            to receive(:attracts_higher_fee?).
             and_return false
         end
 
@@ -108,7 +108,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
       context 'when the claim pertains to discrimination or unfair dismissal' do
         before do
           allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
+            to receive(:attracts_higher_fee?).
             and_return true
         end
 
@@ -156,7 +156,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
       context 'when the claim does not pertain to discrimination or unfair dismissal' do
         before do
           allow(claim).
-            to receive(:alleges_discrimination_or_unfair_dismissal?).
+            to receive(:attracts_higher_fee?).
             and_return false
         end
 
