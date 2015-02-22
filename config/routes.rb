@@ -40,6 +40,8 @@ Rails.application.routes.draw do
     get  '/feedback' => 'feedback#new'
     post '/feedback' => 'feedback#create'
 
+    get '/barclaycard-payment-template' => 'barclaycard_payment_template#show'
+
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1/) do
       ActiveAdmin.routes(self)
     end

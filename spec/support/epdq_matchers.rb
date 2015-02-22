@@ -2,14 +2,15 @@ module EpdqMatchers
   extend RSpec::Matchers::DSL
 
   EPDQ_FORM_PARAMS = {
-    "SHASIGN"    => "25B7D94258E4EFD9B7313F36B2EE9952FCBCEAF290F32DD557F4CEC76C0D3FC8",
+    "SHASIGN"    => "F6B07A6814BF463E623E80AC486CEB046FC1272B8A3A9CC3B24233FC372060CD",
     "CURRENCY"   => "GBP",
     "LANGUAGE"   => "en_US",
     "ACCEPTURL"  => "http://www.example.com/apply/pay/success",
     "DECLINEURL" => "http://www.example.com/apply/pay/decline",
     "AMOUNT"     => "25000",
     "ORDERID"    => "511234567800",
-    "PSPID"      => "ministry2"
+    "PSPID"      => "ministry2",
+    "TP"         => "http://www.example.com/apply/barclaycard-payment-template"
   }.freeze
 
   matcher :have_epdq_form do

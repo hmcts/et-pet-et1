@@ -27,14 +27,15 @@ RSpec.describe PaymentGateway::Request, type: :service do
 
     let(:attributes) do
       {
-         "SHASIGN" => "4111D945E75265523A0EAA50EE80CEF6E7BCB2AA29355FA34D3920DF05CC1CBB",
+         "SHASIGN" => "1CC44DE8F0565A0CE267A8EBBDF8122AA935CE5143F3E0976CC5B8490A119FF3",
         "CURRENCY" => "GBP",
         "LANGUAGE" => "en_US",
        "ACCEPTURL" => "https://example.org/apply/pay/success",
       "DECLINEURL" => "https://example.org/apply/pay/decline",
           "AMOUNT" => "250",
          "ORDERID" => "lol",
-           "PSPID" => "ministry2"
+           "PSPID" => "ministry2",
+              "TP" => "https://example.org/apply/barclaycard-payment-template"
       }
     end
 
