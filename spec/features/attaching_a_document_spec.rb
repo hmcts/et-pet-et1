@@ -50,7 +50,7 @@ feature 'Attaching a document' do
       attach_file "additional_information_additional_information_rtf", invalid_file_path
       click_button 'Save and continue'
 
-      expect(page).to have_text('is not an RTF or plain text file')
+      expect(page).to have_text('is not an RTF')
       expect(claim.additional_information_rtf).not_to be_present
     end
   end

@@ -377,7 +377,7 @@ en:
 
   errors:
     messages:
-      rtf: is not an RTF or plain text file
+      rtf: is not an RTF
       csv: is not a CSV
     user_session:
       not_found: " You have entered an invalid claim number"
