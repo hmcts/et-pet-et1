@@ -276,7 +276,6 @@ en:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn’t work. The number starts with ’R’ or ’MU’.
       employment:
-        current_situation: In relation to the employer you’re making a claim against
         job_title: The job you were doing at the time of the problem at work
         start_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
         average_hours_worked_per_week: Don’t include overtime
@@ -554,8 +553,7 @@ en:
     employment:
       header: Employment details
       situation_legend: Your employment details
-      current_situation: What is your current work situation?
-      current_situation_legend: Current work situation
+      current_situation: What is your current work situation in relation to the employer you're making a claim against?
       start_date: Employment start date
       end_date: Employment end date
       worked_notice_period_or_paid_in_lieu: Did you work (or get paid for) a period of notice?
