@@ -6,10 +6,10 @@ Before applying to an employment tribunal you have to contact Acas (Advisory, Co
 
 To use this service, fill in the <a href="http://www.acas.org.uk/index.aspx?articleid=4028" rel="external" title="Acas early conciliation notification form">Acas early conciliation notification form</a> or contact Acas:
 
-- Phone: 0300 123 1100
-- Textphone: 18001 030 0123 1100
-- Monday to Friday, 8am to 8pm
-- Saturday, 9am to 1pm
+Phone: 0300 123 1100  
+Textphone: 18001 030 0123 1100  
+Monday to Friday, 8am to 8pm  
+Saturday, 9am to 1pm  
 
 ### Early conciliation certificate number
 You’ll get a certificate from Acas if conciliation is unsuccessful. On the certificate is your ‘Acas early conciliation certificate number’, starting ‘R’ or ‘MU’. You’ll need this number when making your online claim to an employment tribunal.
