@@ -515,6 +515,7 @@ en:
       how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
       no_spaces: Don’t include spaces in the file name.
       step_three_header: Step 3
+      csv_upload_limit: Maximum file size is 2MB.
 
     representative:
       header: Representative’s details
