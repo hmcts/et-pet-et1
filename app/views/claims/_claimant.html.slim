@@ -36,9 +36,7 @@ fieldset
   = f.input :email_address
 
   fieldset
-    legend= t '.legend_contact_preference'
-    = f.input :contact_preference, label: false,
+    = f.input :contact_preference,
       collection: ClaimantForm::CONTACT_PREFERENCES,
       as: :radio_buttons,
-      wrapper_html: { class: 'form-label-bold' },
       item_wrapper_class: 'block-label'

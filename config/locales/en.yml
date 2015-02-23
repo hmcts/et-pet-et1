@@ -152,6 +152,7 @@ en:
         address_post_code: Postcode
         address_country: Country
         applying_for_remission: Do you want to get help paying your fee (known as ‘fee remission’)?
+        contact_preference: Best way to send correspondence to you (the claimant)
         _destroy: 'Remove this claimant'
 
       additional_claimants:
@@ -483,7 +484,6 @@ en:
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details
-      legend_contact_preference: Best way to send correspondence to you (the claimant)
       personal_details_description: |
         Information about the person or organisation making this claim (known as the 'claimant').
     additional_claimants:
