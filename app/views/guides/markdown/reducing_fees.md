@@ -17,7 +17,7 @@ If you receive any of these benefits, you won't have to pay a fee:
 - Scottish Civil Legal Aid (not ‘advice and assistance’ or ‘advice by way of representation’)<br/><br/>
 
 ### Low income
-If you’re not on benefits but your monthly income (before tax and other deductions) is equal to or less than the amount set out below, you won’t have to pay a fee.
+If your monthly income (before tax and other deductions) is equal to or less than the amount set out below, you won’t have to pay a fee.
 
 |Number of children|If you’re single|If you have a partner|
 |------------------|----------------|---------------------|
