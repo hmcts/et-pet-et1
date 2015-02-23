@@ -2,30 +2,6 @@ fieldset
   legend= t '.respondent_legend'
   p = t('.form_hint')
   = f.input :name
-
-fieldset
-  legend= t '.acas_legend'
-  = f.input :acas_early_conciliation_certificate_number, hint: t('.acas_early_conciliation_certificate_number_html', path:guide_path), required: true, label: false
-  = f.input :no_acas_number,
-    as: :gds_check_boxes,
-    required: true,
-    wrapper_class: 'reveal-publish-delegate clearfix options',
-    input_html: { :class => 'reveal-publish-publisher ga-vpv',
-                  :'data-target' => 'main' }
-
-
-  .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
-    fieldset.panel-indent
-      legend.form-label = t '.no_acas_number_reason'
-      = f.input :no_acas_number_reason, label: false,
-        collection: RespondentForm::NO_ACAS_REASON,
-        as: :radio_buttons,
-        required: true,
-        item_wrapper_class: 'block-label large-label'
-
-fieldset
-  legend= t '.contact_legend'
-  p.form-hint= t('.contact_hint')
   = f.input :address_building
   = f.input :address_street
   = f.input :address_locality
@@ -50,3 +26,25 @@ fieldset
     = f.input :work_address_county
     = f.input :work_address_post_code, input_html: { class: 'short-input' }
     = f.input :work_address_telephone_number, input_html: { class: 'medium-input' }
+
+fieldset
+  legend= t '.acas_legend'
+  = f.input :acas_early_conciliation_certificate_number, hint: t('.acas_early_conciliation_certificate_number_html', path:guide_path), required: true, label: false
+  = f.input :no_acas_number,
+    as: :gds_check_boxes,
+    required: true,
+    wrapper_class: 'reveal-publish-delegate clearfix options',
+    input_html: { :class => 'reveal-publish-publisher ga-vpv',
+                  :'data-target' => 'main' }
+
+
+  .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
+    fieldset.panel-indent
+      legend.form-label = t '.no_acas_number_reason'
+      = f.input :no_acas_number_reason, label: false,
+        collection: RespondentForm::NO_ACAS_REASON,
+        as: :radio_buttons,
+        required: true,
+        item_wrapper_class: 'block-label large-label'
+
+

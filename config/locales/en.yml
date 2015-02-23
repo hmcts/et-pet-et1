@@ -534,11 +534,9 @@ en:
       no_acas_number_reason: Why don’t you have an Acas number?
       respondent_legend: About the respondent
       acas_legend: Acas early conciliation certificate number
-      contact_legend: Respondent’s contact details
-      contact_hint: Enter the address to be used for correspondence about the case. This may be different to your work address.
       workaddress_legend: Your work address
       form_hint: |
-        Details of the employer, person or organisation you're making a claim against (known as the 'respondent').
+        The contact details of the person or organisation you're making a claim against (known as the 'respondent'). The address will be used for correspondence about the case.
       work_address: Give details of your work address.
       acas_early_conciliation_certificate_number_html: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
