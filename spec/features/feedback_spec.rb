@@ -8,9 +8,9 @@ RSpec.feature 'Feedback form' do
 
     expect(page).not_to have_signout_button
 
-    fill_in 'What did work well for you?',      with: 'lél'
-    fill_in 'How can we improve this service?', with: 'get #rekt'
-    fill_in 'Email address',                    with: 'lewl@example.com'
+    fill_in 'Have you had any problems using this service?',  with: 'lél'
+    fill_in 'Do you have any other comments or suggestions?', with: 'get #rekt'
+    fill_in 'Your email address',                             with: 'lewl@example.com'
 
     click_button 'Send feedback'
 
