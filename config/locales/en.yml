@@ -596,8 +596,10 @@ en:
       header: More about the claim
       legend: Other important details
       has_miscellaneous_information: Do you want to provide additional information about your claim? (optional)
-      has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
-      additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
+      has_miscellaneous_information_hint: |
+        Include anything that will help the tribunal come to a decision about whether your case can be heard.
+        What you write may be seen by the respondent. If you are making a claim against more than 3 additional respondents,
+        enter their details below.
       remove_additional_information_rtf: |
         Remove previously uploaded document: %{file}
       upload_limit: :'claims.additional_claimants_upload.upload_limit'
