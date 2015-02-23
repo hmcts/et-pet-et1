@@ -544,7 +544,8 @@ en:
     additional_respondents:
       no_acas_number_reason: Why don’t you have an Acas number?
       header: Additional respondents
-      additional_respondents_intro: Are you making a claim against another employer, person or organisation?
+      additional_repsondents_legend: Claims against more than one employer
+      additional_respondents_intro: Are you making a claim against another person or organisation?
       person: Respondent %{number}
       add_fields: Add another respondent
       remove_resource_link: Remove this respondent
