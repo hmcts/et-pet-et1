@@ -514,7 +514,7 @@ en:
       how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
       no_spaces: Don’t include spaces in the file name.
       step_three_header: Step 3
-      csv_upload_limit: Maximum file size is 2MB.
+      upload_limit: Maximum file size is 2MB.
 
     representative:
       header: Representative’s details
@@ -600,6 +600,7 @@ en:
       additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
       remove_additional_information_rtf: |
         Remove previously uploaded document: %{file}
+      upload_limit: :'claims.additional_claimants_upload.upload_limit'
 
     your_fee:
       header: Fee
