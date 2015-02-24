@@ -331,8 +331,8 @@ en:
 
       user_session:
         new:
-          reference: This was emailed to you, if you entered an email address
-          password: You created a password at the beginning of your claim
+          reference: This was emailed to you (if you entered your email address)
+          password: You created this at the beginning of the claim
         destroy:
           email_address: Get your claim number in an email
 
@@ -395,7 +395,7 @@ en:
       header: Claim saved
       legend: Return to complete your claim
       subheader: |
-       Your claim has been saved. You can return to it by entering your claim number and your password.
+       Your claim has been saved. You can return to it by entering your claim number and your memorable word.
       submit: Sign out now
       print_link: Print this page
 
