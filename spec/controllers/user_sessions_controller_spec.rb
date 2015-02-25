@@ -42,6 +42,11 @@ RSpec.describe UserSessionsController do
         delete :destroy
       end
 
+      it 'displays a flash message' do
+        delete :destroy
+        expect(flash[:info]).to eq 'You have been logged out'
+      end
+
       describe 'for email' do
         let(:claim) { create :claim, email_address: nil }
 

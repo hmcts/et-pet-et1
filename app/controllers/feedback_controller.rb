@@ -3,7 +3,7 @@ class FeedbackController < ApplicationController
     resource.assign_attributes params[:feedback]
     resource.save
 
-    redirect_to feedback_path, notice: t('.sent')
+    redirect_to feedback_path, flash: { info: t('.sent') }
   end
 
   def resource
