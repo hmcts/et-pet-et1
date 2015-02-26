@@ -17,12 +17,14 @@ header.main-header role="banner"
           = quick_edit_link_for section_name
 
         - if section.try(:children).present?
-          = render partial: 'collection',
-            locals: { section_name: section_name, presenter: section }
+          table.review-table
+            = render partial: 'collection',
+              locals: { section_name: section_name, presenter: section }
 
         - else
-          = render partial: 'item',
-            locals: { section_name: section_name, presenter: section }
+          table.review-table
+            = render partial: 'item',
+              locals: { section_name: section_name, presenter: section }
 
     = render partial: 'email_addresses'
 

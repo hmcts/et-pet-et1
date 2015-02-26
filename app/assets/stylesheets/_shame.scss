@@ -225,41 +225,6 @@ ol.numerical-list {
     }
   }
 }
-.review-list {
-  width:100%;
-  border-bottom:1px solid $border-colour;
-  overflow:hidden;
-  margin:0;
-  dt,dd{
-    @include core-16;
-    vertical-align: top;
-    padding:$gutter-half 0;
-    width:50%;
-  }
-  dt{
-    font-weight:400;
-    color:$grey-1;
-    float:left;
-    text-indent:$gutter-half/2;
-  }
-  dd{
-    float:right;
-    margin-left:0;
-    word-wrap: break-word;
-    p {
-      @include core-16;
-      &:only-child {
-        margin:0;
-      }
-      &:first-child {
-        margin-top:0;
-      }
-    }
-  }
-  & + h2{
-    margin:$gutter 0 $gutter-half;
-  }
-}
 //==========================================================================//
 //
 // IE Radio button colors

@@ -27,6 +27,7 @@ table th {
 table.review-table{
   border-collapse: collapse;
   width:100%;
+  border-bottom: 1px solid $border-colour;
   col{
     &.th{
       width:30%;
@@ -40,35 +41,43 @@ table.review-table{
     text-align:left;
     background: $highlight-colour;
     padding:$gutter-half/2 0;
+    text-indent:$gutter-half/2;
   }
   th,td{
-    border-bottom:1px solid $border-colour;
+    padding-left:$gutter-half/2;
+    padding-right:$gutter-half/2;
     vertical-align: top;
     padding-right:0;
-    width:30%;
+    width:50%;
+    border-bottom: none;
+    border-top: 1px solid $border-colour;
   }
   th{
     font-weight:400;
     color:$grey-1;
   }
-  tr:first-child{
-    th,td{
-      border-top:1px solid $border-colour;
+  td {
+    p {
+      @include core-16;
+      margin:0;
     }
   }
   & + h2{
     margin:$gutter 0 $gutter-half;
   }
+  h2 + & {
+    border-bottom:none;
+  }
 }
 
-%caption-large {
-  @extend .bold-medium;
+@mixin caption-large {
+  @include bold-24();
   text-align:left;
 }
 
 table.files-table{
   caption{
-    @extend %caption-large;
+    @include caption-large;
   }
   border:1px solid $border-colour;
   border-bottom:none;
@@ -77,7 +86,7 @@ table.files-table{
 
 table.confirmation-table {
   caption {
-    @extend %caption-large;
+    @include caption-large;
   }
   margin:$gutter*2 0;
   border-top:1px solid $border-colour;

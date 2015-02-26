@@ -1,3 +1,4 @@
 - presenter.children.each_with_index do |child, index|
-  h3.table-sub-header= t ".#{section_name}.sub_header", index: index + 2
-  = render partial: 'item', locals: { section_name: section_name, presenter: child }
+  table.review-table
+    caption= t ".#{section_name}.sub_header", index: index + 2
+    = render partial: 'item', locals: { section_name: section_name, presenter: child }
