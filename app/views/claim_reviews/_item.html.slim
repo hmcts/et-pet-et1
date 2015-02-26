@@ -1,8 +1,8 @@
 - presenter.each_item do |name, value|
-  dl.review-list
-    dt = t ".#{section_name}.#{name}"
+  tr
+    th = t ".#{section_name}.#{name}"
     - if value.present?
-      dd = value
+      td = value
     - else
-      dd.not-entered
+      td.not-entered
         = t '.not_entered'
