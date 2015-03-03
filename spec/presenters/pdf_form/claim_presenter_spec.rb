@@ -7,6 +7,10 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
     describe "##{meth}" do
       let(:claim) { create :claim }
 
+      let(:left_double_quotation)  { "\u{201c}" }
+      let(:right_double_quotation) { "\u{201d}" }
+      let(:right_single_quotation) { "\u{2019}" }
+
       before do
         allow(claim).to receive(meth).and_return <<-EOS.strip_heredoc
           I don't know how to do paragraphs
@@ -21,10 +25,13 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
           i am thick
 
           bai
+          #{left_double_quotation}
+          #{right_double_quotation}
+          #{right_single_quotation}
         EOS
       end
 
-      it 'removes superfluous carriage returns' do
+      it 'removes superfluous carriage returns & unknown chars' do
         expect(subject.send meth).to eq <<-EOS.strip_heredoc
           I don't know how to do paragraphs
 
@@ -33,6 +40,9 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
           i am thick
 
           bai
+          "
+          "
+          '
         EOS
       end
     end
