@@ -2,12 +2,6 @@ en:
   base_mailer:
     footer:
       contact_us: Contact us
-      if_you_are_unsure: |
-        If you’re not sure whether an email is from the Ministry of Justice then:
-      do_not_reply: |
-        do not reply to it or click any links
-      forward_it: |
-        forward it to security@digital.justice.gov.uk
 
     access_details_email:
       subject: 'Employment tribunal: complete your claim'
