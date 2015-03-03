@@ -73,5 +73,26 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
         expect(hash).to include('10.1' => 'yes')
       end
     end
+
+    context 'when claim has a single claimant' do
+      let(:claim) { create :claim, :single_claimant }
+      it 'checks the single claimant box' do
+        expect(hash).to include 'type of claim' => 'a single claim'
+      end
+      it 'doesnt populate the number of claimants box' do
+        expect(hash).to include 'more than one claimant' => nil
+      end
+    end
+
+    context 'when claim has multiple claimants' do
+      let(:claim) { create :claim }
+      it 'checks the multiple claimants box' do
+        expect(hash).to include 'type of claim' => 'a claimon behalf of more than one person'
+      end
+      it 'populates the number of claimants box' do
+        expect(hash).to include 'more than one claimant' => 6
+      end
+
+    end
   end
 end

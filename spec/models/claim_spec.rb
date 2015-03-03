@@ -141,6 +141,17 @@ RSpec.describe Claim, type: :claim do
     end
   end
 
+  describe '#has_multiple_claimants?' do
+    context 'claim with multiple claimants' do
+      subject { create :claim }
+      specify { expect(subject.has_multiple_claimants?).to be_truthy }
+    end
+    context 'claim with a single claimant' do
+      subject { create :claim, :single_claimant }
+      specify { expect(subject.has_multiple_claimants?).to be_falsey }
+    end
+  end
+
   describe 'bitmasked attributes' do
     %i<discrimination_claims pay_claims desired_outcomes>.each do |attr|
       specify { expect(subject.send attr).to be_an(Array) }

@@ -41,8 +41,22 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
     claim_types.any? { |type| pay_claims.include? type }
   end
 
+  def type_of_claim
+    if has_multiple_claimants?
+      'a claimon behalf of more than one person'
+    else
+      'a single claim'
+    end
+  end
+
+  def number_of_claimants
+    claimant_count if has_multiple_claimants?
+  end
+
   def claim
     {
+      "type of claim" => type_of_claim,
+      "more than one claimant" => number_of_claimants,
       "date received" => format_date(submitted_at),
       "2.4 tick box" => dual_state(respondents.count > 1),
       "3.1 tick boxes" => tri_state(other_known_claimant_names.present?),
