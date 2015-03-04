@@ -15,24 +15,52 @@ ActiveAdmin.register Claim do
 
     column :fee_group_reference
 
-    column(:missing_payment) do |claim|
-      if claim.immutable? && claim.fee_to_pay? && !claim.payment_present?
-        'Yes'
+    column(:payment_status) do |claim|
+      case
+      when !claim.immutable?
+        'Not submitted'
+      when claim.remission_claimant_count > 0
+        'Remission indicated'
+      when claim.payment_present?
+        'Paid'
       else
-        'N/A'
+        'Missing payment'
       end
     end
 
+    column(:tribunal_office) { |claim| claim.office.try :name }
+
+    column :submitted_at
+
     column(:state) { |claim| claim.state.humanize }
+
   end
 
   # Show
   show title: :reference do
     panel 'Metadata' do
       attributes_table_for claim do
+        row(:id)
         row('Submitted to JADU') { |c| c.submitted? ? c.submitted_at : 'No' }
         row('Payment required')  { |c| c.fee_to_pay? ? 'Yes' : 'No' }
         row('Payment received')  { |c| c.payment_present? ? 'Yes' : 'No' }
+        row :fee_group_reference
+
+        row('FGR postcode') do |c|
+          if c.fee_group_reference
+            addresses = c.primary_respondent.addresses
+
+            (addresses.where(primary: false).first || addresses.first).post_code
+          end
+        end
+
+        row('Confirmation emails') do |c|
+          c.confirmation_email_recipients.to_sentence
+        end
+
+        row('Attachments') do |c|
+          c.attachments.map { |a| link_to File.basename(a.file.path), a.url }.to_sentence.html_safe
+        end
       end
     end
 
