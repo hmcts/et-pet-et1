@@ -22,7 +22,7 @@ RSpec.describe FeedbackController, :type => :controller do
 
       expect(response).to be_redirect
       expect(response.location).to end_with '/apply/feedback'
-      expect(flash[:notice]).to eq 'Thank you for your feedback'
+      expect(flash[:info]).to eq 'Thank you for your feedback'
     end
   end
 end
