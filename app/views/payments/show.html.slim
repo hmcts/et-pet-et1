@@ -9,7 +9,7 @@ header.main-header role="banner"
     .clearfix
       .callout.callout-fee
         p = t('.callout.title')
-        span.number = t('.callout.fee_amount', fee: fee_calculation.application_fee)
+        span.number = t('.callout.fee_amount', fee: fee_calculation.application_fee_after_remission)
 
     = form_tag payment_request.request_url, authenticity_token: false, enforce_utf8: false, name: 'form1' do |f|
       - payment_request.form_attributes.each do |k, v|
@@ -26,7 +26,7 @@ header.main-header role="banner"
       .panel-indent#details-content-0
         ol
           li = t('.pay_by_cheque.save_pdf_html', href: pdf_path, target: "_blank")
-          li = t('.pay_by_cheque.cheque_amount', fee: fee_calculation.application_fee)
+          li = t('.pay_by_cheque.cheque_amount', fee: fee_calculation.application_fee_after_remission)
           li = t('.pay_by_cheque.post_cheque')
 
         p = t('.pay_by_cheque.if_england_wales')
