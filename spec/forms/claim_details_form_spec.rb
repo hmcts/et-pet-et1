@@ -6,11 +6,41 @@ RSpec.describe ClaimDetailsForm, :type => :form do
   describe 'validations' do
     context 'presence' do
       it { is_expected.to validate_presence_of(:claim_details) }
+
+      context 'claim details attached as an RTF' do
+        before { subject.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+        it { is_expected.to_not validate_presence_of(:claim_details) }
+      end
     end
 
     context 'character lengths' do
       it { is_expected.to ensure_length_of(:claim_details).is_at_most(5000) }
       it { is_expected.to ensure_length_of(:other_known_claimant_names).is_at_most(350) }
+    end
+  end
+
+  describe 'on #claim_details_rtf' do
+    let(:path) { Rails.root + 'spec/support/files' }
+
+    before do
+      subject.claim_details_rtf = file
+      subject.valid?
+    end
+
+    context 'when its value is a plain text file' do
+      let(:file) { File.open(path + 'file.rtf') }
+
+      it 'does nothing' do
+        expect(subject.errors[:claim_details_rtf]).to be_empty
+      end
+    end
+
+    context 'when its value is not a plain text file' do
+      let(:file) { File.open(path + 'phil.jpg') }
+
+      it 'adds an error message to the attribute' do
+        expect(subject.errors[:claim_details_rtf]).to include(I18n.t 'errors.messages.rtf')
+      end
     end
   end
 

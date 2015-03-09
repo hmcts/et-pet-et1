@@ -13,45 +13,45 @@ feature 'Attaching a document' do
     fill_in_return_form claim.reference, 'lollolol'
   end
 
-  describe 'For additional information' do
+  describe 'For claim details RTF upload' do
     let(:rtf_file_path) { file_path + './file.rtf' }
     let(:alternative_rtf_file_path) { file_path + './alt_file.rtf' }
 
     context 'Uploading a valid RTF file' do
       before :each do
-        visit '/apply/additional-information'
-        attach_file "additional_information_additional_information_rtf", rtf_file_path
-        click_button 'Save and continue'
+        visit '/apply/claim-details'
+        attach_file "claim_details_claim_details_rtf", rtf_file_path
+        fill_in_claim_details
       end
 
       scenario 'Attaching the file' do
-        expect(claim.reload.additional_information_rtf_file.read).to eq File.read(rtf_file_path)
+        expect(claim.reload.claim_details_rtf_file.read).to eq File.read(rtf_file_path)
       end
 
       scenario 'Deleting the file' do
-        visit '/apply/additional-information'
-        check "additional_information_remove_additional_information_rtf"
+        visit '/apply/claim-details'
+        check "claim_details_remove_claim_details_rtf"
         click_button 'Save and continue'
 
-        expect(claim.reload.additional_information_rtf.present?).to be false
+        expect(claim.reload.claim_details_rtf.present?).to be false
       end
 
       scenario 'Replacing the file' do
-        visit '/apply/additional-information'
-        attach_file "additional_information_additional_information_rtf", alternative_rtf_file_path
+        visit '/apply/claim-details'
+        attach_file "claim_details_claim_details_rtf", alternative_rtf_file_path
         click_button 'Save and continue'
 
-        expect(claim.reload.additional_information_rtf_file.read).to eq File.read(alternative_rtf_file_path)
+        expect(claim.reload.claim_details_rtf_file.read).to eq File.read(alternative_rtf_file_path)
       end
     end
 
     scenario 'Uploading a non text file' do
-      visit '/apply/additional-information'
-      attach_file "additional_information_additional_information_rtf", invalid_file_path
+      visit '/apply/claim-details'
+      attach_file "claim_details_claim_details_rtf", invalid_file_path
       click_button 'Save and continue'
 
       expect(page).to have_text('is not an RTF')
-      expect(claim.additional_information_rtf).not_to be_present
+      expect(claim.claim_details_rtf).not_to be_present
     end
   end
 

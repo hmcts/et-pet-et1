@@ -43,7 +43,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachment_filenames
-    [additional_information_rtf, additional_claimants_csv].map do |attachment|
+    [claim_details_rtf, additional_claimants_csv].map do |attachment|
       CarrierwaveFilename.for attachment
     end.compact
   end

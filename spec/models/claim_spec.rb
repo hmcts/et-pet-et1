@@ -305,7 +305,7 @@ RSpec.describe Claim, type: :claim do
     specify { expect(subject.attachments.size).to eq 3 }
 
     it "only returns attachments that exist" do
-      expect { subject.remove_additional_information_rtf! }.
+      expect { subject.remove_claim_details_rtf! }.
         to change { subject.attachments.size }.
         from(3).to(2)
     end
@@ -317,6 +317,16 @@ RSpec.describe Claim, type: :claim do
     it 'removes the pdf' do
       expect { subject.remove_pdf! }.
         to change { subject.pdf_present? }.
+        from(true).to(false)
+    end
+  end
+
+  describe '#remove_claim_details_rtf!' do
+    before { subject.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+
+    it 'removes the rtf file' do
+      expect { subject.remove_claim_details_rtf! }.
+        to change { subject.claim_details_rtf.present? }.
         from(true).to(false)
     end
   end

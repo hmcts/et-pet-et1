@@ -229,9 +229,6 @@ en:
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
         send_claim_to_whistleblowing_entity: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
 
-      additional_information:
-        additional_information_rtf: Do you want to attach a document?
-
       confirmation_email:
         email_addresses: Select or enter the recipients you’d like to send a copy to
 
@@ -245,6 +242,7 @@ en:
       claim_details:
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
+        claim_details_rtf: The document needs to be in Rich Text Format(RTF)
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
@@ -316,6 +314,8 @@ en:
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
+        claim_details_rtf: |
+          You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format
 
       claim_outcome:
         desired_outcomes: You can select more than one
@@ -323,11 +323,6 @@ en:
            If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
       additional_information:
         miscellaneous_information: Enter more detail about your claim. Limit is 5000 characters (approx 900 words).
-        additional_information_rtf: |
-          You can upload a separate document if you need more space to describe your claim. Please do not send any
-          evidence documents at this stage. The document needs to be a Rich Text Format (RTF) file. You can usually save
-          a file as an RTF by selecting File > Save As / Export To > Format: Rich Text Format
-      your_fee:
 
       user_session:
         new:
@@ -501,7 +496,7 @@ en:
       steps_header: Spreadsheet for group claim
       error_line: "An error has been found on line %{line_number} of the uploaded file."
       malformatted_csv: The CSV doesn’t appear to be formatted correctly.
-      remove_additional_claimants_csv: :"claims.additional_information.remove_additional_information_rtf"
+      remove_additional_claimants_csv: :"claims.claim_details.remove_claim_details_rtf"
       number_claimants_info: For 6 or more claimants, enter their details below.
       has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
       step_one_header: Step 1
@@ -583,9 +578,15 @@ en:
 
     claim_details:
       header: Claim details
-      claim_details: About your claim
-      claim_details_html: Include the background, dates and people involved. If you prefer, you can write more on a separate document and upload it later in the claim. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
+      claim_details: Describe your claim
+      claim_details_upload: Or upload it as a separate document
+      claim_details_html: |
+        Write your claim statement below.
+        Include the background, dates and people involved.
+        <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
       claim_details_hint_html: Limit is 5000 characters (approx 900 words).
+      remove_claim_details_rtf: |
+        Remove previously uploaded document: %{file}
       similar_claims: Similar claims
 
     claim_outcome:
@@ -600,9 +601,8 @@ en:
         Include anything that will help the tribunal come to a decision about whether your case can be heard.
         What you write may be seen by the respondent. If you are making a claim against more than 3 additional respondents,
         enter their details below.
-      remove_additional_information_rtf: |
-        Remove previously uploaded document: %{file}
-      upload_limit: :'claims.additional_claimants_upload.upload_limit'
+      has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
+      additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
 
     your_fee:
       header: Fee
