@@ -49,6 +49,20 @@ ActiveAdmin.register Claim do
         link_to 'Download PDF', resource.pdf_url, class: :button
       end
     end
+
+    br
+    div do
+      if resource.additional_information_rtf?
+        link_to 'Download RTF', resource.additional_information_rtf_url, class: :button
+      end
+    end
+
+    br
+    div do
+      if resource.additional_claimants_csv?
+        link_to 'Download CSV', resource.additional_claimants_csv_url, class: :button
+      end
+    end
   end
 
   # Show
@@ -71,10 +85,6 @@ ActiveAdmin.register Claim do
 
         row('Confirmation emails') do |c|
           c.confirmation_email_recipients.to_sentence
-        end
-
-        row('Attachments') do |c|
-          c.attachments.map { |a| link_to File.basename(a.file.path), a.url }.to_sentence.html_safe
         end
       end
     end
