@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 20150217155539) do
     t.string   "fee_group_reference"
     t.string   "state"
     t.datetime "submitted_at"
-    t.string   "additional_information_rtf"
+    t.string   "claim_details_rtf"
     t.string   "email_address"
     t.string   "additional_claimants_csv"
     t.integer  "remission_claimant_count",              default: 0

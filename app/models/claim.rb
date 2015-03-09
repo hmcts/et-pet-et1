@@ -92,6 +92,10 @@ class Claim < ActiveRecord::Base
     super.tap { update_column(:pdf, nil) }
   end
 
+  def remove_claim_details_rtf!
+    super.tap { update_column(:claim_details_rtf, nil) }
+  end
+
   def submittable?
     %i<primary_claimant primary_respondent>.all? do |relation|
       send(relation).present?

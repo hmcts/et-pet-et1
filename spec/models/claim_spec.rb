@@ -310,6 +310,16 @@ RSpec.describe Claim, type: :claim do
     end
   end
 
+  describe '#remove_claim_details_rtf!' do
+    before { subject.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+
+    it 'removes the rtf file' do
+      expect { subject.remove_claim_details_rtf! }.
+        to change { subject.claim_details_rtf.present? }.
+        from(true).to(false)
+    end
+  end
+
   describe "#generate_pdf!" do
     subject { create :claim }
 

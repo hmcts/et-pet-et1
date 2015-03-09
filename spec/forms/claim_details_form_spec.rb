@@ -6,6 +6,11 @@ RSpec.describe ClaimDetailsForm, :type => :form do
   describe 'validations' do
     context 'presence' do
       it { is_expected.to validate_presence_of(:claim_details) }
+
+      context 'claim details attached as an RTF' do
+        before { subject.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+        it { is_expected.to_not validate_presence_of(:claim_details) }
+      end
     end
 
     context 'character lengths' do

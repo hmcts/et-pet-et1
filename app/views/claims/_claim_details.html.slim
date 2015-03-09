@@ -1,22 +1,27 @@
 h2.legend= t '.claim_details'
 
 p= t('.claim_details_html', path: guide_path)
-p= t('.upload_details')
+
+details open=resource.has_claim_details_rtf?
+  summary role='button' aria={ \
+    expanded: "#{resource.has_claim_details_rtf?}",
+    controls: 'details-content-0'}
+    span.summary= t('.claim_details_upload')
+
+  .panel-indent#details-content-0
+    = f.input :claim_details_rtf do
+      = f.input_field :claim_details_rtf, as: :file do
+    - if resource.has_claim_details_rtf?
+      = f.input :remove_claim_details_rtf, as: :boolean,
+          inline_label: t('.remove_claim_details_rtf',
+            file: resource.attachment_filename),
+            label: false
+    = f.hidden_field :claim_details_rtf_cache
 
 = f.input :claim_details, label: false,
   hint: t('.claim_details_hint_html', path: guide_path),
   as: :text,
-  input_html: { rows: 30 }
-
-legend= t '.upload_document'
-= f.input :claim_details_rtf do
-  - if resource.has_claim_details_rtf?
-    = f.input :remove_claim_details_rtf, as: :boolean,
-      inline_label: t('.remove_claim_details_rtf',
-        file: resource.attachment_filename),
-        label: false
-  = f.input_field :claim_details_rtf, as: :file
-= f.hidden_field :claim_details_rtf_cache
+  input_html: { rows: 15 }
 
 fieldset
   legend= t '.similar_claims'

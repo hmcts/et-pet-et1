@@ -242,7 +242,7 @@ en:
       claim_details:
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
-        claim_details_rtf: If you need more space, you can upload a separate document here.
+        claim_details_rtf: The document needs to be in Rich Text Format(RTF)
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
@@ -315,8 +315,7 @@ en:
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
         claim_details_rtf: |
-          The document needs to be in Rich Text Format (RTF). You can usually save a file
-          as RTF by selecting File> Save As> Export To> Format: Rich Text Format
+          You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format
 
       claim_outcome:
         desired_outcomes: You can select more than one
@@ -579,12 +578,13 @@ en:
 
     claim_details:
       header: Claim details
-      claim_details: About your claim
+      claim_details: Describe your claim
+      claim_details_upload: Or upload it as a separate document
       claim_details_html: |
-        Include the background, dates and people involved. <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
-      upload_details: If you need more space, you can upload a separate document below.
+        Write your claim statement below.
+        Include the background, dates and people involved.
+        <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
       claim_details_hint_html: Limit is 5000 characters (approx 900 words).
-      upload_document: Upload document
       remove_claim_details_rtf: |
         Remove previously uploaded document: %{file}
       similar_claims: Similar claims
