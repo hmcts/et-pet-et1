@@ -14,26 +14,18 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
     presenters.each_with_object({}) { |p, o| o.update p.to_h }
   end
 
-  def other_outcome
-    strip_extraneous_whitespace super
-  end
-
-  def claim_details
-    strip_extraneous_whitespace super
-  end
-
-  def other_claim_details
-    strip_extraneous_whitespace super
-  end
-
-  def miscellaneous_information
-    strip_extraneous_whitespace super
+  %i<other_outcome claim_details other_claim_details miscellaneous_information>.each do |name|
+    define_method(name) { sanitize_text super() }
   end
 
   private
 
-  def strip_extraneous_whitespace(str)
-    str.gsub(/(\r?\n){2,}/, "\n\n") if str
+  def sanitize_text(str)
+    if str
+      str.gsub(/(\r?\n){2,}/, "\n\n").  # replace extraneous whitespace
+        gsub(/[\u201c\u201d]/, '"').    # replace left & right double quotes
+        gsub(/[\u2019]/, "'")           # replace right single quotes
+    end
   end
 
   def owed?
