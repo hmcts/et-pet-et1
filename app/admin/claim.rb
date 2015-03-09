@@ -36,6 +36,35 @@ ActiveAdmin.register Claim do
 
   end
 
+  member_action :generate_pdf, method: :post do
+    PdfGenerationJob.perform_later resource
+    redirect_to :back, notice: 'Generating a new PDF'
+  end
+
+  sidebar :actions, only: :show do
+    div { button_to 'Generate PDF', action: :generate_pdf }
+    br
+    div do
+      if resource.pdf_present?
+        link_to 'Download PDF', resource.pdf_url, class: :button
+      end
+    end
+
+    br
+    div do
+      if resource.additional_information_rtf?
+        link_to 'Download RTF', resource.additional_information_rtf_url, class: :button
+      end
+    end
+
+    br
+    div do
+      if resource.additional_claimants_csv?
+        link_to 'Download CSV', resource.additional_claimants_csv_url, class: :button
+      end
+    end
+  end
+
   # Show
   show title: :reference do
     panel 'Metadata' do
@@ -57,10 +86,6 @@ ActiveAdmin.register Claim do
         row('Confirmation emails') do |c|
           c.confirmation_email_recipients.to_sentence
         end
-
-        row('Attachments') do |c|
-          c.attachments.map { |a| link_to File.basename(a.file.path), a.url }.to_sentence.html_safe
-        end
       end
     end
 
@@ -68,8 +93,8 @@ ActiveAdmin.register Claim do
       table_for claim.events do
         column :event
         column :actor
-        column :message
         column :created_at
+        column :message
       end
     end
   end
