@@ -82,6 +82,10 @@ class Claim < ActiveRecord::Base
     claimants.count + additional_claimants_csv_record_count
   end
 
+  def has_multiple_claimants?
+    claimant_count > 1
+  end
+
   def remove_additional_claimants_csv!
     super.tap do
       update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
