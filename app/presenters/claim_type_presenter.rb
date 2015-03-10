@@ -10,7 +10,7 @@ class ClaimTypePresenter < Presenter
       map { |c| I18n.t "simple_form.options.claim_type.pay_claims.#{c}" }
 
     claims.push *target.discrimination_claims.
-      map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims.#{c}" }
+      map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}" }
 
     claims.join('<br />').html_safe
   end

@@ -10,19 +10,19 @@ RSpec.describe ClaimTypePresenter, type: :presenter do
       is_whistleblowing: true, send_claim_to_whistleblowing_entity: false
   end
 
-  def translation_for(option, section: 'options', br: true)
-    I18n.t("simple_form.#{section}.claim_type.#{option}") + (br ? '<br />' : '')
+  def type_text(text, line_break: true)
+    text + (line_break ? '<br />' : '')
   end
 
   describe '#types' do
     it 'concatenates is_unfair_dismissal, discrimination_claims, and pay_claims' do
       expect(subject.types).to eq(
-        translation_for('is_unfair_dismissal', section: 'labels') +
-        translation_for('pay_claims.redundancy') +
-        translation_for('pay_claims.other') +
-        translation_for('discrimination_claims.sex_including_equal_pay') +
-        translation_for('discrimination_claims.race') +
-        translation_for('discrimination_claims.sexual_orientation', br: false)
+        type_text('Unfair dismissal (including constructive dismissal)') +
+        type_text('Redundancy pay') +
+        type_text('Other payments') +
+        type_text('Sex (including equal pay) discrimination') +
+        type_text('Race discrimination') +
+        type_text('Sexual orientation discrimination', line_break: false)
       )
     end
   end
