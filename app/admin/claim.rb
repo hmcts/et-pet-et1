@@ -52,8 +52,8 @@ ActiveAdmin.register Claim do
 
     br
     div do
-      if resource.additional_information_rtf?
-        link_to 'Download RTF', resource.additional_information_rtf_url, class: :button
+      if resource.claim_details_rtf?
+        link_to 'Download RTF', resource.claim_details_rtf_url, class: :button
       end
     end
 
