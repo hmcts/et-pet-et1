@@ -1,7 +1,4 @@
 class RepresentativeForm < Form
-  TYPES = %w<citizen_advice_bureau free_representation_unit
-    law_centre trade_union solicitor private_individual trade_association other>.freeze
-
   include AddressAttributes
 
   attribute :type,               String
@@ -17,7 +14,7 @@ class RepresentativeForm < Form
   before_validation :destroy_target!, unless: :has_representative?
 
   validates :type, :name, presence: true
-  validates :type, inclusion: { in: TYPES }
+  validates :type, inclusion: { in: RepresentativeType::TYPES }
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 40 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
