@@ -12,5 +12,4 @@ env:
   global:
     secure: FNL+FZauJ7fy1rT4luEvPGuAErxyp4BicM5bXCD/dBHMNI6rhGDulMhnqdThAaR4DvhCXaBahrnNFs7gfilpdkQzz3zYVBqvjlyx4slIL6xRTKOwVo6X6tG804ZiJ2b8sMTCqBBn5xoVCjDcle+VCcQNp2oq/LoXGGPHdx/LcKY=
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq pdftk
+  - gem install pdftk-binary
