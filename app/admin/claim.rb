@@ -77,9 +77,10 @@ ActiveAdmin.register Claim do
 
         row('FGR postcode') do |c|
           if c.fee_group_reference
-            addresses = c.primary_respondent.addresses
-
-            (addresses.where(primary: false).first || addresses.first).post_code
+            res = c.primary_respondent
+            [res.work_address, res.address].
+              find { |a| a.post_code.present? }.
+              post_code
           end
         end
 
