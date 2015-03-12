@@ -1,5 +1,5 @@
 module JaduXml
-  class AddressPresenter < XmlPresenter
+  class AltAddressPresenter < XmlPresenter
     include AddressProperties
   end
 end

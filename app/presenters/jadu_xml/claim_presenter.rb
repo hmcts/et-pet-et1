@@ -1,36 +1,36 @@
 module JaduXml
   class ClaimPresenter < XmlPresenter
-    self.representation_wrap = "ETFeesEntry"
+    self.representation_wrap = 'ETFeesEntry'
 
-    node_attribute :xmlns, as: "xmlns", value: "http://www.justice.gov.uk/ETFEES"
-    node_attribute :xsi, as: "xmlns:xsi", value: "http://www.w3.org/2001/XMLSchema-instance"
-    node_attribute :location, as: "xsi:noNamespaceSchemaLocation", value: "ETFees_v0.20.xsd"
+    node_attribute :xmlns, as: 'xmlns', value: 'http://www.justice.gov.uk/ETFEES'
+    node_attribute :xsi, as: 'xmlns:xsi', value: 'http://www.w3.org/2001/XMLSchema-instance'
+    node_attribute :location, as: 'xsi:noNamespaceSchemaLocation', value: 'ETFees_v0.24.xsd'
 
     property :document_id, extend: JaduXml::DocumentIdPresenter, exec_context: :decorator
-    property :fee_group_reference, as: "FeeGroupReference", render_nil: true
-    property :reference, as: "SubmissionUrn"
-    property :claimant_count, as: "CurrentQuantityOfClaimants"
-    property :submission_channel, as: "SubmissionChannel", exec_context: :decorator
-    property :case_type, as: "CaseType", exec_context: :decorator
-    property :jurisdiction, as: "Jurisdiction", exec_context: :decorator
-    property :office_code, as: "OfficeCode", exec_context: :decorator, render_nil: true
-    property :date_of_receipt, as: "DateOfReceiptEt", exec_context: :decorator
-    property :remission_indicated, as: "RemissionIndicated", exec_context: :decorator
-    property :administrator, as: "Administrator", exec_context: :decorator
+    property :fee_group_reference, as: 'FeeGroupReference', render_nil: true
+    property :reference, as: 'SubmissionUrn'
+    property :claimant_count, as: 'CurrentQuantityOfClaimants'
+    property :submission_channel, as: 'SubmissionChannel', exec_context: :decorator
+    property :case_type, as: 'CaseType', exec_context: :decorator
+    property :jurisdiction, as: 'Jurisdiction', exec_context: :decorator
+    property :office_code, as: 'OfficeCode', exec_context: :decorator, render_nil: true
+    property :date_of_receipt, as: 'DateOfReceiptEt', exec_context: :decorator
+    property :remission_indicated, as: 'RemissionIndicated', exec_context: :decorator
+    property :administrator, as: 'Administrator', exec_context: :decorator
 
     collection :claimants, extend: JaduXml::ClaimantPresenter,
-      class: Claimant, wrap: "Claimants", exec_context: :decorator
+      class: Claimant, wrap: 'Claimants', exec_context: :decorator
 
     collection :respondents, extend: JaduXml::RespondentPresenter,
-      class: Respondent, wrap: "Respondents"
+      class: Respondent, wrap: 'Respondents'
 
     collection :representative, extend: JaduXml::RepresentativePresenter,
-      exec_context: :decorator, render_empty: true, wrap: "Representatives"
+      exec_context: :decorator, render_empty: true, wrap: 'Representatives'
 
     property :payment, extend: JaduXml::PaymentPresenter, exec_context: :decorator
 
     collection :files, extend: JaduXml::FilePresenter,
-      exec_context: :decorator, render_empty: true, wrap: "Files"
+      exec_context: :decorator, render_empty: true, wrap: 'Files'
 
     delegate :has_multiple_claimants?, :other_claim_details, :office, :submitted_at,
       :remission_claimant_count, :representative, :attachments,
@@ -47,11 +47,11 @@ module JaduXml
     end
 
     def submission_channel
-      "Web"
+      'Web'
     end
 
     def case_type
-      has_multiple_claimants? ? "Multiple" : "Single"
+      has_multiple_claimants? ? 'Multiple' : 'Single'
     end
 
     def jurisdiction
@@ -63,7 +63,7 @@ module JaduXml
     end
 
     def remission_indicated
-      remission_claimant_count.zero? ? "NotRequested" : "Indicated"
+      remission_claimant_count.zero? ? 'NotRequested' : 'Indicated'
     end
 
     def administrator
