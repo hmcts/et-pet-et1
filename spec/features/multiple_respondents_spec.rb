@@ -16,7 +16,7 @@ feature 'Multiple respondents' do
   let(:attributes) do
     {
       'Name'                    => 'Butch McTaggert',
-      'Acas number'             => '1',
+      'Acas number'             => 'XX123456/12/12',
       'Building number or name' => '3',
       'Street'                  => 'Lol Lane',
       'Town/city'               => 'Jokesville',

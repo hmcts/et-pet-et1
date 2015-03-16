@@ -6,13 +6,13 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
       has_collection: 'true',
       collection_attributes: {
         "0" => {
-          name: 'Butch McTaggert', acas_early_conciliation_certificate_number: '1',
+          name: 'Butch McTaggert', acas_early_conciliation_certificate_number: 'XX123456/12/12',
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
           address_post_code: 'W2 3ED'
         },
         "1" => {
-          name: 'Pablo Noncer', acas_early_conciliation_certificate_number: '2',
+          name: 'Pablo Noncer', acas_early_conciliation_certificate_number: 'XX123456/12/12',
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
           address_post_code: 'W2 3ED'

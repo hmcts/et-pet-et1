@@ -54,7 +54,7 @@ feature 'Multiple claimants/respondents on the review page' do
   context 'with additional respondents' do
     before do
       claim.secondary_respondents.create name: 'Barry Obama',
-        acas_early_conciliation_certificate_number: 1234,
+        acas_early_conciliation_certificate_number: 'XX123456/12/12',
         address_building: 1, address_street: 'Lol lane', address_locality: 'London',
         address_county: 'London', address_post_code: 'SW1 1AA'
 
@@ -66,7 +66,7 @@ feature 'Multiple claimants/respondents on the review page' do
         expect(page.text).
           to have_text 'Respondent 2' +
                        'Name' 'Barry Obama' +
-                       'Acas number' '1234' +
+                       'Acas number' 'XX123456/12/12' +
                        'Address' '1' 'Lol lane' 'London' 'London' 'SW1 1AA'
 
         expect(page.text).to_not match(/Additional respondentsNo/)
