@@ -14,7 +14,7 @@ header.main-header role="banner"
       div class=("review-list-entry #{section_name.dasherize}")
         h2.list-header
           span = t ".sections.#{section_name}"
-          = quick_edit_link_for section_name
+          = quick_edit_link_for section_name, false
 
         - if section.try(:children).present?
           table.review-table

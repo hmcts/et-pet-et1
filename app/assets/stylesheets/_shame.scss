@@ -256,3 +256,12 @@ label{
 ol li {
   list-style: decimal
 }
+.steps-list {
+  padding-left:0;
+  li{
+    list-style-position:inside;
+    &.active {
+      @include bold-19();
+    }
+  }
+}

@@ -334,6 +334,7 @@ en:
   helpers:
     submit:
       update: Save and continue
+      review: Save and go to review
       return: Complete later
       claim:
         create: Start a claim

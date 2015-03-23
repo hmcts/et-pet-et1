@@ -26,11 +26,16 @@ class ClaimsController < ApplicationController
   private
 
   def next_page
-    if params[:return_to_review].present?
+
+    if params[:commit] == I18n.t('helpers.submit.review') ||   is_truthy?(params[:return_to_review])
       claim_review_path
     else
       claim_path_for page_manager.forward
     end
+  end
+
+  def is_truthy?(str)
+    ['y','true','1','yes'].include?(str.to_s.downcase)
   end
 
   def page_manager

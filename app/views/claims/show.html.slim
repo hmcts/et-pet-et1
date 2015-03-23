@@ -15,5 +15,6 @@ header.main-header role="banner"
         = render current_step, f: f
       .form-actions
         = f.button :submit
+        = f.button :submit, t('helpers.submit.review')
 
-  = render partial: 'shared/aside'
+  = render partial: 'shared/aside', locals: {breadcrumb: true}
