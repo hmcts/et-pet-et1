@@ -3,7 +3,7 @@ aside role="complementary"
     h3= 'Your claim'
     ol.steps-list
       - claim_actions.each do |action|
-        li class=(params[:page].to_s.to_sym == action ? 'active' : '')
+        li class=(params[:page].underscore.to_s.to_sym == action ? 'active' : '')
           = t(:header, scope: [:claims, action])
 
   h3= t '.gethelp_header'

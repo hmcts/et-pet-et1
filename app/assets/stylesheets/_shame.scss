@@ -260,6 +260,7 @@ ol li {
   padding-left:0;
   li{
     list-style-position:inside;
+    padding-bottom: $gutter-half/2;
     &.active {
       @include bold-19();
     }
