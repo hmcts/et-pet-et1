@@ -322,7 +322,7 @@ en:
         other_outcome: |
            If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
       additional_information:
-        miscellaneous_information: Enter more detail about your claim. Limit is 5000 characters (approx 900 words).
+        miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters (approx 450 words).
 
       user_session:
         new:
@@ -584,7 +584,7 @@ en:
         Write your claim statement below.
         Include the background, dates and people involved.
         <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
-      claim_details_hint_html: Limit is 5000 characters (approx 900 words).
+      claim_details_hint_html: Limit is 2500 characters (approx 450 words).
       remove_claim_details_rtf: |
         Remove previously uploaded document: %{file}
       similar_claims: Similar claims

@@ -5,7 +5,7 @@ class AdditionalInformationForm < Form
   before_validation :reset_miscellaneous_information!,
     unless: :has_miscellaneous_information?
 
-  validates :miscellaneous_information, length: { maximum: 5000 }
+  validates :miscellaneous_information, length: { maximum: 2500 }
 
   def has_miscellaneous_information
     self.has_miscellaneous_information = miscellaneous_information.present?
