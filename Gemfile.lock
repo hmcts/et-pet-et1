@@ -162,6 +162,8 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
+    email_validator (1.5.0)
+      activemodel
     equalizer (0.0.9)
     erubis (2.7.0)
     eventmachine (1.0.4)
@@ -539,6 +541,7 @@ DEPENDENCIES
   codeclimate-test-reporter
   compass
   dotenv-rails (= 0.11.1)
+  email_validator
   epdq!
   factory_girl_rails
   fog

@@ -644,6 +644,8 @@ en:
           attributes:
             password:
               blank: Please create a memorable word so you can return to your claim
+            email_address:
+              invalid: You have entered an invalid email address
         additional_claimants_form/additional_claimant:
           attributes:
             title:
@@ -752,6 +754,7 @@ en:
               invalid: Please enter a valid postcode or if your representative lives abroad, please enter SW55 9QT
             email_address:
               blank: Please enter your representative’s email address
+              invalid: You have entered an invalid email address
         respondent:
           attributes:
             name:

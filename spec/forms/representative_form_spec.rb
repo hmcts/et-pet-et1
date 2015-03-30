@@ -66,6 +66,8 @@ RSpec.describe RepresentativeForm, :type => :form do
       include_examples "Postcode validation",
         attribute_prefix: 'address',
         error_message: 'Please enter a valid postcode or if your representative lives abroad, please enter SW55 9QT'
+      include_examples "Email validation",
+        error_message: 'You have entered an invalid email address'
     end
 
     context 'when has_representative? == false' do

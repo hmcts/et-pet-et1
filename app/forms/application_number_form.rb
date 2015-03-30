@@ -5,6 +5,7 @@ class ApplicationNumberForm < Form
   attribute :email_address, String
 
   validates :password, presence: true
+  validates :email_address, email: true, allow_blank: true
 
   def target
     resource
