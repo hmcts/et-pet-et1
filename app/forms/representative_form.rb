@@ -18,6 +18,7 @@ class RepresentativeForm < Form
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 40 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }
+  validates :email_address, email: true, allow_blank: true
 
   def valid?
     if has_representative?
