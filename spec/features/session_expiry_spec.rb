@@ -14,7 +14,7 @@ feature 'Session Expiry', type: :feature do
         scenario "a user is directed to a session expiry page for page: #{page_name}" do
           travel_to session_expiry_time do
             visit("#{page_name}")
-            expect(page).to have_text "Your session has expired"
+            expect(page).to have_text "Session expired"
           end
         end
       end
@@ -27,7 +27,7 @@ feature 'Session Expiry', type: :feature do
       visit "/"
       travel_to session_expiry_time do
         click_button "Start a claim"
-        expect(page).not_to have_text "Your session has expired"
+        expect(page).not_to have_text "Session expired"
       end
     end
   end
