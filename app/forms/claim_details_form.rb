@@ -12,7 +12,7 @@ class ClaimDetailsForm < Form
   delegate :claim_details_rtf_cache, :claim_details_rtf_cache=,
     :remove_claim_details_rtf!, to: :target
 
-  validates :claim_details, length: { maximum: 5000 },
+  validates :claim_details, length: { maximum: 2500 },
     presence: true, unless: -> { claim_details_rtf.present? }
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :claim_details_rtf, content_type: {
