@@ -23,7 +23,8 @@ class AdditionalRespondentsForm
       presence:  { if: -> { no_acas_number? } }
 
     validates :acas_early_conciliation_certificate_number,
-      presence: { unless: -> { no_acas_number? } }
+      presence: { unless: -> { no_acas_number? } },
+      acas: true
 
     def no_acas_number
       @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?

@@ -26,6 +26,26 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
         before { subject.no_acas_number = 'true' }
         it     { is_expected.not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
+
+      describe 'ACAS format validation' do
+        { one_char_ten_digits:  'X123456/12/12',
+          two_chars_ten_digits: 'XX123456/12/12'
+        }.each do |key, acas_value|
+          it "#{key.to_s.humanize} validates correctly" do
+            subject.acas_early_conciliation_certificate_number = acas_value
+            subject.valid?
+
+            expect(subject.errors[:acas_early_conciliation_certificate_number]).to be_empty
+          end
+        end
+
+        it 'adds an error if the format is invalid' do
+          subject.acas_early_conciliation_certificate_number = 'invalid'
+          subject.valid?
+
+          expect(subject.errors[:acas_early_conciliation_certificate_number]).to include('acas invalid')
+        end
+      end
     end
 
     describe 'presence of reason explaining no ACAS certificate number' do
@@ -62,7 +82,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
 
   let(:attributes) do
     {
-      name: 'Butch McTaggert', acas_early_conciliation_certificate_number: '1',
+      name: 'Butch McTaggert', acas_early_conciliation_certificate_number: 'XX123456/12/12',
       address_building: '1', address_street: 'High Street',
       address_locality: 'Anytown', address_county: 'Anyfordshire',
       address_post_code: 'W2 3ED'
