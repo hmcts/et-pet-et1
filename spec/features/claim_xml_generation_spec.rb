@@ -176,12 +176,22 @@ feature 'Generating XML for a claim', type: :feature do
 
       context 'renders nil elements' do
         respondent = FactoryGirl.create :respondent,
-          work_address_telephone_number: nil, address_telephone_number: nil
+          :without_work_address,
+          work_address_telephone_number: nil,
+          address_telephone_number: nil
 
         include_context 'assign claim', primary_respondent: respondent
 
+        it 'has an AltAddress with empty nodes' do
+          expect(doc.xpath('//Respondent/AltAddress/Line')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Street')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Town')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/County')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Postcode')).not_to be_empty
+        end
+
         it 'has an empty AltPhoneNumber' do
-          expect(xpath('//Respondent/AltPhoneNumber'))
+          expect(doc.xpath('//Respondent/AltPhoneNumber')).not_to be_empty
         end
       end
 
@@ -191,14 +201,14 @@ feature 'Generating XML for a claim', type: :feature do
 
           it 'contains a Number' do
             expect(xpath('//Respondent/Acas/Number')).to eq 'SOMEACASNUMBER'
-            expect(xpath('//Respondent/Acas/ExemptionCode')).to be_empty
+            expect(doc.xpath('//Respondent/Acas/ExemptionCode')).to be_empty
           end
         end
 
         context 'with no acas number' do
           it 'contains an ExemptionCode' do
             expect(xpath('//Respondent/Acas/ExemptionCode')).to eq 'employer_contacted_acas'
-            expect(xpath('//Respondent/Acas/Number')).to be_empty
+            expect(doc.xpath('//Respondent/Acas/Number')).to be_empty
           end
         end
       end
