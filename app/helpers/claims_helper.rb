@@ -15,7 +15,7 @@ module ClaimsHelper
 
   def claim_actions
     [:application_number, :claimant, :additional_claimants, :representative, :respondent,
-    :additional_respondents, :employment, :claim, :claim_type, :claim_details, :additional_information, :your_fee]
+    :additional_respondents, :employment, :claim_type, :claim_details, :additional_information, :your_fee]
   end
 
   private def markdown
