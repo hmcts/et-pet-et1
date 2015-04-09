@@ -162,6 +162,10 @@ FactoryGirl.define do
       no_acas_number_reason nil
       acas_early_conciliation_certificate_number "SOMEACASNUMBER"
     end
+
+    trait :without_work_address do
+      addresses { [create(:address, primary: true)] }
+    end
   end
 
   factory :payment do
