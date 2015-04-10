@@ -1,11 +1,10 @@
 aside role="complementary"
   - if !(defined?(breadcrumb)).nil?
     h3= 'Your claim'
-    ol.steps-list
+    ol#steps-list.steps-list
       - claim_actions.each do |action|
         li class=(params[:page].underscore.to_s.to_sym == action ? 'active' : '')
           = link_to t(:header, scope: [:claims, action]), send("claim_#{action}_path")
-
   h3= t '.gethelp_header'
   ul
     li= link_to t('.read_guide'), guide_path , { class: 'ga-event' }
