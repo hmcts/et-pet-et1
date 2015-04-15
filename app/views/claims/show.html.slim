@@ -6,19 +6,20 @@ header.main-header role="banner"
 
 .main-section
 
+  #form-summary.validation-summary.group.hidden role="alert" tabindex='0' aria={ labelledby: 'error-heading', describedby: 'error-message' }
+    h2#error-heading You have unsaved changes
+    p#error-message
+      | It looks like you made some changes to the form, which will be lost if you leave this page.
+      | <br> Do you still want to proceed?
+    button#button-go.button Yes, take me there
+    button#button-stay.button.secondary I want to save my changes
+
+
   .main-content
     = simple_form_for resource, url: request.path, multipart: true do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.error_notification
-
-      #form-summary.validation-summary.group.hidden role="alert" tabindex='0' aria={ labelledby: 'error-heading', describedby: 'error-message' }
-        h2#error-heading You have unsaved changes
-        p#error-message
-          | It looks like you made some changes to the form, which will be lost if you leave this page.
-          | <br> Do you still want to procede?
-        button#button-go.button Yes, take me there
-        button#button-stay.button.secondary I want to save my changes
 
       .form-fields
         = render current_step, f: f

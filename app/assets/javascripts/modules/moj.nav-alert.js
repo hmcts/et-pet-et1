@@ -6,7 +6,7 @@ module.exports = (function () {
   navAlert.getValues = function() {
     return $('.form-fields').find('.form-control')
       .map(function() {
-        return this.value;
+        return $(this).is(':checked') || this.value;
       })
       .toArray();
   };
