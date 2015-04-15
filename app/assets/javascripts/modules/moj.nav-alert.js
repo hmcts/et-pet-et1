@@ -14,8 +14,8 @@ module.exports = (function () {
   navAlert.checkDiff = function() {
     var currentValues = navAlert.getValues(),
       isSame = (initialValues.length == currentValues.length) && initialValues.every(function(element, index) {
-      return element === currentValues[index];
-    });
+        return element === currentValues[index];
+      });
     return isSame;
   };
 
