@@ -58,6 +58,17 @@ RSpec.shared_examples 'it parses dates' do |*dates|
             expect(subject.errors[date]).to include I18n.t(model_translation_path)
           end
         end
+
+        context 'when a year with less than 4 digits is provided' do
+          before do
+            subject.send "#{date}=", 'day' => '1', 'month' => '1', 'year' => '72'
+            subject.valid?
+          end
+
+          it "adds a validation error to #{date}" do
+            expect(subject.errors[date]).to include I18n.t(model_translation_path)
+          end
+        end
       end
     end
   end
