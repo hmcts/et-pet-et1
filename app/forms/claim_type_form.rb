@@ -10,6 +10,8 @@ class ClaimTypeForm < Form
 
   before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
 
+  validates_with ClaimTypePresenceValidator
+
   def is_other_type_of_claim
     self.is_other_type_of_claim = other_claim_details.present?
   end
