@@ -688,6 +688,10 @@ en:
           attributes:
             additional_claimants_csv:
               blank: You must provide a CSV file in order to continue
+        claim_type:
+          attributes:
+            base:
+              invalid: You must select at least one claim type in order to continue
         claim_details:
           attributes:
             claim_details:
