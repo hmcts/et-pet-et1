@@ -258,20 +258,47 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text "Processing a copy of your claim"
     end
 
-    scenario 'Viewing the confirmation page when seeking remission' do
-      complete_a_claim seeking_remissions: true
-      click_button 'Submit claim'
+    context 'Viewing the confirmation page' do
+      scenario 'with a single claimant when seeking remission' do
+        complete_a_claim seeking_remissions: true
+        click_button 'Submit claim', exact: true
 
-      expect(page).to have_text 'Apply for fee remission'
-      expect(page).not_to have_text 'You now need to pay the issue fee'
-    end
+        expect(page).to have_text 'Apply for fee remission'
+        expect(page).not_to have_text 'You now need to pay the issue fee'
+      end
 
-    scenario 'Viewing the confirmation page when not seeking remission' do
-      complete_a_claim seeking_remissions: false
-      click_button 'Submit claim'
+      scenario 'with a single claimant when not seeking remission' do
+        complete_a_claim seeking_remissions: false
+        click_button 'Submit claim and proceed to payment'
 
-      expect(page).not_to have_text 'Apply for fee remission'
-      expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
+        expect(page).not_to have_text 'Apply for fee remission'
+        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
+      end
+
+      scenario 'as part of a group claim with no remission' do
+        complete_a_claim additional_claimants: true, seeking_remissions: 0
+        click_button 'Submit claim and proceed to payment'
+
+        expect(page).not_to have_text 'Apply for fee remission'
+        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
+      end
+
+      scenario 'as part of a group claim with partial remission' do
+        complete_a_claim additional_claimants: true, seeking_remissions: 1
+        click_button 'Submit claim and proceed to payment'
+
+        expect(page).not_to have_text 'Apply for fee remission'
+        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
+
+      end
+
+      scenario 'as part of a group with full remission' do
+        complete_a_claim additional_claimants: true, seeking_remissions: 2
+        click_button 'Submit claim', exact: true
+
+        expect(page).to have_text 'Apply for fee remission'
+        expect(page).not_to have_text 'You now need to pay the issue fee'
+      end
     end
   end
 end

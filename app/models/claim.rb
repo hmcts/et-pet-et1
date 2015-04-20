@@ -159,7 +159,7 @@ class Claim < ActiveRecord::Base
 
   alias_method :setup_state_machine, :state_machine
 
-  delegate :fee_to_pay?, :application_fee, to: :fee_calculation
+  delegate :fee_to_pay?, :application_fee, :application_fee_after_remission, to: :fee_calculation
 
   private
 
