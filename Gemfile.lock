@@ -260,7 +260,7 @@ GEM
     formtastic_i18n (0.1.1)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
-    govuk_frontend_toolkit (2.0.0)
+    govuk_frontend_toolkit (3.4.2)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
     guard (2.11.1)
@@ -329,7 +329,7 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
-    moj_template (0.18.0)
+    moj_template (0.23.0)
       rails (>= 3.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
@@ -545,14 +545,14 @@ DEPENDENCIES
   epdq!
   factory_girl_rails
   fog
-  govuk_frontend_toolkit (= 2.0.0)
+  govuk_frontend_toolkit (= 3.4.2)
   guard-livereload
   httparty
   jbuilder (~> 2.0)
   jquery-rails
   launchy
   logstasher
-  moj_template (= 0.18.0)
+  moj_template (= 0.23.0)
   non-stupid-digest-assets
   pdf-forms
   pg
