@@ -32,7 +32,7 @@ module ClaimReviewsHelper
   end
 
   def submit_button_text
-    if claim.remission_applicable?
+    if claim.application_fee_after_remission.zero?
       t '.submit_with_remission'
     else
       t '.submit_go_to_payment'

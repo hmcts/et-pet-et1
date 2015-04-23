@@ -103,8 +103,25 @@ module FormMethods
     click_button 'Save and continue' unless options[:submit_form] == false
   end
 
-  def fill_in_additional_claimant_details
-    choose "No"
+  def fill_in_additional_claimant_details(options={})
+    if options[:additional_claimants]
+      choose "Yes"
+
+      select 'Mr', from: 'Title'
+      fill_in 'First name', with: 'Edmund'
+      fill_in 'Last name',  with: 'Wrigglesworth'
+      fill_in 'Day',   with: '22'
+      fill_in 'Month', with: '01'
+      fill_in 'Year',  with: '1985'
+      fill_in 'Building number or name', with: '2'
+      fill_in 'Street',                  with: 'High street'
+      fill_in 'Town/city',               with: 'Anytown'
+      fill_in 'County',                  with: 'Anyfordshire'
+      fill_in 'Postcode',                with: 'AT1 4PQ'
+    else
+      choose "No"
+    end
+
     click_button 'Save and continue'
   end
 
@@ -239,7 +256,12 @@ module FormMethods
   end
 
   def fill_in_your_fee(options={})
-    choose "your_fee_applying_for_remission_#{options.fetch(:seeking_remissions) { false }}"
+    if options[:additional_claimants]
+      fill_in 'How many in your group want to apply for fee remission?',
+        with: options[:seeking_remissions]
+    else
+      choose "your_fee_applying_for_remission_#{options.fetch(:seeking_remissions) { false }}"
+    end
 
     click_button 'Save and continue'
   end
@@ -257,7 +279,7 @@ module FormMethods
     start_claim
     fill_in_password
     fill_in_personal_details(options)
-    fill_in_additional_claimant_details
+    fill_in_additional_claimant_details(options)
     fill_in_representative_details
     fill_in_respondent_details
     fill_in_additional_respondent_details
