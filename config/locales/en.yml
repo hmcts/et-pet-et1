@@ -628,7 +628,13 @@ en:
       applying_for_remission_multiple_html:
         You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
       applying_for_remission_multiple_note_html: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
-      remission_applied_info: You don’t need to pay the issue fee now.
+      remission_applied_info_html:
+        <p>You are making an application for fee remission.</p>
+
+        <p>You must complete and return a <a href="%{form}" rel="external">fee remission application</a> form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
+
+        <p>You won’t need to pay the issue fee when you submit this claim.</p>
+
       initial_fee: |
         From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
       hearing_fee: |
