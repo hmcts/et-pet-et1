@@ -14,7 +14,11 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachments
-    attachment_filenames.map { |f| sanitize(f) }.join(file_separator).html_safe
+    if attachment_filenames.empty?
+      I18n.t 'claim_confirmations.show.no_attachments'
+    else
+      attachment_filenames.map { |f| sanitize(f) }.join(file_separator).html_safe
+    end
   end
 
   def payment_amount
@@ -33,7 +37,6 @@ class ConfirmationPresenter < Presenter
 
   def items
     %i<submission_information attachments payment_amount>.tap do |arr|
-      arr.delete :attachments if attachment_filenames.empty?
       arr.delete :payment_amount unless fee_to_pay?
     end
   end
@@ -43,8 +46,8 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachment_filenames
-    [claim_details_rtf, additional_claimants_csv].map do |attachment|
-      CarrierwaveFilename.for attachment
-    end.compact
+    @attachment_filenames ||= \
+      [claim_details_rtf, additional_claimants_csv].
+        map { |attachment| CarrierwaveFilename.for attachment }.compact
   end
 end

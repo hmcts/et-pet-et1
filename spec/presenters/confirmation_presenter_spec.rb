@@ -74,10 +74,11 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     context 'when no attachments were uploaded' do
       let(:claim) { create :claim, :no_attachments }
 
-      it 'yields no attachment information' do
+      it 'yields text to state no attachments are present' do
         expect { |b| subject.each_item &b }.
-        to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-        [:payment_amount, "£250.00"]
+          to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+          [:attachments, "None"],
+          [:payment_amount, "£250.00"]
       end
     end
   end
