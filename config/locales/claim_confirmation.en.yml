@@ -30,6 +30,8 @@ en:
         link_html: |
           <a href="%{href}" target="%{target}">Save a copy</a> for your records
 
+      no_attachments: None
+
       submission_details:
         header: Submission details
         submission_information: Claim submitted
