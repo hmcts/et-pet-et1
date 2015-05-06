@@ -155,9 +155,9 @@ RSpec.describe RespondentForm, :type => :form do
 
   include_examples "Postcode validation",
     attribute_prefix: 'address',
-    error_message: 'Please enter a valid UK postcode or if the respondent lives abroad, please enter SW55 9QT'
+    error_message: 'Enter a valid UK postcode. If the respondent lives abroad, enter a SW55 9QT'
 
   include_examples "Postcode validation",
     attribute_prefix: 'work_address',
-    error_message: 'Please enter a valid UK postcode or if you live abroad please enter SW55 9QT'
+    error_message: 'Enter a valid UK postcode. If you live abroad enter SW55 9QT'
 end

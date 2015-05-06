@@ -62,9 +62,9 @@ en:
       feedback_text: |
         Your feedback helps us improve this service:
       diversity_html: |
-        Help us keep track. Please complete our <a href="%{href}">diversity monitoring questionnaire</a>.
+        Help us keep track. Complete our <a href="%{href}">diversity monitoring questionnaire</a>.
       diversity_text: |
-        Help us keep track. Please complete our diversity monitoring questionnaire.
+        Help us keep track. Complete our diversity monitoring questionnaire.
 
     shared:
       button_fee_remission:

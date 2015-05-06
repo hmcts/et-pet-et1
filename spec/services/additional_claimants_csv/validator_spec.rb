@@ -41,7 +41,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         result = setup_csv_validator(invalid_title_row)
 
         expect(result.success).to eq false
-        expect(result.errors).to eq ["Title - Please enter the title of the additional claimant"]
+        expect(result.errors).to eq ["Title - Enter the title of the additional claimant"]
       end
 
       it "fails with a non DD/MM/YYYY D.O.B" do
@@ -57,7 +57,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         result = setup_csv_validator(invalid_postcode_row)
 
         expect(result.success).to eq false
-        expect(result.errors).to eq ["Postcode - Please enter a valid UK postcode or if you live abroad, enter SW55 9QT"]
+        expect(result.errors).to eq ["Postcode - Enter a valid UK postcode. If you live abroad, enter SW55 9QT"]
       end
 
       it "fails with an invalid character count" do

@@ -6,7 +6,7 @@ en:
       feedback_html: |
         <a href="%{href}" rel="external">Your feedback</a> helps us improve this service.
       diversity_html: |
-        Help us keep track. Please complete our <a href="%{href}" rel="external">diversity monitoring questionnaire</a>.
+        Help us keep track. Complete our <a href="%{href}" rel="external">diversity monitoring questionnaire</a>.
 
       what_happens_next:
         header: What happens next
