@@ -733,6 +733,7 @@ en:
               invalid: Please enter a valid UK postcode. If the claimant lives abroad please enter SW55 9QT
             email_address:
               blank: Please enter the claimant’s email address
+              invalid: You have entered an invalid email address
         employment:
           attributes:
             start_date:

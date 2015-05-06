@@ -37,7 +37,8 @@ class ClaimantForm < Form
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
-  validates :email_address, presence: { if: :contact_preference_email? }, length: { maximum: EMAIL_ADDRESS_LENGTH }
+  validates :email_address, presence: { if: :contact_preference_email? },
+    email: { if: :email_address? }, length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

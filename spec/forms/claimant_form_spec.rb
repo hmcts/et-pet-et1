@@ -67,6 +67,9 @@ RSpec.describe ClaimantForm, :type => :form do
         end
       end
     end
+
+    include_examples 'Email validation',
+      error_message: 'You have entered an invalid email address'
   end
 
   describe 'callbacks' do
