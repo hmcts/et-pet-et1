@@ -1,4 +1,5 @@
-var gaTracker = window.gaTracker = require('./modules/moj.ga-tracking'),
+var ariaAlert = require('./modules/moj.aria-alert'),
+  gaTracker = window.gaTracker = require('./modules/moj.ga-tracking'),
   jqueryPubSub = require('./modules/moj.jquery-pub-sub'),
   polyfillDetail = require('./polyfills/polyfill.details'),
   revealPubSub = require('./modules/moj.reveal-pub-sub'),
