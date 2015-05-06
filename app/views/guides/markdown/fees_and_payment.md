@@ -1,6 +1,6 @@
-<h2 class="legend">Fees and payment</h2>
+## Fees and payment
 
-This is not a free service; there are two types of fee:
+Making a claim to an employment tribunal  is not a free service.The  tribunal charges 2 types of fees:
 
-- __Issue__ fee for considering your claim
-- __Hearing__ fee for having your case heard at tribunal, if it reaches that far
+- __Issue fee__ for considering your application
+- __Hearing fee__ for having your case heard at tribunal

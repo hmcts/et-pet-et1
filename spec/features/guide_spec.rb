@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 feature 'Guide' do
-  let(:time_limits_header)          { '<h2 class="legend">Time limits</h2>' }
-  let(:acas_header)                 { '<h2 class="legend">Acas: early conciliation</h2>' }
+  let(:time_limits_header)          { '<h2>Time limits</h2>' }
+  let(:acas_header)                 { '<h2>Acas: early conciliation</h2>' }
   let(:acas_exceptions_header)      { '<h3>Exceptions to early conciliation</h3>' }
-  let(:fees_header)                 { '<h2 class="legend">Fees and payment</h2>' }
+  let(:fees_header)                 { '<h2>Fees and payment</h2>' }
   let(:working_out_your_fee_header) { '<h3>Working out your fee</h3>' }
-  let(:paying_your_fee_header)      { '<h3>Paying your fee</h3>' }
-  let(:reducing_your_fee_header)    { '<h2 class="legend">Reducing fees</h2>' }
-  let(:writing_yours_header)        { '<h2 class="legend">Writing your claim statement</h2>' }
+  let(:paying_your_fee_header)      { '<h3>Paying your issue fee</h3>' }
+  let(:reducing_your_fee_header)    { '<h2>Reducing fees</h2>' }
+  let(:writing_yours_header)        { '<h2>Writing your claim statement</h2>' }
 
   before :each do
     visit guide_path
@@ -30,7 +30,7 @@ feature 'Guide' do
   let(:acas_exceptions_link)      { "Exceptions to early conciliation" }
   let(:fees_link)                 { "Fees and payment" }
   let(:working_out_your_fee_link) { "Working out your fee" }
-  let(:paying_your_fee_link)      { "Paying your fee" }
+  let(:paying_your_fee_link)      { "Paying your issue fee" }
   let(:reducing_your_fee_link)    { "Reducing fees" }
   let(:writing_yours_link)        { "Writing your claim statement" }
 

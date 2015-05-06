@@ -1,8 +1,10 @@
-<h2 class="legend">Time limits</h2>
+##Time limits
 
-In most cases the tribunal must receive your claim within 3 months:
+You must apply to the tribunal within 3 months of the problem at work happening.  
 
-- in dismissal cases the 3 month period begins from the date your employment ended
-- in discrimination cases, or complaints relating to non-payment of wages or holiday pay, the 3 month period begins when the matter you’re complaining about happened
+- if you think you’ve lost your job unfairly the 3 month period begins from the date your employment ended
+- if your claim is about discrimination or a dispute over pay, the 3 month period begins when the incident or dispute happened  
 
-Before applying to an employment tribunal you have to contact Acas (Advisory, Conciliation and Arbitration Service) to use their free <a href="http://www.acas.org.uk/earlyconciliation" rel="external">Early Conciliation service</a>. The time limit for applying is paused while Acas tries to help you settle the dispute.
+Before applying to an employment tribunal you must contact Acas (Advisory, Conciliation and Arbitration Service) to use their free <a href="http://www.acas.org.uk/earlyconciliation" rel="external">Early Conciliation</a> service.
+
+The time limit for applying is put on hold while Acas helps you settle the dispute.

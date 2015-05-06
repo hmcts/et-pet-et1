@@ -366,6 +366,7 @@ en:
       gethelp_header: Support
       actions_header: Your claim
       read_guide: Guide
+      exit_guide: Back to form
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
@@ -375,6 +376,7 @@ en:
       save_and_complete: Save and complete later
       support: Support
       read_guide: Application guide
+      exit_guide: Back to form
       contact_us: Contact us
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
   aria:
@@ -419,9 +421,14 @@ en:
       acas_early_conciliation_exceptions: Exceptions to early conciliation
       fees_and_payment: Fees and payment
       fees_and_payment_working_out_your_fee: Working out your fee
-      fees_and_payment_paying_your_fee: Paying your fee
+      fees_and_payment_paying_your_fee: Paying your issue fee
       reducing_fees: Reducing fees
       writing_your_claim_statement: Writing your claim statement
+      aside:
+        gethelp_header: Support
+        exit_guide: Back to review page
+        contact_us: Contact us
+        contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
 
   terms:
     show:

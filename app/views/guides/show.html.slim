@@ -10,6 +10,12 @@ header.main-header role="banner"
       - @presenter.file_names.each do |name|
         li = link_to t(".#{name}"), guide_path(anchor: name)
 
-    .static-content
+    .static-content.guide
       - @presenter.each_rendered_file do |name, contents|
         article id="#{name}" = contents
+
+aside role="complementary"
+  h3= t '.aside.gethelp_header'
+  ul
+    li= link_to t('.aside.exit_guide'), claim_review_path , { class: 'ga-event' }
+    li= link_to t('.aside.contact_us'), t('.aside.contact_us_link'), { rel: 'external', class: 'ga-event' }
