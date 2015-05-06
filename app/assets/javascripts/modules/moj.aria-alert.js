@@ -7,8 +7,8 @@ module.exports = (function() {
   aria.init = function() {
     var ariaAlert = document.getElementById('error-summary');
     if(ariaAlert) {
-      ariaAlert.focus();
       ariaAlert.scrollIntoView();
+      ariaAlert.focus();
     }
   };
 
