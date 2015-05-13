@@ -12,6 +12,7 @@ feature 'Claim applications', type: :feature do
     scenario 'Hitting the start page' do
       visit '/'
       expect(page).not_to have_signout_button
+      expect(page).not_to have_session_prompt
     end
 
     scenario 'Create a new application' do
@@ -19,6 +20,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(1)
       expect(page).to have_text before_you_start_message
       expect(page).not_to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering word for save and return' do
@@ -31,6 +33,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(2)
       expect(page).to have_text claim_heading_for(:claimant)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering word and email for save and return' do
@@ -56,6 +59,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering additional claimant details' do
@@ -67,6 +71,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario "Navigating between manual and CSV upload for additional claimants" do
@@ -84,6 +89,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering additional claimant upload details' do
@@ -96,6 +102,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering representative details' do
@@ -108,6 +115,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(5)
       expect(page).to have_text claim_heading_for(:respondent)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering respondent details' do
@@ -121,6 +129,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(6)
       expect(page).to have_text claim_heading_for(:additional_respondents)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering additional respondent details' do
@@ -135,6 +144,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(7)
       expect(page).to have_text claim_heading_for(:employment)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering employment details' do
@@ -150,6 +160,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(8)
       expect(page).to have_text claim_heading_for(:claim_type)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering claim type details' do
@@ -159,6 +170,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(9)
       expect(page).to have_text claim_heading_for(:claim_details)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering claim details' do
@@ -169,6 +181,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(10)
       expect(page).to have_text claim_heading_for(:claim_outcome)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering claim outcome details' do
@@ -180,6 +193,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(11)
       expect(page).to have_text claim_heading_for(:additional_information)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering additonal information' do
@@ -192,6 +206,7 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_text page_number(12)
       expect(page).to have_text claim_heading_for(:your_fee)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Entering your fee details' do
@@ -204,6 +219,7 @@ feature 'Claim applications', type: :feature do
 
       expect(page).to have_text review_heading_for(:show)
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Signout from claim review page' do
@@ -211,6 +227,7 @@ feature 'Claim applications', type: :feature do
       click_button 'Submit claim'
 
       expect(page).to have_signout_button
+      expect(page).to have_session_prompt
     end
 
     scenario 'Saving the confirmation email recipients' do
@@ -238,6 +255,8 @@ feature 'Claim applications', type: :feature do
       expect(page).not_to have_text "Fee paid"
       expect(page).not_to have_text "Fee to pay"
       expect(page).to have_text     "Complete fee remission application"
+      expect(page).not_to have_signout_button
+      expect(page).not_to have_session_prompt
     end
 
     scenario 'Downloading the PDF if available' do
@@ -256,6 +275,8 @@ feature 'Claim applications', type: :feature do
 
       expect(current_url).to match pdf_path
       expect(page).to have_text "Processing a copy of your claim"
+      expect(page).not_to have_signout_button
+      expect(page).not_to have_session_prompt
     end
 
     context 'Viewing the confirmation page' do
@@ -289,7 +310,6 @@ feature 'Claim applications', type: :feature do
 
         expect(page).not_to have_text 'Apply for fee remission'
         expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
-
       end
 
       scenario 'as part of a group with full remission' do
