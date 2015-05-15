@@ -56,6 +56,14 @@ class ClaimantForm < Form
     resource.primary_claimant || resource.build_primary_claimant
   end
 
+  def first_name=(name)
+    super name.try :strip
+  end
+
+  def last_name=(name)
+    super name.try :strip
+  end
+
   private
 
   def international_address?
