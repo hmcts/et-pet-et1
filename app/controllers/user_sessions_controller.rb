@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  skip_after_action :set_session_expiry, only: :expired
   redispatch_request unless: :present?, except: %i<new create>
 
   def destroy
@@ -24,6 +25,10 @@ class UserSessionsController < ApplicationController
 
   def touch
     render nothing: true
+  end
+
+  def expired
+    reset_session
   end
 
   private
