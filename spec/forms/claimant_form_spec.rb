@@ -82,6 +82,15 @@ RSpec.describe ClaimantForm, :type => :form do
     end
   end
 
+  describe 'overridden attribute setters' do
+    %i<first_name last_name>.each do |attribute|
+      it "strips whitespace from the #{attribute}" do
+        subject.send "#{attribute}=", ' Such '
+        expect(subject.send(attribute)).to eq 'Such'
+      end
+    end
+  end
+
   it_behaves_like 'it parses dates', :date_of_birth
   it_behaves_like "a Form", title: 'mr', gender: 'male', contact_preference: 'email',
     first_name: 'Barrington', last_name: 'Wrigglesworth',
