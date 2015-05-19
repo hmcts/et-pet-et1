@@ -48,7 +48,7 @@ feature 'Confirmation page' do
       let(:claim) { create :claim, :not_submitted, :remission_only }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.'
+        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
         expect(page).to have_link 'Apply for fee remission'
         expect(page).to have_text 'We’ll review your claim for remission and contact you to explain the next steps.'
 
@@ -72,7 +72,7 @@ feature 'Confirmation page' do
       before { complete_payment }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.'
+        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
         expect(page).to have_link 'Apply for fee remission'
         expect(page).to have_text 'We’ll review your claim for remission and contact you to explain the next steps.'
 

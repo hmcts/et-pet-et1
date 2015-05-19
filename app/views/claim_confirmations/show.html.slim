@@ -17,12 +17,14 @@ header.main-header role="banner"
             p= p= t('.what_happens_next.payment_failed')
         - if confirmation_presenter.remission_applicable?
           li
-            p= t('.what_happens_next.apply_for_remission')
+            p= t('.what_happens_next.apply_for_remission_html', link:"http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf")
             p= link_to t('.what_happens_next.remission_link_text'),
             'https://www.employmenttribunals.service.gov.uk/remissions',
             class: 'button'
           li
             p= t('.what_happens_next.next_steps_remission')
+          li
+            p= t('.what_happens_next.')
 
         -else
           li

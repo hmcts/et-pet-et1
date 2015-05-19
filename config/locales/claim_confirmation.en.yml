@@ -11,9 +11,8 @@ en:
       what_happens_next:
         header: What happens next
         payment_failed: We’ll contact you within 5 working days to arrange payment.
-        apply_for_remission: |
-          You have said you want to apply for fee remission.
-          You must apply within 7 days, or your claim may be rejected.
+        apply_for_remission_html: |
+          You have started an application for <a href="%{link}" rel="external">fee remission</a>. You must complete your application within 7 days or your claim may be rejected.
         remission_link_text: Apply for fee remission
         send_to_respondent: |
           A copy of the claim will be sent to the respondent.
