@@ -30,11 +30,11 @@ If your monthly income (before tax and other deductions) is more than these amou
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for a fee reduction
-Before applying for a reduction in fees you should complete and submit your online claim.
+Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
-You must apply for a reduction in your fees (known as fee remission) within 7 days of submitting your claim online.
+If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form guide</a>.
 
-You’ll need to provide evidence or your claim will be rejected and you’ll be asked to pay the full fee. <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">Download a fee remission form</a>.
+You will be given another opportunity to apply for fee remission at the end of the claim.
 
 If your case reaches a tribunal, you’ll need to apply for help with paying your hearing fee separately.
 
