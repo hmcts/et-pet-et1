@@ -83,6 +83,18 @@ feature 'Save and Return' do
     expect(page).to have_field('Last name', with: 'Wrigglesworth')
   end
 
+  scenario 'returning to an existing application after session expiration' do
+    start_claim
+    fill_in_password 'green'
+    fill_in_personal_details
+
+    travel_to TimeHelper.session_expiry_time do
+      fill_in_return_form Claim.last.reference, 'green'
+      expect(page).to have_text(claim_heading_for(:claimant))
+      expect(page).to have_field('Last name', with: 'Wrigglesworth')
+    end
+  end
+
   context 'memorable word not set' do
     scenario 'returning to an existing application' do
       start_claim
