@@ -11,7 +11,7 @@ Claim number: <%= @presenter.reference %>
 <%- if @presenter.remission_applicable? %>
   - <%= t('.must_apply_for_remission') %>
     <%= t('.apply_for_fee_remission').upcase %>: https://www.employmenttribunals.service.gov.uk/remissions
-    
+
 <%- end %>
 <%- unless @presenter.remission_applicable? %>
   - <%= t('.no_remission_copy_sent_to_respondent') -%>
@@ -29,7 +29,7 @@ Claim number: <%= @presenter.reference %>
 <%= t(".details.#{name}").ljust(22, ' ') %> <%= content %>
 <%- end %>
 
-<%= t('.feedback_text') -%> https://www.surveymonkey.com/s/FH3QFS8
+<%= t('.feedback_text') -%> https://www.gov.uk/done/employment-tribunals-make-a-claim
 
 <%= t('.diversity_text') -%> https://www.employmenttribunals.service.gov.uk/forms/form/175/en/diversity_monitoring_questionnaire
 
