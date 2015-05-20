@@ -17,9 +17,10 @@ en:
         send_to_respondent: |
           A copy of the claim will be sent to the respondent.
           They’ll have 28 days to reply.
-        next_steps: |
-          We’ll contact you when we’ve sent your claim to the respondent and
-          explain the next steps.
+        next_steps_html: |
+          If claiming in England or Wales, email your completed fee remission application to <a href="mailto:eREMISSIONS@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+
+          If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee <a href="%{link}" rel="external">remission form guide</a>.
         next_steps_remission: |
           We’ll review your claim for remission and contact you to explain the
           next steps.  

@@ -39,7 +39,7 @@ html
 
                     - if @presenter.remission_applicable?
                       li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.must_apply_for_remission')
+                        p= t('.must_apply_for_remission_html')
 
                         = render partial: 'base_mailer/shared/button_fee_remission'
 
@@ -49,7 +49,10 @@ html
 
                     - if @presenter.remission_applicable?
                       li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.remission_we_will_contact_you')
+                        p= t('.remission_we_will_contact_you_html',
+                        link:"http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf")
+                      li style="font-family:arial; font-size:19px; line-height:26px;"
+                        p= t('.remission_review')
                     - else
                       li style="font-family:arial; font-size:19px; line-height:26px;"
                         p= t('.we_will_contact_you')
