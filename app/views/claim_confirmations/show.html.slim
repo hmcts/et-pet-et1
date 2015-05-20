@@ -22,9 +22,10 @@ header.main-header role="banner"
             'https://www.employmenttribunals.service.gov.uk/remissions',
             class: 'button'
           li
-            p= t('.what_happens_next.next_steps_remission')
+            p= t('.what_happens_next.next_steps_remission_html',
+            link:"http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf")
           li
-            p= t('.what_happens_next.')
+            p= t('.what_happens_next.next_steps_review')
 
         -else
           li
