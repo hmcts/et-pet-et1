@@ -105,7 +105,7 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows remission help' do
-          expect(email).to match_pattern 'apply for fee remission'
+          expect(email).to match_pattern 'fee remission'
         end
 
         it 'does not show any payment information' do

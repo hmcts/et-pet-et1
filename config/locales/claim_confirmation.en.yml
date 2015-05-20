@@ -20,7 +20,7 @@ en:
         next_steps: |
           We’ll contact you when we’ve sent your claim to the respondent and
           explain the next steps.
-        next_steps_remission: |
+        next_steps_remission_html: |
           If claiming in England or Wales, email your completed fee remission application to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
           If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee <a href="%{link}" rel="external">remission form guide</a>.
