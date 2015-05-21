@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
     get '/barclaycard-payment-template' => 'barclaycard_payment_template#show'
 
+    get '/stats' => 'stats#index'
+
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1/) do
       ActiveAdmin.routes(self)
     end
