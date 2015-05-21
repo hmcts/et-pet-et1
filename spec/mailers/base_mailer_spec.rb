@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe BaseMailer, type: :mailer do
+describe BaseMailer, type: :mailer, focus:true do
   include ClaimsHelper
   include Messages
   include MailMatchers
@@ -105,7 +105,7 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows remission help' do
-          expect(email).to match_pattern 'apply for fee remission'
+          expect(email).to match_pattern 'Complete fee remission application'
         end
 
         it 'does not show any payment information' do
