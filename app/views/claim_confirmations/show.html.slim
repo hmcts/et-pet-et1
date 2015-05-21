@@ -17,13 +17,16 @@ header.main-header role="banner"
             p= p= t('.what_happens_next.payment_failed')
         - if confirmation_presenter.remission_applicable?
           li
-            p= t('.what_happens_next.apply_for_remission')
-            p= link_to t('.what_happens_next.remission_link_text'),
-            'https://www.employmenttribunals.service.gov.uk/remissions',
-            class: 'button'
-          li
-            p= t('.what_happens_next.next_steps_remission')
+            p= t('.what_happens_next.apply_for_remission_html')
 
+            p= link_to t('.what_happens_next.remission_link_text'),
+                  'https://www.employmenttribunals.service.gov.uk/remissions',
+                  class: 'button'
+          li
+            p= t('.what_happens_next.next_steps_remission_england_wales_html')
+            p= t('.what_happens_next.next_steps_remission_scotland_html')
+          li
+            p= t('.what_happens_next.next_steps_final_step')
         -else
           li
             p= t('.what_happens_next.send_to_respondent')
