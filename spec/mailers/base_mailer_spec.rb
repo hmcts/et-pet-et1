@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe BaseMailer, type: :mailer, focus:true do
+describe BaseMailer, type: :mailer do
   include ClaimsHelper
   include Messages
   include MailMatchers
