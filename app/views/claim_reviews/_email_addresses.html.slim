@@ -7,7 +7,7 @@
         collection: email_addresses,
         as: :check_boxes,
         label: false,
-        input_html: { checked: true }
+        value_method: :first
 
     fieldset style="margin-top:60px;"
       legend role="header" aria-level="2" = t('.submit_warning_header')

@@ -13,10 +13,7 @@ module ClaimReviewsHelper
   end
 
   def email_addresses
-    claimants = claim.claimants.pluck(:email_address)
-    representatives = [claim.representative.try(:email_address)]
-
-    (claimants + representatives).reject(&:blank?)
+    ConfirmationEmailAddressesPresenter.email_addresses_for claim
   end
 
   def claim_presenter
