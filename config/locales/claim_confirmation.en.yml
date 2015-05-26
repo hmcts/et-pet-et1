@@ -11,19 +11,21 @@ en:
       what_happens_next:
         header: What happens next
         payment_failed: We’ll contact you within 5 working days to arrange payment.
-        apply_for_remission: |
-          You have said you want to apply for fee remission.
-          You must apply within 7 days, or your claim may be rejected.
-        remission_link_text: Apply for fee remission
+        apply_for_remission_html: |
+          You have started an application for <a href="%{href}">fee remission</a>. You must complete your application within 7 days or your claim may be rejected.
+        remission_link_text: Complete fee remission application
         send_to_respondent: |
           A copy of the claim will be sent to the respondent.
           They’ll have 28 days to reply.
         next_steps: |
           We’ll contact you when we’ve sent your claim to the respondent and
           explain the next steps.
-        next_steps_remission: |
-          We’ll review your claim for remission and contact you to explain the
-          next steps.  
+        next_steps_remission_html: |
+          If claiming in England or Wales, email your completed fee remission application to <a href="eREMISSIONS@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk<a/>.
+
+          If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee remission form guide.
+        next_steps_final_step: |
+          We’ll review your remission application and let you know the outcome
 
       download_application:
         header: Download your claim

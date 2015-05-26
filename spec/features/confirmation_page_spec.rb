@@ -35,7 +35,7 @@ feature 'Confirmation page' do
 
     scenario 'viewing the confirmation page' do
       expect(page).to_not have_text 'We’ll contact you within 5 working days to arrange payment.'
-      expect(page).to_not have_link 'Apply for fee remission'
+      expect(page).to_not have_link 'Complete fee remission application'
 
       expect(page).to have_text 'Claim submitted' 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
       expect(page).to have_text 'Issue fee paid' '£250.00'
@@ -48,9 +48,11 @@ feature 'Confirmation page' do
       let(:claim) { create :claim, :not_submitted, :remission_only }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.'
-        expect(page).to have_link 'Apply for fee remission'
-        expect(page).to have_text 'We’ll review your claim for remission and contact you to explain the next steps.'
+        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
+        expect(page).to have_link 'Complete fee remission application'
+        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+
+        If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
         expect(page).to have_text 'Claim submitted'
         expect(page).to_not have_text 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
@@ -72,9 +74,11 @@ feature 'Confirmation page' do
       before { complete_payment }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.'
-        expect(page).to have_link 'Apply for fee remission'
-        expect(page).to have_text 'We’ll review your claim for remission and contact you to explain the next steps.'
+        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
+        expect(page).to have_link 'Complete fee remission application'
+        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+
+        If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
         expect(page).to have_text 'Issue fee paid' '£250.00'
         expect(page).to have_text 'If you have any questions, contact the Public Enquiry Line'

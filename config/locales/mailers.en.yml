@@ -29,15 +29,25 @@ en:
         What happens next
       contact_re_payment: |
         We’ll contact you within 5 working days to arrange payment.
-      must_apply_for_remission: |
-        You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
-      apply_for_fee_remission: Apply for fee remission
+      must_apply_for_remission_html: |
+        You have started an application for <a href="%{link}" rel="external">fee remission</a>. You must complete your application within 7 days or your claim may be rejected.
+      must_apply_for_remission_text: |
+        You have started an application for http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf. You must complete your application within 7 days or your claim may be rejected.
+      apply_for_fee_remission: Complete fee remission application
       no_remission_copy_sent_to_respondent: |
         A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
       we_will_contact_you: |
         We’ll contact you when your claim has been sent to the respondent and explain the next steps.
-      remission_we_will_contact_you: |
-        We’ll review your claim for remission and contact you to explain the next steps.
+      remission_we_will_contact_you_html: |
+        If claiming in England or Wales, email your completed fee remission application to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+
+        If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee <a href="%{link}" rel="external">remission form guide</a>.
+      remission_we_will_contact_you_text: |
+        If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+
+        If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the fee http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf.
+      remission_review: |
+        We'll review your remission application and let you know the outcome
       details:
         header: Submission details
         claim_completed: 'Claim completed:'
@@ -61,6 +71,6 @@ en:
 
     shared:
       button_fee_remission:
-        apply_for_fee_remission: Apply for fee remission
+        apply_for_fee_remission: Complete fee remission application
       button_complete_claim:
         complete_claim: 'Complete claim'
