@@ -1,28 +1,5 @@
-require 'rails_helper'
-
-RSpec.describe ApplicationReference, type: :model do
-  subject { described_class.create }
-
-  it { is_expected.to belong_to(:claim) }
-
-  describe 'before creating' do
-    it 'checks for collisions when generating a reference' do
-      allow(described_class).to receive(:generate).
-        and_return('AAAA-1111', 'BBBB-2222', 'CCCC-3333')
-      2.times { described_class.create }
-
-      expect(subject.reference).to eq 'CCCC-3333'
-    end
-  end
-
-  describe '#reference' do
-    it 'returns a generated token' do
-      expect(described_class).to receive(:generate) { 'ABCD-1234' }
-      expect(subject.reference).to eq 'ABCD-1234'
-    end
-  end
-
-  describe '.generate' do
+RSpec.describe ApplicationReference do
+  describe 'generate' do
     it 'returns a hyphenated eight-character code' do
       expect(described_class.generate).to match(/\A[0-9A-Z]{4}-[0-9A-Z]{4}\z/)
     end
@@ -43,7 +20,7 @@ RSpec.describe ApplicationReference, type: :model do
     end
   end
 
-  describe '.normalize' do
+  describe 'normalize' do
     it 'adds a hyphen' do
       input    = '18C9QQW4'
       expected = '18C9-QQW4'

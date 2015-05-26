@@ -22,7 +22,6 @@ class Claim < ActiveRecord::Base
     -> { where primary_respondent: false },
     class_name: 'Respondent'
 
-  has_one  :application_reference
   has_many :events
 
   has_many :claimants, dependent: :destroy
@@ -48,10 +47,9 @@ class Claim < ActiveRecord::Base
   bitmask :pay_claims,            as: PAY_COMPLAINTS
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
 
-  after_initialize  :setup_state_machine
-  after_create      :create_application_reference
+  after_initialize :setup_state_machine
+  after_initialize :generate_application_reference
 
-  delegate :reference, to: :application_reference
   delegate :destroy_all, :any?, to: :secondary_claimants, prefix: true
 
   before_update :secondary_claimants_destroy_all,
@@ -61,8 +59,7 @@ class Claim < ActiveRecord::Base
     if: :secondary_claimants_any?
 
   def self.find_by_reference(reference)
-    joins(:application_reference).
-      find_by(application_references: { reference: ApplicationReference.normalize(reference) })
+    find_by application_reference: ApplicationReference.normalize(reference)
   end
 
   def create_event(event, actor: 'app', message: nil)
@@ -75,6 +72,10 @@ class Claim < ActiveRecord::Base
 
   def attracts_higher_fee?
     discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing?
+  end
+
+  def reference
+    application_reference
   end
 
   def claimant_count
@@ -145,9 +146,22 @@ class Claim < ActiveRecord::Base
     @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
   end
 
+  def generate_application_reference
+    self.application_reference ||= unique_application_reference
+  end
+
+  def unique_application_reference
+    loop do
+      ref = ApplicationReference.generate
+      return ref unless self.class.exists?(application_reference: ref)
+    end
+  end
+
   alias_method :setup_state_machine, :state_machine
 
   delegate :fee_to_pay?, :application_fee, :application_fee_after_remission, to: :fee_calculation
+
+  private
 
   def respond_to_missing?(meth, include_private=false)
     if state_machine.respond_to?(meth)
