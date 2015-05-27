@@ -14,6 +14,7 @@ fieldset
 
   = f.input :miscellaneous_information, as: :text,
     label: false,
+    input_html: { rows: 15, maxlength: '2500' },
     wrapper_html: { :class => 'toggle-content reveal-subscribe',
                     :'data-target' => 'main',
                     :'data-show-array' => 'true' }

@@ -8,6 +8,7 @@ var ariaAlert = require('./modules/moj.aria-alert'),
   removeMultiple = require('./modules/moj.remove-multiple'),
   stateIndicator = require('./modules/moj.state-indicator'),
   mobileNav = require('./modules/moj.mobile-nav'),
+  countableTextarea = require('./modules/moj.countable'),
   sessionPrompt = window.sessionPrompt = require('./modules/moj.session-prompt');
 
 
