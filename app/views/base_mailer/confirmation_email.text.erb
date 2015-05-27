@@ -4,24 +4,30 @@ Claim number: <%= @presenter.reference %>
 
 <%= @presenter.payment_information -%>
 
+<%= @presenter.text_email_line_break %>
+
 <%= t('.what_happens_next').upcase %>
+
 <%- if @presenter.payment_failed? %>
-  - <%= t('.contact_re_payment') -%>
+<%= t('.contact_re_payment') -%>
 <%- end %>
 <%- if @presenter.remission_applicable? %>
-  - <%= t('.must_apply_for_remission_text') %>
-    <%= t('.apply_for_fee_remission').upcase %>: https://www.employmenttribunals.service.gov.uk/remissions
-
+<%= t('.must_apply_for_remission_text') %>
+<%= t('.apply_for_fee_remission_text') %>
 <%- end %>
 <%- unless @presenter.remission_applicable? %>
-  - <%= t('.no_remission_copy_sent_to_respondent') -%>
+<%= t('.no_remission_copy_sent_to_respondent') -%>
 <%- end %>
 <%- if @presenter.remission_applicable? %>
-  - <%= t('.remission_we_will_contact_you_text') -%>
-    <%= t('.remission_review') -%>
+<%= t('.remission_we_will_contact_you_england_wales_text') -%>
+<%= t('.remission_we_will_contact_you_scotland_text') -%>
+
+<%= t('.remission_review') -%>
 <%- else %>
-  - <%= t('.we_will_contact_you') -%>
+<%= t('.we_will_contact_you') -%>
 <%- end %>
+
+<%= @presenter.text_email_line_break %>
 
 <%= t('.details.header').upcase %>
 
@@ -29,6 +35,8 @@ Claim number: <%= @presenter.reference %>
 <%- @presenter.each_item do |name, content| %>
 <%= t(".details.#{name}").ljust(22, ' ') %> <%= content %>
 <%- end %>
+
+<%= @presenter.text_email_line_break %>
 
 <%= t('.feedback_text') -%> https://www.surveymonkey.com/s/FH3QFS8
 
