@@ -1,4 +1,6 @@
-### Paying your fee
-Unless you’re applying for help with reducing your fees (see below), you’ll have to pay the issue fee by debit or credit card when you submit your claim. This will need to be made in one single payment.
+### Paying your issue fee
+You’ll have to pay the fee by credit or debit card when you submit your application, unless you apply to have your fees reduced. You must pay the full amount  in one payment.
 
-If your claim goes to a tribunal, you’ll be contacted about paying the hearing fee.
+You’ll be contacted about paying the hearing fee if your case goes to tribunal.
+
+If your claim does reach the employment tribunal, the court will contact you about paying the hearing fee.

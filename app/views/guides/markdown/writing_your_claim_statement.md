@@ -1,22 +1,30 @@
-<h2 class="legend">Writing your claim statement</h2>
+## Writing your claim statement
 
-This is a description of your problem at work. It should support your claim and explain to the respondent (the person you're making the claim against) and the tribunal what happened. Include all relevant background information, the dates of the incidents and the people involved.
+Describe your problem at work. It should explain to the person you're making the claim against (the respondent), and the tribunal what happened. Make sure you include:
 
-Write in short paragraphs, describing events in the order they happened. Give details of the people involved, witnesses and any evidence you have. Please do not attach evidence documents. See below for specific guidance relating to each type of claim:
+- relevant background information
+- dates of the incidents
+- names of the people involved
+
+Write in short paragraphs. Describe events as they happened, giving details of witnesses and any evidence you have. Don’t attach evidence documents.
+
+See below for specific guidance relating to each type of claim:
 
 __Unfair dismissal and constructive dismissal__
 
-- describe how the dismissal took place
+- describe what happened
 - say what you think the reason was for dismissal
 - say why you think the dismissal was unfair
 
 __Discrimination__
 
-- describe what happened and explain in what way you believe you were discriminated against
-- give the date(s) of the incident(s). State whether the discrimination is still happening
+- describe what happened
+- explain how you were discriminated against
+- give the date(s) of the incident(s)
+- state whether the discrimination is still happening
 - if you’re claiming more than one type of discrimination, provide details about each type
 - describe how you’ve been affected by the discrimination
-- if you applied for a job and were discriminated against, say what job it was
+- if you applied for a job and were discriminated against, say what the job title was
 
 __Pay__
 
