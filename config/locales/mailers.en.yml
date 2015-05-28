@@ -16,28 +16,34 @@ en:
       header: Claim submitted
       intro:
         normal:
-          single: |
-            Thank you for submitting your claim to an employment tribunal.
-          group: |
-            Thank you for submitting your claim to an employment tribunal.
+          single: Thank you for submitting your claim to an employment tribunal.
+          group: Thank you for submitting your claim to an employment tribunal.
         payment_not_processed:
-          single: |
-            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
-          group: |
-            Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
-      what_happens_next: |
-        What happens next
-      contact_re_payment: |
-        We’ll contact you within 5 working days to arrange payment.
-      must_apply_for_remission: |
-        You have said you want to apply for fee remission. You must apply within 7 days, or your claim may be rejected.
-      apply_for_fee_remission: Apply for fee remission
-      no_remission_copy_sent_to_respondent: |
-        A copy of the claim will be sent to the respondent. They'll have 28 days to reply.
-      we_will_contact_you: |
-        We’ll contact you when your claim has been sent to the respondent and explain the next steps.
-      remission_we_will_contact_you: |
-        We’ll review your claim for remission and contact you to explain the next steps.
+          single: Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
+          group: Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
+
+      what_happens_next: :claim_confirmations.show.what_happens_next.header
+      contact_re_payment: :claim_confirmations.show.what_happens_next.payment_failed
+      must_apply_for_remission_html: :claim_confirmations.show.what_happens_next.apply_for_remission_html
+      apply_for_fee_remission: :claim_confirmations.show.what_happens_next.remission_link_text
+      no_remission_copy_sent_to_respondent: :claim_confirmations.show.what_happens_next.send_to_respondent
+      we_will_contact_you: :claim_confirmations.show.what_happens_next.next_steps
+      remission_we_will_contact_you_england_wales_html: :claim_confirmations.show.what_happens_next.next_steps_remission_england_wales_html
+      remission_we_will_contact_you_scotland_html: :claim_confirmations.show.what_happens_next.next_steps_remission_scotland_html
+      remission_review: :claim_confirmations.show.what_happens_next.next_steps_final_step
+
+       # SPECIFIC TO TEXT EMAIL
+      must_apply_for_remission_text: |
+        You have started an application for fee remission.
+        You must complete your application within 7 days or your claim may be rejected.
+      apply_for_fee_remission_text: 'COMPLETE FEE REMISSION APPLICATION: https://www.employmenttribunals.service.gov.uk/remissions'
+      remission_we_will_contact_you_england_wales_text: |
+        If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+      remission_we_will_contact_you_scotland_text: |
+        If claiming in Scotland (or if you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.
+
+        FEE REMISSION FORM GUIDE: http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf.
+
       details:
         header: Submission details
         claim_completed: 'Claim completed:'
@@ -48,8 +54,9 @@ en:
         submitted_to: to tribunal office %{office}
         payment_amount: 'Issue fee paid:'
         fee_to_pay: 'Issue fee payment:'
+
       remisison_further_information_html: |
-          For further information contact:<br/>England & Wales: 0300 123 1024;<br/>Scotland: 0141 354 8574
+        If you have any questions, contact the Public Enquiry Line:<br/>England & Wales: 0300 123 1024<br/>Scotland: 0141 354 8574
       feedback_html: |
         <a href="%{href}">Your feedback</a> helps us improve this service.
       feedback_text: |
@@ -61,6 +68,6 @@ en:
 
     shared:
       button_fee_remission:
-        apply_for_fee_remission: Apply for fee remission
+        apply_for_fee_remission: Complete fee remission application
       button_complete_claim:
         complete_claim: 'Complete claim'

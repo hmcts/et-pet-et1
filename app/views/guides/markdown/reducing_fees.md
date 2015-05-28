@@ -34,14 +34,9 @@ If your monthly income (before tax and other deductions) is more than these amou
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for a fee reduction
+Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
-You must apply for a reduction in your fees (known as fee remission) within 7 days of submitting your claim online.
-
-You’ll need to provide evidence to support your application or the tribunal may reject it and ask you to pay the full fee.
-
-<a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">Download and complete a fee remission form</a>. If claiming in England or Wales, email your completed remission form to [eREMISSIONS@hmcts.gsi.gov.uk](mailto:eREMISSIONS@hmcts.gsi.gov.uk)
-
-If claiming in Scotland (or you would rather post your form), you can find the relevant address in section 8 of the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form guide</a>.
+If claiming in Scotland (or if you would prefer to post your form), you can find the relevant address in section 8 of the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form guide</a>.
 
 You will be given another opportunity to apply for fee remission at the end of the claim.
 
@@ -54,7 +49,7 @@ Before applying for a reduction in fees you must  submit your online application
 
 If you’re making a joint claim with other people against the same employer then your group will pay a single fee.
 
-Each Individual within a group can apply to pay lower fees  by following the process outlined in the ‘  [applying for help with fees](#applying_for_a_fee_reduction)’ section.
+Each individual within a group can apply to pay lower fees  by following the process outlined in the ‘  [applying for help with fees](#applying_for_a_fee_reduction)’ section.
 
 If one or more people  have their fees reduced, the rest of the group will pay the remaining fee.  
 
