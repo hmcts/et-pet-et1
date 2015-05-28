@@ -24,7 +24,7 @@ en:
 
       what_happens_next: :claim_confirmations.show.what_happens_next.header
       contact_re_payment: :claim_confirmations.show.what_happens_next.payment_failed
-      must_apply_for_remission_html: :claim_confirmations.show.what_happens_next.apply_for_remission_html
+      must_apply_for_remission: :claim_confirmations.show.what_happens_next.apply_for_remission
       apply_for_fee_remission: :claim_confirmations.show.what_happens_next.remission_link_text
       no_remission_copy_sent_to_respondent: :claim_confirmations.show.what_happens_next.send_to_respondent
       we_will_contact_you: :claim_confirmations.show.what_happens_next.next_steps
@@ -33,14 +33,11 @@ en:
       remission_review: :claim_confirmations.show.what_happens_next.next_steps_final_step
 
        # SPECIFIC TO TEXT EMAIL
-      must_apply_for_remission_text: |
-        You have started an application for fee remission.
-        You must complete your application within 7 days or your claim may be rejected.
       apply_for_fee_remission_text: 'COMPLETE FEE REMISSION APPLICATION: https://www.employmenttribunals.service.gov.uk/remissions'
       remission_we_will_contact_you_england_wales_text: |
         If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
       remission_we_will_contact_you_scotland_text: |
-        If claiming in Scotland (or if you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.
+        If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.
 
         FEE REMISSION FORM GUIDE: http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf.
 

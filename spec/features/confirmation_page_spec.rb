@@ -54,8 +54,9 @@ RSpec.feature 'Confirmation page', type: :feature do
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
         expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
 
-        If claiming in Scotland (or if you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
+        If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
+        expect(page).to have_link 'fee remission form guide', href: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf'
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Claim submitted'
         expect(page).to_not have_text 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
@@ -80,8 +81,9 @@ RSpec.feature 'Confirmation page', type: :feature do
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
         expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
 
-        If claiming in Scotland (or if you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
+        If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
+        expect(page).to have_link 'fee remission form guide', href: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf'
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Issue fee paid' '£250.00'
         expect(page).to have_text 'If you have any questions, contact the Public Enquiry Line'
