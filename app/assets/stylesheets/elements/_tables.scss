@@ -37,7 +37,7 @@ table.review-table{
     }
   }
   caption{
-    @extend .bold-small;
+    @include bold-19();
     text-align:left;
     background: $highlight-colour;
     padding:$gutter-half/2 0;

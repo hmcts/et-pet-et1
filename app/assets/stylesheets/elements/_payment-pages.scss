@@ -65,7 +65,7 @@ table.ncoltable3{
 //secondary buttons
 #ncol_cancel, #btn_Back {
   @include button ($panel-colour);
-  @extend %button;
+  @include etfees-button;
   margin-right: 0;
   padding-top: $gutter/4;
   padding-bottom: $gutter/4;
@@ -137,7 +137,7 @@ table.ncoltable2{
 // submit button
 #submit3 {
   @include button ($button-colour);
-  @extend %button;
+  @include etfees-button;
   margin-right: 300px;
   padding-bottom: $gutter/4;
   padding-top: $gutter/4;

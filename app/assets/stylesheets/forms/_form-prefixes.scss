@@ -31,7 +31,7 @@
     clear:none;
     margin-bottom:0;
     span.slim-label {
-      @extend .block-label;
+      @include block-label;
       margin-top:0;
       margin-bottom:0;
       label {

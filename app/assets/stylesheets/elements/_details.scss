@@ -8,7 +8,7 @@ details {
   display: block;
   margin:$gutter-half/4 0 $gutter-half;
   summary {
-    @extend .button-link !optional;
+    /* @extend .button-link !optional; */
     @include core-19;
     display: block;
     color: $govuk-blue;

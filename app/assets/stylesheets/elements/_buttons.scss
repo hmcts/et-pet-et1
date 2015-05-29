@@ -3,7 +3,7 @@
 @import "design-patterns/buttons";
 $blue: #005ea5;
 
-%button {
+@mixin etfees-button {
   margin: 0 $gutter-half $gutter-half 0;
   vertical-align: top;
   &:focus {
@@ -13,7 +13,7 @@ $blue: #005ea5;
 
 .button {
   @include button ($button-colour);
-  @extend %button;
+  @include etfees-button;
   padding-top: $gutter/4;
   padding-bottom: $gutter/4;
   &[disabled="disabled"] {
@@ -27,7 +27,7 @@ $blue: #005ea5;
 
 .button-return {
   @include button ($blue);
-  @extend %button;
+  @include etfees-button;
   padding-top: $gutter/4;
   padding-bottom: $gutter/4;
   color: $white;

@@ -52,13 +52,13 @@
     margin-top:0;
   }
   h2 {
-    @extend .legend;
+    @include legend;
     &:first-child{
       margin-top:0;
     }
   }
   h3 {
-    @extend .bold-small;
+    @include bold-19();
     margin-bottom:0;
     & + p,
     & + ul{
@@ -81,7 +81,7 @@
 // ==========================================================================
 aside{
   h3{
-    @extend .heading-medium;
+    @include heading-medium;
     margin:0 0 $gutter-half/2;
   }
   ul{

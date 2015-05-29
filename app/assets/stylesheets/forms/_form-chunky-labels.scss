@@ -1,4 +1,4 @@
-%block-label{
+@mixin block-label{
   float: none;
   clear: left;
 
@@ -25,7 +25,7 @@
 // By default, block labels stack vertically
 label.block-label {
 
-  @extend %block-label;
+  @include block-label;
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -44,7 +44,7 @@ span.block-label {
   display: block; // This wraps block level elements so needs to be block itself.
 
   label{
-    @extend %block-label;
+    @include block-label;
     display:block;
     margin:0;
 
