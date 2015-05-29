@@ -25,7 +25,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
 
   include_examples "Postcode validation",
     attribute_prefix: 'address',
-    error_message: 'Please enter a valid UK postcode or if you live abroad, enter SW55 9QT'
+    error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
 
   let(:attributes) do
     {

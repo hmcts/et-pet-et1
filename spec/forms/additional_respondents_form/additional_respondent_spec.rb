@@ -43,7 +43,8 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
           subject.acas_early_conciliation_certificate_number = 'invalid'
           subject.valid?
 
-          expect(subject.errors[:acas_early_conciliation_certificate_number]).to include('acas invalid')
+          expect(subject.errors[:acas_early_conciliation_certificate_number]).
+            to include('You have provided an invalid Acas early conciliation number.')
         end
       end
     end
@@ -78,7 +79,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
 
   include_examples "Postcode validation",
     attribute_prefix: 'address',
-    error_message: 'Please enter a valid UK postcode or if you live abroad, enter SW55 9QT'
+    error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
 
   let(:attributes) do
     {
