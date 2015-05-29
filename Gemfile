@@ -14,7 +14,7 @@ gem 'rails', '4.2.0'
 gem 'responders', '~> 2.0'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~>  5.0.0.beta1'
+gem 'sass-rails', '~> 5.0.3'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -62,7 +62,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: '56873b071053
 gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'fog'
-gem 'govuk_frontend_toolkit', '3.4.2'
+gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'httparty'
 gem 'logstasher'
 gem 'moj_template', '0.23.0'
