@@ -21,7 +21,7 @@ details open=resource.has_claim_details_rtf?
 = f.input :claim_details, label: false,
   hint: t('.claim_details_hint_html', path: guide_path),
   as: :text,
-  input_html: { rows: 15 }
+  input_html: { rows: 15, maxlength: '2500' }
 
 fieldset
   legend= t '.similar_claims'
@@ -34,7 +34,7 @@ fieldset
 
   = f.input :other_known_claimant_names,
     as: :text,
-    input_html: { rows: 5 },
+    input_html: { rows: 5, maxlength: '350' },
     item_wrapper_class: 'block-label',
     wrapper_class: 'panel-indent toggle-content',
     wrapper_html: { :id => :other_known_claimant_names_wrapper,
