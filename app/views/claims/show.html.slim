@@ -1,8 +1,10 @@
 - content_for(:page_title, claim_title)
 
 header.main-header role="banner"
-  p.page-number= t('.page_number', current_page: current_page, total_pages: total_pages)
-  h1= claim_header
+  h1.page-trail
+    span.page-number= t('.page_number', current_page: current_page, total_pages: total_pages)
+    span.page-title
+      = claim_header
 
 .main-section
 
