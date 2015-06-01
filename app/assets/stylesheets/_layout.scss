@@ -98,7 +98,7 @@ input.form-control.file {
 
 aside{
   h3{
-    @extend .heading-medium;
+    @include heading-medium;
     margin-top:0;
   }
   ul{

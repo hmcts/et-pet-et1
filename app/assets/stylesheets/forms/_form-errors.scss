@@ -18,7 +18,7 @@
     margin-top:0;
   }
   h2{
-    @extend .heading-medium;
+    @include heading-medium;
     margin:0;
   }
 }
