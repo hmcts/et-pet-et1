@@ -41,6 +41,10 @@ FactoryGirl.define do
       state        'created'
     end
 
+    trait :submitted do
+      state 'submitted'
+    end
+
     trait :single_claimant do
       without_additional_claimants_csv
       after(:create) { |claim| claim.secondary_claimants.clear }
