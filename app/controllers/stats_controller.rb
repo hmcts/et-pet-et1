@@ -10,7 +10,9 @@ class StatsController < ActionController::Base
   def statistics
     {
       started_count:   Stats::ClaimStats.started_count,
-      completed_count: Stats::ClaimStats.completed_count
+      completed_count: Stats::ClaimStats.completed_count,
+      paid_count:      Stats::ClaimStats.paid_count,
+      remission_count: Stats::ClaimStats.remission_count
     }
   end
 end
