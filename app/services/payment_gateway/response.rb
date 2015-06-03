@@ -1,7 +1,7 @@
-# Namespace for encapsulating Payment gateway related code
 module PaymentGateway
-  # Encapsulates ePDQ response related code
   class Response < Struct.new(:request)
+    SUCCESS_CODES = %w<5 51 9 91>.freeze
+
     def valid?
       EPDQ::Response.new(request.query_string).valid_signature?
     rescue RuntimeError
@@ -11,7 +11,7 @@ module PaymentGateway
     end
 
     def success?
-      %w<5 51 9 91>.include? params['STATUS']
+      SUCCESS_CODES.include? status
     end
 
     def amount
@@ -20,6 +20,10 @@ module PaymentGateway
 
     def reference
       params['PAYID']
+    end
+
+    def status
+      params['STATUS']
     end
 
     private def params
