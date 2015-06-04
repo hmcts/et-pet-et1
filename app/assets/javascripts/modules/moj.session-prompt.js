@@ -75,15 +75,6 @@ module.exports = (function () {
     }
   };
 
-
-  var isClaimPath = function () {
-    return !!location.pathname.match(/^\/apply\/.*/);
-  };
-
-  if (isClaimPath()) {
-    sessionPrompt.init();
-  }
-
   return sessionPrompt;
 
 })();

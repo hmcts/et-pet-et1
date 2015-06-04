@@ -15,6 +15,10 @@
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
 
+  - if start_session_timer?
+    javascript:
+      sessionPrompt.init();
+
 - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 
 - content_for :footer_support_links do
