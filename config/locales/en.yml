@@ -74,7 +74,7 @@ en:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’.
+          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’
           claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
@@ -176,7 +176,7 @@ en:
         claimants: :"simple_form.labels.claimant"
 
       representative:
-        has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
+        has_representative: Do you have someone who’s agreed to represent you (<abbr title="exempli gratia">Eg</abbr> by handling correspondence)?
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
         address_locality: Town/city
@@ -187,7 +187,7 @@ en:
         organisation_name: Name of the representative’s organisation
         name: Representative’s name
         mobile_number: Alternative phone or mobile number
-        dx_number: Document exchange (DX) number
+        dx_number: Document exchange (<abbr>DX</abbr>) number
         contact_preference: Best way to send correspondence to your representative
 
       respondent:
@@ -252,7 +252,7 @@ en:
       claim_details:
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
-        claim_details_rtf: The document needs to be in Rich Text Format(RTF)
+        claim_details_rtf: The document needs to be in Rich Text Format(<abbr>RTF</abbr>)
       claim_outcome:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
@@ -263,23 +263,23 @@ en:
     hints:
       application_number:
         password: For example your surname
-      address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_county: <abbr title="exempli gratia">Eg</abbr> if London, Greater London; if Manchester, Greater Manchester
       claimant:
         date_of_birth: For example, 23 04 1981
         has_special_needs: |
-          Eg documents in Braille, or a sign language interpreter
+          <abbr title="exempli gratia">Eg</abbr> documents in Braille, or a sign language interpreter
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
-          Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
+          Note that if you have a representative (<abbr title="exempli gratia">eg</abbr> solicitor), then all future correspondence will be sent to them
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+        address_county: <abbr title="exempli gratia">eg</abbr> if London, Greater London; if Manchester, Greater Manchester
         date_of_birth: For example, 23 04 1981
       representative:
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+        address_county: <abbr title="exempli gratia">eg</abbr> if London, Greater London; if Manchester, Greater Manchester
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn’t work. The number starts with ’R’ or ’MU’.
@@ -296,7 +296,7 @@ en:
         notice_period_end_date: The date your employment ends. For example, 22 04 2014
       claim:
         other_claim_details: |
-          Eg your employer hasn’t allowed you to take your statutory annual leave entitlement
+          <abbr title="exempli gratia">Eg</abbr> your employer hasn’t allowed you to take your statutory annual leave entitlement
         claim_details: |
           Include the background, dates and people involved. This helps the tribunal and employer understand the basis of your case. How do I write a claim statement?
         other_known_claimants: |
@@ -304,14 +304,14 @@ en:
         other_outcome: |
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
         miscellaneous_information: |
-          Eg you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
+          <abbr title="exempli gratia">Eg</abbr> you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
       respondent:
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
-        work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+        address_county: <abbr title="exempli gratia">Eg</abbr> if London, Greater London; if Manchester, Greater Manchester
+        work_address_county: <abbr title="exempli gratia">Eg</abbr> if London, Greater London; if Manchester, Greater Manchester
       additional_respondents:
-        has_additional_respondents: You can claim against more than one respondent. Eg if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
+        has_additional_respondents: You can claim against more than one respondent. <abbr title="exempli gratia">Eg</abbr> if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
-          address_county: Eg if London, Greater London; if Manchester, Greater Manchester
+          address_county: <abbr title="exempli gratia">Eg</abbr> if London, Greater London; if Manchester, Greater Manchester
       claim_type:
         is_discrimination: Discrimination
         is_other_type_of_claim: |
@@ -325,7 +325,7 @@ en:
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         other_known_claimant_names: Limit is 350 characters.
         claim_details_rtf: |
-          You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format
+          You can usually save a file as <abbr title="Rich Text Format">RTF</abbr> by selecting File> Save As> Export To> Format: Rich Text Format
 
       claim_outcome:
         desired_outcomes: You can select more than one
@@ -538,7 +538,7 @@ en:
         All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must send their contact details to the tribunal office handling your case.
       what_is_dx:
         detail: What is a DX number?
-        summary: DX is a private mail system used by organisations (eg legal firms)
+        summary_html: <abbr title="Direct Exchange">DX</abbr> is a private mail system used by organisations (<abbr title="exempli gratia">Eg</abbr> legal firms)
 
     respondent:
       header: Respondent’s details
