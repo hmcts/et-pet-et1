@@ -31,7 +31,7 @@
     clear:none;
     margin-bottom:0;
     span.slim-label {
-      @include block-label;
+      padding: ($gutter-half $gutter);
       margin-top:0;
       margin-bottom:0;
       label {
