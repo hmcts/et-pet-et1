@@ -1,0 +1,12 @@
+en:
+  barclaycard_gateway:
+    # Information taken from the Barclaycard e-Commerce advanced guide
+    # Technical Integration Guide for e-Commerce v.5.4.0
+    responses:
+      '52': |
+        Status 52: Authorisation Not Known - A technical problem arose during the
+        authorisation/payment process, giving an unpredicatable result.
+      '92': |
+        Status 92: Payment Uncertain - The customer should not retry the authorisation
+        process since the authorisation/payment might already have been accepted.
+      generic: "Status Code: %{status}"

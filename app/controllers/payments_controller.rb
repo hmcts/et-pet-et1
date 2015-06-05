@@ -19,10 +19,16 @@ class PaymentsController < ApplicationController
 
   # BarclayCard transaction result callback actions
 
+  delegate :amount, :reference, :status, :success?, to: :payment_response
+
   def success
-    if payment_response.success?
-      claim.create_payment amount: payment_response.amount, reference: payment_response.reference
+    if success?
+      claim.create_payment amount: amount, reference: reference
       claim.create_event Event::PAYMENT_RECEIVED
+    else
+      # Barclaycard can still push requests to this end point even if there
+      # is no guarantee the transaction was successful.
+      claim.create_event Event::PAYMENT_UNCERTAIN, message: payment_uncertain_message
     end
 
     claim.enqueue!
@@ -49,6 +55,10 @@ class PaymentsController < ApplicationController
 
   def ensure_payment_is_required
     render nothing: true unless claim.payment_required?
+  end
+
+  def payment_uncertain_message
+    I18n.t(status, scope: 'barclaycard_gateway.responses', default: :generic, status: status)
   end
 
   # We want to be able to process a payment even if the session expired

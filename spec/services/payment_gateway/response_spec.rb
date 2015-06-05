@@ -73,4 +73,10 @@ RSpec.describe PaymentGateway::Response, type: :service do
       expect(subject.reference).to eq '34707458'
     end
   end
+
+  describe '#status' do
+    it 'returns the status code from the gateway response' do
+      expect(subject.status).to eq '9'
+    end
+  end
 end
