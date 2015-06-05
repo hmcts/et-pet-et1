@@ -1,0 +1,125 @@
+#!/bin/sh
+set -e 
+
+################################################################################
+# SYSTEM SETTINGS
+################################################################################
+# The registry to push to
+if [ -z ${DOCKER_REGISTRY} ]; then
+	DOCKER_REGISTRY=registry.service.dsd.io
+fi
+# Set to true to use the jenkins build variables
+if [ -z ${ENABLE_JENKINS} ]; then
+	ENABLE_JENKINS=false
+fi
+
+# Set to true to push to the registry
+if [ -z ${ENABLE_PUSH} ]; then
+	ENABLE_PUSH=true
+fi
+
+################################################################################
+# CODE: SETUP - Sets up the script with configured variables
+################################################################################
+# The docker image name that will be created. 
+# Load from the command line preferentially,
+# use the environment variable ${TEMPLATE_DEPLOY_APPLICATION_NAME}
+if [ -z ${TEMPLATE_DEPLOY_APPLICATION_NAME} ] && [ -z $1 ]; then
+	echo
+	echo "$(basename "$0") is a helper script to build a docker image"
+	echo "with standard tagging. It requires an application name to build,"
+	echo "this can be..."
+	echo 
+	echo 1. Passed on the command line
+    echo "$(basename "$0") <application_name> [Dockerfile]"
+    echo 
+    echo 2. Supplied as an environment variable
+    echo "TEMPLATE_DEPLOY_APPLICATION_NAME=myapp $(basename "$0") [Dockerfile]"
+    echo 
+    echo Other environmental variables that can be set are...
+    echo 
+    echo DOCKER_REGISTRY - The registry to push to
+	echo ENABLE_PUSH - Set to true to push to the registry
+	echo ENABLE_JENKINS - Set to true to use the jenkins build variables
+    echo 
+    exit 1
+elif [ ! -z $1 ]; then
+    APP_NAME=$1
+elif [ ! -z ${TEMPLATE_DEPLOY_APPLICATION_NAME} ]; then
+	APP_NAME=${TEMPLATE_DEPLOY_APPLICATION_NAME}
+fi
+
+echo Building ${APP_NAME}
+
+# The path to the dockerfile to use
+DOCKERFILE="Dockerfile"
+if [ ! -z $2 ]; then
+    echo Setting Dockerfile location to $2
+    DOCKERFILE=$2
+fi
+
+################################################################################
+# CODE: TAGGING - Sets up the the tagging settings
+################################################################################
+# Construct default versioning and tagging from git details
+# Jenkins can have problems getting the branch name from 
+# rev-parse so we use 2 different version
+if [ "${ENABLE_JENKINS}" = "true" ]; then
+    echo Enabling jenkins build...
+    GIT_BRANCH=$(basename ${GIT_BRANCH})            #Jenkins version
+else                    
+    echo Enabling scripting build...
+    GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD)   #Scripting version
+    GIT_COMMIT="$(git rev-parse HEAD)"      #Scripting version  
+
+fi
+
+# git describe should fetch us something of the form <tag>-<commit count>-g<commit_sha>
+# We use that unless we can't get a tag, in which case we'll show untagged-<commit count>-g<commit_sha>
+# We also do some replacements to get rid of docker unfriendly characters that might be in the tag
+GIT_COMMIT_COUNT=$(git rev-list HEAD --count --topo-order)
+GIT_COMMIT_SHORT=$(echo ${GIT_COMMIT} | cut -c1-7) 
+GIT_TAG=$(git describe --tags --long 2>/dev/null | sed 's/\//\_/g')
+
+#### These are the calculated key defined environment variables
+APP_VERSION=${GIT_TAG:-untagged.${GIT_COMMIT_COUNT}-g${GIT_COMMIT_SHORT}}
+APP_BUILD_TAG=${GIT_BRANCH}.${GIT_COMMIT_SHORT}
+APP_BUILD_TAG_LATEST=${GIT_BRANCH}.latest
+APP_BUILD_DATE=$(date +%FT%T%z)
+
+# Inject build environment variables into docker image
+echo "" >> ${DOCKERFILE} # Need a newline
+echo "# Build environment variables" >> ${DOCKERFILE} # Need a newline
+echo "ENV APP_VERSION=${APP_VERSION}" >> ${DOCKERFILE}
+echo "ENV APP_GIT_COMMIT=${GIT_COMMIT}" >> ${DOCKERFILE}
+echo "ENV APP_BUILD_DATE=${APP_BUILD_DATE}" >> ${DOCKERFILE}
+echo "ENV APP_BUILD_TAG=${APP_BUILD_TAG}" >> ${DOCKERFILE}
+
+
+# Setup properties file for use by other build steps
+echo "# Build environment variables" > jenkins_build.properties
+echo APP_BUILD_TAG=${APP_BUILD_TAG} >> jenkins_build.properties
+
+echo Setting APP_VERSION=${APP_VERSION} APP_GIT_COMMIT=${GIT_COMMIT} APP_BUILD_DATE=${APP_BUILD_DATE} APP_BUILD_TAG=${APP_BUILD_TAG} APP_BUILD_TAG_LATEST=${APP_BUILD_TAG_LATEST}
+
+################################################################################
+# CODE: DOCKER - Building and pushing the containers
+################################################################################
+# TODO Pull previous image to help with caching?
+# Build docker image and add a latest tag version
+echo Building docker image ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG}
+docker build --pull -f ${DOCKERFILE} -t ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG} .
+
+# TODO : unit tests against the container?
+docker tag -f  ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG} ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG_LATEST}
+
+if [ "${ENABLE_PUSH}" = "true" ]; then
+    echo Pushing docker image ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG}
+    # Push images to registry
+    docker push ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG}
+    echo Pushing docker image ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG_LATEST}
+    docker push ${DOCKER_REGISTRY}/${APP_NAME}:${APP_BUILD_TAG_LATEST}
+else
+    echo ENABLE_PUSH not set, skipping push to registry ${DOCKER_REGISTRY}
+fi
+

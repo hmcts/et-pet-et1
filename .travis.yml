@@ -14,3 +14,6 @@ env:
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq pdftk
+branches:
+  except:
+    - test_migrate_docker_container_bases
