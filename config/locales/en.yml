@@ -152,7 +152,7 @@ en:
       claimant:
         mobile_number: Alternative phone or mobile number
         fax_number: Fax
-        has_special_needs: Do you have a disability or health condition?
+        has_special_needs: Do you have a disability which means you require assistance at the tribunal hearing?
         special_needs: Describe the assistance you require
         address_telephone_number: Phone or mobile number
         address_building: Building number or name
