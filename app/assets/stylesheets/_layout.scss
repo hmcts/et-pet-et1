@@ -38,14 +38,14 @@ header {
       @include bold-48();
       padding:0;
       margin:$gutter*2 0;
-    }
-    p.page-number{
-      @include core-24;
-      color:$secondary-text-colour;
-      padding-top: $gutter-half;
-      margin:0;
-      & + h1{
-        margin-top: $gutter-half;
+      &.page-trail{
+        margin-top: $gutter;
+        .page-number{
+          @include core-24;
+          color:$secondary-text-colour;
+          padding-bottom: $gutter-half;
+          display: block;
+        }
       }
     }
   }
