@@ -3,16 +3,11 @@ fieldset
   p= t '.personal_details_description'
   = render partial: 'personal_details', locals: { f: f }
 
-  fieldset
-    legend.form-label = t '.gender'
-    = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons, label: false,
+  = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
     item_wrapper_class: 'block-label'
-
-  p= t '.legend_disability'
 
   = f.input :has_special_needs,
     as: :radio_buttons,
-    label:false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
     input_html: { :class => 'reveal-publish-publisher ga-vpv'},
