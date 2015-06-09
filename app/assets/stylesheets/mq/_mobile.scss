@@ -91,6 +91,7 @@
         margin-top:0;
         margin-bottom:0;
         width:47%;
+        padding: 0;
         &:first-child{
           margin-right:0;
         }
@@ -98,8 +99,9 @@
           float:right;
         }
         label {
-          background-color:$grey-3;
+          /* background-color:$grey-3; */
           line-height:1;
+          margin-top:$gutter-half;
         }
         input {
           top:13px;
