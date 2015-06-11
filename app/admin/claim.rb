@@ -15,25 +15,13 @@ ActiveAdmin.register Claim do
 
     column :fee_group_reference
 
-    column(:payment_status) do |claim|
-      case
-      when !claim.immutable?
-        'Not submitted'
-      when claim.remission_claimant_count > 0
-        'Remission indicated'
-      when claim.payment_present?
-        'Paid'
-      else
-        'Missing payment'
-      end
-    end
+    column(:payment_status) { |claim| Admin::PaymentStatus.for claim }
 
     column(:tribunal_office) { |claim| claim.office.try :name }
 
     column :submitted_at
 
     column(:state) { |claim| claim.state.humanize }
-
   end
 
   member_action :generate_pdf, method: :post do
@@ -41,26 +29,46 @@ ActiveAdmin.register Claim do
     redirect_to :back, notice: 'Generating a new PDF'
   end
 
+  member_action :txt_file, method: :get do
+    text = case params[:type]
+           when 'claim_details'              then resource.claim_details
+           when 'miscellaneous_information'  then resource.miscellaneous_information
+           when 'other_claim_details'        then resource.other_claim_details
+           when 'other_outcome'              then resource.other_outcome
+           end
+
+    send_data text, filename: "#{resource.reference}-#{params[:type]}.txt"
+  end
+
   sidebar :actions, only: :show do
     div { button_to 'Generate PDF', action: :generate_pdf }
-    br
-    div do
-      if resource.pdf_present?
+
+    if resource.pdf_present?
+      br
+      div do
         link_to 'Download PDF', resource.pdf_url, class: :button
       end
     end
 
-    br
-    div do
-      if resource.claim_details_rtf?
+    if resource.claim_details_rtf?
+      br
+      div do
         link_to 'Download RTF', resource.claim_details_rtf_url, class: :button
       end
     end
 
-    br
-    div do
-      if resource.additional_claimants_csv?
+    if resource.additional_claimants_csv?
+      br
+      div do
         link_to 'Download CSV', resource.additional_claimants_csv_url, class: :button
+      end
+    end
+
+    %w<claim_details miscellaneous_information other_claim_details other_outcome>.each do |text|
+      next if resource.send(text).blank?
+      br
+      div do
+        link_to "#{text.humanize}", { action: :txt_file, type: text }, { class: :button }
       end
     end
   end
