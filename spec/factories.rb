@@ -23,10 +23,11 @@ FactoryGirl.define do
 
     additional_claimants_csv_record_count 5
 
-    claim_details       'I am sad'
-    other_claim_details 'Really sad'
-    other_outcome       'I wanna take him to the cleaners!'
-    is_whistleblowing   false
+    claim_details             'I am sad'
+    other_claim_details       'Really sad'
+    other_outcome             'I wanna take him to the cleaners!'
+    is_whistleblowing         false
+    miscellaneous_information 'Still really sad'
 
     discrimination_claims  %i<sex_including_equal_pay disability race>
     pay_claims             %i<redundancy notice holiday arrears other>

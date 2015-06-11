@@ -60,7 +60,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     visit admin_claim_path claim_with_attachments.reference
 
-    expect(page).to have_link('Download PDF', href: 'http://lol.biz/such.pdf')
+    expect(page).to have_link 'Download PDF', href: 'http://lol.biz/such.pdf'
   end
 
   scenario 'downloading the claim details rtf' do
@@ -69,7 +69,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     visit admin_claim_path claim_with_attachments.reference
 
-    expect(page).to have_link('Download RTF', href: 'http://lol.biz/deets.rtf')
+    expect(page).to have_link 'Download RTF', href: 'http://lol.biz/deets.rtf'
   end
 
   scenario 'downloading the additional claimants csv' do
@@ -78,24 +78,88 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     visit admin_claim_path claim_with_attachments.reference
 
-    expect(page).to have_link('Download CSV', href: 'http://lol.biz/additionals.csv')
+    expect(page).to have_link 'Download CSV', href: 'http://lol.biz/additionals.csv'
   end
 
-  context 'claim without attahcments' do
+  scenario 'downloading a text file containing claim details' do
+    visit admin_claim_path claim_with_attachments.reference
+
+    click_link 'Claim details'
+
+    expect(page.response_headers['Content-Type']).to eq 'text/plain'
+    expect(page.body).to eq 'I am sad'
+  end
+
+  scenario 'downloading a text file containing miscellaneous information' do
+    visit admin_claim_path claim_with_attachments.reference
+
+    click_link 'Miscellaneous information'
+
+    expect(page.response_headers['Content-Type']).to eq 'text/plain'
+    expect(page.body).to eq 'Still really sad'
+  end
+
+  scenario 'downloading a text file containing other claim details' do
+    visit admin_claim_path claim_with_attachments.reference
+
+    click_link 'Other claim details'
+
+    expect(page.response_headers['Content-Type']).to eq 'text/plain'
+    expect(page.body).to eq 'Really sad'
+  end
+
+  scenario 'downloading a text file containing other outcome' do
+    visit admin_claim_path claim_with_attachments.reference
+
+    click_link 'Other outcome'
+
+    expect(page.response_headers['Content-Type']).to eq 'text/plain'
+    expect(page.body).to eq 'I wanna take him to the cleaners!'
+  end
+
+  context 'claim without large text inputs' do
+    let!(:claim_without_large_text_inputs) do
+      create :claim,
+        claim_details: nil,
+        miscellaneous_information: nil,
+        other_claim_details: nil,
+        other_outcome: nil
+    end
+
+    before {  visit admin_claim_path claim_without_large_text_inputs.reference }
+
+    scenario 'no option to download claim details as a text file' do
+      expect(page).not_to have_link 'Claim details'
+    end
+
+    scenario 'no option to download miscellaneous information as a text file' do
+      expect(page).not_to have_link 'Miscellaneous information'
+    end
+
+    scenario 'no option to download other claim details as a text file' do
+      expect(page).not_to have_link 'Other claim details'
+    end
+
+    scenario 'no option to download other outcome as a text file' do
+      expect(page).not_to have_link 'Other outcome'
+    end
+  end
+
+  context 'claim without attachments' do
     let!(:claim_without_attachments) { create :claim, :no_attachments }
 
     before { visit admin_claim_path claim_without_attachments.reference }
 
     scenario 'no option to download the pdf' do
-      expect(page).not_to have_link('Download PDF')
+      expect(page).not_to have_link 'Download PDF'
     end
 
     scenario 'no option to download the claim details rtf' do
-      expect(page).not_to have_link('Download RTF')
+      expect(page).not_to have_link 'Download RTF'
     end
 
     scenario 'no option to download the additional claimants csv' do
-      expect(page).not_to have_link('Download CSV')
+      expect(page).not_to have_link 'Download CSV'
     end
   end
 end
