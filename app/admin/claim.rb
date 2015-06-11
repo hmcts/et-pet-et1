@@ -15,25 +15,13 @@ ActiveAdmin.register Claim do
 
     column :fee_group_reference
 
-    column(:payment_status) do |claim|
-      case
-      when !claim.immutable?
-        'Not submitted'
-      when claim.remission_claimant_count > 0
-        'Remission indicated'
-      when claim.payment_present?
-        'Paid'
-      else
-        'Missing payment'
-      end
-    end
+    column(:payment_status) { |claim| Admin::PaymentStatus.for claim }
 
     column(:tribunal_office) { |claim| claim.office.try :name }
 
     column :submitted_at
 
     column(:state) { |claim| claim.state.humanize }
-
   end
 
   member_action :generate_pdf, method: :post do

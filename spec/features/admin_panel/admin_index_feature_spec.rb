@@ -18,6 +18,10 @@ RSpec.feature 'Viewing the admin interfaces index page', type: :feature do
   end
 
   scenario 'viewing a table of claims and their respective details' do
+    # Assert Admin::PaymentStatus presenter is called twice, once per seed.
+    # Admin::PaymentStatus is tested in isolation.
+    expect(Admin::PaymentStatus).to receive(:for).twice.and_call_original
+
     visit admin_root_path
 
     claim_row = claims_table.first
