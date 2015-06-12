@@ -52,6 +52,9 @@ class Claim < ActiveRecord::Base
 
   delegate :destroy_all, :any?, to: :secondary_claimants, prefix: true
 
+  delegate :fee_to_pay?, :application_fee,
+    :application_fee_after_remission, to: :fee_calculation
+
   before_update :secondary_claimants_destroy_all,
     if: :additional_claimants_csv_changed?
 
@@ -146,6 +149,8 @@ class Claim < ActiveRecord::Base
     @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
   end
 
+  alias_method :setup_state_machine, :state_machine
+
   def generate_application_reference
     self.application_reference ||= unique_application_reference
   end
@@ -156,12 +161,6 @@ class Claim < ActiveRecord::Base
       return ref unless self.class.exists?(application_reference: ref)
     end
   end
-
-  alias_method :setup_state_machine, :state_machine
-
-  delegate :fee_to_pay?, :application_fee, :application_fee_after_remission, to: :fee_calculation
-
-  private
 
   def respond_to_missing?(meth, include_private=false)
     if state_machine.respond_to?(meth)
