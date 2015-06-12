@@ -6,12 +6,8 @@ class FeedbackForm
   attribute :email_address, String
 
   def save
-    if valid?
-      run_callbacks :save do
-        FeedbackSubmissionJob.perform_later attributes
-      end
-    else
-      false
+    run_callbacks :save do
+      FeedbackSubmissionJob.perform_later attributes
     end
   end
 end
