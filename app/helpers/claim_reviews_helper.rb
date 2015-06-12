@@ -8,10 +8,6 @@ module ClaimReviewsHelper
     end
   end
 
-  def review_header
-    I18n.t("#{current_step}.header")
-  end
-
   def email_addresses
     ConfirmationEmailAddressesPresenter.email_addresses_for claim
   end
