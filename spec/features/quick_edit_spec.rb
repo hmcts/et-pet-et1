@@ -3,10 +3,15 @@ require 'rails_helper'
 feature 'Quick edit' do
   include FormMethods
 
-  sections = %w<claimant representative respondent employment claim-type claim-details
-    claim-outcome additional-information your-fee>
+  let(:claim_ready_for_review) { create :claim, :no_attachments, state: 'created' }
 
-  before { complete_a_claim }
+  before(:each) do
+    fill_in_return_form claim_ready_for_review.reference, 'lollolol'
+    visit claim_review_path
+  end
+
+  sections = %w<claimant additional-claimants representative respondent employment claim-type claim-details
+    claim-outcome additional-information your-fee>
 
   sections.each do |section|
     translation = "#{I18n.t('claim_reviews.show.sections.' + section.underscore)}"
