@@ -287,9 +287,19 @@ RSpec.describe Claim, type: :claim do
 
   describe '#state' do
     describe 'for a new record' do
-      it 'is "created"' do
-        expect(subject.state).to eq('created')
-      end
+      its(:state) { is_expected.to eq 'created' }
+    end
+  end
+
+  describe '#unpaid?' do
+    context 'with a payment assosciated with the claim' do
+      subject { create :claim, payment: Payment.new }
+      its(:unpaid?) { is_expected.to be_falsey }
+    end
+
+    context 'with no payment assosciated with the claim' do
+      subject { create :claim, payment: nil }
+      its(:unpaid?) { is_expected.to be_truthy }
     end
   end
 
