@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserSessionsController do
+RSpec.describe UserSessionsController, type: :controller do
   before do
     allow(UserSession).to receive(:new).and_return user_session
     allow(Claim).to receive(:find_by_reference).with(claim.reference).and_return claim
@@ -70,6 +70,17 @@ RSpec.describe UserSessionsController do
           end
         end
       end
+    end
+  end
+
+  describe 'GET touch' do
+    let(:time) { DateTime.new 2015, 01, 01, 01 }
+
+    before { session[:claim_reference] = claim.reference }
+
+    it 'refreshes the user session timeout value & renders nothing' do
+      travel_to(time) { get :touch }
+      expect(session[:expires_in]).to eq(time + 1.hour)
     end
   end
 end
