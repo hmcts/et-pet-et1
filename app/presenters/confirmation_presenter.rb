@@ -41,10 +41,6 @@ class ConfirmationPresenter < Presenter
     end
   end
 
-  def payment_type
-    payment_failed? ? :payment_not_processed : :normal
-  end
-
   def attachment_filenames
     @attachment_filenames ||= \
       [claim_details_rtf, additional_claimants_csv].

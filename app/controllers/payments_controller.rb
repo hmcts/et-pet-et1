@@ -53,10 +53,6 @@ class PaymentsController < ApplicationController
     render nothing: true unless payment_response.valid?
   end
 
-  def ensure_payment_is_required
-    render nothing: true unless claim.payment_required?
-  end
-
   def payment_uncertain_message
     I18n.t(status, scope: 'barclaycard_gateway.responses', default: :generic, status: status)
   end
