@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-- 2.2.0
+- 2.2.2
 node_js:
 - '0.10'
 addons:
