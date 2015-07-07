@@ -35,7 +35,7 @@ en:
        # SPECIFIC TO TEXT EMAIL
       apply_for_fee_remission_text: 'COMPLETE FEE REMISSION APPLICATION: https://www.employmenttribunals.service.gov.uk/remissions'
       remission_we_will_contact_you_england_wales_text: |
-        If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+        If claiming in England or Wales, email your completed fee remission application and evidence to eREMISSIONS@hmcts.gsi.gov.uk.
       remission_we_will_contact_you_scotland_text: |
         If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.
 

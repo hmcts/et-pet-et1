@@ -57,7 +57,7 @@ RSpec.feature 'Confirmation page', type: :feature do
         expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
         expect(page).to have_link 'Complete fee remission application', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
-        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application and evidence to eREMISSIONS@hmcts.gsi.gov.uk.
 
         If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
@@ -84,7 +84,7 @@ RSpec.feature 'Confirmation page', type: :feature do
         expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
         expect(page).to have_link 'Complete fee remission application', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
-        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application to eREMISSIONS@hmcts.gsi.gov.uk.
+        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application and evidence to eREMISSIONS@hmcts.gsi.gov.uk.
 
         If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the fee remission form guide.'
 
