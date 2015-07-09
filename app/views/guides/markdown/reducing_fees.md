@@ -34,7 +34,7 @@ If your monthly income (before tax and other deductions) is more than these amou
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for a fee reduction
-Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form and evidence to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
 If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form guide</a>.
 
@@ -51,6 +51,6 @@ If you’re making a joint claim with other people against the same employer the
 
 Each individual within a group can apply to pay lower fees  by following the process outlined in the ‘  [applying for help with fees](#applying_for_a_fee_reduction)’ section.
 
-If one or more people  have their fees reduced, the rest of the group will pay the remaining fee.  
+If one or more people  have their fees reduced, the rest of the group will pay the remaining fee.
 
 In a case where there are multiple people making a claim, and some pay a reduced fee, no single person will have to pay more than  they would, had they applied on their own.
