@@ -1,23 +1,19 @@
 module HealthcheckComponent
   class Sendgrid < Component
     def available?
-      helo_response.success?
+      smtp_response.success?
     end
 
     private
 
-    def helo_response
-      Net::SMTP.start(host, port) do |smtp|
+    HOST = ActionMailer::Base.smtp_settings.fetch(:address).freeze
+    PORT = ActionMailer::Base.smtp_settings.fetch(:port).freeze
+    private_constant :HOST, :PORT
+
+    def smtp_response
+      Net::SMTP.start(HOST, PORT) do |smtp|
         smtp.helo(Socket.gethostname)
       end
-    end
-
-    def host
-      ActionMailer::Base.smtp_settings.fetch(:address)
-    end
-
-    def port
-      ActionMailer::Base.smtp_settings.fetch(:port)
     end
   end
 end
