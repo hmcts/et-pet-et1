@@ -1,6 +1,5 @@
 class HealthcheckReport
-
-  def initialize components
+  def initialize(components)
     @components = components
   end
 
@@ -21,5 +20,4 @@ class HealthcheckReport
   def application_healthy?
     @components.all? { |component| component[:available] }
   end
-
 end

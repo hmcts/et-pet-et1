@@ -9,6 +9,11 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
     Healthcheck::COMPONENTS.each do |component|
       allow(component).to receive(:available?).and_return(true)
     end
+    Rails.cache.clear
+  end
+
+  after do
+    Rails.cache.clear
   end
 
   context 'when the application is in good health' do
