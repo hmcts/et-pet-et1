@@ -6,9 +6,9 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
   let(:status_code) { page.status_code }
 
   before(:each) do
-    allow(HealthcheckComponent::RabbitMq).to receive(:available?).and_return(true)
-    allow(HealthcheckComponent::BarclaycardGateway).to receive(:available?).and_return(true)
-    allow(HealthcheckComponent::Sendgrid).to receive(:available?).and_return(true)
+    Healthcheck::COMPONENTS.each do |component|
+      allow(component).to receive(:available?).and_return(true)
+    end
   end
 
   context 'when the application is in good health' do
