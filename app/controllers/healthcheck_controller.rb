@@ -8,6 +8,6 @@ class HealthcheckController < ActionController::Base
   delegate :report, :http_status_code, to: :healthcheck
 
   def healthcheck
-    @healthcheck ||= Healthcheck.new
+    @healthcheck ||= Healthcheck.report
   end
 end
