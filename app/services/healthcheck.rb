@@ -6,7 +6,11 @@ module Healthcheck
   ].freeze
 
   def self.report
-    HealthcheckReport.new components
+    Rails.cache.fetch('healthcheck',
+        expires_in: 30.seconds,
+        race_condition_ttl: 5.seconds) do
+      HealthcheckReport.new components
+    end
   end
 
   private
@@ -19,5 +23,4 @@ module Healthcheck
       }
     end
   end
-
 end
