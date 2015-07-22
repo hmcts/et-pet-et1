@@ -2,34 +2,27 @@ require 'rails_helper'
 
 RSpec.describe HealthcheckComponent::Sendgrid, type: :service do
 
-  it_behaves_like 'a healthcheck component'
-
   subject { described_class.new }
 
-  context 'sengrid is available' do
-    let(:successful_smtp_response) do
-      instance_double Net::SMTP::Response, success?: true
-    end
+  let(:response_success) { true }
 
-    before do
-      allow(Net::SMTP).to receive(:start).
-        with('localhost', 25).
-        and_return(successful_smtp_response)
-    end
+  before do
+    smtp_response = instance_double Net::SMTP::Response, success?: response_success
+    smtp = double(helo: smtp_response)
 
+    allow(Net::SMTP).to receive(:start).
+      with('localhost', 25).
+      and_yield smtp
+  end
+
+  it_behaves_like 'a healthcheck component'
+
+  context 'sendgrid is available' do
     its(:available?) { is_expected.to be_truthy }
   end
 
   context 'sendgrid is unavailable' do
-    let(:failed_smtp_response) do
-      instance_double Net::SMTP::Response, success?: false
-    end
-
-    before do
-      allow(Net::SMTP).to receive(:start).
-        with('localhost', 25).
-        and_return(failed_smtp_response)
-    end
+    let(:response_success) { false }
 
     its(:available?) { is_expected.to be_falsey }
   end
