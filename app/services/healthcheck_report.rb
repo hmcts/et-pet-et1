@@ -1,10 +1,10 @@
 class HealthcheckReport
-  def initialize(components)
-    @components = components
+  def initialize(component_statuses)
+    @component_statuses = component_statuses
   end
 
   def report
-    { status: status_text, components: @components }
+    { status: status_text, components: @component_statuses }
   end
 
   def http_status_code
@@ -18,6 +18,6 @@ class HealthcheckReport
   end
 
   def application_healthy?
-    @components.all? { |component| component[:available] }
+    @component_statuses.all? { |component_status| component_status[:available] }
   end
 end
