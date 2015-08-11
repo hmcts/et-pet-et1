@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
     get 'ping' => 'ping#index'
 
+    get 'healthcheck' => 'healthcheck#index'
+
     resource :user_session, only: %i<create destroy new>, path: :session do
       member do
         get :touch

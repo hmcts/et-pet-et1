@@ -45,6 +45,8 @@ module App
       *.png
     )
 
+    config.cache_store = :memory_store
+
     # opt into features that will be the default in the next version of Rails
     # (and supress the DEPRECATION warnings)
     config.active_record.raise_in_transactional_callbacks = true
