@@ -458,11 +458,10 @@ en:
       page_number: Page %{current_page} of %{total_pages}
 
     new:
-      header: Make a claim to an employment tribunal
+      header: Service suspended
       application_started_header: Already started a claim?
 
       callout:
-        header_html: <strong>Service suspended</strong>
         body_html: |
           You can’t currently make a claim to an employment tribunal using this online service.
       one_person:
