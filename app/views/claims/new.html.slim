@@ -10,21 +10,14 @@ header.main-header role="banner"
       section.content-section
         .panel-indent
           p = t '.callout.header_html'
-          p = t('.callout.body_html', path:guide_path)
+          p = t('.callout.body_html')
 
         .content-block
-          h2 = t '.are_you_in_time.legend'
-          p = t('.are_you_in_time.body_html', path:guide_path)
+          h3 = t '.one_person.legend'
+          p = t('.one_person.body_html', path: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/et001-eng.pdf')
 
 
-          h2 = t '.have_you_contacted_acas.legend'
-          p = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
+          h3 = t '.two_people.legend'
+          p = t('.two_people.body_html', path: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/et001a-eng.pdf')
 
-          h2 = t '.what_you_need_to_know.legend'
-          p = t('.what_you_need_to_know.body_html', path: guide_path)
-
-        .clearfix
-          = f.button :submit, { class: 'button ga-event' }
-          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
-
-  = render partial: 'shared/aside'
+          p = t('.contact_details.body_html', path: guide_path)

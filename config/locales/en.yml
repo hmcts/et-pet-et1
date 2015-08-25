@@ -462,25 +462,31 @@ en:
       application_started_header: Already started a claim?
 
       callout:
-        header_html: <strong>This is not a free service</strong>
+        header_html: <strong>Service suspended</strong>
         body_html: |
-          Find out about <a href="%{path}/#fees_and_payment">fees and applying for a reduction in fees</a>.
-      are_you_in_time:
-        legend: Are you in time?
+          You can’t currently make a claim to an employment tribunal using this online service.
+      one_person:
+        legend: To make a claim for one person
         body_html: |
-          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
-      have_you_contacted_acas:
-        legend: Have you contacted Acas?
+          Download <a href="%{path}" rel="external">ET1 form</a>.
+      two_people:
+        legend: To make a claim for more than one person
         body_html: |
-          Before applying to an employment tribunal you have to contact Acas to use their free <a href="%{path}" rel="external">Early Conciliation service</a>.
-      what_you_need_to_know:
-        legend: What you’ll need
+          Download <a href="%{path}" rel="external">ET1a form</a>.
+      contact_details:
         body_html: |
-          <ul>
-            <li>your <a href="%{path}/#acas_early_conciliation">Acas early conciliation certificate number</a></li>
-            <li>details of your claim including the background, dates and people involved</li>
-            <li>credit or debit card details </li>
-          </ul>
+          <p>Print out the form, fill it in then send to the relevant address below.</p>
+
+          <h3>Claims in England and Wales</h3>
+          <p>Employment Tribunal Central Office (England and Wales)<br>
+          PO Box 10218<br>
+          Leicester LE1 8EG</p>
+
+          <h3>Claims in Scotland</h3>
+          <p>Employment Tribunals Central Office (Scotland)<br>
+          PO Box 27105<br>
+          Glasgow G2 9JR</p>
+
     application_number:
       header: Saving your claim
       application_number: Your claim number
