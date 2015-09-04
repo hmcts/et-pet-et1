@@ -1,4 +1,5 @@
 class FeeGroupReferenceJob < ActiveJob::Base
+  include EtBaseJob
   queue_as :fee_group_reference
 
   def perform(claim, postcode)

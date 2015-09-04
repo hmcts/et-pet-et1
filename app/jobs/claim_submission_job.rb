@@ -1,4 +1,5 @@
 class ClaimSubmissionJob < ActiveJob::Base
+  include EtBaseJob
   queue_as :claim_submission
 
   def perform(claim)

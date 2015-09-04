@@ -1,4 +1,5 @@
 class BaseMailer < ActionMailer::Base
+  include EtBaseJob
   helper :claims
 
   def access_details_email(claim)

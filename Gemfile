@@ -53,6 +53,7 @@ end
 
 gem 'webmock', group: :test
 
+gem 'activejob-retry'
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
 gem 'base32_pure'
 gem 'bcrypt'
@@ -72,7 +73,8 @@ gem 'redcarpet', '~> 3.2.3'
 gem 'representable', require: 'representable/xml'
 gem 'simple_form', '3.1.0rc2'
 gem 'slim-rails'
-gem 'sneakers'
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 gem 'state_machine', require: 'state_machine/core'
 gem 'uk_postcode'
 gem 'susy'
