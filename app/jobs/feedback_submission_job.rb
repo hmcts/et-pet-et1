@@ -1,4 +1,5 @@
 class FeedbackSubmissionJob < ActiveJob::Base
+  include EtBaseJob
   queue_as :feedback_submission
 
   def perform(params)

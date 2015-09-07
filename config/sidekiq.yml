@@ -1,0 +1,6 @@
+:queues:
+  - claim_submission
+  - feedback_submission
+  - pdf_generation
+  - fee_group_reference
+  - mailers

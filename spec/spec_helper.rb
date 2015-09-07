@@ -1,4 +1,6 @@
 require 'webmock/rspec'
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
 
 WebMock.disable_net_connect!(allow: "codeclimate.com")
 

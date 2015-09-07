@@ -46,8 +46,10 @@ Rails.application.routes.draw do
 
     get '/stats' => 'stats#index'
 
-    constraints(ip: /81\.134\.202\.29|127\.0\.0\.1/) do
+    constraints(ip: /81\.134\.202\.29|127\.0\.0\.1|\:\:1/) do
       ActiveAdmin.routes(self)
+      require 'sidekiq/web'
+      mount Sidekiq::Web => '/sidekiq'
     end
   end
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+cd /rails
+echo "Starting sidekiq"
+exec bundle exec sidekiq -C config/sidekiq.yml
+
