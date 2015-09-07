@@ -1,5 +1,5 @@
 #!/bin/bash
-for file in unicorn.log production.log logstash_production.json sneakers.log;
+for file in unicorn.log production.log logstash_production.json;
   do touch /rails/log/$file
 done
 
@@ -33,7 +33,7 @@ cat <<EOT
       add_field => [ "format",    "json" ]
     }
     file {
-      path  => "/rails/log/sneakers.log"
+      path  => "/rails/log/sneakers/current"
       type  => "rails"
       add_field => [ "project",   "$PROJECT" ]
       add_field => [ "version",   "$APPVERSION" ]
