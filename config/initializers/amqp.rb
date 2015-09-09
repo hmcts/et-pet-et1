@@ -7,7 +7,7 @@ if Rails.env.production?
     workers: Integer(ENV.fetch('SNEAKERS_WORKERS')),
     durable: true,
     handler: Sneakers::Handlers::Maxretry,
-    log:     'log/sneakers.log',
+    log:     STDOUT,
     timeout_job_after: Integer(ENV.fetch('SNEAKERS_TIMEOUT_S')),
     retry_timeout: Integer(ENV.fetch('SNEAKERS_RETRY_TTL_MS')), #milliseconds
     max_retries: Integer(ENV.fetch('SNEAKERS_MAX_RETRIES')),
