@@ -6,7 +6,7 @@ module RepresentativeType
     'trade_union'              => 'Union',
     'solicitor'                => 'Solicitor',
     'private_individual'       => 'Private Individual',
-    'trade_association'        => 'Trade Assosciation',
+    'trade_association'        => 'Trade Association',
     'other'                    => 'Other'
   }.freeze
   private_constant :MAPPINGS

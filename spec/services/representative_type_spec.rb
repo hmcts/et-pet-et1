@@ -8,7 +8,7 @@ RSpec.describe RepresentativeType, type: :service do
     'trade_union'              => 'Union',
     'solicitor'                => 'Solicitor',
     'private_individual'       => 'Private Individual',
-    'trade_association'        => 'Trade Assosciation',
+    'trade_association'        => 'Trade Association',
     'other'                    => 'Other' }
 
   describe '::TYPES' do
