@@ -449,7 +449,7 @@ GEM
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
     sigdump (0.2.2)
-    simple_form (3.1.0.rc2)
+    simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simplecov (0.9.1)
@@ -568,7 +568,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 5.0.3)
   shoulda-matchers
-  simple_form (= 3.1.0rc2)
+  simple_form (= 3.2.0)
   slim-rails
   sneakers
   spring
