@@ -36,7 +36,7 @@ If your monthly income (before tax and other deductions) is more than these amou
 ### Applying for a fee reduction
 Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160-eng-2015.10.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form and evidence to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
-If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in section 8 of the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng.pdf" rel="external">fee remission form guide</a>.
+If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf" rel="external">fee remission form guide</a>.
 
 You will be given another opportunity to apply for fee remission at the end of the claim.
 
