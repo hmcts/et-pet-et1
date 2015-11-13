@@ -9,8 +9,11 @@ CMD ["/sbin/my_init"]
 
 # Ensure the pdftk package is installed as a prereq for ruby PDF generation
 ENV DEBIAN_FRONTEND noninteractive
+# Upgrade Ruby from brightbox
+RUN apt-add-repository ppa:brightbox/ruby-ng
 RUN apt-get update
-RUN apt-get install -y pdftk
+RUN apt-get purge -y dsd-ruby2.2-bundler
+RUN apt-get install -y ruby2.2 pdftk
 
 ADD ./ /rails
 # set WORKDIR
