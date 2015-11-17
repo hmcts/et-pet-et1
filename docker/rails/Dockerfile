@@ -1,11 +1,10 @@
-FROM moj-ruby:latest
+FROM ministryofjustice/ruby:2.2.3-webapp-onbuild
 
 # Set correct environment variables.
 ENV HOME /root
 ENV APP_HOME /rails
 
-# Use baseimage-docker's init process.
-CMD ["/sbin/my_init"]
+RUN touch /etc/inittab
 
 # Ensure the pdftk package is installed as a prereq for ruby PDF generation
 ENV DEBIAN_FRONTEND noninteractive
@@ -29,5 +28,13 @@ RUN mkdir -p /rails/log/sneakers
 ADD docker/rails/sneakers.logger /etc/service/sneakers/log/run
 
 # The way this base image handles envvars is pretty strange
-COPY docker/app_env_vars /etc/container_environment/
+# ... and it doesn't work on official moj ruby image.
+# COPY docker/app_env_vars /etc/container_environment/
 
+# ADD docker/rails/runner.sh /run.sh
+# RUN chmod +x /run.sh
+# ENTRYPOINT /run.sh
+
+ADD docker/rails/runit_bootstrap.sh /usr/sbin/runit_bootstrap
+RUN chmod +x /usr/sbin/runit_bootstrap
+ENTRYPOINT ["/usr/sbin/runit_bootstrap"]
