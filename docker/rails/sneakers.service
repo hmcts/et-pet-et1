@@ -1,5 +1,5 @@
 #!/bin/bash
 cd /rails
 echo "Starting sneakers"
-exec bundle exec rake sneakers:work
+bundle exec rake sneakers:work
 
