@@ -15,7 +15,8 @@ namespace :sneakers do
         from_queue klass.queue_name,
                      :headers => {
                        :'x-dead-letter-exchange' => "#{klass.queue_name}-retry"
-                     }
+                     },
+                     :heartbeat => 28
 
       end)
     end
