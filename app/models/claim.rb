@@ -114,6 +114,7 @@ class Claim < ActiveRecord::Base
   end
 
   def payment_applicable?
+    Rails.logger.info "Claim #{self.id} #{self.application_reference} payment_applicable gw: #{PaymentGateway.available?} fee_to_pay? #{fee_to_pay?} fee_group_reference #{fee_group_reference?} "
     PaymentGateway.available? && fee_to_pay? && fee_group_reference?
   end
 
