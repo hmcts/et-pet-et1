@@ -6,13 +6,23 @@ module PaymentGateway
   # in those environments, but it's annoying in development
   @available = true
   MUTEX = Mutex.new
-
+  logger = Rails::logger
+  logger.info "Initialised PaymentGateway logger"
   TASK = PeriodicTask.new(every: 5.seconds, run_immediately: !Rails.env.test?) do
     begin
+      logger.debug "PaymentGateway Checking"
       result = HTTParty.get ENV.fetch('PAYMENT_GATEWAY_PING_ENDPOINT')
-      MUTEX.synchronize { @available = result.success? }
+      MUTEX.synchronize {
+          if result.success? != @available
+            logger.info "PaymentGateway: State change from old #{@available} to #{result.success?}"
+          end
+          @available = result.success?
+      }
     rescue SystemCallError
-      MUTEX.synchronize { @available = false }
+      MUTEX.synchronize {
+        logger.error "PaymentGateway: SystemCallError - gateway now unavailable"
+        @available = false
+      }
     end
   end
 
