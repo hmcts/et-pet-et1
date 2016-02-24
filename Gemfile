@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.4'
 gem 'responders', '~> 2.0'
 
 # Use SCSS for stylesheets
@@ -70,7 +70,7 @@ gem 'pdf-forms'
 gem 'pg'
 gem 'redcarpet', '~> 3.2.3'
 gem 'representable', require: 'representable/xml'
-gem 'simple_form', '3.1.0rc2'
+gem 'simple_form', '3.2.0'
 gem 'slim-rails'
 gem 'sneakers'
 gem 'state_machine', require: 'state_machine/core'

@@ -19,6 +19,11 @@ class Form
         end
       end
 
+      # allow SimpleForm to determine if object is present
+      def has_attribute?(attr)
+        attribute_set[attr].present?
+      end
+
       def assign_attributes(attributes={})
         attributes.each { |key, value| send :"#{key}=", value }
       end
