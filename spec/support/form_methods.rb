@@ -305,7 +305,7 @@ module FormMethods
     uncheck REPRESENTATIVE_EMAIL
   end
 
-  def block_pdf_generation
+  def remove_pdf_from_claim
     Claim.last.tap do |c|
       c.remove_pdf = true
       c.save!

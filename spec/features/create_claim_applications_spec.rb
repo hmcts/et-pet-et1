@@ -259,24 +259,35 @@ feature 'Claim applications', type: :feature do
       expect(page).not_to have_session_prompt
     end
 
-    scenario 'Downloading the PDF if available' do
-      complete_a_claim seeking_remissions: true
-      click_button 'Submit claim'
+    context 'Downloading the PDF' do
+      scenario 'when the file is available' do
+        complete_a_claim seeking_remissions: true
+        click_button 'Submit claim'
 
-      expect(page.find_link('Save a copy')['href']).to eq pdf_path
-      expect(pdf_to_hash(Claim.last.pdf.read)).to eq(YAML.load(File.read('spec/support/et1_pdf_example.yml')))
-    end
+        page_pdf_link = page.find_link('Save a copy')['href']
+        expect(page_pdf_link).to eq pdf_path
 
-    scenario 'Downloading the PDF if unavailable' do
-      complete_a_claim seeking_remissions: true
-      click_button 'Submit claim'
-      block_pdf_generation
-      click_link 'Save a copy'
+        pdf_file_data = Claim.last.pdf.read
+        pdf_data = pdf_to_hash(pdf_file_data)
+        expected_pdf_data = YAML.load(File.read('spec/support/et1_pdf_example.yml'))
+        expect(pdf_data).to eq expected_pdf_data
+      end
 
-      expect(current_url).to match pdf_path
-      expect(page).to have_text "Processing a copy of your claim"
-      expect(page).not_to have_signout_button
-      expect(page).not_to have_session_prompt
+      scenario 'when the file is unavailable' do
+        complete_a_claim seeking_remissions: true
+        click_button 'Submit claim'
+
+        # spoof file not being present yet by removing it -
+        # in production this may happen as the jobs are ran
+        # asynchronously.
+        remove_pdf_from_claim
+        click_link 'Save a copy'
+
+        expect(current_path).to eq pdf_path
+        expect(page).to have_text "Processing a copy of your claim"
+        expect(page).not_to have_signout_button
+        expect(page).not_to have_session_prompt
+      end
     end
 
     context 'Viewing the confirmation page' do
