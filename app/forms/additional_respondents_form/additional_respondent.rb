@@ -1,8 +1,7 @@
 class AdditionalRespondentsForm
   class AdditionalRespondent < CollectionForm::Resource
     NAME_LENGTH    = 100
-    NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
-      employer_contacted_acas interim_relief claim_against_security_services>.freeze
+    NO_ACAS_REASON = RespondentForm::NO_ACAS_REASON
 
     include AddressAttributes
 
