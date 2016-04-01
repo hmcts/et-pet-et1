@@ -93,8 +93,7 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
       'joint_claimant_has_acas_number' => checkbox(0),
       'acas_has_no_jurisdiction' => checkbox(1),
       'employer_contacted_acas' => checkbox(2),
-      'interim_relief' => checkbox(3),
-      'claim_against_security_services' => checkbox(4)
+      'interim_relief' => checkbox(3)
     }[no_acas_number_reason]
 
     hash = {

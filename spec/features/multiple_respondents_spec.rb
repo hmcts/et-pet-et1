@@ -67,7 +67,7 @@ feature 'Multiple respondents' do
 
         check "I don’t have an Acas number"
 
-        choose "My claim is against the Security Service, Secret Intelligence Service or GCHQ"
+        choose "My employer has already been in touch with Acas"
       end
 
       click_button 'Save and continue'
@@ -137,7 +137,7 @@ feature 'Multiple respondents' do
 
       check "I don’t have an Acas number"
 
-      choose "My claim is against the Security Service, Secret Intelligence Service or GCHQ"
+      choose "My employer has already been in touch with Acas"
     end
 
     click_button 'Save and continue'

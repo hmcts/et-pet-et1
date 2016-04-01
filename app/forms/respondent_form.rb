@@ -7,8 +7,10 @@ class RespondentForm < Form
     :work_address_telephone_number]
 
   NAME_LENGTH    = 100
-  NO_ACAS_REASON = %w<joint_claimant_has_acas_number acas_has_no_jurisdiction
-    employer_contacted_acas interim_relief claim_against_security_services>.freeze
+  NO_ACAS_REASON = %w<joint_claimant_has_acas_number
+                      acas_has_no_jurisdiction
+                      employer_contacted_acas
+                      interim_relief>.freeze
 
   attribute :name,                                       String
   attribute :acas_early_conciliation_certificate_number, String

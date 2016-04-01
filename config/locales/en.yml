@@ -75,7 +75,6 @@ en:
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’.
-          claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
         collection: :"simple_form.options.respondent"
