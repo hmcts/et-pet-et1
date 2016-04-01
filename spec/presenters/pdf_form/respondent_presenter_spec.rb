@@ -53,10 +53,10 @@ RSpec.describe PdfForm::RespondentPresenter, type: :presenter do
       end
 
       context 'did not select an Acas exemption reason' do
-        let(:acas_exemption) { 'interim_relief' }
+        let(:acas_exemption) { nil }
 
         it 'has no checkboxes selected' do
-          expect(hash).not_to include('Check Box3', 'Check Box4', 'Check Box5', 'Check Box6' 'Check Box7')
+          expect(hash).not_to include('Check Box3', 'Check Box4', 'Check Box5', 'Check Box6', 'Check Box7')
         end
       end
     end
