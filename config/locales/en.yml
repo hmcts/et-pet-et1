@@ -787,6 +787,7 @@ en:
               blank: Provide the name of the person or organisation you are making the claim against
             no_acas_number_reason:
               blank: Select a reason from the list.
+              inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
             acas_early_conciliation_certificate_number:
               blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
@@ -827,6 +828,7 @@ en:
               invalid: You have provided an invalid Acas early conciliation number.
             no_acas_number_reason:
               blank: Select a reason from the list
+              inclusion: :"activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.no_acas_number_reason.blank"
             address_building:
               blank: Enter the building name or number from the additional respondent’s address
             address_street:
