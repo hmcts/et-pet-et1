@@ -75,7 +75,6 @@ en:
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
           interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’.
-          claim_against_security_services: My claim is against the Security Service, Secret Intelligence Service or GCHQ
 
       additional_respondents:
         collection: :"simple_form.options.respondent"
@@ -788,6 +787,7 @@ en:
               blank: Provide the name of the person or organisation you are making the claim against
             no_acas_number_reason:
               blank: Select a reason from the list.
+              inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
             acas_early_conciliation_certificate_number:
               blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
@@ -827,7 +827,8 @@ en:
               blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
             no_acas_number_reason:
-              blank: You have said that you don’t have an Acas early conciliation number. Select a reason from the list
+              blank: Select a reason from the list
+              inclusion: :"activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.no_acas_number_reason.blank"
             address_building:
               blank: Enter the building name or number from the additional respondent’s address
             address_street:

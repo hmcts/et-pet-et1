@@ -294,16 +294,14 @@ feature 'Generating XML for a claim', type: :feature do
     describe 'Files' do
       include_context 'assign claim', :with_pdf
 
-      it 'has Filename(s)' do
+      it 'has upto 3 filenames' do
         expect(xpath_collection('//Files/File/Filename')).
           to match_array %w<file.csv file.rtf et1_barrington_wrigglesworth.pdf>
       end
 
-      it 'has Checksum(s)' do
-        # Changing attributes on the base claim factory in factories.rb will likely
-        # effect the checksum for the generated pdf.
-        expect(xpath_collection('//Files/File/Checksum')).
-          to match_array %w<ee7d09ca06cab35f40f4a6b6d76704a7 58d5af93e8ee5b89e93eb13b750f8301 ce8ad74a5a26e0396bda815f5aecee03>
+      it 'has upto 3 file checksums' do
+        md5_checksum = /^[a-f0-9]{32}$/
+        expect(xpath_collection('//Files/File/Checksum')).to match Array.new(3, md5_checksum)
       end
     end
   end

@@ -38,9 +38,11 @@ RSpec.describe JaduXml::AcasPresenter, type: :presenter do
         its(:exemption_code) { is_expected.to eq "interim_relief" }
       end
 
-      context "claim_against_security_services" do
-        before { mock_acas_reason("claim_against_security_services") }
-        its(:exemption_code) { is_expected.to eq "claim_targets" }
+      context "an unknown acas reason code" do
+        context "claim_against_security_services" do
+          before { mock_acas_reason("claim_against_security_services") }
+          its(:exemption_code) { is_expected.to be_nil }
+        end
       end
     end
   end

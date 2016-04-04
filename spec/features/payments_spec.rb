@@ -24,10 +24,8 @@ feature 'Payments:', type: :feature do
     specify { expect(page).to have_signout_button }
 
     it 'contains a link to a PDF of the claim' do
-      block_pdf_generation
-      click_link 'Save a PDF'
-      expect(current_url).to match pdf_path
-      expect(page).to have_text "Processing a copy of your claim"
+      page_pdf_link = page.find_link('Save a PDF')['href']
+      expect(page_pdf_link).to eq pdf_path
     end
   end
 
