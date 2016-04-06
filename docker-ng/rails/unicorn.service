@@ -1,0 +1,17 @@
+#!/bin/bash
+cd /rails
+echo "rails startup"              >>/rails/log/unicorn.log
+case ${DOCKER_STATE} in
+migrate)
+    echo "running migrate"        >>/rails/log/unicorn.log
+    bundle exec rake db:migrate   >>/rails/log/unicorn.log 2>&1
+    ;;
+seed)
+    echo "running seed"           >>/rails/log/unicorn.log
+    bundle exec rake db:migrate   >>/rails/log/unicorn.log 2>&1
+    bundle exec rake db:seed      >>/rails/log/unicorn.log 2>&1
+    ;;
+esac
+echo "Starting unicorn"           >>/rails/log/unicorn.log
+exec bundle exec unicorn -p 80 -c ./config/unicorn.rb    >>/rails/log/unicorn.log 2>&1
+
