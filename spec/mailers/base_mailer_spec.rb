@@ -105,13 +105,13 @@ describe BaseMailer, type: :mailer do
         end
 
         it 'shows remission help' do
-          expect(email).to match_pattern(/complete fee remission application/i, escape_regex: false)
-          expect(email).to match_pattern('If claiming in England or Wales, email your completed fee remission application and evidence to')
+          expect(email).to match_pattern(/complete an application for help with fees/, escape_regex: false)
+          expect(email).to match_pattern('If you're in England or Wales, you can email your completed application form to')
           expect(email).to match_pattern('eREMISSIONS@hmcts.gsi.gov.uk')
-          expect(email).to match_pattern('If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the ')
-          expect(email).to match_pattern('fee remission form guide')
+          expect(email).to match_pattern('f you're in Scotland (or you would prefer to post your form), see the')
+          expect(email).to match_pattern('guide to applying for help with fees')
           expect(email).to match_pattern('http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf')
-          expect(email).to match_pattern('We’ll review your fee remission application and let you know the outcome.')
+          expect(email).to match_pattern('We’ll review your application for help with fees and let you know the outcome.')
         end
 
         it 'does not show any payment information' do
