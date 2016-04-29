@@ -1,8 +1,8 @@
 ##Reducing fees
 
-To pay a lower fee or no fee (known as ‘fee remission’), you’ll need to prove that:
+You may not have to pay a fee, or you may get some money off if you're on a low income or receiving certain benefits, and have a small amount of savings and investments. To be eligible for help with fees, you’ll need to prove that:
 
-1.  In most cases you (and your partner if you have one) have less than £3000 in savings and investments. This is known as ‘disposable capital’ and doesn’t include your main home, personal belongings, wages or benefits.
+1.  In most cases you (and your partner if you have one) have less than £3,000 in savings and investments. This doesn’t include your main home, personal belongings, wages or benefits.
 
 
 2.  You’re either on benefits or have a low income.
@@ -11,16 +11,16 @@ To pay a lower fee or no fee (known as ‘fee remission’), you’ll need to pr
 
 If you receive any of these benefits, you won't have to pay a fee:
 
-* Income-based Jobseeker’s Allowance
-* Income-related Employment and Support Allowance
+* Jobseeker’s Allowance (JSA)
+* Employment and Support Allowance (ESA)
 * Income Support
-* Universal Credit (with gross annual earnings of less than £6,000)
-* State Pension Credit - Guarantee Credit
-* Scottish Civil Legal Aid (not ‘advice and assistance’ or ‘advice by way of representation’)
+* Universal Credit
+* Pension Credit (Guarantee Credit)
+* Scottish Civil Legal Aid
 
 ### Low income
 
-If your monthly income (before tax and other deductions) is equal to or less than the amount set out below, you won’t have to pay a fee.
+If you earn less a month than the amounts in the table below (before tax and National Insurance has been taken off) then you won't have to pay a fee. This can include benefits, eg working tax credit, child tax credit.
 
 |Number of children|If you’re single|If you have a partner|
 |------------------|----------------|---------------------|
@@ -30,15 +30,15 @@ If your monthly income (before tax and other deductions) is equal to or less tha
 
 If you have 3 or more children there’s an extra allowance of £245 for each child.
 
-If your monthly income (before tax and other deductions) is more than these amounts you’ll have to pay £5 towards your fee for every £10 of income you earn above the threshold.
+If your monthly income (before tax and National Insurance has been taken off) is more than these amounts you’ll have to pay £5 towards your fee for every £10 of income you earn above the threshold.
 
 <a name="applying_for_a_fee_reduction"></a>
-### Applying for a fee reduction
-Download and complete a <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160-eng-2015.10.pdf" rel="external">fee remission form</a>. If claiming in England or Wales, email your completed remission form and evidence to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+### Applying for help with fees 
+Apply for help with fees by completing the applicaion form at <a href="https://www.gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
-If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf" rel="external">fee remission form guide</a>.
+If you're in Scotland (or you would prefer to post your form), see the <a href="https://www.gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.  
 
-You will be given another opportunity to apply for fee remission at the end of the claim.
+You will be given another opportunity to apply for help with fees at the end of the claim.
 
 If your case reaches a tribunal, you’ll need to apply for help with paying your hearing fee separately.
 

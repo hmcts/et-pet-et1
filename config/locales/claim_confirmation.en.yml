@@ -12,9 +12,9 @@ en:
         header: What happens next
         payment_failed: We’ll contact you within 5 working days to arrange payment.
         apply_for_remission: |
-          You have started an application for fee remission.
+          You have started an application for help with fees.
           You must complete your application within 7 days or your claim may be rejected.
-        remission_link_text: Complete fee remission application
+        remission_link_text: Complete an application for help with fees
         send_to_respondent: |
           A copy of the claim will be sent to the respondent.
           They’ll have 28 days to reply.
@@ -22,11 +22,11 @@ en:
           We’ll contact you when we’ve sent your claim to the respondent and
           explain the next steps.
         next_steps_remission_england_wales_html: |
-          If claiming in England or Wales, email your completed fee remission application and evidence to <a href="mailto:eREMISSIONS@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+          If claiming in England or Wales, email your completed application for help with fees to <a href="mailto:eREMISSIONS@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
         next_steps_remission_scotland_html: |
-          If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf" rel="external">fee remission form guide</a>.
+          If you're in Scotland (or you would prefer to post your form), see the <a href="https://www.gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
         next_steps_final_step: |
-          We’ll review your fee remission application and let you know the outcome.
+          We’ll review your application for help with fees and let you know the outcome.
 
       download_application:
         header: Download your claim

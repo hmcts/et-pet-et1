@@ -37,7 +37,7 @@ RSpec.feature 'Confirmation page', type: :feature do
 
     scenario 'viewing the confirmation page' do
       expect(page).to_not have_text 'We’ll contact you within 5 working days to arrange payment.'
-      expect(page).to_not have_link 'Complete fee remission application'
+      expect(page).to_not have_link 'Complete an application for help with fees'
 
       expect(page).to have_link 'Save a copy', href: pdf_path
       expect(page).to have_text 'Claim submitted' 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
@@ -54,14 +54,13 @@ RSpec.feature 'Confirmation page', type: :feature do
       let(:claim) { create :claim, :single_claimant, :not_submitted, :remission_only }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
-        expect(page).to have_link 'Complete fee remission application', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
+        expect(page).to have_text 'You have started an application for help with fees. You must complete your application within 7 days or your claim may be rejected.'
+        expect(page).to have_link 'Complete an application for help with fees', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
-        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application and evidence to eREMISSIONS@hmcts.gsi.gov.uk.
 
-        If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the fee remission form guide.'
+        expect(page).to have_text "If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk. If you're in Scotland (or you would prefer to post your form), see the guide to applying for help with fees for the address."
+        expect(page).to have_link 'guide to applying for help with fees', href: 'https://www.gov.uk/help-with-court-fees'
 
-        expect(page).to have_link 'fee remission form guide', href: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf'
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Claim submitted'
         expect(page).to_not have_text 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
@@ -81,14 +80,12 @@ RSpec.feature 'Confirmation page', type: :feature do
       before { complete_payment }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have started an application for fee remission. You must complete your application within 7 days or your claim may be rejected.'
-        expect(page).to have_link 'Complete fee remission application', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
+        expect(page).to have_text 'You have started an application for help with fees. You must complete your application within 7 days or your claim may be rejected.'
+        expect(page).to have_link 'Complete an application for help with fees', href: 'https://www.employmenttribunals.service.gov.uk/remissions'
         expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
-        expect(page).to have_text 'If claiming in England or Wales, email your completed fee remission application and evidence to eREMISSIONS@hmcts.gsi.gov.uk.
+        expect(page).to have_text "If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk. If you're in Scotland (or you would prefer to post your form), see the guide to applying for help with fees for the address."
+        expect(page).to have_link 'guide to applying for help with fees', href: 'https://www.gov.uk/help-with-court-fees'
 
-        If claiming in Scotland (or you would prefer to post your form), you can find the relevant address in the fee remission form guide.'
-
-        expect(page).to have_link 'fee remission form guide', href: 'http://hmctsformfinder.justice.gov.uk/courtfinder/forms/ex160a-eng-2015.10.pdf'
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Issue fee paid' '£250.00'
         expect(page).to have_text 'If you have any questions, contact the Public Enquiry Line'
