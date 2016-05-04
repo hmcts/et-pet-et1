@@ -33,10 +33,10 @@ If you have 3 or more children there’s an extra allowance of £245 for each ch
 If your monthly income (before tax and National Insurance has been taken off) is more than these amounts you’ll have to pay £5 towards your fee for every £10 of income you earn above the threshold.
 
 <a name="applying_for_a_fee_reduction"></a>
-### Applying for help with fees 
-Apply for help with fees by completing the applicaion form at <a href="https://www.gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+### Applying for help with fees
+Apply for help with fees by completing the applicaion form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
 
-If you're in Scotland (or you would prefer to post your form), see the <a href="https://www.gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.  
+If you're in Scotland (or you would prefer to post your form), see the <a href="https://gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
 
 You will be given another opportunity to apply for help with fees at the end of the claim.
 
