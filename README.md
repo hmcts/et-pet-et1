@@ -16,7 +16,17 @@ For versions of OS X 10.10 and lower [this](https://www.pdflabs.com/tools/pdftk-
 
 ================
 
-#### Installing the application
+## System Dependencies
+
+### npm v2.x.x (not v3.x.x)
+
+To install npm v2 using brew:
+```
+brew install homebrew/versions/node4-lts
+```
+This should install node v4.4.3 and npm v2.15.1
+
+### Installing the application
 
 ```bash
 git clone git@github.com:ministryofjustice/atet.git
@@ -26,7 +36,7 @@ npm install
 bundle exec rake db:setup
 ```
 
-#### Running the specs
+### Running the specs
 
 ```bash
 rake
