@@ -37,9 +37,9 @@ en:
       remission_we_will_contact_you_england_wales_text: |
         If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk.
       remission_we_will_contact_you_scotland_text: |
-        If you're in Scotland (or you would prefer to post your form), see the <a href="https://www.gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
+        If you're in Scotland (or you would prefer to post your form), see the <a href="https://gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
 
-        GUIDE TO APPLYING FOR HELP WITH FEES: https://www.gov.uk/help-with-court-fees
+        GUIDE TO APPLYING FOR HELP WITH FEES: https://gov.uk/help-with-court-fees
 
       details:
         header: Submission details
@@ -65,6 +65,6 @@ en:
 
     shared:
       button_fee_remission:
-        apply_for_fee_remission: Complete an application for help with fees 
+        apply_for_fee_remission: Complete an application for help with fees
       button_complete_claim:
         complete_claim: 'Complete claim'
