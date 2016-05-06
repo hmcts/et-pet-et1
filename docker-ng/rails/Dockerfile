@@ -1,6 +1,6 @@
 #FROM ministryofjustice/ruby:2.2.3-webapp-onbuild
 #FROM ministryofjustice/ruby:2-webapp-onbuild
-FROM ministryofjustice/ruby:2.3.0
+FROM ministryofjustice/ruby:2.2
 
 RUN touch /etc/inittab
 
@@ -54,7 +54,7 @@ ADD docker-ng/rails/logstash-conf.sh /etc/logstash-conf.sh
 #ADD docker-ng/rails/sneakers.logger /etc/service/sneakers/log/run
 ADD docker-ng/rails/runit/unicorn.service /etc/service/unicorn/run
 ADD docker-ng/rails/runit_bootstrap.sh /run.sh
-RUN chmod +x /etc/service/unicorn/run /run.sh 
+RUN chmod +x /etc/service/unicorn/run /run.sh
 
 
 # The way this base image handles envvars is pretty strange
