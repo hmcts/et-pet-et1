@@ -6,13 +6,15 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
       has_collection: 'true',
       collection_attributes: {
         "0" => {
-          name: 'Butch McTaggert', acas_early_conciliation_certificate_number: 'XX123456/12/12',
+          name: 'Butch McTaggert',
+          acas_early_conciliation_certificate_number: 'XX123456/12/12',
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
           address_post_code: 'W2 3ED'
         },
         "1" => {
-          name: 'Pablo Noncer', acas_early_conciliation_certificate_number: 'XX123456/12/12',
+          name: 'Pablo Noncer',
+          acas_early_conciliation_certificate_number: 'XX123456/12/12',
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
           address_post_code: 'W2 3ED'
@@ -78,8 +80,10 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
         subject.save
         claim.secondary_respondents.reload
 
-        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
-          attributes.each { |k, v| expect(claim.secondary_respondents[index].send(k)).to eq v }
+        attributes[:collection_attributes].each do |str_index, attributes|
+          attributes.each do |k, v|
+            expect(claim.secondary_respondents[str_index.to_i].send(k)).to eq v
+          end
         end
       end
     end
