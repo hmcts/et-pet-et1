@@ -7,7 +7,8 @@ RSpec.describe PaymentGateway, type: :service do
     around(:example) do |example|
       pdq_stub
       subject.run
-      WebMock.after_request { example.run }
+      sleep 1 # Allow thread to start - we were getting flickering failures
+      example.run
       subject.stop
       WebMock.reset_callbacks
     end

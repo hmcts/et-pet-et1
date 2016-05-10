@@ -37,8 +37,12 @@ module FormMethods
     end
 
     around do |example|
+      load "app/services/payment_gateway.rb"
+
       stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
         to_return(:status => 200, :body => "", :headers => {})
+      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ%5C&lang=1").
+                 to_return(:status => 200, :body => "", :headers => {})
 
       PaymentGateway::TASK.run
       example.run
