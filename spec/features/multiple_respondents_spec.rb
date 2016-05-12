@@ -82,6 +82,7 @@ feature 'Multiple respondents' do
 
     scenario 'deleting arbitrary respondents' do
       visit claim_additional_respondents_path
+      expect(claim.secondary_respondents.count).to eq 2
 
       within '#resource_1' do
         check 'Remove this respondent'
@@ -89,7 +90,7 @@ feature 'Multiple respondents' do
 
       click_button 'Save and continue'
 
-      expect(claim.secondary_respondents.pluck(:name)).to eq ['Butch McTaggert']
+      expect(claim.secondary_respondents.count).to eq 1
     end
   end
 

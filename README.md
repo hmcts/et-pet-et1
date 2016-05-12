@@ -22,6 +22,13 @@ brew install homebrew/versions/node4-lts
 ```
 This should install node v4.4.3 and npm v2.15.1
 
+### Dependencies for deployment
+
+The application depends on 2 other repositories during deployment:
+
+* [Parliamentary Questions Deploy](https://github.com/ministryofjustice/parliamentary-questions-deploy) - rather than having its own deploy app, this product uses the deploy shared with Parliamentary Questions.
+* [ATET Smoketests](https://github.com/ministryofjustice/atet-smoketests) - these are run as part of the build process.
+
 
 ## Installing the application
 
