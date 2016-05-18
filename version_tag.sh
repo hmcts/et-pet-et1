@@ -1,6 +1,13 @@
 #!/bin/bash
 SORTCMD=${SORT:-gsort}
 
+which -s $SORTCMD
+if [ $? -eq 1 ]
+then
+  echo "ERROR: Can't find sort command '$SORTCMD'. Please install it or set SORT to a sort command that exists."
+  exit 1
+fi
+
 PREFIX="release/"
 TAGS=$(git ls-remote -t 2>/dev/null | grep -o 'release/[0-9]\+\.[0-9]\+\.[0-9]\+$' | cut -d'/' -f 2 | $SORTCMD -V)
 LAST_TAG=$(echo "$TAGS" | tail -1)
