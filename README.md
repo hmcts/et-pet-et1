@@ -6,7 +6,7 @@
 
 ## Dependencies
 
-### pdftk
+### Installing pdftk
 
 The application requires [pdftk](https://www.pdflabs.com/tools/pdftk-server/) to inject content into a template pdf file. This is the end result of completing a claim in the web application.
 
@@ -50,3 +50,4 @@ rake
 ## Deploying
 
 For deployment to all environments, see the documentation at the [Employment Tribunals Deployment section of Ops manual](https://opsmanual.dsd.io/run_books/employmenttribunals.html#deployment)
+
