@@ -1,9 +1,13 @@
 default: &default
   adapter: postgresql
+  # use this when testing locally
   host: localhost
+  # use this when testing in Docker
+  # host: database
   encoding: unicode
   pool: 5
-  user: <%= %x<whoami>.chomp %>
+  # user: <%= %x<whoami>.chomp %>
+  user: postgres
 
 development:
   <<: *default

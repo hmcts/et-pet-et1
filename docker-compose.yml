@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    env_file:
+      # add censored vars file, with the full path
+      # eg:
+      # - /Users/alex/dev/moj/jenkins-vars-censored-dev.sh
+    volumes:
+      # mount the above censored vars into the docker image
+      # eg:
+      # - /Users/alex/dev/moj/jenkins-vars-censored.sh:/etc/envvars
+      - ./:/rails
+    build:
+      context: .
+      dockerfile: ./docker-ng/rails/Dockerfile
+    command: bash
+    volumes:
+      - .:/rails
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db:database
+  db:
+    image: postgres
+    ports:
+      - '5432'
