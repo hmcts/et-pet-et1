@@ -27,9 +27,12 @@ RUN    cd /rails  && \
 
 RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.0/ gem install bundler
 
-EXPOSE 8080
-EXPOSE 3000
-
 ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
 ADD docker/rails/runit_bootstrap.sh /run.sh
 RUN chmod +x /run.sh
+
+CMD ["./run.sh"]
+
+EXPOSE 8080
+EXPOSE 3000
+
