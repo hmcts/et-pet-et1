@@ -30,18 +30,45 @@ The application depends on 2 other repositories during deployment:
 * [ATET Smoketests](https://github.com/ministryofjustice/atet-smoketests) - these are run as part of the build process.
 
 
-## Installing the application
 
-```bash
-git clone git@github.com:ministryofjustice/atet.git
-cd atet
-bundle
-npm install
-bundle exec rake db:setup
-```
+## Running the application locally
+
+### Install Docker and Docker Compose
+If you already have Docker, be sure it's at least v1.11
+
+If you're using [Kitematic] on OSX, use the terminal from there, or in any terminal run:
+
+    eval $(docker-machine env default)
+
+### Setup .env file
+From the project's root folder, copy the `.env.template` file to `.env` and change as necessary.
+
+### Build
+From the project's root folder, build (this will take several minutes - grab a coffee):
+
+    docker-compose build
+
+After building, run it:
+
+    docker-compose up -d
+
+Run setup and recompile assets:
+
+    docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake db:setup"
+    docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake assets:precompile"
+
+Restart the instances:
+
+    docker-compose restart
+
+Get the IP of the virtual docker machine with:
+
+    docker-machine ip
+
+Visit `http://<insert-ip-from-previous-command>:8080` to access the locally running site.
 
 
-## Running the specs
+### Running the specs
 
 ```bash
 rake
@@ -50,4 +77,3 @@ rake
 ## Deploying
 
 For deployment to all environments, see the documentation at the [Employment Tribunals Deployment section of Ops manual](https://opsmanual.dsd.io/run_books/employmenttribunals.html#deployment)
-

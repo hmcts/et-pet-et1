@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  web:
+    build: .
+    links:
+      - db
+      - redis
+    ports:
+      - 8080:8080
+    env_file: .env
+    command: bash -c "bundle exec unicorn -p 8080 -c ./config/unicorn.rb -E local"
+
+  sidekiq:
+    build: .
+    links:
+      - db
+      - redis
+    env_file: .env
+    command: bash -c "bundle exec sidekiq -c 5 -v -e local"
+
+  redis:
+    image: redis
+    ports:
+      - 6379
+
+  db:
+    image: postgres
