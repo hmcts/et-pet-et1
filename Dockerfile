@@ -14,6 +14,7 @@ RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
     apt-get install -y pdftk runit nodejs
 
 ADD ./ /rails
+
 # set WORKDIR
 WORKDIR /rails
 
@@ -32,3 +33,5 @@ EXPOSE 8080
 ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
 ADD docker/rails/runit_bootstrap.sh /run.sh
 RUN chmod +x /run.sh
+
+CMD ["./run.sh"]
