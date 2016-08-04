@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem "activerecord-nulldb-adapter"
 end
 
 gem 'webmock', group: :test

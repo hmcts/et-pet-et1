@@ -17,7 +17,7 @@ ADD ./ /rails
 # set WORKDIR
 WORKDIR /rails
 
-RUN    cd /rails  && \
+RUN cd /rails  && \
     chown -R $APPUSER /rails && \
     bundle config --global without build && \
     bundle --path vendor/bundle --deployment --standalone --binstubs  && \
@@ -30,6 +30,8 @@ RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.0/ gem install bundler
 ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
 ADD docker/rails/runit_bootstrap.sh /run.sh
 RUN chmod +x /run.sh
+
+RUN source env_vars && DB_ADAPTOR=nulldb bundle exec rake assets:precompile
 
 CMD ["./run.sh"]
 
