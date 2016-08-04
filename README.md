@@ -52,10 +52,9 @@ After building, run it:
 
     docker-compose up -d
 
-Run setup and recompile assets:
+Run DB setup:
 
     docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake db:setup"
-    docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake assets:precompile"
 
 Restart the instances:
 
