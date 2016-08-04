@@ -56,10 +56,6 @@ Run DB setup:
 
     docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake db:setup"
 
-Restart the instances:
-
-    docker-compose restart
-
 Get the IP of the virtual docker machine with:
 
     docker-machine ip
