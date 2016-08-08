@@ -1,6 +1,5 @@
 module Healthcheck
   COMPONENTS = [
-    HealthcheckComponent::RabbitMq,
     HealthcheckComponent::BarclaycardGateway,
     HealthcheckComponent::Sendgrid
   ].freeze

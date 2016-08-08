@@ -32,14 +32,6 @@ cat <<EOT
       add_field => [ "env",       "$ENV" ]
       add_field => [ "format",    "json" ]
     }
-    file {
-      path  => "/rails/log/sneakers/current"
-      type  => "rails"
-      add_field => [ "project",   "$PROJECT" ]
-      add_field => [ "version",   "$APPVERSION" ]
-      add_field => [ "env",       "$ENV" ]
-      add_field => [ "appserver", "rails" ]
-    }
   }
   filter {
      if ([message] =~ "[hH]eartbeat") {

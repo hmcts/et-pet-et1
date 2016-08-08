@@ -1,0 +1,7 @@
+:concurrency: 5
+:queues:
+  - mailers
+  - pdf_generation
+  - feedback_submission
+  - claim_submission
+  - fee_group_reference

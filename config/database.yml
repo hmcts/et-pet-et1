@@ -1,23 +1,31 @@
 default: &default
-  adapter: postgresql
-  host: localhost
+  adapter: <%= ENV['DB_ADAPTOR'] || 'postgresql' %>
   encoding: unicode
   pool: 5
-  user: <%= %x<whoami>.chomp %>
 
 development:
   <<: *default
   database: atet_development
+  host: localhost
+  user: <%= %x<whoami>.chomp %>
+
+local:
+  <<: *default
+  database: atet_local
+  host: db
+  user: postgres
 
 test:
   <<: *default
   database: atet_test
+  host: localhost
+  user: <%= %x<whoami>.chomp %>
 
 production:
   adapter: postgresql
-  host: <%= ENV['DB_HOST'] %>
+  database: <%= ENV['DB_NAME'] || 'etdb' %>
   encoding: unicode
+  host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME']  || 'etuser' %>
   password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
-  database: <%= ENV['DB_NAME'] || 'etdb' %>
   pool: 15

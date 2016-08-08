@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem "activerecord-nulldb-adapter"
 end
 
 gem 'webmock', group: :test
@@ -72,7 +73,7 @@ gem 'redcarpet', '~> 3.2.3'
 gem 'representable', require: 'representable/xml'
 gem 'simple_form', '3.1.0rc2'
 gem 'slim-rails'
-gem 'sneakers', '2.3.5'
+gem 'sidekiq'
 gem 'state_machine', require: 'state_machine/core'
 gem 'uk_postcode'
 gem 'susy'

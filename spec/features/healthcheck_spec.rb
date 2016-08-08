@@ -23,7 +23,6 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
       {
         status: 'ok',
         components: [
-          { name: 'rabbit_mq', available: true },
           { name: 'barclaycard_gateway', available: true },
           { name: 'sendgrid', available: true }
         ]
@@ -42,27 +41,6 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
   context 'when the application is in poor health' do
     let(:failed_json) { { status: 'bad', components: failed_components }.to_json }
 
-    context 'rabbit mq is unavailable' do
-      before do
-        allow(HealthcheckComponent::RabbitMq).to receive(:available?).and_return(false)
-        visit healthcheck_path
-      end
-
-      let(:failed_components) do
-        [{ name: 'rabbit_mq', available: false },
-          { name: 'barclaycard_gateway', available: true },
-          { name: 'sendgrid', available: true }]
-      end
-
-      it "returns a json response with a 'bad' status" do
-        expect(json).to eq failed_json
-      end
-
-      it 'returns a 500 http status code' do
-        expect(status_code).to eq 500
-      end
-    end
-
     context 'sengrid is unavailable' do
       before do
         allow(HealthcheckComponent::Sendgrid).to receive(:available?).and_return(false)
@@ -70,9 +48,10 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
       end
 
       let(:failed_components) do
-        [{ name: 'rabbit_mq', available: true },
+        [
           { name: 'barclaycard_gateway', available: true },
-          { name: 'sendgrid', available: false }]
+          { name: 'sendgrid', available: false }
+        ]
       end
 
       it "returns a json response with a 'bad' status" do
@@ -92,9 +71,10 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
       end
 
       let(:failed_components) do
-        [{ name: 'rabbit_mq', available: true },
+        [
           { name: 'barclaycard_gateway', available: false },
-          { name: 'sendgrid', available: true }]
+          { name: 'sendgrid', available: true }
+        ]
       end
 
       it "returns a json response with a 'bad' status" do
