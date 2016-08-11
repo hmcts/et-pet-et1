@@ -34,6 +34,6 @@ ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
 ADD docker/rails/runit_bootstrap.sh /run.sh
 
 RUN chmod +x /run.sh
-RUN DB_ADAPTOR=nulldb bundle exec rake assets:precompile
+RUN bash -c "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production"
 
 CMD ["./run.sh"]
