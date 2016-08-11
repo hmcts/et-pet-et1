@@ -48,13 +48,13 @@ From the project's root folder, build (this will take several minutes - grab a c
 
     docker-compose build
 
-After building, run it:
+After building, run DB setup:
+
+    docker-compose run web bash -c "RAILS_ENV=local bundle exec rake db:setup"
+
+Run it:
 
     docker-compose up -d
-
-Run DB setup:
-
-    docker-compose exec web bash -c "RAILS_ENV=local bundle exec rake db:setup"
 
 Get the IP of the virtual docker machine with:
 
