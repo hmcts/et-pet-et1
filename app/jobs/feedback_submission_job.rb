@@ -2,12 +2,16 @@ class FeedbackSubmissionJob < ActiveJob::Base
   queue_as :feedback_submission
 
   def perform(params)
+    Rails.logger.info "Starting FeedbackSubmissionJob"
+
     ZendeskAPI::Ticket.create(client, {
       subject: "New ATET User Feedback",
       comment: { value: body_from(params) },
       requester: { email: email_from(params), name: "ET User" },
       group_id: ENV.fetch('ZENDESK_GROUP_ID')
     })
+
+    Rails.logger.info "Finished FeedbackSubmissionJob"
   end
 
   private
