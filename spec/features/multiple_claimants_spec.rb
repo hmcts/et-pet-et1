@@ -95,8 +95,7 @@ feature 'Multiple claimants' do
       end
 
       click_button 'Save and continue'
-
-      expect(claim.secondary_claimants.pluck(:first_name)).to eq %w<Persephone>
+      expect(claim.secondary_claimants.size).to eq 1
     end
   end
 

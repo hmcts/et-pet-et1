@@ -550,12 +550,12 @@ RSpec.describe Claim, type: :claim do
     end
   end
 
-  describe 'respondent count' do
-    let(:max) { Rails.application.config.additional_respondents_limit + 1 }
+  describe 'secondary respondent count' do
+    let(:max) { Rails.application.config.additional_respondents_limit }
 
-    context "max respondents" do
+    context "max secondary respondents" do
       before do
-        max.times { subject.respondents << create(:respondent) }
+        max.times { subject.secondary_respondents << create(:respondent) }
       end
 
       it 'Is valid' do
@@ -563,9 +563,9 @@ RSpec.describe Claim, type: :claim do
       end
     end
 
-    context "over max respondents" do
+    context "over max secondary respondents" do
       before do
-        (max + 1).times { subject.respondents << create(:respondent) }
+        (max + 1).times { subject.secondary_respondents << create(:respondent) }
       end
 
       it 'Is invalid' do
@@ -574,7 +574,7 @@ RSpec.describe Claim, type: :claim do
 
       it 'Has correct message' do
         subject.valid?
-        expect(subject.errors[:respondents].first).to eq('Number of respondents must not exceed 4')
+        expect(subject.errors[:secondary_respondents].first).to eq("You may have no more than #{max} additional respondents")
       end
     end
   end
