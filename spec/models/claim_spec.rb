@@ -549,4 +549,33 @@ RSpec.describe Claim, type: :claim do
       expect(event[:actor]).to eq 'user'
     end
   end
+
+  describe 'respondent count' do
+    let(:max) { Rails.application.config.additional_respondents_limit + 1 }
+
+    context "max respondents" do
+      before do
+        max.times { subject.respondents << create(:respondent) }
+      end
+
+      it 'Is valid' do
+        expect(subject).to be_valid
+      end
+    end
+
+    context "over max respondents" do
+      before do
+        (max + 1).times { subject.respondents << create(:respondent) }
+      end
+
+      it 'Is invalid' do
+        expect(subject).to be_invalid
+      end
+
+      it 'Has correct message' do
+        subject.valid?
+        expect(subject.errors[:respondents].first).to eq('Number of respondents must not exceed 4')
+      end
+    end
+  end
 end
