@@ -559,7 +559,7 @@ en:
       person: Respondent %{number}
       add_fields: Add another respondent
       remove_resource_link: Remove this respondent
-      additional_respondents_limit: If you are making a claim against more than 3 additional respondents, enter their details in the ‘more about the claim’ section later in the form.
+      additional_respondents_limit: If you are making a claim against more than %{max} additional respondents, enter their details in the ‘more about the claim’ section later in the form.
 
     employment:
       header: Employment details
@@ -700,6 +700,10 @@ en:
           attributes:
             additional_claimants_csv:
               blank: You must provide a CSV file in order to continue
+        claim:
+          attributes:
+            secondary_respondents:
+              too_many: You may have no more than %{max} additional respondents
         claim_details:
           attributes:
             claim_details:

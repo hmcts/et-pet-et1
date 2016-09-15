@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Barclaycard payment template' do
   before do
-    allow(ENV).to receive(:fetch).
-      with('ASSET_HOST').
-      and_return('https://example.com')
-
+    allow(ENV).to receive(:fetch).and_return('https://example.com')
     visit 'apply/barclaycard-payment-template'
   end
 

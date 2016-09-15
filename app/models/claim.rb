@@ -36,6 +36,12 @@ class Claim < ActiveRecord::Base
   delegate :file, to: :additional_claimants_csv, prefix: true
   delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
 
+  validates :secondary_respondents, respondents_count: {
+    maximum: Rails.application.config.additional_respondents_limit,
+    message: I18n.t('activemodel.errors.models.claim.attributes.secondary_respondents.too_many',
+                    max: Rails.application.config.additional_respondents_limit)
+  }
+
   DISCRIMINATION_COMPLAINTS = %i<sex_including_equal_pay disability race age
     pregnancy_or_maternity religion_or_belief sexual_orientation
     marriage_or_civil_partnership gender_reassignment>.freeze

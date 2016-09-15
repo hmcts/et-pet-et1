@@ -549,4 +549,33 @@ RSpec.describe Claim, type: :claim do
       expect(event[:actor]).to eq 'user'
     end
   end
+
+  describe 'secondary respondent count' do
+    let(:max) { Rails.application.config.additional_respondents_limit }
+
+    context "max secondary respondents" do
+      before do
+        max.times { subject.secondary_respondents << create(:respondent) }
+      end
+
+      it 'Is valid' do
+        expect(subject).to be_valid
+      end
+    end
+
+    context "over max secondary respondents" do
+      before do
+        (max + 1).times { subject.secondary_respondents << create(:respondent) }
+      end
+
+      it 'Is invalid' do
+        expect(subject).to be_invalid
+      end
+
+      it 'Has correct message' do
+        subject.valid?
+        expect(subject.errors[:secondary_respondents].first).to eq("You may have no more than #{max} additional respondents")
+      end
+    end
+  end
 end
