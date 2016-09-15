@@ -34,7 +34,7 @@ module App
     config.product_type = ''
     # Feedback URL (URL for feedback link in phase banner)
     config.feedback_url = ''
-    # Controlls how many additional respondents are allowed 
+    # Controlls how many additional respondents are allowed
     config.additional_respondents_limit = 3
 
     config.assets.enabled = true
