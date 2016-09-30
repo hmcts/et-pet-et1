@@ -35,6 +35,6 @@ ADD docker/rails/runit_bootstrap.sh /run.sh
 ADD ./run_sidekiq.sh /run_sidekiq.sh
 
 RUN chmod +x /run.sh /run_sidekiq.sh
-RUN bash -c "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=local"
+RUN bash -c "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production"
 
 CMD ["./run.sh"]
