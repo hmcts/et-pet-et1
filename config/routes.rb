@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   scope :apply do
     resource :guide,              only: :show
@@ -48,6 +50,7 @@ Rails.application.routes.draw do
 
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1/) do
       ActiveAdmin.routes(self)
+      mount Sidekiq::Web => '/sidekiq'
     end
   end
 
