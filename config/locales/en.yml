@@ -642,7 +642,7 @@ en:
       remission_applied_info_html:
         <p>You are making an application for fee remission.</p>
 
-        <p>You must complete and return a <a href="%{form}" rel="external">fee remission application</a> form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
+        <p>You must complete and return a fee remission application form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
 
         <p>You won’t need to pay the issue fee when you submit this claim.</p>
 
