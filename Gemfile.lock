@@ -586,6 +586,3 @@ DEPENDENCIES
   virtus
   webmock
   zendesk_api
-
-BUNDLED WITH
-   1.12.1

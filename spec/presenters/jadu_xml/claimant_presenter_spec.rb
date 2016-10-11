@@ -38,4 +38,13 @@ RSpec.describe JaduXml::ClaimantPresenter, type: :presenter do
       end
     end
   end
+
+  describe '#title' do
+    it 'has first letter upppercased'
+    before { claimant.title = 'mr'}
+
+    it 'is correctly uppercased' do
+      expect(subject.title).to eq 'Mr'
+    end
+  end
 end
