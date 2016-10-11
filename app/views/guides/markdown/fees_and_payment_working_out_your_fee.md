@@ -23,13 +23,13 @@ If you’re making a joint claim with other people against the same employer the
 - the type of claim you are making
 - the types of claims the rest of the group are making
 - the number of people in the group
-- whether anyone in the group is applying to pay lower fees (fee remission)
+- whether anyone in the group is applying to pay lower fees (help with fees)
 
 
 ###Issue fee
 
-|Number of people named on the claim form|Type A|Mixture of type<br/>A and type B,or<br> type B claims only|
-|----------------------------------------|--------|--------------------------------------------------------|
+|Number of people named on the claim form|Type A|Mixture of type<br/>A and type B, or<br> type B claims only|
+|----------------------------------------|--------|---------------------------------------------------------|
 |Between 2 and 10|£320|£500|
 |Between 11 and 200|£640|£1,000|
 |201 or more|£960|£1,500|
@@ -39,8 +39,8 @@ If you’re making a joint claim with other people against the same employer the
 
 If your group claim makes it to a hearing, then your group will also pay a single hearing fee.
 
-|Number of people named on the claim form|Type A|Mixture of type<br/>A and type B,or<br> type B claims only|
-|----------------------------------------|--------|--------------------------------------------------------|
+|Number of people named on the claim form|Type A|Mixture of type<br/>A and type B, or<br> type B claims only|
+|----------------------------------------|--------|---------------------------------------------------------|
 |Between 2 and 10|£460|£1900|
 |Between 11 and 200|£920|£3,800|
 |201 or more|£1,380|£5,700|
