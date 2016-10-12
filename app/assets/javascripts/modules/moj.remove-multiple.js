@@ -6,7 +6,6 @@ module.exports = (function() {
     multiples = container.find('.multiple');
 
   removeMultiple.init = function() {
-
     if(multiples.length <= 1) {
       multiples.find('.remove-multiple').hide();
     } else {
@@ -18,7 +17,8 @@ module.exports = (function() {
         el.style.display = checkbox.is(':checked') ? 'none' : 'block';
       });
       //check for new entry and scroll to it. assume there are no errors (dont override if they exist)
-      if($('#error-summary').is(':hidden')){
+
+      if(!$('#error-summary').length || $('#error-summary').is(':hidden')){
         removeMultiple.checkForNewEntry();
       }
     }
