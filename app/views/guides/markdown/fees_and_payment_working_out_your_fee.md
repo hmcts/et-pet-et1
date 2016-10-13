@@ -45,7 +45,7 @@ If your group claim makes it to a hearing, then your group will also pay a singl
 |Between 11 and 200|£920|£3,800|
 |201 or more|£1,380|£5,700|
 
-For more detailed information about fees for group claims, see <a href="http://hmctsformfinder.justice.gov.uk/courtfinder/forms/t436-eng.pdf" rel="external" title="employment tribunal fees for groups and multiples">employment tribunal fees for groups and multiples</a>.
+For more detailed information about fees for group claims, see <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=4610" rel="external" title="employment tribunal fees for groups and multiples">employment tribunal fees for groups and multiples</a>.
 
 
 
