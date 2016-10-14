@@ -8,8 +8,19 @@ fieldset
     summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
       span.summary= t '.summary'
     .panel-indent#details-content-0
-      p= t '.summary_detail'
+      p= t '.unfair_dismissal_summary_detail'
   = f.input :is_unfair_dismissal,
+    as: :gds_check_boxes,
+    wrapper_class: 'options'
+
+fieldset
+  legend.medium= t '.protective_award'
+  details
+    summary role="button" aria={controls: 'details-content-1', expanded: 'true'}
+      span.summary= t '.summary'
+    .panel-indent#details-content-1
+      p= t '.protective_award_summary_detail'
+  = f.input :is_protective_award,
     as: :gds_check_boxes,
     wrapper_class: 'options'
 

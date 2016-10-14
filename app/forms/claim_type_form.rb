@@ -2,6 +2,7 @@ class ClaimTypeForm < Form
   boolean :is_other_type_of_claim
 
   attribute :is_unfair_dismissal,                 Boolean
+  attribute :is_protective_award,                 Boolean
   attribute :discrimination_claims,               Array[String]
   attribute :pay_claims,                          Array[String]
   attribute :is_whistleblowing,                   Boolean

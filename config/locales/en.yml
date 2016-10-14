@@ -422,7 +422,7 @@ en:
       fees_and_payment: Fees and payment
       fees_and_payment_working_out_your_fee: Working out your fee
       fees_and_payment_paying_your_fee: Paying your issue fee
-      reducing_fees: Help with fees 
+      reducing_fees: Help with fees
       writing_your_claim_statement: Writing your claim statement
       aside:
         gethelp_header: Support
@@ -589,9 +589,12 @@ en:
       claim_type: What your claim is about
       claim_type_label: Select at least one of the claim types below.
       unfair_dismissal: Unfair dismissal
+      protective_award: Protective award
       summary:  What is this?
-      summary_detail: |
+      unfair_dismissal_summary_detail: |
         Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
+      protective_award_summary_detail: |
+        A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
       discrimination: Discrimination
       pay: Pay
       other_type: Other type of claim (not shown above)

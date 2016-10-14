@@ -173,6 +173,11 @@ RSpec.describe Claim, type: :claim do
       its(:attracts_higher_fee?) { is_expected.to be true }
     end
 
+    context 'when there is a protective award claim' do
+      before { subject.is_protective_award = true }
+      its(:attracts_higher_fee?) { is_expected.to be true }
+    end
+
     context 'when claim is whistleblowing' do
       before { subject.is_whistleblowing = true }
       its(:attracts_higher_fee?) { is_expected.to be true }
@@ -200,6 +205,15 @@ RSpec.describe Claim, type: :claim do
       before do
         subject.is_unfair_dismissal = true
         subject.is_whistleblowing = true
+      end
+
+      its(:attracts_higher_fee?) { is_expected.to be true }
+    end
+
+    context 'when there are claims of both unfair dismissal and protective award' do
+      before do
+        subject.is_unfair_dismissal = true
+        subject.is_protective_award = true
       end
 
       its(:attracts_higher_fee?) { is_expected.to be true }

@@ -99,6 +99,11 @@ feature 'Generating XML for a claim', type: :feature do
         specify { is_expected.to eq '2' }
       end
 
+      context 'Claim with protective award' do
+        include_context 'assign claim', is_unfair_dismissal: true, discrimination_claims: nil 
+        specify { is_expected.to eq '2' }
+      end
+
       context 'Claim with neither alleged discrimination or unfair dismissal' do
         include_context 'assign claim', is_unfair_dismissal: false, discrimination_claims: nil
         specify { is_expected.to eq '1' }
