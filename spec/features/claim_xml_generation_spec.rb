@@ -100,7 +100,7 @@ feature 'Generating XML for a claim', type: :feature do
       end
 
       context 'Claim with protective award' do
-        include_context 'assign claim', is_protective_award: true, discrimination_claims: nil 
+        include_context 'assign claim', is_protective_award: true, discrimination_claims: nil
         specify { is_expected.to eq '2' }
       end
 

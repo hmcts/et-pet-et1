@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ClaimTypeForm, :type => :form do
 
   it_behaves_like 'a Form', is_other_type_of_claim: true,
-    is_unfair_dismissal: true, 
+    is_unfair_dismissal: true,
     is_protective_award: false,
     discrimination_claims: ['disability'],
     pay_claims: ['holiday'],
