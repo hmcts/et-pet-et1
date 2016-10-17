@@ -226,6 +226,7 @@ en:
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+        is_protective_award: Protective Award
         is_discrimination: Discrimination
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
@@ -243,6 +244,7 @@ en:
 
       claim_type:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+        is_protective_award: Protective Award
         is_other_type_of_claim: Other type of claim
         other_claim_details: State the other type of claim(s) that you’re making
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
