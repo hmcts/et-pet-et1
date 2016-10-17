@@ -1,4 +1,4 @@
-##Reducing fees
+## Help with fees
 
 You may not have to pay a fee, or you may get some money off if you're on a low income or receiving certain benefits, and have a small amount of savings and investments. To be eligible for help with fees, you’ll need to prove that:
 
@@ -34,7 +34,7 @@ If your monthly income (before tax and National Insurance has been taken off) is
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for help with fees
-Apply for help with fees by completing the applicaion form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:eremissions@hmcts.gsi.gov.uk">eREMISSIONS@hmcts.gsi.gov.uk</a>.
+Apply for help with fees by completing the application form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:ethelpwithfees@hmcts.gsi.gov.uk">ETHelpwithfees@hmcts.gsi.gov.uk</a>.
 
 If you're in Scotland (or you would prefer to post your form), see the <a href="https://gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
 

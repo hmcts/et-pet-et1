@@ -226,6 +226,7 @@ en:
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+        is_protective_award: Protective Award
         is_discrimination: Discrimination
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
@@ -243,6 +244,7 @@ en:
 
       claim_type:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+        is_protective_award: Protective Award
         is_other_type_of_claim: Other type of claim
         other_claim_details: State the other type of claim(s) that you’re making
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
@@ -422,7 +424,7 @@ en:
       fees_and_payment: Fees and payment
       fees_and_payment_working_out_your_fee: Working out your fee
       fees_and_payment_paying_your_fee: Paying your issue fee
-      reducing_fees: Reducing fees
+      reducing_fees: Help with fees
       writing_your_claim_statement: Writing your claim statement
       aside:
         gethelp_header: Support
@@ -464,9 +466,6 @@ en:
       callout:
         header_html: <strong>This is not a free service</strong>
         body_html: |
-          Please note there is no fee for claims solely relating to payment from
-          the National Insurance Fund. If however your claim includes additional
-          complaints a fee is payable.<br />
           Find out about <a href="%{path}/#fees_and_payment">fees and applying
           for a reduction in fees</a>.
       are_you_in_time:
@@ -589,9 +588,12 @@ en:
       claim_type: What your claim is about
       claim_type_label: Select at least one of the claim types below.
       unfair_dismissal: Unfair dismissal
+      protective_award: Protective award
       summary:  What is this?
-      summary_detail: |
+      unfair_dismissal_summary_detail: |
         Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
+      protective_award_summary_detail: |
+        A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
       discrimination: Discrimination
       pay: Pay
       other_type: Other type of claim (not shown above)
@@ -642,7 +644,7 @@ en:
       remission_applied_info_html:
         <p>You are making an application for fee remission.</p>
 
-        <p>You must complete and return a <a href="%{form}" rel="external">fee remission application</a> form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
+        <p>You must complete and return a fee remission application form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
 
         <p>You won’t need to pay the issue fee when you submit this claim.</p>
 

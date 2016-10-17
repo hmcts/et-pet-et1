@@ -2,7 +2,7 @@ h2.legend= t '.claim_details'
 
 p= t('.claim_details_html', path: guide_path)
 
-details open=resource.has_claim_details_rtf?
+details open=(resource.has_claim_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
   summary role='button' aria={ \
     expanded: "#{resource.has_claim_details_rtf?}",
     controls: 'details-content-0'}

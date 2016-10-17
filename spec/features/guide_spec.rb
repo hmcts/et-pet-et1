@@ -10,7 +10,7 @@ feature 'Guide', type: :feature do
     let(:fees_header)                 { '<h2>Fees and payment</h2>' }
     let(:working_out_your_fee_header) { '<h3>Working out your fee</h3>' }
     let(:paying_your_fee_header)      { '<h3>Paying your issue fee</h3>' }
-    let(:reducing_your_fee_header)    { '<h2>Reducing fees</h2>' }
+    let(:reducing_your_fee_header)    { '<h2>Help with fees</h2>' }
     let(:writing_yours_header)        { '<h2>Writing your claim statement</h2>' }
 
     before :each do
@@ -34,7 +34,7 @@ feature 'Guide', type: :feature do
     let(:fees_link)                 { "Fees and payment" }
     let(:working_out_your_fee_link) { "Working out your fee" }
     let(:paying_your_fee_link)      { "Paying your issue fee" }
-    let(:reducing_your_fee_link)    { "Reducing fees" }
+    let(:reducing_your_fee_link)    { "Help with fees" }
     let(:writing_yours_link)        { "Writing your claim statement" }
 
     let(:time_limits_div)           { "#time_limits" }

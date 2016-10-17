@@ -1,7 +1,7 @@
 module JaduXml
   class ClaimantPresenter < XmlPresenter
     property :primary_claimant, as: 'GroupContact'
-    property :title, as: 'Title'
+    property :title, as: 'Title', exec_context: :decorator, render_nil: true
     property :first_name, as: 'Forename'
     property :last_name, as: 'Surname'
     property :address, extend: JaduXml::AddressPresenter, class: Address
@@ -23,6 +23,10 @@ module JaduXml
 
     def date_of_birth
       represented.date_of_birth.strftime '%d/%m/%Y' if represented.date_of_birth?
+    end
+
+    def title
+      represented.title.titleize
     end
   end
 end

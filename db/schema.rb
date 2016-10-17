@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217155539) do
+ActiveRecord::Schema.define(version: 20161013151741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,10 +86,11 @@ ActiveRecord::Schema.define(version: 20150217155539) do
     t.string   "additional_claimants_csv"
     t.integer  "remission_claimant_count",              default: 0
     t.integer  "additional_claimants_csv_record_count", default: 0
-    t.string   "application_reference",                              null: false
+    t.string   "application_reference",                                 null: false
     t.integer  "payment_attempts",                      default: 0
     t.string   "pdf"
-    t.string   "confirmation_email_recipients",         default: [],              array: true
+    t.string   "confirmation_email_recipients",         default: [],                 array: true
+    t.boolean  "is_protective_award",                   default: false
   end
 
   add_index "claims", ["application_reference"], name: "index_claims_on_application_reference", unique: true, using: :btree

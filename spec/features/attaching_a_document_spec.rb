@@ -52,6 +52,7 @@ feature 'Attaching a document' do
 
       expect(page).to have_text('is not an RTF')
       expect(claim.claim_details_rtf).not_to be_present
+      expect(page.find("details")).to be_visible
     end
   end
 

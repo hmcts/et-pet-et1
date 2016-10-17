@@ -80,7 +80,7 @@ class Claim < ActiveRecord::Base
   end
 
   def attracts_higher_fee?
-    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing?
+    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing? || is_protective_award?
   end
 
   def reference

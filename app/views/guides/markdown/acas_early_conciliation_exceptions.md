@@ -6,7 +6,6 @@ You may not have to contact Acas for early conciliation if:
 - Acas doesn't have the power to conciliate on some or all of your claim
 - your employer has already been in touch with Acas - you'll need to provide evidence of this
 - you're making a claim about a certain type of unfair dismissal that allows you to apply for ['interim relief'](#interim-relief) and it's within 7 days of the dismissal
-- your claim is against the Security Service, Secret Intelligence Service or GCHQ
 
 If you think you don't need to contact Acas, you may want to get legal advice before you start your claim.
 

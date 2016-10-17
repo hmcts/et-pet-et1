@@ -7,7 +7,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
 
   describe '.calculate' do
     describe 'calculating the application fee' do
-      context 'when the claim pertains to discrimination or unfair dismissal' do
+      context 'when the claim pertains to discrimination or unfair dismissal or protective award' do
         before do
           allow(claim).
             to receive(:attracts_higher_fee?).
