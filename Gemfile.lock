@@ -34,6 +34,13 @@ GIT
   specs:
     epdq (0.0.1)
 
+GIT
+  remote: https://github.com/getsentry/raven-ruby.git
+  revision: 11fe4ccf8f95e15eef90a4fdc3fd56935af05ac5
+  specs:
+    sentry-raven (2.0.2)
+      faraday (>= 0.7.6, < 0.10.x)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -572,6 +579,7 @@ DEPENDENCIES
   rspec-rails (~> 3.0.0)
   rubocop
   sass-rails (~> 5.0.3)
+  sentry-raven!
   shoulda-matchers
   sidekiq
   simple_form (= 3.1.0rc2)
