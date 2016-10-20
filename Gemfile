@@ -81,6 +81,8 @@ gem 'compass'
 gem 'virtus'
 gem 'zendesk_api'
 gem 'email_validator'
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
 gem "non-stupid-digest-assets"
