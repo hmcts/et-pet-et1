@@ -6,6 +6,10 @@ class ClaimTypePresenter < Presenter
       claims << I18n.t("simple_form.labels.claim_type.is_unfair_dismissal")
     end
 
+    if is_protective_award
+      claims << I18n.t("simple_form.labels.claim_type.is_protective_award")
+    end
+
     claims.push *target.pay_claims.
       map { |c| I18n.t "simple_form.options.claim_type.pay_claims.#{c}" }
 
@@ -17,6 +21,10 @@ class ClaimTypePresenter < Presenter
 
   def is_whistleblowing
     yes_no target.is_whistleblowing
+  end
+
+  def is_protective_award
+    yes_no target.is_protective_award
   end
 
   def send_claim_to_whistleblowing_entity
