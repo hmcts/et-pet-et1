@@ -74,7 +74,7 @@ en:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief. 
+          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief.
 
       additional_respondents:
         collection: :"simple_form.options.respondent"
@@ -160,7 +160,7 @@ en:
         address_county: County
         address_post_code: Postcode
         address_country: Country
-        applying_for_remission: Do you want to get help paying your fee (known as ‘fee remission’)?
+        applying_for_remission: Do you want to get help paying your fee (known as ‘help with fees’)?
         contact_preference: Best way to send correspondence to you (the claimant)
         _destroy: 'Remove this claimant'
 
@@ -258,8 +258,8 @@ en:
         desired_outcomes: What do you want if your claim is successful?
         other_outcome: What compensation or other outcome do you want?
       your_fee:
-        applying_for_remission: Do you want to apply for fee remission?
-        remission_claimant_count: How many in your group want to apply for fee remission?
+        applying_for_remission: Do you want to apply for help with fees?
+        remission_claimant_count: How many in your group want to apply for help with fees?
 
     hints:
       application_number:
@@ -637,14 +637,14 @@ en:
       callout_fee_footnote_html: If your claim goes to a tribunal, you’ll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
       reduce_fee: Exemption from paying fees
       applying_for_remission_single_html:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
+        You may be eligible to pay a reduced fee or no fee at all (known as help with fees). Check the <a href="%{path}#reducing_fees">guide on help with fees</a>.
       applying_for_remission_multiple_html:
-        You may be eligible to pay a reduced fee or no fee at all (known as fee remission). Check the <a href="%{path}#reducing_fees">guide on fee remissions</a>.
-      applying_for_remission_multiple_note_html: You’ll be able to apply for fee remission when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
+        You may be eligible to pay a reduced fee or no fee at all (known as help with fees). Check the <a href="%{path}#reducing_fees">guide on help with fees</a>.
+      applying_for_remission_multiple_note_html: You’ll be able to apply for help with fees when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
       remission_applied_info_html:
-        <p>You are making an application for fee remission.</p>
+        <p>You are making an application for help with fees.</p>
 
-        <p>You must complete and return a fee remission application form within 7 days of submitting your claim, or your fee remission application will be rejected.</p>
+        <p>You must complete and submit your help with fees application form within 7 days of submitting your claim, or your help with fees application will be rejected.</p>
 
         <p>You won’t need to pay the issue fee when you submit this claim.</p>
 
