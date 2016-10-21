@@ -18,7 +18,7 @@ The amount you are charged depends on the type of claim you are making. Type B c
 Read more about <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=4605" rel="external" title="employment tribunal fees for individuals">employment tribunal fees for individuals</a>.
 
 ### Group claims
-If you’re making a joint claim with other people against the same employer then your group will pay a single issue fee. The amount your group pays depends on:  
+If you’re making a joint claim with other people against the same employer then your group will pay one issue fee. The amount your group pays depends on:  
 
 - the type of claim you are making
 - the types of claims the rest of the group are making
@@ -37,7 +37,7 @@ If you’re making a joint claim with other people against the same employer the
 
 ###Hearing fee
 
-If your group claim makes it to a hearing, then your group will also pay a single hearing fee.
+If your group claim makes it to a hearing, then your group will also pay one hearing fee.
 
 |Number of people named on the claim form|Type A|Mixture of type<br/>A and type B, or<br> type B claims only|
 |----------------------------------------|--------|---------------------------------------------------------|
@@ -50,4 +50,4 @@ For more detailed information about fees for group claims, see <a href="http://h
 
 
 ### Multiple claims
-If your case involves more than one type of claim, you’ll only pay for the claim that has the higher fee. So if your claim is about holiday pay and discrimination, you’ll only be charged fees for the discrimination claim.
+If your case involves more than one type of claim, you’ll only pay for the one that has the higher fee.

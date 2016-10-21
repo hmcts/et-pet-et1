@@ -4,7 +4,6 @@ You may not have to pay a fee, or you may get some money off if you're on a low 
 
 1.  In most cases you (and your partner if you have one) have less than £3,000 in savings and investments. This doesn’t include your main home, personal belongings, wages or benefits.
 
-
 2.  You’re either on benefits or have a low income.
 
 ### Benefits
@@ -36,21 +35,15 @@ If your monthly income (before tax and National Insurance has been taken off) is
 ### Applying for help with fees
 Apply for help with fees by completing the application form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:ethelpwithfees@hmcts.gsi.gov.uk">ETHelpwithfees@hmcts.gsi.gov.uk</a>.
 
-If you're in Scotland (or you would prefer to post your form), see the <a href="https://gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
-
-You will be given another opportunity to apply for help with fees at the end of the claim.
-
-If your case reaches a tribunal, you’ll need to apply for help with paying your hearing fee separately.
+If your case is listed for a hearing, you’ll need to apply for help with paying your hearing fee separately.
 
 
 ### Reducing fees for groups
 
-Before applying for a reduction in fees you must  submit your online application.
-
-If you’re making a joint claim with other people against the same employer then your group will pay a single fee.
+If you’re making a joint claim with other people against the same employer then your group will pay one fee.
 
 Each individual within a group can apply to pay lower fees  by following the process outlined in the ‘  [applying for help with fees](#applying_for_a_fee_reduction)’ section.
 
-If one or more people  have their fees reduced, the rest of the group will pay the remaining fee.
+If one or more people have their fees reduced, the group will pay the remaining fee.
 
 In a case where there are multiple people making a claim, and some pay a reduced fee, no single person will have to pay more than  they would, had they applied on their own.

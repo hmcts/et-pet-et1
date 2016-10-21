@@ -3,4 +3,3 @@ You’ll have to pay the fee by credit or debit card when you submit your applic
 
 You’ll be contacted about paying the hearing fee if your case goes to tribunal.
 
-If your claim does reach the employment tribunal, the court will contact you about paying the hearing fee.
