@@ -74,7 +74,7 @@ en:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
           acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
           employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: I’m making a claim about a certain type of unfair dismissal that allows me to apply for ‘interim relief’.
+          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief. 
 
       additional_respondents:
         collection: :"simple_form.options.respondent"
