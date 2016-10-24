@@ -15,7 +15,7 @@ Saturday, 9am to 1pm
 
 If Acas can't help you come to an agreement with your employer, they will send you a certificate.
 
-The certificate will contain an Acas early conciliation certificate number. You'll need this number when making your online application to an employment tribunal.
+The certificate will contain an Acas early conciliation certificate number. You'll need this number when making your online claim to an employment tribunal.
 
 ### Conciliation with multiple respondents
 

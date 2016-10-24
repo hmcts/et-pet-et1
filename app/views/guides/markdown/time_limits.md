@@ -1,6 +1,6 @@
 ##Time limits
 
-You must make a claim to the tribunal within 3 months of the problem at work happening.  
+You must usually make a claim to the tribunal within 3 months of the problem at work happening.  
 
 - if you think you’ve lost your job unfairly the 3 month period begins from the date your employment ended
 - if your claim is about discrimination or a dispute over pay, the 3 month period begins when the incident or dispute happened  
