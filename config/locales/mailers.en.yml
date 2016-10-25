@@ -33,7 +33,7 @@ en:
       remission_review: :claim_confirmations.show.what_happens_next.next_steps_final_step
 
        # SPECIFIC TO TEXT EMAIL
-      apply_for_fee_remission_text: 'COMPLETE AN APPLICATION FOR HELP WITH FEES: https://www.employmenttribunals.service.gov.uk/remissions'
+      apply_for_fee_remission_text: 'COMPLETE AN APPLICATION FOR HELP WITH FEES: https://gov.uk/help-with-court-fees'
       remission_we_will_contact_you_england_wales_text: |
         If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk.
       remission_we_will_contact_you_scotland_text: |

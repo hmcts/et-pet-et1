@@ -17,8 +17,8 @@ If you think you don't need to contact Acas, you may want to get legal advice be
 
 Interim relief is when an employment tribunal orders an employer or business to give the job back to someone they sacked until a hearing happens.
 
-If you're applying for interim relief, you don't have to contact Acas for early conciliation.
+If you're making a claim for interim relief, you don't have to contact Acas for early conciliation.
 
-You can only apply for interim relief if your claim  is for certain reasons such as whistleblowing, trade union activities or acting as a workers' representative.
+You can only make a claim for interim relief if your claim  is for certain reasons such as whistleblowing, trade union activities or acting as a workers' representative.
 
 The tribunal must receive your claim and application for interim relief within 7 days of you losing your job.
