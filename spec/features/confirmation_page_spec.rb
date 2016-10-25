@@ -55,12 +55,9 @@ RSpec.feature 'Confirmation page', type: :feature do
       let(:claim) { create :claim, :single_claimant, :not_submitted, :remission_only }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have started an application for help with fees. You must complete your application within 7 days or your claim may be rejected.'
-        expect(page).to have_link 'Complete an application for help with fees', href: 'https://gov.uk/help-with-court-fees'
-        expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
 
-        expect(page).to have_text "If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk. If you're in Scotland (or you would prefer to post your form), see the guide to applying for help with fees for the address."
-        expect(page).to have_link 'guide to applying for help with fees', href: 'https://gov.uk/help-with-court-fees'
+        expect(page).to have_text 'You have started an application for help with fees. You must now complete your application within 7 days or your claim may be rejected.'
+        expect(page).to have_link 'Complete an application for help with fees', href: 'https://gov.uk/help-with-court-fees'
 
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Claim submitted'
@@ -81,11 +78,9 @@ RSpec.feature 'Confirmation page', type: :feature do
       before { complete_payment }
 
       scenario 'viewing the confirmation page' do
-        expect(page).to have_text 'You have started an application for help with fees. You must complete your application within 7 days or your claim may be rejected.'
+
+        expect(page).to have_text 'You have started an application for help with fees. You must now complete your application within 7 days or your claim may be rejected.'
         expect(page).to have_link 'Complete an application for help with fees', href: 'https://gov.uk/help-with-court-fees'
-        expect(page).to have_link 'eREMISSIONS@hmcts.gsi.gov.uk', href: 'mailto:eREMISSIONS@hmcts.gsi.gov.uk'
-        expect(page).to have_text "If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk. If you're in Scotland (or you would prefer to post your form), see the guide to applying for help with fees for the address."
-        expect(page).to have_link 'guide to applying for help with fees', href: 'https://gov.uk/help-with-court-fees'
 
         expect(page).to have_link 'Save a copy', href: pdf_path
         expect(page).to have_text 'Issue fee paid' '£250.00'

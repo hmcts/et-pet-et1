@@ -52,7 +52,7 @@ feature 'Your fee page' do
             %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
           end
 
-          fill_in "How many in your group want to apply for fee remission?", with: 2
+          fill_in "How many in your group want to apply for help with fees?", with: 2
 
           click_button 'Save and continue'
 
@@ -66,7 +66,7 @@ feature 'Your fee page' do
             %w<Yes No>.each { |opt| expect(page).to_not have_button opt }
           end
 
-          fill_in "How many in your group want to apply for fee remission?", with: 200
+          fill_in "How many in your group want to apply for help with fees?", with: 200
 
           click_button 'Save and continue'
 

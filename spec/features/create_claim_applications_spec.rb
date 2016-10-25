@@ -318,7 +318,6 @@ feature 'Claim applications', type: :feature do
       scenario 'as part of a group claim with partial remission' do
         complete_a_claim additional_claimants: true, seeking_remissions: 1
         click_button 'Submit claim and proceed to payment'
-
         expect(page).not_to have_text 'Apply for fee remission'
         expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
       end
