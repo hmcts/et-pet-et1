@@ -33,10 +33,7 @@ If your monthly income (before tax and National Insurance has been taken off) is
 
 <a name="applying_for_a_fee_reduction"></a>
 ### Applying for help with fees
-Apply for help with fees by completing the application form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If you're in England or Wales, you can email your completed application form to <a href="mailto:ethelpwithfees@hmcts.gsi.gov.uk">ETHelpwithfees@hmcts.gsi.gov.uk</a>.
-
-If your case is listed for a hearing, you’ll need to apply for help with paying your hearing fee separately.
-
+Apply for help with fees by completing the application form at <a href="https://gov.uk/help-with-court-fees" rel="external">www.gov.uk/help-with-court-fees</a>. If your case is listed for a hearing, you’ll need to apply for help with paying your hearing fee separately.
 
 ### Reducing fees for groups
 
