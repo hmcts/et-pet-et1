@@ -42,7 +42,7 @@ feature 'Generating XML for a claim', type: :feature do
       end
 
       it 'has a TimeStamp equal to the current time' do
-        expect(xpath('//DocumentId/TimeStamp')).to eq '2014-09-29T00:00:00Z'
+        expect(xpath('//DocumentId/TimeStamp')).to eq '2014-09-29T00:00:00+01:00'
       end
 
       it 'has a Version' do
@@ -115,7 +115,7 @@ feature 'Generating XML for a claim', type: :feature do
     end
 
     it 'has a DateOfReceiptEt' do
-      expect(xpath('//DateOfReceiptEt')).to eq '2014-09-29T00:00:00Z'
+      expect(xpath('//DateOfReceiptEt')).to eq '2014-09-29T00:00:00+01:00'
     end
 
     describe 'RemissionIndicated element' do
@@ -266,7 +266,7 @@ feature 'Generating XML for a claim', type: :feature do
         end
 
         it 'has a Date' do
-          expect(xpath('//Payment/Fee/Date')).to eq '2014-09-29T00:00:00Z'
+          expect(xpath('//Payment/Fee/Date')).to eq '2014-09-29T00:00:00+01:00'
         end
       end
 
@@ -282,7 +282,7 @@ feature 'Generating XML for a claim', type: :feature do
             expect(xpath('//Payment/Receipt/Amount')).to eq '250'
           end
           it 'has a Date' do
-            expect(xpath('//Payment/Receipt/Date')).to eq '2014-09-29T00:00:00Z'
+            expect(xpath('//Payment/Receipt/Date')).to eq '2014-09-29T00:00:00+01:00'
           end
         end
 
