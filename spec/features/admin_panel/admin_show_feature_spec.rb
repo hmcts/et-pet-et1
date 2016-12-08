@@ -10,6 +10,12 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
       confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
   end
 
+  let!(:enqueued_claim) do
+    create :claim, :with_pdf,
+           fee_group_reference: '511234567800',
+           confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
+  end
+
   around { |example| travel_to(Date.new(2015, 06, 05)) { example.run } }
 
   scenario 'viewing metadata about a particular claim' do
@@ -115,6 +121,34 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     expect(page.response_headers['Content-Type']).to eq 'text/plain'
     expect(page.body).to eq 'I wanna take him to the cleaners!'
+  end
+
+  scenario 'marking claim as submitted' do
+
+    visit admin_claim_path enqueued_claim.reference
+
+    click_button 'Mark as submitted'
+    expect(enqueued_claim.reload.state).to eq 'submitted'
+
+    event = enqueued_claim.events.last
+
+    expect(event.claim_state).to eq 'submitted'
+    expect(event.event).to eq Event::MANUAL_STATUS_CHANGE
+    expect(event.actor).to eq 'admin'
+  end
+
+  scenario 're-submitting a claim' do
+
+    expect(ClaimSubmissionJob).to receive(:perform_later).with(enqueued_claim)
+
+    visit admin_claim_path enqueued_claim.reference
+
+    click_button 'Submit claim'
+
+    event = enqueued_claim.events.last
+
+    expect(event.event).to eq Event::MANUALLY_SUBMITTED
+    expect(event.actor).to eq 'admin'
   end
 
   context 'claim without large text inputs' do
