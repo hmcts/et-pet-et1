@@ -42,6 +42,10 @@ If you're using [Kitematic] on OSX, use the terminal from there, or in any termi
 
 ### Setup .env file
 From the project's root folder, copy the `.env.template` file to `.env` and change as necessary.
+The minimum required will be setting:
+```ruby
+WEB_CONCURRENCY=1
+```
 
 ### Build
 From the project's root folder, build (this will take several minutes - grab a coffee):
