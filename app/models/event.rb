@@ -20,4 +20,6 @@ class Event < ActiveRecord::Base
   before_create -> { self[:claim_state] = claim.state }
 
   alias_method :read_only?, :persisted?
+
+  default_scope { order(created_at: :desc) }
 end
