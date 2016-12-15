@@ -1,6 +1,8 @@
 ActiveAdmin.register Claim do
   filter :submitted_at
-  filter :state
+  filter :state, :as => :select, :collection => [:created, :payment_required, :enqueued_for_submission, :submitted]
+  filter :fee_group_reference
+  filter :application_reference
 
   # no edit, destory, create, etc
   config.clear_action_items!
@@ -113,6 +115,7 @@ ActiveAdmin.register Claim do
         row('Payment required') { |c| c.fee_to_pay? ? 'Yes' : 'No' }
         row('Payment received') { |c| c.payment_present? ? 'Yes' : 'No' }
         row :fee_group_reference
+        row :state
 
         row('FGR postcode') do |c|
           if c.fee_group_reference
