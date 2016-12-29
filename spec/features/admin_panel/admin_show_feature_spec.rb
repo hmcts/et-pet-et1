@@ -130,10 +130,10 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     click_button 'Mark as submitted'
     expect(enqueued_claim.reload.state).to eq 'submitted'
 
-    event = enqueued_claim.events.last
+    event = enqueued_claim.events.order('id').last
 
     expect(event.claim_state).to eq 'submitted'
-    expect(event.event).to eq Event::MANUAL_STATUS_CHANGE
+    expect(event.event).to eq Event::ADMIN_CHANGE
     expect(event.actor).to eq 'admin'
   end
 
@@ -145,9 +145,9 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     click_button 'Submit claim'
 
-    event = enqueued_claim.events.last
+    event = enqueued_claim.events.order('id').last
 
-    expect(event.event).to eq Event::MANUALLY_SUBMITTED
+    expect(event.event).to eq Event::ADMIN_SUBMITTED
     expect(event.actor).to eq 'admin'
   end
 

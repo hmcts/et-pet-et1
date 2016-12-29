@@ -67,11 +67,13 @@ class Claim < ActiveRecord::Base
   before_update :remove_additional_claimants_csv!,
     if: :secondary_claimants_any?
 
+  accepts_nested_attributes_for :payment
+
   def self.find_by_reference(reference)
     find_by application_reference: ApplicationReference.normalize(reference)
   end
 
-  def create_event(event, actor: 'app', message: nil)
+  def create_event(event, actor: 'admin', message: nil)
     events.create event: event, actor: actor, message: message
   end
 
@@ -148,6 +150,10 @@ class Claim < ActiveRecord::Base
 
   def attachments
     self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
+  end
+
+  def to_param
+    self.application_reference
   end
 
   private

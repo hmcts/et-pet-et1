@@ -12,8 +12,8 @@ class Event < ActiveRecord::Base
   PAYMENT_UNCERTAIN           = 'payment_uncertain'.freeze
   PAYMENT_DECLINED            = 'payment_declined'.freeze
   PDF_GENERATED               = 'pdf_generated'.freeze
-  MANUAL_STATUS_CHANGE        = 'manual_status_change'.freeze
-  MANUALLY_SUBMITTED          = 'manually_submitted'.freeze
+  ADMIN_CHANGE                = 'changed_by_admin'.freeze
+  ADMIN_SUBMITTED             = 'submitted_by_admin'.freeze
 
   belongs_to :claim
 

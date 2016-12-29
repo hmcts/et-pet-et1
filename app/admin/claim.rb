@@ -4,13 +4,24 @@ ActiveAdmin.register Claim do
   filter :fee_group_reference
   filter :application_reference
 
-  # no edit, destory, create, etc
-  config.clear_action_items!
-  actions :index, :show
+  actions :index, :show, :edit, :update
 
-  controller { defaults finder: :find_by_reference }
+  permit_params :id, :submitted_at, payment_attributes: [:id, :amount, :reference]
 
-  # Index page
+  controller do
+    defaults finder: :find_by_reference
+
+    def update(options={}, &block)
+
+      message = "Claim updated by admin [submission date and/or payment receipt]"
+
+      resource.create_event(Event::ADMIN_CHANGE, actor: 'app', message: message)
+
+      super(options, &block)
+    end
+  end
+
+  # Index page  
   index download_links: false do
     column :reference do |claim|
       link_to claim.reference, admin_claim_path(claim.reference)
@@ -35,7 +46,7 @@ ActiveAdmin.register Claim do
   member_action :submit_claim, method: :post do
     if resource.enqueued_for_submission?
       ClaimSubmissionJob.perform_later resource
-      resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
+      resource.create_event Event::ADMIN_SUBMITTED, actor: 'admin'
     end
 
     redirect_to :back, notice: 'Claim submitted to Jadu'
@@ -43,7 +54,7 @@ ActiveAdmin.register Claim do
 
   member_action :mark_submitted, method: :post do
     resource.finalize!
-    resource.create_event Event::MANUAL_STATUS_CHANGE, actor: "admin", message: "status changed to submitted"
+    resource.create_event Event::ADMIN_CHANGE, actor: "admin", message: "status changed to submitted"
 
     redirect_to :back, notice: 'Claim marked as submitted'
   end
@@ -140,5 +151,20 @@ ActiveAdmin.register Claim do
         column :message
       end
     end
+  end
+
+  form do |f|
+    f.semantic_errors
+    f.inputs 'Submission date' do
+      f.input :submitted_at
+    end
+
+    f.object.build_payment unless f.object.payment
+    f.has_many :payment, allow_destroy: false, new_record: false, heading: 'Payment Receipt' do |pf|
+      pf.input :amount
+      pf.input :reference
+    end
+
+    f.actions
   end
 end
