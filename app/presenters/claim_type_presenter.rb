@@ -23,10 +23,6 @@ class ClaimTypePresenter < Presenter
     yes_no target.is_whistleblowing
   end
 
-  def is_protective_award
-    yes_no target.is_protective_award
-  end
-
   def send_claim_to_whistleblowing_entity
     yes_no target.send_claim_to_whistleblowing_entity
   end
