@@ -50,6 +50,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem "activerecord-nulldb-adapter"
+  gem 'timecop'
 end
 
 gem 'webmock', group: :test

@@ -3,6 +3,13 @@ require 'rails_helper'
 RSpec.describe Stats::ClaimStats, type: :model do
 
   describe 'scopes' do
+    subject do
+      Timecop.freeze(current_time) do
+        described_class
+      end
+    end
+
+    let!(:current_time)                     { Time.now }
     let!(:started_claim)                    { create :claim, :not_submitted }
     let!(:old_started_claim)                { create :claim, :not_submitted, created_at: 91.days.ago }
     let!(:old_out_of_range_started_claim)   { create :claim, :not_submitted, created_at: 92.days.ago }
@@ -13,7 +20,8 @@ RSpec.describe Stats::ClaimStats, type: :model do
 
     describe '.started_within_max_submission_timeframe' do
       it 'returns claims started within the past 91 days' do
-        results = described_class.started_within_max_submission_timeframe
+        results = subject.started_within_max_submission_timeframe
+
         expect(results.size).to eq 2
 
         query_result_record = results.first
@@ -23,7 +31,7 @@ RSpec.describe Stats::ClaimStats, type: :model do
 
     describe '.completed_within_max_submission_timeframe' do
       it 'returns claims completed within the past 91 days' do
-        results = described_class.completed_within_max_submission_timeframe
+        results = subject.completed_within_max_submission_timeframe
         expect(results.size).to eq 2
 
         query_result_record = results.first
