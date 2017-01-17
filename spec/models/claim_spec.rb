@@ -548,7 +548,7 @@ RSpec.describe Claim, type: :claim do
   end
 
   describe '#create_event' do
-    let(:event) { subject.events.last }
+    let(:event) { subject.events.first }
 
     it 'creates an event on the claim with the current state of the claim' do
       subject.create_event 'lel', message: 'funny'
