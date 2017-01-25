@@ -11,7 +11,8 @@ fieldset
       p= t '.unfair_dismissal_summary_detail'
   = f.input :is_unfair_dismissal,
     as: :gds_check_boxes,
-    wrapper_class: 'options'
+    wrapper_class: 'options',
+    required: true
 
 fieldset
   legend.medium= t '.protective_award'
@@ -22,7 +23,8 @@ fieldset
       p= t '.protective_award_summary_detail'
   = f.input :is_protective_award,
     as: :gds_check_boxes,
-    wrapper_class: 'options'
+    wrapper_class: 'options',
+    required: true
 
 fieldset
   legend.medium= t '.discrimination'
@@ -45,7 +47,8 @@ fieldset.reveal-publish-delegate
     as: :gds_check_boxes,
     wrapper_class: 'options',
     input_html: { :class => 'reveal-publish-publisher',
-                  :'data-target' => 'sub1'}
+                  :'data-target' => 'sub1' },
+    required: true
 
   = f.input :other_claim_details, as: :text, label: false,
     input_html: { rows: 2 },
@@ -61,7 +64,8 @@ fieldset
     item_wrapper_class: 'block-label',
     input_html: { class: 'reveal-publish-publisher ga-vpv'},
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
-    reveal: { true => 'sub2', false => 'sub2' }
+    reveal: { true => 'sub2', false => 'sub2' },
+    required: true
 
   = f.input :send_claim_to_whistleblowing_entity,
     as: :radio_buttons,
@@ -71,4 +75,5 @@ fieldset
     wrapper_html: { :id => :send_claim_to_whistleblowing_entity_wrapper,
                     :class => 'reveal-subscribe',
                     :'data-target' => 'sub2',
-                    :'data-show-array' => 'true' }
+                    :'data-show-array' => 'true' },
+    required: true
