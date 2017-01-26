@@ -77,7 +77,7 @@ RSpec.describe ClaimTypeForm, :type => :form do
     end
 
     it "is valid with 1 claim type" do
-      subject.discrimination_claims =["", "age"]
+      subject.discrimination_claims = ["", "age"]
       expect(subject.valid?).to be_truthy
     end
 
