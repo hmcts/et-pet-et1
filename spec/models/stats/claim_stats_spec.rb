@@ -20,6 +20,7 @@ RSpec.describe Stats::ClaimStats, type: :model do
 
     describe '.started_within_max_submission_timeframe' do
       it 'returns claims started within the past 91 days' do
+        expect(Claim.count).to eql(7)
         results = subject.started_within_max_submission_timeframe
         expect(results.reload.size).to eq 2
 
@@ -30,6 +31,7 @@ RSpec.describe Stats::ClaimStats, type: :model do
 
     describe '.completed_within_max_submission_timeframe' do
       it 'returns claims completed within the past 91 days' do
+        expect(Claim.count).to eql(7)
         results = subject.completed_within_max_submission_timeframe
         expect(results.size).to eq 2
 
