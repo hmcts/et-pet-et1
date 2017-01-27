@@ -83,12 +83,13 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
     context 'when there are existing secondary claimants' do
       before do
         2.times { claim.secondary_claimants.create }
+        subject.assign_attributes attributes
+        subject.save
       end
 
       it 'updates the secondary claimants' do
-        subject.assign_attributes attributes
-        subject.save
         claim.secondary_claimants.reload
+        expect(claim.secondary_claimants.count).to eql(2)
 
         attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }
