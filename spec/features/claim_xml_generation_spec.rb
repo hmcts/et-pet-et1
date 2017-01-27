@@ -187,7 +187,6 @@ feature 'Generating XML for a claim', type: :feature do
 
         include_context 'assign claim'
 
-
         it 'has an AltAddress with empty nodes' do
           expect(doc.xpath('//Respondent/AltAddress/Line')).not_to be_empty
           expect(doc.xpath('//Respondent/AltAddress/Street')).not_to be_empty
