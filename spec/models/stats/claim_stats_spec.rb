@@ -20,6 +20,11 @@ RSpec.describe Stats::ClaimStats, type: :model do
     describe '.started_within_max_submission_timeframe' do
       it 'returns claims started within the past 91 days' do
         results = subject.started_within_max_submission_timeframe
+        if results.reload.size < 2
+          puts subject.all.map(&:created_at)
+          puts "---"
+          puts results.map(&:created_at)
+        end
         expect(results.reload.size).to eq 2
 
         query_result_record = results.first
