@@ -8,7 +8,7 @@ RSpec.describe Stats::ClaimStats, type: :model do
 
     subject { described_class }
 
-    let!(:current_time)                     { Time.now }
+    let!(:current_time)                     { Time.parse("2017-01-27 13:56:25") }
     let!(:started_claim)                    { create :claim, :not_submitted }
     let!(:old_started_claim)                { create :claim, :not_submitted, created_at: 91.days.ago }
     let!(:old_out_of_range_started_claim)   { create :claim, :not_submitted, created_at: 92.days.ago }
