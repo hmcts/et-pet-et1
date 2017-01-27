@@ -548,11 +548,10 @@ RSpec.describe Claim, type: :claim do
   end
 
   describe '#create_event' do
-    let(:event) { subject.events.first }
+    let(:event) { subject.events.where(event: 'lel').first }
 
     it 'creates an event on the claim with the current state of the claim' do
       subject.create_event 'lel', message: 'funny'
-
       { event: 'lel', actor: 'app', message: 'funny', claim_state: 'created' }.each do |k, v|
         expect(event[k]).to eq v
       end
