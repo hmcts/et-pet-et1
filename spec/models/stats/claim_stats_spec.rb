@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Stats::ClaimStats, type: :model do
 
   describe 'scopes' do
-    before do
-      # making sure that we are not in frozen state
-      Timecop.return
-      Timecop.freeze(current_time)
-    end
-    after { Timecop.return }
+    # before do
+    #   # making sure that we are not in frozen state
+    #   Timecop.return
+    #   Timecop.freeze(current_time)
+    # end
+    # after { Timecop.return }
 
     subject { described_class }
 
