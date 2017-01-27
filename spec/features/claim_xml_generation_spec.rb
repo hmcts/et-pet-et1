@@ -180,12 +180,13 @@ feature 'Generating XML for a claim', type: :feature do
       end
 
       context 'renders nil elements' do
-        respondent = FactoryGirl.create :respondent,
-          :without_work_address,
-          work_address_telephone_number: nil,
-          address_telephone_number: nil
+        # respondent = FactoryGirl.create :respondent,
+        #   :without_work_address,
+        #   work_address_telephone_number: nil,
+        #   address_telephone_number: nil
 
-        include_context 'assign claim', primary_respondent: respondent
+        include_context 'assign claim'
+
 
         it 'has an AltAddress with empty nodes' do
           expect(doc.xpath('//Respondent/AltAddress/Line')).not_to be_empty

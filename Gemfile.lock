@@ -156,6 +156,7 @@ GEM
     connection_pool (2.2.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     descendants_tracker (0.0.4)
@@ -553,6 +554,7 @@ DEPENDENCIES
   cocaine
   codeclimate-test-reporter
   compass
+  database_cleaner
   dotenv-rails (= 0.11.1)
   email_validator
   epdq!

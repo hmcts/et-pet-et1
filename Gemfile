@@ -53,7 +53,10 @@ group :development, :test do
   gem 'timecop'
 end
 
-gem 'webmock', group: :test
+group :test do
+  gem 'webmock', group: :test
+  gem 'database_cleaner'
+end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
 gem 'base32_pure'
