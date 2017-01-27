@@ -62,8 +62,9 @@ RSpec.describe Stats::ClaimStats, type: :model do
   end
 
   describe 'timecop test' do
+    before { Timecop.return }
     it "time local" do
-      Timecop.freeze( Time.local(1990, 1, 14, 10, 30)) do
+      Timecop.freeze("1990-01-14 10:30:00") do
         expect(Time.now.to_s(:db)).to eql('1990-01-14 10:30:00')
       end
     end
@@ -79,6 +80,12 @@ RSpec.describe Stats::ClaimStats, type: :model do
       Timecop.travel(t)
       sleep 3
       expect(Time.now.to_s(:db)).to eql('2008-09-01 10:05:03')
+    end
+
+    it "Manual stub" do
+      allow(Time).to receive(:now).and_return Time.parse("2008-09-01 10:05:03")
+      expect(Time.now.to_s(:db)).to eql('2008-09-01 10:05:03')
+      expect(92.days.ago.to_s(:db)).to eql("2008-06-01 09:05:03")
     end
   end
 end
