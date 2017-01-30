@@ -188,7 +188,8 @@ feature 'Generating XML for a claim', type: :feature do
         let(:respondent) { FactoryGirl.create :respondent,
           :without_work_address,
           work_address_telephone_number: nil,
-          address_telephone_number: nil }
+          address_telephone_number: nil
+        }
 
         it_behaves_like "validates against the JADU XSD"
 
