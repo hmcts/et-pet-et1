@@ -711,6 +711,9 @@ en:
           attributes:
             secondary_respondents:
               too_many: You may have no more than %{max} additional respondents
+        claim_type:
+          attributes:
+            blank: You have to select at least one of the claim types
         claim_details:
           attributes:
             claim_details:

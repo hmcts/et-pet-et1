@@ -53,4 +53,38 @@ RSpec.describe ClaimTypeForm, :type => :form do
       end
     end
   end
+
+  describe "claim validation" do
+    before do
+      subject.is_unfair_dismissal = false
+      subject.is_protective_award = false
+      subject.discrimination_claims = [""]
+      subject.pay_claims = [""]
+      subject.is_whistleblowing = false
+      subject.send_claim_to_whistleblowing_entity = false
+      subject.other_claim_details = ""
+    end
+
+    context 'empty attributes' do
+      it "will fail" do
+        expect(subject.valid?).to be_falsey
+      end
+
+      it "will return proper error message" do
+        expect(subject.valid?).to be_falsey
+        expect(subject.errors.messages[:base].first).to eql('You have to select at least one of the claim types')
+      end
+    end
+
+    it "is valid with 1 claim type" do
+      subject.discrimination_claims = ["", "age"]
+      expect(subject.valid?).to be_truthy
+    end
+
+    it "is valid with 2 or more claim types" do
+      subject.discrimination_claims = ["", "age"]
+      subject.is_unfair_dismissal = true
+      expect(subject.valid?).to be_truthy
+    end
+  end
 end

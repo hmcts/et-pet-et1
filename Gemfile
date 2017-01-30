@@ -50,10 +50,12 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem "activerecord-nulldb-adapter"
-  gem 'timecop'
 end
 
-gem 'webmock', group: :test
+group :test do
+  gem 'webmock', group: :test
+  gem 'database_cleaner'
+end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
 gem 'base32_pure'
