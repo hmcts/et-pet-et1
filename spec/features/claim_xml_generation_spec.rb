@@ -14,15 +14,19 @@ feature 'Generating XML for a claim', type: :feature do
     doc.xpath(path).children.map(&:to_s)
   end
 
-  shared_context 'assign claim' do |claim_options = {}|
-    let(:claim) { create :claim, claim_options }
-
-    it 'validates against the JADU XSD' do
+  RSpec.shared_examples "validates against the JADU XSD" do
+    it do
       xsd = Nokogiri::XML::Schema(File.read(Rails.root + 'spec/support/ETFees_schema.xsd'))
       doc = Nokogiri::XML(claim_xml)
 
       expect(xsd.validate(doc)).to be_empty
     end
+  end
+
+  shared_context 'assign claim' do |claim_options = {}|
+    let(:claim) { create :claim, claim_options }
+
+    it_behaves_like "validates against the JADU XSD"
   end
 
   describe 'ETFeesEntry XML' do
@@ -180,23 +184,24 @@ feature 'Generating XML for a claim', type: :feature do
       end
 
       context 'renders nil elements' do
-        # respondent = FactoryGirl.create :respondent,
-        #   :without_work_address,
-        #   work_address_telephone_number: nil,
-        #   address_telephone_number: nil
+        let(:claim) { create :claim, primary_respondent: respondent }
+        let(:respondent) { FactoryGirl.create :respondent,
+          :without_work_address,
+          work_address_telephone_number: nil,
+          address_telephone_number: nil }
 
-        include_context 'assign claim'
+        it_behaves_like "validates against the JADU XSD"
 
         it 'has an AltAddress with empty nodes' do
-          expect(doc.xpath('//Respondent/AltAddress/Line')).not_to be_empty
-          expect(doc.xpath('//Respondent/AltAddress/Street')).not_to be_empty
-          expect(doc.xpath('//Respondent/AltAddress/Town')).not_to be_empty
-          expect(doc.xpath('//Respondent/AltAddress/County')).not_to be_empty
-          expect(doc.xpath('//Respondent/AltAddress/Postcode')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Line').text).to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Street').text).to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Town').text).to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/County').text).to be_empty
+          expect(doc.xpath('//Respondent/AltAddress/Postcode').text).to be_empty
         end
 
         it 'has an empty AltPhoneNumber' do
-          expect(doc.xpath('//Respondent/AltPhoneNumber')).not_to be_empty
+          expect(doc.xpath('//Respondent/AltPhoneNumber').text).to be_empty
         end
       end
 
