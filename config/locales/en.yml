@@ -713,7 +713,7 @@ en:
               too_many: You may have no more than %{max} additional respondents
         claim_type:
           attributes:
-            blank: You have to select at least one of the claim types
+            blank: You must select at least on of the claim types below
         claim_details:
           attributes:
             claim_details:
