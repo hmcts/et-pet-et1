@@ -466,6 +466,9 @@ en:
       callout:
         header_html: <strong>This is not a free service</strong>
         body_html: |
+          Please note there is no fee for claims solely relating to payment from
+          the National Insurance Fund. If however your claim includes additional
+          complaints a fee is payable.<br />
           Find out about <a href="%{path}/#fees_and_payment">fees and applying
           for a reduction in fees</a>.
       are_you_in_time:
