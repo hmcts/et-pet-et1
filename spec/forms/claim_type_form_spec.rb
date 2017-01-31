@@ -72,7 +72,7 @@ RSpec.describe ClaimTypeForm, :type => :form do
 
       it "will return proper error message" do
         expect(subject.valid?).to be_falsey
-        expect(subject.errors.messages[:base].first).to eql('You must select at least on of the claim types below')
+        expect(subject.errors.messages[:base].first).to eql('You must select at least one of the claim types below')
       end
     end
 
