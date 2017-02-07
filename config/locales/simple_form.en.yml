@@ -8,7 +8,7 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: Provide information in the highlighed fields.
+      default_message: Provide information in the highlighted fields.
     # Labels and hints examples
     # labels:
     #   defaults:

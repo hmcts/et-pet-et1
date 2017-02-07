@@ -731,6 +731,7 @@ en:
           attributes:
             date_of_birth:
               invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
+              too_young: Claimant must be 16 years of age or over
             title:
               blank: Select a title from the list
             gender:
