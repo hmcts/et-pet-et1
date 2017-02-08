@@ -82,6 +82,21 @@ feature 'Multiple claimants' do
       expect(page).to have_signout_button
     end
 
+    scenario "Date of birth form helper text" do
+      expect(page).not_to have_selector '#resource_1'
+      click_button "Add more claimants"
+
+      expect(page).to have_selector '#resource_1'
+
+      within '#resource_0' do
+        expect(page).to have_text('For example, 23 04 1981')
+      end
+
+      within '#resource_1' do
+        expect(page).to have_text('For example, 23 04 1981')
+      end
+    end
+
     context "additional claimants age has to be 16 or over" do
       scenario "display age related error message" do
         expect(page).not_to have_selector '#resource_1'
