@@ -10,33 +10,11 @@ feature 'Multiple claimants CSV' do
     fill_in_return_form claim.reference, 'lollolol'
   end
 
-  let(:attributes) do
-    {
-      'First name' => 'Persephone',
-      'Last name'  => 'Lollington',
-
-      'Day'   => '15',
-      'Month' => '1',
-      'Year'  => '1985',
-
-      'Building number or name' => '1',
-      'Street'    => 'High street',
-      'Town/city' => 'Anytown',
-      'County'    => 'Anyfordshire',
-      'Postcode'  => 'AT1 4PQ'
-    }
-  end
-
-  let(:secondary_attributes) do
-    attributes.update 'First name' => 'Pegasus'
-  end
-
   describe 'adding claimants' do
     before do
       visit claim_additional_claimants_upload_path
       choose 'Yes'
     end
-
 
     context "group claimants age has to be 16 or over" do
       scenario "display age related error message" do
