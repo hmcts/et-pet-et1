@@ -71,7 +71,6 @@ feature 'Multiple claimants' do
       end
 
       click_button 'Save and continue'
-
       expect(claim.secondary_claimants.pluck(:first_name)).to match_array %w<Persephone Pegasus>
     end
 
@@ -81,6 +80,53 @@ feature 'Multiple claimants' do
       click_button "Add more claimants"
 
       expect(page).to have_signout_button
+    end
+
+    context "additional claimants age has to be 16 or over" do
+      scenario "display age related error message" do
+        expect(page).not_to have_selector '#resource_1'
+
+        click_button "Add more claimants"
+
+        within '#resource_1' do
+          sixteen_years_ago = (Time.now - 15.years)
+          fill_in 'Day', with: sixteen_years_ago.day.to_s
+          fill_in 'Month', with: sixteen_years_ago.month.to_s
+          fill_in 'Year', with: sixteen_years_ago.year.to_s
+        end
+
+        click_button "Save and continue"
+        expect(page).to have_text("Provide information in the highlighted fields")
+
+        within '#resource_1' do
+          expect(page).to have_text("Claimant must be 16 years of age or over")
+        end
+
+        # This one is older then 16
+        within '#resource_0' do
+          expect(page).not_to have_text("Claimant must be 16 years of age or over")
+        end
+      end
+
+      scenario "no error message if DoB is missing" do
+        expect(page).not_to have_selector '#resource_1'
+
+        click_button "Add more claimants"
+
+        within '#resource_1' do
+          select 'Mr', from: 'Title'
+          secondary_attributes.each do |field, value|
+            fill_in field, with: value
+          end
+
+          fill_in 'Day', with: ""
+          fill_in 'Month', with: ""
+          fill_in 'Year', with: ""
+        end
+
+        click_button "Save and continue"
+        expect(page).to have_text("Representative’s details")
+      end
     end
   end
 
