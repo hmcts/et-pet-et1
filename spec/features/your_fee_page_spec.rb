@@ -71,7 +71,7 @@ feature 'Your fee page' do
           click_button 'Save and continue'
 
           expect(page.current_path).to eq claim_your_fee_path
-          expect(page).to have_text "Provide information in the highlighed fields."
+          expect(page).to have_text "Provide information in the highlighted fields."
           expect(claim.reload.remission_claimant_count).to eq 0
         end
       end
