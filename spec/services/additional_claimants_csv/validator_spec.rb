@@ -49,7 +49,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         result = setup_csv_validator(invalid_dob_row)
 
         expect(result.success).to eq false
-        expect(result.errors).to eq ["Date of birth - is invalid"]
+        expect(result.errors).to eq ["Date of birth - Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)"]
       end
 
       it "fails with a non valid postcode" do
