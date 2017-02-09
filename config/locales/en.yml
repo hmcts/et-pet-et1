@@ -697,7 +697,8 @@ en:
             address_post_code:
               blank: Enter the additional claimant’s postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
-
+            date_of_birth:
+              invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
         additional_claimant:
           attributes:
             title:
