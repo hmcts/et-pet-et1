@@ -101,7 +101,7 @@ feature 'Attaching a document' do
 
         expect(page).to have_text('An error has been found on line 4 of the uploaded file.')
         expect(page).to have_text('Postcode - Enter a valid UK postcode. If you live abroad, enter SW55 9QT')
-        expect(page).to have_text('Date of birth - is invalid')
+        expect(page).to have_text('Date of birth - Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)')
         expect(claim.additional_claimants_csv).not_to be_present
       end
 
