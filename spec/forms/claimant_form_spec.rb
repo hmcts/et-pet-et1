@@ -91,12 +91,11 @@ RSpec.describe ClaimantForm, :type => :form do
     end
   end
 
-  it_behaves_like 'it parses dates', :date_of_birth
   it_behaves_like "a Form", title: 'mr', gender: 'male', contact_preference: 'email',
     first_name: 'Barrington', last_name: 'Wrigglesworth',
     address_building: '1', address_street: 'High Street',
     address_locality: 'Anytown', address_county: 'Anyfordshire',
     address_country: 'united_kingdom',
     address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
-    special_needs: ''
+    special_needs: '', date_of_birth: '01/01/1990'
 end
