@@ -17,7 +17,7 @@ feature 'Multiple claimants CSV' do
     end
 
     context "group claimants age has to be 16 or over" do
-      let(:csv_line){ ["Mr", "Tom", "Test", "01/01/2016", "1", "Test", "London", "Great London", "N103QS"] }
+      let(:csv_line) { ["Mr", "Tom", "Test", "01/01/2016", "1", "Test", "London", "Great London", "N103QS"] }
 
       scenario "if claimant is too young" do
         upload_group_claim_file
@@ -28,9 +28,9 @@ feature 'Multiple claimants CSV' do
       end
 
       context 'dob is missing' do
-        let(:csv_line){ ["Mr", "Tom", "Test", "", "1", "Test", "London", "Great London", "N103QS"] }
+        let(:csv_line) { ["Mr", "Tom", "Test", "", "1", "Test", "London", "Great London", "N103QS"] }
         scenario "error is displayed" do
-          upload_group_claim_file('group-claim2.csv')
+          upload_group_claim_file
           click_button "Save and continue"
 
           expect(page).to have_text("An error has been found on line 2 of the uploaded file.")
@@ -39,9 +39,9 @@ feature 'Multiple claimants CSV' do
       end
 
       context 'all data are ok' do
-        let(:csv_line){ ["Mr", "Tom", "Test", "01/01/1990", "1", "Test", "London", "Great London", "N103QS"] }
+        let(:csv_line) { ["Mr", "Tom", "Test", "01/01/1990", "1", "Test", "London", "Great London", "N103QS"] }
         scenario "no error displayed" do
-          upload_group_claim_file('group-claim2.csv')
+          upload_group_claim_file
           click_button "Save and continue"
 
           expect(page).not_to have_text("An error has been found")
@@ -51,7 +51,7 @@ feature 'Multiple claimants CSV' do
     end
   end
 
-  def upload_group_claim_file(filename = 'group-claim.csv')
+  def upload_group_claim_file
     csv_string = CSV.generate do |csv|
       csv << ["Title", "First name", "Last name", "Date of birth", "Building number or name", "Street", "Town/city", "County", "Postcode"]
       csv << csv_line

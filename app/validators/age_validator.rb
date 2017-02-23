@@ -8,6 +8,7 @@ module AgeValidator
   end
 
   private
+
   def add_age_error_message
     message = I18n.t('activemodel.errors.models.claimant.attributes.date_of_birth.too_young')
     errors.add(:date_of_birth, message)
