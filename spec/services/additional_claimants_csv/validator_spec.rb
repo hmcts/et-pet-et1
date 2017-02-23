@@ -25,13 +25,6 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         expect(result.errors).to be_empty
         expect(result.line_count).to eq 4
       end
-
-      it "validates if no DOB is present" do
-        valid_no_dob_row = "Mr,Henry,Biggles,,12,High Street,London,London,SW1 6FF"
-        result = setup_csv_validator(valid_no_dob_row)
-
-        expect(result.success).to eq true
-      end
     end
 
     context "csv file with validation errors" do
@@ -50,6 +43,14 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
 
         expect(result.success).to eq false
         expect(result.errors).to eq ["Date of birth - Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)"]
+      end
+
+      it "fails if no DOB is present" do
+        valid_no_dob_row = "Mr,Henry,Biggles,,12,High Street,London,London,SW1 6FF"
+        result = setup_csv_validator(valid_no_dob_row)
+
+        expect(result.success).to eq false
+        expect(result.errors).to eq ["Date of birth - Claimant must be 16 years of age or over"]
       end
 
       it "fails with a non valid postcode" do

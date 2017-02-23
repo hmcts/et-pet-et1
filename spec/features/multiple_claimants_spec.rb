@@ -123,7 +123,7 @@ feature 'Multiple claimants' do
         end
       end
 
-      scenario "no error message if DoB is missing" do
+      scenario "error message if DoB is missing" do
         expect(page).not_to have_selector '#resource_1'
 
         click_button "Add more claimants"
@@ -140,7 +140,9 @@ feature 'Multiple claimants' do
         end
 
         click_button "Save and continue"
-        expect(page).to have_text("Representative’s details")
+        within '#resource_0' do
+          expect(page).not_to have_text("Claimant must be 16 years of age or over")
+        end
       end
     end
 
