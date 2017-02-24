@@ -65,10 +65,10 @@ feature 'Claimant page' do
       end
     end
 
-    it "displays no validation if no DOB is present" do
+    it "displays validation if no DOB is present" do
       click_button "Save and continue"
       expect(page).to have_text("Provide information in the highlighted fields")
-      expect(page).not_to have_text("Claimant must be 16 years of age or over")
+      expect(page).to have_text("Claimant must be 16 years of age or over")
     end
   end
 end
