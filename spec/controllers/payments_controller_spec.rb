@@ -118,6 +118,26 @@ RSpec.describe PaymentsController do
             'BRAND' => 'VISA',
             'SHASIGN' => 'A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
         end
+
+        it 'payment_response is not valid' do
+          payment_response = instance_double('PaymentGateway::Response', valid?: false)
+          allow(controller).to receive(:payment_response).and_return payment_response
+          message = "Failed to recognize payment order: 511234567800, status: 9"
+          expect(Raven).to receive(:capture_exception).with(message)
+
+          get :decline,
+            'orderID' => '511234567800',
+            'amount' => '250',
+            'PM' => 'CreditCard',
+            'ACCEPTANCE' => 'test123',
+            'STATUS' => '9',
+            'CARDNO' => 'XXXXXXXXXXXX111',
+            'TRXDATE' => '09/15/14',
+            'PAYID' => '34707458',
+            'NCERROR' => '0',
+            'BRAND' => 'VISA',
+            'SHASIGN' => 'A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+        end
       end
     end
   end
