@@ -49,8 +49,12 @@ class PaymentsController < ApplicationController
   end
 
   def validate_request
-    # Don't give anything away to attackers poking at the system
-    render nothing: true unless payment_response.valid?
+    unless payment_response.valid?
+      message = "Failed to recognize payment order: #{params['orderID']}, status: #{params['STATUS']}"
+      Raven.capture_exception(message)
+      # Don't give anything away to attackers poking at the system
+      render nothing: true
+    end
   end
 
   def payment_uncertain_message
