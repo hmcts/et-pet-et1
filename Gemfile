@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 gem 'jbuilder', '~> 2.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '4.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -23,7 +23,7 @@ gem 'sass-rails', '~> 5.0.3'
 gem 'turbolinks'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier', '3.0.0'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -72,7 +72,7 @@ gem 'logstasher'
 gem 'moj_template', '0.23.0'
 gem 'pdf-forms'
 gem 'pg'
-gem 'redcarpet', '~> 3.2.3'
+gem 'redcarpet', '3.4.0'
 gem 'representable', require: 'representable/xml'
 gem 'simple_form', '3.1.0rc2'
 gem 'slim-rails'
