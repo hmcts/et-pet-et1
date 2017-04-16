@@ -106,6 +106,21 @@ ActiveAdmin.register Claim do
     end
   end
 
+  member_action :generate_pdf, method: :post do
+    PdfGenerationJob.perform_later resource
+    redirect_to :back, notice: 'Generating a new PDF'
+  end
+
+  sidebar :actions, only: :show do
+    div { button_to 'Generate PDF', action: :generate_pdf }
+    br
+    div do
+      if resource.pdf_present?
+        link_to 'Download PDF', resource.pdf_url, class: :button
+      end
+    end
+  end
+
   # Show
   show title: :reference do
     panel 'Metadata' do
