@@ -38,4 +38,7 @@
       = render partial: 'shared/session_prompt'
       = yield
 
+- content_for :footer_top do
+  | version #{Deployment.version_number}
+
 = render template: "layouts/moj_template"
