@@ -1,3 +1,6 @@
+class CsvDobValidationError < StandardError
+end
+
 class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
   CSV_HEADERS = ["Title", "First name", "Last name", "Date of birth",
     "Building number or name", "Street", "Town/city", "County", "Postcode"].freeze

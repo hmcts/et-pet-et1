@@ -21,7 +21,6 @@ module App
     # config.i18n.default_locale = :de
     # config.active_record.schema_format = :sql
     config.autoload_paths += Dir["#{config.root}/app/{services,forms,presenters,validators}"]
-    config.autoload_paths += Dir["#{config.root}/lib/errors"]
 
     # Application Title (Populates <title>)
     config.app_title = 'Employment Tribunals'

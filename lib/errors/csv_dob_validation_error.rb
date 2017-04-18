@@ -1,2 +1,0 @@
-class CsvDobValidationError < StandardError
-end

@@ -26,7 +26,7 @@ class AdditionalClaimantsCsv::ModelBuilder
   end
 
   def sanitize(row_data)
-    check_csv_dob_format(row_data) if ATTRIBUTES.index(:date_of_birth)
+    check_csv_dob_format(row_data) if ATTRIBUTES.include?(:date_of_birth)
     row_data.take(ATTRIBUTES.size).map { |value| value.strip.downcase if value }
   end
 
