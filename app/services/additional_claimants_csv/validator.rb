@@ -20,6 +20,8 @@ class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
     end
   rescue CSV::MalformedCSVError
     return malformed_csv_error
+  rescue CsvDobValidationError
+    return validation_csv_dob_error
   end
 
   private
@@ -35,6 +37,12 @@ class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
   def malformed_csv_error
     AdditionalClaimantsCsv::Result.new.tap do |result|
       result.fail([I18n.t("claims.additional_claimants_upload.malformatted_csv")])
+    end
+  end
+
+  def validation_csv_dob_error
+    AdditionalClaimantsCsv::Result.new.tap do |result|
+      result.fail([I18n.t("claims.additional_claimants_upload.dob_info")])
     end
   end
 end
