@@ -58,7 +58,6 @@ feature 'Multiple claimants CSV' do
         end
       end
 
-
       context 'all data are ok' do
         let(:csv_line) { ["Mr", "Tom", "Test", "01/01/1990", "1", "Test", "London", "Great London", "N103QS"] }
         scenario "no error displayed" do
