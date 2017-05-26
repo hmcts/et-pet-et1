@@ -6,7 +6,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || ''
   }
 
-  config.storage :fog
+  config.storage (Rails.env.development?)? :file : :fog
   config.fog_public      = false
   config.fog_directory   = ENV['S3_UPLOAD_BUCKET']
   config.fog_credentials = credentials
