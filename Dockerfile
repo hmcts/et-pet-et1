@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.2
+FROM ministryofjustice/ruby:2.3.3
 
 # Set correct environment variables.
 ENV HOME /root
