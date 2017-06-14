@@ -6,7 +6,7 @@ RSpec.describe Claim, type: :claim do
   it { is_expected.to have_many(:claimants).dependent(:destroy) }
   it { is_expected.to have_many(:secondary_claimants).conditions primary_claimant: false }
 
-  it { is_expected.to have_many(:respondents).dependent(:destroy) }
+  it { is_expected.to have_many(:respondents).dependent(:destroy).order(created_at: :asc) }
   it { is_expected.to have_many(:secondary_respondents).conditions primary_respondent: false }
 
   it { is_expected.to have_one(:representative).dependent(:destroy) }
