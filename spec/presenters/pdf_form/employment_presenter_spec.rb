@@ -19,6 +19,18 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
       end
     end
 
+    context 'when lieu is blank' do
+      let(:employment) {
+        Employment.new(
+          worked_notice_period_or_paid_in_lieu: nil
+        )
+      }
+
+      it 'includes notice period in months' do
+        expect(hash).to include('6.3 tick boxes' => 'Off')
+      end
+    end
+
     describe 'when notice period is weekly' do
       let(:employment) {
         Employment.new(
@@ -32,6 +44,19 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
         expect(hash).to include('6.3 months' => nil)
       end
     end
+
+    context 'when pension is blank' do
+      let(:employment) {
+        Employment.new(
+          enrolled_in_pension_scheme: nil
+        )
+      }
+
+      it 'includes notice period in months' do
+        expect(hash).to include('6.4 tick boxes' => 'Off')
+      end
+    end
+
 
     context 'when emplyoment in the past' do
       let(:employment) { Employment.new(end_date: Date.yesterday) }
