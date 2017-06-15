@@ -25,7 +25,7 @@ class Claim < ActiveRecord::Base
   has_many :events
 
   has_many :claimants, dependent: :destroy
-  has_many :respondents, dependent: :destroy
+  has_many :respondents, -> { order(created_at: :asc) }, dependent: :destroy
   has_one  :representative, dependent: :destroy
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
