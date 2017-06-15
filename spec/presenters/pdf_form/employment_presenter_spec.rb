@@ -57,7 +57,6 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
       end
     end
 
-
     context 'when emplyoment in the past' do
       let(:employment) { Employment.new(end_date: Date.yesterday) }
 
