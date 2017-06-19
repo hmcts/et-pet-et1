@@ -47,6 +47,7 @@ group :development, :test do
   gem 'rspec-its', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.0.0'
   gem 'rubocop'
+  gem 'rubocop-rspec'
   gem 'shoulda-matchers'
   gem 'spring'
   gem "activerecord-nulldb-adapter"
