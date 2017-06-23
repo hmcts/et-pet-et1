@@ -5,11 +5,11 @@ module PaymentGateway
   # cached in test and also eager loaded in production this shouldn't be a problem
   # in those environments, but it's annoying in development
   @available = true
-  MUTEX = Mutex.new
+  MUTEX ||= Mutex.new
   logger = Rails.logger
   logger.info "Initialised PaymentGateway logger"
 
-  TASK = PeriodicTask.new(every: 5.seconds, run_immediately: !Rails.env.test?) do
+  TASK ||= PeriodicTask.new(every: 5.seconds, run_immediately: !Rails.env.test?) do
     begin
       result = HTTParty.get ENV.fetch('PAYMENT_GATEWAY_PING_ENDPOINT')
       MUTEX.synchronize {
