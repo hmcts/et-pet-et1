@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.3.3
+FROM ministryofjustice/ruby:2.3.3-webapp-onbuild
 
 # Set correct environment variables.
 ENV HOME /root
