@@ -1,4 +1,4 @@
-FROM ministryofjustice/ruby:2.2
+FROM ministryofjustice/ruby:2.3.3
 
 # Set correct environment variables.
 ENV HOME /root
@@ -26,7 +26,7 @@ RUN cd /rails  && \
     npm install && \
     bundle exec rake rails:update:bin
 
-RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.0/ gem install bundler
+RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.3/ gem install bundler
 
 EXPOSE 8080
 
