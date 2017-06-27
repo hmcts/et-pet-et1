@@ -11,22 +11,15 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
     echo 'deb https://deb.nodesource.com/node jessie main' > /etc/apt/sources.list.d/nodesource.list && \
     apt-get update && \
-    apt-get install -y pdftk runit nodejs
+    apt-get install -y pdftk
 
-ADD ./ /rails
-
-# set WORKDIR
-WORKDIR /rails
-
-RUN cd /rails  && \
-    chown -R $APPUSER /rails && \
-    bundle config --global without build && \
-    bundle --path vendor/bundle --deployment --standalone --binstubs  && \
+RUN bundle --path vendor/bundle --deployment --standalone --binstubs  && \
     rm -rf bin && \
-    npm install && \
     bundle exec rake rails:update:bin
 
-RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.3/ gem install bundler
+RUN npm install
+
+RUN GEM_HOME=/rails/vendor/bundle/ruby/2.3.0/ gem install bundler
 
 EXPOSE 8080
 
