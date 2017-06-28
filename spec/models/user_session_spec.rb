@@ -10,7 +10,7 @@ describe UserSession do
   before do
     subject.reference = reference
     subject.password = password
-    allow(Claim).to receive(:find_by_reference).with(reference).and_return claim
+    allow(Claim).to receive(:find_by).with(reference: reference).and_return claim
     allow(claim).to receive(:authenticate).with(password).and_return true
   end
 
@@ -53,7 +53,7 @@ describe UserSession do
 
     context 'when invalid reference' do
       before do
-        allow(Claim).to receive(:find_by_reference).and_return nil
+        allow(Claim).to receive(:find_by).with(reference: reference).and_return nil
       end
 
       it 'adds error' do

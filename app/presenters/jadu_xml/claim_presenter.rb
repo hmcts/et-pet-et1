@@ -32,7 +32,7 @@ module JaduXml
     collection :files, extend: JaduXml::FilePresenter,
       exec_context: :decorator, render_empty: true, wrap: 'Files'
 
-    delegate :has_multiple_claimants?, :other_claim_details, :office, :submitted_at,
+    delegate :multiple_claimants?, :other_claim_details, :office, :submitted_at,
       :remission_claimant_count, :representative, :attachments,
       :attracts_higher_fee?, to: :represented
 
@@ -51,7 +51,7 @@ module JaduXml
     end
 
     def case_type
-      has_multiple_claimants? ? 'Multiple' : 'Single'
+      multiple_claimants? ? 'Multiple' : 'Single'
     end
 
     def jurisdiction

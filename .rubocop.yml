@@ -26,6 +26,8 @@ AllCops:
 Rails:
   Enabled: true
 
+Rails/SkipsModelValidations:
+  Enabled: false
 # Allow long lines in specs, as it's almost impossible to fit RSpec's
 # expectations into 80 characters.
 Metrics/LineLength:
@@ -63,6 +65,10 @@ Rails/FilePath:
   Exclude:
     - spec/routing/**/*
 
+Rails/ApplicationRecord:
+  Description: 'Check that models subclass ApplicationRecord.'
+  Enabled: false
+
 # private/protected/public
 Style/AccessModifierIndentation:
   EnforcedStyle: indent
@@ -74,6 +80,7 @@ Style/AlignParameters:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: nested
+  Enabled: false
 
 Style/CollectionMethods:
   PreferredMethods:

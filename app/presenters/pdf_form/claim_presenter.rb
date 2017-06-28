@@ -34,7 +34,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   end
 
   def type_of_claim
-    if has_multiple_claimants?
+    if multiple_claimants?
       'a claimon behalf of more than one person'
     else
       'a single claim'
@@ -42,7 +42,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   end
 
   def number_of_claimants
-    claimant_count if has_multiple_claimants?
+    claimant_count if multiple_claimants?
   end
 
   def claim
