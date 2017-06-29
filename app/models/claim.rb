@@ -91,7 +91,7 @@ class Claim < ActiveRecord::Base
     claimants.count + additional_claimants_csv_record_count
   end
 
-  def has_multiple_claimants?
+  def multiple_claimants?
     claimant_count > 1
   end
 
