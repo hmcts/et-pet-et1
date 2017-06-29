@@ -2,7 +2,7 @@ class Claim::FiniteStateMachine
   extend StateMachine::MacroMethods
 
   class << self
-    def instance_methods(include_superclass=true)
+    def instance_methods(include_superclass = true)
       super - Object.instance_methods
     end
   end
