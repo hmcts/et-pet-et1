@@ -1,5 +1,6 @@
 class UserSession
-  include ActiveModel::Validations, ActiveModel::Model
+  include ActiveModel::Validations
+  include ActiveModel::Model
 
   attr_accessor :reference, :password, :email_address
 
@@ -8,7 +9,7 @@ class UserSession
   validate :password_authenticates, :claim_not_submitted, if: :claim
 
   def claim
-    @claim ||= Claim.find_by_reference(reference)
+    @claim ||= Claim.find_by(application_reference: reference)
   end
 
   private
