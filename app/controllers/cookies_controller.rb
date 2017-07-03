@@ -1,4 +1,4 @@
 class CookiesController < MarkdownController
-  add_markdown_path   Rails.root.join(*%w<app views cookies markdown>)
-  add_markdown_files  %w<general>
+  add_markdown_path views_guides_cookies_link
+  add_markdown_files %w[general]
 end

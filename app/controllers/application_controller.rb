@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   class << self
-    def redispatch_request(opts={})
+    def redispatch_request(opts = {})
       states = Array(opts.delete(:unless))
       before_action(opts) do
         redispatch_request! unless states.any? { |state| claim.try state }
@@ -20,16 +20,19 @@ class ApplicationController < ActionController::Base
   private
 
   def redispatch_request!
-    redirect_to case
-                when claim.nil?
-                  root_path
-                when claim.created?
-                  claim_claimant_path
-                when claim.payment_required?
-                  claim_payment_path
-                when claim.immutable?
-                  claim_confirmation_path
-                end
+    redirect_to redispatch_link
+  end
+
+  def redispatch_link
+    if claim.nil?
+      root_path
+    elsif claim.created?
+      claim_claimant_path
+    elsif claim.payment_required?
+      claim_payment_path
+    elsif claim.immutable?
+      claim_confirmation_path
+    end
   end
 
   def set_session_expiry
@@ -37,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_session_expiry
-    if Time.now > session[:expires_in]
+    if Time.current > session[:expires_in]
       redirect_to expired_user_session_path
     end
   end
@@ -47,8 +50,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_claim_from_session
-    return nil unless session[:claim_reference].present?
-    Claim.find_by_reference(session[:claim_reference])
+    return nil if session[:claim_reference].blank?
+    Claim.find_by(application_reference: session[:claim_reference])
   end
 
   def claim_path_for(page, options = {})

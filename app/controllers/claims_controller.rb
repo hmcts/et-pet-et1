@@ -1,7 +1,7 @@
 class ClaimsController < ApplicationController
-  redispatch_request unless: :created?, only: %i<show update>
+  redispatch_request unless: :created?, only: %i[show update]
 
-  before_action :check_session_expiry, only: %i<show update>
+  before_action :check_session_expiry, only: %i[show update]
 
   def new
     @claim = Claim.new
