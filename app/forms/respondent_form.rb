@@ -1,16 +1,18 @@
 class RespondentForm < Form
   include AddressAttributes
 
-  WORK_ADDRESS_ATTRIBUTES = [:work_address_building,
-    :work_address_street, :work_address_locality,
-    :work_address_county, :work_address_post_code,
-    :work_address_telephone_number]
+  WORK_ADDRESS_ATTRIBUTES = %i[
+    work_address_building
+    work_address_street work_address_locality
+    work_address_county work_address_post_code
+    work_address_telephone_number
+  ].freeze
 
   NAME_LENGTH    = 100
-  NO_ACAS_REASON = %w<joint_claimant_has_acas_number
+  NO_ACAS_REASON = %w[joint_claimant_has_acas_number
                       acas_has_no_jurisdiction
                       employer_contacted_acas
-                      interim_relief>.freeze
+                      interim_relief].freeze
 
   attribute :name,                                       String
   attribute :acas_early_conciliation_certificate_number, String
@@ -26,17 +28,18 @@ class RespondentForm < Form
 
   validates :name, presence: true
   validates :work_address_street, :work_address_locality, :work_address_building,
-            :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
+    :work_address_post_code, presence: { unless: -> { worked_at_same_address? } }
   validates :name, length: { maximum: NAME_LENGTH }
   validates :work_address_building,
-            :work_address_street,
-            length: { maximum: ADDRESS_LINE_LENGTH }
+    :work_address_street,
+    length: { maximum: ADDRESS_LINE_LENGTH }
   validates :work_address_locality,
-            :work_address_county,
-            length: { maximum: LOCALITY_LENGTH }
-  validates :work_address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
+    :work_address_county,
+    length: { maximum: LOCALITY_LENGTH }
+  validates :work_address_post_code,
+    post_code: true, length: { maximum: POSTCODE_LENGTH }
   validates :work_address_telephone_number,
-            length: { maximum: PHONE_NUMBER_LENGTH }
+    length: { maximum: PHONE_NUMBER_LENGTH }
 
   validates :no_acas_number_reason,
     inclusion: { in: NO_ACAS_REASON, allow_blank: true },

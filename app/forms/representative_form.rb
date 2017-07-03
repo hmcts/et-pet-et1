@@ -28,9 +28,11 @@ class RepresentativeForm < Form
     end
   end
 
+  # rubocop:disable Style/PredicateName
   def has_representative
     @has_representative ||= target.persisted?
   end
+  # rubocop:enable Style/PredicateName
 
   def target
     resource.representative || resource.build_representative
