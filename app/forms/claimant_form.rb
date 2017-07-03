@@ -53,11 +53,9 @@ class ClaimantForm < Form
     (super || "").inquiry
   end
 
-  # rubocop:disable Style/PredicateName
   def has_special_needs
     @has_special_needs ||= special_needs.present?
   end
-  # rubocop:enable Style/PredicateName
 
   def target
     resource.primary_claimant || resource.build_primary_claimant
