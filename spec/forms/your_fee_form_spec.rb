@@ -70,18 +70,18 @@ RSpec.describe YourFeeForm, type: :form do
     end
   end
 
-  describe '#has_secondary_claimants?' do
+  describe '#secondary_claimants?' do
     context 'secondary_claimants' do
       before { claim.additional_claimants_csv_record_count = 0 }
 
       it 'returns true when not empty' do
         claim.secondary_claimants.create
-        expect(subject.has_secondary_claimants?).to eq true
+        expect(subject.secondary_claimants?).to eq true
       end
 
       it 'returns false when empty' do
         claim.secondary_claimants.delete_all
-        expect(subject.has_secondary_claimants?).to eq false
+        expect(subject.secondary_claimants?).to eq false
       end
     end
 
@@ -90,12 +90,12 @@ RSpec.describe YourFeeForm, type: :form do
 
       it 'returns true when greater than zero' do
         claim.additional_claimants_csv_record_count = 1
-        expect(subject.has_secondary_claimants?).to eq true
+        expect(subject.secondary_claimants?).to eq true
       end
 
       it 'returns false when zero' do
         claim.additional_claimants_csv_record_count = 0
-        expect(subject.has_secondary_claimants?).to eq false
+        expect(subject.secondary_claimants?).to eq false
       end
     end
   end
