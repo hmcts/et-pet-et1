@@ -11,6 +11,8 @@ module AddressAttributes
     validates :address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   end
 
+  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/AbcSize
   def self.but_skip_postcode_validation
     Module.new do
       extend ActiveSupport::Concern
@@ -37,4 +39,6 @@ module AddressAttributes
       end
     end
   end
+  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/AbcSize
 end

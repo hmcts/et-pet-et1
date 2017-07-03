@@ -1,8 +1,8 @@
 class ClaimantForm < Form
-  TITLES               = %w<mr mrs miss ms>.freeze
-  GENDERS              = %w<male female prefer_not_to_say>.freeze
-  CONTACT_PREFERENCES  = %w<email post>.freeze
-  COUNTRIES            = %w<united_kingdom other>.freeze
+  TITLES               = %w[mr mrs miss ms].freeze
+  GENDERS              = %w[male female prefer_not_to_say].freeze
+  CONTACT_PREFERENCES  = %w[email post].freeze
+  COUNTRIES            = %w[united_kingdom other].freeze
   EMAIL_ADDRESS_LENGTH = 100
   NAME_LENGTH          = 100
 
@@ -29,7 +29,8 @@ class ClaimantForm < Form
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
 
-  validates :title, :gender, :first_name, :last_name, :address_country, :contact_preference, presence: true
+  validates :title, :gender, :first_name, :last_name, :address_country,
+    :contact_preference, presence: true
 
   validates :title, inclusion: { in: TITLES }
   validates :gender, inclusion: { in: GENDERS }
@@ -39,7 +40,8 @@ class ClaimantForm < Form
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
-    email: { if: :email_address? }, length: { maximum: EMAIL_ADDRESS_LENGTH }
+                            email: { if: :email_address? },
+                            length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   validate :older_then_16
 
@@ -51,9 +53,11 @@ class ClaimantForm < Form
     (super || "").inquiry
   end
 
+  # rubocop:disable Style/PredicateName
   def has_special_needs
     @has_special_needs ||= special_needs.present?
   end
+  # rubocop:enable Style/PredicateName
 
   def target
     resource.primary_claimant || resource.build_primary_claimant

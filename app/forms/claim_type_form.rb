@@ -12,9 +12,11 @@ class ClaimTypeForm < Form
   before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
   validate :presence_of_at_least_one_claim_type
 
+  # rubocop:disable Style/PredicateName
   def is_other_type_of_claim
     self.is_other_type_of_claim = other_claim_details.present?
   end
+  # rubocop:enable Style/PredicateName
 
   private
 
@@ -23,7 +25,7 @@ class ClaimTypeForm < Form
   end
 
   def presence_of_at_least_one_claim_type
-    self.attributes.keys.each do |attribute_name|
+    attributes.keys.each do |attribute_name|
       claim_type = claim_type_value(attribute_name)
       return true if claim_type.present?
     end
