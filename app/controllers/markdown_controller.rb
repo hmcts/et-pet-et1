@@ -20,4 +20,11 @@ class MarkdownController < ActionController::Base
       "#{ self.class.markdown_path.join(name + '.md') }"
     end
   end
+
+  def self.views_term_markdowdon_link
+    arr = %w[app views terms markdown]
+    Rails.root.join(*arr)
+  end
+
+
 end
