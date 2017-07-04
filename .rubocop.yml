@@ -68,6 +68,10 @@ Rails/FilePath:
   Exclude:
     - spec/routing/**/*
 
+Rails/ApplicationJob:
+  Description: 'Check that jobs subclass ApplicationJob.'
+  Enabled: false
+
 Rails/ApplicationRecord:
   Description: 'Check that models subclass ApplicationRecord.'
   Enabled: false
