@@ -15,6 +15,6 @@ class GdsCheckBoxesInput < SimpleForm::Inputs::BooleanInput
   end
 
   private def label_target
-    "#{self.object_name}_#{attribute_name}"
+    "#{object_name}_#{attribute_name}"
   end
 end
