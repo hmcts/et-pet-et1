@@ -1,3 +1,5 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 class ConfirmationEmailAddressesPresenter < Struct.new(:claim)
   delegate :primary_claimant, :representative, :secondary_claimants, to: :claim
 
@@ -24,3 +26,4 @@ class ConfirmationEmailAddressesPresenter < Struct.new(:claim)
     secondary_claimants.none? || representative.try(:email_address).blank?
   end
 end
+# rubocop:enable Style/StructInheritance

@@ -1,6 +1,6 @@
 class CollectionPresenter < Presenter
   class << self
-    def collection(collection=nil)
+    def collection(collection = nil)
       if collection
         @collection = collection
       else
@@ -26,11 +26,11 @@ class CollectionPresenter < Presenter
     @children ||= target.send(collection).map { |i| item_presenter.new i }
   end
 
-  private def items
+  private
+
+  def items
     super - [:children]
   end
-
-  private
 
   delegate :collection, :item_presenter, to: :class
 end
