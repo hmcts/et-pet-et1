@@ -3,7 +3,7 @@ module ETFees
     def render
       if has_errors?
         template.render partial: 'shared/error_notification',
-          locals: { message: message }
+                        locals: { message: message }
       end
     end
 

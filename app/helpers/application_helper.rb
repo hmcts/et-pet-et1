@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def page_title(header=generic_header)
+  def page_title(header = generic_header)
     "#{header} - Gov.uk"
   end
 
