@@ -9,7 +9,8 @@ module JaduXml
     property :mobile_number, as: 'AltPhoneNumber', render_nil: true
     property :email_address, as: 'Email', render_nil: true
     property :fax_number, as: 'Fax', render_nil: true
-    property :contact_preference, as: 'PreferredContactMethod', exec_context: :decorator, render_nil: true
+    property :contact_preference, as: 'PreferredContactMethod',
+                                  exec_context: :decorator, render_nil: true
     property :gender, as: 'Sex',  exec_context: :decorator, render_nil: true
     property :date_of_birth, as: 'DateOfBirth', exec_context: :decorator, render_nil: true
 
@@ -22,7 +23,8 @@ module JaduXml
     end
 
     def date_of_birth
-      represented.date_of_birth.strftime '%d/%m/%Y' if represented.date_of_birth?
+      return unless represented.date_of_birth?
+      represented.date_of_birth.strftime '%d/%m/%Y'
     end
 
     def title

@@ -19,18 +19,20 @@ module JaduXml
     property :administrator, as: 'Administrator', exec_context: :decorator
 
     collection :claimants, extend: JaduXml::ClaimantPresenter,
-      class: Claimant, wrap: 'Claimants', exec_context: :decorator
+                           class: Claimant, wrap: 'Claimants', exec_context: :decorator
 
     collection :respondents, extend: JaduXml::RespondentPresenter,
-      class: Respondent, wrap: 'Respondents'
+                             class: Respondent, wrap: 'Respondents'
 
     collection :representative, extend: JaduXml::RepresentativePresenter,
-      exec_context: :decorator, render_empty: true, wrap: 'Representatives'
+                                exec_context: :decorator,
+                                render_empty: true, wrap: 'Representatives'
 
     property :payment, extend: JaduXml::PaymentPresenter, exec_context: :decorator
 
     collection :files, extend: JaduXml::FilePresenter,
-      exec_context: :decorator, render_empty: true, wrap: 'Files'
+                       exec_context: :decorator,
+                       render_empty: true, wrap: 'Files'
 
     delegate :multiple_claimants?, :other_claim_details, :office, :submitted_at,
       :remission_claimant_count, :representative, :attachments,

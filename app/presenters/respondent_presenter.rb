@@ -10,10 +10,9 @@ class RespondentPresenter < Presenter
   end
 
   def acas_early_conciliation_certificate_number
-    case
-    when target.acas_early_conciliation_certificate_number?
+    if target.acas_early_conciliation_certificate_number?
       target.acas_early_conciliation_certificate_number
-    when target.no_acas_number_reason
+    elsif target.no_acas_number_reason
       I18n.t "simple_form.options.respondent.no_acas_number_reason.#{target.no_acas_number_reason}"
     end
   end
