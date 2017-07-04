@@ -1,6 +1,7 @@
 class PdfForm::RepresentativePresenter < PdfForm::BaseDelegator
-  CONTACT_PREFERENCES = %i<email post>.freeze
+  CONTACT_PREFERENCES = %i[email post].freeze
 
+  # rubocop:disable MethodLength
   def to_h
     {
       "11.3 postcode" => format_postcode(address_post_code),
@@ -18,4 +19,5 @@ class PdfForm::RepresentativePresenter < PdfForm::BaseDelegator
       "11.9 tick boxes" => use_or_off(contact_preference, CONTACT_PREFERENCES)
     }
   end
+  # rubocop:enable MethodLength
 end

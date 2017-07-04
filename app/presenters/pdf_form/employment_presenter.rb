@@ -1,6 +1,8 @@
 class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
-  PAY_PERIODS = %i<weekly monthly>.freeze
+  PAY_PERIODS = %i[weekly monthly].freeze
 
+  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/AbcSize
   def to_h
     {
       "5.1 employment start" => format_date(start_date),
@@ -23,6 +25,8 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
       "7.3" => new_job_gross_pay
     }
   end
+  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   private
 

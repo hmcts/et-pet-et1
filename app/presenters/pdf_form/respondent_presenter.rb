@@ -40,7 +40,7 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
       "R5 county",
       "R5 phone number",
       "R5 postcode"
-    ],
+    ]
   ].freeze
 
   HAS_ACAS_CHECKBOXES = [
@@ -58,15 +58,17 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
     hash = {}
     keys = RESPONDENT_FIELDS[@index]
 
-    values = [name, address_building, address_street, address_locality, address_county,
-      address_telephone_number, format_postcode(address_post_code)]
-
     hash.update work_address_hash if first_respondent?
     hash.update keys.zip(values).to_h
     hash.update acas_hash
   end
 
   private
+
+  def values
+    [name, address_building, address_street, address_locality, address_county,
+     address_telephone_number, format_postcode(address_post_code)]
+  end
 
   def work_address_hash
     {
@@ -75,7 +77,7 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
       "2.3 street" => work_address_street,
       "2.3 town city" => work_address_locality,
       "2.3 county" => work_address_county,
-      "2.3 phone number" => work_address_telephone_number,
+      "2.3 phone number" => work_address_telephone_number
     }
   end
 
@@ -96,16 +98,20 @@ class PdfForm::RespondentPresenter < PdfForm::BaseDelegator
       'interim_relief' => checkbox(3)
     }[no_acas_number_reason]
 
-    hash = {
-      HAS_ACAS_CHECKBOXES[@index] => tri_state(has_acas_number?, yes: 'Yes'),
-      ACAS_NUMBER_FIELDS[@index] => acas_early_conciliation_certificate_number,
-    }
+    hash = hash_init
 
     hash[reason_checkbox] = 'Yes' if reason_checkbox
     hash
   end
 
   def first_respondent?
-    @index == 0
+    @index.zero?
+  end
+
+  def hash_init
+    {
+      HAS_ACAS_CHECKBOXES[@index] => tri_state(has_acas_number?, yes: 'Yes'),
+      ACAS_NUMBER_FIELDS[@index] => acas_early_conciliation_certificate_number
+    }
   end
 end

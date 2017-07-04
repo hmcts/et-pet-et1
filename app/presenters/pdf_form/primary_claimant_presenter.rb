@@ -1,11 +1,13 @@
 class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
-  GENDERS             = %i<male female prefer_not_to_say>.freeze
-  CONTACT_PREFERENCES = %i<email post>.freeze
+  GENDERS             = %i[male female prefer_not_to_say].freeze
+  CONTACT_PREFERENCES = %i[email post].freeze
 
   def name
     first_name + ' ' + last_name
   end
 
+  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/AbcSize
   def to_h
     {
       "1.1 title tick boxes" => title,
@@ -26,7 +28,9 @@ class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
       "1.9 email" => email_address,
 
       "12.1 tick box" => tri_state(special_needs.present?),
-      "12.1 if yes" => special_needs,
+      "12.1 if yes" => special_needs
     }
   end
+  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/AbcSize
 end
