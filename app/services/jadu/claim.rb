@@ -1,10 +1,11 @@
 require_relative 'api'
-
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 module Jadu
   class Claim < Struct.new(:claim)
     class << self
       def create(claim)
-        new(claim).tap &:perform
+        new(claim).tap(&:perform)
       end
     end
 
@@ -32,11 +33,7 @@ module Jadu
     end
 
     def request_error
-      raise StandardError.new <<-EOS.strip_heredoc
-        Application #{claim.reference} was rejected by Jadu with error #{operation['errorCode']}
-        Description: #{operation['errorDescription']}
-        Details: #{operation['details']}
-      EOS
+      raise jadu_error
     end
 
     def operation
@@ -56,5 +53,14 @@ module Jadu
         o.update CarrierwaveFilename.for(a, underscore: true) => a.file.read
       end
     end
+
+    def jadu_error
+      StandardError.new <<-EOS.strip_heredoc
+        Application #{claim.reference} was rejected by Jadu with error #{operation['errorCode']}
+        Description: #{operation['errorDescription']}
+        Details: #{operation['details']}
+      EOS
+    end
   end
 end
+# rubocop:enable Style/StructInheritance

@@ -1,3 +1,5 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 class ClaimFeeCalculator
   class RemissionCalculator < Struct.new(:claim, :full_application_fee)
     def application_fee_with_remission
@@ -19,7 +21,7 @@ class ClaimFeeCalculator
     end
 
     def calculate_for_individual_claimant
-      if claim.remission_claimant_count > 0
+      if claim.remission_claimant_count.positive?
         0
       else
         full_application_fee
@@ -41,3 +43,4 @@ class ClaimFeeCalculator
     delegate :claimant_count, :remission_claimant_count, to: :claim
   end
 end
+# rubocop:enable Style/StructInheritance

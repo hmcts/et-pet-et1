@@ -1,4 +1,6 @@
 # Namespace for encapsulating Payment gateway related code
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 module PaymentGateway
   # Encapsulates ePDQ request related code
   class Request < Struct.new(:request, :options)
@@ -7,9 +9,11 @@ module PaymentGateway
     private
 
     def epdq_request
-      @request ||= EPDQ::Request.new currency: 'GBP', language: 'en_US',
+      @request ||= EPDQ::Request.new(
+        currency: 'GBP', language: 'en_US',
         accepturl: return_url(:success), declineurl: return_url(:decline),
         amount: options[:amount], orderid: options[:reference], tp: template_url
+      )
     end
 
     def uri
@@ -26,7 +30,8 @@ module PaymentGateway
 
     def url_helper(path)
       Rails.application.routes.url_helpers.send path,
-       host: uri.host, port: uri.port, protocol: uri.scheme
+        host: uri.host, port: uri.port, protocol: uri.scheme
     end
   end
 end
+# rubocop:enable Style/StructInheritance

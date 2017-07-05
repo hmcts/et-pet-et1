@@ -30,14 +30,14 @@ module Jadu
         @str = str
       end
 
-      PIPELINE = [
-        :remove_leading_space,
-        :remove_trailing_space,
-        :replace_disallowed_characters_with_underscores,
-        :replace_spaces_with_underscores,
-        :remove_leading_junk,
-        :remove_trailing_junk,
-      ]
+      PIPELINE = %i[
+        remove_leading_space
+        remove_trailing_space
+        replace_disallowed_characters_with_underscores
+        replace_spaces_with_underscores
+        remove_leading_junk
+        remove_trailing_junk
+      ].freeze
 
       def sanitize
         name, ext = extract_extension(@str)
