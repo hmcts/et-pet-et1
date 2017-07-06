@@ -6,8 +6,8 @@ class PageManager
       @pages ||= []
     end
 
-    def page(name, config={})
-      self.pages << Page.new(name, *config.values_at(:number, :transitions_to))
+    def page(name, config = {})
+      pages << Page.new(name, *config.values_at(:number, :transitions_to))
     end
 
     def first_page

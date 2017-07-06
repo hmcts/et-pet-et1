@@ -12,20 +12,18 @@ module PaymentGateway
   TASK ||= PeriodicTask.new(every: 5.seconds, run_immediately: !Rails.env.test?) do
     begin
       result = HTTParty.get ENV.fetch('PAYMENT_GATEWAY_PING_ENDPOINT')
-      MUTEX.synchronize {
+      MUTEX.synchronize do
         if result.success? != @available
           logger.info "PaymentGateway: State change from old #{@available} to #{result.success?}"
         end
         # leaving this outside of the 'if' because when changed the tests break
         @available = result.success?
-      }
+      end
     rescue SystemCallError => e
-      logger.error "PaymentGateway: SystemCallError - #{e.class} #{e.message} " +
-        " \n    " + e.backtrace.join("\n    ") +
-        "\nPaymentGateway: SystemCallError - gateway now unavailable (#{e.message})"
-      MUTEX.synchronize {
+      logger.error err_message(e)
+      MUTEX.synchronize do
         @available = false
-      }
+      end
     end
   end
 
@@ -35,5 +33,15 @@ module PaymentGateway
 
   delegate :run, :stop, to: :TASK
 
-  extend self
+  private
+
+  def err_message(error)
+    <<-EOS
+      PaymentGateway: SystemCallError - #{error.class} #{error.message}
+      #{error.backtrace.join("\n    ")}
+      PaymentGateway: SystemCallError - gateway now unavailable (#{error.message})
+    EOS
+  end
+
+  module_function :available?, :run, :stop, :err_message
 end

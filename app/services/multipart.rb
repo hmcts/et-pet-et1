@@ -4,7 +4,7 @@ require 'securerandom'
 require 'net/http'
 
 module Multipart
-  CRLF = "\r\n"
+  CRLF = "\r\n".freeze
 
   class Post < Net::HTTP::Post
     def initialize(path, *params)
@@ -70,7 +70,7 @@ module Multipart
       RawContent.new('')
     end
 
-    def raw(a)
+    def raw_content(a)
       RawContent.new(a)
     end
 
@@ -79,7 +79,7 @@ module Multipart
     end
 
     def ==(other)
-      self.to_multipart == other.to_multipart
+      to_multipart == other.to_multipart
     end
   end
 
@@ -95,7 +95,7 @@ module Multipart
       render_lines(
         header('Content-Disposition', 'form-data', @options),
         blank_line,
-        raw(@content)
+        raw_content(@content)
       )
     end
   end
@@ -113,7 +113,7 @@ module Multipart
         header('Content-Disposition', 'form-data', @options),
         header('Content-Type', 'application/octet-stream'),
         blank_line,
-        raw(@content)
+        raw_content(@content)
       )
     end
   end
