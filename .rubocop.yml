@@ -21,6 +21,7 @@ AllCops:
     - 'lib/log_stuff.rb'
     - 'config/routes.rb'
     - 'Gemfile'
+    - 'spec/**/*'
 
 
 Rails:

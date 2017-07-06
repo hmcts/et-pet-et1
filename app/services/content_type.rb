@@ -4,5 +4,5 @@ module ContentType
       run(file: file.path).split('; ').first
   end
 
-  extend self
+  module_function :of
 end
