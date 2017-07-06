@@ -1,3 +1,5 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 class AdditionalClaimantsCsv::BaseCsv < Struct.new(:claim)
   delegate :additional_claimants_csv, to: :claim
 
@@ -13,3 +15,4 @@ class AdditionalClaimantsCsv::BaseCsv < Struct.new(:claim)
     @model_builder ||= AdditionalClaimantsCsv::ModelBuilder.new
   end
 end
+# rubocop:enable Style/StructInheritance
