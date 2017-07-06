@@ -16,7 +16,8 @@ Rails.application.configure do
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
-  # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
+  # For large-scale production use, consider using a caching reverse proxy
+  # like nginx, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
@@ -85,8 +86,9 @@ Rails.application.configure do
   config.logstasher.enabled = true
   config.logstasher.suppress_app_log = true
   config.logstasher.log_level = Logger::INFO
-  config.logstasher.logger_path = "#{Rails.root}/log/logstash_#{Rails.env}.json"
-  # This line is optional, it allows you to set a custom value for the @source field of the log event
+  config.logstasher.logger_path = Rails.root.join('log', "logstash_#{Rails.env}.json").to_s
+  # This line is optional,
+  # it allows you to set a custom value for the @source field of the log event
   config.logstasher.source = 'logstasher'
 
   config.action_mailer.default_url_options = {

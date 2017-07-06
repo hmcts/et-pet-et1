@@ -15,7 +15,7 @@ module SimpleForm
       def data_options(builder)
         if @options[:reveal]
           key = builder.object.last
-          { :"data-target" => @options[:reveal][key] }
+          { "data-target" => @options[:reveal][key] }
         else
           {}
         end
