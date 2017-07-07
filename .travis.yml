@@ -1,7 +1,5 @@
 sudo: false
 language: ruby
-rvm:
-- 2.3.3
 cache: bundler
 node_js:
 - '0.10'

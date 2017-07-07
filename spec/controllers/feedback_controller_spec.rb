@@ -20,7 +20,7 @@ RSpec.describe FeedbackController, :type => :controller do
     it 'redirects to /apply/feedback with a flash' do
       post :create, feedback: params
 
-      expect(response).to be_redirect
+      expect(response).to have_http_status(302)
       expect(response.location).to end_with '/apply/feedback'
       expect(flash[:info]).to eq 'Thank you for your feedback'
     end
