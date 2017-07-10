@@ -6,13 +6,7 @@ class PeriodicTask
 
     @thread = Thread.new do
       Thread.stop unless run_immediately
-
-      loop do
-        block.call
-        sleep every
-
-        Thread.stop if @mutex.synchronize { @stop_next_tick }
-      end
+      thread_iterator(every, block)
     end
   end
 
@@ -23,5 +17,14 @@ class PeriodicTask
 
   def stop
     @mutex.synchronize { @stop_next_tick = true }
+  end
+
+  def thread_iterator(every, block)
+    loop do
+      block.call
+      sleep every
+
+      Thread.stop if @mutex.synchronize { @stop_next_tick }
+    end
   end
 end

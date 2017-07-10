@@ -2,16 +2,16 @@ h2.legend= t '.claim_details'
 
 p= t('.claim_details_html', path: guide_path)
 
-details open=(resource.has_claim_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
+details open=(resource.claim_form_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
   summary role='button' aria={ \
-    expanded: "#{resource.has_claim_details_rtf?}",
+    expanded: "#{resource.claim_form_details_rtf?}",
     controls: 'details-content-0'}
     span.summary= t('.claim_details_upload')
 
   .panel-indent#details-content-0
     = f.input :claim_details_rtf do
       = f.input_field :claim_details_rtf, as: :file do
-    - if resource.has_claim_details_rtf?
+    - if resource.claim_form_details_rtf?
       = f.input :remove_claim_details_rtf, as: :boolean,
           inline_label: t('.remove_claim_details_rtf',
             file: resource.attachment_filename),

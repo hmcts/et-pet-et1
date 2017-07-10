@@ -1,12 +1,11 @@
 class UserSessionsController < ApplicationController
   skip_after_action :set_session_expiry, only: :expired
-  redispatch_request unless: :present?, except: %i<new create>
+  redispatch_request unless: :present?, except: %i[new create]
 
   def destroy
-    case
-    when claim.email_address.present?
+    if claim.email_address.present?
       logout
-    when params[:user_session].present?
+    elsif params[:user_session].present?
       send_access_details_and_logout
     else
       render 'reminder'

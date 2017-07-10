@@ -1,6 +1,9 @@
 module Deployment
   def info
-    { version_number: version_number, build_date: build_date, commit_id: commit_id, build_tag: build_tag }
+    { version_number: version_number,
+      build_date: build_date,
+      commit_id: commit_id,
+      build_tag: build_tag }
   end
 
   def version_number
@@ -19,5 +22,5 @@ module Deployment
     ENV['APP_BUILD_TAG'] || 'unknown'
   end
 
-  extend self
+  module_function :info, :version_number, :build_date, :commit_id, :build_tag
 end

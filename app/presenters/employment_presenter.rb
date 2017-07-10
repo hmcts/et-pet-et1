@@ -44,7 +44,7 @@ class EmploymentPresenter < Presenter
   end
 
   def notice_period_pay
-    if [notice_pay_period_count, notice_pay_period_type].all? &:present?
+    if [notice_pay_period_count, notice_pay_period_type].all?(&:present?)
       "#{notice_pay_period_count} #{notice_pay_period_type}"
     end
   end
@@ -54,9 +54,8 @@ class EmploymentPresenter < Presenter
   end
 
   def new_job_gross_pay
-    if [target.new_job_gross_pay, target.new_job_gross_pay_frequency].all? &:present?
-      number_to_currency(target.new_job_gross_pay) + ' ' + period_type(target.new_job_gross_pay_frequency)
-    end
+    return unless gross_pay_present?
+    "#{target_gross_pay} #{target_gross_pay_frequency}"
   end
 
   def new_job_start_date
@@ -65,31 +64,58 @@ class EmploymentPresenter < Presenter
 
   private
 
+  def gross_pay_present?
+    [target.new_job_gross_pay,
+     target.new_job_gross_pay_frequency].all?(&:present?)
+  end
+
+  def target_gross_pay
+    number_to_currency(target.new_job_gross_pay)
+  end
+
+  def target_gross_pay_frequency
+    period_type(target.new_job_gross_pay_frequency)
+  end
+
   def items
-    if target.blank?
-      %i<was_employed>
-    else
-      super.reject { |i| items_to_omit.include? i }
-    end
+    return %i[was_employed] if target.blank?
+
+    super.reject { |i| items_to_omit.include? i }
   end
 
   def items_to_omit
-    delete = %i<was_employed>
+    @delete = %i[was_employed]
 
-    delete.concat %i<new_job_start_date new_job_gross_pay> unless target.found_new_job?
+    @delete.concat %i[new_job_start_date new_job_gross_pay] unless target.found_new_job?
 
-    delete.push :notice_period_pay unless target.worked_notice_period_or_paid_in_lieu?
+    @delete.push :notice_period_pay unless target.worked_notice_period_or_paid_in_lieu?
 
+    delete_based_on_situation
+
+    @delete
+  end
+
+  def delete_based_on_situation
     case target.current_situation
     when "still_employed"
-      delete.concat %i<end_date worked_notice_period_or_paid_in_lieu notice_period_end_date notice_period_pay>
+      delete_still_employed
     when "notice_period"
-      delete.concat %i<end_date worked_notice_period_or_paid_in_lieu notice_period_pay>
+      delete_notice_period
     when "employment_terminated"
-      delete.push :notice_period_end_date
+      @delete.push :notice_period_end_date
     end
+  end
 
-    delete
+  def delete_still_employed
+    @delete.concat %i[end_date worked_notice_period_or_paid_in_lieu
+                      notice_period_end_date notice_period_pay]
+  end
+
+  def delete_notice_period
+    @delete.concat %i[
+      end_date worked_notice_period_or_paid_in_lieu
+      notice_period_pay
+    ]
   end
 
   def period_type(period_type)

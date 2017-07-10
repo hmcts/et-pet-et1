@@ -34,7 +34,7 @@ class RepresentativePresenter < Presenter
       # Array#- doesn't preserve the receiver's ordering
       super.tap { |s| s.delete :has_representative }
     else
-      %i<has_representative>
+      %i[has_representative]
     end
   end
 end

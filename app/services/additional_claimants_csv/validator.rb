@@ -2,24 +2,14 @@ class CsvDobValidationError < StandardError
 end
 
 class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
-  CSV_HEADERS = ["Title", "First name", "Last name", "Date of birth",
-    "Building number or name", "Street", "Town/city", "County", "Postcode"].freeze
+  CSV_HEADERS = [
+    "Title", "First name", "Last name", "Date of birth",
+    "Building number or name", "Street", "Town/city", "County", "Postcode"
+  ].freeze
 
   def validate
     AdditionalClaimantsCsv::Result.new.tap do |result|
-      csv_collection.each_with_index do |row, index|
-
-        validate_headers(row.headers) if index.zero?
-
-        result.line_count = index.next
-        model = model_builder.build_form_claimant(row.fields)
-
-        next if model.valid?
-
-        errors = humanized_errors(row.headers, model.errors)
-        result.fail(errors)
-        break
-      end
+      iterate_over_csv_collection(result)
     end
   rescue CSV::MalformedCSVError
     return malformed_csv_error
@@ -28,6 +18,22 @@ class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
   end
 
   private
+
+  def iterate_over_csv_collection(result)
+    csv_collection.each_with_index do |row, index|
+
+      validate_headers(row.headers) if index.zero?
+
+      result.line_count = index.next
+      model = model_builder.build_form_claimant(row.fields)
+
+      next if model.valid?
+
+      errors = humanized_errors(row.headers, model.errors)
+      result.fail(errors)
+      break
+    end
+  end
 
   def validate_headers(headers)
     raise CSV::MalformedCSVError unless headers == CSV_HEADERS

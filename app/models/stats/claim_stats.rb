@@ -2,10 +2,10 @@ module Stats
   class ClaimStats < Claim
     MAXIMUM_DAYS_TO_SUBMIT_CLAIM = 91.days.freeze
 
-    scope :started_within_max_submission_timeframe, -> {
+    scope :started_within_max_submission_timeframe, lambda {
       where.not(state: 'submitted').
-      progressed_from_application_reference_page.
-      within_max_submission_timeframe
+        progressed_from_application_reference_page.
+        within_max_submission_timeframe
     }
 
     scope :completed_within_max_submission_timeframe,

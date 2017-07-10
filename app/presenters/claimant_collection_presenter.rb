@@ -3,7 +3,7 @@ class ClaimantCollectionPresenter < CollectionPresenter
   present    :full_name, :date_of_birth, :address
 
   def group_claim
-    yes_no secondary_claimants.any? || additional_claimants_csv_record_count > 0
+    yes_no secondary_claimants.any? || additional_claimants_csv_record_count.positive?
   end
 
   def self.i18n_key

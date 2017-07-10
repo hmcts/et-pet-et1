@@ -4,12 +4,11 @@ class FeedbackSubmissionJob < ActiveJob::Base
   def perform(params)
     Rails.logger.info "Starting FeedbackSubmissionJob"
 
-    ZendeskAPI::Ticket.create(client, {
+    ZendeskAPI::Ticket.create(client,
       subject: "New ATET User Feedback",
       comment: { value: body_from(params) },
       requester: { email: email_from(params), name: "ET User" },
-      group_id: ENV.fetch('ZENDESK_GROUP_ID')
-    })
+      group_id: ENV.fetch('ZENDESK_GROUP_ID'))
 
     Rails.logger.info "Finished FeedbackSubmissionJob"
   end
@@ -17,7 +16,7 @@ class FeedbackSubmissionJob < ActiveJob::Base
   private
 
   def body_from(params)
-    %w<Comments Suggestions>.
+    %w[Comments Suggestions].
       zip(params.values_at(:comments, :suggestions)).join("\n\n")
   end
 

@@ -10,13 +10,11 @@ class ClaimTypePresenter < Presenter
       claims << I18n.t("simple_form.labels.claim_type.is_protective_award")
     end
 
-    claims.push *target.pay_claims.
-      map { |c| I18n.t "simple_form.options.claim_type.pay_claims.#{c}" }
+    claims.push(*pay_claims)
 
-    claims.push *target.discrimination_claims.
-      map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}" }
+    claims.push(*discrimination_claims)
 
-    claims.join('<br />').html_safe
+    claims.join(tag(:br))
   end
 
   def is_whistleblowing
@@ -25,5 +23,19 @@ class ClaimTypePresenter < Presenter
 
   def send_claim_to_whistleblowing_entity
     yes_no target.send_claim_to_whistleblowing_entity
+  end
+
+  private
+
+  def discrimination_claims
+    target.discrimination_claims.map do |c|
+      I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}"
+    end
+  end
+
+  def pay_claims
+    target.pay_claims.map do |c|
+      I18n.t "simple_form.options.claim_type.pay_claims.#{c}"
+    end
   end
 end

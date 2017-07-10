@@ -14,9 +14,9 @@ RSpec.describe RespondentPresenter, type: :presenter do
   its(:name) { is_expected.to eq('Lol Corp') }
 
   describe '#address' do
-    it 'concatenates all address properties with a <br> tag' do
+    it 'concatenates all address properties with a <br /> tag' do
       expect(subject.address).
-        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>')
+        to eq('1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />')
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe RespondentPresenter, type: :presenter do
       it 'includes work_address' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:name, "Lol Corp"],
-            [:address, "1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>"],
+            [:address, "1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />"],
             [:telephone_number, "01234567890"], [:acas_early_conciliation_certificate_number, "123"],
             [:work_address, ""]
       end
@@ -55,7 +55,7 @@ RSpec.describe RespondentPresenter, type: :presenter do
 
       it 'does not include work_address' do
         expect { |b| subject.each_item &b }.to yield_successive_args [:name, "Lol Corp"],
-          [:address, "1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>"],
+          [:address, "1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />"],
           [:telephone_number, "01234567890"], [:acas_early_conciliation_certificate_number, "123"]
       end
     end

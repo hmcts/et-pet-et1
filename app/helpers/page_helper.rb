@@ -13,9 +13,15 @@ module PageHelper
 
   def is_claim_page?(claims_condition: -> { true })
     case controller_name
-    when 'claims'                               then claims_condition.call
-    when *%w<claim_reviews payments multiples>  then true
+    when 'claims' then claims_condition.call
+    when *claim_pages_list then true
     else false
     end
+  end
+
+  private
+
+  def claim_pages_list
+    %w[claim_reviews payments multiples]
   end
 end

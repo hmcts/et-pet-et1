@@ -6,20 +6,23 @@ module Healthcheck
 
   def self.report
     Rails.cache.fetch('healthcheck',
-        expires_in: 30.seconds,
-        race_condition_ttl: 5.seconds) do
+      expires_in: 30.seconds,
+      race_condition_ttl: 5.seconds) do
       HealthcheckReport.new components
     end
   end
 
-  private
+  class << self
 
-  def self.components
-    COMPONENTS.map do |component|
-      {
-        name: "#{component.name.demodulize.underscore}",
-        available: component.available?
-      }
+    private
+
+    def components
+      COMPONENTS.map do |component|
+        {
+          name: component.name.demodulize.underscore.to_s,
+          available: component.available?
+        }
+      end
     end
   end
 end

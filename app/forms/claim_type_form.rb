@@ -23,7 +23,7 @@ class ClaimTypeForm < Form
   end
 
   def presence_of_at_least_one_claim_type
-    self.attributes.keys.each do |attribute_name|
+    attributes.keys.each do |attribute_name|
       claim_type = claim_type_value(attribute_name)
       return true if claim_type.present?
     end

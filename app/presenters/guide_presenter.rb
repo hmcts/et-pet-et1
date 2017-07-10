@@ -23,7 +23,7 @@ class GuidePresenter
   end
 
   def render(file)
-    @renderer.render(contents_of file)
+    @renderer.render(contents_of(file))
   end
 
   def contents_of(file_path)

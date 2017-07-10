@@ -1,6 +1,8 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 module PaymentGateway
   class Response < Struct.new(:request)
-    SUCCESS_CODES = %w<5 51 9 91>.freeze
+    SUCCESS_CODES = %w[5 51 9 91].freeze
 
     def valid?
       EPDQ::Response.new(request.query_string).valid_signature?
@@ -31,3 +33,4 @@ module PaymentGateway
     end
   end
 end
+# rubocop:enable Style/StructInheritance

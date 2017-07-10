@@ -165,7 +165,7 @@ en:
         _destroy: 'Remove this claimant'
 
       additional_claimants:
-        has_collection: |
+        of_collection_type: |
           Are other people making a claim with you (against the same employer or organisation)?
         collection: :"simple_form.labels.claimant"
 
@@ -210,7 +210,7 @@ en:
         _destroy: 'Remove this respondent'
 
       additional_respondents:
-        has_collection: Are you making a claim against another employer, person or organisation fam?
+        of_collection_type: Are you making a claim against another employer, person or organisation fam?
         collection: :"simple_form.labels.respondent"
 
       employment:

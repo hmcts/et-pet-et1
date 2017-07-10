@@ -13,13 +13,14 @@ class ClaimDetailsForm < Form
     :remove_claim_details_rtf!, to: :target
 
   validates :claim_details, length: { maximum: 2500 },
-    presence: true, unless: -> { claim_details_rtf.present? }
+                            presence: true,
+                            unless: -> { claim_details_rtf.present? }
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :claim_details_rtf, content_type: {
-    in: %w<text/rtf>, message: I18n.t('errors.messages.rtf')
+    in: %w[text/rtf], message: I18n.t('errors.messages.rtf')
   }
 
-  def has_claim_details_rtf?
+  def claim_form_details_rtf?
     resource.claim_details_rtf_file.present?
   end
 

@@ -22,5 +22,5 @@ module CarrierwaveFilename
     File.basename(path)
   end
 
-  extend self
+  module_function :for, :underscore_filename_for, :filename_for
 end

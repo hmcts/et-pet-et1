@@ -5,8 +5,23 @@ class MarkdownController < ActionController::Base
 
   class << self
     attr_accessor :markdown_path, :markdown_files
-    alias_method  :add_markdown_path, :markdown_path=
-    alias_method  :add_markdown_files, :markdown_files=
+    alias add_markdown_path markdown_path=
+    alias add_markdown_files markdown_files=
+
+    def views_term_markdowdon_link
+      arr = %w[app views terms markdown]
+      Rails.root.join(*arr)
+    end
+
+    def views_guides_markdowdon_link
+      arr = %w[app views guides markdown]
+      Rails.root.join(*arr)
+    end
+
+    def views_guides_cookies_link
+      arr = %w[app views cookies markdown]
+      Rails.root.join(*arr)
+    end
   end
 
   def show
@@ -17,7 +32,7 @@ class MarkdownController < ActionController::Base
 
   def markdown_files
     self.class.markdown_files.map do |name|
-      "#{ self.class.markdown_path.join(name + '.md') }"
+      self.class.markdown_path.join(name + '.md').to_s
     end
   end
 end

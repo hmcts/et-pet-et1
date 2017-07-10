@@ -1,6 +1,8 @@
 class AdditionalClaimantsCsv::ModelBuilder
-  ATTRIBUTES = %i<title first_name last_name date_of_birth address_building
-    address_street address_locality address_county address_post_code>.freeze
+  ATTRIBUTES = %i[
+    title first_name last_name date_of_birth address_building
+    address_street address_locality address_county address_post_code
+  ].freeze
 
   def build_form_claimant(row_data)
     assign_attributes(claimant_form, row_data)
@@ -21,7 +23,7 @@ class AdditionalClaimantsCsv::ModelBuilder
   end
 
   def attributes_from(row_data)
-    Hash[ATTRIBUTES.zip(sanitize row_data)]
+    Hash[ATTRIBUTES.zip(sanitize(row_data))]
   end
 
   def sanitize(row_data)

@@ -46,7 +46,8 @@ group :development, :test do
   gem 'rack-livereload'
   gem 'rspec-its', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'rubocop'
+  gem 'rubocop', :require => false
+  gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers'
   gem 'spring'
   gem "activerecord-nulldb-adapter"
@@ -73,7 +74,7 @@ gem 'moj_template', '0.23.0'
 gem 'pdf-forms'
 gem 'pg'
 gem 'redcarpet', '3.4.0'
-gem 'representable', require: 'representable/xml'
+gem 'representable', '2.3.0', require: 'representable/xml'
 gem 'simple_form', '3.1.0rc2'
 gem 'slim-rails'
 gem 'sidekiq'

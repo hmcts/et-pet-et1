@@ -9,6 +9,7 @@ class Presenter
   # by manually entering the URL before completing all form pages
 
   class NullObject < BasicObject
+    # rubocop:disable Style/MethodMissing
     def method_missing(*)
       nil
     end
@@ -16,6 +17,7 @@ class Presenter
     def respond_to?(*)
       true
     end
+    # rubocop:enable Style/MethodMissing
   end
 
   def initialize(target)
@@ -52,7 +54,7 @@ class Presenter
     end
   end
 
-  def respond_to_missing?(method_name, include_private=false)
+  def respond_to_missing?(method_name, include_private = false)
     target.respond_to? method_name, include_private
   end
 

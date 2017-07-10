@@ -1,4 +1,4 @@
-class PingController  < ActionController::Base
+class PingController < ActionController::Base
   respond_to :json
 
   def index

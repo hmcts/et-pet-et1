@@ -13,7 +13,7 @@ class AdditionalRespondentsForm
 
     delegate :id, :id=, to: :resource
 
-    before_validation :reset_acas_number!,  if: :no_acas_number?
+    before_validation :reset_acas_number!, if: :no_acas_number?
 
     validates :name, presence: true, length: { maximum: NAME_LENGTH }
 

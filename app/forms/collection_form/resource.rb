@@ -11,11 +11,10 @@ class CollectionForm
     end
 
     def save
-      case
-      when _destroy?
-        !!target.destroy
-      when valid?
-        !!target.update_attributes(attributes)
+      if _destroy?
+        !target.destroy.nil?
+      elsif valid?
+        !target.update_attributes(attributes).nil?
       else
         false
       end

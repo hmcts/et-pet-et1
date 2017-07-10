@@ -1,6 +1,10 @@
+# rubocop:disable Metrics/BlockLength
 ActiveAdmin.register Claim do
   filter :submitted_at
-  filter :state, :as => :select, :collection => [:created, :payment_required, :enqueued_for_submission, :submitted]
+  filter :state, as: :select,
+                 collection: %i[
+                   created payment_required enqueued_for_submission submitted
+                 ]
   filter :fee_group_reference
   filter :application_reference
 
@@ -43,7 +47,11 @@ ActiveAdmin.register Claim do
 
   member_action :mark_submitted, method: :post do
     resource.finalize!
-    resource.create_event Event::MANUAL_STATUS_CHANGE, actor: "admin", message: "status changed to submitted"
+    resource.create_event(
+      Event::MANUAL_STATUS_CHANGE,
+      actor: "admin",
+      message: "status changed to submitted"
+    )
 
     redirect_to :back, notice: 'Claim marked as submitted'
   end
@@ -87,17 +95,17 @@ ActiveAdmin.register Claim do
       end
     end
 
-    %w<claim_details miscellaneous_information other_claim_details other_outcome>.each do |text|
+    %w[claim_details miscellaneous_information other_claim_details other_outcome].each do |text|
       next if resource.send(text).blank?
       br
       div do
-        link_to "#{text.humanize}", { action: :txt_file, type: text }, { class: :button }
+        link_to text.humanize.to_s, { action: :txt_file, type: text }, class: :button
       end
     end
 
     if resource.enqueued_for_submission?
       { mark_submitted: "Mark as submitted",
-       submit_claim: "Submit claim" }.each do |action, text|
+        submit_claim: "Submit claim" }.each do |action, text|
         br
         div do
           div { button_to text, action: action }
@@ -142,3 +150,4 @@ ActiveAdmin.register Claim do
     end
   end
 end
+# rubocop:enable Metrics/ClassLength

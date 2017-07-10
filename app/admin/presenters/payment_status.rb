@@ -1,18 +1,17 @@
 module Admin
   module PaymentStatus
     def for(claim)
-      case
-      when !claim.immutable?
+      if !claim.immutable?
         'Not submitted'
-      when claim.remission_claimant_count > 0
+      elsif claim.remission_claimant_count.positive?
         'Remission indicated'
-      when claim.payment_present?
+      elsif claim.payment_present?
         'Paid'
       else
         'Missing payment'
       end
     end
 
-    extend self
+    module_function :for
   end
 end

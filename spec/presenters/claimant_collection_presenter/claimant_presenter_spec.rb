@@ -19,9 +19,9 @@ RSpec.describe ClaimantCollectionPresenter::ClaimantPresenter, type: :presenter 
   its(:date_of_birth) { is_expected.to eq('15 January 1985') }
 
   describe '#address' do
-    it 'concatenates all address properties with a <br> tag' do
+    it 'concatenates all address properties with a <br /> tag' do
       expect(subject.address).
-        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>')
+        to eq('1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />')
     end
   end
 end

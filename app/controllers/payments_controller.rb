@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  GATEWAY_RESPONSES = %i<success decline>.freeze
+  GATEWAY_RESPONSES = %i[success decline].freeze
 
   redispatch_request unless: :payment_required?
 
@@ -39,7 +39,7 @@ class PaymentsController < ApplicationController
     claim.create_event Event::PAYMENT_DECLINED
     flash[:alert] = t('.payment_declined')
     claim.increment! :payment_attempts
-    redirect_to :action => :show
+    redirect_to action: :show
   end
 
   private
@@ -50,7 +50,9 @@ class PaymentsController < ApplicationController
 
   def validate_request
     unless payment_response.valid?
-      message = "Failed to recognize payment order: #{params['orderID']}, status: #{params['STATUS']}"
+      order = params['orderID']
+      status = params['STATUS']
+      message = "Failed to recognize payment order: #{order}, status: #{status}"
       Raven.capture_exception(message)
       # Don't give anything away to attackers poking at the system
       render nothing: true

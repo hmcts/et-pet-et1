@@ -2,14 +2,14 @@ class YourFeeForm < Form
   attribute :remission_claimant_count, Integer
 
   validates :remission_claimant_count, numericality: {
-      less_than_or_equal_to: ->(form) { form.target.claimant_count },
-      allow_blank: true
-    }
+    less_than_or_equal_to: ->(form) { form.target.claimant_count },
+    allow_blank: true
+  }
 
   before_save ->(form) { form.remission_claimant_count = 0 }, unless: :remission_claimant_count?
 
-  def has_secondary_claimants?
-    target.secondary_claimants.any? || target.additional_claimants_csv_record_count > 0
+  def secondary_claimants?
+    target.secondary_claimants.any? || target.additional_claimants_csv_record_count.positive?
   end
 
   def applying_for_remission=(bool)

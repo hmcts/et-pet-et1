@@ -1,10 +1,10 @@
 class CollectionForm < Form
-  boolean :has_collection
+  boolean :of_collection_type
 
-  before_validation :reset_collection!, unless: :has_collection
+  before_validation :reset_collection!, unless: :of_collection_type
 
   class << self
-    def resource(klass=nil)
+    def resource(klass = nil)
       if klass
         @resource = klass
       else
@@ -13,11 +13,11 @@ class CollectionForm < Form
     end
   end
 
-  def has_collection
-    if defined? @has_collection
-      @has_collection
+  def of_collection_type
+    if defined? @of_collection_type
+      @of_collection_type
     else
-      @has_collection = relation.any? &:persisted?
+      @of_collection_type = relation.any?(&:persisted?)
     end
   end
 
@@ -74,6 +74,6 @@ class CollectionForm < Form
   end
 
   def resource_name
-    self.class.resource.name.underscore.match(/\Aadditional_(\w+)_form\/\w+\Z/)[1]
+    self.class.resource.name.underscore.match(%r{\Aadditional_(\w+)_form\/\w+\Z})[1]
   end
 end

@@ -1,7 +1,9 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 class ClaimPresenter < Struct.new(:target)
-  SECTIONS = %w<claimant additional_claimants representative respondent
-    additional_respondents employment claim_type claim_details claim_outcome
-    additional_information your_fee>.freeze
+  SECTIONS = %w[claimant additional_claimants representative respondent
+                additional_respondents employment claim_type claim_details claim_outcome
+                additional_information your_fee].freeze
 
   def each_section
     SECTIONS.each do |section|

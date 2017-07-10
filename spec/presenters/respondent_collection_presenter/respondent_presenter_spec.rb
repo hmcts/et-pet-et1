@@ -12,9 +12,9 @@ RSpec.describe RespondentCollectionPresenter::RespondentPresenter, type: :presen
   its(:name) { is_expected.to eq('Lol Corp') }
 
   describe '#address' do
-    it 'concatenates all address properties with a <br> tag' do
+    it 'concatenates all address properties with a <br /> tag' do
       expect(subject.address).
-        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>')
+        to eq('1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />')
     end
   end
 

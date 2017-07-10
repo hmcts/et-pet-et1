@@ -16,9 +16,9 @@ RSpec.describe RepresentativePresenter, type: :presenter do
   its(:name)              { is_expected.to eq('Saul Goodman') }
 
   describe '#address' do
-    it 'concatenates all address properties with a <br> tag' do
+    it 'concatenates all address properties with a <br /> tag' do
       expect(subject.address).
-        to eq('1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>')
+        to eq('1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />')
     end
   end
 
@@ -40,7 +40,7 @@ RSpec.describe RepresentativePresenter, type: :presenter do
       it 'yields all the fields' do
         expect(subject.to_enum(:each_item)).
           to match_array [[:type, "Law centre"], [:organisation_name, "Better Call Saul"],
-            [:name, "Saul Goodman"], [:address, "1<br>Lol street<br>Lolzville<br>Lolzfordshire<br>LOL B1Z<br>"],
+            [:name, "Saul Goodman"], [:address, "1<br />Lol street<br />Lolzville<br />Lolzfordshire<br />LOL B1Z<br />"],
             [:telephone_number, "01234567890"], [:mobile_number, "07956123456"],
             [:email_address, nil], [:dx_number, "1"], [:contact_preference, "Post"]]
       end

@@ -2,6 +2,7 @@ class Form
   module Core
     extend ActiveSupport::Concern
 
+    # rubocop:disable Metrics/BlockLength
     included do
       include ActiveModel::Model
       extend  ActiveModel::Callbacks
@@ -19,7 +20,7 @@ class Form
         end
       end
 
-      def assign_attributes(attributes={})
+      def assign_attributes(attributes = {})
         attributes.each { |key, value| send :"#{key}=", value }
       end
 
@@ -36,13 +37,13 @@ class Form
       end
 
       class << self
-        def attribute(attribute, klass, options={})
+        def attribute(attribute, klass, options = {})
           super
           define_method("#{attribute}?") { send(attribute).present? }
         end
 
         def booleans(*attrs)
-          attrs.each &method(:boolean)
+          attrs.each(&method(:boolean))
         end
 
         def boolean(attr)
@@ -68,5 +69,6 @@ class Form
         delegate :i18n_key, to: :model_name, prefix: true
       end
     end
+    # rubocop:enable Metrics/BlockLength
   end
 end

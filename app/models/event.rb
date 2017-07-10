@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   LOGIN                       = 'login'.freeze
   LOGOUT                      = 'logout'.freeze
   DELIVER_ACCESS_DETAILS      = 'deliver_access_details'.freeze
-  FEE_GROUP_REFERENCE_REQUEST = 'fee_group_reference_request'
+  FEE_GROUP_REFERENCE_REQUEST = 'fee_group_reference_request'.freeze
   ENQUEUED                    = 'enqueued'.freeze
   RECEIVED_BY_JADU            = 'received_by_jadu'.freeze
   REJECTED_BY_JADU            = 'rejected_by_jadu'.freeze
@@ -19,7 +19,7 @@ class Event < ActiveRecord::Base
 
   before_create -> { self[:claim_state] = claim.state }
 
-  alias_method :read_only?, :persisted?
+  alias read_only? persisted?
 
   default_scope { order(created_at: :desc) }
 end

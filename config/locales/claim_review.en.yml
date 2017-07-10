@@ -29,6 +29,9 @@ en:
       additional_respondents:
         sub_header: "Respondent %{index}"
 
+    confirmation:
+      fee_paid: Fee is paid
+
     item:
       not_entered: Not entered
 

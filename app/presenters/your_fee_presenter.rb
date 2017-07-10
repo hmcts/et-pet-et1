@@ -1,6 +1,6 @@
 class YourFeePresenter < Presenter
   def seeking_remission
-    yes_no remission_claimant_count > 0
+    yes_no remission_claimant_count.positive?
   end
 
   def fee

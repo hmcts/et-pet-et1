@@ -1,7 +1,8 @@
 class KnowDateInput < SimpleForm::Inputs::Base
+
   def input(_wrapper_options = nil)
-    template.content_tag(defaults[:tag], class: defaults[:class] + ['know-date-input']) do
-      { day: 2, month: 2, year: 4 }.reduce(ActiveSupport::SafeBuffer.new) do |buffer, (part, length)|
+    template.content_tag(defaults[:tag], class: class_name) do
+      { day: 2, month: 2, year: 4 }.reduce(active_support_buffer) do |buffer, (part, length)|
 
         buffer << @builder.simple_fields_for(attribute_name, value) do |f|
           f.input part, as: :tel, maxlength: length
@@ -30,5 +31,13 @@ class KnowDateInput < SimpleForm::Inputs::Base
     else
       value
     end
+  end
+
+  def class_name
+    defaults[:class] + ['know-date-input']
+  end
+
+  def active_support_buffer
+    ActiveSupport::SafeBuffer.new
   end
 end

@@ -1,7 +1,7 @@
 class EmploymentForm < Form
-  CURRENT_SITUATION  = %i<still_employed notice_period employment_terminated>.freeze
-  PAY_PERIODS        = %i<weekly monthly>.freeze
-  NOTICE_PAY_PERIODS = %i<weeks months>.freeze
+  CURRENT_SITUATION  = %i[still_employed notice_period employment_terminated].freeze
+  PAY_PERIODS        = %i[weekly monthly].freeze
+  NOTICE_PAY_PERIODS = %i[weeks months].freeze
 
   attribute :average_hours_worked_per_week,        Float
   attribute :benefit_details,                      String
@@ -23,10 +23,10 @@ class EmploymentForm < Form
   attribute :start_date,                           Date
   attribute :worked_notice_period_or_paid_in_lieu, Boolean
 
-  %i<gross_pay net_pay new_job_gross_pay>.each do |attribute|
+  %i[gross_pay net_pay new_job_gross_pay].each do |attribute|
     define_method("#{attribute}=") do |v|
       if v.respond_to?(:gsub)
-        super v.gsub(',', '')
+        super v.delete(',')
       else
         super v
       end
@@ -74,7 +74,7 @@ class EmploymentForm < Form
 
   def reset_employment_terminated!
     assign_attributes end_date: nil, worked_notice_period_or_paid_in_lieu: nil,
-      found_new_job: nil
+                      found_new_job: nil
   end
 
   def reset_notice_pay_period!
@@ -83,7 +83,7 @@ class EmploymentForm < Form
 
   def reset_new_job!
     assign_attributes new_job_start_date: nil, new_job_gross_pay: nil,
-      new_job_gross_pay_frequency: nil
+                      new_job_gross_pay_frequency: nil
   end
 
   def target

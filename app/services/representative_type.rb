@@ -17,5 +17,5 @@ module RepresentativeType
     MAPPINGS[type]
   end
 
-  extend self
+  module_function :convert_for_jadu
 end

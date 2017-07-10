@@ -14,7 +14,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
     presenters.each_with_object({}) { |p, o| o.update p.to_h }
   end
 
-  %i<other_outcome claim_details other_claim_details miscellaneous_information>.each do |name|
+  %i[other_outcome claim_details other_claim_details miscellaneous_information].each do |name|
     define_method(name) { sanitize_text super() }
   end
 
@@ -34,7 +34,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   end
 
   def type_of_claim
-    if has_multiple_claimants?
+    if multiple_claimants?
       'a claimon behalf of more than one person'
     else
       'a single claim'
@@ -42,9 +42,11 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
   end
 
   def number_of_claimants
-    claimant_count if has_multiple_claimants?
+    claimant_count if multiple_claimants?
   end
 
+  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/AbcSize
   def claim
     {
       "type of claim" => type_of_claim,
@@ -85,4 +87,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
       "15" => miscellaneous_information
     }
   end
+  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/AbcSize
+
 end

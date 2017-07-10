@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe AdditionalRespondentsForm, :type => :form do
   let(:attributes) do
     {
-      has_collection: 'true',
+      of_collection_type: 'true',
       collection_attributes: {
         "0" => {
           name: 'Butch McTaggert',
@@ -115,7 +115,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
     end
 
     context 'when some respondents are not valid' do
-      before { subject.has_collection = 'true' }
+      before { subject.of_collection_type = 'true' }
 
       it 'returns false' do
         expect(subject.save).to be false

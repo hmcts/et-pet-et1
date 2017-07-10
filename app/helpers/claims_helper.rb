@@ -2,7 +2,7 @@ module ClaimsHelper
   delegate :current_page, :total_pages, to: :page_manager
 
   def format(text)
-    markdown.render(text).html_safe
+    markdown.render(text)
   end
 
   def claim_header

@@ -7,7 +7,7 @@
 fieldset
   legend= t '.reduce_fee'
 
-  - if resource.has_secondary_claimants?
+  - if resource.secondary_claimants?
     p = t('.applying_for_remission_multiple_html', path: guide_path)
     = f.input :remission_claimant_count
     p = t '.applying_for_remission_multiple_note_html'

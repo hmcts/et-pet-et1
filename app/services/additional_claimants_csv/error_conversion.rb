@@ -1,3 +1,5 @@
+# TODO: take a look at this rubocop warning
+# rubocop:disable Style/StructInheritance
 class AdditionalClaimantsCsv::ErrorConversion < Struct.new(:header, :errors)
   def convert
     errors.messages.inject([]) { |acc, error| acc << humanize(error) }
@@ -15,3 +17,4 @@ class AdditionalClaimantsCsv::ErrorConversion < Struct.new(:header, :errors)
     "#{map_attribute_header.strip} - #{error_message.first.strip}"
   end
 end
+# rubocop:enable Style/StructInheritance
