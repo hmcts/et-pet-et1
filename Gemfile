@@ -46,8 +46,8 @@ group :development, :test do
   gem 'rack-livereload'
   gem 'rspec-its', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'rubocop'
-  gem 'rubocop-rspec'
+  gem 'rubocop', :require => false
+  gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers'
   gem 'spring'
   gem "activerecord-nulldb-adapter"
