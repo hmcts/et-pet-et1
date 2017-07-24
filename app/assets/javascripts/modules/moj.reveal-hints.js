@@ -1,6 +1,6 @@
 // Reveals hidden hint text
 
-module.exports = (function() {
+var formHintReveal = (function() {
   $('.field_with_hint').each(function(i, field){
     var container = $(field),
       trigger = container.find('.hint-reveal');

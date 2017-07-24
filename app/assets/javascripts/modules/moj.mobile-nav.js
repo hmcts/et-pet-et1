@@ -1,4 +1,4 @@
-module.exports = (function () {
+var mobileNav = (function () {
 
   $(function(){
     $('#navcontainer').on('click','.menu-trigger', function (e) {

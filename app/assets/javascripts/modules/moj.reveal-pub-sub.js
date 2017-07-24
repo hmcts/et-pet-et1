@@ -5,7 +5,7 @@
  *     https://github.com/cowboy/jquery-tiny-pubsub
  */
 
-module.exports = (function () {
+var revealPubSub = (function () {
   'use strict';
 
   var revealPubSub = {

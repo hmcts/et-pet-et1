@@ -1,6 +1,6 @@
 var Countable = require('../vendor/Countable');
 
-module.exports = (function() {
+var countableTextarea = (function() {
 
   var countable = {};
 
