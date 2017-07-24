@@ -14,6 +14,7 @@
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID')
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
+      revealPubSub.init();
 
   - if start_session_timer?
     javascript:

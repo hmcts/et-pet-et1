@@ -1,5 +1,5 @@
 // Manages session timeout & displays prompt prior to session expiry
-module.exports = (function () {
+var sessionPrompt = (function () {
 
   var settings = {
     SECOND: 1000

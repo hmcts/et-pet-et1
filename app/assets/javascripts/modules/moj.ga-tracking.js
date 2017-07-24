@@ -1,4 +1,4 @@
-module.exports = (function () {
+var gaTracker = (function () {
   /**
    * Loading the GA JS.
    */

@@ -1,6 +1,6 @@
 // Focuses on aria alert if it's in the page for screen readers
 
-module.exports = (function() {
+var ariaAlert = (function() {
 
   var aria = {};
 

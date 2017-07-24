@@ -1,4 +1,4 @@
-module.exports = (function() {
+var removeMultiple = (function() {
   'use strict';
 
   var removeMultiple = removeMultiple || {},
