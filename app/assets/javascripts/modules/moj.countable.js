@@ -1,6 +1,5 @@
-var Countable = require('../vendor/Countable');
-
-(function() {
+var countable = (function() {
+  'use strict';
 
   var countable = {};
 
@@ -36,10 +35,6 @@ var Countable = require('../vendor/Countable');
       }
     }
   };
-
-  $('textarea[maxlength]').each(function(i, area){
-      countable.init(area);
-  });
 
   return countable;
 })();
