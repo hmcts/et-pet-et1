@@ -2,7 +2,7 @@
 * .options > .block-label + .block-label > label > input[:radio || :checkbox]
 */
 
-var selectedOption = (function() {
+(function() {
   'use strict';
 
   var selectedOption = {},
