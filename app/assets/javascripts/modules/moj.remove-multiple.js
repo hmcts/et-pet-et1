@@ -1,4 +1,4 @@
-var removeMultiple = (function() {
+(function() {
   'use strict';
 
   var removeMultiple = removeMultiple || {},

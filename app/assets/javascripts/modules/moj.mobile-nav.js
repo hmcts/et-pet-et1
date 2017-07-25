@@ -1,4 +1,4 @@
-var mobileNav = (function () {
+(function () {
 
   $(function(){
     $('#navcontainer').on('click','.menu-trigger', function (e) {

@@ -2,7 +2,7 @@
 // This requires CSS media queries that
 // update the z-index on div.state-indicator.
 // The element will be created by the JS.
-var stateIndicator = (function () {
+(function () {
 
   // Debounce
   // http://davidwalsh.name/function-debounce
