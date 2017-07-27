@@ -39,15 +39,13 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
   end
 
-  its(:payment_amount) { is_expected.to eq '£250.00' }
   its(:attachments) { is_expected.to eq 'file.rtf<br />file.csv' }
 
   describe '#each_item' do
     it 'yields the submission information' do
       expect { |b| subject.each_item &b }.
         to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-        [:attachments, "file.rtf<br />file.csv"],
-        [:payment_amount, "£250.00"]
+        [:attachments, "file.rtf<br />file.csv"]
     end
 
     context 'when payment fails' do
@@ -56,8 +54,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields payment failure message' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-          [:attachments, "file.rtf<br />file.csv"],
-          [:payment_amount, "Unable to process payment"]
+          [:attachments, "file.rtf<br />file.csv"]
       end
     end
 
@@ -77,8 +74,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields text to state no attachments are present' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-          [:attachments, "None"],
-          [:payment_amount, "£250.00"]
+          [:attachments, "None"]
       end
     end
   end

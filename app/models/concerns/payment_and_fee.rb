@@ -13,10 +13,8 @@ module PaymentAndFee
   end
 
   def payment_applicable?
-    Rails.logger.info "Claim #{id} #{application_reference}"\
-    " payment_applicable gw: #{PaymentGateway.available?} fee_to_pay? "\
-    "#{fee_to_pay?} fee_group_reference #{fee_group_reference?} "
-    PaymentGateway.available? && fee_to_pay? && fee_group_reference?
+    # Due to court rulling for no fees
+    return false
   end
 
   def unpaid?

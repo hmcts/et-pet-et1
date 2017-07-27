@@ -8,23 +8,10 @@ Claim number: <%= @presenter.reference %>
 
 <%= t('.what_happens_next').upcase %>
 
-<%- if @presenter.payment_failed? %>
-<%= t('.contact_re_payment') -%>
-<%- end %>
-<%- if @presenter.remission_applicable? %>
-<%= t('.must_apply_for_remission') %>
-<%= t('.apply_for_fee_remission_text') %>
-
-<%- end %>
 <%- unless @presenter.remission_applicable? %>
 <%= t('.no_remission_copy_sent_to_respondent') -%>
 <%- end %>
-<%- if @presenter.remission_applicable? %>
-
-<%= t('.remission_review') -%>
-<%- else %>
 <%= t('.we_will_contact_you') -%>
-<%- end %>
 
 <%= @presenter.text_email_line_break %>
 
