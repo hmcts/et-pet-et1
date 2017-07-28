@@ -132,7 +132,7 @@ en:
       submit_warning: This is the last opportunity to change the details of your claim online. Check all the information above is correct.
       confirmation: Email confirmation
       submit_with_remission: Submit claim
-      submit_go_to_payment: Submit claim and proceed to payment
+      submit_go_to_payment: Submit claim
       hint: |
             A copy of the completed claim will be sent to:
       add_email_address: Add email address

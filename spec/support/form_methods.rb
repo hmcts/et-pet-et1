@@ -270,14 +270,14 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def complete_payment(gateway_response: 'success')
-    path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
-      'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
-      'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
-      'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+  # def complete_payment(gateway_response: 'success')
+  #   path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
+  #     'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
+  #     'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
+  #     'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
 
-    visit path
-  end
+  #   visit path
+  # end
 
   def complete_a_claim(options={})
     start_claim
@@ -292,13 +292,12 @@ module FormMethods
     fill_in_claim_details
     fill_in_claim_outcome_details
     fill_in_addtional_information
-    fill_in_your_fee(options)
   end
 
   def complete_and_submit_claim
     complete_a_claim
     click_button "Submit claim"
-    complete_payment
+    # complete_payment
   end
 
   def deselect_claimant_email

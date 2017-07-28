@@ -11,7 +11,7 @@ feature 'Quick edit' do
   end
 
   sections = %w<claimant additional-claimants representative respondent employment claim-type claim-details
-    claim-outcome additional-information your-fee>
+    claim-outcome additional-information>
 
   sections.each do |section|
     translation = "#{I18n.t('claim_reviews.show.sections.' + section.underscore)}"

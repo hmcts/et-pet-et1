@@ -97,12 +97,6 @@ RSpec.describe ClaimPagesManager, type: :service do
     context 'when resource is a AdditionalInformationForm' do
       let(:resource) { AdditionalInformationForm.new claim }
       its(:current_page)  { is_expected.to eq 11 }
-      its(:forward)  { is_expected.to eq('your-fee') }
-    end
-
-    context 'when resource is a YourFeeForm' do
-      let(:resource) { YourFeeForm.new claim }
-      its(:current_page)  { is_expected.to eq 12 }
       its(:forward)  { is_expected.to eq('review') }
     end
   end

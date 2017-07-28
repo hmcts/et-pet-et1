@@ -203,8 +203,7 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
-      expect(page).to have_text page_number(12)
-      expect(page).to have_text claim_heading_for(:your_fee)
+      expect(page).not_to have_text claim_heading_for(:your_fee)
       expect(page).to have_signout_button
       expect(page).to have_session_prompt
     end
@@ -215,7 +214,6 @@ feature 'Claim applications', type: :feature do
       fill_in_claim_details
       fill_in_claim_outcome_details
       fill_in_addtional_information
-      fill_in_your_fee
 
       expect(page).to have_text review_heading_for(:show)
       expect(page).to have_signout_button
@@ -224,14 +222,13 @@ feature 'Claim applications', type: :feature do
 
     scenario 'Signout from claim review page' do
       complete_a_claim
-      click_button 'Submit claim'
 
       expect(page).to have_signout_button
       expect(page).to have_session_prompt
     end
 
     scenario 'Saving the confirmation email recipients' do
-      complete_a_claim seeking_remissions: true
+      complete_a_claim
       click_button 'Submit claim'
 
       expect(Claim.last.confirmation_email_recipients).
@@ -248,13 +245,13 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Submitting the claim when payment is not required' do
-      complete_a_claim seeking_remissions: true
+      complete_a_claim
       click_button 'Submit claim'
 
       expect(page).to have_text     "Claim submitted"
       expect(page).not_to have_text "Fee paid"
       expect(page).not_to have_text "Fee to pay"
-      expect(page).to have_text     'Complete an application for help with fees'
+      expect(page).not_to have_text "Complete an application for help with fees"
       expect(page).not_to have_signout_button
       expect(page).not_to have_session_prompt
     end
@@ -291,43 +288,19 @@ feature 'Claim applications', type: :feature do
     end
 
     context 'Viewing the confirmation page' do
-      scenario 'with a single claimant when seeking remission' do
-        complete_a_claim seeking_remissions: true
+      scenario 'with a single claimant without remission option' do
+        complete_a_claim
+        expect(page).to have_text 'Check your claim'
+
+        within(:xpath, './/div[@class="main-content"]') do
+          expect(page).not_to have_text 'Your fee'
+          expect(page).not_to have_text 'Help with fees'
+        end
+
         click_button 'Submit claim', exact: true
-
-        expect(page).to have_text 'Complete an application for help with fees'
-        expect(page).not_to have_text 'You now need to pay the issue fee'
-      end
-
-      scenario 'with a single claimant when not seeking remission' do
-        complete_a_claim seeking_remissions: false
-        click_button 'Submit claim and proceed to payment'
-
-        expect(page).not_to have_text 'Apply for fee remission'
-        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
-      end
-
-      scenario 'as part of a group claim with no remission' do
-        complete_a_claim additional_claimants: true, seeking_remissions: 0
-        click_button 'Submit claim and proceed to payment'
-
-        expect(page).not_to have_text 'Apply for fee remission'
-        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
-      end
-
-      scenario 'as part of a group claim with partial remission' do
-        complete_a_claim additional_claimants: true, seeking_remissions: 1
-        click_button 'Submit claim and proceed to payment'
-        expect(page).not_to have_text 'Apply for fee remission'
-        expect(page).to have_text "When you've paid the issue fee, the local tribunal office will review your claim"
-      end
-
-      scenario 'as part of a group with full remission' do
-        complete_a_claim additional_claimants: true, seeking_remissions: 2
-        click_button 'Submit claim', exact: true
-
-        expect(page).to have_text 'Complete an application for help with fees'
-        expect(page).not_to have_text 'You now need to pay the issue fee'
+        expect(page).to have_text 'Claim submitted'
+        expect(page).not_to have_text 'We’ll contact you within 5 working days to arrange payment.'
+        expect(page).not_to have_text 'Issue fee paid'
       end
     end
   end

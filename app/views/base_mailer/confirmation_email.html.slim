@@ -33,24 +33,10 @@ html
                     = t('.what_happens_next')
 
                   ol
-                    - if @presenter.payment_failed?
-                      li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.contact_re_payment')
-
-                    - if @presenter.remission_applicable?
-                      li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.must_apply_for_remission')
-
-                        = render partial: 'base_mailer/shared/button_fee_remission'
-
                     - unless @presenter.remission_applicable?
                       li style="font-family:arial; font-size:19px; line-height:26px;"
                         p= t('.no_remission_copy_sent_to_respondent')
 
-                    - if @presenter.remission_applicable?
-                      li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.remission_review')
-                    - else
                       li style="font-family:arial; font-size:19px; line-height:26px;"
                         p= t('.we_will_contact_you')
 
@@ -88,12 +74,6 @@ html
                     tr
                       td colspan="2"
                         hr style="border:0px; border-top:1px solid #bfc1c3; margin:0px;"
-
-              - if @presenter.remission_applicable?
-                tr
-                  td colspan="2"
-                    p style="font-family:arial; font-size:16px;"
-                      = t '.remisison_further_information_html'
 
               tr
                 td

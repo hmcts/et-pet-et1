@@ -265,38 +265,36 @@ RSpec.describe Claim, type: :claim do
         and_return double(ClaimFeeCalculator::Calculation, :fee_to_pay? => true)
     end
 
-    context 'when the payment gateway is up, a fee group reference is present, and a payment is due' do
-      it 'is true' do
-        expect(subject.payment_applicable?).to be true
-      end
+    context 'is set to default false' do
+      it { expect(subject.payment_applicable?).to be_falsey }
     end
 
-    context 'but the payment gateway is unavailable' do
-      before { allow(PaymentGateway).to receive(:available?).and_return false }
+    # context 'but the payment gateway is unavailable' do
+    #   before { allow(PaymentGateway).to receive(:available?).and_return false }
 
-      it 'returns false' do
-        expect(subject.payment_applicable?).to be false
-      end
-    end
+    #   it 'returns false' do
+    #     expect(subject.payment_applicable?).to be false
+    #   end
+    # end
 
-    context 'when the fee group reference is missing' do
-      before { allow(subject).to receive(:fee_group_reference?).and_return false }
+    # context 'when the fee group reference is missing' do
+    #   before { allow(subject).to receive(:fee_group_reference?).and_return false }
 
-      it 'returns false' do
-        expect(subject.payment_applicable?).to be false
-      end
-    end
+    #   it 'returns false' do
+    #     expect(subject.payment_applicable?).to be false
+    #   end
+    # end
 
-    context 'when the application fee after remissions are applied is zero' do
-      before do
-        allow(ClaimFeeCalculator).to receive(:calculate).with(claim: subject).
-          and_return double(ClaimFeeCalculator::Calculation, :fee_to_pay? => false)
-      end
+    # context 'when the application fee after remissions are applied is zero' do
+    #   before do
+    #     allow(ClaimFeeCalculator).to receive(:calculate).with(claim: subject).
+    #       and_return double(ClaimFeeCalculator::Calculation, :fee_to_pay? => false)
+    #   end
 
-      it 'returns false' do
-        expect(subject.payment_applicable?).to be false
-      end
-    end
+    #   it 'returns false' do
+    #     expect(subject.payment_applicable?).to be false
+    #   end
+    # end
   end
 
   describe '#state' do

@@ -45,7 +45,7 @@ class ClaimPagesManager < PageManager
 
   page 'additional-information',
     number: 11,
-    transitions_to: 'your-fee'
+    transitions_to: 'review'
 
   page 'your-fee',
     number: 12,

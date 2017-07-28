@@ -7,7 +7,7 @@ RSpec.describe ClaimPresenter, type: :presenter do
   let(:sections) do
     %w<
       claimant additional_claimants representative respondent additional_respondents
-      employment claim_type claim_details claim_outcome additional_information your_fee
+      employment claim_type claim_details claim_outcome additional_information
     >
   end
 

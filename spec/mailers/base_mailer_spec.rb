@@ -89,36 +89,17 @@ describe BaseMailer, type: :mailer do
           allow(claim).to receive(:fee_to_pay?).and_return(true)
         end
 
-        it 'shows paid message' do
+        it 'hide paid message' do
           expect(email).to match_pattern('Thank you for submitting')
-          expect(email).to match_pattern('Issue fee paid:')
+          expect(email).not_to match_pattern('Issue fee paid:')
         end
 
-        it 'shows amount paid' do
-          expect(email).to match_pattern '£250.00'
-        end
-      end
-
-      context 'when applying for remission' do
-        before do
-          allow(claim).to receive(:remission_applicable?).and_return true
-          allow(claim).to receive(:payment_applicable?).and_return false
-        end
-
-        it 'shows remission help' do
-          expect(email).to match_pattern(/complete an application for help with fees/i, escape_regex: false)
-          expect(email).to match_pattern('https://gov.uk/help-with-court-fees')
-          expect(email).to match_pattern('We’ll review your application for help with fees and let you know the outcome.')
-        end
-
-        it 'does not show any payment information' do
-          expect(email).not_to match_pattern payment_message
-          expect(email).not_to match_pattern table_heading('fee_paid')
-          expect(email).not_to match_pattern table_heading('fee_to_pay')
+        it 'hide amount paid' do
+          expect(email).not_to match_pattern '£250.00'
         end
       end
 
-      context 'when payment failed' do
+      context 'when payment is skipped' do
         let(:fee_calculation) do
           instance_double(ClaimFeeCalculator::Calculation, application_fee: 100, fee_to_pay?: true)
         end
@@ -126,21 +107,21 @@ describe BaseMailer, type: :mailer do
         before do
           claim.payment = nil
 
-          allow(claim).to receive(:payment_applicable?).and_return true
+          allow(claim).to receive(:payment_applicable?).and_return false
           allow(claim).to receive(:fee_calculation).and_return fee_calculation
         end
 
         it 'shows the intro for payment failure' do
           expect(email).
-            to match_pattern 'we weren’t able to process your payment'
+            not_to match_pattern 'we weren’t able to process your payment'
         end
 
         it 'explains payment was unsuccessful' do
-          expect(email).to match_pattern 'Unable to process payment'
+          expect(email).not_to match_pattern 'Unable to process payment'
         end
 
         it 'does not show outstanding fee' do
-          expect(email).to_not match_pattern '£250.00'
+          expect(email).not_to match_pattern '£250.00'
         end
       end
     end

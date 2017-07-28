@@ -9,6 +9,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def payment_failed?
+    return false
     fee_to_pay? && payment.blank?
   end
 
@@ -35,7 +36,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def items
-    %i[submission_information attachments payment_amount].tap do |arr|
+    %i[submission_information attachments].tap do |arr|
       arr.delete :payment_amount unless fee_to_pay?
     end
   end
