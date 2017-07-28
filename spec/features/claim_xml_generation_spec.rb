@@ -256,8 +256,8 @@ feature 'Generating XML for a claim', type: :feature do
 
     describe 'Payment' do
       describe 'Fee' do
-        it 'has an Amount(in pounds) exclusive of remission discounts' do
-          expect(xpath('//Payment/Fee/Amount')).to eq claim.fee_calculation.application_fee.to_s
+        it 'has an Amount(in pounds)' do
+          expect(xpath('//Payment/Fee/Amount')).to eq "0"
         end
 
         describe 'PRN(alias for fee group reference)' do

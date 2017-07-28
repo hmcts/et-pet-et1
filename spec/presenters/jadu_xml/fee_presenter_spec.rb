@@ -17,7 +17,7 @@ RSpec.describe JaduXml::FeePresenter, type: :presenter do
   describe "#amount" do
     it "returns application fee after remission" do
       allow(subject).to receive(:application_fee).and_return 1
-      expect(subject.amount).to eq 1
+      expect(subject.amount).to eq 0
     end
   end
 

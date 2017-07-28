@@ -8,7 +8,8 @@ module JaduXml
     delegate :application_fee, to: :fee_calculation
 
     def amount
-      application_fee
+      # No fee need to be paid for all applications
+      return 0
     end
 
     def date
