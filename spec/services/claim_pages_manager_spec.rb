@@ -15,7 +15,7 @@ RSpec.describe ClaimPagesManager, type: :service do
       expect(described_class.page_names).
         to eq %w<application-number claimant additional-claimants additional-claimants-upload
           representative respondent additional-respondents employment claim-type
-          claim-details claim-outcome additional-information your-fee review>
+          claim-details claim-outcome additional-information review>
     end
   end
 
@@ -23,7 +23,7 @@ RSpec.describe ClaimPagesManager, type: :service do
     let(:resource) { ClaimantForm.new claim }
 
     it 'returns the total pages' do
-      expect(subject.total_pages).to eq(12)
+      expect(subject.total_pages).to eq(11)
     end
   end
 
