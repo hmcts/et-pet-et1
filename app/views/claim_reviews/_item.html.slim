@@ -2,7 +2,7 @@
   tr
     th = t ".#{section_name}.#{name}"
     - if value.present?
-      td = sanitize(value, tags: ['br'])
+      td = sanitize(value.to_s, tags: ['br'])
     - else
       td.not-entered
         = t '.not_entered'
