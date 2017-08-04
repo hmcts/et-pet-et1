@@ -14,7 +14,7 @@ module PaymentAndFee
 
   def payment_applicable?
     # Due to court rulling for no fees
-    return false
+    false
   end
 
   def unpaid?

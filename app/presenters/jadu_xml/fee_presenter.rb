@@ -9,7 +9,7 @@ module JaduXml
 
     def amount
       # No fee need to be paid for all applications
-      return 0
+      0
     end
 
     def date
