@@ -9,8 +9,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def payment_failed?
-    return false
-    fee_to_pay? && payment.blank?
+    false
   end
 
   def attachments
