@@ -54,8 +54,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock', group: :test
+  gem 'webmock'
   gem 'database_cleaner'
+  gem 'cucumber-rails', '~> 1.5'
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
