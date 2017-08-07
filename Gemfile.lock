@@ -113,12 +113,16 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
-    capybara (2.4.4)
-      mime-types (>= 1.16)
+    capybara (2.15.1)
+      addressable
+      mini_mime (>= 0.1.3)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.17)
+      capybara (>= 1.0, < 3)
+      launchy
     celluloid (0.16.0)
       timers (~> 4.0.0)
     chunky_png (1.3.3)
@@ -414,6 +418,7 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99.3)
+    mini_mime (0.1.3)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     moj_template (0.23.0)
@@ -437,6 +442,10 @@ GEM
       cliver (~> 0.3.2)
       safe_shell (>= 1.0.3, < 2.0)
     pg (0.20.0)
+    poltergeist (1.15.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     powerpack (0.1.1)
@@ -564,6 +573,9 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    site_prism (2.9)
+      addressable (>= 2.3.3, < 3.0)
+      capybara (>= 2.1, < 3.0)
     slim (3.0.1)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -613,8 +625,11 @@ GEM
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+    websocket-driver (0.6.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xml-simple (1.1.5)
-    xpath (2.0.0)
+    xpath (2.1.0)
       nokogiri (~> 1.3)
     zendesk_api (1.5.1)
       faraday (~> 0.9)
@@ -637,7 +652,8 @@ DEPENDENCIES
   binding_of_caller
   bitmask_attributes
   browserify-rails
-  capybara
+  capybara (~> 2.14)
+  capybara-screenshot (~> 1.0)
   carrierwave!
   cocaine
   codeclimate-test-reporter
@@ -660,6 +676,7 @@ DEPENDENCIES
   non-stupid-digest-assets
   pdf-forms
   pg
+  poltergeist (= 1.15.0)
   pry-byebug
   pry-rails
   rack-livereload
@@ -676,6 +693,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   simple_form (= 3.1.0rc2)
+  site_prism (~> 2.9)
   slim-rails
   spring
   state_machine
@@ -689,4 +707,4 @@ DEPENDENCIES
   zendesk_api
 
 BUNDLED WITH
-   1.15.1
+   1.15.3

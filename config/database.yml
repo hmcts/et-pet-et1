@@ -15,7 +15,7 @@ local:
   host: db
   user: postgres
 
-test:
+test: &test
   <<: *default
   database: <%= ENV.fetch('DB_NAME', 'atet_test') %>
   host: <%= ENV.fetch('DB_HOST', 'localhost') %>
@@ -29,3 +29,6 @@ production:
   username: <%= ENV['DB_USERNAME']  || 'etuser' %>
   password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
   pool: 15
+
+cucumber:
+  <<: *test

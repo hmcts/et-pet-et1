@@ -35,7 +35,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capybara'
+  gem 'capybara', '~> 2.14'
   gem 'codeclimate-test-reporter', require: nil
   gem 'dotenv-rails', '0.11.1'
   gem 'factory_girl_rails'
@@ -56,7 +56,10 @@ end
 group :test do
   gem 'webmock'
   gem 'database_cleaner'
-  gem 'cucumber-rails', '~> 1.5'
+  gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'poltergeist', '1.15.0'
+  gem 'capybara-screenshot', '~> 1.0'
+  gem 'site_prism', '~> 2.9'
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
