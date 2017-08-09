@@ -41,7 +41,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-livereload'
   gem 'launchy'
-  gem 'pry-byebug'
+  #gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rack-livereload'
   gem 'rspec-its', require: 'rspec/its'

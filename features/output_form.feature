@@ -103,6 +103,14 @@ Feature: Output Form
       | employers_pension_scheme      | Yes                                   |
       | benefits                      | Company car, private health care      |
     And I save the employment details
+    And I answer "Unfair dismissal (including constructive dismissal)" to the about the claim question
+    And I answer Yes to the whistleblowing claim question
+    And I answer Yes to the send copy to relevant person that deals with whistleblowing question
+    And I save the claim type
+    And I fill in the claim description with "Full text version of claim"
+    And I answer Yes to the similar claims question
+    And I fill in the similar claim names with "Similar Claim1, Similar Claim2"
+    And I save the claim details
     And I debug
 
 
