@@ -21,3 +21,11 @@ end
 def step_five_page
   @step_five_page ||= StepFivePage.new
 end
+
+def step_six_page
+  @step_six_page ||= StepSixPage.new
+end
+
+def step_seven_page
+  @step_seven_page ||= StepSevenPage.new
+end

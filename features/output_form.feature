@@ -76,6 +76,33 @@ Feature: Output Form
       | telephone_number              | 03333 423554                          |
     And I fill in my acas certificate number with AC123456/78/90
     And I save the respondent's details
+    And I answer Yes to the additional respondents question
+    And I fill in the second respondent's details with:
+      | field                         | value                                 |
+      | name                          | Respondent Two                        |
+      | building                      | 112                                   |
+      | street                        | Oxford Street                         |
+      | locality                      | London                                |
+      | county                        | Greater London                        |
+      | post_code                     | SW1H 9UV                              |
+      | acas_number                   | AC654321/87/09                        |
+    And I save the additional respondents
+    And I answer Yes to the have you ever been employed by the person you are making the claim against question
+    And I answer "Still working for this employer" to the current work situation question
+    And I fill in the employment details with:
+      | field                         | value                                 |
+      | job_title                     | Project Manager                       |
+      | start_date                    | 18/11/2009                            |
+      | notice_period                 | Yes                                   |
+      | notice_period_value           | 3 Months                              |
+      | average_weekly_hours          | 38                                    |
+    And I fill in the pay, pension and benefits with:
+      | field                         | value                                 |
+      | pay_before_tax                | 3000 Monthly                          |
+      | pay_after_tax                 | 2000 Monthly                          |
+      | employers_pension_scheme      | Yes                                   |
+      | benefits                      | Company car, private health care      |
+    And I save the employment details
     And I debug
 
 
