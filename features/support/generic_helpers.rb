@@ -38,3 +38,19 @@ def step_nine_page
   @step_nine_page ||= StepNinePage.new
 end
 
+def step_ten_page
+  @step_ten_page ||= StepTenPage.new
+end
+
+def step_eleven_page
+  @step_eleven_page ||= StepElevenPage.new
+end
+
+def submission_page
+  @submission_page ||= SubmissionPage.new
+end
+
+def claim_submitted_page
+  @claim_submitted_page ||= ClaimSubmittedPage.new
+end
+

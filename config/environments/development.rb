@@ -51,3 +51,6 @@ Rails.application.configure do
 end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true
+CarrierWave.configure do |config|
+  config.storage :fog
+end

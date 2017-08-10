@@ -43,3 +43,8 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :test
 end
+
+CarrierWave.configure do |config|
+  config.storage :file
+end
+

@@ -5,6 +5,7 @@ Capybara.configure do |config|
   config.match = :prefer_exact
   config.ignore_hidden_elements = false
   config.visible_text_only = true
+
 end
 
 Capybara.register_driver :poltergeist do |app|
@@ -20,7 +21,7 @@ Capybara.register_driver :firefox do |app|
 end
 
 Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'))
 end
 
 if ENV.key?('CIRCLE_ARTIFACTS')
@@ -42,6 +43,6 @@ end
 
 Capybara.javascript_driver = Capybara.default_driver
 Capybara.current_driver = Capybara.default_driver
-Capybara.app_host = 'http://localhost:3000'
-Capybara.server_host = 'localhost'
-Capybara.server_port = '3000'
+Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', 'http://localhost:3000')
+Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', 'localhost')
+Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000')

@@ -60,6 +60,7 @@ group :test do
   gem 'poltergeist', '1.15.0'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
+  gem 'selenium-webdriver', '~> 3.4'
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
