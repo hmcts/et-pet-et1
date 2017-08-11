@@ -88,6 +88,16 @@ Feature: Output Form
       | county      | Greater London |
       | post_code   | SW1H 9UV       |
       | acas_number | AC654321/87/09 |
+    And I choose to add another respondent
+    And I fill in the third respondent's details with:
+      | field       | value             |
+      | name        | Respondent Three  |
+      | building    | 114               |
+      | street      | Knightsbridge     |
+      | locality    | London            |
+      | county      | Greater London    |
+      | post_code   | SW1H 9WX          |
+      | acas_number | AC654321/88/10    |
     And I save the additional respondents
     And I answer Yes to the have you ever been employed by the person you are making the claim against question
     And I answer "Still working for this employer" to the current work situation question
@@ -162,12 +172,12 @@ Feature: Output Form
       | 2.4 R2 town                   | London                                                          |
       | 2.4 R2 county                 | Greater London                                                  |
       | 2.4 R2 phone number           |                                                                 |
-      | 2.4 R3 postcode               |                                                                 |
-      | 2.4 R3 name                   |                                                                 |
-      | 2.4 R3 number                 |                                                                 |
-      | 2.4 R3 street                 |                                                                 |
-      | 2.4 R3 town city              |                                                                 |
-      | 2.4 R3 county                 |                                                                 |
+      | 2.4 R3 postcode               | SW1H9WX                                                         |
+      | 2.4 R3 name                   | Respondent Three                                                |
+      | 2.4 R3 number                 | 114                                                             |
+      | 2.4 R3 street                 | Knightsbridge                                                   |
+      | 2.4 R3 town city              | London                                                          |
+      | 2.4 R3 county                 | Greater London                                                  |
       | 2.4 R3 phone number           |                                                                 |
       | 3.1 tick boxes                | yes                                                             |
       | 3.1 if yes                    | Similar Claim1, Similar Claim2                                  |
@@ -253,55 +263,9 @@ Feature: Output Form
       | claim type c                  |                                                                 |
       | claim type d                  |                                                                 |
       | claim type e                  |                                                                 |
-      | sex                           |                                                                 |
-      | sex a                         |                                                                 |
-      | age group                     |                                                                 |
-      | ethnicity white               |                                                                 |
-      | mixed multiple                |                                                                 |
-      | asian british                 |                                                                 |
-      | black african caribbean       |                                                                 |
-      | other ethnic                  |                                                                 |
-      | prefer not to say             |                                                                 |
-      | caring                        |                                                                 |
-      | disability                    |                                                                 |
-      | sexual                        |                                                                 |
-      | marriage                      |                                                                 |
-      | gender                        |                                                                 |
-      | gender different              |                                                                 |
-      | religion                      |                                                                 |
-      | pregnancy                     |                                                                 |
-      | other religion                |                                                                 |
       | Check Box1                    | Yes                                                             |
       | Text2                         | AC123456/78/90                                                  |
-      | Check Box3                    |                                                                 |
-      | Check Box4                    |                                                                 |
-      | Check Box5                    |                                                                 |
-      | Check Box6                    |                                                                 |
       | Check Box8                    | Yes                                                             |
       | Text9                         | AC654321/87/09                                                  |
-      | Check Box10                   |                                                                 |
-      | Check Box11                   |                                                                 |
-      | Check Box12                   |                                                                 |
-      | Check Box13                   |                                                                 |
-      | Check Box15                   |                                                                 |
-      | Text16                        |                                                                 |
-      | Check Box17                   |                                                                 |
-      | Check Box18                   |                                                                 |
-      | Check Box19                   |                                                                 |
-      | Check Box20                   |                                                                 |
-      | Check Box22                   |                                                                 |
-      | Text23                        |                                                                 |
-      | Check Box24                   |                                                                 |
-      | Check Box25                   |                                                                 |
-      | Check Box26                   |                                                                 |
-      | Check Box27                   |                                                                 |
-      | Check Box29                   |                                                                 |
-      | Text30                        |                                                                 |
-      | Check Box31                   |                                                                 |
-      | Check Box32                   |                                                                 |
-      | Check Box33                   |                                                                 |
-      | Check Box34                   |                                                                 |
-      | Button30                      |                                                                 |
-      | Button31                      |                                                                 |
 
 
