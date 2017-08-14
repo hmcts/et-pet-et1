@@ -39,6 +39,54 @@ Feature: Output Form
       | locality      | London         |
       | county        | Greater London |
       | post_code     | SW1H 9JA       |
+    And I choose to add more claimants
+    And I fill in the second group claimant details with:
+      | field         | value          |
+      | title         | Mrs            |
+      | first_name    | Group2First    |
+      | last_name     | Group2Last     |
+      | date_of_birth | 25/12/1988     |
+      | building      | 106            |
+      | street        | Regent Street  |
+      | locality      | London         |
+      | county        | Greater London |
+      | post_code     | SW1H 9JB       |
+    And I choose to add more claimants
+    And I fill in the third group claimant details with:
+      | field         | value          |
+      | title         | Mrs            |
+      | first_name    | Group3First    |
+      | last_name     | Group3Last     |
+      | date_of_birth | 21/12/1993     |
+      | building      | 108            |
+      | street        | Pall Mall      |
+      | locality      | London         |
+      | county        | Greater London |
+      | post_code     | SW1H 9JJ       |
+    And I choose to add more claimants
+    And I fill in the fourth group claimant details with:
+      | field         | value          |
+      | title         | Mrs            |
+      | first_name    | Group4First    |
+      | last_name     | Group4Last     |
+      | date_of_birth | 21/11/1992     |
+      | building      | 110            |
+      | street        | Buckingham Pl  |
+      | locality      | London         |
+      | county        | Greater London |
+      | post_code     | SW1H 9JT       |
+    And I choose to add more claimants
+    And I fill in the fifth group claimant details with:
+      | field         | value          |
+      | title         | Mrs            |
+      | first_name    | Group5First    |
+      | last_name     | Group5Last     |
+      | date_of_birth | 21/10/1991     |
+      | building      | 112            |
+      | street        | Oxford Road    |
+      | locality      | London         |
+      | county        | Greater London |
+      | post_code     | SW1H 9JY       |
     And I save the group claims
     And I answer Yes to the representative question
     And I fill in the representative's details with:
@@ -98,6 +146,26 @@ Feature: Output Form
       | county      | Greater London    |
       | post_code   | SW1H 9WX          |
       | acas_number | AC654321/88/10    |
+    And I choose to add another respondent
+    And I fill in the fourth respondent's details with:
+      | field       | value             |
+      | name        | Respondent Four   |
+      | building    | 116               |
+      | street      | Mayfair           |
+      | locality    | London            |
+      | county      | Greater London    |
+      | post_code   | SW1H 9YZ          |
+      | acas_number | AC654321/88/10    |
+    And I choose to add another respondent
+    And I fill in the fifth respondent's details with:
+      | field       | value             |
+      | name        | Respondent Five   |
+      | building    | 118               |
+      | street      | Marylebone Road   |
+      | locality    | London            |
+      | county      | Greater London    |
+      | post_code   | SW1H 8AB          |
+      | acas_number | AC654321/89/11    |
     And I save the additional respondents
     And I answer Yes to the have you ever been employed by the person you are making the claim against question
     And I answer "Still working for this employer" to the current work situation question
@@ -242,19 +310,19 @@ Feature: Output Form
       | 11.10 fax number              |                                                                 |
       | 12.1 tick box                 | yes                                                             |
       | 12.1 if yes                   | My special needs are as follows                                 |
-      | 13 R4 name                    |                                                                 |
-      | 13 R4 number                  |                                                                 |
-      | 13 R4 street                  |                                                                 |
-      | 13 R4 town city               |                                                                 |
-      | 13 R4 county                  |                                                                 |
-      | 13 R4 postcode                |                                                                 |
+      | 13 R4 name                    | Respondent Four                                                 |
+      | 13 R4 number                  | 116                                                             |
+      | 13 R4 street                  | Mayfair                                                         |
+      | 13 R4 town city               | London                                                          |
+      | 13 R4 county                  | Greater London                                                  |
+      | 13 R4 postcode                | SW1H9YZ                                                         |
       | 13 R4 phone number            |                                                                 |
-      | 13 R5 name                    |                                                                 |
-      | 13 R5 number                  |                                                                 |
-      | R5 street                     |                                                                 |
-      | R5 town city                  |                                                                 |
-      | R5 county                     |                                                                 |
-      | R5 postcode                   |                                                                 |
+      | 13 R5 name                    | Respondent Five                                                 |
+      | 13 R5 number                  | 118                                                             |
+      | R5 street                     | Marylebone Road                                                 |
+      | R5 town city                  | London                                                          |
+      | R5 county                     | Greater London                                                  |
+      | R5 postcode                   | SW1H8AB                                                         |
       | R5 phone number               |                                                                 |
       | 14 satisfied tick box         |                                                                 |
       | 15                            | Here are some very important details that need to be considered |
@@ -267,5 +335,11 @@ Feature: Output Form
       | Text2                         | AC123456/78/90                                                  |
       | Check Box8                    | Yes                                                             |
       | Text9                         | AC654321/87/09                                                  |
+      | Check Box15                   | Yes                                                             |
+      | Text16                        | AC654321/88/10                                                  |
+      | Check Box22                   | Yes                                                             |
+      | Text23                        | AC654321/88/10                                                  |
+      | Check Box29                   | Yes                                                             |
+      | Text30                        | AC654321/89/11                                                                |
 
 

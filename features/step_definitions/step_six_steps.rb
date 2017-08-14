@@ -39,3 +39,31 @@ And(/^I fill in the third respondent's details with:$/) do |table|
     end
   end
 end
+
+
+And(/^I fill in the fourth respondent's details with:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  table.hashes.each do | hash |
+    step_six_page.more_than_one_employer.respondent_four do |section|
+      node = section.send("#{hash['field']}".to_sym)
+      case node.try(:tag_name)
+        when "select" then node.select(hash['value'])
+        else node.set(hash['value'])
+      end
+    end
+  end
+end
+
+
+And(/^I fill in the fifth respondent's details with:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  table.hashes.each do | hash |
+    step_six_page.more_than_one_employer.respondent_five do |section|
+      node = section.send("#{hash['field']}".to_sym)
+      case node.try(:tag_name)
+        when "select" then node.select(hash['value'])
+        else node.set(hash['value'])
+      end
+    end
+  end
+end
