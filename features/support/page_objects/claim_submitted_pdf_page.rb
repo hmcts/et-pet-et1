@@ -7,8 +7,72 @@ class ClaimSubmittedPdfPage < BasePage
     @pdf_content ||= PdfContent.new(current_url)
   end
 
-end
 
+  def find(*args)
+    return super unless args.first == :pdf_document
+    Capybara::Node::Element.new Capybara.current_session, PdfDocument.new(current_url), nil, nil
+  end
+
+  section :pdf_document, :pdf_document, :current_url do
+    section :your_details, :pdf_fieldset, :your_details do
+      section :title, :pdf_field_named, '1.1 title tick boxes' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :first_name, :pdf_field_named, '1.2 first names'
+      element :last_name, :pdf_field_named, '1.3 surname'
+      section :date_of_birth, :pdf_fieldset, :date_of_birth do
+        element :dob_day, :pdf_field_named, '1.4 DOB day'
+        element :dob_month, :pdf_field_named, '1.4 DOB month'
+        element :dob_year, :pdf_field_named, '1.4 DOB year'
+        def value
+          "#{dob_day.value}/#{dob_month.value}/#{dob_year.value}"
+        end
+      end
+      section :gender, :pdf_field_named, '1.4 gender' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      section :has_special_needs, :pdf_field_named, '12.1 tick box' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :special_needs, :pdf_field_named, '12.1 if yes'
+    end
+  end
+
+end
+class PdfDocument
+  def initialize(url)
+    self.pdf_content = PdfContent.new(url)
+  end
+
+  def find_xpath(*args)
+    raise "only //fieldset[id=xxx] is supported" unless args.first.start_with?('//fieldset')
+    [PdfFieldSet.new(pdf_content, args.first)]
+  end
+
+  private
+
+  attr_accessor :pdf_content
+end
+class PdfFieldSet
+  def initialize(pdf_content, fieldset_root)
+    self.pdf_content = pdf_content
+    self.root = fieldset_root
+  end
+  def find_xpath(*args)
+    return [self.class.new(pdf_content, args.first)] if args.first.start_with?('//fieldset')
+    [pdf_content.find(:xpath, args.first)]
+  end
+
+  private
+
+  attr_accessor :root, :pdf_content
+end
 class PdfContent
   def initialize(url, session: Capybara.current_session)
     self.url = url
@@ -19,6 +83,17 @@ class PdfContent
     assert_selector(*args)
   rescue Capybara::ExpectationNotMet
     return false
+  end
+
+  def find(selector_type, selector, options = {})
+    raise "Only supports xpath" unless selector_type == :xpath
+    raise "invalid xpath selector '#{selector}' Only supports xpath eg //field[@name=xxxx]" unless selector.start_with?('//field[@name=')
+    field_name = selector.match(/^\/\/field\[@name=(.*)\]$/)[1]
+    result = pdf_fields.find do |field|
+      field.name == field_name
+    end
+    raise Capybara::ElementNotFound.new "Cannot find pdf_field '#{selector}'" if result.nil?
+    wrap_field(result)
   end
 
   def assert_selector(selector_type, selector, options = {})
@@ -61,9 +136,13 @@ class PdfContent
 
   def wrap_fields(fields)
     fields.map do |field|
-      wrapped_field = PdfField.new(field)
-      Capybara::Node::Element.new(session, wrapped_field, nil, nil)
+      wrap_field(field)
     end
+  end
+
+  def wrap_field(field)
+    wrapped_field = PdfField.new(field)
+    Capybara::Node::Element.new(session, wrapped_field, nil, nil)
   end
 
 end
@@ -87,11 +166,23 @@ class PdfField
     pdf_field.value || ''
   end
 
-  def method_missing(method, *args)
-    super
-  end
-
   private
 
   attr_accessor :pdf_field
+end
+
+Capybara::Selector.add :pdf_document do
+  xpath do
+    '//pdf_document'
+  end
+end
+Capybara::Selector.add :pdf_fieldset do
+  xpath do | fieldset_id |
+    "//fieldset[@id=#{fieldset_id}]"
+  end
+end
+Capybara::Selector.add :pdf_field_named do
+  xpath do | field_name |
+    "//field[@name=#{field_name}]"
+  end
 end
