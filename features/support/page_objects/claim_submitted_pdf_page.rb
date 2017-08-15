@@ -35,12 +35,19 @@ class ClaimSubmittedPdfPage < BasePage
           root_element.value.titleize
         end
       end
-      section :has_special_needs, :pdf_field_named, '12.1 tick box' do
+      element :building, :pdf_field_named, '1.5 number'
+      element :street, :pdf_field_named, '1.5 street'
+      element :locality, :pdf_field_named, '1.5 town city'
+      element :county, :pdf_field_named, '1.5 county'
+      element :post_code, :pdf_field_named, '1.5 postcode'
+      element :telephone_number, :pdf_field_named, '1.6 phone number'
+      element :alternative_telephone_number, :pdf_field_named, '1.7 mobile number'
+      element :email_address, :pdf_field_named, '1.9 email'
+      section :correspondence, :pdf_field_named, '1.8 tick boxes' do
         def value
           root_element.value.titleize
         end
       end
-      element :special_needs, :pdf_field_named, '12.1 if yes'
     end
   end
 

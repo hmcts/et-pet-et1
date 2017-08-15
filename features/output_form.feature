@@ -342,13 +342,20 @@ Feature: Output Form
 #      | Check Box29                   | Yes                                                             |
 #      | Text30                        | AC654321/89/11                                                  |
     And the claim pdf file's Your details section should contain:
-      | field             | value                           |
-      | title             | Mr                              |
-      | first_name        | First                           |
-      | last_name         | Last                            |
-      | date_of_birth     | 21/11/1982                      |
-      | gender            | Male                            |
-      | has_special_needs | Yes                             |
-      | special_needs     | My special needs are as follows |
+      | field                       | value                           |
+      | title                       | Mr                              |
+      | first_name                  | First                           |
+      | last_name                   | Last                            |
+      | date_of_birth               | 21/11/1982                      |
+      | gender                      | Male                            |
+      | building                    | 102                             |
+      | street                      | Petty France                    |
+      | locality                    | London                          |
+      | county                      | Greater London                  |
+      | post_code                   | SW1H9AJ                         |
+      | telephone_number            | 01234 567890                    |
+      | alternative_telephone_number| 01234 098765                    |
+      | email_address               | test@digital.justice.gov.uk     |
+      | correspondence              | Email                           |
 
 
