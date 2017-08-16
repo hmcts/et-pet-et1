@@ -10,7 +10,7 @@ class ClaimSubmittedPdfPage < BasePage
 
   def find(*args)
     return super unless args.first == :pdf_document
-    Capybara::Node::Element.new Capybara.current_session, PdfDocument.new(current_url), nil, nil
+    @pdf_document ||= Capybara::Node::Element.new Capybara.current_session, PdfDocument.new(current_url), nil, nil
   end
 
   section :pdf_document, :pdf_document, :current_url do
@@ -49,6 +49,365 @@ class ClaimSubmittedPdfPage < BasePage
         end
       end
     end
+    section :respondents_details, :pdf_fieldset, :respondents_details do
+      section :name, :pdf_fieldset, :name do
+        element :name, :pdf_field_named, '2.1'
+      end
+      section :address, :pdf_fieldset, :address do
+        element :building, :pdf_field_named, '2.2 number'
+        element :street, :pdf_field_named, '2.2 street'
+        element :locality, :pdf_field_named, '2.2 town city'
+        element :county, :pdf_field_named, '2.2 county'
+        element :post_code, :pdf_field_named, '2.2 postcode'
+        element :telephone_number, :pdf_field_named, '2.2 phone number'
+      end
+
+      section :acas, :pdf_fieldset, :acas do
+        element :have_acas, :pdf_field_named, 'Check Box1'
+        element :acas_number, :pdf_field_named, 'Text2'
+      end
+
+      section :different_address, :pdf_fieldset, :different_address do
+        element :building, :pdf_field_named, '2.3 number'
+        element :street, :pdf_field_named, '2.3 street'
+        element :locality, :pdf_field_named, '2.3 town city'
+        element :county, :pdf_field_named, '2.3 county'
+        element :post_code, :pdf_field_named, '2.3 postcode'
+        element :telephone_number, :pdf_field_named, '2.3 phone number'
+      end
+
+      section :respondent_two, :pdf_fieldset, :respondent_two do
+        section :name, :pdf_fieldset, :name do
+          element :name, :pdf_field_named, '2.4 R2 name'
+        end
+        section :address, :pdf_fieldset, :address do
+          element :building, :pdf_field_named, '2.4 R2 number'
+          element :street, :pdf_field_named, '2.4 R2 street'
+          element :locality, :pdf_field_named, '2.4 R2 town'
+          element :county, :pdf_field_named, '2.4 R2 county'
+          element :post_code, :pdf_field_named, '2.4 R2 postcode'
+          element :telephone_number, :pdf_field_named, '2.4 R2 phone number'
+        end
+
+        section :acas, :pdf_fieldset, :acas do
+          element :have_acas, :pdf_field_named, 'Check Box8'
+          element :acas_number, :pdf_field_named, 'Text9'
+        end
+      end
+
+      section :respondent_three, :pdf_fieldset, :respondent_three do
+        section :name, :pdf_fieldset, :name do
+          element :name, :pdf_field_named, '2.4 R3 name'
+        end
+        section :address, :pdf_fieldset, :address do
+          element :building, :pdf_field_named, '2.4 R3 number'
+          element :street, :pdf_field_named, '2.4 R3 street'
+          element :locality, :pdf_field_named, '2.4 R3 town city'
+          element :county, :pdf_field_named, '2.4 R3 county'
+          element :post_code, :pdf_field_named, '2.4 R3 postcode'
+          element :telephone_number, :pdf_field_named, '2.4 R3 phone number'
+        end
+
+        section :acas, :pdf_fieldset, :acas do
+          element :have_acas, :pdf_field_named, 'Check Box15'
+          element :acas_number, :pdf_field_named, 'Text16'
+        end
+      end
+    end
+    section :multiple_cases, :pdf_fieldset, :multiple_cases do
+      section :have_similar_claims, :pdf_field_named, '3.1 tick boxes' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :other_claimants, :pdf_field_named, '3.1 if yes'
+    end
+    section :respondent_not_your_employer, :pdf_fieldset, :respondent_not_your_employer do
+      element :claim_type, :pdf_field_named, '4.1'
+    end
+    section :employment_details, :pdf_fieldset, :employment_details do
+      element :job_title, :pdf_field_named, '5.2'
+      element :start_date, :pdf_field_named, '5.1 employment start'
+      section :employment_continuing, :pdf_field_named, '5.1 tick boxes' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :ended_date, :pdf_field_named, '5.1 employment end'
+      element :ending_date, :pdf_field_named, '5.1 not ended'
+    end
+    section :earnings_and_benefits, :pdf_fieldset, :earnings_and_benefits do
+      element :average_weekly_hours, :pdf_field_named, '6.1'
+      section :pay_before_tax, :pdf_fieldset, :pay_before_tax do
+        element :amount, :pdf_field_named, '6.2 pay before tax'
+        element :period, :pdf_field_named, '6.2 pay before tax tick boxes'
+        def value
+          "#{amount.value} #{period.value.titleize}"
+        end
+      end
+      section :pay_after_tax, :pdf_fieldset, :pay_after_tax do
+        element :amount, :pdf_field_named, '6.2 normal pay'
+        element :period, :pdf_field_named, '6.2 normal pay tick boxes'
+        def value
+          "#{amount.value} #{period.value.titleize}"
+        end
+      end
+      section :paid_for_notice_period, :pdf_field_named, '6.3 tick boxes' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :notice_period, :pdf_fieldset, :notice_period do
+        element :weeks, :pdf_field_named, '6.3 weeks'
+        element :months, :pdf_field_named, '6.3 months'
+        def value
+          if weeks.value.present?
+            "#{weeks.value} Weeks"
+          elsif months.value.present?
+            "#{months.value} Months"
+          else
+            ''
+          end
+        end
+      end
+      section :employers_pension_scheme, :pdf_field_named, '6.4 tick boxes' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :benefits, :pdf_field_named, '6.5'
+    end
+
+    section :what_happened_since, :pdf_fieldset, :what_happened_since do
+      section :have_another_job, :pdf_field_named, '7.1 tick boxes' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      element :start_date, :pdf_field_named, '7.2'
+      element :salary, :pdf_field_named, '7.3'
+    end
+
+    section :type_and_details_of_claim, :pdf_fieldset, :type_and_details_of_claim do
+      section :unfairly_dismissed, :pdf_field_named, '8.1 unfairly tick box' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      section :discriminated_age, :pdf_field_named, '8.1 age' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_race, :pdf_field_named, '8.1 race' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_gender_reassignment, :pdf_field_named, '8.1 gender reassignment' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_disability, :pdf_field_named, '8.1 disability' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_pregnancy, :pdf_field_named, '8.1 pregnancy' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_marriage, :pdf_field_named, '8.1 marriage' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_sexual_orientation, :pdf_field_named, '8.1 sexual orientation' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_sex, :pdf_field_named, '8.1 sex' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :discriminated_religion, :pdf_field_named, '8.1 religion' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :claiming_redundancy_payment, :pdf_field_named, '8.1 redundancy' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :owed_notice_pay, :pdf_field_named, '8.1 notice pay' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :owed_holiday_pay, :pdf_field_named, '8.1 holiday pay' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :owed_arrears_of_pay, :pdf_field_named, '8.1 arrears of pay' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :owed_other_payments, :pdf_field_named, '8.1 other payments' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :other_type_of_claim, :pdf_field_named, '8.1 another type of claim' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      element :other_type_of_claim_details, :pdf_field_named, '8.1 other type of claim'
+      element :claim_description, :pdf_field_named, '8.2'
+
+    end
+    section :what_do_you_want, :pdf_fieldset, :what_do_you_want do
+      section :prefer_re_instatement, :pdf_field_named, '9.1 old job back' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :prefer_re_engagement, :pdf_field_named, '9.1 another job' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      section :prefer_compensation, :pdf_field_named, '9.1 compensation' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      section :prefer_recommendation, :pdf_field_named, '9.1 recommendation' do
+        def value
+          case root_element.value.downcase
+            when 'off' then 'No'
+            when 'on' then 'Yes'
+            else ''
+          end
+        end
+      end
+      element :compensation, :pdf_field_named, '9.2'
+
+    end
+    section :information_to_regulators, :pdf_fieldset, :information_to_regulators do
+      section :whistle_blowing, :pdf_field_named, '10.1' do
+        def value
+          root_element.value.titleize
+        end
+      end
+    end
+    section :your_representative, :pdf_fieldset, :your_representative do
+      element :name_of_representative, :pdf_field_named, '11.1'
+      element :name_of_organisation, :pdf_field_named, '11.2'
+      element :building, :pdf_field_named, '11.3 number'
+      element :street, :pdf_field_named, '11.3 street'
+      element :locality, :pdf_field_named, '11.3 town city'
+      element :county, :pdf_field_named, '11.3 county'
+      element :post_code, :pdf_field_named, '11.3 postcode'
+      element :dx_number, :pdf_field_named, '11.4 dx number'
+      element :telephone_number, :pdf_field_named, '11.5 phone number'
+      element :alternative_telephone_number, :pdf_field_named, '11.6 mobile number'
+      element :reference, :pdf_field_named, '11.7 reference'
+      element :email_address, :pdf_field_named, '11.8 email'
+      section :communication_preference, :pdf_field_named, '11.9 tick boxes' do
+        def value
+          v = root_element.value.titleize
+          case v
+            when "Off" then ""
+            else v
+          end
+        end
+      end
+      element :fax_number, :pdf_field_named, '11.10 fax number'
+    end
   end
 
 end
@@ -58,7 +417,7 @@ class PdfDocument
   end
 
   def find_xpath(*args)
-    raise "only //fieldset[id=xxx] is supported" unless args.first.start_with?('//fieldset')
+    raise "only //fieldsetdf[id=xxx] is supported" unless args.first.start_with?('//fieldset')
     [PdfFieldSet.new(pdf_content, args.first)]
   end
 
