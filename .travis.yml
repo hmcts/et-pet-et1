@@ -17,6 +17,7 @@ env:
   DRIVER: chrome
 script:
 - bundle exec rake
+- docker-compose -f docker-compose-test.yml run test bundle exec bundle install
 - docker-compose -f docker-compose-test.yml run test bundle exec rake cucumber
 
 services:
