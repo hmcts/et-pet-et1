@@ -499,3 +499,35 @@ Feature: Output Form
       | email_address                 | solicitor.test@digital.justice.gov.uk |
       | communication_preference      |                                       |
       | fax_number                    |                                       |
+    And the claim pdf file's Disability section should contain:
+      | field                         | value                                 |
+      | has_special_needs             | Yes                                   |
+      | special_needs                 | My special needs are as follows       |
+    And the claim pdf file's Additional respondents section should contain the following for respondent 4:
+      | field                           | value                                 |
+      | name                            | Respondent Four                       |
+      | building                        | 116                                   |
+      | street                          | Mayfair                               |
+      | locality                        | London                                |
+      | county                          | Greater London                        |
+      | post_code                       | SW1H9YZ                               |
+      | telephone_number                |                                       |
+      | have_acas                       | Yes                                   |
+      | acas_number                     | AC654321/88/10                        |
+    And the claim pdf file's Additional respondents section should contain the following for respondent 5:
+      | field                           | value                                 |
+      | name                            | Respondent Five                       |
+      | building                        | 118                                   |
+      | street                          | Marylebone Road                       |
+      | locality                        | London                                |
+      | county                          | Greater London                        |
+      | post_code                       | SW1H8AB                               |
+      | telephone_number                |                                       |
+      | have_acas                       | Yes                                   |
+      | acas_number                     | AC654321/89/11                        |
+    And the claim pdf file's Final check section should contain:
+      | field                           | value                                 |
+      | satisfied                       | No                                    |
+    And the claim pdf file's Additional information section should contain:
+      | field                           | value                                                           |
+      | additional_information          | Here are some very important details that need to be considered |

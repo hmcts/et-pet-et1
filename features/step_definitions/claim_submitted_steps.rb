@@ -245,3 +245,63 @@ And(/^the claim pdf file's Your representative section should contain:$/) do |ta
     end
   end
 end
+
+
+And(/^the claim pdf file's Disability section should contain:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    table.hashes.each do |hash|
+      expect(pdf_page.pdf_document.disability.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end
+
+
+And(/^the claim pdf file's Additional respondents section should contain the following for respondent 4:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    table.hashes.each do |hash|
+      expect(pdf_page.pdf_document.additional_respondents.respondent_four.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end
+
+
+And(/^the claim pdf file's Additional respondents section should contain the following for respondent 5:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    table.hashes.each do |hash|
+      expect(pdf_page.pdf_document.additional_respondents.respondent_five.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end
+
+
+And(/^the claim pdf file's Final check section should contain:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    table.hashes.each do |hash|
+      expect(pdf_page.pdf_document.final_check.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end
+
+
+And(/^the claim pdf file's Additional information section should contain:$/) do |table|
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    table.hashes.each do |hash|
+      expect(pdf_page.pdf_document.additional_information.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end

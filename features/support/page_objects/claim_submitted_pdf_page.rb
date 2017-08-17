@@ -408,6 +408,51 @@ class ClaimSubmittedPdfPage < BasePage
       end
       element :fax_number, :pdf_field_named, '11.10 fax number'
     end
+    section :disability, :pdf_fieldset, :disability do
+      section :has_special_needs, :pdf_field_named, '12.1 tick box' do
+        def value
+          root_element.value.titleize
+        end
+      end
+      element :special_needs, :pdf_field_named, '12.1 if yes'
+    end
+    section :additional_respondents, :pdf_fieldset, :additional_respondents do
+      section :respondent_four, :pdf_fieldset, :respondent_four do
+        element :name, :pdf_field_named, '13 R4 name'
+        element :building, :pdf_field_named, '13 R4 number'
+        element :street, :pdf_field_named, '13 R4 street'
+        element :locality, :pdf_field_named, '13 R4 town city'
+        element :county, :pdf_field_named, '13 R4 county'
+        element :post_code, :pdf_field_named, '13 R4 postcode'
+        element :telephone_number, :pdf_field_named, '13 R4 phone number'
+        element :have_acas, :pdf_field_named, 'Check Box22'
+        element :acas_number, :pdf_field_named, 'Text23'
+      end
+      section :respondent_five, :pdf_fieldset, :respondent_four do
+        element :name, :pdf_field_named, '13 R5 name'
+        element :building, :pdf_field_named, '13 R5 number'
+        element :street, :pdf_field_named, 'R5 street'
+        element :locality, :pdf_field_named, 'R5 town city'
+        element :county, :pdf_field_named, 'R5 county'
+        element :post_code, :pdf_field_named, 'R5 postcode'
+        element :telephone_number, :pdf_field_named, 'R5 phone number'
+        element :have_acas, :pdf_field_named, 'Check Box29'
+        element :acas_number, :pdf_field_named, 'Text30'
+      end
+    end
+    section :final_check, :pdf_fieldset, :final_check do
+      section :satisfied, :pdf_field_named, '14 satisfied tick box' do
+        def value
+          case root_element.value.downcase
+            when 'yes' then 'Yes'
+            else 'No'
+          end
+        end
+      end
+    end
+    section :additional_information, :pdf_fieldset, :additional_information do
+      element :additional_information, :pdf_field_named, '15'
+    end
   end
 
 end
