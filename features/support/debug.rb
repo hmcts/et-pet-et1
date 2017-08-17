@@ -1,6 +1,7 @@
 After do |scenario|
   if scenario.failed?
     puts "scenario failed"
-    puts Capybara.current_session.body
+    puts "Output from netstat"
+    puts `netstat -an`
   end
 end
