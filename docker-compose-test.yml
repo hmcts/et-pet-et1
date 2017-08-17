@@ -7,6 +7,7 @@ services:
       - db
       - selenium
     environment:
+      RAILS_ENV: 'test'
       SELENIUM_URL: 'http://selenium:4444/wd/hub'
       CAPYBARA_APP_HOST: 'http://test:3000'
       CAPYBARA_SERVER_HOST: 'test'
