@@ -11,7 +11,7 @@ addons:
 before_script:
 - npm install
 - bin/rake db:create db:migrate
-- docker run -d -P selenium/standalone-chrome
+- docker run -d -p 4444:4444 selenium/standalone-chrome
 env:
   global:
     secure: FNL+FZauJ7fy1rT4luEvPGuAErxyp4BicM5bXCD/dBHMNI6rhGDulMhnqdThAaR4DvhCXaBahrnNFs7gfilpdkQzz3zYVBqvjlyx4slIL6xRTKOwVo6X6tG804ZiJ2b8sMTCqBBn5xoVCjDcle+VCcQNp2oq/LoXGGPHdx/LcKY=
