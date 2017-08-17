@@ -17,4 +17,4 @@ env:
   DRIVER: chrome
 script:
 - bundle exec rake
-- bundle exec rake cucumber
+- DRIVER=chrome bundle exec rake cucumber
