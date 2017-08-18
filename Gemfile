@@ -67,7 +67,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: '56873b071053
 gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'fog'
-gem 'govuk_frontend_toolkit', '~> 4.0.0'
+gem 'govuk_frontend_toolkit', '~> 7.0.1'
 gem 'httparty'
 gem 'logstasher'
 gem 'moj_template', '0.23.0'
