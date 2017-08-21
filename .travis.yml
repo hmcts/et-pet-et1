@@ -11,7 +11,7 @@ env:
 script:
 - docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
 - docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate default"
-- docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate cucumber"
+- docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate assets:precompile cucumber"
 
 services:
   - docker

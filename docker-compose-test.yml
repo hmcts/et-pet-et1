@@ -22,7 +22,7 @@ services:
       HTTP_READ_TIMEOUT_S: 100
     volumes:
       - rubygems_cache:/rubygems
-    command: rake db:create db:migrate cucumber
+    command: rake db:create db:migrate assets:precompile default cucumber
   db:
     image: postgres:9.3
   selenium:
