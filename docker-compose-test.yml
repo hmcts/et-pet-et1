@@ -17,7 +17,7 @@ services:
       RAILS_ENV: 'test'
       SELENIUM_URL: 'http://selenium:4444/wd/hub'
       DRIVER: 'chrome'
-      GOOGLE_ANALYTICS_ID:
+      GOOGLE_ANALYTICS_ID: moj_et_test
       HTTP_OPEN_TIMEOUT_S: 100
       HTTP_READ_TIMEOUT_S: 100
       JADU_API: https://fgr-stub-service.herokuapp.com/1/
