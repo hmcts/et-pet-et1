@@ -17,6 +17,7 @@ services:
       RAILS_ENV: 'test'
       SELENIUM_URL: 'http://selenium:4444/wd/hub'
       DRIVER: 'chrome'
+      JADU_API: 'https://fgr-stub-service.herokuapp.com/1/'
     volumes:
       - rubygems_cache:/rubygems
     command: rake db:create db:migrate cucumber
