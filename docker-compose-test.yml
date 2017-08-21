@@ -25,7 +25,7 @@ services:
     volumes:
       - rubygems_cache:/rubygems
       - npm_cache:/app/node_modules
-    command: /bin/bash -c "bundle; npm install; rake db:create db:migrate assets:precompile default cucumber"
+    command: /bin/bash -c "bundle && npm install && rake db:create db:migrate assets:precompile cucumber"
   db:
     image: postgres:9.3
   selenium:
