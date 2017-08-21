@@ -9,7 +9,7 @@ env:
   global:
     secure: FNL+FZauJ7fy1rT4luEvPGuAErxyp4BicM5bXCD/dBHMNI6rhGDulMhnqdThAaR4DvhCXaBahrnNFs7gfilpdkQzz3zYVBqvjlyx4slIL6xRTKOwVo6X6tG804ZiJ2b8sMTCqBBn5xoVCjDcle+VCcQNp2oq/LoXGGPHdx/LcKY=
 script:
-- docker-compose -f docker-compose-test.yml run test bundle install
+- docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
 - docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate default"
 - docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate cucumber"
 
