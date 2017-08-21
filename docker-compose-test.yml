@@ -32,5 +32,5 @@ services:
     image: selenium/standalone-chrome
 volumes:
   rubygems_cache:
-
+  npm_cache:
 
