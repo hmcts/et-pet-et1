@@ -21,6 +21,7 @@ services:
       HTTP_OPEN_TIMEOUT_S: 100
       HTTP_READ_TIMEOUT_S: 100
       JADU_API: https://fgr-stub-service.herokuapp.com/1/
+      PAYMENT_GATEWAY_PING_ENDPOINT: https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1
 
     volumes:
       - rubygems_cache:/rubygems
