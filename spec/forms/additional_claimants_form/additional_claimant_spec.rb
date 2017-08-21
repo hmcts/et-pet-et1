@@ -65,10 +65,12 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
 
       context 'PG::NotNullViolation' do
         before { allow(target).to receive(:update_attributes).and_raise(PG::NotNullViolation.new('test'))}
-        let(:old_data) { target.attributes }
 
         it "send a data to sentry" do
-          expect(Raven).to receive(:extra_context).with(old_data: target.attributes, new_data: subject.attributes)
+          expect(Raven).to receive(:extra_context).with(
+            old_data: target.attributes,
+            new_data: subject.attributes
+          )
           expect(Raven).to receive(:capture_exception)
           expect{ subject.save }.to raise_error(PG::NotNullViolation, 'test')
         end
