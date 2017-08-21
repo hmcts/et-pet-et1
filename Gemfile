@@ -22,9 +22,6 @@ gem 'sass-rails', '~> 5.0.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '3.0.0'
-
 # Use unicorn as the app server
 gem 'unicorn'
 
@@ -61,6 +58,11 @@ group :test do
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
   gem 'selenium-webdriver', '~> 3.4'
+end
+
+group :production do
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '3.0.0'
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
