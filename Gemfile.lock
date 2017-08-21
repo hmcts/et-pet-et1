@@ -41,6 +41,14 @@ GIT
     sentry-raven (2.0.2)
       faraday (>= 0.7.6, < 0.10.x)
 
+GIT
+  remote: https://github.com/ministryofjustice/govuk_elements_form_builder.git
+  revision: ec5d537f488ade3072ff026b9f014dc01a51ca85
+  branch: fieldset-legends
+  specs:
+    govuk_elements_form_builder (0.0.5)
+      rails (>= 4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -330,9 +338,15 @@ GEM
     formtastic_i18n (0.1.1)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
+    govuk_elements_rails (2.2.1)
+      govuk_frontend_toolkit (>= 5.0.2)
+      rails (>= 4.1.0)
+      sass (>= 3.2.0)
     govuk_frontend_toolkit (7.0.1)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
+    govuk_template (0.22.3)
+      rails (>= 3.1)
     guard (2.11.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -400,8 +414,6 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
-    moj_template (0.23.0)
-      rails (>= 3.1)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -631,14 +643,16 @@ DEPENDENCIES
   epdq!
   factory_girl_rails
   fog
+  govuk_elements_form_builder!
+  govuk_elements_rails (< 3.0.0)
   govuk_frontend_toolkit (~> 7.0.1)
+  govuk_template
   guard-livereload
   httparty
   jbuilder (~> 2.0)
   jquery-rails (= 4.3.1)
   launchy
   logstasher
-  moj_template (= 0.23.0)
   non-stupid-digest-assets
   pdf-forms
   pg

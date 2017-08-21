@@ -20,7 +20,12 @@
     javascript:
       sessionPrompt.init();
 
-- content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
+/ - content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
+- content_for(:page_title) { "GOV.UK - Employment Tribunals" }
+- content_for(:inside_header) do
+  div.header-proposition
+    div.content
+      a href="/" id="proposition-name" Employment Tribunals
 
 - content_for :footer_support_links do
   li= link_to "Guide", guide_path
@@ -39,4 +44,18 @@
       = render partial: 'shared/session_prompt'
       = yield
 
-= render template: "layouts/moj_template"
+/ <% content_for(:content) do %>
+/   <main id="content" role="main">
+/     <%= render partial: 'layouts/phase_banner' %>
+
+/     <% if flash[:alert] %>
+/       <div class="error-summary">
+/         <%= flash[:alert] %>
+/       </div>
+/     <% end %>
+
+/     <%= yield %>
+/   </main>
+
+
+= render template: "layouts/govuk_template"
