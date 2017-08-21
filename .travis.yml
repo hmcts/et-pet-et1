@@ -18,3 +18,4 @@ services:
 cache:
   directories:
   - $HOME/rubygems
+  - $HOME/node_modules

@@ -3,3 +3,4 @@ services:
   test:
     volumes:
       - ~/rubygems:/rubygems
+      - ~/node_modules:/app/node_modules
