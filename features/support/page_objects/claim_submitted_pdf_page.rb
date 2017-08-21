@@ -479,6 +479,9 @@ class PdfFieldSet
     return [self.class.new(pdf_content, args.first)] if args.first.start_with?('//fieldset')
     [pdf_content.find(:xpath, args.first)]
   end
+  def visible?
+    true
+  end
 
   private
 
@@ -575,6 +578,10 @@ class PdfField
 
   def value
     pdf_field.value || ''
+  end
+
+  def visible?
+    true
   end
 
   private

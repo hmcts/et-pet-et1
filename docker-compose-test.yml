@@ -24,7 +24,7 @@ services:
       - rubygems_cache:/rubygems
     command: rake db:create db:migrate cucumber
   db:
-    image: postgres
+    image: postgres:9.3
   selenium:
     image: selenium/standalone-chrome
 volumes:
