@@ -2,19 +2,24 @@ version: "2"
 
 services:
   test:
-    build: .
+    image: moj_et_test
+    build:
+      context: .
+      dockerfile: Dockerfile.test
     links:
       - db
       - selenium
     environment:
       GEM_HOME: '/rubygems'
       BUNDLE_PATH: '/rubygems'
+      DB_HOST: 'db'
+      DB_USERNAME: 'postgres'
       RAILS_ENV: 'test'
       SELENIUM_URL: 'http://selenium:4444/wd/hub'
-      CAPYBARA_APP_HOST: 'http://test:3000'
-      CAPYBARA_SERVER_HOST: 'test'
+      DRIVER: 'chrome'
     volumes:
       - rubygems_cache:/rubygems
+    command: rake db:create db:migrate cucumber
   db:
     image: postgres
   selenium:

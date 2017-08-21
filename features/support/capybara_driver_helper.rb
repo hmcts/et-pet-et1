@@ -37,12 +37,12 @@ Capybara.register_driver :safari do |app|
 end
 
 Capybara::Screenshot.register_filename_prefix_formatter(:cucumber) do |scenario|
-  title = scenario.title.tr(' ', '-').gsub(%r{/^.*\/cucumber\//}, '')
+  title = scenario.name.tr(' ', '-').gsub(%r{/^.*\/cucumber\//}, '')
   "screenshot_cucumber_#{title}"
 end
 
 Capybara.javascript_driver = Capybara.default_driver
 Capybara.current_driver = Capybara.default_driver
-Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', 'http://localhost:3000')
-Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', 'localhost')
+Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', "http://#{ENV.fetch('HOSTNAME')}:3000")
+Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME'))
 Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000')
