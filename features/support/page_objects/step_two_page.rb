@@ -29,6 +29,7 @@ class StepTwoPage < BasePage
       element :no, 'input[value="false"]'
       def set(value)
         choose(value, name: 'claimant[has_special_needs]')
+        sleep 1 # @TODO Make sure this is removed before merge - find a better solution
       end
     end
     element :special_needs, 'textarea[name="claimant[special_needs]"]'
