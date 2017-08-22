@@ -27,8 +27,10 @@ class CollectionForm
     private
 
     def report_exception_to_sentry(exception, target, attributes)
-      sentry_data = { old_data: target.attributes }
-      sentry_data[:new_data] = attributes
+      sentry_data = {
+        old_data: target.attributes
+        new_data: attributes
+      }
 
       Raven.extra_context sentry_data
       Raven.capture_exception(exception)
