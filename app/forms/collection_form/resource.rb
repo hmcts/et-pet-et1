@@ -28,7 +28,7 @@ class CollectionForm
 
     def report_exception_to_sentry(exception, target, attributes)
       sentry_data = {
-        old_data: target.attributes
+        old_data: target.attributes,
         new_data: attributes
       }
 
