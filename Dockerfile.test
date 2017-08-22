@@ -1,6 +1,6 @@
 FROM ruby:2.3.3-slim
 COPY . /app
-RUN apt-get update && apt-get install -y sudo curl wget xterm git build-essential libpq-dev pdftk unzip
+RUN apt-get update && apt-get install -y sudo curl wget git build-essential libpq-dev pdftk unzip
 
 #change it to your required node version
 ENV NODE_VERSION 4.4.3
