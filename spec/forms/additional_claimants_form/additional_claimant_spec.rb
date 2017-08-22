@@ -62,6 +62,19 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
       it 'is true' do
         expect(subject.save).to be true
       end
+
+      context 'PG::NotNullViolation' do
+        before { allow(target).to receive(:update_attributes).and_raise(PG::NotNullViolation.new('test'))}
+
+        it "send a data to sentry" do
+          expect(Raven).to receive(:extra_context).with(
+            old_data: target.attributes,
+            new_data: subject.attributes
+          )
+          expect(Raven).to receive(:capture_exception)
+          expect{ subject.save }.to raise_error(PG::NotNullViolation, 'test')
+        end
+      end
     end
 
     describe 'for invalid attributes' do

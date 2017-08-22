@@ -41,6 +41,7 @@ Metrics/LineLength:
 Metrics/AbcSize:
   Exclude:
     - 'spec/**/*'
+  Max: 20
 
 # Allow expect {}.to blocks in specs
 # but not in the code

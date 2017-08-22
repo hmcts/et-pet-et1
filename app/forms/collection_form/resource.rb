@@ -18,6 +18,22 @@ class CollectionForm
       else
         false
       end
+    rescue PG::NotNullViolation => exception
+      report_exception_to_sentry(exception, target, attributes)
+
+      raise PG::NotNullViolation, exception.message
+    end
+
+    private
+
+    def report_exception_to_sentry(exception, target, attributes)
+      sentry_data = {
+        old_data: target.attributes,
+        new_data: attributes
+      }
+
+      Raven.extra_context sentry_data
+      Raven.capture_exception(exception)
     end
   end
 end
