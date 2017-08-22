@@ -1,10 +1,4 @@
-sudo: false
-language: ruby
-cache: bundler
-node_js:
-- '0.10'
-before_script:
-- npm install
+sudo: required
 env:
   global:
     secure: FNL+FZauJ7fy1rT4luEvPGuAErxyp4BicM5bXCD/dBHMNI6rhGDulMhnqdThAaR4DvhCXaBahrnNFs7gfilpdkQzz3zYVBqvjlyx4slIL6xRTKOwVo6X6tG804ZiJ2b8sMTCqBBn5xoVCjDcle+VCcQNp2oq/LoXGGPHdx/LcKY=
