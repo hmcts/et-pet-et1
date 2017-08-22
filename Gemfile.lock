@@ -82,7 +82,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.6)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.0)
@@ -109,9 +110,8 @@ GEM
       railties (>= 4.0.0, < 5.1)
       sprockets (>= 3.5.2)
     builder (3.2.3)
-    capybara (2.15.1)
-      addressable
-      mini_mime (>= 0.1.3)
+    capybara (2.4.4)
+      mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
@@ -414,7 +414,6 @@ GEM
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.99.3)
-    mini_mime (0.1.3)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     moj_template (0.23.0)
@@ -451,6 +450,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.2)
       pry (>= 0.9.10)
+    public_suffix (2.0.5)
     rack (1.6.8)
     rack-livereload (0.3.15)
       rack
@@ -649,7 +649,7 @@ DEPENDENCIES
   binding_of_caller
   bitmask_attributes
   browserify-rails
-  capybara (~> 2.14)
+  capybara (= 2.4.4)
   capybara-screenshot (~> 1.0)
   carrierwave!
   cocaine

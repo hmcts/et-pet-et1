@@ -32,11 +32,6 @@ services:
       ZENDESK_USER:
       ZENDESK_TOKEN:
       ZENDESK_GROUP_ID:
-      RABBIT_USER:
-      RABBIT_PASSWORD:
-      RABBIT_HOST:
-      RABBIT_PORT:
-      RABBIT_VHOST:
 
     volumes:
       - rubygems_cache:/rubygems
