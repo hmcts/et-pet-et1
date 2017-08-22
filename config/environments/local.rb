@@ -114,6 +114,8 @@ Rails.application.configure do
   }
   config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
   config.action_mailer.raise_delivery_errors = false
+
+  config.active_job.queue_adapter = :sidekiq
 end
 CarrierWave.configure do |config|
   config.storage :fog
