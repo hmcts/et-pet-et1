@@ -6,10 +6,11 @@ describe UserSession do
   let(:reference)       { ApplicationReference.normalize 'reference' }
   let(:password)        { 'password' }
   let(:password_digest) { 'gff76tyuiy' }
+  let(:session) { subject }
 
   before do
-    subject.reference = reference
-    subject.password = password
+    session.reference = reference
+    session.password = password
     allow(Claim).to receive(:find_by).with(application_reference: reference).and_return claim
     allow(claim).to receive(:authenticate).with(password).and_return true
   end
@@ -19,21 +20,21 @@ describe UserSession do
       before { allow(claim).to receive(:immutable?).and_return true }
 
       context 'when the password authenticates' do
-        before { subject.valid? }
+        before { session.valid? }
 
         it 'adds an error to base' do
-          expect(subject.errors[:base]).to include I18n.t('errors.user_session.immutable')
+          expect(session.errors[:base]).to include I18n.t('errors.user_session.immutable')
         end
       end
 
       context 'when the password does not authenticate' do
         before do
           allow(claim).to receive(:authenticate).and_return false
-          subject.valid?
+          session.valid?
         end
 
         it 'adds no errors to base so information is not revealed to unauthorised persons' do
-          expect(subject.errors[:base]).to be_empty
+          expect(session.errors[:base]).to be_empty
         end
       end
     end
@@ -41,24 +42,24 @@ describe UserSession do
 
   describe '#claim' do
     it 'finds the claim from the reference' do
-      expect(subject.claim).to eq(claim)
+      expect(session.claim).to eq(claim)
     end
   end
 
   describe '#authenticates' do
-    it 'does not add any errors when authentication successful' do
-      expect(subject.valid?).to be(true)
-      expect(subject.errors).to be_empty
-    end
+    it { expect(session.valid?).to be(true) }
+    it { expect(session.errors).to be_empty }
 
     context 'when invalid reference' do
       before do
         allow(Claim).to receive(:find_by).with(application_reference: reference).and_return nil
       end
 
+      it { expect(session.valid?).to be(false) }
+
       it 'adds error' do
-        expect(subject.valid?).to be(false)
-        expect(subject.errors[:reference]).to include I18n.t('errors.user_session.not_found')
+        session.valid?
+        expect(session.errors[:reference]).to include I18n.t('errors.user_session.not_found')
       end
     end
 
@@ -67,9 +68,11 @@ describe UserSession do
         allow(claim).to receive(:authenticate).with(password).and_return false
       end
 
+      it { expect(session.valid?).to be(false) }
+
       it 'adds error' do
-        expect(subject.valid?).to be(false)
-        expect(subject.errors[:password]).to include I18n.t('errors.user_session.invalid')
+        session.valid?
+        expect(session.errors[:password]).to include I18n.t('errors.user_session.invalid')
       end
     end
   end
