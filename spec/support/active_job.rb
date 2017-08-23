@@ -5,4 +5,13 @@ RSpec.configure do |config|
   config.before(:each) do
     ActiveJob::Base.queue_adapter = Rails.application.config.active_job.queue_adapter
   end
+
+  module ActiveJobPerformHelper
+    def perform_active_jobs(klass)
+      job_specs = queue_adapter.enqueued_jobs.select { |job_spec| job_spec[:job] == klass }
+      job_specs.each do |job_spec|
+        job_spec[:job].perform_now(*job_spec[:args])
+      end
+    end
+  end
 end

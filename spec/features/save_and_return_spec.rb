@@ -4,6 +4,8 @@ feature 'Save and Return' do
   include FormMethods
   include Messages
   include MailMatchers
+  include ActiveJob::TestHelper
+  include ActiveJobPerformHelper
 
   scenario 'ending the session actually ends the session' do
     start_claim
@@ -39,6 +41,7 @@ feature 'Save and Return' do
       with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_button 'Sign out now'
 
+    perform_active_jobs(ActionMailer::DeliveryJob)
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to match_pattern Claim.last.reference
 

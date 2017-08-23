@@ -5,6 +5,8 @@ feature 'Claim applications', type: :feature do
   include Messages
   include PdfMethods
   include MailMatchers
+  include ActiveJob::TestHelper
+  include ActiveJobPerformHelper
 
   around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
@@ -45,7 +47,10 @@ feature 'Claim applications', type: :feature do
       claim = Claim.last
       expect(claim.authenticate('green')).to eq(claim)
 
-      mail = ActionMailer::Base.deliveries.last
+      # Run the active job job
+      perform_active_jobs(ActionMailer::DeliveryJob)
+
+        mail = ActionMailer::Base.deliveries.last
       expect(mail).to match_pattern claim.reference
 
       expect(page).to have_text claim_heading_for(:claimant)
