@@ -15,7 +15,7 @@ class AdditionalClaimantsUploadForm < Form
                                               unless: :remove_additional_claimants_csv
 
     form.validates :additional_claimants_csv, content_type: {
-      in: %w[text/csv text/plain],
+      in: ['text/csv', 'text/plain'],
       message: I18n.t('errors.messages.csv')
     }
 

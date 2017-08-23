@@ -39,12 +39,12 @@ module App
 
     config.assets.enabled = true
 
-    config.assets.precompile += %w[
-      application-ie.css
-      application-ie6.css
-      application-ie7.css
-      application-ie8.css
-      *.png
+    config.assets.precompile += [
+      'application-ie.css',
+      'application-ie6.css',
+      'application-ie7.css',
+      'application-ie8.css',
+      '*.png'
     ]
 
     config.cache_store = :memory_store

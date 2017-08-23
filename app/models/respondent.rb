@@ -2,8 +2,10 @@ class Respondent < ActiveRecord::Base
   belongs_to :claim
   has_many   :addresses, as: :addressable, autosave: true
 
-  ADDRESS_ATTRIBUTES = %i[building street locality county post_code
-                          telephone_number].flat_map { |a| [a, :"#{a}="] }
+  ADDRESS_ATTRIBUTES = [
+    :building, :street, :locality, :county, :post_code,
+    :telephone_number
+  ].flat_map { |a| [a, :"#{a}="] }
 
   delegate(*ADDRESS_ATTRIBUTES, to: :address, prefix: true)
   delegate(*ADDRESS_ATTRIBUTES, to: :work_address, prefix: true)

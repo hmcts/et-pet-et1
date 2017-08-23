@@ -82,7 +82,7 @@ class Claim < ActiveRecord::Base
   end
 
   def submittable?
-    %i[primary_claimant primary_respondent].all? do |relation|
+    [:primary_claimant, :primary_respondent].all? do |relation|
       send(relation).present?
     end
   end

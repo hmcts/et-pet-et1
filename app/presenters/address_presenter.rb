@@ -1,5 +1,5 @@
 module AddressPresenter
-  COMPONENTS = %i[building street locality county post_code].freeze
+  COMPONENTS = [:building, :street, :locality, :county, :post_code].freeze
 
   def present(obj, prefix: nil)
     COMPONENTS.map do |sym|

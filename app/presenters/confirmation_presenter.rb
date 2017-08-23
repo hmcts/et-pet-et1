@@ -35,7 +35,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def items
-    %i[submission_information attachments].tap do |arr|
+    [:submission_information, :attachments].tap do |arr|
       arr.delete :payment_amount unless fee_to_pay?
     end
   end

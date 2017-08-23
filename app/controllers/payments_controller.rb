@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  GATEWAY_RESPONSES = %i[success decline].freeze
+  GATEWAY_RESPONSES = [:success, :decline].freeze
 
   redispatch_request unless: :payment_required?
 

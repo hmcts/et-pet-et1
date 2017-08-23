@@ -1,18 +1,16 @@
 class RespondentForm < Form
   include AddressAttributes
 
-  WORK_ADDRESS_ATTRIBUTES = %i[
-    work_address_building
-    work_address_street work_address_locality
-    work_address_county work_address_post_code
-    work_address_telephone_number
+  WORK_ADDRESS_ATTRIBUTES = [
+    :work_address_building, :work_address_street, :work_address_locality,
+    :work_address_county, :work_address_post_code, :work_address_telephone_number
   ].freeze
 
   NAME_LENGTH    = 100
-  NO_ACAS_REASON = %w[joint_claimant_has_acas_number
-                      acas_has_no_jurisdiction
-                      employer_contacted_acas
-                      interim_relief].freeze
+  NO_ACAS_REASON = [
+    'joint_claimant_has_acas_number', 'acas_has_no_jurisdiction',
+    'employer_contacted_acas', 'interim_relief'
+  ].freeze
 
   attribute :name,                                       String
   attribute :acas_early_conciliation_certificate_number, String

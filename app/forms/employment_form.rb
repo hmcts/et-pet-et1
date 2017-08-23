@@ -1,7 +1,7 @@
 class EmploymentForm < Form
-  CURRENT_SITUATION  = %i[still_employed notice_period employment_terminated].freeze
-  PAY_PERIODS        = %i[weekly monthly].freeze
-  NOTICE_PAY_PERIODS = %i[weeks months].freeze
+  CURRENT_SITUATION  = [:still_employed, :notice_period, :employment_terminated].freeze
+  PAY_PERIODS        = [:weekly, :monthly].freeze
+  NOTICE_PAY_PERIODS = [:weeks, :months].freeze
 
   attribute :average_hours_worked_per_week,        Float
   attribute :benefit_details,                      String
@@ -23,7 +23,7 @@ class EmploymentForm < Form
   attribute :start_date,                           Date
   attribute :worked_notice_period_or_paid_in_lieu, Boolean
 
-  %i[gross_pay net_pay new_job_gross_pay].each do |attribute|
+  [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
     define_method("#{attribute}=") do |v|
       if v.respond_to?(:gsub)
         super v.delete(',')

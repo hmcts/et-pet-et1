@@ -2,8 +2,9 @@
 ActiveAdmin.register Claim do
   filter :submitted_at
   filter :state, as: :select,
-                 collection: %i[
-                   created payment_required enqueued_for_submission submitted
+                 collection: [
+                   :created, :payment_required,
+                   :enqueued_for_submission, :submitted
                  ]
   filter :fee_group_reference
   filter :application_reference
@@ -95,7 +96,8 @@ ActiveAdmin.register Claim do
       end
     end
 
-    %w[claim_details miscellaneous_information other_claim_details other_outcome].each do |text|
+    ['claim_details', 'miscellaneous_information',
+     'other_claim_details', 'other_outcome'].each do |text|
       next if resource.send(text).blank?
       br
       div do

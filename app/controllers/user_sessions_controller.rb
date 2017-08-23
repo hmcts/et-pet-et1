@@ -1,6 +1,6 @@
 class UserSessionsController < ApplicationController
   skip_after_action :set_session_expiry, only: :expired
-  redispatch_request unless: :present?, except: %i[new create]
+  redispatch_request unless: :present?, except: [:new, :create]
 
   def destroy
     if claim.email_address.present?

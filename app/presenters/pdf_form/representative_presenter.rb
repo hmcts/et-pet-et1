@@ -1,5 +1,5 @@
 class PdfForm::RepresentativePresenter < PdfForm::BaseDelegator
-  CONTACT_PREFERENCES = %i[email post].freeze
+  CONTACT_PREFERENCES = [:email, :post].freeze
 
   # rubocop:disable MethodLength
   def to_h

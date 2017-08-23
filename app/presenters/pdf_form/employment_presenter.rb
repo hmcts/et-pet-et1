@@ -1,5 +1,5 @@
 class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
-  PAY_PERIODS = %i[weekly monthly].freeze
+  PAY_PERIODS = [:weekly, :monthly].freeze
 
   # rubocop:disable MethodLength
   # rubocop:disable Metrics/AbcSize

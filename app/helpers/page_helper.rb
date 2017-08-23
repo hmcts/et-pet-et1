@@ -22,6 +22,6 @@ module PageHelper
   private
 
   def claim_pages_list
-    %w[claim_reviews payments multiples]
+    ['claim_reviews', 'payments', 'multiples']
   end
 end
