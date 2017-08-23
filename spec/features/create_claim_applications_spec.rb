@@ -50,7 +50,10 @@ feature 'Claim applications', type: :feature do
       # Run the active job job
       perform_active_jobs(ActionMailer::DeliveryJob)
 
-      mail = ActionMailer::Base.deliveries.last
+      # Run the active job job
+      perform_active_jobs(ActionMailer::DeliveryJob)
+
+        mail = ActionMailer::Base.deliveries.last
       expect(mail).to match_pattern claim.reference
 
       expect(page).to have_text claim_heading_for(:claimant)
