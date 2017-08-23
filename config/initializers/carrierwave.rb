@@ -1,3 +1,5 @@
+require 'fog/aws'
+require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
   credentials = {
     provider:              'AWS',

@@ -1,9 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe PdfsController, type: :controller do
+  include CarrierWaveHelper
   describe 'show' do
+    around(:each) do |example|
+      using_carrierwave_storage(:fog) do
+        example.run
+      end
+    end
 
-    before do
+    before :each do
       session[:claim_reference] = claim.reference
       get :show
     end
