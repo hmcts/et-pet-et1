@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Multiple claimants' do
+feature 'Multiple claimants', js: true do
   include FormMethods
 
   let(:claim) { Claim.create password: 'lollolol' }
@@ -98,7 +98,7 @@ feature 'Multiple claimants' do
     end
 
     context "additional claimants age has to be 16 or over" do
-      scenario "display age related error message" do
+      scenario "display age related error message", js: false do
         expect(page).not_to have_selector '#resource_1'
 
         click_button "Add more claimants"
@@ -146,7 +146,7 @@ feature 'Multiple claimants' do
       end
     end
 
-    scenario "display DoB format error message" do
+    scenario "display DoB format error message", js: false do
       expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
@@ -175,7 +175,7 @@ feature 'Multiple claimants' do
   describe 'destroying claimants' do
     before { add_some_additional_claimants }
 
-    scenario 'deleting arbitrary claimants' do
+    scenario 'deleting arbitrary claimants', js: false do
       visit claim_additional_claimants_path
 
       within '#resource_1' do
@@ -199,7 +199,7 @@ feature 'Multiple claimants' do
       expect(page.current_path).not_to eq claim_additional_claimants_path
     end
 
-    scenario 'when additional claimants have been previously added', js: true, driver: :poltergeist do
+    scenario 'when additional claimants have been previously added' do
       add_some_additional_claimants
 
       visit claim_additional_claimants_path
