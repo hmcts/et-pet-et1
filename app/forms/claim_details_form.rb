@@ -17,7 +17,7 @@ class ClaimDetailsForm < Form
                             unless: -> { claim_details_rtf.present? }
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :claim_details_rtf, content_type: {
-    in: %w[text/rtf], message: I18n.t('errors.messages.rtf')
+    in: ['text/rtf'], message: I18n.t('errors.messages.rtf')
   }
 
   def claim_form_details_rtf?

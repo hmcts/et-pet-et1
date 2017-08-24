@@ -9,17 +9,17 @@ class MarkdownController < ActionController::Base
     alias add_markdown_files markdown_files=
 
     def views_term_markdowdon_link
-      arr = %w[app views terms markdown]
+      arr = ['app', 'views', 'terms', 'markdown']
       Rails.root.join(*arr)
     end
 
     def views_guides_markdowdon_link
-      arr = %w[app views guides markdown]
+      arr = ['app', 'views', 'guides', 'markdown']
       Rails.root.join(*arr)
     end
 
     def views_guides_cookies_link
-      arr = %w[app views cookies markdown]
+      arr = ['app', 'views', 'cookies', 'markdown']
       Rails.root.join(*arr)
     end
   end

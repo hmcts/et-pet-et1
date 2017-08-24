@@ -21,8 +21,17 @@ AllCops:
     - 'lib/log_stuff.rb'
     - 'config/routes.rb'
     - 'Gemfile'
-    - 'spec/**/*'
-
+    - 'spec/admin/**/*'
+    - 'spec/controllers/**/*'
+    - 'spec/features/**/*'
+    - 'spec/forms/**/*'
+    - 'spec/jobs/**/*'
+    - 'spec/mailer_previews/**/*'
+    - 'spec/mailers/**/*'
+    - 'spec/presenters/**/*'
+    - 'spec/services/**/*'
+    - 'spec/support/**/*'
+    - 'spec/factories.rb'
 
 Rails:
   Enabled: true
@@ -168,10 +177,11 @@ Style/PercentLiteralDelimiters:
     '%W': '[]'
     '%i': '[]'
 
-# %w doesn't always make for clearer test data
 Style/WordArray:
-  Exclude:
-    - 'spec/**/*'
+  EnforcedStyle: brackets
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
 
 RSpec/NestedGroups:
   Max: 10
@@ -218,4 +228,6 @@ RSpec/VerifiedDoubles:
     - 'spec/services/health_status/health_check_spec.rb'
     - 'spec/services/zendesk_sender_spec.rb'
 
+RSpec/MessageSpies:
+  EnforcedStyle: receive
 require: rubocop-rspec

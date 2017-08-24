@@ -1,6 +1,6 @@
 class AdditionalClaimantsForm
   class AdditionalClaimant < CollectionForm::Resource
-    TITLES      = %w[mr mrs miss ms].freeze
+    TITLES      = ['mr', 'mrs', 'miss', 'ms'].freeze
     NAME_LENGTH = 100
 
     include AddressAttributes

@@ -1,8 +1,8 @@
 class ClaimantForm < Form
-  TITLES               = %w[mr mrs miss ms].freeze
-  GENDERS              = %w[male female prefer_not_to_say].freeze
-  CONTACT_PREFERENCES  = %w[email post].freeze
-  COUNTRIES            = %w[united_kingdom other].freeze
+  TITLES               = ['mr', 'mrs', 'miss', 'ms'].freeze
+  GENDERS              = ['male', 'female', 'prefer_not_to_say'].freeze
+  CONTACT_PREFERENCES  = ['email', 'post'].freeze
+  COUNTRIES            = ['united_kingdom', 'other'].freeze
   EMAIL_ADDRESS_LENGTH = 100
   NAME_LENGTH          = 100
 

@@ -30,13 +30,12 @@ module Jadu
         @str = str
       end
 
-      PIPELINE = %i[
-        remove_leading_space
-        remove_trailing_space
-        replace_disallowed_characters_with_underscores
-        replace_spaces_with_underscores
-        remove_leading_junk
-        remove_trailing_junk
+      PIPELINE = [
+        :remove_leading_space,
+        :remove_trailing_space,
+        :replace_disallowed_characters_with_underscores,
+        :replace_spaces_with_underscores, :remove_leading_junk,
+        :remove_trailing_junk
       ].freeze
 
       def sanitize

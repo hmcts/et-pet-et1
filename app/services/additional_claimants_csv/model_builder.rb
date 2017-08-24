@@ -1,7 +1,8 @@
 class AdditionalClaimantsCsv::ModelBuilder
-  ATTRIBUTES = %i[
-    title first_name last_name date_of_birth address_building
-    address_street address_locality address_county address_post_code
+  ATTRIBUTES = [
+    :title, :first_name, :last_name, :date_of_birth,
+    :address_building, :address_street, :address_locality, :address_county,
+    :address_post_code
   ].freeze
 
   def build_form_claimant(row_data)

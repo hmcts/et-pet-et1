@@ -78,15 +78,15 @@ class EmploymentPresenter < Presenter
   end
 
   def items
-    return %i[was_employed] if target.blank?
+    return [:was_employed] if target.blank?
 
     super.reject { |i| items_to_omit.include? i }
   end
 
   def items_to_omit
-    @delete = %i[was_employed]
+    @delete = [:was_employed]
 
-    @delete.concat %i[new_job_start_date new_job_gross_pay] unless target.found_new_job?
+    @delete.concat [:new_job_start_date, :new_job_gross_pay] unless target.found_new_job?
 
     @delete.push :notice_period_pay unless target.worked_notice_period_or_paid_in_lieu?
 
@@ -107,15 +107,14 @@ class EmploymentPresenter < Presenter
   end
 
   def delete_still_employed
-    @delete.concat %i[end_date worked_notice_period_or_paid_in_lieu
-                      notice_period_end_date notice_period_pay]
+    @delete.concat [
+      :end_date, :worked_notice_period_or_paid_in_lieu, :notice_period_end_date,
+      :notice_period_pay
+    ]
   end
 
   def delete_notice_period
-    @delete.concat %i[
-      end_date worked_notice_period_or_paid_in_lieu
-      notice_period_pay
-    ]
+    @delete.concat [:end_date, :worked_notice_period_or_paid_in_lieu, :notice_period_pay]
   end
 
   def period_type(period_type)

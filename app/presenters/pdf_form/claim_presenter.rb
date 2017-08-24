@@ -14,7 +14,7 @@ class PdfForm::ClaimPresenter < PdfForm::BaseDelegator
     presenters.each_with_object({}) { |p, o| o.update p.to_h }
   end
 
-  %i[other_outcome claim_details other_claim_details miscellaneous_information].each do |name|
+  [:other_outcome, :claim_details, :other_claim_details, :miscellaneous_information].each do |name|
     define_method(name) { sanitize_text super() }
   end
 

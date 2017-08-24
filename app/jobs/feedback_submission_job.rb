@@ -16,7 +16,7 @@ class FeedbackSubmissionJob < ActiveJob::Base
   private
 
   def body_from(params)
-    %w[Comments Suggestions].
+    ['Comments', 'Suggestions'].
       zip(params.values_at(:comments, :suggestions)).join("\n\n")
   end
 
