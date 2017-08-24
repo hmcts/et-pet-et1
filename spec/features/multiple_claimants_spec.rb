@@ -199,7 +199,7 @@ feature 'Multiple claimants' do
       expect(page.current_path).not_to eq claim_additional_claimants_path
     end
 
-    scenario 'when additional claimants have been previously added' do
+    scenario 'when additional claimants have been previously added', js: true, driver: :poltergeist do
       add_some_additional_claimants
 
       visit claim_additional_claimants_path
