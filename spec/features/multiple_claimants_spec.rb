@@ -150,6 +150,7 @@ feature 'Multiple claimants', js: true do
       expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
+      expect(page).to have_selector '#resource_1'
 
       within '#resource_1' do
         fill_in 'Day', with: '1'
