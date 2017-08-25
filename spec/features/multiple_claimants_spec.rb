@@ -98,13 +98,13 @@ feature 'Multiple claimants', js: true do
     end
 
     context "additional claimants age has to be 16 or over" do
-      scenario "display age related error message", js: false do
+      scenario "display age related error message" do
         expect(page).not_to have_selector '#resource_1'
 
         click_button "Add more claimants"
-
+        expect(page).to have_selector '#resource_1'
         within '#resource_1' do
-          sixteen_years_ago = (Time.current - 15.years)
+          sixteen_years_ago = (Time.now - 14.years)
           fill_in 'Day', with: sixteen_years_ago.day.to_s
           fill_in 'Month', with: sixteen_years_ago.month.to_s
           fill_in 'Year', with: sixteen_years_ago.year.to_s
@@ -146,7 +146,7 @@ feature 'Multiple claimants', js: true do
       end
     end
 
-    scenario "display DoB format error message", js: false do
+    scenario "display DoB format error message" do
       expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
