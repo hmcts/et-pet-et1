@@ -1,17 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
+RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
   subject { described_class.new Claimant.new }
 
   describe 'validations' do
-    %i[
-      first_name last_name address_building address_street address_locality
-      address_post_code
-    ].each do |attr|
+    [:first_name, :last_name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
       it { is_expected.to validate_presence_of(attr) }
     end
 
-    it { is_expected.to validate_inclusion_of(:title).in_array %w<mr mrs miss ms> }
+    it { is_expected.to validate_inclusion_of(:title).in_array ['mr', 'mrs', 'miss', 'ms'] }
 
     it { is_expected.to ensure_length_of(:first_name).is_at_most(100) }
     it { is_expected.to ensure_length_of(:last_name).is_at_most(100) }
@@ -27,6 +24,8 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
     attribute_prefix: 'address',
     error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
 
+  subject { AdditionalClaimantsForm::AdditionalClaimant.new(target) }
+
   let(:attributes) do
     {
       title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
@@ -37,7 +36,6 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
   end
 
   let(:target) { Claimant.new }
-  subject { AdditionalClaimantsForm::AdditionalClaimant.new(target) }
 
   describe '.model_name_i18n_key' do
     specify do
@@ -64,7 +62,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
       end
 
       context 'PG::NotNullViolation' do
-        before { allow(target).to receive(:update_attributes).and_raise(PG::NotNullViolation.new('test'))}
+        before { allow(target).to receive(:update_attributes).and_raise(PG::NotNullViolation.new('test')) }
 
         it "send a data to sentry" do
           expect(Raven).to receive(:extra_context).with(
@@ -72,7 +70,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
             new_data: subject.attributes
           )
           expect(Raven).to receive(:capture_exception)
-          expect{ subject.save }.to raise_error(PG::NotNullViolation, 'test')
+          expect { subject.save }.to raise_error(PG::NotNullViolation, 'test')
         end
       end
     end
@@ -81,7 +79,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, :type => :form do
       before { allow(subject).to receive(:valid?).and_return false }
 
       it 'is not saved' do
-        expect(target).to_not receive(:update_attributes)
+        expect(target).not_to receive(:update_attributes)
         subject.save
       end
 

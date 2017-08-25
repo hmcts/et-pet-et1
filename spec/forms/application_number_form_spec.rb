@@ -28,7 +28,7 @@ RSpec.describe ApplicationNumberForm, type: :form do
 
     context "if unsuccessful it doesnt run callbacks" do
       it "doesn't deliver access details via email" do
-        expect(AccessDetailsMailer).to_not receive(:deliver_later)
+        expect(AccessDetailsMailer).not_to receive(:deliver_later)
         subject.save
       end
     end

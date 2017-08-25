@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalClaimantsForm, :type => :form do
+RSpec.describe AdditionalClaimantsForm, type: :form do
+  subject { described_class.new(claim) }
+
   let(:attributes) do
     {
       of_collection_type: 'true',
@@ -23,8 +25,6 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
 
   let(:claim) { Claim.create }
 
-  subject { described_class.new(claim) }
-
   describe '#claimants_attributes=' do
     before do
       allow(claim.secondary_claimants).to receive(:build).and_return *collection
@@ -38,7 +38,7 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
 
       subject.collection.each_with_index do |c, i|
         attributes[:collection_attributes].values[i].each do |key, value|
-          expect(c.send key).to eq value
+          expect(c.send(key)).to eq value
         end
 
         expect(subject.collection[i].target).to eq collection[i]
@@ -89,7 +89,7 @@ RSpec.describe AdditionalClaimantsForm, :type => :form do
 
       it 'updates the secondary claimants' do
         claim.secondary_claimants.reload
-        expect(claim.secondary_claimants.count).to eql(2)
+        expect(claim.secondary_claimants.count).to be(2)
 
         attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ClaimDetailsForm, :type => :form do
+RSpec.describe ClaimDetailsForm, type: :form do
   subject { described_class.new Claim.new }
 
   describe 'validations' do
@@ -9,7 +9,7 @@ RSpec.describe ClaimDetailsForm, :type => :form do
 
       context 'claim details attached as an RTF' do
         before { subject.claim_details_rtf = Tempfile.new('suchclaimdetails') }
-        it { is_expected.to_not validate_presence_of(:claim_details) }
+        it { is_expected.not_to validate_presence_of(:claim_details) }
       end
     end
 
@@ -39,7 +39,7 @@ RSpec.describe ClaimDetailsForm, :type => :form do
       let(:file) { File.open(path + 'phil.jpg') }
 
       it 'adds an error message to the attribute' do
-        expect(subject.errors[:claim_details_rtf]).to include(I18n.t 'errors.messages.rtf')
+        expect(subject.errors[:claim_details_rtf]).to include(I18n.t('errors.messages.rtf'))
       end
     end
   end

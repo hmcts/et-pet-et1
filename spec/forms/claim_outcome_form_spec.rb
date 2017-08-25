@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe ClaimOutcomeForm, :type => :form do
-  let(:claim) do
-    Claim.new desired_outcomes: %i<compensation_only tribunal_recommendation>
-  end
-
+RSpec.describe ClaimOutcomeForm, type: :form do
   subject { described_class.new claim }
+
+  let(:claim) do
+    Claim.new desired_outcomes: [:compensation_only, :tribunal_recommendation]
+  end
 
   describe 'validations' do
     context 'character lengths' do

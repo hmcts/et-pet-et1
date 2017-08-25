@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalRespondentsForm, :type => :form do
+RSpec.describe AdditionalRespondentsForm, type: :form do
+  subject { described_class.new(claim) }
+
   let(:attributes) do
     {
       of_collection_type: 'true',
@@ -29,8 +31,6 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
 
   let(:claim) { Claim.create }
 
-  subject { described_class.new(claim) }
-
   describe '#collection_attributes=' do
     before do
       allow(claim.secondary_respondents).to receive(:build).and_return *collection
@@ -44,7 +44,7 @@ RSpec.describe AdditionalRespondentsForm, :type => :form do
 
       subject.collection.each_with_index do |c, i|
         attributes[:collection_attributes].values[i].each do |key, value|
-          expect(c.send key).to eq value
+          expect(c.send(key)).to eq value
         end
 
         expect(subject.collection[i].target).to eq collection[i]

@@ -2,17 +2,17 @@ require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
+  subject { described_class.new(resource) }
+
   let(:resource) { create :claim, :no_attachments }
   let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
   let(:file) { File.open(path + 'file.csv') }
-
-  subject { described_class.new(resource) }
 
   describe "validations" do
 
     before do
       subject.additional_claimants_csv = file
-      subject.assign_attributes({ has_additional_claimants: 'true' })
+      subject.assign_attributes(has_additional_claimants: 'true')
       subject.valid?
     end
 
@@ -35,7 +35,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
           let(:file) { File.open(path + 'phil.jpg') }
 
           it 'adds an error message to the attribute' do
-            expect(subject.csv_errors).to include(I18n.t 'errors.messages.csv')
+            expect(subject.csv_errors).to include(I18n.t('errors.messages.csv'))
           end
         end
 
@@ -73,7 +73,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     before do
       resource.additional_claimants_csv = file
-      subject.assign_attributes({ has_additional_claimants: 'false' })
+      subject.assign_attributes(has_additional_claimants: 'false')
     end
 
     it "removes stale data" do

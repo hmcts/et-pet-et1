@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form do
+RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
   subject { described_class.new Respondent.new }
 
   describe 'validations' do
-    %i<name address_building address_street address_locality address_post_code>.each do |attr|
+    [:name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
       it { is_expected.to validate_presence_of(attr) }
     end
 
@@ -29,8 +29,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
 
       describe 'ACAS format validation' do
         { one_char_ten_digits:  'X123456/12/12',
-          two_chars_ten_digits: 'XX123456/12/12'
-        }.each do |key, acas_value|
+          two_chars_ten_digits: 'XX123456/12/12' }.each do |key, acas_value|
           it "#{key.to_s.humanize} validates correctly" do
             subject.acas_early_conciliation_certificate_number = acas_value
             subject.valid?
@@ -51,10 +50,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
 
     describe 'presence of reason explaining no ACAS certificate number' do
       let(:reasons) do
-        %w<joint_claimant_has_acas_number
-           acas_has_no_jurisdiction
-           employer_contacted_acas
-           interim_relief>
+        ['joint_claimant_has_acas_number', 'acas_has_no_jurisdiction', 'employer_contacted_acas', 'interim_relief']
       end
 
       it { is_expected.to validate_inclusion_of(:no_acas_number_reason).in_array reasons }
@@ -83,6 +79,8 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
     attribute_prefix: 'address',
     error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
 
+  subject { AdditionalRespondentsForm::AdditionalRespondent.new(target) }
+
   let(:attributes) do
     {
       name: 'Butch McTaggert', acas_early_conciliation_certificate_number: 'XX123456/12/12',
@@ -93,7 +91,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
   end
 
   let(:target) { Respondent.new }
-  subject { AdditionalRespondentsForm::AdditionalRespondent.new(target) }
+
   before { allow(subject.target).to receive :enqueue_fee_group_reference_request }
 
   describe '.model_name_i18n_key' do
@@ -125,7 +123,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, :type => :form d
       before { allow(subject).to receive(:valid?).and_return false }
 
       it 'is not saved' do
-        expect(target).to_not receive(:update_attributes)
+        expect(target).not_to receive(:update_attributes)
         subject.save
       end
 
