@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsForm, type: :form do
-  subject { described_class.new(claim) }
+  let(:additional_claimants_form) { described_class.new(claim) }
 
   let(:attributes) do
     {
@@ -27,21 +27,24 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
   describe '#claimants_attributes=' do
     before do
-      allow(claim.secondary_claimants).to receive(:build).and_return *collection
+      allow(claim.secondary_claimants).to receive(:build).and_return(*collection)
       allow(claim.secondary_claimants).to receive(:empty?).and_return true, false
+      additional_claimants_form.assign_attributes attributes
     end
 
     let(:collection) { [Claimant.new, Claimant.new] }
 
-    it 'builds new claimants and decorates them as AdditionalClaimants' do
-      subject.assign_attributes attributes
-
-      subject.collection.each_with_index do |c, i|
+    it 'builds new claimants with attributes' do
+      additional_claimants_form.collection.each_with_index do |c, i|
         attributes[:collection_attributes].values[i].each do |key, value|
           expect(c.send(key)).to eq value
         end
+      end
+    end
 
-        expect(subject.collection[i].target).to eq collection[i]
+    it 'decorates AdditionalClaimants as Claimants' do
+      additional_claimants_form.collection.each_with_index do |_c, i|
+        expect(additional_claimants_form.collection[i].target).to eq collection[i]
       end
     end
   end
@@ -50,12 +53,12 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
     before { claimant }
 
     let(:claimant) { claim.secondary_claimants.build }
-    let(:form)     { subject.collection.first }
+    let(:form)     { additional_claimants_form.collection.first }
 
-    it 'decorates any secondary claimants in an AdditionalClaimant' do
-      expect(subject.collection.length).to be 1
-      expect(form).to be_a Form
-      expect(form.target).to eq claimant
+    describe 'decorates any secondary claimants in an AdditionalClaimant' do
+      it { expect(additional_claimants_form.collection.length).to be 1 }
+      it { expect(form).to be_a Form }
+      it { expect(form.target).to eq claimant }
     end
   end
 
@@ -63,15 +66,15 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
     before { 3.times { claim.secondary_claimants.create } }
 
     it 'maps the errors of #claimants' do
-      expect(subject.errors[:collection]).to include *subject.collection.map(&:errors)
+      expect(additional_claimants_form.errors[:collection]).to include(*additional_claimants_form.collection.map(&:errors))
     end
   end
 
   describe '#save' do
     context 'when there are no secondary claimants' do
       it 'creates the secondary claimants' do
-        subject.assign_attributes attributes
-        subject.save
+        additional_claimants_form.assign_attributes attributes
+        additional_claimants_form.save
         claim.secondary_claimants.reload
 
         attributes[:collection_attributes].each_with_index do |(_, attributes), index|
@@ -83,14 +86,16 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
     context 'when there are existing secondary claimants' do
       before do
         2.times { claim.secondary_claimants.create }
-        subject.assign_attributes attributes
-        subject.save
+        additional_claimants_form.assign_attributes attributes
+        additional_claimants_form.save
+        claim.secondary_claimants.reload
       end
 
-      it 'updates the secondary claimants' do
-        claim.secondary_claimants.reload
+      it 'has 2 secondary claimants' do
         expect(claim.secondary_claimants.count).to be(2)
+      end
 
+      it 'updates the secondary claimants attributes' do
         attributes[:collection_attributes].each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }
         end
@@ -99,19 +104,19 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
     context 'when all #claimants are valid' do
       before do
-        subject.assign_attributes attributes
+        additional_claimants_form.assign_attributes attributes
       end
 
       it 'returns true' do
-        expect(subject.save).to be true
+        expect(additional_claimants_form.save).to be true
       end
     end
 
     context 'when some #claimants are not valid' do
-      before { subject.of_collection_type = 'true' }
+      before { additional_claimants_form.of_collection_type = 'true' }
 
       it 'returns false' do
-        expect(subject.save).to be false
+        expect(additional_claimants_form.save).to be false
       end
     end
   end

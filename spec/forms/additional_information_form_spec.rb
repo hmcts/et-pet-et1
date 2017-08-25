@@ -1,40 +1,40 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalInformationForm, type: :form do
-  subject { described_class.new(resource) }
+  let(:additionl_information_form) { described_class.new(resource) }
 
   let(:resource) { Claim.new }
 
   describe 'validations' do
     describe 'on #miscellaneous information' do
       context 'when has_miscellaneous_information is true' do
-        before { subject.has_miscellaneous_information = 'true' }
-        it     { is_expected.to ensure_length_of(:miscellaneous_information).is_at_most(2500) }
+        before { additionl_information_form.has_miscellaneous_information = 'true' }
+        it     { expect(additionl_information_form).to ensure_length_of(:miscellaneous_information).is_at_most(2500) }
       end
     end
 
     describe 'on #miscellaneous_information' do
       before do
-        subject.miscellaneous_information = 'such miscellany'
+        additionl_information_form.miscellaneous_information = 'such miscellany'
       end
 
       context 'when #has_miscellaneous_information? is true' do
-        before { subject.has_miscellaneous_information = 'true' }
+        before { additionl_information_form.has_miscellaneous_information = 'true' }
 
         it 'saves #miscellaneous_information to the underlying resource' do
-          subject.valid?
+          additionl_information_form.valid?
 
-          expect(subject.miscellaneous_information).to eq('such miscellany')
+          expect(additionl_information_form.miscellaneous_information).to eq('such miscellany')
         end
       end
 
       context 'when #has_miscellaneous_information? is false' do
-        before { subject.has_miscellaneous_information = 'false' }
+        before { additionl_information_form.has_miscellaneous_information = 'false' }
 
         it 'sets #miscellaneous_information to nil on the underlying resource' do
-          subject.valid?
+          additionl_information_form.valid?
 
-          expect(subject.miscellaneous_information).to be nil
+          expect(additionl_information_form.miscellaneous_information).to be nil
         end
       end
     end
@@ -48,14 +48,14 @@ RSpec.describe AdditionalInformationForm, type: :form do
         end
 
         it 'returns true' do
-          expect(subject.has_miscellaneous_information).to be true
+          expect(additionl_information_form.has_miscellaneous_information).to be true
         end
 
         it 'sets self.has_miscellaneous_information= with true' do
-          expect(subject).to receive(:has_miscellaneous_information=).
+          expect(additionl_information_form).to receive(:has_miscellaneous_information=).
             with(true)
 
-          subject.has_miscellaneous_information
+          additionl_information_form.has_miscellaneous_information
         end
       end
 
@@ -65,14 +65,14 @@ RSpec.describe AdditionalInformationForm, type: :form do
         end
 
         it 'returns false' do
-          expect(subject.has_miscellaneous_information).to be false
+          expect(additionl_information_form.has_miscellaneous_information).to be false
         end
 
         it 'sets self.has_miscellaneous_information= with false' do
-          expect(subject).to receive(:has_miscellaneous_information=).
+          expect(additionl_information_form).to receive(:has_miscellaneous_information=).
             with(false)
 
-          subject.has_miscellaneous_information
+          additionl_information_form.has_miscellaneous_information
         end
       end
     end
