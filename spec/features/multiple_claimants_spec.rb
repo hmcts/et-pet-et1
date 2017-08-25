@@ -175,11 +175,11 @@ feature 'Multiple claimants', js: true do
   describe 'destroying claimants' do
     before { add_some_additional_claimants }
 
-    scenario 'deleting arbitrary claimants', js: false do
+    scenario 'deleting arbitrary claimants' do
       visit claim_additional_claimants_path
 
       within '#resource_1' do
-        check 'Remove this claimant'
+        click_on 'Remove this claimant'
       end
 
       click_button 'Save and continue'
