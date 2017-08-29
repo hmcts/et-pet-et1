@@ -24,7 +24,6 @@ AllCops:
     - 'spec/admin/**/*'
     - 'spec/controllers/**/*'
     - 'spec/features/**/*'
-    - 'spec/forms/**/*'
     - 'spec/jobs/**/*'
     - 'spec/mailer_previews/**/*'
     - 'spec/mailers/**/*'
