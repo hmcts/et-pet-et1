@@ -4,19 +4,19 @@ RSpec.describe Jadu::Claim, type: :service do
   include_context 'block pdf generation'
 
   let(:api_double) { instance_double Jadu::API }
-  let(:endpoint)   { "#{ENV.fetch('JADU_API')}" }
+  let(:endpoint)   { ENV.fetch('JADU_API').to_s }
   let(:xml)        { instance_double JaduXml::ClaimPresenter, to_xml: xml_double }
-  let(:xml_double) { double :xml }
+  let(:xml_double) { instance_double('XML', :xml) }
   let(:claim)      { create :claim }
 
   let(:successful_api_response) do
     Jadu::API::ParsedResponse.new \
-      double(code: 200, body: { 'feeGroupReference' => '1234567890' }.to_json)
+      instance_double('HTTParty::Response', code: 200, body: { 'feeGroupReference' => '1234567890' }.to_json)
   end
 
   let(:failure_api_response) do
     Jadu::API::ParsedResponse.new \
-      double(code: 400, body: { 'errorCode' => '1', 'errorDescription' => 'herp', 'details' => 'derp' }.to_json)
+      instance_double('HTTParty::Response', code: 400, body: { 'errorCode' => '1', 'errorDescription' => 'herp', 'details' => 'derp' }.to_json)
   end
 
   let(:attachments) do
@@ -76,28 +76,22 @@ RSpec.describe Jadu::Claim, type: :service do
 
       it 'creates a log event' do
         expect(claim).to receive(:create_event).with 'rejected_by_jadu', message: "1 herp derp"
-        begin
-          Jadu::Claim.create claim
-        rescue StandardError
-        end
+        allow(StandardError).to receive(:new)
+        Jadu::Claim.create claim
       end
 
       it 'does not update the claim' do
         expect(claim).not_to receive(:update)
 
-        begin
-          Jadu::Claim.create claim
-        rescue StandardError
-        end
+        allow(StandardError).to receive(:new)
+        Jadu::Claim.create claim
       end
 
       it 'does not finalize the claim' do
         expect(claim).not_to receive(:finalize!)
 
-        begin
-          Jadu::Claim.create claim
-        rescue StandardError
-        end
+        allow(StandardError).to receive(:new)
+        Jadu::Claim.create claim
       end
     end
 

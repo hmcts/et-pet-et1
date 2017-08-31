@@ -3,13 +3,15 @@ require 'rails_helper'
 Thread.abort_on_exception = true
 
 RSpec.describe PaymentGateway, type: :service do
+  let(:payment_gateway) { PaymentGateway }
+
   describe '.available?' do
-    around(:example) do |example|
+    around do |example|
       pdq_stub
-      subject.run
+      payment_gateway.run
       sleep 1 # Allow thread to start - we were getting flickering failures
       example.run
-      subject.stop
+      payment_gateway.stop
       WebMock.reset_callbacks
     end
 
@@ -19,7 +21,7 @@ RSpec.describe PaymentGateway, type: :service do
       end
 
       it 'returns false' do
-        expect(subject.available?).to be false
+        expect(payment_gateway.available?).to be false
       end
     end
 
@@ -29,7 +31,7 @@ RSpec.describe PaymentGateway, type: :service do
       end
 
       it 'returns false' do
-        expect(subject.available?).to be false
+        expect(payment_gateway.available?).to be false
       end
     end
 
@@ -39,7 +41,7 @@ RSpec.describe PaymentGateway, type: :service do
       end
 
       it 'returns true' do
-        expect(subject.available?).to be true
+        expect(payment_gateway.available?).to be true
       end
     end
   end

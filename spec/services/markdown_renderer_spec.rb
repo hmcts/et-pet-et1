@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.describe MarkdownRenderer, type: :service do
 
-  let(:html_renderer) { double }
+  let(:html_renderer) { instance_double('Redcarpet::Render::HTML') }
 
-  before :each do
+  before do
     allow(Redcarpet::Render::HTML).to receive(:new).and_return html_renderer
   end
 
@@ -19,18 +19,25 @@ RSpec.describe MarkdownRenderer, type: :service do
 
     let(:content_arg)         { "such render.." }
     let(:html_safe_content)   { "so html safe.." }
-    let(:redcardpet_markdown) { double(render: rendered_content) }
-    let(:rendered_content)    { double(html_safe: html_safe_content) }
+    let(:redcardpet_markdown) { instance_double('Redcarpet::Markdown', render: rendered_content) }
+    let(:rendered_content)    { instance_double('String', html_safe: html_safe_content) }
 
-    before :each do
+    before do
       allow(Redcarpet::Markdown).to receive(:new).and_return redcardpet_markdown
     end
 
-    it "proxies the contents through the renderer returning a html safe string" do
+    it { expect(described_class.new.render(content_arg)).to eq html_safe_content }
+
+    it "proxies the contents through the renderer" do
       expect(redcardpet_markdown).to receive(:render).with content_arg
+
+      described_class.new.render(content_arg)
+    end
+
+    it "returning a html safe string" do
       expect(rendered_content).to receive(:html_safe)
 
-      expect(subject.render(content_arg)).to eq html_safe_content
+      described_class.new.render(content_arg)
     end
   end
 end

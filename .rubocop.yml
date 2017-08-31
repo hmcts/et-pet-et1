@@ -28,7 +28,6 @@ AllCops:
     - 'spec/mailer_previews/**/*'
     - 'spec/mailers/**/*'
     - 'spec/presenters/**/*'
-    - 'spec/services/**/*'
     - 'spec/support/**/*'
     - 'spec/factories.rb'
 
