@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe ClaimFeeCalculator, type: :remissions do
   let(:claim) { Claim.new }
 
@@ -31,7 +33,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 500" do
             9.times { expect(calculation.application_fee).to eq 500 }
@@ -39,7 +41,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 1000" do
             190.times { expect(calculation.application_fee).to eq 1000 }
@@ -79,7 +81,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 320" do
             9.times { expect(calculation.application_fee).to eq 320 }
@@ -87,7 +89,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 640" do
             190.times { expect(calculation.application_fee).to eq 640 }
@@ -129,7 +131,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 1900" do
             9.times { expect(calculation.hearing_fee).to eq 1900 }
@@ -137,7 +139,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 3800" do
             190.times { expect(calculation.hearing_fee).to eq 3800 }
@@ -177,7 +179,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 460" do
             9.times { expect(calculation.hearing_fee).to eq 460 }
@@ -185,7 +187,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 920" do
             190.times { expect(calculation.hearing_fee).to eq 920 }

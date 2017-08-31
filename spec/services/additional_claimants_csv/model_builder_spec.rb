@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
+  let(:additional_claimants_csv_builder) { described_class.new }
   let(:row) { ['Mr', 'Timothy', 'Crotchet', '18/09/1937', '69', 'SomeStreet', 'Motown', 'County', 'SE17NX'] }
   let(:model_class) { AdditionalClaimantsForm::AdditionalClaimant }
   let(:expected_attributes) {
@@ -26,18 +27,18 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
   describe "#build" do
     it "returns an additional claimant model" do
-      expect(subject.build_form_claimant(row)).to be_kind_of model_class
+      expect(additional_claimants_csv_builder.build_form_claimant(row)).to be_kind_of model_class
     end
 
     it "sets attributes on the returned model" do
-      model = subject.build_form_claimant(row)
+      model = additional_claimants_csv_builder.build_form_claimant(row)
       model_attributes = model.attributes.slice(*expected_attributes.keys)
       expect(model_attributes).to eq expected_attributes
     end
 
     it "doesn't create multiple form objects" do
       expect(model_class).to receive(:new).and_call_original.once
-      2.times { subject.build_form_claimant(row) }
+      2.times { additional_claimants_csv_builder.build_form_claimant(row) }
     end
   end
 end
