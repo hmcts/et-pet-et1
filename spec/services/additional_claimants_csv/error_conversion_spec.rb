@@ -4,7 +4,7 @@ RSpec.describe AdditionalClaimantsCsv::ErrorConversion, type: :service do
 
   let(:header) {
     ["Title", "First name", "Last name", "Date of birth", "Building number or name",
-      "Street", "Town/city", "County", "Postcode"]
+     "Street", "Town/city", "County", "Postcode"]
   }
 
   let(:model_errros) { ActiveModel::Errors.new(Object.new) }

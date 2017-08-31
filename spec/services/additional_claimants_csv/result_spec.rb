@@ -13,7 +13,7 @@ RSpec.describe AdditionalClaimantsCsv::Result, type: :service do
   end
 
   describe "#fail" do
-    before(:each) { subject.fail(["some errors", "some more errors"]) }
+    before { subject.fail(["some errors", "some more errors"]) }
     its(:success)     { is_expected.to be false }
     its(:errors)      { is_expected.not_to be_empty }
   end

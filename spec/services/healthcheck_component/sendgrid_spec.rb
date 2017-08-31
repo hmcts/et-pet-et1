@@ -6,7 +6,7 @@ RSpec.describe HealthcheckComponent::Sendgrid, type: :service do
 
   before do
     smtp_response = instance_double Net::SMTP::Response, success?: response_success
-    smtp = double(helo: smtp_response)
+    smtp = instance_double('Net::SMTP', helo: smtp_response)
 
     allow(Net::SMTP).to receive(:start).
       with('localhost', 25).

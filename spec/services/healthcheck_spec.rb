@@ -27,16 +27,25 @@ RSpec.describe Healthcheck, type: :service do
       Healthcheck.report # caches report
     end
 
-    it "returns a cached healthcheck report" do
+    it "don't create new report" do
       expect(HealthcheckReport).not_to receive(:new)
+      Healthcheck.report
+    end
+
+    it "returns a cached healthcheck report" do
       report = Healthcheck.report
       expect(report.report).to eq success_json
     end
   end
 
   context 'when healthcheck is not cached' do
-    it "returns a new healthcheck report" do
+    it "create new resort" do
       expect(HealthcheckReport).to receive(:new).with(components).once.and_return HealthcheckReport.new(components)
+      Healthcheck.report
+    end
+
+    it "returns a new healthcheck report" do
+      allow(HealthcheckReport).to receive(:new).and_return HealthcheckReport.new(components)
       report = Healthcheck.report
       expect(report.report).to eq success_json
     end

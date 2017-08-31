@@ -10,12 +10,12 @@ RSpec.describe ApplicationReference do
     end
 
     it 'returns a distinct code each time' do
-      codes = 100.times.map { described_class.generate }
-      expect(codes.uniq.length).to eql(100)
+      codes = Array.new(100) { described_class.generate }
+      expect(codes.uniq.length).to be(100)
     end
 
     it 'uses only digits and letters (except I, L, O, U)' do
-      codes = 100.times.map { described_class.generate }.join
+      codes = Array.new(100) { described_class.generate }.join
       expect(codes).to match(/\A[0-9A-HJKMNP-TV-Z\-]+\z/)
     end
   end

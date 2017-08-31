@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PaymentGateway::Response, type: :service do
-  let(:request) { instance_double 'PaymentGateway::Request', query_string: query_string }
+  let(:request) { instance_double 'ActionDispatch::Request', query_string: query_string }
   let(:query_string) do
     'orderID=1f7b4bac6daef&amount=250&PM=CreditCard&ACCEPTANCE=test123&STATUS=9' \
       '&CARDNO=XXXXXXXXXXXX1111&TRXDATE=09%2F15%2F14&PAYID=34707458&NCERROR=0&' \

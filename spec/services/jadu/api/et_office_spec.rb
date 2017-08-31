@@ -10,7 +10,7 @@ RSpec.describe Jadu::API::ETOffice do
   end
 
   it 'forwards :perform to the API request' do
-    api_request = double(:api_request)
+    api_request = instance_double('Jadu::API::Request')
     allow(Jadu::API::Request).to receive(:new) { api_request }
 
     expect(api_request).to receive(:perform)

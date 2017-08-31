@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Jadu::API::Request do
   let(:uri) { URI.parse('https://example.com/api') }
-  let(:post) { double(:post).tap { |p| allow(p).to receive(:[]=) } }
+  let(:post) { instance_double('Multipart::Post').tap { |p| allow(p).to receive(:[]=) } }
 
   it 'sets the Host header if supplied' do
     allow(Multipart::Post).to receive(:new) { post }
@@ -21,8 +21,8 @@ RSpec.describe Jadu::API::Request do
   end
 
   it 'initialises Multipart::Post with the supplied parameters' do
-    param_a = double(:param_a)
-    param_b = double(:param_b)
+    param_a = instance_double('Hash')
+    param_b = instance_double('Hash')
     allow(Net::HTTP).to receive(:start)
 
     expect(Multipart::Post).to receive(:new).
@@ -43,14 +43,14 @@ RSpec.describe Jadu::API::Request do
   end
 
   it 'returns the response object' do
-    response = double(:response)
+    response = instance_double('Net::HTTP')
     allow(Net::HTTP).to receive(:start) { response }
 
     expect(described_class.new(uri, []).perform).to eql(response)
   end
 
   it 'sends a POST request' do
-    http = double(:http)
+    http = instance_double('Net::HTTP')
     allow(Multipart::Post).to receive(:new) { post }
     allow(Net::HTTP).to receive(:start).and_yield(http)
 

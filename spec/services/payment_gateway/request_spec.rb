@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PaymentGateway::Request, type: :service do
-  let(:request) { instance_double 'PaymentGateway::Reques', url: 'https://example.org/apply/pay' }
+  let(:request) { instance_double 'ActionDispatch::Request', url: 'https://example.org/apply/pay' }
   let(:payment_gateway_request) { described_class.new request, reference: 'lol', amount: 250 }
 
   describe '#request_url' do

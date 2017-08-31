@@ -7,14 +7,14 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
 
     let(:valid_header) {
       ["Title", "First name", "Last name", "Date of birth", "Building number or name",
-        "Street", "Town/city", "County", "Postcode"].join(",")
+       "Street", "Town/city", "County", "Postcode"].join(",")
     }
 
     let(:valid_csv_data) {
       ["Mr,Henry,Bigglesworth,13/08/1937,12,High Street,London,London,SW1 6FF",
-      "Mrs,Marie,Dobbin,13/08/1937,12,High Street,London,London,SW1 6FF",
-      "Mr,Shergar,Bigglesworth,13/08/1937,12,High Street,London,London,SW1 6FF",
-      "Miss,Henrietta,Bigglesworth,13/08/1937,12,High Street,London,London,SW1 6FF"]
+       "Mrs,Marie,Dobbin,13/08/1937,12,High Street,London,London,SW1 6FF",
+       "Mr,Shergar,Bigglesworth,13/08/1937,12,High Street,London,London,SW1 6FF",
+       "Miss,Henrietta,Bigglesworth,13/08/1937,12,High Street,London,London,SW1 6FF"]
     }
 
     context "a correct csv file" do
@@ -62,7 +62,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
       end
 
       it "fails with an invalid character count" do
-        invalid_char_count_row = "Mr,Fred,Star,10/10/1984,3,#{ Array.new(76) { 'a' }.join },London,London,se1 7nx"
+        invalid_char_count_row = "Mr,Fred,Star,10/10/1984,3,#{Array.new(76) { 'a' }.join},London,London,se1 7nx"
         result = setup_csv_validator(invalid_char_count_row)
 
         expect(result.success).to eq false
@@ -95,11 +95,11 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
     end
   end
 
-  def setup_csv_validator(rows, header=valid_header)
+  def setup_csv_validator(rows, header = valid_header)
     file = Tempfile.new('example.csv')
     file.write([header, *rows].join("\n"))
     file.close
     claim = create :claim, additional_claimants_csv: file
-    return described_class.new(claim).validate
+    described_class.new(claim).validate
   end
 end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
-  let(:row) { %w<Mr Timothy Crotchet 18/09/1937 69 SomeStreet Motown County SE17NX> }
+  let(:row) { ['Mr', 'Timothy', 'Crotchet', '18/09/1937', '69', 'SomeStreet', 'Motown', 'County', 'SE17NX'] }
   let(:model_class) { AdditionalClaimantsForm::AdditionalClaimant }
   let(:expected_attributes) {
     {
@@ -20,8 +20,7 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
   describe "attributes constant" do
     it "is defined with a list of symbols" do
-      expect(described_class::ATTRIBUTES).to eq %i<title first_name last_name date_of_birth
-        address_building address_street address_locality address_county address_post_code>
+      expect(described_class::ATTRIBUTES).to eq [:title, :first_name, :last_name, :date_of_birth, :address_building, :address_street, :address_locality, :address_county, :address_post_code]
     end
   end
 
