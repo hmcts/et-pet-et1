@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013151741) do
+ActiveRecord::Schema.define(version: 20170831122602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,11 @@ ActiveRecord::Schema.define(version: 20161013151741) do
     t.string   "contact_preference"
     t.string   "title"
     t.boolean  "primary_claimant",   default: false
+    t.integer  "refund_id"
+    t.string   "national_insurance"
   end
+
+  add_index "claimants", ["refund_id"], name: "index_claimants_on_refund_id", using: :btree
 
   create_table "claims", force: :cascade do |t|
     t.datetime "created_at"
@@ -146,6 +150,17 @@ ActiveRecord::Schema.define(version: 20161013151741) do
     t.string   "reference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "refunds", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "password_digest"
+    t.string   "email_address"
+    t.string   "application_reference",                 null: false
+    t.boolean  "has_address_changed",   default: false
+    t.boolean  "has_name_changed",      default: false
+    t.integer  "profile_number"
   end
 
   create_table "representatives", force: :cascade do |t|

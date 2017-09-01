@@ -6,3 +6,8 @@ end
 And(/^I sleep for (\d+) seconds$/) do |arg|
   sleep arg.to_f
 end
+
+
+And(/^I take a screenshot$/) do
+  screenshot_and_save_page
+end

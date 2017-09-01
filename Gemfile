@@ -63,6 +63,7 @@ end
 group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '3.0.0'
+  gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
@@ -76,7 +77,6 @@ gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'fog-aws'
 gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'httparty'
-gem 'logstasher'
 gem 'moj_template', '0.23.0'
 gem 'pdf-forms'
 gem 'pg'
@@ -92,7 +92,7 @@ gem 'compass'
 gem 'virtus'
 gem 'zendesk_api'
 gem 'email_validator'
-gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+gem 'logstasher', groups: [:production, :local]
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.

@@ -1,0 +1,21 @@
+- content_for(:page_title, refund_title)
+
+header.main-header role="banner"
+  h1.page-trail
+    span.page-number= t('.page_number', current_page: current_page, total_pages: total_pages)
+    span.page-title
+      = refund_header
+
+.main-section
+
+  .main-content
+    = simple_form_for resource, url: request.path, multipart: true do |f|
+      = hidden_field_tag :return_to_review, params[:return_to_review]
+
+      = f.error_notification
+      .form-fields
+        = render current_step, f: f
+      .form-actions
+        = f.button :submit
+
+  = render partial: 'shared/aside'

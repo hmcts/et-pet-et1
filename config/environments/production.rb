@@ -1,3 +1,4 @@
+require 'raven'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -111,3 +112,8 @@ end
 CarrierWave.configure do |config|
   config.storage :fog
 end
+
+Raven.configure do |config|
+  config.dsn = ENV['RAVEN_DSN'] || ""
+end
+

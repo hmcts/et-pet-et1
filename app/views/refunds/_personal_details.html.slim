@@ -1,0 +1,7 @@
+= f.input :title, collection: Refunds::ClaimantForm::TITLES, include_blank: :translate
+= f.input :first_name, input_html: { class: 'medium-input' }
+= f.input :last_name, input_html: { class: 'medium-input' }
+= f.input :national_insurance, input_html: { class: 'medium-input' }
+fieldset
+    legend.form-label = t '.date_of_birth'
+    = f.input :date_of_birth, label: false, hint: t('simple_form.hints.claimant.date_of_birth')
