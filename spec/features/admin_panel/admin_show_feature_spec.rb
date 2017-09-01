@@ -7,16 +7,16 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   let!(:claim_with_attachments) do
     create :claim, :submitted, :with_pdf,
       fee_group_reference: '511234567800',
-      confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
+      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
   let!(:enqueued_claim) do
     create :claim, :with_pdf,
-           fee_group_reference: '511234567800',
-           confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
+      fee_group_reference: '511234567800',
+      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
-  around { |example| travel_to(Date.new(2015, 06, 05)) { example.run } }
+  around { |example| travel_to(Date.new(2015, 0o6, 0o5)) { example.run } }
 
   scenario 'viewing metadata about a particular claim' do
     visit admin_claim_path claim_with_attachments.reference
@@ -29,8 +29,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
       payment_received: 'Payment Received Yes',
       fee_group_reference: 'Fee Group Reference 511234567800',
       fgr_postcode: 'Fgr Postcode SW1A 1AH',
-      confirmation_emails: 'Confirmation Emails such@lolz.com and wow@lol.biz'
-    }.each do |css_class_suffix, expected_row_value|
+      confirmation_emails: 'Confirmation Emails such@lolz.com and wow@lol.biz' }.each do |css_class_suffix, expected_row_value|
       row_value = page.find(".row-#{css_class_suffix}").text
       expect(row_value).to eq expected_row_value
     end
@@ -42,8 +41,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     { event: 'created',
       actor: 'app',
       created_at: 'June 05, 2015 00:00',
-      message: ''
-    }.each do |css_class_suffix, expected_column_value|
+      message: '' }.each do |css_class_suffix, expected_column_value|
       column_value = page.all("td.col-#{css_class_suffix}").first.text
       expect(column_value).to eq expected_column_value
     end
@@ -159,7 +157,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
         other_outcome: nil
     end
 
-    before {  visit admin_claim_path claim_without_large_text_inputs.reference }
+    before { visit admin_claim_path claim_without_large_text_inputs.reference }
 
     scenario 'no option to download claim details as a text file' do
       expect(page).not_to have_link 'Claim details'

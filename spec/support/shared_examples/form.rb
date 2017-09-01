@@ -1,5 +1,5 @@
-RSpec.shared_examples 'a Form' do |attributes, resource_class=Claim|
-  let(:form)     { described_class.new(resource_class.new) { |f| f.assign_attributes attributes } }
+RSpec.shared_examples 'a Form' do |attributes, resource_class = Claim|
+  let(:form) { described_class.new(resource_class.new) { |f| f.assign_attributes attributes } }
 
   describe '.model_name_i18n_key' do
     specify do

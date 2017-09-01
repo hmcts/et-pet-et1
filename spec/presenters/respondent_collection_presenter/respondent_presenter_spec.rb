@@ -5,8 +5,8 @@ RSpec.describe RespondentCollectionPresenter::RespondentPresenter, type: :presen
 
   let(:respondent) do
     Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
-        address_locality: 'Lolzville', address_county: 'Lolzfordshire',
-        address_post_code: 'LOL B1Z', acas_early_conciliation_certificate_number: '123'
+                   address_locality: 'Lolzville', address_county: 'Lolzfordshire',
+                   address_post_code: 'LOL B1Z', acas_early_conciliation_certificate_number: '123'
   end
 
   its(:name) { is_expected.to eq('Lol Corp') }

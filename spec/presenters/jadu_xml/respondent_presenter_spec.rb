@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::RespondentPresenter, type: :presenter do
-  let(:respondent) { create :respondent }
   subject { described_class.new respondent }
+
+  let(:respondent) { create :respondent }
 
   describe 'decorated methods' do
     describe '#acas' do

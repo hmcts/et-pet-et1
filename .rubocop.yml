@@ -21,15 +21,6 @@ AllCops:
     - 'lib/log_stuff.rb'
     - 'config/routes.rb'
     - 'Gemfile'
-    - 'spec/admin/**/*'
-    - 'spec/controllers/**/*'
-    - 'spec/features/**/*'
-    - 'spec/jobs/**/*'
-    - 'spec/mailer_previews/**/*'
-    - 'spec/mailers/**/*'
-    - 'spec/presenters/**/*'
-    - 'spec/support/**/*'
-    - 'spec/factories.rb'
 
 Rails:
   Enabled: true

@@ -28,7 +28,7 @@ feature 'Claim applications', type: :feature do
       fill_in_password 'green'
 
       claim = Claim.last
-      expect(claim.authenticate 'green').to eq(claim)
+      expect(claim.authenticate('green')).to eq(claim)
 
       expect(page).to have_text page_number(2)
       expect(page).to have_text claim_heading_for(:claimant)
@@ -43,7 +43,7 @@ feature 'Claim applications', type: :feature do
         "application_number_email_address")
 
       claim = Claim.last
-      expect(claim.authenticate 'green').to eq(claim)
+      expect(claim.authenticate('green')).to eq(claim)
 
       mail = ActionMailer::Base.deliveries.last
       expect(mail).to match_pattern claim.reference
@@ -266,7 +266,7 @@ feature 'Claim applications', type: :feature do
 
         pdf_file_data = Claim.last.pdf.read
         pdf_data = pdf_to_hash(pdf_file_data)
-        expected_pdf_data = YAML.load(File.read('spec/support/et1_pdf_example.yml'))
+        expected_pdf_data = YAML.safe_load(File.read('spec/support/et1_pdf_example.yml'))
         expect(pdf_data).to eq expected_pdf_data
       end
 

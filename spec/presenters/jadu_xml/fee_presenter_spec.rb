@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::FeePresenter, type: :presenter do
-  let(:claim) { create :claim }
-
   subject { described_class.new claim }
 
-  around { |example| travel_to(Date.new 2014, 9, 29) { example.run } }
+  let(:claim) { create :claim }
+
+  around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
   describe "delegated methods" do
     it { is_expected.to delegate_method(:fee_calculation).to(:represented) }

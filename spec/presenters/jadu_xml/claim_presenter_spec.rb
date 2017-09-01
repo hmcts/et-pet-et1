@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
-  let(:claim) { Claim.new }
   subject { described_class.new claim }
+
+  let(:claim) { Claim.new }
 
   describe "decorated methods" do
     its(:claimants) { is_expected.to be_kind_of Enumerable }
@@ -59,6 +60,7 @@ RSpec.describe JaduXml::ClaimPresenter, type: :presenter do
 
     describe "#date_of_receipt" do
       let(:time) { Time.now }
+
       it "returns the claims submitted at time" do
         allow(claim).to receive(:submitted_at).and_return time
         expect(subject.date_of_receipt).to eq time.xmlschema

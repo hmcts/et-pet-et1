@@ -18,7 +18,7 @@ feature 'Save and Return' do
 
     visit claim_claimant_path
 
-    expect(page.current_path).to_not eq claim_claimant_path
+    expect(page.current_path).not_to eq claim_claimant_path
   end
 
   scenario 'ending the session with email address' do
@@ -48,8 +48,8 @@ feature 'Save and Return' do
   scenario 'ending the session when email address previously entered' do
     start_claim
     fill_in_password_and_email('green',
-        FormMethods::SAVE_AND_RETURN_EMAIL,
-        "application_number_email_address")
+      FormMethods::SAVE_AND_RETURN_EMAIL,
+      "application_number_email_address")
 
     fill_in_personal_details(submit_form: false)
 

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::PaymentPresenter, type: :presenter do
-  let(:claim) { create :claim }
-
   subject { described_class.new claim }
+
+  let(:claim) { create :claim }
 
   describe "#fee" do
     it "returns the claim for the fee presenter" do

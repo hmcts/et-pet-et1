@@ -6,12 +6,12 @@ feature 'Session Expiry', type: :feature do
   context 'within the context of creating a claim' do
     context 'outside of the allocated time frame for a user session' do
 
-      before(:each) { start_claim }
+      before { start_claim }
 
       ClaimPagesManager.page_names.each do |page_name|
         scenario "a user is directed to a session expiry page for page: #{page_name}" do
           travel_to TimeHelper.session_expiry_time do
-            visit("#{page_name}")
+            visit(page_name.to_s)
             expect(page).to have_text 'Session expired'
             expect(current_path).to eq expired_user_session_path
           end

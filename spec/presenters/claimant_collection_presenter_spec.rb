@@ -13,7 +13,7 @@ RSpec.describe ClaimantCollectionPresenter, type: :presenter do
     end
 
     context 'with secondary claimants' do
-      let(:claim)  { create :claim, :without_additional_claimants_csv, :with_secondary_claimants }
+      let(:claim) { create :claim, :without_additional_claimants_csv, :with_secondary_claimants }
 
       it 'returns "Yes"' do
         expect(subject.group_claim).to eq 'Yes'
@@ -21,7 +21,7 @@ RSpec.describe ClaimantCollectionPresenter, type: :presenter do
     end
 
     context 'without secondary claimants' do
-      let(:claim)  { create :claim, :single_claimant }
+      let(:claim) { create :claim, :single_claimant }
 
       it 'returns "No"' do
         expect(subject.group_claim).to eq 'No'
@@ -37,7 +37,7 @@ RSpec.describe ClaimantCollectionPresenter, type: :presenter do
   end
 
   describe '#children' do
-    let(:claim)  { create :claim, :without_additional_claimants_csv, :with_secondary_claimants }
+    let(:claim) { create :claim, :without_additional_claimants_csv, :with_secondary_claimants }
 
     it 'encapsulates each secondary claimant in a claimant presenter' do
       expect(subject.children.first).to be_a ClaimantCollectionPresenter::ClaimantPresenter

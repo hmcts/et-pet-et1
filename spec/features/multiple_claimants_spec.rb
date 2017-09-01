@@ -71,7 +71,7 @@ feature 'Multiple claimants' do
       end
 
       click_button 'Save and continue'
-      expect(claim.secondary_claimants.pluck(:first_name)).to match_array %w<Persephone Pegasus>
+      expect(claim.secondary_claimants.pluck(:first_name)).to match_array ['Persephone', 'Pegasus']
     end
 
     scenario 'a user can still save & complete later' do

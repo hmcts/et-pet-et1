@@ -1,6 +1,6 @@
 RSpec.shared_examples 'Email validation' do |options|
   describe 'validating a email' do
-    let(:errors)        { subject.errors[:"email_address"] }
+    let(:errors)        { subject.errors[:email_address] }
     let(:error_message) { options[:error_message] }
 
     context 'when no email' do

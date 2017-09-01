@@ -2,14 +2,17 @@ require 'rails_helper'
 
 RSpec.describe PdfForm::RespondentPresenter, type: :presenter do
   subject { described_class.new(respondent, index) }
+
   let(:hash) { subject.to_h }
 
   describe '#to_h' do
-    let(:respondent) { Respondent.new(
-      name: 'Clide and Son',
-      work_address_post_code: 'A9 9AA',
-      acas_early_conciliation_certificate_number: acas_number,
-      no_acas_number_reason: acas_exemption)
+    let(:respondent) {
+      Respondent.new(
+        name: 'Clide and Son',
+        work_address_post_code: 'A9 9AA',
+        acas_early_conciliation_certificate_number: acas_number,
+        no_acas_number_reason: acas_exemption
+      )
     }
     let(:acas_number) { nil }
     let(:acas_exemption) { nil }

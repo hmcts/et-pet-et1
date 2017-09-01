@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe PdfGenerationJob, type: :job do
-  let(:claim)  { object_double Claim.new }
+  let(:claim) { object_double Claim.new }
 
   describe '#perform' do
     it 'generates the pdf' do

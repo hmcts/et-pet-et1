@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::FilePresenter, type: :presenter do
-  let(:claim) { create :claim }
-
   subject { described_class.new claim.claim_details_rtf }
+
+  let(:claim) { create :claim }
 
   describe "decorated methods" do
     describe "#filename" do

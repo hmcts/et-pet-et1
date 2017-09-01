@@ -12,9 +12,9 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
     end
 
     let(:body) do
-      "{\"ticket\":{\"subject\":\"New ATET User Feedback\",\"comment\":{\"value" +
-      "\":\"Comments\\n\\nlél\\n\\nSuggestions\\n\\nlewl\"},\"requester\":{" +
-      "\"email\":\"hue@example.com\",\"name\":\"ET User\"},\"group_id\":\"L0L\"}}"
+      "{\"ticket\":{\"subject\":\"New ATET User Feedback\",\"comment\":{\"value" \
+        "\":\"Comments\\n\\nlél\\n\\nSuggestions\\n\\nlewl\"},\"requester\":{" \
+        "\"email\":\"hue@example.com\",\"name\":\"ET User\"},\"group_id\":\"L0L\"}}"
     end
 
     let(:headers) do
@@ -36,7 +36,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
     it 'creates a Zendesk ticket' do
       subject.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
 
-      expect(the_request.with body: body, headers: headers).to have_been_made.once
+      expect(the_request.with(body: body, headers: headers)).to have_been_made.once
     end
 
     context 'without an email address' do
@@ -45,7 +45,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
       it 'uses a placeholder email' do
         subject.perform comments: 'lél', suggestions: 'lewl'
 
-        expect(the_request.with body: body, headers: headers).to have_been_made.once
+        expect(the_request.with(body: body, headers: headers)).to have_been_made.once
       end
     end
   end

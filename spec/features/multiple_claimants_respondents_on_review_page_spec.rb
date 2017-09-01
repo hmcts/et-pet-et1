@@ -14,7 +14,7 @@ feature 'Multiple claimants/respondents on the review page' do
     before { visit claim_review_path }
 
     it "doesn't show a list of additional claimants" do
-      expect(page.text).to_not match(/Claimant \d+/)
+      expect(page.text).not_to match(/Claimant \d+/)
       expect(page.text).to     match(/Group claimNo/)
     end
   end
@@ -22,9 +22,9 @@ feature 'Multiple claimants/respondents on the review page' do
   context 'with additional claimants' do
     before do
       claim.secondary_claimants.create first_name: 'Barry', last_name: 'Obama',
-        date_of_birth: Date.civil(2000, 1, 1), address_building: 1,
-        address_street: 'Lol lane', address_locality: 'London',
-        address_county: 'London', address_post_code: 'SW1 1AA'
+                                       date_of_birth: Date.civil(2000, 1, 1), address_building: 1,
+                                       address_street: 'Lol lane', address_locality: 'London',
+                                       address_county: 'London', address_post_code: 'SW1 1AA'
 
       visit claim_review_path
     end
@@ -32,12 +32,12 @@ feature 'Multiple claimants/respondents on the review page' do
     it "does show a list of additional claimants" do
       within '.review-list-entry.additional-claimants' do
         expect(page.text).
-          to have_text 'Claimant 2' +
-                       'Full name' 'Barry Obama' +
-                       'Date of birth' '01 January 2000' +
+          to have_text 'Claimant 2' \
+                       'Full name' 'Barry Obama' \
+                       'Date of birth' '01 January 2000' \
                        'Address' '1' 'Lol lane' 'London' 'London' 'SW1 1AA'
 
-        expect(page.text).to_not match(/Group claimNo/)
+        expect(page.text).not_to match(/Group claimNo/)
       end
     end
   end
@@ -46,7 +46,7 @@ feature 'Multiple claimants/respondents on the review page' do
     before { visit claim_review_path }
 
     it "doesn't show a list of additional claimants" do
-      expect(page.text).to_not match(/Respondent \d+/)
+      expect(page.text).not_to match(/Respondent \d+/)
       expect(page.text).to     match(/Additional respondentsNo/)
     end
   end
@@ -54,9 +54,9 @@ feature 'Multiple claimants/respondents on the review page' do
   context 'with additional respondents' do
     before do
       claim.secondary_respondents.create name: 'Barry Obama',
-        acas_early_conciliation_certificate_number: 'XX123456/12/12',
-        address_building: 1, address_street: 'Lol lane', address_locality: 'London',
-        address_county: 'London', address_post_code: 'SW1 1AA'
+                                         acas_early_conciliation_certificate_number: 'XX123456/12/12',
+                                         address_building: 1, address_street: 'Lol lane', address_locality: 'London',
+                                         address_county: 'London', address_post_code: 'SW1 1AA'
 
       visit claim_review_path
     end
@@ -64,12 +64,12 @@ feature 'Multiple claimants/respondents on the review page' do
     it "does show a list of additional respondents" do
       within '.review-list-entry.additional-respondents' do
         expect(page.text).
-          to have_text 'Respondent 2' +
-                       'Name' 'Barry Obama' +
-                       'Acas number' 'XX123456/12/12' +
+          to have_text 'Respondent 2' \
+                       'Name' 'Barry Obama' \
+                       'Acas number' 'XX123456/12/12' \
                        'Address' '1' 'Lol lane' 'London' 'London' 'SW1 1AA'
 
-        expect(page.text).to_not match(/Additional respondentsNo/)
+        expect(page.text).not_to match(/Additional respondentsNo/)
       end
     end
   end

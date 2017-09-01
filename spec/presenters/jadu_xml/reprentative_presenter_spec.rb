@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::RepresentativePresenter, type: :presenter do
-  let(:representative) { create :representative }
   subject { described_class.new representative }
+
+  let(:representative) { create :representative }
 
   describe 'decorated methods' do
     describe '#claimant_or_respondent' do
-      it 'should return C' do
+      it 'returns C' do
         expect(subject.claimant_or_respondent).to eq 'C'
       end
     end

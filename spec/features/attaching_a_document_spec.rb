@@ -18,7 +18,7 @@ feature 'Attaching a document' do
     let(:alternative_rtf_file_path) { file_path + './alt_file.rtf' }
 
     context 'Uploading a valid RTF file' do
-      before :each do
+      before do
         visit '/apply/claim-details'
         attach_file "claim_details_claim_details_rtf", rtf_file_path
         fill_in_claim_details
@@ -61,7 +61,7 @@ feature 'Attaching a document' do
     let(:alternative_csv_file_path) { file_path + './alt_file.csv' }
 
     context 'A valid CSV file' do
-      before :each do
+      before do
         visit '/apply/additional-claimants-upload'
         choose "Yes"
         attach_file "additional_claimants_upload_additional_claimants_csv", csv_file_path

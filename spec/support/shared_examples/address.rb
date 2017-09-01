@@ -10,6 +10,7 @@ RSpec.shared_examples 'it has an address' do |prefix|
 
       describe "#{prefix}_#{attr}=" do
         let(:object) { double }
+
         it "is delegated to ##{prefix} as #{attr}=" do
           expect(subject.send(prefix)).to receive(:"#{attr}=").with object
           subject.send :"#{prefix}_#{attr}=", object

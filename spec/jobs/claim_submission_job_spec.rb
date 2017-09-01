@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ClaimSubmissionJob, type: :job do
-  let(:claim)  { object_double Claim.new, :confirmation_email_recipients? => false }
+  let(:claim)  { object_double Claim.new, confirmation_email_recipients?: false }
   let(:mailer) { instance_double Mail::Message, deliver: true }
 
   before do

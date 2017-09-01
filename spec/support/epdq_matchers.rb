@@ -20,7 +20,7 @@ module EpdqMatchers
 
     failure_message do |page|
       EPDQ_FORM_PARAMS.
-        select { |key, value| page.find("input##{key}").value != value }.
+        reject { |key, value| page.find("input##{key}").value == value }.
         map { |key, value|
           "Expected #{key} input to == #{value}, got #{page.find("input##{key}").value}"
         }.

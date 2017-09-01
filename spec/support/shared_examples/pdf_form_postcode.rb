@@ -1,5 +1,6 @@
 RSpec.shared_examples 'it includes a formatted postcode' do |model_class, section|
   subject { described_class.new(model) }
+
   let(:hash) { subject.to_h }
 
   context 'when postcode specified' do

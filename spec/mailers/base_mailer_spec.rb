@@ -38,10 +38,10 @@ describe BaseMailer, type: :mailer do
   end
 
   describe '#confirmation_email' do
+    subject { described_class.confirmation_email(claim) }
+
     let(:email_addresses) { ['bill@example.com', 'mike@example.com'] }
     let(:attachment) { email.parts.find(&:filename) }
-
-    subject { described_class.confirmation_email(claim) }
 
     before do
       claim.confirmation_email_recipients = email_addresses

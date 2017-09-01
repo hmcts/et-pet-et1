@@ -5,7 +5,7 @@ RSpec.shared_examples 'it parses dates' do |*dates|
     it 'assigns the concrete date value when all parts are present and valid' do
       subject.send "#{date}=", 'day' => '15', 'month' => '1', 'year' => '1985'
 
-      expect(subject.send date).to eq Date.civil(1985, 1, 15)
+      expect(subject.send(date)).to eq Date.civil(1985, 1, 15)
     end
 
     describe 'validation' do
@@ -28,7 +28,7 @@ RSpec.shared_examples 'it parses dates' do |*dates|
         end
 
         it "it does not update the value of #{date}" do
-          expect(subject.send date).to be nil
+          expect(subject.send(date)).to be nil
         end
       end
 

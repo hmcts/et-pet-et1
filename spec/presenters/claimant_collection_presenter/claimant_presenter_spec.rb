@@ -5,9 +5,9 @@ RSpec.describe ClaimantCollectionPresenter::ClaimantPresenter, type: :presenter 
 
   let(:claimant) do
     Claimant.new title: 'mr', first_name: 'Stevie', last_name: 'Graham',
-      date_of_birth: Date.civil(1985, 1, 15), address_building: '1',
-      address_street: 'Lol street', address_locality: 'Lolzville',
-      address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z'
+                 date_of_birth: Date.civil(1985, 1, 15), address_building: '1',
+                 address_street: 'Lol street', address_locality: 'Lolzville',
+                 address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z'
   end
 
   describe '#full_name' do

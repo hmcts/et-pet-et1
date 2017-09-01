@@ -5,10 +5,10 @@ RSpec.describe RespondentPresenter, type: :presenter do
 
   let(:respondent) do
     Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
-      address_locality: 'Lolzville', address_county: 'Lolzfordshire',
-      address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
-      acas_early_conciliation_certificate_number: '123',
-      no_acas_number_reason: :acas_has_no_jurisdiction
+                   address_locality: 'Lolzville', address_county: 'Lolzfordshire',
+                   address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
+                   acas_early_conciliation_certificate_number: '123',
+                   no_acas_number_reason: :acas_has_no_jurisdiction
   end
 
   its(:name) { is_expected.to eq('Lol Corp') }

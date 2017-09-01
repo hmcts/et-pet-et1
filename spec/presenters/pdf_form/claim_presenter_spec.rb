@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
   subject { described_class.new(claim) }
 
-  %i<other_outcome claim_details other_claim_details miscellaneous_information>.each do |meth|
+  [:other_outcome, :claim_details, :other_claim_details, :miscellaneous_information].each do |meth|
     describe "##{meth}" do
       let(:claim) { create :claim }
 
@@ -32,7 +32,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
       end
 
       it 'removes superfluous carriage returns & unknown chars' do
-        expect(subject.send meth).to eq <<-EOS.strip_heredoc
+        expect(subject.send(meth)).to eq <<-EOS.strip_heredoc
           I don't know how to do paragraphs
 
           look
@@ -61,7 +61,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
     let(:hash) { subject.to_h }
 
     context 'when owed' do
-      %i<notice holiday arrears other>.each do |type|
+      [:notice, :holiday, :arrears, :other].each do |type|
         let(:claim) { Claim.new pay_claims: [type] }
 
         it "returns yes when '#{type}' pay complaint" do
@@ -72,6 +72,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
 
     context 'when redundancy' do
       let(:claim) { Claim.new pay_claims: ['redundancy'] }
+
       it "returns Off when 'redundancy' pay complaint" do
         expect(hash).to include('8.1 owed' => 'Off')
       end
@@ -79,6 +80,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
 
     context 'when whistleblowing' do
       let(:claim) { Claim.new send_claim_to_whistleblowing_entity: true }
+
       it 'returns yes when whistleblowing' do
         expect(hash).to include('10.1' => 'yes')
       end
@@ -86,6 +88,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
 
     context 'when claim has a single claimant' do
       let(:claim) { create :claim, :single_claimant }
+
       it 'checks the single claimant box' do
         expect(hash).to include 'type of claim' => 'a single claim'
       end
@@ -96,6 +99,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
 
     context 'when claim has multiple claimants' do
       let(:claim) { create :claim }
+
       it 'checks the multiple claimants box' do
         expect(hash).to include 'type of claim' => 'a claimon behalf of more than one person'
       end

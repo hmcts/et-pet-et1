@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe FeedbackController, :type => :controller do
+RSpec.describe FeedbackController, type: :controller do
   describe 'POST create' do
     let(:form) { instance_double(FeedbackForm, save: true, assign_attributes: {}) }
 

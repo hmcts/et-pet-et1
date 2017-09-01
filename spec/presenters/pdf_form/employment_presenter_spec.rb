@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
   subject { described_class.new(employment) }
+
   let(:hash) { subject.to_h }
 
   describe '#to_h' do

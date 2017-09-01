@@ -32,9 +32,10 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
     context 'when there is no associated fee office' do
       let(:claim) { create :claim, :no_fee_group_reference }
+
       it 'is the submission date' do
         expect(subject.submission_information).
-        to eq 'Submitted 01 January 2014'
+          to eq 'Submitted 01 January 2014'
       end
     end
   end
@@ -45,7 +46,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     it 'yields the submission information' do
       expect { |b| subject.each_item &b }.
         to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-        [:attachments, "file.rtf<br />file.csv"]
+          [:attachments, "file.rtf<br />file.csv"]
     end
 
     context 'when payment fails' do
@@ -54,7 +55,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields payment failure message' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-          [:attachments, "file.rtf<br />file.csv"]
+            [:attachments, "file.rtf<br />file.csv"]
       end
     end
 
@@ -64,7 +65,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields no payment or fee office information' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
-          [:attachments, "file.rtf<br />file.csv"]
+            [:attachments, "file.rtf<br />file.csv"]
       end
     end
 
@@ -74,7 +75,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields text to state no attachments are present' do
         expect { |b| subject.each_item &b }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-          [:attachments, "None"]
+            [:attachments, "None"]
       end
     end
   end

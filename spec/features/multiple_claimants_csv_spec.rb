@@ -29,6 +29,7 @@ feature 'Multiple claimants CSV' do
 
       context 'dob is missing' do
         let(:csv_line) { ["Mr", "Tom", "Test", "", "1", "Test", "London", "Great London", "N103QS"] }
+
         scenario "error is displayed" do
           upload_group_claim_file
           click_button "Save and continue"
@@ -60,6 +61,7 @@ feature 'Multiple claimants CSV' do
 
       context 'all data are ok' do
         let(:csv_line) { ["Mr", "Tom", "Test", "01/01/1990", "1", "Test", "London", "Great London", "N103QS"] }
+
         scenario "no error displayed" do
           upload_group_claim_file
           click_button "Save and continue"

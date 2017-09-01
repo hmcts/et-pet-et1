@@ -76,7 +76,7 @@ RSpec.describe PdfForm::BaseDelegator, type: :presenter do
 
   describe '#format_date' do
     it 'returns a date in the format DD/MM/YYYY' do
-      travel_to(DateTime.new 2014, 9, 29, 0, 0, 0) do
+      travel_to(DateTime.new(2014, 9, 29, 0, 0, 0)) do
         expect(subject.format_date(Time.now)).to eq "29/09/2014"
       end
     end
