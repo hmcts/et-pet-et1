@@ -12,7 +12,7 @@ RSpec.describe GuidePresenter, type: :presenter do
     it "return result based on block for params" do
       allow(File).to receive(:read).and_return mock_content
 
-      allow(renderer).to receive(:render).with(mock_content).and_return renderer.render
+      allow(renderer).to receive(:render).with(mock_content).and_return "some_content"
       expect { |probe| guide_presenter.each_rendered_file(&probe) }.
         to yield_successive_args(['some_text', 'some_content'], ['and_more_text', 'some_content'])
     end
