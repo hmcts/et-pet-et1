@@ -6,6 +6,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
     let(:url)   { 'https://rofldesk.lol.biz.info/api/v2' }
     let(:user)  { 'lol@example.com' }
     let(:id)    { 'L0L' }
+    let(:feedback_submission_job) { FeedbackSubmissionJob.new }
 
     let(:map) do
       { 'ZENDESK_GROUP_ID' => id, 'ZENDESK_URL' => url, 'ZENDESK_USER' => user, 'ZENDESK_TOKEN' => token }
@@ -34,7 +35,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
     end
 
     it 'creates a Zendesk ticket' do
-      subject.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
+      feedback_submission_job.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
 
       expect(the_request.with(body: body, headers: headers)).to have_been_made.once
     end
@@ -43,7 +44,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
       before { body.gsub! 'hue@example.com', 'anonymous@example.com' }
 
       it 'uses a placeholder email' do
-        subject.perform comments: 'lél', suggestions: 'lewl'
+        feedback_submission_job.perform comments: 'lél', suggestions: 'lewl'
 
         expect(the_request.with(body: body, headers: headers)).to have_been_made.once
       end

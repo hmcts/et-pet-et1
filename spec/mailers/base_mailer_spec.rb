@@ -89,9 +89,9 @@ describe BaseMailer, type: :mailer do
           allow(claim).to receive(:fee_to_pay?).and_return(true)
         end
 
-        it 'hide paid message' do
-          expect(email).to match_pattern('Thank you for submitting')
-          expect(email).not_to match_pattern('Issue fee paid:')
+        describe 'hide paid message' do
+          it { expect(email).to match_pattern('Thank you for submitting') }
+          it { expect(email).not_to match_pattern('Issue fee paid:') }
         end
 
         it 'hide amount paid' do
