@@ -62,6 +62,10 @@ def refund_step_two_page
   @refund_step_two_page ||= Refunds::StepTwoPage.new
 end
 
+def refund_step_four_page
+  @refund_step_four_page ||= Refunds::StepFourPage.new
+end
+
 def refund_profile_selection_page
   @refund_profile_selection_page ||= Refunds::ProfileSelectionPage.new
 end

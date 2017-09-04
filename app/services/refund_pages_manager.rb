@@ -10,6 +10,10 @@ class RefundPagesManager < PageManager
 
   page 'claimant',
     number: 3,
+    transitions_to: 'original-case-details'
+
+  page 'original-case-details',
+    number: 4,
     transitions_to: 'review'
 
   page 'review'

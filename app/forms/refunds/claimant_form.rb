@@ -50,7 +50,33 @@ module Refunds
       super name.try :strip
     end
 
+    def save
+      if valid?
+        run_callbacks :save do
+          ActiveRecord::Base.transaction do
+            target.update_attributes attributes unless target.frozen?
+            clone_claimant_details
+            resource.save
+          end
+        end
+      else
+        false
+      end
+    end
+
     private
+
+    def clone_claimant_details
+      attrs = target.attributes.with_indifferent_access
+      dup_attributes = {
+        claimant_title: attrs[:title],
+        claimant_first_name: attrs[:first_name],
+        claimant_last_name: attrs[:last_name],
+        claimant_national_insurance: attrs[:national_insurance],
+        claimant_date_of_birth: attrs[:date_of_birth]
+      }
+      resource.assign_attributes(dup_attributes)
+    end
 
     def international_address?
       address_country != 'united_kingdom'

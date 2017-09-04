@@ -60,6 +60,15 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+      refunds_original_case_details:
+        claimant_title:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+        claimant_address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
 
       additional_claimants:
         collection: :"simple_form.options.claimant"
@@ -471,7 +480,7 @@ en:
       print_link: Print this page
       print_copy: to have a copy of your refund number for reference
     claimant:
-      header: Claimant’s details
+      header: Current claimant’s details
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details
       personal_details_description: |

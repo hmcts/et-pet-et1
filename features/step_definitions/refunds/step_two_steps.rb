@@ -38,6 +38,6 @@ And(/^I answer No to the has your address changed question for refunds$/) do
   refund_step_two_page.has_address_changed.set("No")
 end
 
-And(/^I save the refund claimant details$/) do
+And(/^I save the refund applicant details$/) do
   refund_step_two_page.save_and_continue.click
 end
