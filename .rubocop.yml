@@ -22,7 +22,6 @@ AllCops:
     - 'config/routes.rb'
     - 'Gemfile'
     - 'spec/admin/**/*'
-    - 'spec/controllers/**/*'
     - 'spec/features/**/*'
     - 'spec/jobs/**/*'
     - 'spec/mailer_previews/**/*'
