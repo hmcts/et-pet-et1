@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
-  subject { described_class.new(claim) }
+  let(:pdf_form_claim_presenter) { described_class.new(claim) }
 
   [:other_outcome, :claim_details, :other_claim_details, :miscellaneous_information].each do |meth|
     describe "##{meth}" do
@@ -32,7 +32,7 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
       end
 
       it 'removes superfluous carriage returns & unknown chars' do
-        expect(subject.send(meth)).to eq <<-EOS.strip_heredoc
+        expect(pdf_form_claim_presenter.send(meth)).to eq <<-EOS.strip_heredoc
           I don't know how to do paragraphs
 
           look
@@ -49,16 +49,16 @@ RSpec.describe PdfForm::ClaimPresenter, type: :presenter do
   end
 
   describe '#name' do
-    let(:claimant) { double 'Claimant', first_name: 'first', last_name: 'last' }
-    let(:claim) { double 'Claim', primary_claimant: claimant }
+    let(:claimant) { instance_double 'Claimant', first_name: 'first', last_name: 'last' }
+    let(:claim) { instance_double 'Claim', primary_claimant: claimant }
 
     it 'returns a name' do
-      expect(subject.name).to eq('first last')
+      expect(pdf_form_claim_presenter.name).to eq('first last')
     end
   end
 
   describe '#to_h' do
-    let(:hash) { subject.to_h }
+    let(:hash) { pdf_form_claim_presenter.to_h }
 
     context 'when owed' do
       [:notice, :holiday, :arrears, :other].each do |type|

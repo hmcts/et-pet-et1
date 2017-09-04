@@ -21,6 +21,7 @@ AllCops:
     - 'lib/log_stuff.rb'
     - 'config/routes.rb'
     - 'Gemfile'
+    - 'spec/support/**/*'
 
 Rails:
   Enabled: true
@@ -171,6 +172,9 @@ Style/WordArray:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/RegexpLiteral:
+  Enabled: false
 
 RSpec/NestedGroups:
   Max: 10

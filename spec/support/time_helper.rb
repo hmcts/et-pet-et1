@@ -3,5 +3,5 @@ module TimeHelper
     61.minutes.from_now
   end
 
-  extend self
+  module_function :session_expiry_time
 end

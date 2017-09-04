@@ -4,8 +4,9 @@ RSpec.describe ClaimOutcomePresenter, type: :presenter do
   subject { described_class.new claim_detail }
 
   let(:claim_detail) do
-    double 'claim_detail', desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
-                           other_outcome: "25 bags\r\nyour job"
+    instance_double 'Claim',
+      desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
+      other_outcome: "25 bags\r\nyour job"
   end
 
   its(:desired_outcomes) do

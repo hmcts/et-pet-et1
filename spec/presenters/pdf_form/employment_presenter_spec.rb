@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
-  subject { described_class.new(employment) }
+  let(:pdf_form_employment_presenter) { described_class.new(employment) }
 
-  let(:hash) { subject.to_h }
+  let(:hash) { pdf_form_employment_presenter.to_h }
 
   describe '#to_h' do
     context 'when notice period is monthly' do
@@ -14,9 +14,9 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
         )
       }
 
-      it 'includes notice period in months' do
-        expect(hash).to include('6.3 weeks' => nil)
-        expect(hash).to include('6.3 months' => 1)
+      describe 'includes notice period in months' do
+        it { expect(hash).to include('6.3 weeks' => nil) }
+        it { expect(hash).to include('6.3 months' => 1) }
       end
     end
 
@@ -40,9 +40,9 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
         )
       }
 
-      it 'includes notice period in weeks' do
-        expect(hash).to include('6.3 weeks' => 1)
-        expect(hash).to include('6.3 months' => nil)
+      describe 'includes notice period in weeks' do
+        it { expect(hash).to include('6.3 weeks' => 1) }
+        it { expect(hash).to include('6.3 months' => nil) }
       end
     end
 

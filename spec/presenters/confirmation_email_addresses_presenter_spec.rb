@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
-  subject { described_class.email_addresses_for claim }
+  let(:confirmation_email_address_presenter) { described_class.email_addresses_for claim }
 
   let(:claimant_with_email)           { create :claimant, primary_claimant: true, email_address: 'such@lol.biz' }
   let(:representative_with_email)     { create :representative, email_address: 'edgar@lol.biz' }
@@ -16,7 +16,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns one email with the check property set' do
-        expect(subject).to eq [['such@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: true }]]
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns one email with the check property set' do
-        expect(subject).to eq [['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [['edgar@lol.biz', { checked: true }]]
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns two emails with checked properties set' do
-        expect(subject).to eq [['such@lol.biz', { checked: true }], ['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: true }], ['edgar@lol.biz', { checked: true }]]
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns two emails with only the representative checked property set' do
-        expect(subject).to eq [['such@lol.biz', { checked: false }], ['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: false }], ['edgar@lol.biz', { checked: true }]]
       end
     end
 
@@ -59,7 +59,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
           primary_claimant: claimant_without_email, representative: representative_without_email
       end
 
-      specify { expect(subject).to be_empty }
+      specify { expect(confirmation_email_address_presenter).to be_empty }
     end
   end
 end

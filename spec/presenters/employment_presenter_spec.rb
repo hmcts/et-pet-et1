@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EmploymentPresenter, type: :presenter do
-  subject { described_class.new employment }
+  let(:employment_presenter) { described_class.new employment }
 
   let(:employment) do
     Employment.new \
@@ -17,32 +17,32 @@ RSpec.describe EmploymentPresenter, type: :presenter do
       found_new_job: true
   end
 
-  its(:start_date) { is_expected.to eq '01 February 2000' }
-  its(:average_hours_worked_per_week) { is_expected.to eq 40.0 }
-  its(:gross_pay) { is_expected.to eq '£500.00 per week' }
-  its(:net_pay)   { is_expected.to eq '£490.00 per week' }
-  its(:enrolled_in_pension_scheme) { is_expected.to eq 'No' }
-  its(:benefit_details) { is_expected.to eq 'Company car' }
-  its(:current_situation) { is_expected.to eq "No longer working for this employer" }
-  its(:end_date) { is_expected.to eq '01 December 2010' }
-  its(:worked_notice_period_or_paid_in_lieu) { is_expected.to eq 'No' }
-  its(:notice_period_end_date) { is_expected.to eq '02 December 2010' }
-  its(:notice_period_pay) { is_expected.to eq '4.0 weeks' }
-  its(:new_job) { is_expected.to eq 'Yes' }
-  its(:new_job_gross_pay) { is_expected.to eq '£100.00 per month' }
+  it { expect(employment_presenter.start_date).to eq '01 February 2000' }
+  it { expect(employment_presenter.average_hours_worked_per_week).to eq 40.0 }
+  it { expect(employment_presenter.gross_pay).to eq '£500.00 per week' }
+  it { expect(employment_presenter.net_pay).to eq '£490.00 per week' }
+  it { expect(employment_presenter.enrolled_in_pension_scheme).to eq 'No' }
+  it { expect(employment_presenter.benefit_details).to eq 'Company car' }
+  it { expect(employment_presenter.current_situation).to eq "No longer working for this employer" }
+  it { expect(employment_presenter.end_date).to eq '01 December 2010' }
+  it { expect(employment_presenter.worked_notice_period_or_paid_in_lieu).to eq 'No' }
+  it { expect(employment_presenter.notice_period_end_date).to eq '02 December 2010' }
+  it { expect(employment_presenter.notice_period_pay).to eq '4.0 weeks' }
+  it { expect(employment_presenter.new_job).to eq 'Yes' }
+  it { expect(employment_presenter.new_job_gross_pay).to eq '£100.00 per month' }
 
   describe '#each_item' do
     context 'when target is blank' do
-      before { subject.target = nil }
+      before { employment_presenter.target = nil }
 
       specify do
-        expect { |b| subject.each_item &b }.to yield_successive_args [:was_employed, 'No']
+        expect { |b| employment_presenter.each_item(&b) }.to yield_successive_args [:was_employed, 'No']
       end
     end
 
     context 'when target is not blank' do
       it 'does not contain :was_employed' do
-        expect(subject.to_enum(:each_item)).
+        expect(employment_presenter.to_enum(:each_item)).
           to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                           [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                           [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -56,7 +56,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
         before { employment.found_new_job = false }
 
         it 'does not include new job fields' do
-          expect(subject.to_enum(:each_item)).
+          expect(employment_presenter.to_enum(:each_item)).
             to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                             [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                             [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -75,7 +75,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
           end
 
           it 'does not include fields pertaining to employment end date or notice period' do
-            expect(subject.to_enum(:each_item)).
+            expect(employment_presenter.to_enum(:each_item)).
               to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -93,7 +93,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
           end
 
           it 'does not include fields pertaining to employment end date or notice period pay' do
-            expect(subject.to_enum(:each_item)).
+            expect(employment_presenter.to_enum(:each_item)).
               to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -107,7 +107,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
           before { employment.current_situation = :employment_terminated }
 
           it 'does not include fields pertaining to employment end date or notice period pay' do
-            expect(subject.to_enum(:each_item)).
+            expect(employment_presenter.to_enum(:each_item)).
               to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -124,7 +124,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
           before { employment.worked_notice_period_or_paid_in_lieu = true }
 
           it 'includes notice period pay' do
-            expect(subject.to_enum(:each_item)).
+            expect(employment_presenter.to_enum(:each_item)).
               to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
@@ -137,7 +137,7 @@ RSpec.describe EmploymentPresenter, type: :presenter do
 
         context 'is false' do
           it 'includes notice period pay' do
-            expect(subject.to_enum(:each_item)).
+            expect(employment_presenter.to_enum(:each_item)).
               to match_array [[:job_title, nil], [:start_date, "01 February 2000"],
                               [:average_hours_worked_per_week, 40.0], [:gross_pay, "£500.00 per week"],
                               [:net_pay, "£490.00 per week"], [:enrolled_in_pension_scheme, "No"],
