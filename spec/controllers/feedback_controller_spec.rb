@@ -12,17 +12,20 @@ RSpec.describe FeedbackController, type: :controller do
 
     it 'saves the form' do
       expect(form).to receive(:assign_attributes).with(params).ordered
-      expect(form).to receive(:save).ordered
-
       post :create, feedback: params
     end
 
-    it 'redirects to /apply/feedback with a flash' do
+    it 'return ordered result' do
+      expect(form).to receive(:save).ordered
       post :create, feedback: params
+    end
 
-      expect(response).to have_http_status(302)
-      expect(response.location).to end_with '/apply/feedback'
-      expect(flash[:info]).to eq 'Thank you for your feedback'
+    describe 'redirects to /apply/feedback with a flash' do
+      before { post :create, feedback: params }
+
+      it { expect(response).to have_http_status(302) }
+      it { expect(response.location).to end_with '/apply/feedback' }
+      it { expect(flash[:info]).to eq 'Thank you for your feedback' }
     end
   end
 end
