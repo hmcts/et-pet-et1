@@ -2,19 +2,24 @@ require 'rails_helper'
 
 RSpec.feature 'Viewing the admin interfaces index page', type: :feature do
 
-  let!(:out_of_filter_range_claim) do
+  let(:out_of_filter_range_claim) do
     create :claim,
       submitted_at: Date.new(2015, 0o6, 0o1),
       created_at: Date.new(2015, 0o6, 0o1)
   end
 
-  let!(:claim) do
+  let(:claim) do
     create :claim,
       application_reference: 'SUCH-9999',
       fee_group_reference: '511234567800',
       submitted_at: Date.new(2015, 0o6, 0o5),
       # Set created_at to a later date than other models to ensure it's the first row.
       created_at: Date.new(2015, 0o6, 0o5)
+  end
+
+  before do
+    out_of_filter_range_claim
+    claim
   end
 
   scenario 'viewing a table of claims and their respective details' do

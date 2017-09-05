@@ -9,6 +9,16 @@ feature 'Guide', type: :feature do
     let(:acas_exceptions_header)      { '<h3>Exceptions to early conciliation</h3>' }
     let(:writing_yours_header)        { '<h2>Writing your claim statement</h2>' }
 
+    let(:time_limits_link)          { "Time limits" }
+    let(:acas_link)                 { "Acas: early conciliation" }
+    let(:acas_exceptions_link)      { "Exceptions to early conciliation" }
+    let(:writing_yours_link)        { "Writing your claim statement" }
+
+    let(:time_limits_div)           { "#time_limits" }
+    let(:acas_div)                  { "#acas_early_conciliation" }
+    let(:acas_exceptions_div)       { "#acas_early_conciliation_exceptions" }
+    let(:writing_yours_div)         { "#writing_your_claim_statement" }
+
     before do
       visit guide_path
     end
@@ -19,16 +29,6 @@ feature 'Guide', type: :feature do
       expect(page.html).to include(acas_exceptions_header)
       expect(page.html).to include(writing_yours_header)
     end
-
-    let(:time_limits_link)          { "Time limits" }
-    let(:acas_link)                 { "Acas: early conciliation" }
-    let(:acas_exceptions_link)      { "Exceptions to early conciliation" }
-    let(:writing_yours_link)        { "Writing your claim statement" }
-
-    let(:time_limits_div)           { "#time_limits" }
-    let(:acas_div)                  { "#acas_early_conciliation" }
-    let(:acas_exceptions_div)       { "#acas_early_conciliation_exceptions" }
-    let(:writing_yours_div)         { "#writing_your_claim_statement" }
 
     scenario "User can click time time_limits_link" do
       expect(page).to have_link(time_limits_link, href: (guide_path + time_limits_div).to_s)

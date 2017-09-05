@@ -22,7 +22,6 @@ AllCops:
     - 'config/routes.rb'
     - 'Gemfile'
     - 'spec/support/**/*'
-    - 'spec/features/**/*'
 
 Rails:
   Enabled: true

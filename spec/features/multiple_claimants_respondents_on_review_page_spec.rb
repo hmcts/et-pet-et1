@@ -30,15 +30,17 @@ feature 'Multiple claimants/respondents on the review page' do
     end
 
     it "does show a list of additional claimants" do
-      within '.review-list-entry.additional-claimants' do
-        expect(page.text).
-          to have_text 'Claimant 2' \
-                       'Full name' 'Barry Obama' \
-                       'Date of birth' '01 January 2000' \
-                       'Address' '1' 'Lol lane' 'London' 'London' 'SW1 1AA'
+      text = find(:xpath, ".//div[@class='review-list-entry additional-claimants']").text
 
-        expect(page.text).not_to match(/Group claimNo/)
-      end
+      expect(text).
+        to include(
+          'Claimant 2',
+          'Full name', 'Barry Obama',
+          'Date of birth', '01 January 2000',
+          'Address', '1', 'Lol lane', 'London', 'London', 'SW1 1AA'
+        )
+
+      expect(page.text).not_to match(/Group claimNo/)
     end
   end
 
@@ -62,15 +64,17 @@ feature 'Multiple claimants/respondents on the review page' do
     end
 
     it "does show a list of additional respondents" do
-      within '.review-list-entry.additional-respondents' do
-        expect(page.text).
-          to have_text 'Respondent 2' \
-                       'Name' 'Barry Obama' \
-                       'Acas number' 'XX123456/12/12' \
-                       'Address' '1' 'Lol lane' 'London' 'London' 'SW1 1AA'
+      text = find(:xpath, ".//div[@class='review-list-entry additional-respondents']").text
 
-        expect(page.text).not_to match(/Additional respondentsNo/)
-      end
+      expect(text).
+        to include(
+          'Respondent 2',
+          'Name', 'Barry Obama',
+          'Acas number', 'XX123456/12/12',
+          'Address', '1', 'Lol lane', 'London', 'London', 'SW1 1AA'
+        )
+
+      expect(page.text).not_to match(/Additional respondentsNo/)
     end
   end
 end

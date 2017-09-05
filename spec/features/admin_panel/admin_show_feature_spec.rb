@@ -59,7 +59,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the pdf' do
-    allow_any_instance_of(Claim).to receive(:pdf_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:pdf_url).
       and_return('http://lol.biz/such.pdf')
 
     visit admin_claim_path claim_with_attachments.reference
@@ -68,7 +69,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the claim details rtf' do
-    allow_any_instance_of(Claim).to receive(:claim_details_rtf_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:claim_details_rtf_url).
       and_return('http://lol.biz/deets.rtf')
 
     visit admin_claim_path claim_with_attachments.reference
@@ -77,7 +79,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the additional claimants csv' do
-    allow_any_instance_of(Claim).to receive(:additional_claimants_csv_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:additional_claimants_csv_url).
       and_return('http://lol.biz/additionals.csv')
 
     visit admin_claim_path claim_with_attachments.reference

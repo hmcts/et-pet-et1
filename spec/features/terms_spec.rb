@@ -14,24 +14,6 @@ feature 'Terms' do
   let(:data_protection_header)                         { '<h2 class="legend">Data Protection Act (DPA) 1998</h2>' }
   let(:disclaimer_header)                              { '<h2 class="legend">Disclaimer</h2>' }
 
-  before do
-    visit terms_path
-  end
-
-  scenario "User visits the terms page" do
-    expect(page.html).to include(general_header)
-    expect(page.html).to include(applicable_law_header)
-    expect(page.html).to include(applicable_law_responsible_use_header)
-    expect(page.html).to include(privacy_policy_header)
-    expect(page.html).to include(privacy_policy_personal_information_header)
-    expect(page.html).to include(privacy_policy_non_personal_information_header)
-    expect(page.html).to include(privacy_policy_data_storage_header)
-    expect(page.html).to include(online_payment_header)
-    expect(page.html).to include(session_management_header)
-    expect(page.html).to include(data_protection_header)
-    expect(page.html).to include(disclaimer_header)
-  end
-
   let(:general_link)                                  { "Terms and conditions - General" }
   let(:applicable_law_link)                           { "Applicable law" }
   let(:applicable_law_responsible_use_link)           { "Responsible use of this service" }
@@ -55,6 +37,24 @@ feature 'Terms' do
   let(:session_management_div)                      { "#session_management" }
   let(:data_protection_div)                         { "#data_protection" }
   let(:disclaimer_div)                              { "#disclaimer" }
+
+  before do
+    visit terms_path
+  end
+
+  scenario "User visits the terms page" do
+    expect(page.html).to include(general_header)
+    expect(page.html).to include(applicable_law_header)
+    expect(page.html).to include(applicable_law_responsible_use_header)
+    expect(page.html).to include(privacy_policy_header)
+    expect(page.html).to include(privacy_policy_personal_information_header)
+    expect(page.html).to include(privacy_policy_non_personal_information_header)
+    expect(page.html).to include(privacy_policy_data_storage_header)
+    expect(page.html).to include(online_payment_header)
+    expect(page.html).to include(session_management_header)
+    expect(page.html).to include(data_protection_header)
+    expect(page.html).to include(disclaimer_header)
+  end
 
   scenario "User can click general link" do
     expect(page).to have_link(general_link, href: (terms_path + general_div).to_s)

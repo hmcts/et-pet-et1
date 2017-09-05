@@ -5,11 +5,6 @@ feature 'Claimant page' do
 
   let(:claim) { Claim.create password: 'lollolol' }
 
-  before do
-    visit new_user_session_path
-    fill_in_return_form claim.reference, 'lollolol'
-  end
-
   let(:attributes) do
     {
       'First name' => 'Persephone',
@@ -26,6 +21,11 @@ feature 'Claimant page' do
     attributes.update 'First name' => 'Pegasus'
   end
 
+  before do
+    visit new_user_session_path
+    fill_in_return_form claim.reference, 'lollolol'
+  end
+
   describe 'adding claimant that is 16 or more years older' do
     before do
       visit claim_claimant_url
@@ -38,7 +38,7 @@ feature 'Claimant page' do
     end
 
     it "displays DOB validation above dob field" do
-      year = (Time.now - 15.years).year.to_s
+      year = (Time.current - 15.years).year.to_s
       fill_in 'Day', with: '1'
       fill_in 'Month', with: '1'
       fill_in 'Year', with: year
@@ -52,7 +52,7 @@ feature 'Claimant page' do
     end
 
     it "displays no validation if older then 16" do
-      date_ago = (Time.now - 16.years)
+      date_ago = (Time.current - 16.years)
       fill_in 'Day', with: date_ago.day.to_s
       fill_in 'Month', with: date_ago.month.to_s
       fill_in 'Year', with: date_ago.year.to_s
