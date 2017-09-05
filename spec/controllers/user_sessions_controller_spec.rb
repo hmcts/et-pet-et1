@@ -74,7 +74,7 @@ RSpec.describe UserSessionsController, type: :controller do
   end
 
   describe 'GET touch' do
-    let(:time) { DateTime.new 2015, 0o1, 0o1, 0o1 }
+    let(:time) { DateTime.new(2015, 1, 1, 1).utc }
 
     before { session[:claim_reference] = claim.reference }
 

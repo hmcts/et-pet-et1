@@ -36,7 +36,7 @@ FactoryGirl.define do
 
     password 'lollolol'
 
-    submitted_at { Time.now }
+    submitted_at { Time.current }
 
     trait :not_submitted do
       submitted_at nil
