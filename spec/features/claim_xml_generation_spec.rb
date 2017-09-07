@@ -185,12 +185,12 @@ feature 'Generating XML for a claim', type: :feature do
 
       context 'renders nil elements' do
         let(:claim) { create :claim, primary_respondent: respondent }
-        let(:respondent) {
+        let(:respondent) do
           FactoryGirl.create :respondent,
             :without_work_address,
             work_address_telephone_number: nil,
             address_telephone_number: nil
-        }
+        end
 
         it_behaves_like "validates against the JADU XSD"
 

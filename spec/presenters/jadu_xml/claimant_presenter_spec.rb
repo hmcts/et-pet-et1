@@ -25,7 +25,7 @@ RSpec.describe JaduXml::ClaimantPresenter, type: :presenter do
 
     describe '#date_of_birth' do
       context 'date of birth present' do
-        before { claimant.date_of_birth = Date.civil(1960, 0o1, 12) }
+        before { claimant.date_of_birth = Date.civil(1960, 1, 12) }
         describe 'matches the format dd/mm/yyyy' do
           it { expect(jadu_xml_claimant_presenter.date_of_birth).to match(/^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/) }
           it { expect(jadu_xml_claimant_presenter.date_of_birth).to eq "12/01/1960" }
