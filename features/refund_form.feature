@@ -37,22 +37,27 @@ Feature: Refund Form
       | field     | value           |
       | name      | Respondent Name |
       | post_code | SW1H 9QR        |
-    And I ensure that my refund original case details claimant name is visible but disabled as:
-      | field              | value      |
-      | title              | Mr         |
-      | first_name         | First      |
-      | last_name          | Last       |
-      | date_of_birth      | 21/11/1982 |
-      | national_insurance | AB123456D  |
+    And I ensure that my refund original case details claimant details are visible but disabled as:
+      | field     | value         |
+      | name      | Mr First Last |
+      | post_code | SW1H 9AJ      |
+    And I fill in my refund issue fee with:
+      | fee     | date paid | payment method |
+      | 1000.00 | 23/1/2016 | Card           |
+    And I fill in my refund hearing fee with:
+      | fee     | date paid | payment method |
+      | 1001.00 | 24/1/2016 | Cash           |
+    And I fill in my refund eat lodgement fee with:
+      | fee     | date paid | payment method |
+      | 1002.00 | 25/1/2016 | Cheque         |
+    And I fill in my refund eat hearing fee with:
+      | fee     | date paid | payment method |
+      | 1003.00 | 26/1/2016 | Card           |
+    And I fill in my refund application reconsideration fee with:
+      | fee     | date paid | payment method |
+      | 1004.00 | 27/1/2016 | Card           |
+
     And I debug
-    And I ensure that my refund original case details claimant address is visible but read only as:
-      | field     | value          |
-      | building  | 102            |
-      | street    | Petty France   |
-      | locality  | London         |
-      | county    | Greater London |
-      | post_code | SW1H 9AJ       |
-      | country   | United Kingdom |
 
     And all background jobs for refund submissions are processed
     And I save a copy of my refund

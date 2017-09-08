@@ -68,14 +68,12 @@ module Refunds
 
     def clone_claimant_details
       attrs = target.attributes.with_indifferent_access
-      dup_attributes = {
-        claimant_title: attrs[:title],
-        claimant_first_name: attrs[:first_name],
-        claimant_last_name: attrs[:last_name],
-        claimant_national_insurance: attrs[:national_insurance],
-        claimant_date_of_birth: attrs[:date_of_birth]
+      address_attrs = target.address.attributes.with_indifferent_access
+      new_claim_attributes = {
+        claimant_name: "#{attrs[:title].titleize} #{attrs[:first_name]} #{attrs[:last_name]}",
+        claimant_address_post_code: address_attrs[:post_code]
       }
-      resource.assign_attributes(dup_attributes)
+      resource.assign_attributes(new_claim_attributes)
     end
 
     def international_address?

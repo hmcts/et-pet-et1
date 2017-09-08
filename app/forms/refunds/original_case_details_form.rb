@@ -1,15 +1,28 @@
 module Refunds
   class OriginalCaseDetailsForm < Form
-    attribute :et_reference_number,         String
-    attribute :et_case_number,              String
-    attribute :et_tribunal_office,          String
-    attribute :respondent_name,             String
-    attribute :respondent_post_code,        String
-    attribute :claimant_title,              String
-    attribute :claimant_first_name,         String
-    attribute :claimant_last_name,          String
-    attribute :claimant_national_insurance, String
-    attribute :claimant_date_of_birth,      Date
-    attribute :extra_reference_numbers,     String
+    PAYMENT_METHODS = ['card', 'cheque', 'cash']
+    attribute :et_reference_number,               String
+    attribute :et_case_number,                    String
+    attribute :et_tribunal_office,                String
+    attribute :respondent_name,                   String
+    attribute :respondent_post_code,              String
+    attribute :claimant_name,                     String
+    attribute :extra_reference_numbers,           String
+    attribute :claimant_address_post_code,        String
+    attribute :et_issue_fee,                      Float
+    attribute :et_issue_fee_date_paid,            Date
+    attribute :et_issue_fee_payment_method,       String
+    attribute :et_hearing_fee,                    Float
+    attribute :et_hearing_fee_date_paid,          Date
+    attribute :et_hearing_fee_payment_method,     String
+    attribute :eat_lodgement_fee,                 Float
+    attribute :eat_lodgement_fee_date_paid,       Date
+    attribute :eat_lodgement_fee_payment_method,  String
+    attribute :eat_hearing_fee,                   Float
+    attribute :eat_hearing_fee_date_paid,         Date
+    attribute :eat_hearing_fee_payment_method,    String
+    attribute :app_reconsideration_fee,           Float
+    attribute :app_reconsideration_fee_date_paid, Date
+    attribute :app_reconsideration_fee_payment_method, String
   end
 end

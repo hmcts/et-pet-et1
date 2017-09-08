@@ -24,7 +24,7 @@ And(/^I fill in my refund original case details respondent details with:$/) do |
 end
 
 
-And(/^I ensure that my refund original case details claimant name is visible but disabled as:$/) do |table|
+And(/^I ensure that my refund original case details claimant details are visible but disabled as:$/) do |table|
   table.hashes.each do | hash |
     refund_step_four_page.original_claimant_details do |section|
       node = section.send("#{hash['field']}".to_sym)
@@ -35,6 +35,18 @@ And(/^I ensure that my refund original case details claimant name is visible but
               end
       expect(value).to eql hash['value']
       expect(node).to be_disabled
+    end
+  end
+end
+
+
+
+And(/^I fill in my refund issue fee with:$/) do |table|
+  table.hashes.each do | hash |
+    refund_step_four_page.original_claim_fees.et_issue do |section|
+      section.fee.set(hash['fee'])
+      section.date_paid.set(hash['date paid'])
+      section.payment_method.set(hash['payment method'])
     end
   end
 end

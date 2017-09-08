@@ -157,21 +157,38 @@ ActiveRecord::Schema.define(version: 20170831122602) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "email_address"
-    t.string   "application_reference",                       null: false
-    t.boolean  "has_address_changed",         default: false
-    t.boolean  "has_name_changed",            default: false
+    t.string   "application_reference",                                  null: false
+    t.boolean  "has_address_changed",                    default: false
+    t.boolean  "has_name_changed",                       default: false
     t.integer  "profile_number"
     t.string   "et_reference_number"
     t.string   "et_case_number"
     t.string   "et_tribunal_office"
     t.string   "respondent_name"
     t.string   "respondent_post_code"
-    t.string   "claimant_title"
-    t.string   "claimant_first_name"
-    t.string   "claimant_last_name"
-    t.string   "claimant_national_insurance"
-    t.string   "claimant_date_of_birth"
+    t.string   "claimant_name"
     t.text     "extra_reference_numbers"
+    t.string   "claimant_address_post_code"
+    t.integer  "et_issue_fee",                           default: 0
+    t.string   "et_issue_fee_currency"
+    t.date     "et_issue_fee_date_paid"
+    t.string   "et_issue_fee_payment_method"
+    t.integer  "et_hearing_fee"
+    t.string   "et_hearing_fee_currency",                default: "GBP"
+    t.date     "et_hearing_fee_date_paid"
+    t.string   "et_hearing_fee_payment_method"
+    t.integer  "eat_lodgement_fee"
+    t.string   "eat_lodgement_fee_currency",             default: "GBP"
+    t.date     "eat_lodgement_fee_date_paid"
+    t.string   "eat_lodgement_fee_payment_method"
+    t.integer  "eat_hearing_fee"
+    t.string   "eat_hearing_fee_currency",               default: "GBP"
+    t.date     "eat_hearing_fee_date_paid"
+    t.string   "eat_hearing_fee_payment_method"
+    t.integer  "app_reconsideration_fee"
+    t.string   "app_reconsideration_fee_currency",       default: "GBP"
+    t.date     "app_reconsideration_fee_date_paid"
+    t.string   "app_reconsideration_fee_payment_method"
   end
 
   create_table "representatives", force: :cascade do |t|
