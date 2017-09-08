@@ -194,7 +194,7 @@ module FormMethods
 
   def fill_in_employment_details
     choose  'employment_was_employed_true'
-
+    choose 'employment_current_situation_employment_terminated'
     fill_in 'Job title', with: 'Super High Powered Exec'
 
     within '.employment_start_date' do

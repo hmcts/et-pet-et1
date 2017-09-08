@@ -262,12 +262,12 @@ feature 'Claim applications', type: :feature do
     end
 
     context 'Downloading the PDF' do
-      scenario 'when the file is available' do
+      scenario 'when the file is available', js: true, javascript_driver: :chrome do
         complete_a_claim seeking_remissions: true
         click_button 'Submit claim'
         perform_active_jobs(FeeGroupReferenceJob)
         perform_active_jobs(ClaimSubmissionJob)
-        page_pdf_link = page.find_link('Save a copy')['href']
+        page_pdf_link = URI.parse(page.find_link('Save a copy')['href']).path
         expect(page_pdf_link).to eq pdf_path
 
         pdf_file_data = Claim.last.pdf.read
