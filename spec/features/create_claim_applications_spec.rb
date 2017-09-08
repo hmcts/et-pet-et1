@@ -262,7 +262,7 @@ feature 'Claim applications', type: :feature do
     end
 
     context 'Downloading the PDF' do
-      scenario 'when the file is available', js: true, javascript_driver: :chrome do
+      scenario 'when the file is available', js: true do
         complete_a_claim seeking_remissions: true
         click_button 'Submit claim'
         perform_active_jobs(FeeGroupReferenceJob)
