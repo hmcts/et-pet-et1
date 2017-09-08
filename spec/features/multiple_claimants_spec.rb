@@ -184,6 +184,7 @@ feature 'Multiple claimants', js: true do
       end
 
       click_button 'Save and continue'
+      expect(page).not_to have_content("Group Claims")
       expect(claim.secondary_claimants.size).to eq 1
     end
   end
