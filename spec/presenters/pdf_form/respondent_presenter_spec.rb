@@ -1,15 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe PdfForm::RespondentPresenter, type: :presenter do
-  subject { described_class.new(respondent, index) }
-  let(:hash) { subject.to_h }
+  let(:pdf_form_respondent_presenter) { described_class.new(respondent, index) }
+
+  let(:hash) { pdf_form_respondent_presenter.to_h }
 
   describe '#to_h' do
-    let(:respondent) { Respondent.new(
-      name: 'Clide and Son',
-      work_address_post_code: 'A9 9AA',
-      acas_early_conciliation_certificate_number: acas_number,
-      no_acas_number_reason: acas_exemption)
+    let(:respondent) {
+      Respondent.new(
+        name: 'Clide and Son',
+        work_address_post_code: 'A9 9AA',
+        acas_early_conciliation_certificate_number: acas_number,
+        no_acas_number_reason: acas_exemption
+      )
     }
     let(:acas_number) { nil }
     let(:acas_exemption) { nil }
@@ -28,27 +31,27 @@ RSpec.describe PdfForm::RespondentPresenter, type: :presenter do
       context 'entered Acas number' do
         let(:acas_number) { '123' }
 
-        it 'includes an Acas number' do
-          expect(hash).to include('Text2' => acas_number)
-          expect(hash).to include('Check Box1' => 'Yes')
+        describe 'includes an Acas number' do
+          it { expect(hash).to include('Text2' => acas_number) }
+          it { expect(hash).to include('Check Box1' => 'Yes') }
         end
       end
 
       context 'did not enter Acas number' do
         let(:acas_number) { nil }
 
-        it 'does not include an Acas number' do
-          expect(hash).to include('Text2' => acas_number)
-          expect(hash).to include('Check Box1' => 'no')
+        describe 'does not include an Acas number' do
+          it { expect(hash).to include('Text2' => acas_number) }
+          it { expect(hash).to include('Check Box1' => 'no') }
         end
       end
 
       context 'selected Acas exemption reason' do
         let(:acas_exemption) { 'interim_relief' }
 
-        it 'checks correct check box' do
-          expect(hash).not_to include('Check Box3', 'Check Box4', 'Check Box5', 'Check Box7')
-          expect(hash).to include('Check Box6' => 'Yes')
+        describe 'checks correct check box' do
+          it { expect(hash).not_to include('Check Box3', 'Check Box4', 'Check Box5', 'Check Box7') }
+          it { expect(hash).to include('Check Box6' => 'Yes') }
         end
       end
 

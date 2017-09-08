@@ -5,7 +5,8 @@ RSpec.describe PdfFormBuilder, type: :service do
   context "ET1 Form template" do
     describe "ET1_PDF_PATH" do
       it "returns the path of the template form pdf" do
-        expect(described_class::ET1_PDF_PATH).to eq "#{Rails.root}/lib/assets/et001-eng.pdf"
+        file_path = Rails.root.to_s
+        expect(described_class::ET1_PDF_PATH).to eq "#{file_path}/lib/assets/et001-eng.pdf"
       end
     end
 

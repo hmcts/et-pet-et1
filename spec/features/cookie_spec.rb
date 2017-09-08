@@ -6,7 +6,7 @@ feature 'Cookies' do
   let(:your_progress)                      { '<h3>Your progress when using the service</h3>' }
   let(:intro_message)                      { '<h3>Our introductory message</h3>' }
 
-  before :each do
+  before do
     visit cookies_path
   end
 

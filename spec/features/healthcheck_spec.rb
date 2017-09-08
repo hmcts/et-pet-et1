@@ -5,7 +5,7 @@ RSpec.feature 'viewing the applicatons healthcheck', type: :feature do
   let(:json) { page.body }
   let(:status_code) { page.status_code }
 
-  before(:each) do
+  before do
     Healthcheck::COMPONENTS.each do |component|
       allow(component).to receive(:available?).and_return(true)
     end

@@ -1,7 +1,7 @@
 module FormMethods
-  SAVE_AND_RETURN_EMAIL = 'mail@example.com'
-  CLAIMANT_EMAIL = 'barrington@example.com'
-  REPRESENTATIVE_EMAIL = 'rep@example.com'
+  SAVE_AND_RETURN_EMAIL = 'mail@example.com'.freeze
+  CLAIMANT_EMAIL = 'barrington@example.com'.freeze
+  REPRESENTATIVE_EMAIL = 'rep@example.com'.freeze
 
   extend ActiveSupport::Concern
 
@@ -40,9 +40,9 @@ module FormMethods
       load "app/services/payment_gateway.rb"
 
       stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
-        to_return(:status => 200, :body => "", :headers => {})
+        to_return(status: 200, body: "", headers: {})
       stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ%5C&lang=1").
-                 to_return(:status => 200, :body => "", :headers => {})
+        to_return(status: 200, body: "", headers: {})
 
       PaymentGateway::TASK.run
       example.run
@@ -67,11 +67,11 @@ module FormMethods
     click_button 'Find my claim'
   end
 
-  def fill_in_password(word='green')
+  def fill_in_password(word = 'green')
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word='green', email_address=SAVE_AND_RETURN_EMAIL, email_address_element='email_address')
+  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'email_address')
     fill_in 'Create your memorable word', with: word
     fill_in email_address_element, with: email_address if email_address.present?
 
@@ -107,7 +107,7 @@ module FormMethods
     click_button 'Save and continue' unless options[:submit_form] == false
   end
 
-  def fill_in_additional_claimant_details(options={})
+  def fill_in_additional_claimant_details(options = {})
     if options[:additional_claimants]
       choose "Yes"
 
@@ -202,7 +202,7 @@ module FormMethods
     fill_in :employment_average_hours_worked_per_week, with: 37.5
     fill_in 'Pay before tax', with: 10000
     choose  'employment_gross_pay_period_type_weekly'
-    fill_in 'Pay after tax',  with: 6000
+    fill_in 'Pay after tax', with: 6000
     choose  'employment_net_pay_period_type_weekly'
 
     click_button 'Save and continue'
@@ -259,7 +259,7 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_your_fee(options={})
+  def fill_in_your_fee(options = {})
     if options[:additional_claimants]
       fill_in 'How many in your group want to apply for help with fees?',
         with: options[:seeking_remissions]
@@ -279,7 +279,7 @@ module FormMethods
   #   visit path
   # end
 
-  def complete_a_claim(options={})
+  def complete_a_claim(options = {})
     start_claim
     fill_in_password
     fill_in_personal_details(options)

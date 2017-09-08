@@ -9,7 +9,8 @@ RSpec.describe RepresentativeType, type: :service do
     'solicitor'                => 'Solicitor',
     'private_individual'       => 'Private Individual',
     'trade_association'        => 'Trade Association',
-    'other'                    => 'Other' }
+    'other'                    => 'Other'
+  }
 
   describe '::TYPES' do
     specify { expect(described_class::TYPES).to match_array type_mappings.keys }

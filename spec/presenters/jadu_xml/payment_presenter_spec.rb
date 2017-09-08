@@ -1,19 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe JaduXml::PaymentPresenter, type: :presenter do
-  let(:claim) { create :claim }
+  let(:jadu_xml_payment_presenter) { described_class.new claim }
 
-  subject { described_class.new claim }
+  let(:claim) { create :claim }
 
   describe "#fee" do
     it "returns the claim for the fee presenter" do
-      expect(subject.fee).to eq claim
+      expect(jadu_xml_payment_presenter.fee).to eq claim
     end
   end
 
   describe "#receipt" do
     it "returns the claims payment for the receipt presenter" do
-      expect(subject.receipt).to eq claim.payment
+      expect(jadu_xml_payment_presenter.receipt).to eq claim.payment
     end
   end
 end

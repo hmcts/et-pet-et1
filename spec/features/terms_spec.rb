@@ -14,24 +14,6 @@ feature 'Terms' do
   let(:data_protection_header)                         { '<h2 class="legend">Data Protection Act (DPA) 1998</h2>' }
   let(:disclaimer_header)                              { '<h2 class="legend">Disclaimer</h2>' }
 
-  before :each do
-    visit terms_path
-  end
-
-  scenario "User visits the terms page" do
-    expect(page.html).to include(general_header)
-    expect(page.html).to include(applicable_law_header)
-    expect(page.html).to include(applicable_law_responsible_use_header)
-    expect(page.html).to include(privacy_policy_header)
-    expect(page.html).to include(privacy_policy_personal_information_header)
-    expect(page.html).to include(privacy_policy_non_personal_information_header)
-    expect(page.html).to include(privacy_policy_data_storage_header)
-    expect(page.html).to include(online_payment_header)
-    expect(page.html).to include(session_management_header)
-    expect(page.html).to include(data_protection_header)
-    expect(page.html).to include(disclaimer_header)
-  end
-
   let(:general_link)                                  { "Terms and conditions - General" }
   let(:applicable_law_link)                           { "Applicable law" }
   let(:applicable_law_responsible_use_link)           { "Responsible use of this service" }
@@ -56,58 +38,76 @@ feature 'Terms' do
   let(:data_protection_div)                         { "#data_protection" }
   let(:disclaimer_div)                              { "#disclaimer" }
 
+  before do
+    visit terms_path
+  end
+
+  scenario "User visits the terms page" do
+    expect(page.html).to include(general_header)
+    expect(page.html).to include(applicable_law_header)
+    expect(page.html).to include(applicable_law_responsible_use_header)
+    expect(page.html).to include(privacy_policy_header)
+    expect(page.html).to include(privacy_policy_personal_information_header)
+    expect(page.html).to include(privacy_policy_non_personal_information_header)
+    expect(page.html).to include(privacy_policy_data_storage_header)
+    expect(page.html).to include(online_payment_header)
+    expect(page.html).to include(session_management_header)
+    expect(page.html).to include(data_protection_header)
+    expect(page.html).to include(disclaimer_header)
+  end
+
   scenario "User can click general link" do
-    expect(page).to have_link(general_link, href: "#{terms_path + general_div}")
+    expect(page).to have_link(general_link, href: (terms_path + general_div).to_s)
     expect(page.find(general_div)).not_to be_nil
   end
 
   scenario "User can click applicable law link" do
-    expect(page).to have_link(applicable_law_link, href: "#{terms_path + applicable_law_div}")
+    expect(page).to have_link(applicable_law_link, href: (terms_path + applicable_law_div).to_s)
     expect(page.find(applicable_law_div)).not_to be_nil
   end
 
   scenario "User can click applicable law responsible use link" do
-    expect(page).to have_link(applicable_law_responsible_use_link, href: "#{terms_path + applicable_law_responsible_use_div}")
+    expect(page).to have_link(applicable_law_responsible_use_link, href: (terms_path + applicable_law_responsible_use_div).to_s)
     expect(page.find(applicable_law_div)).not_to be_nil
   end
 
   scenario "User can click privacy policy link" do
-    expect(page).to have_link(privacy_policy_link, href: "#{terms_path + privacy_policy_div}")
+    expect(page).to have_link(privacy_policy_link, href: (terms_path + privacy_policy_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click privacy policy personal information link" do
-    expect(page).to have_link(privacy_policy_personal_information_link, href: "#{terms_path + privacy_policy_personal_information_div}")
+    expect(page).to have_link(privacy_policy_personal_information_link, href: (terms_path + privacy_policy_personal_information_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click privacy policy non personal information link" do
-    expect(page).to have_link(privacy_policy_non_personal_information_link, href: "#{terms_path + privacy_policy_non_personal_information_div}")
+    expect(page).to have_link(privacy_policy_non_personal_information_link, href: (terms_path + privacy_policy_non_personal_information_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click privacy policy data storage link" do
-    expect(page).to have_link(privacy_policy_data_storage_link, href: "#{terms_path + privacy_policy_data_storage_div}")
+    expect(page).to have_link(privacy_policy_data_storage_link, href: (terms_path + privacy_policy_data_storage_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click online payment link" do
-    expect(page).to have_link(online_payment_link, href: "#{terms_path + online_payment_div}")
+    expect(page).to have_link(online_payment_link, href: (terms_path + online_payment_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click session management link" do
-    expect(page).to have_link(session_management_link, href: "#{terms_path + session_management_div}")
+    expect(page).to have_link(session_management_link, href: (terms_path + session_management_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click data protection link" do
-    expect(page).to have_link(data_protection_link, href: "#{terms_path + data_protection_div}")
+    expect(page).to have_link(data_protection_link, href: (terms_path + data_protection_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click disclaimer link" do
-    expect(page).to have_link(disclaimer_link, href: "#{terms_path + disclaimer_div}")
+    expect(page).to have_link(disclaimer_link, href: (terms_path + disclaimer_div).to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 end

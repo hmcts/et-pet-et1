@@ -4,15 +4,6 @@ feature 'Multiple respondents' do
   include FormMethods
 
   let(:claim) { Claim.create password: 'lollolol' }
-
-  before do
-    stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
-      with(body: "postcode=SW1A%201AA", headers: { 'Accept' => 'application/json' })
-
-    visit new_user_session_path
-    fill_in_return_form claim.reference, 'lollolol'
-  end
-
   let(:attributes) do
     {
       'Name'                    => 'Butch McTaggert',
@@ -29,6 +20,14 @@ feature 'Multiple respondents' do
     attributes.
       update('Name' => 'Pablo Noncer').
       except('Acas number')
+  end
+
+  before do
+    stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
+      with(body: "postcode=SW1A%201AA", headers: { 'Accept' => 'application/json' })
+
+    visit new_user_session_path
+    fill_in_return_form claim.reference, 'lollolol'
   end
 
   describe 'adding respondents' do

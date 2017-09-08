@@ -4,7 +4,7 @@ RSpec.describe AdditionalClaimantsCsv::ErrorConversion, type: :service do
 
   let(:header) {
     ["Title", "First name", "Last name", "Date of birth", "Building number or name",
-      "Street", "Town/city", "County", "Postcode"]
+     "Street", "Town/city", "County", "Postcode"]
   }
 
   let(:model_errros) { ActiveModel::Errors.new(Object.new) }
@@ -17,12 +17,12 @@ RSpec.describe AdditionalClaimantsCsv::ErrorConversion, type: :service do
     end
 
     context "adapts the error message to include the header it relates to" do
-      it "retruns an array of error messages" do
-        errors = described_class.new(header, model_errros).convert
+      describe "retruns an array of error messages" do
+        let(:errors) { described_class.new(header, model_errros).convert }
 
-        expect(errors.size).to eq 2
-        expect(errors.first).to eq "Title - such invalid title"
-        expect(errors.second).to eq "Street - so very long text"
+        it { expect(errors.size).to eq 2 }
+        it { expect(errors.first).to eq "Title - such invalid title" }
+        it { expect(errors.second).to eq "Street - so very long text" }
       end
     end
   end

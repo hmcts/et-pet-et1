@@ -5,11 +5,6 @@ feature 'Multiple claimants' do
 
   let(:claim) { Claim.create password: 'lollolol' }
 
-  before do
-    visit new_user_session_path
-    fill_in_return_form claim.reference, 'lollolol'
-  end
-
   let(:attributes) do
     {
       'First name' => 'Persephone',
@@ -29,6 +24,11 @@ feature 'Multiple claimants' do
 
   let(:secondary_attributes) do
     attributes.update 'First name' => 'Pegasus'
+  end
+
+  before do
+    visit new_user_session_path
+    fill_in_return_form claim.reference, 'lollolol'
   end
 
   describe 'adding claimants' do
@@ -71,7 +71,7 @@ feature 'Multiple claimants' do
       end
 
       click_button 'Save and continue'
-      expect(claim.secondary_claimants.pluck(:first_name)).to match_array %w<Persephone Pegasus>
+      expect(claim.secondary_claimants.pluck(:first_name)).to match_array ['Persephone', 'Pegasus']
     end
 
     scenario 'a user can still save & complete later' do
@@ -104,7 +104,7 @@ feature 'Multiple claimants' do
         click_button "Add more claimants"
 
         within '#resource_1' do
-          sixteen_years_ago = (Time.now - 15.years)
+          sixteen_years_ago = (Time.current - 15.years)
           fill_in 'Day', with: sixteen_years_ago.day.to_s
           fill_in 'Month', with: sixteen_years_ago.month.to_s
           fill_in 'Year', with: sixteen_years_ago.year.to_s

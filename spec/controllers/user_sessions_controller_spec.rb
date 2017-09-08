@@ -25,7 +25,7 @@ RSpec.describe UserSessionsController, type: :controller do
         before { allow(user_session).to receive(:valid?).and_return false }
 
         it 'does not creates a login event' do
-          expect(claim).to_not receive(:create_event)
+          expect(claim).not_to receive(:create_event)
           post :create, user_session: { reference: 'lel', password: 'lewl' }
         end
       end
@@ -65,7 +65,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
         context 'when not sending email' do
           it 'does not log an email event' do
-            expect(claim).to_not receive(:create_event).with 'deliver_access_details', message: "Sent to #{email}"
+            expect(claim).not_to receive(:create_event).with 'deliver_access_details', message: "Sent to #{email}"
             delete :destroy
           end
         end
@@ -74,7 +74,7 @@ RSpec.describe UserSessionsController, type: :controller do
   end
 
   describe 'GET touch' do
-    let(:time) { DateTime.new 2015, 01, 01, 01 }
+    let(:time) { DateTime.new(2015, 1, 1, 1).utc }
 
     before { session[:claim_reference] = claim.reference }
 

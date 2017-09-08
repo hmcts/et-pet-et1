@@ -9,7 +9,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
 
       it 'delivers access details via email' do
         expect { described_class.deliver_later(claim) }.
-          to change { ActionMailer::Base.deliveries.count }.by(1)
+          to change(ActionMailer::Base.deliveries, :count).by(1)
       end
     end
 
@@ -19,7 +19,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
 
       it 'doesnt deliver access details via email' do
         expect { described_class.deliver_later(claim) }.
-          not_to change { ActionMailer::Base.deliveries.count }
+          not_to change(ActionMailer::Base.deliveries, :count)
       end
     end
   end

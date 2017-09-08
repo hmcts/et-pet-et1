@@ -21,16 +21,7 @@ AllCops:
     - 'lib/log_stuff.rb'
     - 'config/routes.rb'
     - 'Gemfile'
-    - 'spec/admin/**/*'
-    - 'spec/controllers/**/*'
-    - 'spec/features/**/*'
-    - 'spec/jobs/**/*'
-    - 'spec/mailer_previews/**/*'
-    - 'spec/mailers/**/*'
-    - 'spec/presenters/**/*'
-    - 'spec/services/**/*'
     - 'spec/support/**/*'
-    - 'spec/factories.rb'
 
 Rails:
   Enabled: true
@@ -181,6 +172,9 @@ Style/WordArray:
 
 Style/SymbolArray:
   EnforcedStyle: brackets
+
+Style/RegexpLiteral:
+  Enabled: false
 
 RSpec/NestedGroups:
   Max: 10

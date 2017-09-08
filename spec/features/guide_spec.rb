@@ -9,17 +9,6 @@ feature 'Guide', type: :feature do
     let(:acas_exceptions_header)      { '<h3>Exceptions to early conciliation</h3>' }
     let(:writing_yours_header)        { '<h2>Writing your claim statement</h2>' }
 
-    before :each do
-      visit guide_path
-    end
-
-    scenario "User visits the guides page" do
-      expect(page.html).to include(time_limits_header)
-      expect(page.html).to include(acas_header)
-      expect(page.html).to include(acas_exceptions_header)
-      expect(page.html).to include(writing_yours_header)
-    end
-
     let(:time_limits_link)          { "Time limits" }
     let(:acas_link)                 { "Acas: early conciliation" }
     let(:acas_exceptions_link)      { "Exceptions to early conciliation" }
@@ -30,18 +19,29 @@ feature 'Guide', type: :feature do
     let(:acas_exceptions_div)       { "#acas_early_conciliation_exceptions" }
     let(:writing_yours_div)         { "#writing_your_claim_statement" }
 
+    before do
+      visit guide_path
+    end
+
+    scenario "User visits the guides page" do
+      expect(page.html).to include(time_limits_header)
+      expect(page.html).to include(acas_header)
+      expect(page.html).to include(acas_exceptions_header)
+      expect(page.html).to include(writing_yours_header)
+    end
+
     scenario "User can click time time_limits_link" do
-      expect(page).to have_link(time_limits_link, href: "#{guide_path + time_limits_div}")
+      expect(page).to have_link(time_limits_link, href: (guide_path + time_limits_div).to_s)
       expect(page.find(time_limits_div)).not_to be_nil
     end
 
     scenario "User can click time acas_link" do
-      expect(page).to have_link(acas_link, href: "#{guide_path + acas_div}")
+      expect(page).to have_link(acas_link, href: (guide_path + acas_div).to_s)
       expect(page.find(acas_div)).not_to be_nil
     end
 
     scenario "User can click time acas_exceptions_link" do
-      expect(page).to have_link(acas_exceptions_link, href: "#{guide_path + acas_exceptions_div}")
+      expect(page).to have_link(acas_exceptions_link, href: (guide_path + acas_exceptions_div).to_s)
       expect(page.find(acas_exceptions_div)).not_to be_nil
     end
 

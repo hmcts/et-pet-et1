@@ -4,7 +4,7 @@ feature 'Generating XML for a claim', type: :feature do
   let(:claim_xml)     { JaduXml::ClaimPresenter.new(claim).to_xml }
   let(:doc)           { Nokogiri::XML(claim_xml).remove_namespaces! }
 
-  around { |example| travel_to(Date.new 2014, 9, 29) { example.run } }
+  around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
   def xpath(path)
     doc.xpath(path).text
@@ -168,7 +168,7 @@ feature 'Generating XML for a claim', type: :feature do
 
       it 'contains information regarding secondary claimants' do
         expect(xpath_collection("//Claimant[not(GroupContact='true')]/Forename")).
-          to match_array %w<dodge horsey jakub michael shergar>
+          to match_array ['dodge', 'horsey', 'jakub', 'michael', 'shergar']
       end
     end
 
@@ -185,11 +185,12 @@ feature 'Generating XML for a claim', type: :feature do
 
       context 'renders nil elements' do
         let(:claim) { create :claim, primary_respondent: respondent }
-        let(:respondent) { FactoryGirl.create :respondent,
-          :without_work_address,
-          work_address_telephone_number: nil,
-          address_telephone_number: nil
-        }
+        let(:respondent) do
+          FactoryGirl.create :respondent,
+            :without_work_address,
+            work_address_telephone_number: nil,
+            address_telephone_number: nil
+        end
 
         it_behaves_like "validates against the JADU XSD"
 
@@ -263,6 +264,7 @@ feature 'Generating XML for a claim', type: :feature do
         describe 'PRN(alias for fee group reference)' do
           context 'fgr request failed' do
             let(:claim) { create :claim, :no_fee_group_reference }
+
             specify { expect(xpath('//Payment/Fee/PRN')).to be_empty }
           end
 
@@ -307,7 +309,7 @@ feature 'Generating XML for a claim', type: :feature do
 
       it 'has upto 3 filenames' do
         expect(xpath_collection('//Files/File/Filename')).
-          to match_array %w<file.csv file.rtf et1_barrington_wrigglesworth.pdf>
+          to match_array ['file.csv', 'file.rtf', 'et1_barrington_wrigglesworth.pdf']
       end
 
       it 'has upto 3 file checksums' do

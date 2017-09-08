@@ -30,13 +30,13 @@ FactoryGirl.define do
     is_whistleblowing         false
     miscellaneous_information 'Still really sad'
 
-    discrimination_claims  %i<sex_including_equal_pay disability race>
-    pay_claims             %i<redundancy notice holiday arrears other>
-    desired_outcomes       %i<compensation_only tribunal_recommendation>
+    discrimination_claims  [:sex_including_equal_pay, :disability, :race]
+    pay_claims             [:redundancy, :notice, :holiday, :arrears, :other]
+    desired_outcomes       [:compensation_only, :tribunal_recommendation]
 
     password 'lollolol'
 
-    submitted_at { Time.now }
+    submitted_at { Time.current }
 
     trait :not_submitted do
       submitted_at nil
@@ -62,7 +62,7 @@ FactoryGirl.define do
     end
 
     trait :with_pdf do
-      after(:create) { |claim| claim.generate_pdf! }
+      after(:create, &:generate_pdf!)
     end
 
     trait :payment_no_remission do
@@ -119,7 +119,7 @@ FactoryGirl.define do
     end
 
     trait :respondent_with_acas_number do
-      association :primary_respondent, factory: %i<respondent with_acas_number>
+      association :primary_respondent, factory: [:respondent, :with_acas_number]
     end
   end
 

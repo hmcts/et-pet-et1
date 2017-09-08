@@ -7,23 +7,24 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   let!(:claim_with_attachments) do
     create :claim, :submitted, :with_pdf,
       fee_group_reference: '511234567800',
-      confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
+      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
   let!(:enqueued_claim) do
     create :claim, :with_pdf,
-           fee_group_reference: '511234567800',
-           confirmation_email_recipients: %w<such@lolz.com wow@lol.biz>
+      fee_group_reference: '511234567800',
+      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
-  around { |example| travel_to(Date.new(2015, 06, 05)) { example.run } }
+  around { |example| travel_to(Date.new(2015, 6, 5)) { example.run } }
 
   scenario 'viewing metadata about a particular claim' do
     visit admin_claim_path claim_with_attachments.reference
 
     expect(page).to have_text claim_with_attachments.reference
 
-    { id: "Id #{claim_with_attachments.id}",
+    {
+      id: "Id #{claim_with_attachments.id}",
       submitted_to_jadu: 'Submitted To Jadu June 05, 2015 00:00',
       payment_required: 'Payment Required Yes',
       payment_received: 'Payment Received Yes',
@@ -39,7 +40,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   scenario 'viewing event data related to a particular claim' do
     visit admin_claim_path claim_with_attachments.reference
 
-    { event: 'created',
+    {
+      event: 'created',
       actor: 'app',
       created_at: 'June 05, 2015 00:00',
       message: ''
@@ -61,7 +63,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the pdf' do
-    allow_any_instance_of(Claim).to receive(:pdf_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:pdf_url).
       and_return('http://lol.biz/such.pdf')
 
     visit admin_claim_path claim_with_attachments.reference
@@ -70,7 +73,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the claim details rtf' do
-    allow_any_instance_of(Claim).to receive(:claim_details_rtf_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:claim_details_rtf_url).
       and_return('http://lol.biz/deets.rtf')
 
     visit admin_claim_path claim_with_attachments.reference
@@ -79,7 +83,8 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   end
 
   scenario 'downloading the additional claimants csv' do
-    allow_any_instance_of(Claim).to receive(:additional_claimants_csv_url).
+    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
+    allow(claim_with_attachments).to receive(:additional_claimants_csv_url).
       and_return('http://lol.biz/additionals.csv')
 
     visit admin_claim_path claim_with_attachments.reference
@@ -159,7 +164,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
         other_outcome: nil
     end
 
-    before {  visit admin_claim_path claim_without_large_text_inputs.reference }
+    before { visit admin_claim_path claim_without_large_text_inputs.reference }
 
     scenario 'no option to download claim details as a text file' do
       expect(page).not_to have_link 'Claim details'

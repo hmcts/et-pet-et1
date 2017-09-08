@@ -1,28 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe ClaimPresenter, type: :presenter do
-  let(:claim) { Claim.new }
-  subject { described_class.new claim }
+  let(:claim_presenter) { described_class.new claim }
 
+  let(:claim) { Claim.new }
   let(:sections) do
-    %w<
-      claimant additional_claimants representative respondent additional_respondents
-      employment claim_type claim_details claim_outcome additional_information
-    >
+    ['claimant', 'additional_claimants', 'representative', 'respondent', 'additional_respondents', 'employment', 'claim_type', 'claim_details', 'claim_outcome', 'additional_information']
   end
 
   it 'encapsulates a collection of presenters corresponding to each section' do
     sections.each do |s|
-      expect(subject.send s).to be_a Presenter
+      expect(claim_presenter.send(s)).to be_a Presenter
     end
   end
 
   describe '#each_section' do
-    let(:presenters) { sections.map { |s| subject.send s } }
+    let(:presenters) { sections.map { |s| claim_presenter.send s } }
 
     it 'yields each section name and corresponding presenter' do
-      expect { |b| subject.each_section &b }.
-        to yield_successive_args *sections.zip(presenters)
+      expect { |b| claim_presenter.each_section(&b) }.
+        to yield_successive_args(*sections.zip(presenters))
     end
   end
 
@@ -32,13 +29,13 @@ RSpec.describe ClaimPresenter, type: :presenter do
     context 'additionals csv is present' do
       before { claim.additional_claimants_csv = Tempfile.new('claimants.csv') }
       it "initializes a ClaimantCsvPresenter" do
-        expect(subject.send section).to be_a ClaimantCsvPresenter
+        expect(claim_presenter.send(section)).to be_a ClaimantCsvPresenter
       end
     end
 
     context 'no csv present' do
       it "initializes a ClaimantCsvPresenter" do
-        expect(subject.send section).to be_a ClaimantCollectionPresenter
+        expect(claim_presenter.send(section)).to be_a ClaimantCollectionPresenter
       end
     end
   end

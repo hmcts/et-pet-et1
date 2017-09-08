@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe ClaimFeeCalculator, type: :remissions do
   let(:claim) { Claim.new }
 
@@ -31,18 +33,18 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 500" do
-            (2..10).each { expect(calculation.application_fee).to eq 500 }
+            9.times { expect(calculation.application_fee).to eq 500 }
           end
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 1000" do
-            (11..200).each { expect(calculation.application_fee).to eq 1000 }
+            190.times { expect(calculation.application_fee).to eq 1000 }
           end
         end
 
@@ -79,18 +81,18 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 320" do
-            (2..10).each { expect(calculation.application_fee).to eq 320 }
+            9.times { expect(calculation.application_fee).to eq 320 }
           end
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 640" do
-            (11..200).each { expect(calculation.application_fee).to eq 640 }
+            190.times { expect(calculation.application_fee).to eq 640 }
           end
         end
 
@@ -129,18 +131,18 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 1900" do
-            (2..10).each { expect(calculation.hearing_fee).to eq 1900 }
+            9.times { expect(calculation.hearing_fee).to eq 1900 }
           end
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 3800" do
-            (11..200).each { expect(calculation.hearing_fee).to eq 3800 }
+            190.times { expect(calculation.hearing_fee).to eq 3800 }
           end
         end
 
@@ -177,18 +179,18 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
         end
 
         context "with 2..10 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(2..10) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(2..10)) }
 
           it "is 460" do
-            (2..10).each { expect(calculation.hearing_fee).to eq 460 }
+            9.times { expect(calculation.hearing_fee).to eq 460 }
           end
         end
 
         context "with 11..200 claimants" do
-          before { allow(claim).to receive(:claimant_count).and_return *(11..200) }
+          before { allow(claim).to receive(:claimant_count).and_return(*(11..200)) }
 
           it "is 920" do
-            (11..200).each { expect(calculation.hearing_fee).to eq 920 }
+            190.times { expect(calculation.hearing_fee).to eq 920 }
           end
         end
 
@@ -291,6 +293,7 @@ RSpec.describe ClaimFeeCalculator, type: :remissions do
       context "with 201 or more claimants" do
         context 'when number of claimants - number of claimants applying for remission' do
           let(:claimant_count) { 201 }
+
           context 'is less than or equal to 6' do
 
             it 'is equal to regular_fee / 6 * (number_of_claimants - number_of_claimants_applying_for_remission)' do

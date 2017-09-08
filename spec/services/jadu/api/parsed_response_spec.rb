@@ -25,7 +25,7 @@ RSpec.describe Jadu::API::ParsedResponse do
 
   it '#values_at' do
     expect(described_class.new(response).values_at('feeGroupReference', 'status')).
-      to eq %w<991000185700 ok>
+      to eq ['991000185700', 'ok']
   end
 
   it '#to_h' do

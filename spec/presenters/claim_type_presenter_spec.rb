@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe ClaimTypePresenter, type: :presenter do
-  subject { described_class.new claim_detail }
+  let(:claim_type_presenter) { described_class.new claim_detail }
 
   let(:claim_detail) do
-    double 'claim_detail',
+    instance_double 'Claim',
       is_unfair_dismissal: true, is_protective_award: false,
       discrimination_claims: [:sex_including_equal_pay, :race, :sexual_orientation],
       pay_claims: [:redundancy, :other], other_claim_details: "yo\r\nyo",
@@ -17,7 +17,7 @@ RSpec.describe ClaimTypePresenter, type: :presenter do
 
   describe '#types' do
     it 'concatenates is_unfair_dismissal, discrimination_claims, and pay_claims' do
-      expect(subject.types).to eq(
+      expect(claim_type_presenter.types).to eq(
         type_text('Unfair dismissal (including constructive dismissal)') +
         type_text('Redundancy pay') +
         type_text('Other payments') +
@@ -28,7 +28,7 @@ RSpec.describe ClaimTypePresenter, type: :presenter do
     end
   end
 
-  its(:is_whistleblowing) { is_expected.to eq("Yes") }
-  its(:send_claim_to_whistleblowing_entity) { is_expected.to eq("No") }
+  it { expect(claim_type_presenter.is_whistleblowing).to eq("Yes") }
+  it { expect(claim_type_presenter.send_claim_to_whistleblowing_entity).to eq("No") }
 
 end
