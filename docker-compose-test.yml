@@ -38,9 +38,9 @@ services:
       - npm_cache:/app/node_modules
     command: /bin/bash -c "bundle && npm install && rake db:create db:migrate assets:precompile cucumber"
   db:
-    image: postgres:9.3
+    image: postgres:9.5
   selenium:
-    image: selenium/standalone-chrome:3.5.3
+    image: selenium/standalone-chrome-debug
 volumes:
   rubygems_cache:
   npm_cache:

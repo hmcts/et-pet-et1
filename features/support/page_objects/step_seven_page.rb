@@ -26,7 +26,7 @@ class StepSevenPage < BasePage
       end
       section :notice_period, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Did you work (or get paid for) a period of notice?")]] }) do
         def set(value)
-          choose value, name: name = "employment[worked_notice_period_or_paid_in_lieu]"
+          choose value, name: "employment[worked_notice_period_or_paid_in_lieu]"
         end
       end
       section :notice_period_value, '.employment_notice_pay_period_count' do
