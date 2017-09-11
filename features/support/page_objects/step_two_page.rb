@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 class StepTwoPage < BasePage
 
   section :about_the_claimant, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the claimant")]] }) do
@@ -53,3 +54,4 @@ class StepTwoPage < BasePage
   end
   element :save_and_continue, 'form.edit_claimant input[value="Save and continue"]'
 end
+# rubocop:enable Metrics/BlockLength
