@@ -5,7 +5,7 @@ class StepThreePage < BasePage
     def set(value)
       choose(value, name: "additional_claimants[of_collection_type]")
     end
-    %w[two three four five six].each_with_index do |number, idx|
+    ['two', 'three', 'four', 'five', 'six'].each_with_index do |number, idx|
 
       section :"about_claimant_#{number}", :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant #{idx + 2}")]] }) do
         element :title, "select[name=\"additional_claimants[collection_attributes][#{idx}][title]\"]"

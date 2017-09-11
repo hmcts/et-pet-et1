@@ -104,7 +104,7 @@ feature 'Multiple claimants', js: true do
 
         click_button "Add more claimants"
         within '#resource_1' do
-          sixteen_years_ago = (Time.now - 14.years)
+          sixteen_years_ago = (Time.current - 14.years)
           fill_in 'Day', with: sixteen_years_ago.day.to_s
           fill_in 'Month', with: sixteen_years_ago.month.to_s
           fill_in 'Year', with: sixteen_years_ago.year.to_s
