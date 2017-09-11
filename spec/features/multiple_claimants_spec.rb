@@ -237,11 +237,6 @@ feature 'Multiple claimants', js: true do
         fill_in field, with: value
       end
     end
-    # The sleep below should not be required - but for some reason the save and continue button
-    # sometimes works and sometimes doesnt so this is an experiment
-    # @TODO Remove sleep below
-    sleep 1
-
     click_button 'Save and continue'
     expect(page).not_to have_content('Group claims')
   end
