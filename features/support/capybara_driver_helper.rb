@@ -1,5 +1,5 @@
 Capybara.configure do |config|
-  driver = ENV['DRIVER']&.to_sym || :poltergeist
+  driver = ENV['DRIVER']&.to_sym || :chrome
   config.default_driver = driver
   config.default_max_wait_time = 45
   config.match = :prefer_exact
