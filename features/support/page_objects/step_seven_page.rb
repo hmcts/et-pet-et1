@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 class StepSevenPage < BasePage
 
   section :your_employment_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your employment details")]] }) do
@@ -66,3 +67,4 @@ class StepSevenPage < BasePage
   end
   element :save_and_continue, 'form.edit_employment input[value="Save and continue"]'
 end
+# rubocop:enable Metrics/BlockLength

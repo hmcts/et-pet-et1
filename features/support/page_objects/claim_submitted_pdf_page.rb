@@ -504,7 +504,7 @@ class PdfContent
   def find(selector_type, selector, _options = {})
     raise "Only supports xpath" unless selector_type == :xpath
     raise "invalid xpath selector '#{selector}' Only supports xpath eg //field[@name=xxxx]" unless selector.start_with?('//field[@name=')
-    field_name = selector.match(/^\/\/field\[@name=(.*)\]$/)[1]
+    field_name = selector.match(%r{^\/\/field\[@name=(.*)\]$})[1]
     result = pdf_fields.find do |field|
       field.name == field_name
     end

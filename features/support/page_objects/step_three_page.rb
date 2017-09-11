@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 class StepThreePage < BasePage
 
   section :group_claims, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("People making a claim with you")]] }) do
@@ -33,3 +34,4 @@ class StepThreePage < BasePage
   end
   element :save_and_continue, 'form.edit_additional_claimants input[value="Save and continue"]'
 end
+# rubocop:enable Metrics/BlockLength
