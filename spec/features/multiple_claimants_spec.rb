@@ -239,6 +239,6 @@ feature 'Multiple claimants', js: true do
     end
 
     click_button 'Save and continue'
-    expect(current_path).not_to eql claim_additional_claimants_path
+    expect(page).not_to have_content('Group claims')
   end
 end
