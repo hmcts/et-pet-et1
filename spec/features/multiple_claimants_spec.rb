@@ -146,7 +146,7 @@ feature 'Multiple claimants', js: true do
       end
     end
 
-    scenario "display DoB format error message" do
+    scenario "display DoB format error message", js: false do
       expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
@@ -174,7 +174,9 @@ feature 'Multiple claimants', js: true do
   end
 
   describe 'destroying claimants' do
-    before { add_some_additional_claimants }
+    before do
+      add_some_additional_claimants
+    end
 
     scenario 'deleting arbitrary claimants' do
       visit claim_additional_claimants_path
@@ -182,6 +184,7 @@ feature 'Multiple claimants', js: true do
       within '#resource_1' do
         click_on 'Remove this claimant'
       end
+      expect(page).not_to have_css('#resource_1')
 
       click_button 'Save and continue'
       expect(page).not_to have_content("Group claims")
@@ -217,7 +220,6 @@ feature 'Multiple claimants', js: true do
 
   def add_some_additional_claimants
     visit claim_additional_claimants_path
-
     choose 'Yes'
 
     select 'Mrs', from: 'Title'
@@ -237,5 +239,6 @@ feature 'Multiple claimants', js: true do
     end
 
     click_button 'Save and continue'
+    expect(current_path).not_to eql claim_additional_claimants_path
   end
 end

@@ -1,0 +1,8 @@
+#!/bin/sh -x
+
+rm log/test.log
+while rspec "$@";
+do
+    rm log/test.log
+done
+
