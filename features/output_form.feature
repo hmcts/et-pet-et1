@@ -1,9 +1,9 @@
 Feature: Output Form
 
   @mock_jadu
-  Scenario: Scenario 1
+  Scenario: Full claim with many claimants and respondents
     Given I am on the new claim page
-    And I start a new claim
+    When I start a new claim
     And I save my claim with a valid email address and password
     And I fill in my claimant details with:
       | field             | value                           |
@@ -200,7 +200,7 @@ Feature: Output Form
     And I submit my claim
     And all background jobs for claim submissions are processed
     And I save a copy of my claim
-    And the claim pdf file's Your details section should contain:
+    Then the claim pdf file's Your details section should contain:
       | field                        | value                       |
       | title                        | Mr                          |
       | first_name                   | First                       |
