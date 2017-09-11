@@ -1,6 +1,6 @@
 class StepFivePage < BasePage
 
-  section :about_the_respondent, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the respondent")]]}) do
+  section :about_the_respondent, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the respondent")]] }) do
     element :name, 'input[name="respondent[name]"]'
     element :building, 'input[name="respondent[address_building]"]'
     element :street, 'input[name="respondent[address_street]"]'
@@ -9,7 +9,7 @@ class StepFivePage < BasePage
     element :post_code, 'input[name="respondent[address_post_code]"]'
     element :telephone_number, 'input[name="respondent[address_telephone_number]"]'
   end
-  section :your_work_address, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your work address")]]}) do
+  section :your_work_address, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your work address")]] }) do
     element :building, 'input[name="respondent[work_address_building]"]'
     element :street, 'input[name="respondent[work_address_street]"]'
     element :locality, 'input[name="respondent[work_address_locality]"]'
@@ -22,7 +22,7 @@ class StepFivePage < BasePage
       end
     end
   end
-  section :acas, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Acas early conciliation certificate number")]]}) do
+  section :acas, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Acas early conciliation certificate number")]] }) do
     element :certificate_number, 'input[name="respondent[acas_early_conciliation_certificate_number]"]'
   end
   element :save_and_continue, 'form.edit_respondent input[value="Save and continue"]'

@@ -1,17 +1,17 @@
 class StepFourPage < BasePage
 
-  section :representatives_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("The person representing you")]]}) do
+  section :representatives_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("The person representing you")]] }) do
     section :representative, ".representative_has_representative" do
       def set(value)
         choose(value)
       end
     end
-    section :about_your_representative, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your representative")]]}) do
+    section :about_your_representative, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your representative")]] }) do
       element :type, 'select[name="representative[type]"]'
       element :organisation_name, 'input[name="representative[organisation_name]"]'
       element :name, 'input[name="representative[name]"]'
     end
-    section :contact_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative’s contact details")]]}) do
+    section :contact_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative’s contact details")]] }) do
       element :building, 'input[name="representative[address_building]"]'
       element :street, 'input[name="representative[address_street]"]'
       element :locality, 'input[name="representative[address_locality]"]'

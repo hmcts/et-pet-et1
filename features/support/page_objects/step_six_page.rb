@@ -1,11 +1,11 @@
 class StepSixPage < BasePage
 
-  section :more_than_one_employer, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claims against more than one employer")]]}) do
+  section :more_than_one_employer, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claims against more than one employer")]] }) do
     def set(value)
       choose value, name: "additional_respondents[of_collection_type]"
     end
-    ["two", "three", "four", "five"].each_with_index do |number, idx|
-      section :"respondent_#{number}", :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Respondent #{idx + 2}")]]}) do |*args|
+    %w[two three four five].each_with_index do |number, idx|
+      section :"respondent_#{number}", :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Respondent #{idx + 2}")]] }) do |*_args|
         element :name, "input[name=\"additional_respondents[collection_attributes][#{idx}][name]\"]"
         element :building, "input[name=\"additional_respondents[collection_attributes][#{idx}][address_building]\"]"
         element :street, "input[name=\"additional_respondents[collection_attributes][#{idx}][address_street]\"]"

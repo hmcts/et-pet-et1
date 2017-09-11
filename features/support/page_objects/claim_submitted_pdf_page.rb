@@ -7,7 +7,6 @@ class ClaimSubmittedPdfPage < BasePage
     @pdf_content ||= PdfContent.new(current_url)
   end
 
-
   def find(*args)
     return super unless args.first == :pdf_document
     @pdf_document ||= Capybara::Node::Element.new Capybara.current_session, PdfDocument.new(current_url), nil, nil
@@ -155,9 +154,9 @@ class ClaimSubmittedPdfPage < BasePage
       section :paid_for_notice_period, :pdf_field_named, '6.3 tick boxes' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
@@ -186,9 +185,9 @@ class ClaimSubmittedPdfPage < BasePage
       section :have_another_job, :pdf_field_named, '7.1 tick boxes' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
@@ -205,135 +204,135 @@ class ClaimSubmittedPdfPage < BasePage
       section :discriminated_age, :pdf_field_named, '8.1 age' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_race, :pdf_field_named, '8.1 race' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_gender_reassignment, :pdf_field_named, '8.1 gender reassignment' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_disability, :pdf_field_named, '8.1 disability' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_pregnancy, :pdf_field_named, '8.1 pregnancy' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_marriage, :pdf_field_named, '8.1 marriage' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_sexual_orientation, :pdf_field_named, '8.1 sexual orientation' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_sex, :pdf_field_named, '8.1 sex' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :discriminated_religion, :pdf_field_named, '8.1 religion' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :claiming_redundancy_payment, :pdf_field_named, '8.1 redundancy' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :owed_notice_pay, :pdf_field_named, '8.1 notice pay' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :owed_holiday_pay, :pdf_field_named, '8.1 holiday pay' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :owed_arrears_of_pay, :pdf_field_named, '8.1 arrears of pay' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :owed_other_payments, :pdf_field_named, '8.1 other payments' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :other_type_of_claim, :pdf_field_named, '8.1 another type of claim' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
@@ -345,18 +344,18 @@ class ClaimSubmittedPdfPage < BasePage
       section :prefer_re_instatement, :pdf_field_named, '9.1 old job back' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
       section :prefer_re_engagement, :pdf_field_named, '9.1 another job' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
@@ -368,9 +367,9 @@ class ClaimSubmittedPdfPage < BasePage
       section :prefer_recommendation, :pdf_field_named, '9.1 recommendation' do
         def value
           case root_element.value.downcase
-            when 'off' then 'No'
-            when 'on' then 'Yes'
-            else ''
+          when 'off' then 'No'
+          when 'on' then 'Yes'
+          else ''
           end
         end
       end
@@ -401,8 +400,8 @@ class ClaimSubmittedPdfPage < BasePage
         def value
           v = root_element.value.titleize
           case v
-            when "Off" then ""
-            else v
+          when "Off" then ""
+          else v
           end
         end
       end
@@ -444,8 +443,8 @@ class ClaimSubmittedPdfPage < BasePage
       section :satisfied, :pdf_field_named, '14 satisfied tick box' do
         def value
           case root_element.value.downcase
-            when 'yes' then 'Yes'
-            else 'No'
+          when 'yes' then 'Yes'
+          else 'No'
           end
         end
       end
@@ -475,10 +474,12 @@ class PdfFieldSet
     self.pdf_content = pdf_content
     self.root = fieldset_root
   end
+
   def find_xpath(*args)
     return [self.class.new(pdf_content, args.first)] if args.first.start_with?('//fieldset')
     [pdf_content.find(:xpath, args.first)]
   end
+
   def visible?
     true
   end
@@ -499,14 +500,14 @@ class PdfContent
     return false
   end
 
-  def find(selector_type, selector, options = {})
+  def find(selector_type, selector, _options = {})
     raise "Only supports xpath" unless selector_type == :xpath
     raise "invalid xpath selector '#{selector}' Only supports xpath eg //field[@name=xxxx]" unless selector.start_with?('//field[@name=')
     field_name = selector.match(/^\/\/field\[@name=(.*)\]$/)[1]
     result = pdf_fields.find do |field|
       field.name == field_name
     end
-    raise Capybara::ElementNotFound.new "Cannot find pdf_field '#{selector}'" if result.nil?
+    raise Capybara::ElementNotFound, "Cannot find pdf_field '#{selector}'" if result.nil?
     wrap_field(result)
   end
 
@@ -514,7 +515,7 @@ class PdfContent
     raise "Only the :field type is currently supported in #{self.class}#assert_selector" unless selector_type == :field
     query = Capybara::Queries::SelectorQuery.new(selector_type, selector, options)
     result = all(selector_type, selector, options)
-    unless result.matches_count? && ((!result.empty?) || query.expects_none?)
+    unless result.matches_count? && (!result.empty? || query.expects_none?)
       raise Capybara::ExpectationNotMet, result.failure_message
     end
     true
@@ -595,12 +596,12 @@ Capybara::Selector.add :pdf_document do
   end
 end
 Capybara::Selector.add :pdf_fieldset do
-  xpath do | fieldset_id |
+  xpath do |fieldset_id|
     "//fieldset[@id=#{fieldset_id}]"
   end
 end
 Capybara::Selector.add :pdf_field_named do
-  xpath do | field_name |
+  xpath do |field_name|
     "//field[@name=#{field_name}]"
   end
 end

@@ -1,7 +1,7 @@
 class StepNinePage < BasePage
 
   element :description, 'textarea[name="claim_details[claim_details]"]'
-  section :similar_claims, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Similar claims")]]}) do
+  section :similar_claims, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Similar claims")]] }) do
     section :other_claimants, '.claim_details_other_known_claimants' do
       def set(value)
         choose value, name: "claim_details[other_known_claimants]"

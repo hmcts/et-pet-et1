@@ -1,10 +1,10 @@
 class StepTwoPage < BasePage
 
-  section :about_the_claimant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the claimant")]]}) do
+  section :about_the_claimant, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the claimant")]] }) do
     element :title, 'select[name="claimant[title]"]'
     element :first_name, 'input[name="claimant[first_name]"]'
     element :last_name, 'input[name="claimant[last_name]"]'
-    section :date_of_birth, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth")]]}) do
+    section :date_of_birth, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth")]] }) do
       element :day, 'input[name="claimant[date_of_birth][day]"]'
       element :month, 'input[name="claimant[date_of_birth][month]"]'
       element :year, 'input[name="claimant[date_of_birth][year]"]'
@@ -34,7 +34,7 @@ class StepTwoPage < BasePage
     element :special_needs, 'textarea[name="claimant[special_needs]"]'
   end
 
-  section :claimants_contact_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant’s contact details")]]}) do
+  section :claimants_contact_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant’s contact details")]] }) do
     element :building, 'input[name="claimant[address_building]"]'
     element :street, 'input[name="claimant[address_street]"]'
     element :locality, 'input[name="claimant[address_locality]"]'

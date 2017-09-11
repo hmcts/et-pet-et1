@@ -1,12 +1,12 @@
 class StepEightPage < BasePage
 
-  section :claim_type, :xpath, (XPath.generate {|x| x.attr(:class).contains('legend') && x.descendant(:div)[x.descendant(:h2)[x.string.n.is("What your claim is about")]]}) do
+  section :claim_type, :xpath, (XPath.generate { |x| x.attr(:class).contains('legend') && x.descendant(:div)[x.descendant(:h2)[x.string.n.is("What your claim is about")]] }) do
     def set(value)
       check value
     end
   end
 
-  section :whistleblowing_claim, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Whistleblowing claim")]]}) do
+  section :whistleblowing_claim, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Whistleblowing claim")]] }) do
     def set(value)
       choose value, name: "claim_type[is_whistleblowing]"
     end

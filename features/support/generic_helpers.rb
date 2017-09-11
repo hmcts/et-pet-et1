@@ -53,4 +53,3 @@ end
 def claim_submitted_page
   @claim_submitted_page ||= ClaimSubmittedPage.new
 end
-

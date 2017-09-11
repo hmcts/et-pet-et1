@@ -2,7 +2,6 @@ And(/^I save a copy of my claim$/) do
   claim_submitted_page.save_a_copy
 end
 
-
 Then(/^the claim pdf file should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -14,7 +13,6 @@ Then(/^the claim pdf file should contain:$/) do |table|
   end
 end
 
-
 And(/^the claim pdf file's Your details section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -25,7 +23,6 @@ And(/^the claim pdf file's Your details section should contain:$/) do |table|
     end
   end
 end
-
 
 And(/^the claim pdf file's Respondent's details name section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -137,7 +134,6 @@ And(/^the claim pdf file's Respondent's details third respondent acas section sh
   end
 end
 
-
 And(/^the claim pdf file's Multiple cases section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -148,7 +144,6 @@ And(/^the claim pdf file's Multiple cases section should contain:$/) do |table|
     end
   end
 end
-
 
 And(/^the claim pdf file's Respondent not your employer section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -161,7 +156,6 @@ And(/^the claim pdf file's Respondent not your employer section should contain:$
   end
 end
 
-
 And(/^the claim pdf file's Respondent Employment details section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -172,7 +166,6 @@ And(/^the claim pdf file's Respondent Employment details section should contain:
     end
   end
 end
-
 
 And(/^the claim pdf file's Respondent Earnings and benefits section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -185,7 +178,6 @@ And(/^the claim pdf file's Respondent Earnings and benefits section should conta
   end
 end
 
-
 And(/^the claim pdf file's What happened since section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -196,7 +188,6 @@ And(/^the claim pdf file's What happened since section should contain:$/) do |ta
     end
   end
 end
-
 
 And(/^the claim pdf file's Type and details of claim section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -209,7 +200,6 @@ And(/^the claim pdf file's Type and details of claim section should contain:$/) 
   end
 end
 
-
 And(/^the claim pdf file's What do you want section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -220,7 +210,6 @@ And(/^the claim pdf file's What do you want section should contain:$/) do |table
     end
   end
 end
-
 
 And(/^the claim pdf file's Information to regulators section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -234,7 +223,6 @@ And(/^the claim pdf file's Information to regulators section should contain:$/) 
 
 end
 
-
 And(/^the claim pdf file's Your representative section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -245,7 +233,6 @@ And(/^the claim pdf file's Your representative section should contain:$/) do |ta
     end
   end
 end
-
 
 And(/^the claim pdf file's Disability section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -258,7 +245,6 @@ And(/^the claim pdf file's Disability section should contain:$/) do |table|
   end
 end
 
-
 And(/^the claim pdf file's Additional respondents section should contain the following for respondent 4:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -269,7 +255,6 @@ And(/^the claim pdf file's Additional respondents section should contain the fol
     end
   end
 end
-
 
 And(/^the claim pdf file's Additional respondents section should contain the following for respondent 5:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
@@ -282,7 +267,6 @@ And(/^the claim pdf file's Additional respondents section should contain the fol
   end
 end
 
-
 And(/^the claim pdf file's Final check section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -293,7 +277,6 @@ And(/^the claim pdf file's Final check section should contain:$/) do |table|
     end
   end
 end
-
 
 And(/^the claim pdf file's Additional information section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
