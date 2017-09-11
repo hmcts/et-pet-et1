@@ -40,7 +40,7 @@ services:
   db:
     image: postgres:9.3
   selenium:
-    image: selenium/standalone-chrome-debug
+    image: selenium/standalone-chrome:3.5.3
 volumes:
   rubygems_cache:
   npm_cache:
