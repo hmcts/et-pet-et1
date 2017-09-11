@@ -59,7 +59,7 @@ feature 'Multiple claimants', js: true do
       end
     end
 
-    scenario 'adding more than one additional claimant' do
+    scenario 'adding more than one additional claimant', js: false do
       click_button "Add more claimants"
 
       within '#resource_1' do
@@ -71,7 +71,7 @@ feature 'Multiple claimants', js: true do
       end
 
       click_button 'Save and continue'
-      expect(page).not_to have_content("Group Claims")
+      expect(page).not_to have_content("Group claims")
       expect(claim.secondary_claimants.pluck(:first_name)).to match_array ['Persephone', 'Pegasus']
     end
 
@@ -184,7 +184,7 @@ feature 'Multiple claimants', js: true do
       end
 
       click_button 'Save and continue'
-      expect(page).not_to have_content("Group Claims")
+      expect(page).not_to have_content("Group claims")
       expect(claim.secondary_claimants.size).to eq 1
     end
   end
