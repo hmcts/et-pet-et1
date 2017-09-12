@@ -51,7 +51,7 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
-      refunds_claimant:
+      refunds_applicant:
         title:
           mr: Mr
           mrs: Mrs
@@ -479,7 +479,7 @@ en:
       intro_text: You can save your refund and return to it at any time. You will need your refund number (above), and memorable word, which you create below.
       print_link: Print this page
       print_copy: to have a copy of your refund number for reference
-    claimant:
+    applicant:
       header: Current claimant’s details
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details

@@ -6,9 +6,9 @@ class RefundPagesManager < PageManager
 
   page 'profile-selection',
     number: 2,
-    transitions_to: 'claimant'
+    transitions_to: 'applicant'
 
-  page 'claimant',
+  page 'applicant',
     number: 3,
     transitions_to: 'original-case-details'
 

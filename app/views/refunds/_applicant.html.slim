@@ -19,7 +19,7 @@ fieldset
 
   = render partial: 'address', locals: { f: f }
 
-  = f.input :address_country, collection: Refunds::ClaimantForm::COUNTRIES, include_blank: false
+  = f.input :address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
   = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :email_address
