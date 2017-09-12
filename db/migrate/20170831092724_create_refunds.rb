@@ -13,7 +13,7 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "respondent_name"
       t.string   "respondent_post_code"
       t.string   "claimant_name"
-      t.text     "extra_reference_numbers"
+      t.text     "additional_information"
       t.string   "claimant_address_post_code"
       t.integer  "et_issue_fee", default: "GBP"
       t.string   "et_issue_fee_currency"

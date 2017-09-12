@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "respondent_name"
     t.string   "respondent_post_code"
     t.string   "claimant_name"
-    t.text     "extra_reference_numbers"
+    t.text     "additional_information"
     t.string   "claimant_address_post_code"
     t.integer  "et_issue_fee",                           default: 0
     t.string   "et_issue_fee_currency"

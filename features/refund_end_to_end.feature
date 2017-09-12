@@ -28,7 +28,7 @@ Feature: Refund Form
       | field                   | value            |
       | et_case_number          | 1234567/2016     |
       | et_tribunal_office      | NG0001           |
-      | extra_reference_numbers | REF1, REF2, REF3 |
+      | additional_information  | REF1, REF2, REF3 |
     And I fill in my refund original case details respondent details with:
       | field     | value           |
       | name      | Respondent Name |

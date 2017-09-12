@@ -2,7 +2,7 @@ fieldset
   legend = t('.original_case_details')
   = f.input :et_case_number, required: true, input_html: { class: 'medium-input' }
   = f.input :et_tribunal_office, required: true, input_html: { class: 'medium-input' }
-  = f.input :extra_reference_numbers, as: :text, input_html: { class: 'medium-input' }
+  = f.input :additional_information, as: :text, input_html: { class: 'medium-input' }
 
 fieldset
   legend= t '.address_same_as_applicant'

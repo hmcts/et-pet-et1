@@ -6,7 +6,7 @@ module Refunds
     attribute :respondent_name,                   String
     attribute :respondent_post_code,              String
     attribute :claimant_name,                     String
-    attribute :extra_reference_numbers,           String
+    attribute :additional_information,           String
     attribute :claimant_address_post_code,        String
     attribute :et_issue_fee,                      Float
     attribute :et_issue_fee_date_paid,            Date
