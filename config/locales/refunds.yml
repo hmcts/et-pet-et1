@@ -31,6 +31,5 @@ en:
       date_paid: "Date paid"
       payment_method: "Payment method"
       hearing_fee: "ET Hearing Fee"
-      eat_lodgement_fee: "EAT Lodgement Fee"
+      eat_issue_fee: "EAT Issue Fee"
       eat_hearing_fee: "EAT Hearing Fee"
-      app_reconsideration_fee: "Application Reconsideration Fee"

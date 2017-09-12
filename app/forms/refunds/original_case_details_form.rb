@@ -14,9 +14,9 @@ module Refunds
     attribute :et_hearing_fee,                    Float
     attribute :et_hearing_fee_date_paid,          Date
     attribute :et_hearing_fee_payment_method,     String
-    attribute :eat_lodgement_fee,                 Float
-    attribute :eat_lodgement_fee_date_paid,       Date
-    attribute :eat_lodgement_fee_payment_method,  String
+    attribute :eat_issue_fee,                 Float
+    attribute :eat_issue_fee_date_paid,       Date
+    attribute :eat_issue_fee_payment_method,  String
     attribute :eat_hearing_fee,                   Float
     attribute :eat_hearing_fee_date_paid,         Date
     attribute :eat_hearing_fee_payment_method,    String

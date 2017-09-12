@@ -24,20 +24,15 @@ module Refunds
         element :date_paid, 'input[name="refunds_original_case_details[et_hearing_fee_date_paid]"]'
         element :payment_method, 'select[name="refunds_original_case_details[et_hearing_fee_payment_mwethod]"]'
       end
-      section :eat_lodgement, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Lodgement Fee")]]}) do
-        element :fee, 'input[name="refunds_original_case_details[eat_lodgement_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[eat_lodgement_fee_date_paid]"]'
-        element :payment_method, 'select[name="refunds_original_case_details[eat_lodgement_fee_payment_method]"]'
+      section :eat_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Issue Fee")]]}) do
+        element :fee, 'input[name="refunds_original_case_details[eat_issue_fee]"]'
+        element :date_paid, 'input[name="refunds_original_case_details[eat_issue_fee_date_paid]"]'
+        element :payment_method, 'select[name="refunds_original_case_details[eat_issue_fee_payment_method]"]'
       end
       section :eat_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT hearing Fee")]]}) do
         element :fee, 'input[name="refunds_original_case_details[eat_hearing_fee]"]'
         element :date_paid, 'input[name="refunds_original_case_details[eat_hearing_fee_date_paid]"]'
         element :payment_method, 'select[name="refunds_original_case_details[eat_hearing_fee_payment_method]"]'
-      end
-      section :app_reconsideration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Application Reconsideration Fee")]]}) do
-        element :fee, 'input[name="refunds_original_case_details[app_reconsideration_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[app_reconsideration_fee_date_paid]"]'
-        element :payment_method, 'input[name="refunds_original_case_details[app_reconsideration_fee_payment_method]"]'
       end
     end
     section :address_same_as_applicant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Address is the same as above ?")]]}) do

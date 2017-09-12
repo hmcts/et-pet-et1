@@ -53,7 +53,7 @@ fieldset
         td
           = f.input :et_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
   fieldset
-    legend = t('.eat_lodgement_fee')
+    legend = t('.eat_issue_fee')
     table
       tr
         th = t('.fee')
@@ -61,11 +61,11 @@ fieldset
         th = t('.payment_method')
       tr
         td
-          = f.input :eat_lodgement_fee,  label: false, input_html: {class: 'small-input'}
+          = f.input :eat_issue_fee,  label: false, input_html: {class: 'small-input'}
         td
-          = f.input :eat_lodgement_fee_date_paid, label: false, input_html: {class: 'small-input'}
+          = f.input :eat_issue_fee_date_paid, label: false, input_html: {class: 'small-input'}
         td
-          = f.input :eat_lodgement_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+          = f.input :eat_issue_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
   fieldset
     legend = t('.eat_hearing_fee')
     table
@@ -80,17 +80,3 @@ fieldset
           = f.input :eat_hearing_fee_date_paid, label: false, input_html: {class: 'small-input'}
         td
           = f.input :eat_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
-  fieldset
-    legend = t('.app_reconsideration_fee')
-    table
-      tr
-        th = t('.fee')
-        th = t('.date_paid')
-        th = t('.payment_method')
-      tr
-        td
-          = f.input :app_reconsideration_fee,  label: false, input_html: {class: 'small-input'}
-        td
-          = f.input :app_reconsideration_fee_date_paid, label: false, input_html: {class: 'small-input'}
-        td
-          = f.input :app_reconsideration_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
