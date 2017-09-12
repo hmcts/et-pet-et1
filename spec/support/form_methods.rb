@@ -34,6 +34,10 @@ module FormMethods
       stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
         with(body: "postcode=AT1%204PQ", headers: { 'Accept' => 'application/json' }).
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
+
+      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
+        with(body: "postcode=AT3%200AS", headers: { 'Accept' => 'application/json' }).
+        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
 
     around do |example|
@@ -190,7 +194,7 @@ module FormMethods
 
   def fill_in_employment_details
     choose  'employment_was_employed_true'
-
+    choose 'employment_current_situation_employment_terminated'
     fill_in 'Job title', with: 'Super High Powered Exec'
 
     within '.employment_start_date' do

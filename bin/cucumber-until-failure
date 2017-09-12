@@ -1,0 +1,8 @@
+#!/bin/sh -x
+
+rm log/test.log
+while cucumber "$@";
+do
+    rm log/test.log
+done
+

@@ -41,13 +41,18 @@ Rails.application.configure do
   config.action_view.raise_on_missing_translations = true
 
   # Rack livereload for frontend development
-  config.middleware.use Rack::LiveReload
+  config.middleware.use Rack::LiveReload, source: :vendored
 
   config.action_mailer.default_url_options = {
     host: 'localhost', protocol: 'http', port: 3000
   }
 
   config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
+  config.active_job.queue_adapter = :sidekiq
+
 end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true
+CarrierWave.configure do |config|
+  config.storage :file
+end

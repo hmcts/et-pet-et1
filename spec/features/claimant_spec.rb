@@ -52,7 +52,7 @@ feature 'Claimant page' do
     end
 
     it "displays no validation if older then 16" do
-      date_ago = (Time.current - 16.years)
+      date_ago = (Time.current - 16.years - 12.hours)
       fill_in 'Day', with: date_ago.day.to_s
       fill_in 'Month', with: date_ago.month.to_s
       fill_in 'Year', with: date_ago.year.to_s

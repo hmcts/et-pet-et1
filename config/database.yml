@@ -5,9 +5,9 @@ default: &default
 
 development:
   <<: *default
-  database: atet_development
-  host: localhost
-  user: <%= %x<whoami>.chomp %>
+  database: <%= ENV.fetch('DB_NAME', 'atet_development') %>
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
+  user: <%= ENV.fetch('DB_USERNAME', %x<whoami>.chomp) %>
 
 local:
   <<: *default
@@ -15,11 +15,11 @@ local:
   host: db
   user: postgres
 
-test:
+test: &test
   <<: *default
-  database: atet_test
-  host: localhost
-  user: <%= %x<whoami>.chomp %>
+  database: <%= ENV.fetch('DB_NAME', 'atet_test') %>
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
+  user: <%= ENV.fetch('DB_USERNAME', %x<whoami>.chomp) %>
 
 production:
   adapter: postgresql
@@ -29,3 +29,6 @@ production:
   username: <%= ENV['DB_USERNAME']  || 'etuser' %>
   password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
   pool: 15
+
+cucumber:
+  <<: *test

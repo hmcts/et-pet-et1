@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Multiple claimants' do
+feature 'Multiple claimants', js: true do
   include FormMethods
 
   let(:claim) { Claim.create password: 'lollolol' }
@@ -59,7 +59,7 @@ feature 'Multiple claimants' do
       end
     end
 
-    scenario 'adding more than one additional claimant' do
+    scenario 'adding more than one additional claimant', js: false do
       click_button "Add more claimants"
 
       within '#resource_1' do
@@ -71,6 +71,7 @@ feature 'Multiple claimants' do
       end
 
       click_button 'Save and continue'
+      expect(page).not_to have_content("Group claims")
       expect(claim.secondary_claimants.pluck(:first_name)).to match_array ['Persephone', 'Pegasus']
     end
 
@@ -97,14 +98,13 @@ feature 'Multiple claimants' do
       end
     end
 
-    context "additional claimants age has to be 16 or over" do
+    context "additional claimants age has to be 16 or over", js: false do
       scenario "display age related error message" do
         expect(page).not_to have_selector '#resource_1'
 
         click_button "Add more claimants"
-
         within '#resource_1' do
-          sixteen_years_ago = (Time.current - 15.years)
+          sixteen_years_ago = (Time.current - 14.years)
           fill_in 'Day', with: sixteen_years_ago.day.to_s
           fill_in 'Month', with: sixteen_years_ago.month.to_s
           fill_in 'Year', with: sixteen_years_ago.year.to_s
@@ -146,10 +146,11 @@ feature 'Multiple claimants' do
       end
     end
 
-    scenario "display DoB format error message" do
+    scenario "display DoB format error message", js: false do
       expect(page).not_to have_selector '#resource_1'
 
       click_button "Add more claimants"
+      expect(page).to have_selector '#resource_1'
 
       within '#resource_1' do
         fill_in 'Day', with: '1'
@@ -173,16 +174,20 @@ feature 'Multiple claimants' do
   end
 
   describe 'destroying claimants' do
-    before { add_some_additional_claimants }
+    before do
+      add_some_additional_claimants
+    end
 
     scenario 'deleting arbitrary claimants' do
       visit claim_additional_claimants_path
 
       within '#resource_1' do
-        check 'Remove this claimant'
+        click_on 'Remove this claimant'
       end
+      expect(page).not_to have_css('#resource_1')
 
       click_button 'Save and continue'
+      expect(page).not_to have_content("Group claims")
       expect(claim.secondary_claimants.size).to eq 1
     end
   end
@@ -215,7 +220,6 @@ feature 'Multiple claimants' do
 
   def add_some_additional_claimants
     visit claim_additional_claimants_path
-
     choose 'Yes'
 
     select 'Mrs', from: 'Title'
@@ -233,7 +237,12 @@ feature 'Multiple claimants' do
         fill_in field, with: value
       end
     end
+    # The sleep below should not be required - but for some reason the save and continue button
+    # sometimes works and sometimes doesnt so this is an experiment
+    # @TODO Remove sleep below
+    sleep 1
 
     click_button 'Save and continue'
+    expect(page).not_to have_content('Group claims')
   end
 end

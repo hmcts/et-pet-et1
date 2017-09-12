@@ -22,9 +22,6 @@ gem 'sass-rails', '~> 5.0.3'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '3.0.0'
-
 # Use unicorn as the app server
 gem 'unicorn'
 
@@ -35,7 +32,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capybara'
+  gem 'capybara', '~> 2.15'
   gem 'codeclimate-test-reporter', require: nil
   gem 'dotenv-rails', '0.11.1'
   gem 'factory_girl_rails'
@@ -45,7 +42,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rack-livereload'
   gem 'rspec-its', require: 'rspec/its'
-  gem 'rspec-rails', '~> 3.6.0'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', :require => false
   gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers'
@@ -54,8 +51,18 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock', group: :test
+  gem 'webmock'
   gem 'database_cleaner'
+  gem 'cucumber-rails', '~> 1.5', require: false
+  gem 'poltergeist', '1.15.0'
+  gem 'capybara-screenshot', '~> 1.0'
+  gem 'site_prism', '~> 2.9'
+  gem 'selenium-webdriver', '~> 3.4'
+end
+
+group :production do
+  # Use Uglifier as compressor for JavaScript assets
+  gem 'uglifier', '3.0.0'
 end
 
 gem 'activeadmin', github: 'activeadmin', ref: '156877'
@@ -66,7 +73,7 @@ gem 'browserify-rails'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: '56873b07105396e0f1cfdd5e38be930dc3dcd362'
 gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
-gem 'fog'
+gem 'fog-aws'
 gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'httparty'
 gem 'logstasher'

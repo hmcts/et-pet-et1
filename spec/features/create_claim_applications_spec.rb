@@ -5,6 +5,8 @@ feature 'Claim applications', type: :feature do
   include Messages
   include PdfMethods
   include MailMatchers
+  include ActiveJob::TestHelper
+  include ActiveJobPerformHelper
 
   around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
 
@@ -44,6 +46,9 @@ feature 'Claim applications', type: :feature do
 
       claim = Claim.last
       expect(claim.authenticate('green')).to eq(claim)
+
+      # Run the active job job
+      perform_active_jobs(ActionMailer::DeliveryJob)
 
       mail = ActionMailer::Base.deliveries.last
       expect(mail).to match_pattern claim.reference
@@ -257,11 +262,12 @@ feature 'Claim applications', type: :feature do
     end
 
     context 'Downloading the PDF' do
-      scenario 'when the file is available' do
+      scenario 'when the file is available', js: true do
         complete_a_claim seeking_remissions: true
         click_button 'Submit claim'
-
-        page_pdf_link = page.find_link('Save a copy')['href']
+        perform_active_jobs(FeeGroupReferenceJob)
+        perform_active_jobs(ClaimSubmissionJob)
+        page_pdf_link = URI.parse(page.find_link('Save a copy')['href']).path
         expect(page_pdf_link).to eq pdf_path
 
         pdf_file_data = Claim.last.pdf.read

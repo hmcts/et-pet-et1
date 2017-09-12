@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AccessDetailsMailer, type: :service do
+  include ActiveJob::TestHelper
+  include ActiveJobPerformHelper
 
   describe '.deliver_later' do
     context 'when the claim has an email address' do
@@ -8,7 +10,9 @@ RSpec.describe AccessDetailsMailer, type: :service do
       let(:claim) { Claim.create email_address: "funky@emailaddress.com" }
 
       it 'delivers access details via email' do
-        expect { described_class.deliver_later(claim) }.
+        described_class.deliver_later(claim)
+
+        expect { perform_active_jobs(ActionMailer::DeliveryJob) }.
           to change(ActionMailer::Base.deliveries, :count).by(1)
       end
     end
@@ -18,8 +22,8 @@ RSpec.describe AccessDetailsMailer, type: :service do
       let(:claim) { Claim.new }
 
       it 'doesnt deliver access details via email' do
-        expect { described_class.deliver_later(claim) }.
-          not_to change(ActionMailer::Base.deliveries, :count)
+        described_class.deliver_later(claim)
+        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued
       end
     end
   end
