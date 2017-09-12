@@ -12,7 +12,6 @@ Feature: Refund Form
       | first_name         | First      |
       | last_name          | Last       |
       | date_of_birth      | 21/11/1982 |
-      | national_insurance | AB123456D  |
     And I fill in my refund claimant contact details with:
       | field                        | value                       |
       | building                     | 102                         |

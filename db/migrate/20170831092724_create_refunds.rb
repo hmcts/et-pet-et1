@@ -50,7 +50,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "applicant_fax_number"
       t.string   "applicant_email_address"
       t.string   "applicant_title"
-      t.string   "applicant_national_insurance"
 
 
 

@@ -15,5 +15,4 @@ class Refund < ActiveRecord::Base
   alias_attribute :date_of_birth, :applicant_date_of_birth
   alias_attribute :mobile_number, :applicant_mobile_number
   alias_attribute :fax_number, :applicant_fax_number
-  alias_attribute :national_insurance, :applicant_national_insurance
 end

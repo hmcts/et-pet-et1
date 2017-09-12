@@ -23,7 +23,6 @@ module Refunds
       element :title, 'select[name="refunds_applicant[title]"]'
       element :first_name, 'input[name="refunds_applicant[first_name]"]'
       element :last_name, 'input[name="refunds_applicant[last_name]"]'
-      element :national_insurance, 'input[name="refunds_applicant[national_insurance]"]'
       section :date_of_birth, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth")]]}) do
         element :day, 'input[name="refunds_applicant[date_of_birth][day]"]'
         element :month, 'input[name="refunds_applicant[date_of_birth][month]"]'

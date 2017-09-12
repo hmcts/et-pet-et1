@@ -37,7 +37,6 @@ module Refunds
     attribute :fax_number,         String
     attribute :email_address,      String
     attribute :title,              String
-    attribute :national_insurance, String
 
     validates :title, :first_name, :last_name, :address_country, presence: true
 
