@@ -1,0 +1,36 @@
+fieldset
+  legend= t '.has_name_changed_legend'
+  = f.input :has_name_changed,
+          as: :radio_buttons,
+          required: true,
+          label: false,
+          item_wrapper_class: 'block-label',
+          wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate'},
+          input_html: {:class => 'reveal-publish-publisher ga-vpv'},
+          reveal: {true => 'main', false => 'main'}
+
+fieldset
+  legend= t '.legend_personal_details'
+  p= t '.personal_details_description'
+  = render partial: 'personal_details', locals: { f: f }
+
+fieldset
+  legend= t '.legend_contact_details'
+
+  = render partial: 'address', locals: { f: f }
+
+  = f.input :address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
+  = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
+  = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
+  = f.input :email_address
+
+fieldset
+  legend= t '.has_address_changed_legend'
+  = f.input :has_address_changed,
+          as: :radio_buttons,
+          required: true,
+          label: false,
+          item_wrapper_class: 'block-label',
+          wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate'},
+          input_html: {:class => 'reveal-publish-publisher ga-vpv'},
+          reveal: {true => 'main', false => 'main'}

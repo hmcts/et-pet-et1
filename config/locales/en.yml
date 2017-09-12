@@ -51,6 +51,24 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+      refunds_applicant:
+        title:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+        address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
+      refunds_original_case_details:
+        claimant_title:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+        claimant_address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
 
       additional_claimants:
         collection: :"simple_form.options.claimant"
@@ -451,6 +469,27 @@ en:
   cookies:
     show:
       header: Cookies
+
+  refunds:
+    show:
+      page_number: Page %{current_page} of %{total_pages}
+    application_number:
+      header: Saving your refund
+      application_number: Your refund number
+      intro_text: You can save your refund and return to it at any time. You will need your refund number (above), and memorable word, which you create below.
+      print_link: Print this page
+      print_copy: to have a copy of your refund number for reference
+    applicant:
+      header: Current claimant’s details
+      legend_personal_details: About the claimant
+      legend_contact_details: Claimant’s contact details
+      personal_details_description: |
+        Information about the person or organisation making this claim (known as the 'claimant').
+      has_address_changed_legend: "Has your address changed since the original claim was made ?"
+      has_name_changed_legend: "Has your name changed since the original claim was made ?"
+    personal_details:
+      date_of_birth: Date of birth
+
 
   claims:
     personal_details:

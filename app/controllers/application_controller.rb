@@ -49,14 +49,23 @@ class ApplicationController < ActionController::Base
     @claim ||= load_claim_from_session
   end
 
+  def refund
+    @refund ||= load_refund_from_session
+  end
+
   def load_claim_from_session
     return nil if session[:claim_reference].blank?
     Claim.find_by(application_reference: session[:claim_reference])
+  end
+
+  def load_refund_from_session
+    return nil if session[:refund_reference].blank?
+    Refund.find_by(application_reference: session[:refund_reference])
   end
 
   def claim_path_for(page, options = {})
     send "claim_#{page}_path".underscore, options
   end
 
-  helper_method :claim, :claim_path_for
+  helper_method :claim, :refund, :claim_path_for
 end

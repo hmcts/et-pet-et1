@@ -1,5 +1,5 @@
 class PageManager
-  Page = Struct.new(:name, :number, :transitions_to)
+  Page = Struct.new(:name, :number, :transitions_to, :namespace)
 
   class << self
     def pages
@@ -16,6 +16,11 @@ class PageManager
 
     def page_names
       @pages.map(&:name)
+    end
+
+    def namespace(name = nil)
+      return @namespace if name.nil?
+      @namespace = name
     end
   end
 
@@ -36,6 +41,13 @@ class PageManager
   end
 
   private def page
-    @page ||= self.class.pages.find { |p| p.name == @resource.form_name }
+    @page ||= self.class.pages.find do |p|
+      if self.class.namespace.nil?
+        p.name == @resource.form_name
+      else
+        [self.class.namespace, p.name].join('/') == @resource.form_name
+      end
+
+    end
   end
 end

@@ -30,6 +30,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resource :refund, only: [:create, :new], path: "/refund" do
+      RefundPagesManager.page_names.each do |page|
+        resource page.underscore, only: %i<show update>, controller: :refunds,
+          page: page, path: page
+      end
+    end
+
     get 'ping' => 'ping#index'
 
     get 'healthcheck' => 'healthcheck#index'

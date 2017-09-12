@@ -1,0 +1,36 @@
+en:
+  helpers:
+    link:
+      start_a_refund: "Start a refund"
+  refunds:
+    claimant:
+      is_claimant_legend: "Are you the claimant ?"
+    profile_selection:
+      header: "Please choose from an option below"
+      please_select_profile: "Please select a profile"
+      profile_1_detail: "Profile 1 Detail"
+      profile_2_detail: "Profile 2 Detail"
+      profile_3_detail: "Profile 3 Detail"
+      profile_4_detail: "Profile 4 Detail"
+      profile_5_detail: "Profile 5 Detail"
+      profile_1_label: "Profile 1 label"
+      profile_2_label: "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone"
+      profile_3_label: "Profile 3 label"
+      profile_4_label: "Profile 4 label"
+      profile_5_label: "Profile 5 label"
+    original_case_details:
+      original_case_details: "Original Case Details"
+      header: "Original Case Details"
+      respondent_details: "Respondent"
+      claimant_details: "Claimant"
+      date_of_birth: "Date of birth"
+      contact_details: "Claimant Address"
+      fee_details: "Claimant Fees"
+      issue_fee: "ET Issue Fee"
+      fee: "Fee (in pounds)"
+      date_paid: "Date paid"
+      payment_method: "Payment method"
+      hearing_fee: "ET Hearing Fee"
+      eat_lodgement_fee: "EAT Lodgement Fee"
+      eat_hearing_fee: "EAT Hearing Fee"
+      app_reconsideration_fee: "Application Reconsideration Fee"

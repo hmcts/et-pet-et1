@@ -1,0 +1,86 @@
+fieldset
+  legend = t('.original_case_details')
+  = f.input :et_reference_number, input_html: { class: 'medium-input' }
+  = f.input :et_case_number, required: true, input_html: { class: 'medium-input' }
+  = f.input :et_tribunal_office, required: true, input_html: { class: 'medium-input' }
+  = f.input :extra_reference_numbers, as: :text, input_html: { class: 'medium-input' }
+fieldset
+  legend = t('.respondent_details')
+  = f.input :respondent_name, required: true, input_html: { class: 'medium-input' }
+  = f.input :respondent_post_code, required: true, input_html: { class: 'medium-input' }
+fieldset
+  legend = t('.claimant_details')
+  = f.input :claimant_name, disabled: true, required: true, input_html: {class: 'medium-input'}
+  = f.input :claimant_address_post_code, disabled: true, required: true, input_html: {class: 'medium-input'}
+fieldset
+  legend = t('.fee_details')
+  fieldset
+    legend = t('.issue_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.date_paid')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :et_issue_fee,  label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :et_issue_fee_date_paid, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :et_issue_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
+    legend = t('.hearing_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.date_paid')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :et_hearing_fee,  label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :et_hearing_fee_date_paid, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :et_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
+    legend = t('.eat_lodgement_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.date_paid')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :eat_lodgement_fee,  label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :eat_lodgement_fee_date_paid, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :eat_lodgement_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
+    legend = t('.eat_hearing_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.date_paid')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :eat_hearing_fee,  label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :eat_hearing_fee_date_paid, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :eat_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
+    legend = t('.app_reconsideration_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.date_paid')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :app_reconsideration_fee,  label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :app_reconsideration_fee_date_paid, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :app_reconsideration_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
