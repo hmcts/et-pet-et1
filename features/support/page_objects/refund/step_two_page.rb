@@ -6,7 +6,7 @@ module Refunds
       end
     end
 
-    section :has_address_changed, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Has your address changed since the original claim was made ?")]]}) do
+    section :address_same_as_applicant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Address is the same as above ?")]]}) do
       def set(value)
         choose(value)
       end

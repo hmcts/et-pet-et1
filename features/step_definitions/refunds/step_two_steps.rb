@@ -34,8 +34,8 @@ And(/^I fill in my refund claimant contact details with:$/) do |table|
   end
 end
 
-And(/^I answer No to the has your address changed question for refunds$/) do
-  refund_step_two_page.has_address_changed.set("No")
+And(/^I answer Yes to the address same as applicant question for refunds$/) do
+  refund_step_two_page.address_same_as_applicant.set("Yes")
 end
 
 And(/^I save the refund applicant details$/) do

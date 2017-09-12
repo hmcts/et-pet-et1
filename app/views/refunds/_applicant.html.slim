@@ -24,8 +24,8 @@ fieldset
   = f.input :email_address
 
 fieldset
-  legend= t '.has_address_changed_legend'
-  = f.input :has_address_changed,
+  legend= t '.address_same_as_applicant'
+  = f.input :address_same_as_applicant,
           as: :radio_buttons,
           required: true,
           label: false,

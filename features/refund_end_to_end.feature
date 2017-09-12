@@ -22,7 +22,7 @@ Feature: Refund Form
       | country                      | United Kingdom              |
       | telephone_number             | 01234 567890                |
       | email_address                | test@digital.justice.gov.uk |
-    And I answer No to the has your address changed question for refunds
+    And I answer Yes to the address same as applicant question for refunds
     And I save the refund applicant details
     And I fill in my refund original case details with:
       | field                   | value            |
