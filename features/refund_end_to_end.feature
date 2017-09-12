@@ -22,8 +22,8 @@ Feature: Refund Form
       | country                      | United Kingdom              |
       | telephone_number             | 01234 567890                |
       | email_address                | test@digital.justice.gov.uk |
-    And I answer Yes to the address same as applicant question for refunds
     And I save the refund applicant details
+    And I answer Yes to the address same as applicant question for refunds
     And I fill in my refund original case details with:
       | field                   | value            |
       | et_reference_number     | ETRef001         |

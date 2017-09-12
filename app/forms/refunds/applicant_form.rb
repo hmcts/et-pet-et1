@@ -27,7 +27,6 @@ module Refunds
       post_code: true, length: { maximum: AddressAttributes::POSTCODE_LENGTH },
       unless: :international_address?
     boolean :is_claimant
-    boolean :address_same_as_applicant
     boolean :has_name_changed
     attribute :first_name,         String
     attribute :last_name,          String

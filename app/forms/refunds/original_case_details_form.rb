@@ -24,5 +24,6 @@ module Refunds
     attribute :app_reconsideration_fee,           Float
     attribute :app_reconsideration_fee_date_paid, Date
     attribute :app_reconsideration_fee_payment_method, String
+    boolean :address_same_as_applicant
   end
 end
