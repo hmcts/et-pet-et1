@@ -3,7 +3,6 @@ Feature: Refund Form
   Scenario: Refund profile 2
     Given I am on the landing page
     And I start a new refund
-    And I save my refund with a valid email address and password
     And I select "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone" from the refund type page
     And I save my profile selection on the refund type page
     And I answer No to the has your name changed question for refunds
