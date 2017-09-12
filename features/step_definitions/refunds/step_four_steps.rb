@@ -50,3 +50,8 @@ And(/^I fill in my refund issue fee with:$/) do |table|
     end
   end
 end
+
+And(/^I answer Yes to the address same as applicant question for refunds$/) do
+  refund_step_four_page.address_same_as_applicant.set("Yes")
+end
+

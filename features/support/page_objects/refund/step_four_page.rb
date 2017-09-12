@@ -40,7 +40,11 @@ module Refunds
         element :date_paid, 'input[name="refunds_original_case_details[app_reconsideration_fee_date_paid]"]'
         element :payment_method, 'input[name="refunds_original_case_details[app_reconsideration_fee_payment_method]"]'
       end
-
+    end
+    section :address_same_as_applicant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Address is the same as above ?")]]}) do
+      def set(value)
+        choose(value)
+      end
     end
     element :save_and_continue, 'form.edit_refunds_claimant input[value="Save and continue"]'
   end
