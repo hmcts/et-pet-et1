@@ -23,22 +23,17 @@ And(/^I fill in my refund original case details respondent details with:$/) do |
   end
 end
 
-
-And(/^I ensure that my refund original case details claimant details are visible but disabled as:$/) do |table|
+And(/^I fill in my refund original case details representative details with:$/) do |table|
   table.hashes.each do | hash |
-    refund_step_four_page.original_claimant_details do |section|
+    refund_step_four_page.original_representative_details do |section|
       node = section.send("#{hash['field']}".to_sym)
-      raw_value = node.value
-      value = case node.try(:tag_name)
-                when "select" then within(node) { find("option[value=\"#{raw_value}\"]") }.text
-                else raw_value
-              end
-      expect(value).to eql hash['value']
-      expect(node).to be_disabled
+      case node.try(:tag_name)
+        when "select" then node.select(hash['value'])
+        else node.set(hash['value'])
+      end
     end
   end
 end
-
 
 
 And(/^I fill in my refund issue fee with:$/) do |table|

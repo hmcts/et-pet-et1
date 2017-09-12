@@ -9,9 +9,9 @@ module Refunds
       element :name, 'input[name="refunds_original_case_details[respondent_name]"]'
       element :post_code, 'input[name="refunds_original_case_details[respondent_post_code]"]'
     end
-    section :original_claimant_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant")]]}) do
-      element :name, 'input[name="refunds_original_case_details[claimant_name]"]'
-      element :post_code, 'input[name="refunds_original_case_details[claimant_address_post_code]"]'
+    section :original_representative_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative")]]}) do
+      element :name, 'input[name="refunds_original_case_details[representative_name]"]'
+      element :post_code, 'input[name="refunds_original_case_details[representative_post_code]"]'
     end
     section :original_claim_fees, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant Fees")]]}) do
       section :et_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Issue Fee")]]}) do

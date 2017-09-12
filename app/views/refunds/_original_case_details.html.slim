@@ -19,9 +19,9 @@ fieldset
   = f.input :respondent_name, required: true, input_html: { class: 'medium-input' }
   = f.input :respondent_post_code, required: true, input_html: { class: 'medium-input' }
 fieldset
-  legend = t('.claimant_details')
-  = f.input :claimant_name, disabled: true, required: true, input_html: {class: 'medium-input'}
-  = f.input :claimant_address_post_code, disabled: true, required: true, input_html: {class: 'medium-input'}
+  legend = t('.representative_details')
+  = f.input :representative_name, required: true, input_html: { class: 'medium-input' }
+  = f.input :representative_post_code, required: true, input_html: { class: 'medium-input' }
 fieldset
   legend = t('.fee_details')
   fieldset

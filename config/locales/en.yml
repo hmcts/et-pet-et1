@@ -490,6 +490,7 @@ en:
       date_of_birth: Date of birth
     original_case_details:
       address_same_as_applicant: "Address is the same as above ?"
+      representative_details: "Representative"
   claims:
     personal_details:
       date_of_birth: Date of birth

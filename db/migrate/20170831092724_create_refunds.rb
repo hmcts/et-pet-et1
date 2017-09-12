@@ -12,6 +12,8 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "et_tribunal_office"
       t.string   "respondent_name"
       t.string   "respondent_post_code"
+      t.string   "representative_name"
+      t.string   "representative_post_code"
       t.string   "claimant_name"
       t.text     "additional_information"
       t.string   "claimant_address_post_code"

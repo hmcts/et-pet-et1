@@ -5,9 +5,9 @@ module Refunds
     attribute :et_tribunal_office,                String
     attribute :respondent_name,                   String
     attribute :respondent_post_code,              String
-    attribute :claimant_name,                     String
-    attribute :additional_information,           String
-    attribute :claimant_address_post_code,        String
+    attribute :representative_name,               String
+    attribute :representative_post_code,          String
+    attribute :additional_information,            String
     attribute :et_issue_fee,                      Float
     attribute :et_issue_fee_date_paid,            Date
     attribute :et_issue_fee_payment_method,       String
