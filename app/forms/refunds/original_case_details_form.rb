@@ -1,7 +1,6 @@
 module Refunds
   class OriginalCaseDetailsForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash']
-    attribute :et_reference_number,               String
     attribute :et_case_number,                    String
     attribute :et_tribunal_office,                String
     attribute :respondent_name,                   String

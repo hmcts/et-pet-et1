@@ -26,7 +26,6 @@ Feature: Refund Form
     And I answer Yes to the address same as applicant question for refunds
     And I fill in my refund original case details with:
       | field                   | value            |
-      | et_reference_number     | ETRef001         |
       | et_case_number          | 1234567/2016     |
       | et_tribunal_office      | NG0001           |
       | extra_reference_numbers | REF1, REF2, REF3 |

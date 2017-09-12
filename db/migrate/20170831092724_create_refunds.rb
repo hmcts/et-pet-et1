@@ -8,7 +8,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.boolean  "address_same_as_applicant", default: false
       t.boolean  "has_name_changed", default: false
       t.integer  "profile_number"
-      t.string   "et_reference_number"
       t.string   "et_case_number"
       t.string   "et_tribunal_office"
       t.string   "respondent_name"

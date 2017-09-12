@@ -154,10 +154,9 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "password_digest"
     t.string   "email_address"
     t.string   "application_reference",                                  null: false
-    t.boolean  "has_address_changed",                    default: false
+    t.boolean  "address_same_as_applicant",              default: false
     t.boolean  "has_name_changed",                       default: false
     t.integer  "profile_number"
-    t.string   "et_reference_number"
     t.string   "et_case_number"
     t.string   "et_tribunal_office"
     t.string   "respondent_name"

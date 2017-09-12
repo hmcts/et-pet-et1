@@ -1,7 +1,6 @@
 module Refunds
   class StepFourPage < BasePage
     section :original_case_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Original Case Details")]]}) do
-      element :et_reference_number, 'input[name="refunds_original_case_details[et_reference_number]"]'
       element :et_case_number, 'input[name="refunds_original_case_details[et_case_number]"]'
       element :et_tribunal_office, 'input[name="refunds_original_case_details[et_tribunal_office]"]'
       element :extra_reference_numbers, 'textarea[name="refunds_original_case_details[extra_reference_numbers]"]'
