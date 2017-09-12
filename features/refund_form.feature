@@ -41,6 +41,7 @@ Feature: Refund Form
       | field     | value         |
       | name      | Mr First Last |
       | post_code | SW1H 9AJ      |
+    And I debug
     And I fill in my refund issue fee with:
       | fee     | date paid | payment method |
       | 1000.00 | 23/1/2016 | Card           |
@@ -57,7 +58,6 @@ Feature: Refund Form
       | fee     | date paid | payment method |
       | 1004.00 | 27/1/2016 | Card           |
 
-    And I debug
 
     And all background jobs for refund submissions are processed
     And I save a copy of my refund

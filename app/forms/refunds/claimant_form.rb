@@ -7,11 +7,24 @@ module Refunds
     EMAIL_ADDRESS_LENGTH = 100
     NAME_LENGTH          = 100
 
-    include AddressAttributes.but_skip_postcode_validation
+    attribute :address_building,         String
+    attribute :address_street,           String
+    attribute :address_locality,         String
+    attribute :address_county,           String
+    attribute :address_post_code,        String
+    attribute :address_telephone_number, String
+
+    validates :address_building, :address_street, :address_locality,
+              :address_county, :address_post_code, presence: true
+
+    validates :address_building, :address_street, length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
+    validates :address_locality, :address_county, length: { maximum: AddressAttributes::LOCALITY_LENGTH }
+    validates :address_telephone_number, length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
+
     include AgeValidator
 
     validates :address_post_code,
-      post_code: true, length: { maximum: POSTCODE_LENGTH },
+      post_code: true, length: { maximum: AddressAttributes::POSTCODE_LENGTH },
       unless: :international_address?
     boolean :is_claimant
     boolean :has_address_changed
@@ -30,17 +43,13 @@ module Refunds
 
     validates :title, inclusion: { in: TITLES }
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }
+    validates :mobile_number, :fax_number, length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
     validates :address_country, inclusion: { in: COUNTRIES }
     validates :email_address, presence: true,
                               email: true,
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
 
     dates :date_of_birth
-
-    def target
-      resource.primary_claimant || resource.build_primary_claimant
-    end
 
     def first_name=(name)
       super name.try :strip
@@ -68,10 +77,9 @@ module Refunds
 
     def clone_claimant_details
       attrs = target.attributes.with_indifferent_access
-      address_attrs = target.address.attributes.with_indifferent_access
       new_claim_attributes = {
-        claimant_name: "#{attrs[:title].titleize} #{attrs[:first_name]} #{attrs[:last_name]}",
-        claimant_address_post_code: address_attrs[:post_code]
+        claimant_name: "#{attrs[:applicant_title].titleize} #{attrs[:applicant_first_name]} #{attrs[:applicant_last_name]}",
+        claimant_address_post_code: attrs[:applicant_address_post_code]
       }
       resource.assign_attributes(new_claim_attributes)
     end

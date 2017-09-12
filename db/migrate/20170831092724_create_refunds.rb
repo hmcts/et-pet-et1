@@ -36,6 +36,24 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "app_reconsideration_fee_currency", default: "GBP"
       t.date     "app_reconsideration_fee_date_paid"
       t.string   "app_reconsideration_fee_payment_method"
+      t.string   "applicant_address_building"
+      t.string   "applicant_address_street"
+      t.string   "applicant_address_locality"
+      t.string   "applicant_address_county"
+      t.string   "applicant_address_post_code"
+      t.string   "applicant_address_telephone_number"
+      t.string   "applicant_address_country"
+      t.string   "applicant_first_name"
+      t.string   "applicant_last_name"
+      t.date     "applicant_date_of_birth"
+      t.string   "applicant_mobile_number"
+      t.string   "applicant_fax_number"
+      t.string   "applicant_email_address"
+      t.string   "applicant_title"
+      t.string   "applicant_national_insurance"
+
+
+
     end
   end
 end

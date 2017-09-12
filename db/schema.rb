@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831122602) do
+ActiveRecord::Schema.define(version: 20170831092724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,11 +61,7 @@ ActiveRecord::Schema.define(version: 20170831122602) do
     t.string   "contact_preference"
     t.string   "title"
     t.boolean  "primary_claimant",   default: false
-    t.integer  "refund_id"
-    t.string   "national_insurance"
   end
-
-  add_index "claimants", ["refund_id"], name: "index_claimants_on_refund_id", using: :btree
 
   create_table "claims", force: :cascade do |t|
     t.datetime "created_at"
@@ -189,6 +185,21 @@ ActiveRecord::Schema.define(version: 20170831122602) do
     t.string   "app_reconsideration_fee_currency",       default: "GBP"
     t.date     "app_reconsideration_fee_date_paid"
     t.string   "app_reconsideration_fee_payment_method"
+    t.string   "applicant_address_building"
+    t.string   "applicant_address_street"
+    t.string   "applicant_address_locality"
+    t.string   "applicant_address_county"
+    t.string   "applicant_address_post_code"
+    t.string   "applicant_address_telephone_number"
+    t.string   "applicant_address_country"
+    t.string   "applicant_first_name"
+    t.string   "applicant_last_name"
+    t.date     "applicant_date_of_birth"
+    t.string   "applicant_mobile_number"
+    t.string   "applicant_fax_number"
+    t.string   "applicant_email_address"
+    t.string   "applicant_title"
+    t.string   "applicant_national_insurance"
   end
 
   create_table "representatives", force: :cascade do |t|
