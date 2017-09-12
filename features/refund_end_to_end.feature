@@ -21,7 +21,6 @@ Feature: Refund Form
       | post_code                    | SW1H 9AJ                    |
       | country                      | United Kingdom              |
       | telephone_number             | 01234 567890                |
-      | alternative_telephone_number | 01234 098765                |
       | email_address                | test@digital.justice.gov.uk |
     And I answer No to the has your address changed question for refunds
     And I save the refund applicant details

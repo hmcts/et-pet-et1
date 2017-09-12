@@ -195,8 +195,6 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "applicant_first_name"
     t.string   "applicant_last_name"
     t.date     "applicant_date_of_birth"
-    t.string   "applicant_mobile_number"
-    t.string   "applicant_fax_number"
     t.string   "applicant_email_address"
     t.string   "applicant_title"
   end

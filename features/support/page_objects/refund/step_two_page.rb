@@ -44,7 +44,6 @@ module Refunds
       element :post_code, 'input[name="refunds_applicant[address_post_code]"]'
       element :country, 'select[name="refunds_applicant[address_country]"]'
       element :telephone_number, 'input[name="refunds_applicant[address_telephone_number]"]'
-      element :alternative_telephone_number, 'input[name="refunds_applicant[mobile_number]"]'
       element :email_address, 'input[name="refunds_applicant[email_address]"]'
     end
     element :save_and_continue, 'form.edit_refunds_applicant input[value="Save and continue"]'

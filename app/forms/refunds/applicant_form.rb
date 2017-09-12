@@ -33,8 +33,6 @@ module Refunds
     attribute :last_name,          String
     attribute :date_of_birth,      Date
     attribute :address_country,    String
-    attribute :mobile_number,      String
-    attribute :fax_number,         String
     attribute :email_address,      String
     attribute :title,              String
 
@@ -42,7 +40,6 @@ module Refunds
 
     validates :title, inclusion: { in: TITLES }
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validates :mobile_number, :fax_number, length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
     validates :address_country, inclusion: { in: COUNTRIES }
     validates :email_address, presence: true,
                               email: true,
