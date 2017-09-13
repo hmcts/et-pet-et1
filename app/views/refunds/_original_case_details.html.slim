@@ -1,10 +1,4 @@
 fieldset
-  legend = t('.original_case_details')
-  = f.input :et_case_number, required: true, input_html: { class: 'medium-input' }
-  = f.input :et_tribunal_office, required: true, input_html: { class: 'medium-input' }
-  = f.input :additional_information, as: :text, input_html: { class: 'medium-input' }
-
-fieldset
   legend= t '.address_same_as_applicant'
   = f.input :address_same_as_applicant,
           as: :radio_buttons,
@@ -15,13 +9,18 @@ fieldset
           input_html: {:class => 'reveal-publish-publisher ga-vpv'},
           reveal: {true => 'main', false => 'main'}
 fieldset
+  legend = t('.representative_details')
+  = f.input :representative_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :representative_post_code, required: true, input_html: {class: 'medium-input'}
+fieldset
   legend = t('.respondent_details')
   = f.input :respondent_name, required: true, input_html: { class: 'medium-input' }
   = f.input :respondent_post_code, required: true, input_html: { class: 'medium-input' }
 fieldset
-  legend = t('.representative_details')
-  = f.input :representative_name, required: true, input_html: { class: 'medium-input' }
-  = f.input :representative_post_code, required: true, input_html: { class: 'medium-input' }
+  legend = t('.original_case_details')
+  = f.input :et_case_number, required: true, input_html: {class: 'medium-input'}
+  = f.input :et_tribunal_office, required: true, input_html: {class: 'medium-input'}
+  = f.input :additional_information, as: :text, input_html: {class: 'medium-input'}
 fieldset
   legend = t('.fee_details')
   fieldset
