@@ -299,6 +299,7 @@ en:
         applying_for_remission: Do you want to apply for help with fees?
         remission_claimant_count: How many in your group want to apply for help with fees?
 
+
     hints:
       application_number:
         password: For example your surname
@@ -511,6 +512,8 @@ en:
     original_case_details:
       address_same_as_applicant: "Address is the same as above ?"
       representative_details: "Representative"
+    bank_details:
+      your_bank_details: "Your Bank Details"
   claims:
     personal_details:
       date_of_birth: Date of birth

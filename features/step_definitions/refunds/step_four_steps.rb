@@ -85,3 +85,7 @@ And(/^I answer Yes to the address same as applicant question for refunds$/) do
   refund_step_four_page.address_same_as_applicant.set("Yes")
 end
 
+
+And(/^I save the refund case details$/) do
+  refund_step_four_page.save_and_continue.click
+end

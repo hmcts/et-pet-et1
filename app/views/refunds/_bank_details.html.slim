@@ -1,0 +1,6 @@
+fieldset
+  legend = t('.your_bank_details')
+  = f.input :payment_account_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_bank_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_account_number, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_sort_code, required: true, input_html: {class: 'medium-input'}

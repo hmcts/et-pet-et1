@@ -63,30 +63,30 @@ Feature: Output Form
       | locality      | London         |
       | county        | Greater London |
       | post_code     | SW1H 9JJ       |
-    And I choose to add more claimants
-    And I fill in the fourth group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group4First    |
-      | last_name     | Group4Last     |
-      | date_of_birth | 21/11/1992     |
-      | building      | 110            |
-      | street        | Buckingham Pl  |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JT       |
-    And I choose to add more claimants
-    And I fill in the fifth group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group5First    |
-      | last_name     | Group5Last     |
-      | date_of_birth | 21/10/1991     |
-      | building      | 112            |
-      | street        | Oxford Road    |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JY       |
+#    And I choose to add more claimants
+#    And I fill in the fourth group claimant details with:
+#      | field         | value          |
+#      | title         | Mrs            |
+#      | first_name    | Group4First    |
+#      | last_name     | Group4Last     |
+#      | date_of_birth | 21/11/1992     |
+#      | building      | 110            |
+#      | street        | Buckingham Pl  |
+#      | locality      | London         |
+#      | county        | Greater London |
+#      | post_code     | SW1H 9JT       |
+#    And I choose to add more claimants
+#    And I fill in the fifth group claimant details with:
+#      | field         | value          |
+#      | title         | Mrs            |
+#      | first_name    | Group5First    |
+#      | last_name     | Group5Last     |
+#      | date_of_birth | 21/10/1991     |
+#      | building      | 112            |
+#      | street        | Oxford Road    |
+#      | locality      | London         |
+#      | county        | Greater London |
+#      | post_code     | SW1H 9JY       |
     And I save the group claims
     And I answer Yes to the representative question
     And I fill in the representative's details with:
@@ -197,6 +197,7 @@ Feature: Output Form
     And I answer Yes to the other important details question
     And I fill in the important details with "Here are some very important details that need to be considered"
     And I save the more about the claim form
+    And I take a screenshot
     And I submit my claim
     And all background jobs for claim submissions are processed
     And I save a copy of my claim

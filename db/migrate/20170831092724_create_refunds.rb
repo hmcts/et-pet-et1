@@ -2,7 +2,6 @@ class CreateRefunds < ActiveRecord::Migration
   def change
     create_table :refunds do |t|
       t.timestamps
-      t.string   "password_digest"
       t.string   "email_address"
       t.string   "application_reference", null: false
       t.boolean  "address_same_as_applicant", default: false
@@ -44,6 +43,11 @@ class CreateRefunds < ActiveRecord::Migration
       t.date     "applicant_date_of_birth"
       t.string   "applicant_email_address"
       t.string   "applicant_title"
+      t.string   "payment_account_name"
+      t.string   "payment_bank_name"
+      t.string   "payment_account_number"
+      t.string   "payment_sort_code"
+      t.boolean  "accept_declaration", null: false, default: false
 
 
 

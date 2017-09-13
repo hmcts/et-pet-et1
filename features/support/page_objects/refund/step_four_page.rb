@@ -40,6 +40,6 @@ module Refunds
         choose(value)
       end
     end
-    element :save_and_continue, 'form.edit_refunds_claimant input[value="Save and continue"]'
+    element :save_and_continue, 'form.edit_refunds_original_case_details input[value="Save and continue"]'
   end
 end

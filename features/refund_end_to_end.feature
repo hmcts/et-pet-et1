@@ -3,7 +3,7 @@ Feature: Refund Form
   Scenario: Refund profile 2
     Given I am on the landing page
     And I start a new refund
-    And I select "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone" from the refund type page
+    When I select "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone" from the refund type page
     And I save my profile selection on the refund type page
     And I answer No to the has your name changed question for refunds
     And I fill in my refund claimant details with:
@@ -52,6 +52,16 @@ Feature: Refund Form
     And I fill in my refund application reconsideration fee with:
       | fee     | payment method |
       | 1004.00 | Card           |
+    And I save the refund case details
+    And I fill in my refund bank details with:
+      | field          | value         |
+      | account_name   | Mr First Last |
+      | bank_name      | Fake Bank     |
+      | account_number | 12345678      |
+      | sort_code      | 010203        |
+    And I save the refund bank details
+    And I accept the refund final declaration
+    And I save the final refund
     And I debug
 
     And all background jobs for refund submissions are processed

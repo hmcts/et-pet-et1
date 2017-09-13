@@ -1,0 +1,123 @@
+
+
+div class=("review-list-entry applicant")
+  h2.list-header
+    span = t ".sections.applicant"
+    = link_to t('.edit'), refund_applicant_path(return_to_review: true)
+  table.review-table
+    tr
+      th = t('.full_name')
+      td = [f.object.title.titleize, f.object.first_name, f.object.last_name].join(' ')
+    tr
+      th = t('.date_of_birth')
+      td = f.object.date_of_birth
+  h2.list-header
+    span = t ".sections.applicant_contact_details"
+    = link_to t('.edit'), refund_applicant_path(return_to_review: true)
+  table.review-table
+    tr
+      th = t('simple_form.labels.claimant.address_building')
+      td = f.object.applicant_address_building
+    tr
+      th = t('simple_form.labels.claimant.address_street')
+      td = f.object.applicant_address_street
+    tr
+      th = t('simple_form.labels.claimant.address_locality')
+      td = f.object.applicant_address_locality
+    tr
+      th = t('simple_form.labels.claimant.address_county')
+      td = f.object.applicant_address_post_code
+    tr
+      th = t('simple_form.labels.claimant.address_country')
+      td = f.object.applicant_address_country
+    tr
+      th = t('simple_form.labels.claimant.address_telephone_number')
+      td = f.object.applicant_address_telephone_number
+    tr
+      th = t('.email_address')
+      td = f.object.email_address
+  h2.list-header
+    span = t ".sections.original_case_details"
+    = link_to t('.edit'), refund_original_case_details_path(return_to_review: true)
+  table.review-table
+    tr
+      th = t('.claimant_name')
+      td = f.object.claimant_name
+    tr
+      th = t('.claimant_address_post_code')
+      td = f.object.claimant_address_post_code
+    tr
+      th = t('.representative_name')
+      td = f.object.representative_name
+    tr
+      th = t('.representative_address_post_code')
+      td = f.object.representative_post_code
+    tr
+      th = t('.respondent_name')
+      td = f.object.respondent_name
+    tr
+      th = t('.respondent_address_post_code')
+      td = f.object.respondent_post_code
+    tr
+      th = t('.et_case_number')
+      td = f.object.et_case_number
+    tr
+      th = t('.et_tribunal_office')
+      td = f.object.et_tribunal_office
+    tr
+      th = t('.additional_information')
+      td = f.object.additional_information
+  h2.list-header
+    span = t ".sections.original_case_fees"
+    = link_to t('.edit'), refund_original_case_details_path(return_to_review: true)
+  table.review-table
+    tr
+      th = t('.fee_type')
+      td = t('.fee')
+      td = t('.payment_method')
+    tr
+      td = t('.et_issue_fee')
+      td = f.object.et_issue_fee
+      td = f.object.et_issue_fee_payment_method.titleize
+    tr
+      td = t('.et_hearing_fee')
+      td = f.object.et_hearing_fee
+      td = f.object.et_hearing_fee_payment_method.titleize
+    tr
+      td = t('.eat_issue_fee')
+      td = f.object.eat_issue_fee
+      td = f.object.eat_issue_fee_payment_method.titleize
+    tr
+      td = t('.eat_hearing_fee')
+      td = f.object.eat_hearing_fee
+      td = f.object.eat_hearing_fee_payment_method.titleize
+    tr
+      td = t('.app_reconsideration_fee')
+      td = f.object.app_reconsideration_fee
+      td = f.object.app_reconsideration_fee_payment_method.titleize
+  h2.list-header
+    span = t '.sections.bank_details'
+    = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
+  table.review-table
+    tr
+      th = t('.payment_account_name')
+      td = f.object.payment_account_name
+    tr
+      th = t('.payment_bank_name')
+      td = f.object.payment_bank_name
+    tr
+      th = t('.payment_account_number')
+      td = f.object.payment_account_number
+    tr
+      th = t('.payment_sort_code')
+      td = f.object.payment_sort_code
+fieldset
+  legend= t '.declaration'
+  = f.input :accept_declaration,
+          as: :radio_buttons,
+          required: true,
+          label: false,
+          item_wrapper_class: 'block-label',
+          wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate'},
+          input_html: {:class => 'reveal-publish-publisher ga-vpv'},
+          reveal: {true => 'main', false => 'main'}
