@@ -16,22 +16,18 @@ module Refunds
     section :original_claim_fees, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant Fees")]]}) do
       section :et_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Issue Fee")]]}) do
         element :fee, 'input[name="refunds_original_case_details[et_issue_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[et_issue_fee_date_paid]"]'
         element :payment_method, 'select[name="refunds_original_case_details[et_issue_fee_payment_method]"]'
       end
       section :et_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Hearing Fee")]]}) do
         element :fee, 'input[name="refunds_original_case_details[et_hearing_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[et_hearing_fee_date_paid]"]'
-        element :payment_method, 'select[name="refunds_original_case_details[et_hearing_fee_payment_mwethod]"]'
+        element :payment_method, 'select[name="refunds_original_case_details[et_hearing_fee_payment_method]"]'
       end
       section :eat_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Issue Fee")]]}) do
         element :fee, 'input[name="refunds_original_case_details[eat_issue_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[eat_issue_fee_date_paid]"]'
         element :payment_method, 'select[name="refunds_original_case_details[eat_issue_fee_payment_method]"]'
       end
-      section :eat_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT hearing Fee")]]}) do
+      section :eat_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Hearing Fee")]]}) do
         element :fee, 'input[name="refunds_original_case_details[eat_hearing_fee]"]'
-        element :date_paid, 'input[name="refunds_original_case_details[eat_hearing_fee_date_paid]"]'
         element :payment_method, 'select[name="refunds_original_case_details[eat_hearing_fee_payment_method]"]'
       end
     end

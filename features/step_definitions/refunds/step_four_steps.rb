@@ -40,8 +40,34 @@ And(/^I fill in my refund issue fee with:$/) do |table|
   table.hashes.each do | hash |
     refund_step_four_page.original_claim_fees.et_issue do |section|
       section.fee.set(hash['fee'])
-      section.date_paid.set(hash['date paid'])
-      section.payment_method.set(hash['payment method'])
+      section.payment_method.select(hash['payment method'])
+    end
+  end
+end
+
+And(/^I fill in my refund hearing fee with:$/) do |table|
+  table.hashes.each do | hash |
+    refund_step_four_page.original_claim_fees.et_hearing do |section|
+      section.fee.set(hash['fee'])
+      section.payment_method.select(hash['payment method'])
+    end
+  end
+end
+
+And(/^I fill in my refund eat issue fee with:$/) do |table|
+  table.hashes.each do | hash |
+    refund_step_four_page.original_claim_fees.eat_issue do |section|
+      section.fee.set(hash['fee'])
+      section.payment_method.select(hash['payment method'])
+    end
+  end
+end
+
+And(/^I fill in my refund eat hearing fee with:$/) do |table|
+  table.hashes.each do | hash |
+    refund_step_four_page.original_claim_fees.eat_hearing do |section|
+      section.fee.set(hash['fee'])
+      section.payment_method.select(hash['payment method'])
     end
   end
 end

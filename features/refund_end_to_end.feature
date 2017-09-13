@@ -37,19 +37,19 @@ Feature: Refund Form
       | field     | value               |
       | name      | Representative Name |
       | post_code | SW2H 9ST            |
-    And I debug
     And I fill in my refund issue fee with:
-      | fee     | date paid | payment method |
-      | 1000.00 | 23/1/2016 | Card           |
+      | fee     | payment method |
+      | 1000.00 | Card           |
     And I fill in my refund hearing fee with:
-      | fee     | date paid | payment method |
-      | 1001.00 | 24/1/2016 | Cash           |
+      | fee     | payment method |
+      | 1001.00 | Cash           |
     And I fill in my refund eat issue fee with:
-      | fee     | date paid | payment method |
-      | 1002.00 | 25/1/2016 | Cheque         |
+      | fee     | payment method |
+      | 1002.00 | Cheque         |
     And I fill in my refund eat hearing fee with:
-      | fee     | date paid | payment method |
-      | 1003.00 | 26/1/2016 | Card           |
+      | fee     | payment method |
+      | 1003.00 | Card           |
+    And I debug
 
     And all background jobs for refund submissions are processed
     And I save a copy of my refund

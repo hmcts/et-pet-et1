@@ -69,6 +69,22 @@ en:
         claimant_address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+        et_issue_fee_payment_method:
+          cheque: Cheque
+          card: Card
+          cash: Cash
+        et_hearing_fee_payment_method:
+          cheque: Cheque
+          card: Card
+          cash: Cash
+        eat_issue_fee_payment_method:
+          cheque: Cheque
+          card: Card
+          cash: Cash
+        eat_hearing_fee_payment_method:
+          cheque: Cheque
+          card: Card
+          cash: Cash
 
       additional_claimants:
         collection: :"simple_form.options.claimant"
