@@ -85,6 +85,10 @@ en:
           cheque: Cheque
           card: Card
           cash: Cash
+        app_reconsideration_fee_payment_method:
+          cheque: Cheque
+          card: Card
+          cash: Cash
 
       additional_claimants:
         collection: :"simple_form.options.claimant"

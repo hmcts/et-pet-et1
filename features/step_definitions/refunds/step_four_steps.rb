@@ -72,6 +72,15 @@ And(/^I fill in my refund eat hearing fee with:$/) do |table|
   end
 end
 
+And(/^I fill in my refund application reconsideration fee with:$/) do |table|
+  table.hashes.each do | hash |
+    refund_step_four_page.original_claim_fees.app_reconsideration do |section|
+      section.fee.set(hash['fee'])
+      section.payment_method.select(hash['payment method'])
+    end
+  end
+end
+
 And(/^I answer Yes to the address same as applicant question for refunds$/) do
   refund_step_four_page.address_same_as_applicant.set("Yes")
 end

@@ -16,6 +16,8 @@ module Refunds
     attribute :eat_issue_fee_payment_method,  String
     attribute :eat_hearing_fee,                   Float
     attribute :eat_hearing_fee_payment_method,    String
+    attribute :app_reconsideration_fee,           Float
+    attribute :app_reconsideration_fee_payment_method, String
     boolean :address_same_as_applicant
   end
 end

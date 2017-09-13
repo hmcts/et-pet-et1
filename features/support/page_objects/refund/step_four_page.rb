@@ -30,6 +30,10 @@ module Refunds
         element :fee, 'input[name="refunds_original_case_details[eat_hearing_fee]"]'
         element :payment_method, 'select[name="refunds_original_case_details[eat_hearing_fee_payment_method]"]'
       end
+      section :app_reconsideration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Application Reconsideration Fee")]]}) do
+        element :fee, 'input[name="refunds_original_case_details[app_reconsideration_fee]"]'
+        element :payment_method, 'select[name="refunds_original_case_details[app_reconsideration_fee_payment_method]"]'
+      end
     end
     section :address_same_as_applicant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Address is the same as above ?")]]}) do
       def set(value)

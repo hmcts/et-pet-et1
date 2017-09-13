@@ -49,6 +49,9 @@ Feature: Refund Form
     And I fill in my refund eat hearing fee with:
       | fee     | payment method |
       | 1003.00 | Card           |
+    And I fill in my refund application reconsideration fee with:
+      | fee     | payment method |
+      | 1004.00 | Card           |
     And I debug
 
     And all background jobs for refund submissions are processed
