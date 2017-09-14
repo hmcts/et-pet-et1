@@ -1,31 +1,11 @@
 Feature: Refund Form
 
   Scenario: Refund profile 2
-    Given I am on the landing page
-    And I take a screenshot named "Landing Page"
-    And I start a new refund
-    When I select "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone" from the refund type page
-    And I take a screenshot named "Page 1 - Applicant Type Selector"
-    And I save my profile selection on the refund type page
+    Given I am "Luke Skywalker"
+    And I am on the landing page
+    When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I answer No to the has your name changed question for refunds
-    And I fill in my refund claimant details with:
-      | field         | value      |
-      | title         | Mr         |
-      | first_name    | First      |
-      | last_name     | Last       |
-      | date_of_birth | 21/11/1982 |
-    And I fill in my refund claimant contact details with:
-      | field            | value                       |
-      | building         | 102                         |
-      | street           | Petty France                |
-      | locality         | London                      |
-      | county           | Greater London              |
-      | post_code        | SW1H 9AJ                    |
-      | country          | United Kingdom              |
-      | telephone_number | 01234 567890                |
-      | email_address    | test@digital.justice.gov.uk |
-    And I take a screenshot named "Page 2 - Applicant Details"
-    And I save the refund applicant details
+    And I fill in my refund applicant details
     And I answer Yes to the address same as applicant question for refunds
     And I fill in my refund original case details with:
       | field                  | value            |
