@@ -2,7 +2,7 @@ class RefundsController < ApplicationController
 
   def new
     refund = Refund.create
-    session[:refund_reference] = refund.reference
+    session[:refund_id] = refund.id
     redirect_to refund_path_for RefundPagesManager.first_page
   end
 

@@ -59,8 +59,8 @@ class ApplicationController < ActionController::Base
   end
 
   def load_refund_from_session
-    return nil if session[:refund_reference].blank?
-    Refund.find_by(application_reference: session[:refund_reference])
+    return nil if session[:refund_id].blank?
+    Refund.find_by(id: session[:refund_id])
   end
 
   def claim_path_for(page, options = {})

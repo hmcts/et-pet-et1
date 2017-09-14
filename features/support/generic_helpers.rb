@@ -78,4 +78,8 @@ def refund_profile_selection_page
   @refund_profile_selection_page ||= Refunds::ProfileSelectionPage.new
 end
 
+def refund_confirmation_page
+  @refund_confirmation_page ||= Refunds::ConfirmationPage.new
+end
+
 

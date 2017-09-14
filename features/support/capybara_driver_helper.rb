@@ -21,7 +21,7 @@ Capybara.register_driver :firefox do |app|
 end
 
 Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'), args: ["--window-size=1900,4096"])
+  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'), args: ["--window-size=1900,3000"])
 end
 
 if ENV.key?('CIRCLE_ARTIFACTS')

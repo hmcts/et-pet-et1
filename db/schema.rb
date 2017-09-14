@@ -152,7 +152,8 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email_address"
-    t.string   "application_reference",                                  null: false
+    t.string   "application_reference"
+    t.integer  "application_reference_number"
     t.boolean  "address_same_as_applicant",              default: false
     t.boolean  "has_name_changed",                       default: false
     t.integer  "profile_number"

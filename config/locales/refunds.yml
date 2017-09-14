@@ -70,3 +70,6 @@ en:
       payment_account_number: "Account Number"
       payment_sort_code: "Sort Code"
       declaration: "Declaration"
+    confirmation:
+      header: "Application For Refund Accepted"
+      confirmation: "Your refund claim has been submitted and your reference number is :"

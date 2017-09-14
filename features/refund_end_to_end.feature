@@ -2,8 +2,10 @@ Feature: Refund Form
 
   Scenario: Refund profile 2
     Given I am on the landing page
+    And I take a screenshot named "Landing Page"
     And I start a new refund
     When I select "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone" from the refund type page
+    And I take a screenshot named "Page 1 - Applicant Type Selector"
     And I save my profile selection on the refund type page
     And I answer No to the has your name changed question for refunds
     And I fill in my refund claimant details with:
@@ -22,6 +24,7 @@ Feature: Refund Form
       | country          | United Kingdom              |
       | telephone_number | 01234 567890                |
       | email_address    | test@digital.justice.gov.uk |
+    And I take a screenshot named "Page 2 - Applicant Details"
     And I save the refund applicant details
     And I answer Yes to the address same as applicant question for refunds
     And I fill in my refund original case details with:
@@ -52,6 +55,7 @@ Feature: Refund Form
     And I fill in my refund application reconsideration fee with:
       | fee     | payment method |
       | 1004.00 | Card           |
+    And I take a screenshot named "Page 3 - Original Case Details"
     And I save the refund case details
     And I fill in my refund bank details with:
       | field          | value         |
@@ -59,11 +63,11 @@ Feature: Refund Form
       | bank_name      | Fake Bank     |
       | account_number | 12345678      |
       | sort_code      | 010203        |
+    And I take a screenshot named "Page 4 - Bank Account Details"
     And I save the refund bank details
     And I accept the refund final declaration
+    And I take a screenshot named "Page 5 - Review"
     And I save the final refund
-    And I debug
+    Then I should see a valid refund reference number starting with "C"
+    And I take a screenshot named "Page 6 - Confirmation"
 
-    And all background jobs for refund submissions are processed
-    And I save a copy of my refund
-    Then something should happen

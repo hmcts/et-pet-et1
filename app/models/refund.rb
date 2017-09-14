@@ -1,7 +1,5 @@
 class Refund < ActiveRecord::Base
-  include Reference
-  has_secure_password validations: false
-  after_initialize :generate_application_reference
+  REFERENCE_START = 1000000
   alias_attribute :address_building, :applicant_address_building
   alias_attribute :address_street, :applicant_address_street
   alias_attribute :address_locality, :applicant_address_locality
@@ -13,4 +11,11 @@ class Refund < ActiveRecord::Base
   alias_attribute :first_name, :applicant_first_name
   alias_attribute :last_name, :applicant_last_name
   alias_attribute :date_of_birth, :applicant_date_of_birth
+
+  def generate_application_reference
+    last = self.class.maximum(:application_reference_number)
+    last = REFERENCE_START if last.nil?
+    self.application_reference_number = last + 1
+    self.application_reference = "C#{application_reference_number}"
+  end
 end
