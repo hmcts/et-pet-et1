@@ -89,11 +89,3 @@ end
 def test_user=(user)
   @test_user = user
 end
-
-def test_et_claim_to_refund
-  @test_et_claim_to_refund || raise('test_et_claim_to_refund used before it was defined')
-end
-
-def test_et_claim_to_refund=(claim)
-  @test_et_claim_to_refund = claim
-end

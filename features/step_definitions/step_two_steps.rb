@@ -31,6 +31,7 @@ end
 
 
 And(/^I fill in my refund applicant details$/) do
+  refund_step_two_page.has_name_changed.set(test_user.has_name_changed) unless test_user.has_name_changed.nil?
   refund_step_two_page.about_the_claimant do |section|
     section.title.select(test_user.title)
     section.first_name.set(test_user.first_name)

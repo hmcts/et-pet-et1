@@ -92,38 +92,39 @@ end
 
 
 And(/^I fill in my refund original case details$/) do
+  refund_step_four_page.address_same_as_applicant.set(test_user.claim_address_same) unless test_user.claim_address_same.nil?
   refund_step_four_page.original_case_details do |section|
-    section.et_case_number.set(test_et_claim_to_refund.et_case_number)
-    section.et_tribunal_office.set(test_et_claim_to_refund.et_tribunal_office)
-    section.additional_information.set(test_et_claim_to_refund.additional_information)
+    section.et_case_number.set(test_user.et_claim_to_refund.et_case_number)
+    section.et_tribunal_office.set(test_user.et_claim_to_refund.et_tribunal_office)
+    section.additional_information.set(test_user.et_claim_to_refund.additional_information)
   end
   refund_step_four_page.original_respondent_details do |section|
-    section.name.set(test_et_claim_to_refund.respondent.name)
-    section.post_code.set(test_et_claim_to_refund.respondent.post_code)
+    section.name.set(test_user.et_claim_to_refund.respondent.name)
+    section.post_code.set(test_user.et_claim_to_refund.respondent.post_code)
   end
   refund_step_four_page.original_representative_details do |section|
-    section.name.set(test_et_claim_to_refund.representative.name)
-    section.post_code.set(test_et_claim_to_refund.representative.post_code)
+    section.name.set(test_user.et_claim_to_refund.representative.name)
+    section.post_code.set(test_user.et_claim_to_refund.representative.post_code)
   end
   refund_step_four_page.original_claim_fees.et_issue do |section|
-    section.fee.set(test_et_claim_to_refund.fees.et_issue_fee)
-    section.payment_method.select(test_et_claim_to_refund.fees.et_issue_payment_method)
+    section.fee.set(test_user.et_claim_to_refund.fees.et_issue_fee)
+    section.payment_method.select(test_user.et_claim_to_refund.fees.et_issue_payment_method)
   end
   refund_step_four_page.original_claim_fees.et_hearing do |section|
-    section.fee.set(test_et_claim_to_refund.fees.et_hearing_fee)
-    section.payment_method.select(test_et_claim_to_refund.fees.et_hearing_payment_method)
+    section.fee.set(test_user.et_claim_to_refund.fees.et_hearing_fee)
+    section.payment_method.select(test_user.et_claim_to_refund.fees.et_hearing_payment_method)
   end
   refund_step_four_page.original_claim_fees.eat_issue do |section|
-    section.fee.set(test_et_claim_to_refund.fees.eat_issue_fee)
-    section.payment_method.select(test_et_claim_to_refund.fees.eat_issue_payment_method)
+    section.fee.set(test_user.et_claim_to_refund.fees.eat_issue_fee)
+    section.payment_method.select(test_user.et_claim_to_refund.fees.eat_issue_payment_method)
   end
   refund_step_four_page.original_claim_fees.eat_hearing do |section|
-    section.fee.set(test_et_claim_to_refund.fees.eat_hearing_fee)
-    section.payment_method.select(test_et_claim_to_refund.fees.eat_hearing_payment_method)
+    section.fee.set(test_user.et_claim_to_refund.fees.eat_hearing_fee)
+    section.payment_method.select(test_user.et_claim_to_refund.fees.eat_hearing_payment_method)
   end
   refund_step_four_page.original_claim_fees.app_reconsideration do |section|
-    section.fee.set(test_et_claim_to_refund.fees.app_reconsideration_fee)
-    section.payment_method.select(test_et_claim_to_refund.fees.app_reconsideration_payment_method)
+    section.fee.set(test_user.et_claim_to_refund.fees.app_reconsideration_fee)
+    section.payment_method.select(test_user.et_claim_to_refund.fees.app_reconsideration_payment_method)
   end
   step('I take a screenshot named "Page 3 - Original Case Details"')
   refund_step_four_page.save_and_continue.click
