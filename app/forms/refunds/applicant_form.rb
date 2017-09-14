@@ -43,6 +43,7 @@ module Refunds
     validates :email_address, presence: true,
                               email: true,
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
+    validates :date_of_birth, presence: true
 
     dates :date_of_birth
 

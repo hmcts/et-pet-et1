@@ -37,3 +37,19 @@ end
 And(/^I save the refund applicant details$/) do
   refund_step_two_page.save_and_continue.click
 end
+
+
+Then(/^the user should be informed that there are errors on the refund applicant page$/) do
+  expect(refund_step_two_page.form_error_message).to be_visible
+end
+
+
+And(/^all mandatory fields in the refund applicant page should be marked with an error$/) do
+  aggregate_failures do
+    expect(refund_step_two_page.about_the_claimant.title.error.text).to eql "Select a title from the list"
+    expect(refund_step_two_page.about_the_claimant.first_name.error.text).to eql "Enter the claimant's first name"
+    expect(refund_step_two_page.about_the_claimant.last_name.error.text).to eql "Enter the claimant's last name"
+    expect(refund_step_two_page.about_the_claimant.date_of_birth.error.text).to eql "Enter the claimant's date of birth"
+
+  end
+end

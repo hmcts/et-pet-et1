@@ -1,5 +1,8 @@
 module Refunds
   class StepTwoPage < BasePage
+    section :form_error_message, '[aria-describedby=error-message]' do |section|
+
+    end
     section :is_claimant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Are you the claimant ?")]]}) do
       def set(value)
         choose(value)
@@ -14,20 +17,10 @@ module Refunds
 
 
     section :about_the_claimant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the claimant")]]}) do
-      element :title, 'select[name="refunds_applicant[title]"]'
-      element :first_name, 'input[name="refunds_applicant[first_name]"]'
-      element :last_name, 'input[name="refunds_applicant[last_name]"]'
-      section :date_of_birth, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth")]]}) do
-        element :day, 'input[name="refunds_applicant[date_of_birth][day]"]'
-        element :month, 'input[name="refunds_applicant[date_of_birth][month]"]'
-        element :year, 'input[name="refunds_applicant[date_of_birth][year]"]'
-        def set(value)
-          (day_value, month_value, year_value) = value.split("/")
-          day.set(day_value)
-          month.set(month_value)
-          year.set(year_value)
-        end
-      end
+      section :title, AppTest::FormSelect, :simple_form_field, 'Title'
+      section :first_name, AppTest::FormInput, :simple_form_field, 'First name'
+      section :last_name, AppTest::FormInput, :simple_form_field, 'Last name'
+      section :date_of_birth, AppTest::FormDate, :simple_form_date, 'Date of birth'
     end
 
     section :claimants_contact_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant’s contact details")]]}) do

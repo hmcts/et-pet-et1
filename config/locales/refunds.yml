@@ -73,3 +73,16 @@ en:
     confirmation:
       header: "Application For Refund Accepted"
       confirmation: "Your refund claim has been submitted and your reference number is :"
+  activemodel:
+    errors:
+      models:
+        refunds/applicant:
+          attributes:
+            date_of_birth:
+              blank: Enter the claimant's date of birth
+            last_name:
+              blank: Enter the claimant's last name
+            first_name:
+              blank: Enter the claimant's first name
+            title:
+              blank: Select a title from the list
