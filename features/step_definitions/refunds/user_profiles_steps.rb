@@ -6,27 +6,16 @@ Given(/^I am "Luke Skywalker"$/) do
                            county: 'Greater London',
                            post_code: 'SW1H 9AJ',
                            country: 'United Kingdom'
+  bank_account = OpenStruct.new account_name: 'Mr Luke Skywalker',
+                                bank_name: 'Starship Enterprises Bank',
+                                account_number: '12345678',
+                                sort_code: '012345'
   self.test_user = OpenStruct.new title: "Mr",
                                   first_name: "Luke",
                                   last_name: "Skywalker",
                                   date_of_birth: '21/11/1985',
                                   address: address,
                                   telephone_number: '01234 567890',
-                                  email_address: 'test@digital.justice.gov.uk'
+                                  email_address: 'test@digital.justice.gov.uk',
+                                  bank_account: bank_account
 end
-# And I fill in my refund claimant details with:
-# | field         | value      |
-# | title         | Mr         |
-# | first_name    | First      |
-# | last_name     | Last       |
-# | date_of_birth | 21/11/1982 |
-#   And I fill in my refund claimant contact details with:
-# | field            | value                       |
-# | building         | 102                         |
-# | street           | Petty France                |
-# | locality         | London                      |
-# | county           | Greater London              |
-# | post_code        | SW1H 9AJ                    |
-# | country          | United Kingdom              |
-# | telephone_number | 01234 567890                |
-# | email_address    | test@digital.justice.gov.uk |

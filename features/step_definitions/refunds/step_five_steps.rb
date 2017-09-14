@@ -15,3 +15,16 @@ end
 And(/^I save the refund bank details$/) do
   refund_step_five_page.save_and_continue.click
 end
+
+
+And(/^I fill in my refund bank details$/) do
+  refund_step_five_page.bank_details do |section|
+    section.account_name.set(test_user.bank_account.account_name)
+    section.bank_name.set(test_user.bank_account.bank_name)
+    section.account_number.set(test_user.bank_account.account_number)
+    section.sort_code.set(test_user.bank_account.sort_code)
+  end
+  step('I take a screenshot named "Page 4 - Bank Account Details"')
+  refund_step_five_page.save_and_continue.click
+
+end
