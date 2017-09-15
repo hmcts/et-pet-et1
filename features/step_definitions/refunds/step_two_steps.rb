@@ -57,5 +57,6 @@ And(/^all mandatory fields in the refund applicant page should be marked with an
     expect(refund_step_two_page.claimants_contact_details.locality).to have_no_error, 'Expected locality not to have an error'
     expect(refund_step_two_page.claimants_contact_details.county).to have_no_error, 'Expected county not to have an error'
     expect(refund_step_two_page.claimants_contact_details.country).to have_no_error, 'Expected country not to have an error'
+    expect(refund_step_two_page.claimants_contact_details.email_address).to have_no_error, 'Expected email address not to have an error'
   end
 end

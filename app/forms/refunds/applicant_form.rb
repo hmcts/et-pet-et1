@@ -40,7 +40,7 @@ module Refunds
     validates :title, inclusion: { in: TITLES }
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
     validates :address_country, inclusion: { in: COUNTRIES }
-    validates :email_address, presence: true,
+    validates :email_address, allow_blank: true,
                               email: true,
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
     validates :address_telephone_number, presence: true
