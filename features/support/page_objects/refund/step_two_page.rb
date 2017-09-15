@@ -24,14 +24,14 @@ module Refunds
     end
 
     section :claimants_contact_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant’s contact details")]]}) do
-      element :building, 'input[name="refunds_applicant[address_building]"]'
-      element :street, 'input[name="refunds_applicant[address_street]"]'
-      element :locality, 'input[name="refunds_applicant[address_locality]"]'
-      element :county, 'input[name="refunds_applicant[address_county]"]'
-      element :post_code, 'input[name="refunds_applicant[address_post_code]"]'
-      element :country, 'select[name="refunds_applicant[address_country]"]'
-      element :telephone_number, 'input[name="refunds_applicant[address_telephone_number]"]'
-      element :email_address, 'input[name="refunds_applicant[email_address]"]'
+      section :building, AppTest::FormInput, :simple_form_field, 'Address building'
+      section :street, AppTest::FormInput, :simple_form_field, 'Address street'
+      section :locality, AppTest::FormInput, :simple_form_field, 'Address locality'
+      section :county, AppTest::FormInput, :simple_form_field, 'Address county'
+      section :post_code, AppTest::FormInput, :simple_form_field, 'Address post code'
+      section :country, AppTest::FormSelect, :simple_form_field, 'Address country'
+      section :telephone_number, AppTest::FormInput, :simple_form_field, 'Address telephone number'
+      section :email_address, AppTest::FormInput, :simple_form_field, 'Email'
     end
     element :save_and_continue, 'form.edit_refunds_applicant input[value="Save and continue"]'
   end

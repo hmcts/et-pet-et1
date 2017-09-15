@@ -14,8 +14,8 @@ module Refunds
     attribute :address_post_code,        String
     attribute :address_telephone_number, String
 
-    validates :address_building, :address_street, :address_locality,
-              :address_county, :address_post_code, presence: true
+    validates :address_building, :address_street,
+              :address_post_code, presence: true
 
     validates :address_building, :address_street, length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
     validates :address_locality, :address_county, length: { maximum: AddressAttributes::LOCALITY_LENGTH }
@@ -43,6 +43,7 @@ module Refunds
     validates :email_address, presence: true,
                               email: true,
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
+    validates :address_telephone_number, presence: true
     validates :date_of_birth, presence: true
 
     dates :date_of_birth

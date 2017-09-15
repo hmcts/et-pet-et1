@@ -86,3 +86,11 @@ en:
               blank: Enter the claimant's first name
             title:
               blank: Select a title from the list
+            address_building:
+              blank: Enter the building number or name from the claimant's address
+            address_street:
+              blank: Enter the street from the claimant's address
+            address_post_code:
+              blank: Enter the claimant's post code
+            address_telephone_number:
+              blank: Enter the claimant's telephone number
