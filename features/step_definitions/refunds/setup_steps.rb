@@ -57,3 +57,13 @@ end
 And(/^my address has not changed since the original claim that I want a refund for$/) do
   test_user.claim_address_same = 'Yes'
 end
+
+And(/^my address has changed since the original claim that I want a refund for$/) do
+  test_user.claim_address_same = 'No'
+  test_user.et_claim_to_refund.address = OpenStruct.new building: '104',
+                                                        street: 'Petty Belgium',
+                                                        locality: 'London',
+                                                        county: 'Greater London',
+                                                        post_code: 'SW1H 9BK',
+                                                        country: 'United Kingdom'
+end

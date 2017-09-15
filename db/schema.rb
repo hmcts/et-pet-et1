@@ -198,6 +198,11 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "payment_account_number"
     t.string   "payment_sort_code"
     t.boolean  "accept_declaration",                     default: false, null: false
+    t.string   "claimant_address_building"
+    t.string   "claimant_address_street"
+    t.string   "claimant_address_locality"
+    t.string   "claimant_address_county"
+    t.string   "claimant_address_country"
   end
 
   create_table "representatives", force: :cascade do |t|

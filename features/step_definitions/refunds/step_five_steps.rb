@@ -28,3 +28,8 @@ And(/^I fill in my refund bank details$/) do
   refund_step_five_page.save_and_continue.click
 
 end
+
+
+Then(/^I should see the refund bank details page$/) do
+  expect(refund_step_five_page).to be_displayed
+end

@@ -94,3 +94,21 @@ en:
               blank: Enter the claimant's post code
             address_telephone_number:
               blank: Enter the claimant's telephone number
+        refunds/original_case_details:
+          attributes:
+            claimant_address_building:
+              blank: Enter the building number or name from the claimant's address
+            claimant_address_street:
+              blank: Enter the street from the claimant's address
+            claimant_address_post_code:
+              blank: Enter the claimant's post code
+
+  simple_form:
+    labels:
+      refunds_original_case_details:
+        claimant_address_building: Address building
+        claimant_address_street: Address street
+        claimant_address_locality: Address locality
+        claimant_address_county: Address county
+        claimant_address_post_code: Address post code
+        claimant_address_country: Address country

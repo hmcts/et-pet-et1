@@ -49,6 +49,12 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "payment_account_number"
       t.string   "payment_sort_code"
       t.boolean  "accept_declaration", null: false, default: false
+      t.string   "claimant_address_building"
+      t.string   "claimant_address_street"
+      t.string   "claimant_address_locality"
+      t.string   "claimant_address_county"
+      t.string   "claimant_address_post_code"
+      t.string   "claimant_address_country"
 
 
 

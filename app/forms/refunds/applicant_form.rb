@@ -75,8 +75,7 @@ module Refunds
     def clone_claimant_details
       attrs = target.attributes.with_indifferent_access
       new_claim_attributes = {
-        claimant_name: "#{attrs[:applicant_title].titleize} #{attrs[:applicant_first_name]} #{attrs[:applicant_last_name]}",
-        claimant_address_post_code: attrs[:applicant_address_post_code]
+        claimant_name: "#{attrs[:applicant_title].titleize} #{attrs[:applicant_first_name]} #{attrs[:applicant_last_name]}"
       }
       resource.assign_attributes(new_claim_attributes)
     end

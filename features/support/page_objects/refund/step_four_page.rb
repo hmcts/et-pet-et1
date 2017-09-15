@@ -5,6 +5,16 @@ module Refunds
       element :et_tribunal_office, 'input[name="refunds_original_case_details[et_tribunal_office]"]'
       element :additional_information, 'textarea[name="refunds_original_case_details[additional_information]"]'
     end
+    section :original_claimant_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant")]]}) do
+      section :building, AppTest::FormInput, :simple_form_field, 'Address building'
+      section :street, AppTest::FormInput, :simple_form_field, 'Address street'
+      section :locality, AppTest::FormInput, :simple_form_field, 'Address locality'
+      section :county, AppTest::FormInput, :simple_form_field, 'Address county'
+      section :post_code, AppTest::FormInput, :simple_form_field, 'Address post code'
+      section :country, AppTest::FormSelect, :simple_form_field, 'Address country'
+      section :telephone_number, AppTest::FormInput, :simple_form_field, 'Address telephone number'
+      section :email_address, AppTest::FormInput, :simple_form_field, 'Email'
+    end
     section :original_respondent_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Respondent")]]}) do
       element :name, 'input[name="refunds_original_case_details[respondent_name]"]'
       element :post_code, 'input[name="refunds_original_case_details[respondent_post_code]"]'
