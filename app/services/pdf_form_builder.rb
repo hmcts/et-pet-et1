@@ -1,8 +1,10 @@
-# TODO: take a look at this rubocop warning
-# rubocop:disable Style/StructInheritance
-
-class PdfFormBuilder < Struct.new(:claim)
+class PdfFormBuilder
   ET1_PDF_PATH = Rails.root.join(Rails.root, 'lib', 'assets', 'et001-eng.pdf').to_s.freeze
+  attr_reader :claim
+
+  def initialize(claim)
+    @claim = claim
+  end
 
   class << self
     def build(claim, &block)
@@ -34,4 +36,3 @@ class PdfFormBuilder < Struct.new(:claim)
     @tempfile ||= Tempfile.new("#{claim.id}.pdf")
   end
 end
-# rubocop:anable Style/StructInheritance
