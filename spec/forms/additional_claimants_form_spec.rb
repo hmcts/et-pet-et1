@@ -77,7 +77,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
         additional_claimants_form.save
         claim.secondary_claimants.reload
 
-        attributes[:collection_attributes].each_with_index do |(_, attributes), index|
+        attributes[:collection_attributes].sort.each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants[index].send(k)).to eq v }
         end
       end
