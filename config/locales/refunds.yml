@@ -12,7 +12,7 @@ en:
       refunds_bank_details:
         update: "Continue"
       refunds_review:
-        update: "Continue"
+        update: "Submit Claim"
       refunds_confirmation:
         update: "Continue"
   refunds:
@@ -50,9 +50,9 @@ en:
     bank_details:
       header: "Repayment Details"
     review:
-      header: "Review Your Refund Claim"
+      header: "Review Your Application"
       sections:
-        applicant: "Applicant Details"
+        applicant: "Current Claimants Details"
         applicant_contact_details: "Contact Details"
         original_case_details: "Original Case Details"
         original_case_fees: "Original Case Fees"

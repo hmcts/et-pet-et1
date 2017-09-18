@@ -5,6 +5,6 @@ module Refunds
         choose(value)
       end
     end
-    element :save_and_continue, 'form.edit_refunds_review input[value="Continue"]'
+    element :save_and_continue, 'form.edit_refunds_review input[value="Submit Claim"]'
   end
 end

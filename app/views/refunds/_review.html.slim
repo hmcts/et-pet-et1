@@ -13,7 +13,6 @@ div class=("review-list-entry applicant")
       td = f.object.date_of_birth
   h2.list-header
     span = t ".sections.applicant_contact_details"
-    = link_to t('.edit'), refund_applicant_path(return_to_review: true)
   table.review-table
     tr
       th = t('simple_form.labels.claimant.address_building')
