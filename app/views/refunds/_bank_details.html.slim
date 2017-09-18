@@ -1,3 +1,4 @@
+= f.input :payment_account_type, required: true, collection: Refunds::BankDetailsForm::ACCOUNT_TYPES, include_blank: :translate
 fieldset
   legend = t('.your_bank_details')
   = f.input :payment_account_name, required: true, input_html: {class: 'medium-input'}

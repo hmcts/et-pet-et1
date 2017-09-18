@@ -18,11 +18,25 @@ end
 
 
 And(/^I fill in my refund bank details$/) do
-  refund_step_five_page.bank_details do |section|
-    section.account_name.set(test_user.bank_account.account_name)
-    section.bank_name.set(test_user.bank_account.bank_name)
-    section.account_number.set(test_user.bank_account.account_number)
-    section.sort_code.set(test_user.bank_account.sort_code)
+  if test_user.bank_account.present?
+    refund_step_five_page.account_type.select('Bank')
+    refund_step_five_page.bank_details do |section|
+      section.account_name.set(test_user.bank_account.account_name)
+      section.bank_name.set(test_user.bank_account.bank_name)
+      section.account_number.set(test_user.bank_account.account_number)
+      section.sort_code.set(test_user.bank_account.sort_code)
+    end
+  elsif test_user.building_society_account.present?
+    refund_step_five_page.account_type.select('Building Society')
+    refund_step_five_page.building_society_details do |section|
+      section.account_name.set(test_user.building_society_account.account_name)
+      section.bank_name.set(test_user.building_society_account.bank_name)
+      section.account_number.set(test_user.building_society_account.account_number)
+      section.sort_code.set(test_user.building_society_account.sort_code)
+      section.reference_number.set(test_user.building_society_account.reference_number)
+    end
+  else
+    raise "No bank or building society details present in the test_user"
   end
   step('I take a screenshot named "Page 4 - Bank Account Details"')
   refund_step_five_page.save_and_continue.click

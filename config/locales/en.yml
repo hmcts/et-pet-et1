@@ -95,6 +95,10 @@ en:
           cheque: Cheque
           card: Card
           cash: Cash
+      refunds_bank_details:
+        payment_account_type:
+          bank: Bank
+          building_society: Building Society
 
       additional_claimants:
         collection: :"simple_form.options.claimant"

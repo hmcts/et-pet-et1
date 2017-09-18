@@ -54,6 +54,7 @@ class CreateRefunds < ActiveRecord::Migration
       t.date     "applicant_date_of_birth"
       t.string   "applicant_email_address"
       t.string   "applicant_title"
+      t.string   "payment_account_type"
       t.string   "payment_account_name"
       t.string   "payment_bank_name"
       t.string   "payment_account_number"

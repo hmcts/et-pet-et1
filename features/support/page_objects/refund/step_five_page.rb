@@ -1,6 +1,7 @@
 module Refunds
   class StepFivePage < BasePage
     set_url "/apply/refund/bank-details"
+    element :account_type, 'select[name="refunds_bank_details[payment_account_type]"]'
     section :bank_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your Bank Details")]]}) do
       element :account_name, 'input[name="refunds_bank_details[payment_account_name]"]'
       element :bank_name, 'input[name="refunds_bank_details[payment_bank_name]"]'

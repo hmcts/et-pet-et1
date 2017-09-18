@@ -158,3 +158,9 @@ en:
         representative_address_county: County
         representative_address_post_code: Postcode
         representative_address_country: Country
+      refunds_bank_details:
+        payment_account_type: Account Type
+        payment_account_name: Account Name
+        payment_bank_name: Bank Name
+        payment_account_number: Account Number
+        payment_sort_code: Sort Code
