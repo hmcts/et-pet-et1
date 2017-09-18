@@ -41,6 +41,8 @@ services:
     image: postgres:9.5
   selenium:
     image: selenium/standalone-chrome-debug
+    volumes:
+      - /dev/shm:/dev/shm
 volumes:
   rubygems_cache:
   npm_cache:
