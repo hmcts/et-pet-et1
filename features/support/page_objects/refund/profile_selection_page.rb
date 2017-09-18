@@ -5,7 +5,7 @@ module Refunds
         choose(value)
       end
     end
-    element :save_and_continue, 'input[value="Save and continue"]'
+    element :save_and_continue, 'input[value="Continue"]'
   end
 
 end

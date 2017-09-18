@@ -2,6 +2,19 @@ en:
   helpers:
     link:
       start_a_refund: "Start a refund"
+    submit:
+      refunds_profile_selection:
+        update: "Continue"
+      refunds_applicant:
+        update: "Continue"
+      refunds_original_case_details:
+        update: "Continue"
+      refunds_bank_details:
+        update: "Continue"
+      refunds_review:
+        update: "Continue"
+      refunds_confirmation:
+        update: "Continue"
   refunds:
     claimant:
       is_claimant_legend: "Are you the claimant ?"
@@ -105,10 +118,19 @@ en:
 
   simple_form:
     labels:
+      refunds_applicant:
+        address_building: Building number or name
+        address_locality: Town/city
+        address_street: Street
+        address_county: County
+        address_post_code: Postcode
+        address_country: Country
+        address_telephone_number: Phone or mobile number
+
       refunds_original_case_details:
-        claimant_address_building: Address building
-        claimant_address_street: Address street
-        claimant_address_locality: Address locality
-        claimant_address_county: Address county
-        claimant_address_post_code: Address post code
-        claimant_address_country: Address country
+        claimant_address_building: Building number or name
+        claimant_address_street: Street
+        claimant_address_locality: Town/city
+        claimant_address_county: County
+        claimant_address_post_code: Postcode
+        claimant_address_country: Country
