@@ -10,20 +10,30 @@ fieldset
           reveal: {true => 'main', false => 'main'}
 fieldset
   legend = t('.claimant_details')
-  = f.input :claimant_address_building
-  = f.input :claimant_address_street
-  = f.input :claimant_address_locality
-  = f.input :claimant_address_county
+  = f.input :claimant_address_building, input_html: {class: 'medium-input'}
+  = f.input :claimant_address_street, input_html: {class: 'medium-input'}
+  = f.input :claimant_address_locality, input_html: {class: 'medium-input'}
+  = f.input :claimant_address_county, input_html: {class: 'medium-input'}
   = f.input :claimant_address_post_code, input_html: {class: 'short-input'}
   = f.input :claimant_address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
 fieldset
   legend = t('.representative_details')
   = f.input :representative_name, required: true, input_html: {class: 'medium-input'}
-  = f.input :representative_post_code, required: true, input_html: {class: 'medium-input'}
+  = f.input :representative_address_building, input_html: {class: 'medium-input'}
+  = f.input :representative_address_street, input_html: {class: 'medium-input'}
+  = f.input :representative_address_locality, input_html: {class: 'medium-input'}
+  = f.input :representative_address_county, input_html: {class: 'medium-input'}
+  = f.input :representative_address_post_code, required: true, input_html: {class: 'medium-input'}
+  = f.input :representative_address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
 fieldset
   legend = t('.respondent_details')
   = f.input :respondent_name, required: true, input_html: { class: 'medium-input' }
-  = f.input :respondent_post_code, required: true, input_html: { class: 'medium-input' }
+  = f.input :respondent_address_building, input_html: {class: 'medium-input'}
+  = f.input :respondent_address_street, input_html: {class: 'medium-input'}
+  = f.input :respondent_address_locality, input_html: {class: 'medium-input'}
+  = f.input :respondent_address_county, input_html: {class: 'medium-input'}
+  = f.input :respondent_address_post_code, required: true, input_html: { class: 'medium-input' }
+  = f.input :respondent_address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
 fieldset
   legend = t('.original_case_details')
   = f.input :et_case_number, required: true, input_html: {class: 'medium-input'}

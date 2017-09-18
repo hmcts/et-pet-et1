@@ -69,6 +69,12 @@ en:
         claimant_address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+        representative_address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
+        respondent_address_country:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
         et_issue_fee_payment_method:
           cheque: Cheque
           card: Card

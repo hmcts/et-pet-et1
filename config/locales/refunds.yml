@@ -115,6 +115,18 @@ en:
               blank: Enter the street from the claimant's address
             claimant_address_post_code:
               blank: Enter the claimant's post code
+            respondent_address_building:
+              blank: Enter the building number or name from the respondent's address
+            respondent_address_street:
+              blank: Enter the street from the respondent's address
+            respondent_address_post_code:
+              blank: Enter the respondent's post code
+            representative_address_building:
+              blank: Enter the building number or name from the representative's address
+            representative_address_street:
+              blank: Enter the street from the representative's address
+            representative_address_post_code:
+              blank: Enter the representative's post code
 
   simple_form:
     labels:
@@ -134,3 +146,15 @@ en:
         claimant_address_county: County
         claimant_address_post_code: Postcode
         claimant_address_country: Country
+        respondent_address_building: Building number or name
+        respondent_address_street: Street
+        respondent_address_locality: Town/city
+        respondent_address_county: County
+        respondent_address_post_code: Postcode
+        respondent_address_country: Country
+        representative_address_building: Building number or name
+        representative_address_street: Street
+        representative_address_locality: Town/city
+        representative_address_county: County
+        representative_address_post_code: Postcode
+        representative_address_country: Country

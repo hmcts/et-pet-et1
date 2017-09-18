@@ -25,6 +25,9 @@ div class=("review-list-entry applicant")
       td = f.object.applicant_address_locality
     tr
       th = t('simple_form.labels.claimant.address_county')
+      td = f.object.applicant_address_county
+    tr
+      th = t('simple_form.labels.claimant.address_post_code')
       td = f.object.applicant_address_post_code
     tr
       th = t('simple_form.labels.claimant.address_country')
@@ -49,14 +52,44 @@ div class=("review-list-entry applicant")
       th = t('.representative_name')
       td = f.object.representative_name
     tr
-      th = t('.representative_address_post_code')
-      td = f.object.representative_post_code
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_building')
+      td = f.object.representative_address_building
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_street')
+      td = f.object.representative_address_street
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_locality')
+      td = f.object.representative_address_locality
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_county')
+      td = f.object.representative_address_county
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_post_code')
+      td = f.object.representative_address_post_code
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.representative_address_country')
+      td = f.object.representative_address_country
     tr
       th = t('.respondent_name')
       td = f.object.respondent_name
     tr
-      th = t('.respondent_address_post_code')
-      td = f.object.respondent_post_code
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_building')
+      td = f.object.respondent_address_building
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_street')
+      td = f.object.respondent_address_street
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_locality')
+      td = f.object.respondent_address_locality
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_county')
+      td = f.object.respondent_address_county
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_post_code')
+      td = f.object.respondent_address_post_code
+    tr
+      th = t('simple_form.labels.refunds_original_case_details.respondent_address_country')
+      td = f.object.respondent_address_country
     tr
       th = t('.et_case_number')
       td = f.object.et_case_number

@@ -16,10 +16,26 @@ Given(/^I am "Luke Skywalker"$/) do
 end
 
 And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$/) do
+  respondent_address = OpenStruct.new post_code: 'SW1H 9QR',
+                                      building: '106',
+                                      street: 'Petty France',
+                                      locality: 'London',
+                                      county: 'Greater London',
+                                      country: 'United Kingdom'
+
   respondent = OpenStruct.new name: 'Respondent Name',
-                              post_code: 'SW1H 9QR'
+                              address: respondent_address
+
+  representative_address = OpenStruct.new post_code: 'SW2H 9ST',
+                                          building: '108',
+                                          street: 'Petty France',
+                                          locality: 'London',
+                                          county: 'Greater London',
+                                          country: 'United Kingdom'
+
   representative = OpenStruct.new name: 'Representative Name',
-                                  post_code: 'SW2H 9ST'
+                                  address: representative_address
+
   fees = OpenStruct.new et_issue_fee: '1000.00',
                         et_issue_payment_method: 'Card',
                         et_hearing_fee: '1001.00',

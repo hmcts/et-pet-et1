@@ -4,9 +4,19 @@ module Refunds
     attribute :et_case_number,                          String
     attribute :et_tribunal_office,                      String
     attribute :respondent_name,                         String
-    attribute :respondent_post_code,                    String
+    attribute :respondent_address_building,               String
+    attribute :respondent_address_street,                 String
+    attribute :respondent_address_locality,               String
+    attribute :respondent_address_county,                 String
+    attribute :respondent_address_post_code,              String
+    attribute :respondent_address_country,                String
     attribute :representative_name,                     String
-    attribute :representative_post_code,                String
+    attribute :representative_address_building,               String
+    attribute :representative_address_street,                 String
+    attribute :representative_address_locality,               String
+    attribute :representative_address_county,                 String
+    attribute :representative_address_post_code,              String
+    attribute :representative_address_country,                String
     attribute :additional_information,                  String
     attribute :et_issue_fee,                            Float
     attribute :et_issue_fee_payment_method,             String
@@ -27,6 +37,8 @@ module Refunds
     attribute :claimant_address_country,                String
 
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
+    validates :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true
+    validates :respondent_address_building, :respondent_address_street, :respondent_address_post_code, presence: true
     before_validation :transfer_address, if: :address_same_as_applicant
 
     private
