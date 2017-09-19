@@ -1,5 +1,4 @@
 # Namespace for encapsulating Payment gateway related code
-# TODO: take a look at this rubocop warning
 # rubocop:disable Style/StructInheritance
 module PaymentGateway
   # Encapsulates ePDQ request related code
