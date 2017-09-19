@@ -2,7 +2,7 @@ require 'webrick/log'
 Capybara.configure do |config|
   driver = ENV['DRIVER']&.to_sym || :chrome
   config.default_driver = driver
-  config.default_max_wait_time = 30
+  config.default_max_wait_time = 15
   config.match = :prefer_exact
   config.visible_text_only = true
 

@@ -47,3 +47,13 @@ end
 Then(/^I should see the refund bank details page$/) do
   expect(refund_step_five_page).to be_displayed
 end
+
+
+Then(/^all mandatory bank details fields should be marked with an error$/) do
+  aggregate_failures do
+    expect(refund_step_five_page.bank_details.account_name.error.text).to eql "Enter the name on the bank account"
+    expect(refund_step_five_page.bank_details.bank_name.error.text).to eql "Enter the name of the bank"
+    expect(refund_step_five_page.bank_details.account_number.error.text).to eql "Enter the account number that the refund is to be paid into"
+    expect(refund_step_five_page.bank_details.sort_code.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
+  end
+end

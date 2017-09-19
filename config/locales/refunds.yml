@@ -32,13 +32,13 @@ en:
       profile_4_label: "Profile 4 label"
       profile_5_label: "Profile 5 label"
     original_case_details:
-      original_case_details: "Original Case Details"
-      header: "Original Case Details"
-      respondent_details: "Respondent"
-      claimant_details: "Claimant"
+      original_case_details: "Your case details"
+      header: "Details about your original case"
+      respondent_details: "Who was your claim against (Respondent) ?"
+      claimant_details: "Your address at the time of your claim"
       date_of_birth: "Date of birth"
       contact_details: "Claimant Address"
-      fee_details: "Claimant Fees"
+      fee_details: "About your fees paid"
       issue_fee: "ET Issue Fee"
       fee: "Fee (in pounds)"
       date_paid: "Date paid"
@@ -78,7 +78,7 @@ en:
       eat_hearing_fee: "EAT Hearing"
       app_reconsideration_fee: "Application Reconsideration"
       fee_type: "Fee Type"
-      payment_account_name: "Account Name"
+      payment_account_name: "Account holder name"
       payment_bank_name: "Bank Name"
       payment_account_number: "Account Number"
       payment_sort_code: "Sort Code"
@@ -92,29 +92,29 @@ en:
         refunds/applicant:
           attributes:
             date_of_birth:
-              blank: Enter the claimant's date of birth
+              blank: Enter your date of birth
             last_name:
-              blank: Enter the claimant's last name
+              blank: Enter your last name
             first_name:
-              blank: Enter the claimant's first name
+              blank: Enter your first name
             title:
               blank: Select a title from the list
             address_building:
-              blank: Enter the building number or name from the claimant's address
+              blank: Enter the building number or name from your address
             address_street:
-              blank: Enter the street from the claimant's address
+              blank: Enter the street from your address
             address_post_code:
-              blank: Enter the claimant's post code
+              blank: Enter your post code
             address_telephone_number:
-              blank: Enter the claimant's telephone number
+              blank: Enter your preferred number
         refunds/original_case_details:
           attributes:
             claimant_address_building:
-              blank: Enter the building number or name from the claimant's address
+              blank: Enter the building number or name from your address at the time of the original claim
             claimant_address_street:
-              blank: Enter the street from the claimant's address
+              blank: Enter the street from your address at the time of the original claim
             claimant_address_post_code:
-              blank: Enter the claimant's post code
+              blank: Enter your post code at the time of the original claim
             respondent_address_building:
               blank: Enter the building number or name from the respondent's address
             respondent_address_street:
@@ -127,6 +127,16 @@ en:
               blank: Enter the street from the representative's address
             representative_address_post_code:
               blank: Enter the representative's post code
+        refunds/bank_details:
+          attributes:
+            payment_account_name:
+              blank: Enter the name on the bank account
+            payment_bank_name:
+              blank: Enter the name of the bank
+            payment_account_number:
+              blank: Enter the account number that the refund is to be paid into
+            payment_sort_code:
+              blank: Enter the sort code of the account that the refund is to be paid into
 
   simple_form:
     labels:
@@ -135,7 +145,7 @@ en:
         address_locality: Town/city
         address_street: Street
         address_county: County
-        address_post_code: Postcode
+        address_post_code: UK Postcode
         address_country: Country
         address_telephone_number: Phone or mobile number
 
@@ -144,23 +154,25 @@ en:
         claimant_address_street: Street
         claimant_address_locality: Town/city
         claimant_address_county: County
-        claimant_address_post_code: Postcode
+        claimant_address_post_code: UK Postcode
         claimant_address_country: Country
         respondent_address_building: Building number or name
         respondent_address_street: Street
         respondent_address_locality: Town/city
         respondent_address_county: County
-        respondent_address_post_code: Postcode
+        respondent_address_post_code: UK Postcode
         respondent_address_country: Country
         representative_address_building: Building number or name
         representative_address_street: Street
         representative_address_locality: Town/city
         representative_address_county: County
-        representative_address_post_code: Postcode
+        representative_address_post_code: UK Postcode
         representative_address_country: Country
+        et_case_number: Employment tribunal case number
+        et_tribunal_office: Employment tribunal office
       refunds_bank_details:
-        payment_account_type: Account Type
-        payment_account_name: Account Name
-        payment_bank_name: Bank Name
-        payment_account_number: Account Number
-        payment_sort_code: Sort Code
+        payment_account_type: Account type
+        payment_account_name: Bank account holder name
+        payment_bank_name: Bank name
+        payment_account_number: Bank account number
+        payment_sort_code: Bank sort code

@@ -1,7 +1,21 @@
-= f.input :payment_account_type, required: true, collection: Refunds::BankDetailsForm::ACCOUNT_TYPES, include_blank: :translate
-fieldset
+= f.input :payment_account_type,
+        required: true,
+        collection: Refunds::BankDetailsForm::ACCOUNT_TYPES,
+        include_blank: :translate,
+        wrapper_class: 'form-group-reveal reveal-publish-delegate',
+        input_html: {:class => 'reveal-publish-publisher ga-vpv', data: {target: 'main'}},
+        reveal: {'bank' => 'main', 'building_society' => 'main'}
+
+fieldset.reveal-subscribe data-target='main' data-show-array="bank"
   legend = t('.your_bank_details')
-  = f.input :payment_account_name, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_bank_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_account_name, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_account_number, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_sort_code, required: true, input_html: {class: 'medium-input'}
+fieldset.hidden.reveal-subscribe data-target='main' data-show-array='building_society' disabled=true
+  legend = t('.your_building_society_details')
+  = f.input :payment_bank_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_account_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_account_number, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_sort_code, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_reference, required: true, input_html: {class: 'medium-input'}

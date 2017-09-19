@@ -46,14 +46,16 @@ end
 
 And(/^all mandatory fields in the refund applicant page should be marked with an error$/) do
   aggregate_failures do
+    expect(refund_step_two_page.about_the_claimant.has_name_changed.error.text).to eql "Please select Yes or No"
     expect(refund_step_two_page.about_the_claimant.title.error.text).to eql "Select a title from the list"
-    expect(refund_step_two_page.about_the_claimant.first_name.error.text).to eql "Enter the claimant's first name"
-    expect(refund_step_two_page.about_the_claimant.last_name.error.text).to eql "Enter the claimant's last name"
-    expect(refund_step_two_page.about_the_claimant.date_of_birth.error.text).to eql "Enter the claimant's date of birth"
-    expect(refund_step_two_page.claimants_contact_details.building.error.text).to eql "Enter the building number or name from the claimant's address"
-    expect(refund_step_two_page.claimants_contact_details.street.error.text).to eql "Enter the street from the claimant's address"
-    expect(refund_step_two_page.claimants_contact_details.post_code.error.text).to eql "Enter the claimant's post code"
-    expect(refund_step_two_page.claimants_contact_details.telephone_number.error.text).to eql "Enter the claimant's telephone number"
+    expect(refund_step_two_page.about_the_claimant.first_name.error.text).to eql "Enter your first name"
+    expect(refund_step_two_page.about_the_claimant.last_name.error.text).to eql "Enter your last name"
+    expect(refund_step_two_page.about_the_claimant.date_of_birth.error.text).to eql "Enter your date of birth"
+    expect(refund_step_two_page.claimants_contact_details.building.error.text).to eql "Enter the building number or name from your address"
+    expect(refund_step_two_page.claimants_contact_details.street.error.text).to eql "Enter the street from your address"
+    expect(refund_step_two_page.claimants_contact_details.post_code.error.text).to eql "Enter your post code"
+    expect(refund_step_two_page.claimants_contact_details.telephone_number.error.text).to eql "Enter your preferred number"
+
     expect(refund_step_two_page.claimants_contact_details.locality).to have_no_error, 'Expected locality not to have an error'
     expect(refund_step_two_page.claimants_contact_details.county).to have_no_error, 'Expected county not to have an error'
     expect(refund_step_two_page.claimants_contact_details.country).to have_no_error, 'Expected country not to have an error'

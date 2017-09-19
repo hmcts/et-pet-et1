@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "payment_bank_name"
     t.string   "payment_account_number"
     t.string   "payment_sort_code"
+    t.string   "payment_reference"
     t.boolean  "accept_declaration",                     default: false, null: false
     t.string   "claimant_address_building"
     t.string   "claimant_address_street"

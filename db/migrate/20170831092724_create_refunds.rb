@@ -5,7 +5,7 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "email_address"
       t.string   "application_reference", null: true
       t.integer   "application_reference_number", null: true
-      t.boolean  "address_same_as_applicant", default: false
+      t.boolean  "address_changed", default: false
       t.boolean  "has_name_changed", default: false
       t.integer  "profile_number"
       t.string   "et_case_number"
@@ -59,6 +59,7 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "payment_bank_name"
       t.string   "payment_account_number"
       t.string   "payment_sort_code"
+      t.string   "payment_reference"
       t.boolean  "accept_declaration", null: false, default: false
       t.string   "claimant_address_building"
       t.string   "claimant_address_street"

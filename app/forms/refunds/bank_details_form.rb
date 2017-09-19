@@ -6,7 +6,9 @@ module Refunds
     attribute :payment_bank_name,  String
     attribute :payment_account_number,  String
     attribute :payment_sort_code,  String
+    attribute :payment_reference,  String
 
     validates :payment_account_type, presence: true, inclusion: {in: ACCOUNT_TYPES}
+    validates :payment_account_name, :payment_bank_name, :payment_account_number, :payment_sort_code, presence: true
   end
 end

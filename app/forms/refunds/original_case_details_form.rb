@@ -28,7 +28,7 @@ module Refunds
     attribute :eat_hearing_fee_payment_method,          String
     attribute :app_reconsideration_fee,                 Float
     attribute :app_reconsideration_fee_payment_method,  String
-    boolean :address_same_as_applicant
+    boolean :address_changed
     attribute :claimant_address_building,               String
     attribute :claimant_address_street,                 String
     attribute :claimant_address_locality,               String
@@ -39,7 +39,7 @@ module Refunds
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
     validates :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true
     validates :respondent_address_building, :respondent_address_street, :respondent_address_post_code, presence: true
-    before_validation :transfer_address, if: :address_same_as_applicant
+    before_validation :transfer_address, unless: :address_changed
 
     private
 

@@ -81,8 +81,8 @@ And(/^I fill in my refund application reconsideration fee with:$/) do |table|
   end
 end
 
-And(/^I answer (Yes|No) to the address same as applicant question for refunds$/) do |arg|
-  refund_step_four_page.address_same_as_applicant.set(arg)
+And(/^I answer (Yes|No) to the has your address changed question for refunds$/) do |arg|
+  refund_step_four_page.address_changed.set(arg)
 end
 
 
@@ -92,8 +92,8 @@ end
 
 
 And(/^I fill in my refund original case details$/) do
-  refund_step_four_page.address_same_as_applicant.set(test_user.claim_address_same) unless test_user.claim_address_same.nil?
-  if test_user.claim_address_same == 'No'
+  refund_step_four_page.address_changed.set(test_user.claim_address_changed) unless test_user.claim_address_changed.nil?
+  if test_user.claim_address_changed == 'Yes'
     refund_step_four_page.original_claimant_details do |section|
       section.building.set(test_user.et_claim_to_refund.address.building)
       section.street.set(test_user.et_claim_to_refund.address.street)
@@ -154,9 +154,9 @@ end
 
 Then(/^all mandatory claimant address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
-    expect(refund_step_four_page.original_claimant_details.building.error.text).to eql "Enter the building number or name from the claimant's address"
-    expect(refund_step_four_page.original_claimant_details.street.error.text).to eql "Enter the street from the claimant's address"
-    expect(refund_step_four_page.original_claimant_details.post_code.error.text).to eql "Enter the claimant's post code"
+    expect(refund_step_four_page.original_claimant_details.building.error.text).to eql "Enter the building number or name from your address at the time of the original claim"
+    expect(refund_step_four_page.original_claimant_details.street.error.text).to eql "Enter the street from your address at the time of the original claim"
+    expect(refund_step_four_page.original_claimant_details.post_code.error.text).to eql "Enter your post code at the time of the original claim"
     expect(refund_step_four_page.original_claimant_details.locality).to have_no_error, 'Expected claimant locality not to have an error'
     expect(refund_step_four_page.original_claimant_details.county).to have_no_error, 'Expected claimant county not to have an error'
     expect(refund_step_four_page.original_claimant_details.country).to have_no_error, 'Expected claimant country not to have an error'
@@ -166,6 +166,7 @@ end
 
 And(/^all mandatory respondent address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
+    expect(refund_step_four_page.original_respondent_details.name.error.text).to eql "Enter the respondent's name"
     expect(refund_step_four_page.original_respondent_details.building.error.text).to eql "Enter the building number or name from the respondent's address"
     expect(refund_step_four_page.original_respondent_details.street.error.text).to eql "Enter the street from the respondent's address"
     expect(refund_step_four_page.original_respondent_details.post_code.error.text).to eql "Enter the respondent's post code"
@@ -179,6 +180,7 @@ end
 
 And(/^all mandatory representative address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
+    expect(refund_step_four_page.original_representative_details.name.error.text).to eql "Enter the representative's name"
     expect(refund_step_four_page.original_representative_details.building.error.text).to eql "Enter the building number or name from the representative's address"
     expect(refund_step_four_page.original_representative_details.street.error.text).to eql "Enter the street from the representative's address"
     expect(refund_step_four_page.original_representative_details.post_code.error.text).to eql "Enter the representative's post code"

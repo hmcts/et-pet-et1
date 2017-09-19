@@ -1,4 +1,3 @@
-
 Given(/^I am "Luke Skywalker"$/) do
   address = OpenStruct.new building: '102',
                            street: 'Petty France',
@@ -64,6 +63,14 @@ And(/^I have a bank account$/) do
                                           sort_code: '012345'
 end
 
+And(/^I have a building society account$/) do
+  test_user.building_society_account = OpenStruct.new account_name: 'Mr Luke Skywalker',
+                                                      bank_name: 'Starship Enterprises Bank',
+                                                      account_number: '12345678',
+                                                      sort_code: '012345',
+                                                      reference: 'ABCDEFG1234567890'
+end
+
 
 And(/^my name has not changed since the original claim that I want a refund for$/) do
   test_user.has_name_changed = 'No'
@@ -71,11 +78,11 @@ end
 
 
 And(/^my address has not changed since the original claim that I want a refund for$/) do
-  test_user.claim_address_same = 'Yes'
+  test_user.claim_address_changed = 'No'
 end
 
 And(/^my address has changed since the original claim that I want a refund for$/) do
-  test_user.claim_address_same = 'No'
+  test_user.claim_address_changed = 'Yes'
   test_user.et_claim_to_refund.address = OpenStruct.new building: '104',
                                                         street: 'Petty Belgium',
                                                         locality: 'London',

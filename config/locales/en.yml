@@ -511,19 +511,18 @@ en:
       print_link: Print this page
       print_copy: to have a copy of your refund number for reference
     applicant:
-      header: Current claimant’s details
-      legend_personal_details: About the claimant
-      legend_contact_details: Claimant’s contact details
-      personal_details_description: |
-        Information about the person or organisation making this claim (known as the 'claimant').
-      has_name_changed_legend: "Has your name changed since the original claim was made ?"
+      header: Claimant details
+      legend_personal_details: About you
+      legend_contact_details: Your contact details
+      has_name_changed_legend: "Has your name changed since the original claim ?"
     personal_details:
       date_of_birth: Date of birth
     original_case_details:
-      address_same_as_applicant: "Address is the same as above ?"
+      address_changed: "Has your address changed since your original claim ?"
       representative_details: "Representative"
     bank_details:
       your_bank_details: "Your Bank Details"
+      your_building_society_details: "Your Building Society Details"
   claims:
     personal_details:
       date_of_birth: Date of birth
