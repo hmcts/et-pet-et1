@@ -9,3 +9,9 @@ Capybara.add_selector(:simple_form_date) do
     XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is(locator)]]}
   end
 end
+
+Capybara.add_selector(:simple_form_boolean) do
+  xpath do |locator, options|
+    XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is(locator)]]}
+  end
+end

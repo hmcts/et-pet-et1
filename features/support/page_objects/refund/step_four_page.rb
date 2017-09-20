@@ -16,7 +16,7 @@ module Refunds
       section :email_address, AppTest::FormInput, :simple_form_field, 'Email address'
     end
     section :original_respondent_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Respondent")]]}) do
-      element :name, 'input[name="refunds_original_case_details[respondent_name]"]'
+      section :name, AppTest::FormInput, :simple_form_field, 'Respondent name'
       section :building, AppTest::FormInput, :simple_form_field, 'Building number or name'
       section :street, AppTest::FormInput, :simple_form_field, 'Street'
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'
@@ -25,7 +25,7 @@ module Refunds
       section :country, AppTest::FormSelect, :simple_form_field, 'Country'
     end
     section :original_representative_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative")]]}) do
-      element :name, 'input[name="refunds_original_case_details[representative_name]"]'
+      section :name, AppTest::FormInput, :simple_form_field, 'Representative name'
       section :building, AppTest::FormInput, :simple_form_field, 'Building number or name'
       section :street, AppTest::FormInput, :simple_form_field, 'Street'
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'

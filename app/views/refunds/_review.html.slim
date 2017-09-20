@@ -132,17 +132,17 @@ div class=("review-list-entry applicant")
     = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
   table.review-table
     tr
-      th = t('.payment_account_name')
-      td = f.object.payment_account_name
+      th = t('.payment_bank_account_name')
+      td = f.object.payment_bank_account_name
     tr
       th = t('.payment_bank_name')
       td = f.object.payment_bank_name
     tr
-      th = t('.payment_account_number')
-      td = f.object.payment_account_number
+      th = t('.payment_bank_account_number')
+      td = f.object.payment_bank_account_number
     tr
-      th = t('.payment_sort_code')
-      td = f.object.payment_sort_code
+      th = t('.payment_bank_sort_code')
+      td = f.object.payment_bank_sort_code
 fieldset
   legend= t '.declaration'
   = f.input :accept_declaration,

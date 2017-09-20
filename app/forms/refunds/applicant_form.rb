@@ -45,6 +45,7 @@ module Refunds
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
     validates :address_telephone_number, presence: true
     validates :date_of_birth, presence: true
+    validates :has_name_changed, nil: true
 
     dates :date_of_birth
 

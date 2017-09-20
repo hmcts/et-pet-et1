@@ -30,7 +30,7 @@ And(/^I fill in my refund bank details$/) do
     refund_step_five_page.account_type.select('Building Society')
     refund_step_five_page.building_society_details do |section|
       section.account_name.set(test_user.building_society_account.account_name)
-      section.bank_name.set(test_user.building_society_account.bank_name)
+      section.building_society_name.set(test_user.building_society_account.building_society_name)
       section.account_number.set(test_user.building_society_account.account_number)
       section.sort_code.set(test_user.building_society_account.sort_code)
       section.reference_number.set(test_user.building_society_account.reference_number)
@@ -55,5 +55,41 @@ Then(/^all mandatory bank details fields should be marked with an error$/) do
     expect(refund_step_five_page.bank_details.bank_name.error.text).to eql "Enter the name of the bank"
     expect(refund_step_five_page.bank_details.account_number.error.text).to eql "Enter the account number that the refund is to be paid into"
     expect(refund_step_five_page.bank_details.sort_code.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
+    expect(refund_step_five_page.building_society_details.account_name).to have_no_error
+    expect(refund_step_five_page.building_society_details.building_society_name).to have_no_error
+    expect(refund_step_five_page.building_society_details.account_number).to have_no_error
+    expect(refund_step_five_page.building_society_details.sort_code).to have_no_error
   end
+end
+
+Then(/^all mandatory building society details fields should be marked with an error$/) do
+  aggregate_failures do
+    expect(refund_step_five_page.building_society_details.account_name.error.text).to eql "Enter the name on the building society account"
+    expect(refund_step_five_page.building_society_details.building_society_name.error.text).to eql "Enter the name of the building society"
+    expect(refund_step_five_page.building_society_details.account_number.error.text).to eql "Enter the account number that the refund is to be paid into"
+    expect(refund_step_five_page.building_society_details.sort_code.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
+    expect(refund_step_five_page.bank_details.account_name).to have_no_error
+    expect(refund_step_five_page.bank_details.bank_name).to have_no_error
+    expect(refund_step_five_page.bank_details.account_number).to have_no_error
+    expect(refund_step_five_page.bank_details.sort_code).to have_no_error
+  end
+end
+
+
+And(/^I select "([^"]*)" account type in the refund bank details page$/) do |account_type|
+  refund_step_five_page.account_type.select(account_type)
+end
+
+
+Then(/^only the bank details account type field should be marked with an error$/) do
+  expect(refund_step_five_page.account_type.error.text).to eql "Please select one of the options"
+  expect(refund_step_five_page.bank_details.account_name).to have_no_error
+  expect(refund_step_five_page.bank_details.bank_name).to have_no_error
+  expect(refund_step_five_page.bank_details.account_number).to have_no_error
+  expect(refund_step_five_page.bank_details.sort_code).to have_no_error
+  expect(refund_step_five_page.building_society_details.account_name).to have_no_error
+  expect(refund_step_five_page.building_society_details.building_society_name).to have_no_error
+  expect(refund_step_five_page.building_society_details.account_number).to have_no_error
+  expect(refund_step_five_page.building_society_details.sort_code).to have_no_error
+
 end

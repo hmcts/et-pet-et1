@@ -14,6 +14,14 @@ module AppTest
     element :label, 'label'
     element :error, '.error'
   end
+  class FormBoolean < SitePrism::Section
+    element :field, 'input'
+    element :label, 'label'
+    element :error, '.error'
+    def set(value)
+      choose(value)
+    end
+  end
 
   class FormDate < SitePrism::Section
     element :day, :field, 'Day'

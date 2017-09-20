@@ -46,7 +46,7 @@ end
 
 And(/^all mandatory fields in the refund applicant page should be marked with an error$/) do
   aggregate_failures do
-    expect(refund_step_two_page.about_the_claimant.has_name_changed.error.text).to eql "Please select Yes or No"
+    expect(refund_step_two_page.has_name_changed.error.text).to eql "Please select Yes or No"
     expect(refund_step_two_page.about_the_claimant.title.error.text).to eql "Select a title from the list"
     expect(refund_step_two_page.about_the_claimant.first_name.error.text).to eql "Enter your first name"
     expect(refund_step_two_page.about_the_claimant.last_name.error.text).to eql "Enter your last name"
