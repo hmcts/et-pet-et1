@@ -9,7 +9,6 @@ module Refunds
     attribute :respondent_address_locality,               String
     attribute :respondent_address_county,                 String
     attribute :respondent_address_post_code,              String
-    attribute :respondent_address_country,                String
     boolean :claim_had_representative
     attribute :representative_name,                     String
     attribute :representative_address_building,               String
@@ -17,7 +16,6 @@ module Refunds
     attribute :representative_address_locality,               String
     attribute :representative_address_county,                 String
     attribute :representative_address_post_code,              String
-    attribute :representative_address_country,                String
     attribute :additional_information,                  String
     attribute :et_issue_fee,                            Float
     attribute :et_issue_fee_payment_method,             String
@@ -35,7 +33,6 @@ module Refunds
     attribute :claimant_address_locality,               String
     attribute :claimant_address_county,                 String
     attribute :claimant_address_post_code,              String
-    attribute :claimant_address_country,                String
 
     validates :claim_had_representative, nil: true
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
@@ -51,7 +48,6 @@ module Refunds
       self.claimant_address_locality = resource.applicant_address_locality
       self.claimant_address_county = resource.applicant_address_county
       self.claimant_address_post_code = resource.applicant_address_post_code
-      self.claimant_address_country = resource.applicant_address_country
     end
   end
 end

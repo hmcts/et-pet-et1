@@ -16,7 +16,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "respondent_address_locality"
       t.string   "respondent_address_county"
       t.string   "respondent_address_post_code"
-      t.string   "respondent_address_country"
       t.boolean  "claim_had_representative"
       t.string   "representative_name"
       t.string   "representative_address_building"
@@ -24,7 +23,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "representative_address_locality"
       t.string   "representative_address_county"
       t.string   "representative_address_post_code"
-      t.string   "representative_address_country"
       t.string   "claimant_name"
       t.text     "additional_information"
       t.string   "claimant_address_post_code"
@@ -49,7 +47,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "applicant_address_county"
       t.string   "applicant_address_post_code"
       t.string   "applicant_address_telephone_number"
-      t.string   "applicant_address_country"
       t.string   "applicant_first_name"
       t.string   "applicant_last_name"
       t.date     "applicant_date_of_birth"
@@ -71,10 +68,6 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "claimant_address_locality"
       t.string   "claimant_address_county"
       t.string   "claimant_address_post_code"
-      t.string   "claimant_address_country"
-
-
-
     end
   end
 end

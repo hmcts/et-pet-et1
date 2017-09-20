@@ -3,7 +3,6 @@ module Refunds
     TITLES               = %w[mr mrs miss ms].freeze
     GENDERS              = %w[male female prefer_not_to_say].freeze
     CONTACT_PREFERENCES  = %w[email post].freeze
-    COUNTRIES            = %w[united_kingdom other].freeze
     EMAIL_ADDRESS_LENGTH = 100
     NAME_LENGTH          = 100
 
@@ -24,22 +23,19 @@ module Refunds
     include AgeValidator
 
     validates :address_post_code,
-      post_code: true, length: { maximum: AddressAttributes::POSTCODE_LENGTH },
-      unless: :international_address?
+      length: { maximum: AddressAttributes::POSTCODE_LENGTH }
     boolean :is_claimant
     boolean :has_name_changed
     attribute :first_name,         String
     attribute :last_name,          String
     attribute :date_of_birth,      Date
-    attribute :address_country,    String
     attribute :email_address,      String
     attribute :title,              String
 
-    validates :title, :first_name, :last_name, :address_country, presence: true
+    validates :title, :first_name, :last_name, presence: true
 
     validates :title, inclusion: { in: TITLES }
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validates :address_country, inclusion: { in: COUNTRIES }
     validates :email_address, allow_blank: true,
                               email: true,
                               length: { maximum: EMAIL_ADDRESS_LENGTH }
@@ -79,10 +75,6 @@ module Refunds
         claimant_name: "#{attrs[:applicant_title].titleize} #{attrs[:applicant_first_name]} #{attrs[:applicant_last_name]}"
       }
       resource.assign_attributes(new_claim_attributes)
-    end
-
-    def international_address?
-      address_country != 'united_kingdom'
     end
   end
 end

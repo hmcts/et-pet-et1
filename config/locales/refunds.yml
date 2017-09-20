@@ -166,7 +166,6 @@ en:
         address_street: Street
         address_county: County
         address_post_code: UK Postcode
-        address_country: Country
         address_telephone_number: Phone or mobile number
 
       refunds_original_case_details:
@@ -175,19 +174,16 @@ en:
         claimant_address_locality: Town/city
         claimant_address_county: County
         claimant_address_post_code: UK Postcode
-        claimant_address_country: Country
         respondent_address_building: Building number or name
         respondent_address_street: Street
         respondent_address_locality: Town/city
         respondent_address_county: County
         respondent_address_post_code: UK Postcode
-        respondent_address_country: Country
         representative_address_building: Building number or name
         representative_address_street: Street
         representative_address_locality: Town/city
         representative_address_county: County
         representative_address_post_code: UK Postcode
-        representative_address_country: Country
         et_case_number: Employment tribunal case number
         et_tribunal_office: Employment tribunal office
       refunds_bank_details:

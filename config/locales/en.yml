@@ -57,24 +57,12 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
-        address_country:
-          united_kingdom: United Kingdom
-          other: Outside United Kingdom
       refunds_original_case_details:
         claimant_title:
           mr: Mr
           mrs: Mrs
           miss: Miss
           ms: Ms
-        claimant_address_country:
-          united_kingdom: United Kingdom
-          other: Outside United Kingdom
-        representative_address_country:
-          united_kingdom: United Kingdom
-          other: Outside United Kingdom
-        respondent_address_country:
-          united_kingdom: United Kingdom
-          other: Outside United Kingdom
         et_issue_fee_payment_method:
           cheque: Cheque
           card: Card

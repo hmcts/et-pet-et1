@@ -25,7 +25,6 @@ module Refunds
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
-      section :country, AppTest::FormSelect, :simple_form_field, 'Country'
       section :telephone_number, AppTest::FormInput, :simple_form_field, 'Phone or mobile number'
       section :email_address, AppTest::FormInput, :simple_form_field, 'Email address'
     end

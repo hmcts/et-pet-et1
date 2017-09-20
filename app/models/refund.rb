@@ -6,7 +6,6 @@ class Refund < ActiveRecord::Base
   alias_attribute :address_county, :applicant_address_county
   alias_attribute :address_post_code, :applicant_address_post_code
   alias_attribute :address_telephone_number, :applicant_address_telephone_number
-  alias_attribute :address_country, :applicant_address_country
   alias_attribute :title, :applicant_title
   alias_attribute :first_name, :applicant_first_name
   alias_attribute :last_name, :applicant_last_name

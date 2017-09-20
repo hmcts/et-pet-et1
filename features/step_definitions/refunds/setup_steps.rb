@@ -3,8 +3,7 @@ Given(/^I am "Luke Skywalker"$/) do
                            street: 'Petty France',
                            locality: 'London',
                            county: 'Greater London',
-                           post_code: 'SW1H 9AJ',
-                           country: 'United Kingdom'
+                           post_code: 'SW1H 9AJ'
   self.test_user = OpenStruct.new title: "Mr",
                                   first_name: "Luke",
                                   last_name: "Skywalker",
@@ -19,8 +18,7 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
                                       building: '106',
                                       street: 'Petty France',
                                       locality: 'London',
-                                      county: 'Greater London',
-                                      country: 'United Kingdom'
+                                      county: 'Greater London'
 
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
@@ -77,8 +75,7 @@ And(/^my address has changed since the original claim that I want a refund for$/
                                                         street: 'Petty Belgium',
                                                         locality: 'London',
                                                         county: 'Greater London',
-                                                        post_code: 'SW1H 9BK',
-                                                        country: 'United Kingdom'
+                                                        post_code: 'SW1H 9BK'
 end
 
 
@@ -92,8 +89,7 @@ And(/^I had a representative$/) do
                                           building: '108',
                                           street: 'Petty France',
                                           locality: 'London',
-                                          county: 'Greater London',
-                                          country: 'United Kingdom'
+                                          county: 'Greater London'
 
   representative = OpenStruct.new name: 'Representative Name',
                                   address: representative_address

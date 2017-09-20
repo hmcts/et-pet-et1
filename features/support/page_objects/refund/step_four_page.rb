@@ -11,7 +11,6 @@ module Refunds
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
-      section :country, AppTest::FormSelect, :simple_form_field, 'Country'
       section :telephone_number, AppTest::FormInput, :simple_form_field, 'Phone or mobile number'
       section :email_address, AppTest::FormInput, :simple_form_field, 'Email address'
     end
@@ -22,7 +21,6 @@ module Refunds
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
-      section :country, AppTest::FormSelect, :simple_form_field, 'Country'
     end
     section :claim_had_representative, AppTest::FormBoolean, :simple_form_boolean, 'Did you have a representative at the time of your original claim ?'
     section :original_representative_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative")]]}) do
@@ -32,7 +30,6 @@ module Refunds
       section :locality, AppTest::FormInput, :simple_form_field, 'Town/city'
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
-      section :country, AppTest::FormSelect, :simple_form_field, 'Country'
     end
     section :original_claim_fees, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your fees paid")]]}) do
       section :et_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Issue Fee")]]}) do

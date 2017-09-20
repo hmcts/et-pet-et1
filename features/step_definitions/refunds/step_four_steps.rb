@@ -100,7 +100,6 @@ And(/^I fill in my refund original case details$/) do
       section.locality.set(test_user.et_claim_to_refund.address.locality)
       section.county.set(test_user.et_claim_to_refund.address.county)
       section.post_code.set(test_user.et_claim_to_refund.address.post_code)
-      section.country.set(test_user.et_claim_to_refund.address.country)
     end
   end
   refund_step_four_page.original_case_details do |section|
@@ -115,7 +114,6 @@ And(/^I fill in my refund original case details$/) do
     section.locality.set(test_user.et_claim_to_refund.respondent.address.locality)
     section.county.set(test_user.et_claim_to_refund.respondent.address.county)
     section.post_code.set(test_user.et_claim_to_refund.respondent.address.post_code)
-    section.country.set(test_user.et_claim_to_refund.respondent.address.country)
   end
 
   refund_step_four_page.claim_had_representative.set(test_user.et_claim_to_refund.has_representative) unless test_user.et_claim_to_refund.has_representative.nil?
@@ -127,7 +125,6 @@ And(/^I fill in my refund original case details$/) do
       section.locality.set(test_user.et_claim_to_refund.representative.address.locality)
       section.county.set(test_user.et_claim_to_refund.representative.address.county)
       section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code)
-      section.country.set(test_user.et_claim_to_refund.representative.address.country)
     end
   end
   refund_step_four_page.original_claim_fees.et_issue do |section|
@@ -163,7 +160,6 @@ Then(/^all mandatory claimant address fields in the refund case details should b
     expect(refund_step_four_page.original_claimant_details.post_code.error.text).to eql "Enter your post code at the time of the original claim"
     expect(refund_step_four_page.original_claimant_details.locality).to have_no_error, 'Expected claimant locality not to have an error'
     expect(refund_step_four_page.original_claimant_details.county).to have_no_error, 'Expected claimant county not to have an error'
-    expect(refund_step_four_page.original_claimant_details.country).to have_no_error, 'Expected claimant country not to have an error'
   end
 end
 
@@ -176,7 +172,6 @@ And(/^all mandatory respondent address fields in the refund case details should 
     expect(refund_step_four_page.original_respondent_details.post_code.error.text).to eql "Enter the respondent's post code"
     expect(refund_step_four_page.original_respondent_details.locality).to have_no_error, 'Expected respondent locality not to have an error'
     expect(refund_step_four_page.original_respondent_details.county).to have_no_error, 'Expected respondent county not to have an error'
-    expect(refund_step_four_page.original_respondent_details.country).to have_no_error, 'Expected respondent country not to have an error'
 
   end
 end
@@ -190,7 +185,6 @@ And(/^all mandatory representative address fields in the refund case details sho
     expect(refund_step_four_page.original_representative_details.post_code.error.text).to eql "Enter the representative's post code"
     expect(refund_step_four_page.original_representative_details.locality).to have_no_error, 'Expected rep locality not to have an error'
     expect(refund_step_four_page.original_representative_details.county).to have_no_error, 'Expected rep county not to have an error'
-    expect(refund_step_four_page.original_representative_details.country).to have_no_error, 'Expected rep country not to have an error'
   end
 end
 
