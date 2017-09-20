@@ -1,6 +1,10 @@
-# TODO: take a look at this rubocop warning
-# rubocop:disable Style/StructInheritance
-class ClaimFeeCalculator < Struct.new(:claim)
+class ClaimFeeCalculator
+  attr_reader :claim
+
+  def initialize(claim)
+    @claim = claim
+  end
+
   class << self
     def calculate(claim:)
       new(claim).calculate
@@ -44,4 +48,3 @@ class ClaimFeeCalculator < Struct.new(:claim)
     end
   end
 end
-# rubocop:enable Style/StructInheritance

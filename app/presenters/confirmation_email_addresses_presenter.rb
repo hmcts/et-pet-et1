@@ -1,7 +1,11 @@
-# TODO: take a look at this rubocop warning
-# rubocop:disable Style/StructInheritance
-class ConfirmationEmailAddressesPresenter < Struct.new(:claim)
+class ConfirmationEmailAddressesPresenter
   delegate :primary_claimant, :representative, :secondary_claimants, to: :claim
+
+  attr_reader :claim
+
+  def initialize(claim)
+    @claim = claim
+  end
 
   def self.email_addresses_for(claim)
     new(claim).filter_email_addresses
@@ -26,4 +30,3 @@ class ConfirmationEmailAddressesPresenter < Struct.new(:claim)
     secondary_claimants.none? || representative.try(:email_address).blank?
   end
 end
-# rubocop:enable Style/StructInheritance

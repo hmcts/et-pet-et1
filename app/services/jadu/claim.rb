@@ -1,8 +1,12 @@
 require_relative 'api'
-# TODO: take a look at this rubocop warning
-# rubocop:disable Style/StructInheritance
 module Jadu
-  class Claim < Struct.new(:claim)
+  class Claim
+    attr_reader :claim
+
+    def initialize(claim)
+      @claim = claim
+    end
+
     class << self
       def create(claim)
         new(claim).tap(&:perform)
@@ -63,4 +67,3 @@ module Jadu
     end
   end
 end
-# rubocop:enable Style/StructInheritance

@@ -11,7 +11,6 @@ module AddressAttributes
     validates :address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   end
 
-  # TODO: revisit this if we can refactor it.
   # rubocop:disable MethodLength
   def self.but_skip_postcode_validation
     Module.new do

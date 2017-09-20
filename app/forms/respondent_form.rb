@@ -16,8 +16,12 @@ class RespondentForm < Form
   attribute :acas_early_conciliation_certificate_number, String
   attribute :no_acas_number_reason,                      String
   attribute :worked_at_same_address,                     Boolean
-
-  WORK_ADDRESS_ATTRIBUTES.each { |a| attribute a, String } # TODO: fix this shit
+  attribute :work_address_building,                      String
+  attribute :work_address_street,                        String
+  attribute :work_address_locality,                      String
+  attribute :work_address_county,                        String
+  attribute :work_address_post_code,                     String
+  attribute :work_address_telephone_number,              String
 
   boolean :no_acas_number
 
