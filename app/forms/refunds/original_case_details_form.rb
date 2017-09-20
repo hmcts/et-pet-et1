@@ -10,6 +10,7 @@ module Refunds
     attribute :respondent_address_county,                 String
     attribute :respondent_address_post_code,              String
     attribute :respondent_address_country,                String
+    boolean :claim_had_representative
     attribute :representative_name,                     String
     attribute :representative_address_building,               String
     attribute :representative_address_street,                 String
@@ -36,8 +37,9 @@ module Refunds
     attribute :claimant_address_post_code,              String
     attribute :claimant_address_country,                String
 
+    validates :claim_had_representative, nil: true
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
-    validates :representative_name, :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true
+    validates :representative_name, :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true, if: :claim_had_representative
     validates :respondent_name, :respondent_address_building, :respondent_address_street, :respondent_address_post_code, presence: true
     before_validation :transfer_address, unless: :address_changed
 

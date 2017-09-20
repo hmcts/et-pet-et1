@@ -117,14 +117,18 @@ And(/^I fill in my refund original case details$/) do
     section.post_code.set(test_user.et_claim_to_refund.respondent.address.post_code)
     section.country.set(test_user.et_claim_to_refund.respondent.address.country)
   end
-  refund_step_four_page.original_representative_details do |section|
-    section.name.set(test_user.et_claim_to_refund.representative.name)
-    section.building.set(test_user.et_claim_to_refund.representative.address.building)
-    section.street.set(test_user.et_claim_to_refund.representative.address.street)
-    section.locality.set(test_user.et_claim_to_refund.representative.address.locality)
-    section.county.set(test_user.et_claim_to_refund.representative.address.county)
-    section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code)
-    section.country.set(test_user.et_claim_to_refund.representative.address.country)
+
+  refund_step_four_page.claim_had_representative.set(test_user.et_claim_to_refund.has_representative) unless test_user.et_claim_to_refund.has_representative.nil?
+  if test_user.et_claim_to_refund.has_representative == 'Yes'
+    refund_step_four_page.original_representative_details do |section|
+      section.name.set(test_user.et_claim_to_refund.representative.name)
+      section.building.set(test_user.et_claim_to_refund.representative.address.building)
+      section.street.set(test_user.et_claim_to_refund.representative.address.street)
+      section.locality.set(test_user.et_claim_to_refund.representative.address.locality)
+      section.county.set(test_user.et_claim_to_refund.representative.address.county)
+      section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code)
+      section.country.set(test_user.et_claim_to_refund.representative.address.country)
+    end
   end
   refund_step_four_page.original_claim_fees.et_issue do |section|
     section.fee.set(test_user.et_claim_to_refund.fees.et_issue_fee)
@@ -188,4 +192,14 @@ And(/^all mandatory representative address fields in the refund case details sho
     expect(refund_step_four_page.original_representative_details.county).to have_no_error, 'Expected rep county not to have an error'
     expect(refund_step_four_page.original_representative_details.country).to have_no_error, 'Expected rep country not to have an error'
   end
+end
+
+
+And(/^the had representative field in the refunds case details should be marked with an error$/) do
+  expect(refund_step_four_page.claim_had_representative.error.text).to eql "Please select Yes or No"
+end
+
+
+And(/^I answer (Yes|No) to the had representative question for refunds$/) do |had_representative|
+  refund_step_four_page.claim_had_representative.set(had_representative)
 end

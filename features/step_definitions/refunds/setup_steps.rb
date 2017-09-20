@@ -25,15 +25,6 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
 
-  representative_address = OpenStruct.new post_code: 'SW2H 9ST',
-                                          building: '108',
-                                          street: 'Petty France',
-                                          locality: 'London',
-                                          county: 'Greater London',
-                                          country: 'United Kingdom'
-
-  representative = OpenStruct.new name: 'Representative Name',
-                                  address: representative_address
 
   fees = OpenStruct.new et_issue_fee: '1000.00',
                         et_issue_payment_method: 'Card',
@@ -50,7 +41,6 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
                                                 et_tribunal_office: 'NG0001',
                                                 additional_information: 'REF1, REF2, REF3',
                                                 respondent: respondent.freeze,
-                                                representative: representative.freeze,
                                                 fees: fees.freeze
 
 end
@@ -89,4 +79,25 @@ And(/^my address has changed since the original claim that I want a refund for$/
                                                         county: 'Greater London',
                                                         post_code: 'SW1H 9BK',
                                                         country: 'United Kingdom'
+end
+
+
+And(/^I did not have a representative$/) do
+  test_user.et_claim_to_refund.has_representative = 'No'
+  test_user.et_claim_to_refund.representative = nil
+end
+
+And(/^I had a representative$/) do
+  representative_address = OpenStruct.new post_code: 'SW2H 9ST',
+                                          building: '108',
+                                          street: 'Petty France',
+                                          locality: 'London',
+                                          county: 'Greater London',
+                                          country: 'United Kingdom'
+
+  representative = OpenStruct.new name: 'Representative Name',
+                                  address: representative_address
+
+  test_user.et_claim_to_refund.has_representative = 'Yes'
+  test_user.et_claim_to_refund.representative = representative
 end

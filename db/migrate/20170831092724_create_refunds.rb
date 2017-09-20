@@ -17,6 +17,7 @@ class CreateRefunds < ActiveRecord::Migration
       t.string   "respondent_address_county"
       t.string   "respondent_address_post_code"
       t.string   "respondent_address_country"
+      t.boolean  "claim_had_representative"
       t.string   "representative_name"
       t.string   "representative_address_building"
       t.string   "representative_address_street"

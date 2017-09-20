@@ -17,6 +17,16 @@ fieldset
   = f.input :claimant_address_post_code, input_html: {class: 'short-input'}
   = f.input :claimant_address_country, collection: Refunds::ApplicantForm::COUNTRIES, include_blank: false
 fieldset
+  legend= t '.claim_had_representative'
+  = f.input :claim_had_representative,
+          as: :radio_buttons,
+          required: true,
+          label: false,
+          item_wrapper_class: 'block-label',
+          wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate', data: {target: 'claim_had_representative'}},
+          input_html: {:class => 'reveal-publish-publisher'},
+          reveal: {true => 'claim_had_representative', false => 'claim_had_representative'}
+fieldset.reveal-subscribe data-target='claim_had_representative' data-show-array='true'
   legend = t('.representative_details')
   = f.input :representative_name, required: true, input_html: {class: 'medium-input'}
   = f.input :representative_address_building, input_html: {class: 'medium-input'}

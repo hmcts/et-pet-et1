@@ -24,6 +24,7 @@ module Refunds
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
       section :country, AppTest::FormSelect, :simple_form_field, 'Country'
     end
+    section :claim_had_representative, AppTest::FormBoolean, :simple_form_boolean, 'Did you have a representative at the time of your original claim ?'
     section :original_representative_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative")]]}) do
       section :name, AppTest::FormInput, :simple_form_field, 'Representative name'
       section :building, AppTest::FormInput, :simple_form_field, 'Building number or name'

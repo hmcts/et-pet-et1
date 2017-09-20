@@ -47,6 +47,7 @@ en:
       eat_issue_fee: "EAT Issue Fee"
       eat_hearing_fee: "EAT Hearing Fee"
       app_reconsideration_fee: "Application Reconsideration Fee"
+      claim_had_representative: "Did you have a representative at the time of your original claim ?"
     bank_details:
       header: "Repayment Details"
     review:
@@ -133,6 +134,8 @@ en:
               blank: Enter the street from the representative's address
             representative_address_post_code:
               blank: Enter the representative's post code
+            claim_had_representative:
+              nil: Please select Yes or No
 
         refunds/bank_details:
           attributes:
