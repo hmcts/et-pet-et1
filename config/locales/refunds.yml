@@ -19,15 +19,15 @@ en:
     claimant:
       is_claimant_legend: "Are you the claimant ?"
     profile_selection:
-      header: "Please choose from an option below"
-      please_select_profile: "Please select a profile"
+      header: "Introduction Page"
+      please_select_profile: "Introduction Page"
       profile_1_detail: "Profile 1 Detail"
       profile_2_detail: "Profile 2 Detail"
       profile_3_detail: "Profile 3 Detail"
       profile_4_detail: "Profile 4 Detail"
       profile_5_detail: "Profile 5 Detail"
       profile_1_label: "Profile 1 label"
-      profile_2_label: "I was a sole party who paid the Tribunal fees directly and have not been reimbursed by anyone"
+      profile_2_label: "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
       profile_3_label: "Profile 3 label"
       profile_4_label: "Profile 4 label"
       profile_5_label: "Profile 5 label"
@@ -85,7 +85,7 @@ en:
       payment_bank_sort_code: "Sort Code"
       declaration: "Declaration"
     confirmation:
-      header: "Application For Refund Accepted"
+      header: "Application For Refund Submitted"
       confirmation: "Your refund claim has been submitted and your reference number is :"
   activemodel:
     errors:

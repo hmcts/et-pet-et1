@@ -1,0 +1,36 @@
+Country of claim
+Optional for et office and case number ? (label)
+No default value for any fees
+Validation (numeric) for fees - allowing blank
+Please selects everywhere
+Building society - to have capital S
+Review page - to include optional rep and also the bank and building society
+Roll number validation - question with finance
+Declaration text -
+Declaration:
+I am making an application on behalf of myself:
+I confirm that:
+I made the payments set out in this application; and
+I have not received a payment from my opponent to reimburse me those fees in accordance with an Order of the Tribunal
+If I am found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought against me.
+I understand that if I have given false information or I do not provide further evidence if requested, my application may be rejected.
+
+Yes / No to change to checkbox on review page
+Submit claim to be disabled until checkbox ticked
+
+
+Add time/date to the confirmation page
+Add print link to the confirmation page
+Reference number to be huge like in ET
+Remove continue button from final page
+
+
+cathie [3:52 PM]
+I was a sole party who made the payments set out in this application and have not been reimbursed by anyone.
+(a) I have not received a payment from my opponent to reimburse me those fees in accordance with an Order of the Tribunal (b) nor was I granted a full Help With Fees remission
+
+
+[3:54]
+remove referece to a and b
+
+Remove support and guide links

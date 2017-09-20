@@ -1,6 +1,6 @@
 module Refunds
   class ProfileSelectionPage < BasePage
-    section :select_profile, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Please select a profile")]]}) do
+    section :select_profile, '.profile_selection' do
       def set(value)
         choose(value)
       end

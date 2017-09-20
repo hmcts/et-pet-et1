@@ -9,7 +9,7 @@ module Refunds
       end
     end
 
-    section :has_name_changed, AppTest::FormBoolean, :simple_form_boolean, 'Has your name changed since the original claim ?'
+    section :has_name_changed, AppTest::FormBoolean, :simple_form_boolean, 'Has your name changed since you made your employment tribunal claim ?'
 
 
     section :about_the_claimant, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About you")]]}) do

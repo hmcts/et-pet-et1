@@ -502,11 +502,11 @@ en:
       header: Claimant details
       legend_personal_details: About you
       legend_contact_details: Your contact details
-      has_name_changed_legend: "Has your name changed since the original claim ?"
+      has_name_changed_legend: "Has your name changed since you made your employment tribunal claim ?"
     personal_details:
       date_of_birth: Date of birth
     original_case_details:
-      address_changed: "Has your address changed since your original claim ?"
+      address_changed: "Has your address changed since you made your employment tribunal claim ?"
       representative_details: "Representative"
     bank_details:
       your_bank_details: "Your Bank Details"

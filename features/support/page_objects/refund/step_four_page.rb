@@ -53,7 +53,7 @@ module Refunds
         element :payment_method, 'select[name="refunds_original_case_details[et_reconsideration_fee_payment_method]"]'
       end
     end
-    section :address_changed, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Has your address changed since your original claim ?")]]}) do
+    section :address_changed, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Has your address changed since you made your employment tribunal claim ?")]]}) do
       def set(value)
         choose(value)
       end

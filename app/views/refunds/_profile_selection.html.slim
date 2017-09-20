@@ -1,25 +1,6 @@
-h2.legend = t '.please_select_profile'
 
-fieldset
-  legend.medium= t '.please_select_profile'
+fieldset.profile_selection
   div.profile
-    p = t('.profile_1_detail')
-    = f.label :profile_number_1, required: true, label: t('.profile_1_label')
-    = f.radio_button :profile_number, '1'
-  div.profile
-    p = t('.profile_2_detail')
     = f.label :profile_number_2, required: true, label: t('.profile_2_label')
     = f.radio_button :profile_number, '2'
-  div.profile
-    p = t('.profile_3_detail')
-    = f.label :profile_number_3, required: true, label: t('.profile_3_label')
-    = f.radio_button :profile_number, '3'
-  div.profile
-    p = t('.profile_4_detail')
-    = f.label :profile_number_4, required: true, label: t('.profile_4_label')
-    = f.radio_button :profile_number, '4'
-  div.profile
-    p = t('.profile_5_detail')
-    = f.label :profile_number_5, required: true, label: t('.profile_5_label')
-    = f.radio_button :profile_number, '5'
 // :item_wrapper_tag
