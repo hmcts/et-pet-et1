@@ -71,6 +71,17 @@ fieldset
         td
           = f.input :et_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
   fieldset
+    legend = t('.et_reconsideration_fee')
+    table
+      tr
+        th = t('.fee')
+        th = t('.payment_method')
+      tr
+        td
+          = f.input :et_reconsideration_fee, label: false, input_html: {class: 'small-input'}
+        td
+          = f.input :et_reconsideration_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
     legend = t('.eat_issue_fee')
     table
       tr
@@ -92,14 +103,3 @@ fieldset
           = f.input :eat_hearing_fee,  label: false, input_html: {class: 'small-input'}
         td
           = f.input :eat_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
-  fieldset
-    legend = t('.app_reconsideration_fee')
-    table
-      tr
-        th = t('.fee')
-        th = t('.payment_method')
-      tr
-        td
-          = f.input :app_reconsideration_fee, label: false, input_html: {class: 'small-input'}
-        td
-          = f.input :app_reconsideration_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate

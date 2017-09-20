@@ -144,7 +144,7 @@ And(/^I fill in my refund original case details$/) do
     section.payment_method.select(test_user.et_claim_to_refund.fees.eat_hearing_payment_method)
   end
   refund_step_four_page.original_claim_fees.app_reconsideration do |section|
-    section.fee.set(test_user.et_claim_to_refund.fees.app_reconsideration_fee)
+    section.fee.set(test_user.et_claim_to_refund.fees.et_reconsideration_fee)
     section.payment_method.select(test_user.et_claim_to_refund.fees.app_reconsideration_payment_method)
   end
   step('I take a screenshot named "Page 3 - Original Case Details"')

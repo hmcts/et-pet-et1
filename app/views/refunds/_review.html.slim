@@ -115,9 +115,9 @@ div class=("review-list-entry applicant")
       td = f.object.eat_hearing_fee
       td = f.object.eat_hearing_fee_payment_method.titleize
     tr
-      td = t('.app_reconsideration_fee')
-      td = f.object.app_reconsideration_fee
-      td = f.object.app_reconsideration_fee_payment_method.titleize
+      td = t('.et_reconsideration_fee')
+      td = f.object.et_reconsideration_fee
+      td = f.object.et_reconsideration_fee_payment_method.titleize
   h2.list-header
     span = t '.sections.bank_details'
     = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
