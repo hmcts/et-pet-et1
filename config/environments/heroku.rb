@@ -40,9 +40,6 @@ Rails.application.configure do
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true
 
-  # Rack livereload for frontend development
-  config.middleware.use Rack::LiveReload, source: :vendored
-
   config.action_mailer.default_url_options = {
     host: 'localhost', protocol: 'http', port: 3000
   }
