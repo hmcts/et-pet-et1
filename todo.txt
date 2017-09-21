@@ -1,5 +1,5 @@
 DONE Country of claim
-Optional for et office and case number ? (label)
+DONE Optional for et office and case number ? (label)
 No default value for any fees
 Validation (numeric) for fees - allowing blank
 DONE Please selects everywhere
