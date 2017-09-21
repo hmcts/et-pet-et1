@@ -167,6 +167,7 @@ en:
         et_reconsideration_fee_payment_method: Please select
         eat_issue_fee_payment_method: Please select
         eat_hearing_fee_payment_method: Please select
+        et_country_of_claim: Please select
     labels:
       refunds_applicant:
         address_building: Building number or name
