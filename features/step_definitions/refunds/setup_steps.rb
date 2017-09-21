@@ -39,7 +39,8 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
                                                 et_tribunal_office: 'NG0001',
                                                 additional_information: 'REF1, REF2, REF3',
                                                 respondent: respondent.freeze,
-                                                fees: fees.freeze
+                                                fees: fees.freeze,
+                                                et_country_of_claim: 'England & Wales'
 
 end
 

@@ -103,9 +103,10 @@ And(/^I fill in my refund original case details$/) do
     end
   end
   refund_step_four_page.original_case_details do |section|
-    section.et_case_number.set(test_user.et_claim_to_refund.et_case_number)
-    section.et_tribunal_office.set(test_user.et_claim_to_refund.et_tribunal_office)
-    section.additional_information.set(test_user.et_claim_to_refund.additional_information)
+    section.et_country_of_claim.set(test_user.et_claim_to_refund.et_country_of_claim) unless test_user.et_claim_to_refund.et_country_of_claim.nil?
+    section.et_case_number.set(test_user.et_claim_to_refund.et_case_number) unless test_user.et_claim_to_refund.et_case_number.nil?
+    section.et_tribunal_office.set(test_user.et_claim_to_refund.et_tribunal_office) unless test_user.et_claim_to_refund.et_tribunal_office.nil?
+    section.additional_information.set(test_user.et_claim_to_refund.additional_information) unless test_user.et_claim_to_refund.additional_information
   end
   refund_step_four_page.original_respondent_details do |section|
     section.name.set(test_user.et_claim_to_refund.respondent.name)
@@ -191,6 +192,10 @@ end
 
 And(/^the had representative field in the refunds case details should be marked with an error$/) do
   expect(refund_step_four_page.claim_had_representative.error.text).to eql "Please select Yes or No"
+end
+
+And(/^the country of claim field in the refunds case details should be marked with an error$/) do
+  expect(refund_step_four_page.original_case_details.et_country_of_claim.error.text).to eql "Please select the country where your case was heard"
 end
 
 

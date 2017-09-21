@@ -61,6 +61,9 @@ en:
           miss: Miss
           ms: Ms
       refunds_original_case_details:
+        et_country_of_claim:
+          england_and_wales: England & Wales
+          scotland: Scotland
         claimant_title:
           mr: Mr
           mrs: Mrs

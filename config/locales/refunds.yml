@@ -131,6 +131,8 @@ en:
               blank: Enter the representative's post code
             claim_had_representative:
               nil: Please select Yes or No
+            et_country_of_claim:
+              blank: Please select the country where your case was heard
 
         refunds/bank_details:
           attributes:
@@ -192,6 +194,7 @@ en:
         representative_address_post_code: UK Postcode
         et_case_number: Employment tribunal case number
         et_tribunal_office: Employment tribunal office
+        et_country_of_claim: Country of claim
       refunds_bank_details:
         payment_account_type: Account type
         payment_bank_account_name: Bank account holder name
