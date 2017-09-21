@@ -133,6 +133,16 @@ en:
               nil: Please select Yes or No
             et_country_of_claim:
               blank: Please select the country where your case was heard
+            et_issue_fee_payment_method:
+              blank: Please select a payment method
+            et_hearing_fee_payment_method:
+              blank: Please select a payment method
+            et_reconsideration_fee_payment_method:
+              blank: Please select a payment method
+            eat_issue_fee_payment_method:
+              blank: Please select a payment method
+            eat_hearing_fee_payment_method:
+              blank: Please select a payment method
 
         refunds/bank_details:
           attributes:
