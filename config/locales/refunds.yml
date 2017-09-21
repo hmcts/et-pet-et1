@@ -75,6 +75,14 @@ en:
       payment_bank_account_number: "Account Number"
       payment_bank_sort_code: "Sort Code"
       declaration: "Declaration"
+      declaration_detail_html: |
+        I am making an application on behalf of myself:
+        I made the payments set out in this application; and
+        I have not received a payment from my opponent to reimburse me those fees in accordance with an Order of the Tribunal
+        If I am found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought against me.
+        I understand that if I have given false information or I do not provide further evidence if requested, my application may be rejected.
+      declaration_i_confirm: "I confirm that :"
+
     confirmation:
       header: "Application For Refund Submitted"
       confirmation: "Your refund claim has been submitted and your reference number is :"
@@ -218,6 +226,8 @@ en:
         payment_building_society_account_number: Building Society account number
         payment_building_society_sort_code: Building Society sort code
         payment_building_society_reference: Building Society roll/reference number
+      refunds_review:
+        accept_declaration: I confirm the above
     options:
       refunds_profile_selection:
         profile_number:
