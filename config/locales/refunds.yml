@@ -213,11 +213,11 @@ en:
         payment_bank_name: Bank name
         payment_bank_account_number: Bank account number
         payment_bank_sort_code: Bank sort code
-        payment_building_society_account_name: Building society account holder name
-        payment_building_society_name: Building society name
-        payment_building_society_account_number: Building society account number
-        payment_building_society_sort_code: Building society sort code
-        payment_building_society_reference: Building society roll/reference number
+        payment_building_society_account_name: Building Society account holder name
+        payment_building_society_name: Building Society name
+        payment_building_society_account_number: Building Society account number
+        payment_building_society_sort_code: Building Society sort code
+        payment_building_society_reference: Building Society roll/reference number
     options:
       refunds_profile_selection:
         profile_number:
