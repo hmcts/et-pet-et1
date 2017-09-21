@@ -44,7 +44,7 @@ fieldset
 fieldset
   legend = t('.original_case_details')
   = f.input :et_country_of_claim, input_html: {class: 'medium-input'}, collection: [:england_and_wales, :scotland], include_blank: :translate
-  = f.input :et_tribunal_office, required: true, input_html: {class: 'medium-input'}
+  = f.input :et_tribunal_office, required: true, input_html: {class: 'medium-input'}, collection: Refunds::OriginalCaseDetailsForm::TRIBUNAL_OFFICES, include_blank: :translate
   = f.input :et_case_number, required: true, input_html: {class: 'medium-input'}
   = f.input :additional_information, as: :text, input_html: {class: 'medium-input'}
 fieldset

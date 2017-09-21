@@ -51,49 +51,6 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
-      refunds_profile_selection:
-        profile_number:
-          '2': "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
-      refunds_applicant:
-        title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
-      refunds_original_case_details:
-        et_country_of_claim:
-          england_and_wales: England & Wales
-          scotland: Scotland
-        claimant_title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
-        et_issue_fee_payment_method:
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        et_hearing_fee_payment_method:
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        eat_issue_fee_payment_method:
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        eat_hearing_fee_payment_method:
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        et_reconsideration_fee_payment_method:
-          cheque: Cheque
-          card: Card
-          cash: Cash
-      refunds_bank_details:
-        payment_account_type:
-          bank: Bank
-          building_society: Building Society
-
       additional_claimants:
         collection: :"simple_form.options.claimant"
 

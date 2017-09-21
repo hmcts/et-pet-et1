@@ -2,6 +2,7 @@ module Refunds
   class OriginalCaseDetailsForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash']
     COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland']
+    TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18', '19', '50', '22', '23', '24', '26', '13', '25', '27', '31', '16', '33', '99']
     attribute :et_country_of_claim,                     String
     attribute :et_case_number,                          String
     attribute :et_tribunal_office,                      String
@@ -36,6 +37,7 @@ module Refunds
     attribute :claimant_address_county,                 String
     attribute :claimant_address_post_code,              String
 
+    validates :et_tribunal_office, inclusion: TRIBUNAL_OFFICES, allow_blank: true
     validates :et_country_of_claim, presence: true, inclusion: COUNTRY_OF_CLAIMS
     validates :claim_had_representative, nil: true
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
