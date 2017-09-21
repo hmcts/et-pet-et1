@@ -2,7 +2,7 @@ Country of claim
 Optional for et office and case number ? (label)
 No default value for any fees
 Validation (numeric) for fees - allowing blank
-Please selects everywhere
+DONE Please selects everywhere
 Building society - to have capital S
 Review page - to include optional rep and also the bank and building society
 Roll number validation - question with finance

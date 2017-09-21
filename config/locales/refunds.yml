@@ -154,6 +154,17 @@ en:
               blank: Enter the sort code of the account that the refund is to be paid into
 
   simple_form:
+    include_blanks:
+      refunds_applicant:
+        title: Please select
+      refunds_bank_details:
+        payment_account_type: Please select
+      refunds_original_case_details:
+        et_issue_fee_payment_method: Please select
+        et_hearing_fee_payment_method: Please select
+        et_reconsideration_fee_payment_method: Please select
+        eat_issue_fee_payment_method: Please select
+        eat_hearing_fee_payment_method: Please select
     labels:
       refunds_applicant:
         address_building: Building number or name
