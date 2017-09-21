@@ -26,6 +26,17 @@ module AppTest
     end
   end
 
+  class FormRadioButtons < SitePrism::Section
+    element :field, 'input'
+    element :label, 'label'
+    element :error, '.error'
+    def set(value)
+      within @root_element do
+        choose(value)
+      end
+    end
+  end
+
   class FormDate < SitePrism::Section
     element :day, :field, 'Day'
     element :month, :field, 'Month'

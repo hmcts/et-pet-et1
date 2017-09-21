@@ -1,6 +1,12 @@
 
 fieldset.profile_selection
-  div.profile
-    = f.label :profile_number_2, required: true, label: t('.profile_2_label')
-    = f.radio_button :profile_number, '2'
+  legend = t('.profile_number')
+  = f.input :profile_number,
+          as: :radio_buttons,
+          label: false,
+          required: true,
+          collection: ['2']
+  /div.profile
+  /  = f.label :profile_number_2, required: true, label: t('.profile_2_label')
+  /  = f.radio_button :profile_number, '2'
 // :item_wrapper_tag

@@ -7,7 +7,7 @@ class RefundsController < ApplicationController
   end
 
   def update
-    resource.assign_attributes params["refunds_#{current_step}"]
+    resource.assign_attributes params.fetch("refunds_#{current_step}", {})
 
     if resource.save
       redirect_to next_page

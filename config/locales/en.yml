@@ -51,6 +51,9 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+      refunds_profile_selection:
+        profile_number:
+          '2': "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
       refunds_applicant:
         title:
           mr: Mr
