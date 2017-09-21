@@ -1,5 +1,4 @@
 class RefundsController < ApplicationController
-
   def new
     refund = Refund.create
     session[:refund_id] = refund.id
