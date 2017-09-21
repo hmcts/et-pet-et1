@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831092724) do
+ActiveRecord::Schema.define(version: 20170921105113) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,8 +176,8 @@ ActiveRecord::Schema.define(version: 20170831092724) do
     t.string   "claimant_name"
     t.text     "additional_information"
     t.string   "claimant_address_post_code"
-    t.integer  "et_issue_fee",                            default: 0
-    t.string   "et_issue_fee_currency"
+    t.integer  "et_issue_fee"
+    t.string   "et_issue_fee_currency",                   default: "GBP"
     t.string   "et_issue_fee_payment_method"
     t.integer  "et_hearing_fee"
     t.string   "et_hearing_fee_currency",                 default: "GBP"
