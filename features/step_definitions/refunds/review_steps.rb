@@ -96,7 +96,7 @@ And(/I verify the fees in the case details of the refund review page$/) do
   end
 end
 
-And(/^I verify the representative details are not present$/) do
+And(/^I verify the representative details are not present in the case details of the refund review page$/) do
   aggregate_failures do
     refund_review_page.original_representative_details do |section|
       expect(section).to have_no_name
@@ -109,6 +109,33 @@ And(/^I verify the representative details are not present$/) do
   end
 end
 
+And(/^I verify the bank details in the bank details of the refund review page$/) do
+  refund_review_page.bank_details do |section|
+    expect(section.account_name.text).to eql test_user.bank_account.account_name
+    expect(section.bank_name.text).to eql test_user.bank_account.bank_name
+    expect(section.account_number.text).to eql test_user.bank_account.account_number
+    expect(section.sort_code.text).to eql test_user.bank_account.sort_code
+  end
+end
+
+And(/^I verify the building society details in the bank details of the refund review page$/) do
+  refund_review_page.building_society_details do |section|
+    expect(section.account_name.text).to eql test_user.building_society_account.account_name
+    expect(section.building_society_name.text).to eql test_user.building_society_account.building_society_name
+    expect(section.account_number.text).to eql test_user.building_society_account.account_number
+    expect(section.sort_code.text).to eql test_user.building_society_account.sort_code
+    expect(section.reference_number.text).to eql test_user.building_society_account.reference
+  end
+end
+
+And(/^I verify the bank details are not present in the bank details of the review page$/) do
+  expect(refund_review_page).to have_no_bank_details
+end
+
+And(/^I verify the building society details are not present in the bank details of the refund review page$/) do
+  expect(refund_review_page).to have_no_building_society_details
+end
+
 And(/^I verify the review page and accept the declaration$/) do
   step 'I verify the claimant section of the refund review page'
   step 'I verify the claimants contact details of the refund review page'
@@ -116,7 +143,11 @@ And(/^I verify the review page and accept the declaration$/) do
   step 'I verify the case details in the case details of the refund review page'
   step 'I verify the respondent details in the case details of the refund review page'
   step 'I verify the representative details in the case details of the refund review page' if test_user.et_claim_to_refund.has_representative == 'Yes'
-  step 'I verify the representative details are not present' unless test_user.et_claim_to_refund.has_representative == 'Yes'
+  step 'I verify the representative details are not present in the case details of the refund review page' unless test_user.et_claim_to_refund.has_representative == 'Yes'
   step 'I verify the fees in the case details of the refund review page'
+  step 'I verify the bank details in the bank details of the refund review page' if test_user.bank_account.present?
+  step 'I verify the bank details are not present in the bank details of the review page' unless test_user.bank_account.present?
+  step 'I verify the building society details in the bank details of the refund review page' if test_user.building_society_account.present?
+  step 'I verify the building society details are not present in the bank details of the refund review page' unless test_user.building_society_account.present?
   step 'I accept the refund final declaration'
 end

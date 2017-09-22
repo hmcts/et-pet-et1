@@ -69,6 +69,22 @@ module Refunds
         element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
       end
     end
+
+    section :bank_details, :refund_review_section_labelled, 'Your Bank Details' do
+      element :account_name, :refund_review_section_field_labelled, 'Account holder name'
+      element :bank_name, :refund_review_section_field_labelled, 'Bank name'
+      element :account_number, :refund_review_section_field_labelled, 'Account number'
+      element :sort_code, :refund_review_section_field_labelled, 'Sort code'
+    end
+
+    section :building_society_details, :refund_review_section_labelled, 'Your Building Society Details' do
+      element :account_name, :refund_review_section_field_labelled, 'Account holder name'
+      element :building_society_name, :refund_review_section_field_labelled, 'Building society name'
+      element :account_number, :refund_review_section_field_labelled, 'Account number'
+      element :sort_code, :refund_review_section_field_labelled, 'Sort code'
+      element :reference_number, :refund_review_section_field_labelled, 'Roll/reference number'
+    end
+
     section :declaration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]]}) do
       element :accept, 'I confirm the above'
 
