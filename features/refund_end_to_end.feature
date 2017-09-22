@@ -10,7 +10,8 @@ Feature: Refund Form
     And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
-    And I fill in the refund forms and accept the declaration
+    And I fill in the refund forms
+    And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
     And I take a screenshot named "Page 6 - Confirmation"
 
@@ -24,7 +25,8 @@ Feature: Refund Form
     And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
-    And I fill in the refund forms and accept the declaration
+    And I fill in the refund forms
+    And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
     And I take a screenshot named "Page 6 - Confirmation"
     # Dont forget printing
@@ -39,7 +41,8 @@ Feature: Refund Form
     And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
-    And I fill in the refund forms and accept the declaration
+    And I fill in the refund forms
+    And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
     And I take a screenshot named "Page 6 - Confirmation"
 
@@ -53,6 +56,7 @@ Feature: Refund Form
     And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
-    And I fill in the refund forms and accept the declaration
+    And I fill in the refund forms
+    And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
 

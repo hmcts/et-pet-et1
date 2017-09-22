@@ -13,7 +13,16 @@ module RefundsHelper
     page_title(refund_header)
   end
 
-  private def markdown
+  def country_of_claim_for(id)
+    I18n.t("simple_form.options.refunds_original_case_details.et_country_of_claim.#{id}")
+  end
+
+  def et_office_for(id)
+    I18n.t("simple_form.options.refunds_original_case_details.et_tribunal_office.#{id}")
+  end
+
+  private
+  def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 end

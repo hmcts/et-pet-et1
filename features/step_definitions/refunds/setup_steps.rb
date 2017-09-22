@@ -68,6 +68,7 @@ end
 
 And(/^my address has not changed since the original claim that I want a refund for$/) do
   test_user.claim_address_changed = 'No'
+  test_user.et_claim_to_refund.address = test_user.address
 end
 
 And(/^my address has changed since the original claim that I want a refund for$/) do
