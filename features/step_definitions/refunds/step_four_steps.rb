@@ -92,6 +92,7 @@ end
 
 
 And(/^I fill in my refund original case details$/) do
+  step('I take a screenshot named "Page 3 - Original Case Details 1 "')
   refund_step_four_page.address_changed.set(test_user.claim_address_changed) unless test_user.claim_address_changed.nil?
   if test_user.claim_address_changed == 'Yes'
     refund_step_four_page.original_claimant_details do |section|
@@ -102,12 +103,14 @@ And(/^I fill in my refund original case details$/) do
       section.post_code.set(test_user.et_claim_to_refund.address.post_code)
     end
   end
+  step('I take a screenshot named "Page 3 - Original Case Details 2 "')
   refund_step_four_page.original_case_details do |section|
     section.et_country_of_claim.set(test_user.et_claim_to_refund.et_country_of_claim) unless test_user.et_claim_to_refund.et_country_of_claim.nil?
     section.et_case_number.set(test_user.et_claim_to_refund.et_case_number) unless test_user.et_claim_to_refund.et_case_number.nil?
     section.et_tribunal_office.set(test_user.et_claim_to_refund.et_tribunal_office) unless test_user.et_claim_to_refund.et_tribunal_office.nil?
     section.additional_information.set(test_user.et_claim_to_refund.additional_information) unless test_user.et_claim_to_refund.additional_information
   end
+  step('I take a screenshot named "Page 3 - Original Case Details 3 "')
   refund_step_four_page.original_respondent_details do |section|
     section.name.set(test_user.et_claim_to_refund.respondent.name)
     section.building.set(test_user.et_claim_to_refund.respondent.address.building)
@@ -116,6 +119,7 @@ And(/^I fill in my refund original case details$/) do
     section.county.set(test_user.et_claim_to_refund.respondent.address.county)
     section.post_code.set(test_user.et_claim_to_refund.respondent.address.post_code)
   end
+  step('I take a screenshot named "Page 3 - Original Case Details 4 "')
 
   refund_step_four_page.claim_had_representative.set(test_user.et_claim_to_refund.has_representative) unless test_user.et_claim_to_refund.has_representative.nil?
   if test_user.et_claim_to_refund.has_representative == 'Yes'
@@ -128,6 +132,8 @@ And(/^I fill in my refund original case details$/) do
       section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code)
     end
   end
+  step('I take a screenshot named "Page 3 - Original Case Details 5 "')
+
   refund_step_four_page.original_claim_fees.et_issue do |section|
     section.fee.set(test_user.et_claim_to_refund.fees.et_issue_fee)
     section.payment_method.select(test_user.et_claim_to_refund.fees.et_issue_payment_method)
@@ -148,7 +154,8 @@ And(/^I fill in my refund original case details$/) do
     section.fee.set(test_user.et_claim_to_refund.fees.et_reconsideration_fee)
     section.payment_method.select(test_user.et_claim_to_refund.fees.et_reconsideration_payment_method)
   end
-  step('I take a screenshot named "Page 3 - Original Case Details"')
+  step('I take a screenshot named "Page 3 - Original Case Details 6 "')
+
   refund_step_four_page.save_and_continue.click
 
 end
