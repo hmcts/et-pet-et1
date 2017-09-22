@@ -27,20 +27,20 @@ fieldset
           reveal: {true => 'claim_had_representative', false => 'claim_had_representative'}
 fieldset.reveal-subscribe data-target='claim_had_representative' data-show-array='true'
   legend = t('.representative_details')
-  = f.input :representative_name, required: true, input_html: {class: 'medium-input'}
+  = f.input :representative_name, input_html: {class: 'medium-input'}
   = f.input :representative_address_building, input_html: {class: 'medium-input'}
   = f.input :representative_address_street, input_html: {class: 'medium-input'}
   = f.input :representative_address_locality, input_html: {class: 'medium-input'}
   = f.input :representative_address_county, input_html: {class: 'medium-input'}
-  = f.input :representative_address_post_code, required: true, input_html: {class: 'medium-input'}
+  = f.input :representative_address_post_code, input_html: {class: 'medium-input'}
 fieldset
   legend = t('.respondent_details')
-  = f.input :respondent_name, required: true, input_html: { class: 'medium-input' }
+  = f.input :respondent_name, input_html: { class: 'medium-input' }
   = f.input :respondent_address_building, input_html: {class: 'medium-input'}
   = f.input :respondent_address_street, input_html: {class: 'medium-input'}
   = f.input :respondent_address_locality, input_html: {class: 'medium-input'}
   = f.input :respondent_address_county, input_html: {class: 'medium-input'}
-  = f.input :respondent_address_post_code, required: true, input_html: { class: 'medium-input' }
+  = f.input :respondent_address_post_code, input_html: { class: 'medium-input' }
 fieldset
   legend = t('.original_case_details')
   = f.input :et_country_of_claim, input_html: {class: 'medium-input'}, collection: [:england_and_wales, :scotland], include_blank: :translate

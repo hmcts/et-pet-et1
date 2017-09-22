@@ -8,14 +8,14 @@
 
 fieldset.reveal-subscribe data-target='payment_account_type' data-show-array="bank"
   legend = t('.your_bank_details')
-  = f.input :payment_bank_name, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_bank_account_name, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_bank_account_number, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_bank_sort_code, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_bank_name, input_html: {class: 'medium-input'}
+  = f.input :payment_bank_account_name, input_html: {class: 'medium-input'}
+  = f.input :payment_bank_account_number, input_html: {class: 'medium-input'}
+  = f.input :payment_bank_sort_code, input_html: {class: 'medium-input'}
 fieldset.reveal-subscribe data-target='payment_account_type' data-show-array='building_society'
   legend = t('.your_building_society_details')
-  = f.input :payment_building_society_name, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_building_society_account_name, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_building_society_account_number, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_building_society_sort_code, required: true, input_html: {class: 'medium-input'}
-  = f.input :payment_building_society_reference, required: true, input_html: {class: 'medium-input'}
+  = f.input :payment_building_society_name, input_html: {class: 'medium-input'}
+  = f.input :payment_building_society_account_name, input_html: {class: 'medium-input'}
+  = f.input :payment_building_society_account_number, input_html: {class: 'medium-input'}
+  = f.input :payment_building_society_sort_code, input_html: {class: 'medium-input'}
+  = f.input :payment_building_society_reference, input_html: {class: 'medium-input'}

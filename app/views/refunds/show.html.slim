@@ -16,5 +16,5 @@ header.main-header role="banner"
       .form-fields
         = render current_step, f: f
       .form-actions
-        = f.button :submit
+        = f.button :submit unless current_step == 'confirmation'
 

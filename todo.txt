@@ -4,25 +4,17 @@ DONE No default value for any fees
 DONE Validation (numeric) for fees - allowing blank
 DONE Please selects everywhere
 DONE Building society - to have capital S
-Review page - to include optional rep and also the bank and building society
+DONE Review page - to include optional rep and also the bank and building society
 Roll number validation - question with finance
-Declaration text -
-Declaration:
-I am making an application on behalf of myself:
-I confirm that:
-I made the payments set out in this application; and
-I have not received a payment from my opponent to reimburse me those fees in accordance with an Order of the Tribunal
-If I am found to have been deliberately untruthful or dishonest, criminal proceedings for fraud can be brought against me.
-I understand that if I have given false information or I do not provide further evidence if requested, my application may be rejected.
-
-Yes / No to change to checkbox on review page
+DONE Declaration text -
+DONE Yes / No to change to checkbox on review page
 Submit claim to be disabled until checkbox ticked
 
 
 Add time/date to the confirmation page
 Add print link to the confirmation page
 Reference number to be huge like in ET
-Remove continue button from final page
+DONE Remove continue button from final page
 
 
 cathie [3:52 PM]
@@ -33,30 +25,7 @@ I was a sole party who made the payments set out in this application and have no
 [3:54]
 remove referece to a and b
 
-Remove support and guide links
-
-
-14	Bristol
-15	Bury St Edmunds
-32	East London
-51	Edinburgh
-17	Exeter
-41	Glasgow
-34	Huntingdon
-18	Leeds
-19	Leicester
-50	London
-22	London Central
-23	London South
-24	Manchester
-26	Midlands (East) ET
-13	Midlands (West) ET
-25	Newcastle
-27	Reading
-31	Southampton
-16	Wales
-33	Watford
-99	Default
+DONE Remove support and guide links
 
 
 From meeting 21/9
@@ -64,7 +33,7 @@ From meeting 21/9
 1. Landing page still to be confirmed by the Business and the guidance from the landing page needs to be included in the system as help text.
 2. Add new Representative option in addition to claimant but it will follow 2a path. Business to confirm
 3. Waiting for the Business to confirm hand off process when a Claimant has changed their name since original claim
-4. Representatives postcode must be mandatory
+DONE 4. Representatives postcode must be mandatory
 5. Respondents postcode, change from mandatory to optional
 6. Business to confirm the question text for 'Country of claim?' , options being  England & Wales/Scotland
 7. ET & EAT reference number - Business confirmed that this should be freetext
