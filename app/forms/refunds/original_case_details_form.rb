@@ -42,7 +42,7 @@ module Refunds
     validates :claim_had_representative, nil: true
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
     validates :representative_name, :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true, if: :claim_had_representative
-    validates :respondent_name, :respondent_address_building, :respondent_address_street, :respondent_address_post_code, presence: true
+    validates :respondent_name, :respondent_address_building, :respondent_address_street, presence: true
     validates :et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee, numericality: true, allow_blank: true
     validates :et_issue_fee_payment_method, presence: true, if: -> (obj) { obj.et_issue_fee.present? && obj.et_issue_fee > 0 }
     validates :et_hearing_fee_payment_method, presence: true, if: -> (obj) { obj.et_hearing_fee.present? && obj.et_hearing_fee > 0}

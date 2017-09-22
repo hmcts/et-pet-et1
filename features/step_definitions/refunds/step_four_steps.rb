@@ -177,10 +177,9 @@ And(/^all mandatory respondent address fields in the refund case details should 
     expect(refund_step_four_page.original_respondent_details.name.error.text).to eql "Enter the respondent's name"
     expect(refund_step_four_page.original_respondent_details.building.error.text).to eql "Enter the building number or name from the respondent's address"
     expect(refund_step_four_page.original_respondent_details.street.error.text).to eql "Enter the street from the respondent's address"
-    expect(refund_step_four_page.original_respondent_details.post_code.error.text).to eql "Enter the respondent's post code"
     expect(refund_step_four_page.original_respondent_details.locality).to have_no_error, 'Expected respondent locality not to have an error'
+    expect(refund_step_four_page.original_respondent_details.post_code).to have_no_error, 'Expected respondent post code not to have an error'
     expect(refund_step_four_page.original_respondent_details.county).to have_no_error, 'Expected respondent county not to have an error'
-
   end
 end
 
