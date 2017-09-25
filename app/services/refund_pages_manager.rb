@@ -10,16 +10,20 @@ class RefundPagesManager < PageManager
 
   page 'original-case-details',
        number: 3,
+       transitions_to: 'fees'
+
+  page 'fees',
+       number: 4,
        transitions_to: 'bank-details'
 
   page 'bank-details',
-       number: 4,
+       number: 5,
        transitions_to: 'review'
 
   page 'review',
-       number: 5,
+       number: 6,
        transitions_to: 'confirmation'
 
   page 'confirmation',
-       number: 6
+       number: 7
 end

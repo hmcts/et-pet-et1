@@ -9,6 +9,8 @@ en:
         update: "Continue"
       refunds_original_case_details:
         update: "Continue"
+      refunds_fees:
+        update: "Continue"
       refunds_bank_details:
         update: "Continue"
       refunds_review:
@@ -29,6 +31,9 @@ en:
       claimant_details: "Your address at the time of your claim"
       date_of_birth: "Date of birth"
       contact_details: "Claimant Address"
+      claim_had_representative: "Did you have a representative at the time of your original claim ?"
+    fees:
+      header: "About your fees paid"
       fee_details: "About your fees paid"
       issue_fee: "ET Issue fee"
       fee: "Fee (in pounds)"
@@ -38,7 +43,6 @@ en:
       eat_issue_fee: "EAT Issue fee"
       eat_hearing_fee: "EAT Hearing fee"
       et_reconsideration_fee: "ET Reconsideration fee"
-      claim_had_representative: "Did you have a representative at the time of your original claim ?"
     bank_details:
       header: "Repayment Details"
     review:
@@ -162,6 +166,8 @@ en:
               nil: Please select Yes or No
             et_country_of_claim:
               blank: Please select the country where your case was heard
+        refunds/fees:
+          attributes:
             et_issue_fee_payment_method:
               blank: Please select a payment method
             et_hearing_fee_payment_method:
@@ -172,7 +178,6 @@ en:
               blank: Please select a payment method
             eat_hearing_fee_payment_method:
               blank: Please select a payment method
-
         refunds/bank_details:
           attributes:
             payment_account_type:
@@ -200,7 +205,7 @@ en:
         title: Please select
       refunds_bank_details:
         payment_account_type: Please select
-      refunds_original_case_details:
+      refunds_fees:
         et_issue_fee_payment_method: Please select
         et_hearing_fee_payment_method: Please select
         et_reconsideration_fee_payment_method: Please select
@@ -291,6 +296,7 @@ en:
           mrs: Mrs
           miss: Miss
           ms: Ms
+      refunds_fees:
         et_issue_fee_payment_method:
           cheque: Cheque
           card: Card

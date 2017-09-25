@@ -39,7 +39,7 @@ DONE 5. Respondents postcode, change from mandatory to optional
 DONE 7. ET & EAT reference number - Business confirmed that this should be freetext
 8. Make the additional information text box 500 characters and ensure users are informed of the character count.
 9. Include help text for the additional information text box, business to confirm help text
-10. Fees paid needs to be on a new screen
+DONE 10. Fees paid needs to be on a new screen
 11. Include Date field in fees paid, allow MM/YYYY and Don't kmow option
 12. Discussion regarding including Total and Interest fields, however it was agreed that these fields should not be included
 DONE 13. For Representatives, this field is still mandatory for the building, Gary to remove (optional) text from the question on the screen

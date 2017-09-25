@@ -13,7 +13,7 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
-    And I take a screenshot named "Page 6 - Confirmation"
+    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for a sole party who paid directly, used a representative and whos name or address has not changed
     Given I am "Luke Skywalker"
@@ -28,7 +28,7 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
-    And I take a screenshot named "Page 6 - Confirmation"
+    And I take a screenshot named "Page 7 - Confirmation"
     # Dont forget printing
 
   Scenario: Refund for a sole party who paid directly and whos name has not changed but address has
@@ -44,7 +44,7 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid refund reference number starting with "C"
-    And I take a screenshot named "Page 6 - Confirmation"
+    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for a sole party who paid directly and whos name or address has not changed but uses a building society account
     Given I am "Luke Skywalker"

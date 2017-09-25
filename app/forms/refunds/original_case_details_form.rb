@@ -20,16 +20,6 @@ module Refunds
     attribute :representative_address_county,                 String
     attribute :representative_address_post_code,              String
     attribute :additional_information,                  String
-    attribute :et_issue_fee,                            Float
-    attribute :et_issue_fee_payment_method,             String
-    attribute :et_hearing_fee,                          Float
-    attribute :et_hearing_fee_payment_method,           String
-    attribute :eat_issue_fee,                           Float
-    attribute :eat_issue_fee_payment_method,            String
-    attribute :eat_hearing_fee,                         Float
-    attribute :eat_hearing_fee_payment_method,          String
-    attribute :et_reconsideration_fee,                 Float
-    attribute :et_reconsideration_fee_payment_method,  String
     boolean :address_changed
     attribute :claimant_address_building,               String
     attribute :claimant_address_street,                 String
@@ -43,24 +33,7 @@ module Refunds
     validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
     validates :representative_name, :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true, if: :claim_had_representative
     validates :respondent_name, :respondent_address_building, :respondent_address_street, presence: true
-    validates :et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee, numericality: true, allow_blank: true
-    validates :et_issue_fee_payment_method, presence: true, if: -> (obj) { obj.et_issue_fee.present? && obj.et_issue_fee > 0 }
-    validates :et_hearing_fee_payment_method, presence: true, if: -> (obj) { obj.et_hearing_fee.present? && obj.et_hearing_fee > 0}
-    validates :et_reconsideration_fee_payment_method, presence: true, if: -> (obj) { obj.et_reconsideration_fee.present? && obj.et_reconsideration_fee > 0 }
-    validates :eat_issue_fee_payment_method, presence: true, if: -> (obj) { obj.eat_issue_fee.present? && obj.eat_issue_fee > 0 }
-    validates :eat_hearing_fee_payment_method, presence: true, if: -> (obj) { obj.eat_hearing_fee.present? && obj.eat_hearing_fee > 0}
     before_validation :transfer_address, unless: :address_changed
-
-    def et_issue_fee
-      val = super
-      return val if val.nil?
-      val.to_f / 100
-    end
-
-    def et_issue_fee=(val)
-      return super if val.nil?
-      super((val.to_f * 100).to_i)
-    end
 
     private
 

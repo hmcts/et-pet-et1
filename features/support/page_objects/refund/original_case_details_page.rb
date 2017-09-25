@@ -32,28 +32,6 @@ module Refunds
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
     end
-    section :original_claim_fees, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your fees paid")]]}) do
-      section :et_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Issue fee")]]}) do
-        section :fee, AppTest::FormInput, '.refunds_original_case_details_et_issue_fee'
-        section :payment_method, AppTest::FormSelect, '.refunds_original_case_details_et_issue_fee_payment_method'
-      end
-      section :et_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Hearing fee")]]}) do
-        section :fee, AppTest::FormInput, '.refunds_original_case_details_et_hearing_fee'
-        section :payment_method, AppTest::FormSelect, '.refunds_original_case_details_et_hearing_fee_payment_method'
-      end
-      section :et_reconsideration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Reconsideration fee")]]}) do
-        section :fee, AppTest::FormInput, '.refunds_original_case_details_et_reconsideration_fee'
-        section :payment_method, AppTest::FormSelect, '.refunds_original_case_details_et_reconsideration_fee_payment_method'
-      end
-      section :eat_issue, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Issue fee")]]}) do
-        section :fee, AppTest::FormInput, '.refunds_original_case_details_eat_issue_fee'
-        section :payment_method, AppTest::FormSelect, '.refunds_original_case_details_eat_issue_fee_payment_method'
-      end
-      section :eat_hearing, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("EAT Hearing fee")]]}) do
-        section :fee, AppTest::FormInput, '.refunds_original_case_details_eat_hearing_fee'
-        section :payment_method, AppTest::FormSelect, '.refunds_original_case_details_eat_hearing_fee_payment_method'
-      end
-    end
     section :address_changed, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Has your address changed since you made your employment tribunal claim ?")]]}) do
       def set(value)
         choose(value)

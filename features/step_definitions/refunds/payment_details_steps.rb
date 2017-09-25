@@ -38,7 +38,7 @@ And(/^I fill in my refund bank details$/) do
   else
     raise "No bank or building society details present in the test_user"
   end
-  step('I take a screenshot named "Page 4 - Bank Account Details"')
+  step('I take a screenshot named "Page 5 - Bank Account Details"')
   refund_payment_details_page.save_and_continue.click
 
 end
