@@ -1,5 +1,5 @@
 module Refunds
-  class StepTwoPage < BasePage
+  class ApplicantPage < BasePage
     section :form_error_message, '[aria-describedby=error-message]' do |section|
 
     end

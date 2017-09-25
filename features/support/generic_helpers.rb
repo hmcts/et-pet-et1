@@ -58,8 +58,8 @@ def refund_step_one_page
   @refund_step_one_page ||= Refunds::StepOnePage.new
 end
 
-def refund_step_two_page
-  @refund_step_two_page ||= Refunds::StepTwoPage.new
+def refund_applicant_page
+  @refund_applicant_page ||= Refunds::ApplicantPage.new
 end
 
 def refund_original_case_details_page
