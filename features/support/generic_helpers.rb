@@ -66,8 +66,8 @@ def refund_original_case_details_page
   @refund_original_case_details_page ||= Refunds::OriginalCaseDetailsPage.new
 end
 
-def refund_step_five_page
-  @refund_step_five_page ||= Refunds::StepFivePage.new
+def refund_payment_details_page
+  @refund_payment_details_page ||= Refunds::PaymentDetailsPage.new
 end
 
 def refund_review_page
