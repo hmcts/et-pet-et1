@@ -54,4 +54,4 @@ DONE 21. Reference number to be made bigger on Confirmation screen
 DONE 22. Include date submitted on Confirmation page
 DONE 23. Include Print a copy of application on Confirmation page
 
-101: Review table to have fee payment date
+DONE 101: Review table to have fee payment date

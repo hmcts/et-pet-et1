@@ -1,7 +1,7 @@
 And(/^I fill in my refund original case details with:$/) do |table|
   table.hashes.each do | hash |
     refund_original_case_details_page.original_case_details do |section|
-      node = section.send("#{hash['field']}".to_sym)
+      node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
         when "select" then node.select(hash['value'])
         else node.set(hash['value'])
@@ -14,7 +14,7 @@ end
 And(/^I fill in my refund original case details respondent details with:$/) do |table|
   table.hashes.each do | hash |
     refund_original_case_details_page.original_respondent_details do |section|
-      node = section.send("#{hash['field']}".to_sym)
+      node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
         when "select" then node.select(hash['value'])
         else node.set(hash['value'])
@@ -26,7 +26,7 @@ end
 And(/^I fill in my refund original case details representative details with:$/) do |table|
   table.hashes.each do | hash |
     refund_original_case_details_page.original_representative_details do |section|
-      node = section.send("#{hash['field']}".to_sym)
+      node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
         when "select" then node.select(hash['value'])
         else node.set(hash['value'])

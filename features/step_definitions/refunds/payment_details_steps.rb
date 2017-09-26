@@ -1,7 +1,7 @@
 And(/^I fill in my refund bank details with:$/) do |table|
   table.hashes.each do | hash |
     refund_payment_details_page.bank_details do |section|
-      node = section.send("#{hash['field']}".to_sym)
+      node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
         when "select" then node.select(hash['value'])
         else node.set(hash['value'])
