@@ -33,7 +33,6 @@ And(/^I fill in my refund bank details$/) do
       section.building_society_name.set(test_user.building_society_account.building_society_name)
       section.account_number.set(test_user.building_society_account.account_number)
       section.sort_code.set(test_user.building_society_account.sort_code)
-      section.reference_number.set(test_user.building_society_account.reference)
     end
   else
     raise "No bank or building society details present in the test_user"

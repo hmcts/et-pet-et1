@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926100806) do
+ActiveRecord::Schema.define(version: 20170926110416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 20170926100806) do
     t.string   "payment_building_society_name"
     t.string   "payment_building_society_account_number"
     t.string   "payment_building_society_sort_code"
-    t.string   "payment_building_society_reference"
     t.boolean  "accept_declaration",                          default: false, null: false
     t.string   "claimant_address_building"
     t.string   "claimant_address_street"

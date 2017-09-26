@@ -124,7 +124,6 @@ And(/^I verify the building society details in the bank details of the refund re
     expect(section.building_society_name.text).to eql test_user.building_society_account.building_society_name
     expect(section.account_number.text).to eql test_user.building_society_account.account_number
     expect(section.sort_code.text).to eql test_user.building_society_account.sort_code
-    expect(section.reference_number.text).to eql test_user.building_society_account.reference
   end
 end
 

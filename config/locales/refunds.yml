@@ -84,7 +84,6 @@ en:
       payment_building_society_name: "Building society name"
       payment_building_society_account_number: "Account number"
       payment_building_society_sort_code: "Sort code"
-      payment_building_society_reference: "Roll/reference number"
       declaration: "Declaration"
       declaration_detail_html: |
         I am making an application on behalf of myself:
@@ -271,7 +270,6 @@ en:
         payment_building_society_name: Building Society name
         payment_building_society_account_number: Building Society account number
         payment_building_society_sort_code: Building Society sort code
-        payment_building_society_reference: Building Society roll/reference number
       refunds_fees:
         et_issue_fee_payment_date_unknown: Don't know
         et_hearing_fee_payment_date_unknown: Don't know

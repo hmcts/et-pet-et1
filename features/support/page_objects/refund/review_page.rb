@@ -82,7 +82,6 @@ module Refunds
       element :building_society_name, :refund_review_section_field_labelled, 'Building society name'
       element :account_number, :refund_review_section_field_labelled, 'Account number'
       element :sort_code, :refund_review_section_field_labelled, 'Sort code'
-      element :reference_number, :refund_review_section_field_labelled, 'Roll/reference number'
     end
 
     section :declaration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]]}) do

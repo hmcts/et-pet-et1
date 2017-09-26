@@ -61,8 +61,7 @@ And(/^I have a building society account$/) do
   test_user.building_society_account = OpenStruct.new account_name: 'Mr Luke Skywalker',
                                                       building_society_name: 'Starship Enterprises Building Society',
                                                       account_number: '12345678',
-                                                      sort_code: '012345',
-                                                      reference: 'ABCDEFG1234567890'
+                                                      sort_code: '012345'
 end
 
 

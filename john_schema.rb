@@ -59,7 +59,6 @@ t.string   "payment_building_society_account_name", mandatory: true_if_payment_a
 t.string   "payment_building_society_name", mandatory: true_if_payment_account_type_is_building_society
 t.string   "payment_building_society_account_number", mandatory: true_if_payment_account_type_is_building_society, max_length: 8
 t.string   "payment_building_society_sort_code", mandatory: true_if_payment_account_type_is_building_society, max_length: 6
-t.string   "payment_building_society_reference", mandatory: false
 t.boolean  "accept_declaration",                      default: false, mandatory: true
 t.string   "claimant_address_building", mandatory: true
 t.string   "claimant_address_street", mandatory: true
