@@ -7,11 +7,9 @@ And(/^I sleep for (\d+) seconds$/) do |arg|
   sleep arg.to_f
 end
 
-
 And(/^I take a screenshot$/) do
   screenshot_and_save_page
 end
-
 
 And(/^I take a screenshot named "([^"]*)"$/) do |filename_prefix|
   Capybara.using_session(Capybara::Screenshot.final_session_name) do
@@ -23,10 +21,10 @@ And(/^I take a screenshot named "([^"]*)"$/) do |filename_prefix|
     # Trying to embed the screenshot into our output."
     if File.exist?(saver.screenshot_path)
       require "base64"
-      #encode the image into it's base64 representation
-      image = open(saver.screenshot_path, 'rb') {|io|io.read}
+      # encode the image into it's base64 representation
+      image = open(saver.screenshot_path, 'rb', &:read)
       saver.display_image
-      #this will embed the image in the HTML report, embed() is defined in cucumber
+      # this will embed the image in the HTML report, embed() is defined in cucumber
       encoded_img = Base64.encode64(image)
       embed(encoded_img, 'image/png;base64', filename_prefix)
     end

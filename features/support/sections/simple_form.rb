@@ -59,7 +59,7 @@ module AppTest
     element :error, '.error'
     def set(value)
       within @root_element do
-        check("Don't know") and return if [:dont_know, :unknown, 'Don\'t know'].include?(value)
+        check("Don't know") && return if [:dont_know, :unknown, 'Don\'t know'].include?(value)
         uncheck("Don't know")
       end
       (month_value, year_value) = value.split("/")

@@ -49,29 +49,29 @@ module Refunds
 
     section :original_claim_fees, :refund_review_section_labelled, 'Original Case Fees' do
       section :et_issue, :refund_review_section_fee_type_labelled, 'ET issue' do
-        element :fee, :xpath, (XPath.generate {|x| x.descendant(:td)[1]})
-        element :payment_date, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
-        element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[3]})
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+        element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
+        element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
       section :et_hearing, :refund_review_section_fee_type_labelled, 'ET hearing' do
-        element :fee, :xpath, (XPath.generate {|x| x.descendant(:td)[1]})
-        element :payment_date, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
-        element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[3]})
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+        element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
+        element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
       section :et_reconsideration, :refund_review_section_fee_type_labelled, 'ET reconsideration' do
-        element :fee, :xpath, (XPath.generate {|x| x.descendant(:td)[1]})
-        element :payment_date, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
-        element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[3]})
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+        element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
+        element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
       section :eat_issue, :refund_review_section_fee_type_labelled, 'EAT issue' do
-        element :fee, :xpath, (XPath.generate {|x| x.descendant(:td)[1]})
-        element :payment_date, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
-        element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[3]})
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+        element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
+        element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
       section :eat_hearing, :refund_review_section_fee_type_labelled, 'EAT hearing' do
-        element :fee, :xpath, (XPath.generate {|x| x.descendant(:td)[1]})
-        element :payment_date, :xpath, (XPath.generate {|x| x.descendant(:td)[2]})
-        element :payment_method, :xpath, (XPath.generate {|x| x.descendant(:td)[3]})
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+        element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
+        element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
     end
 
@@ -89,7 +89,7 @@ module Refunds
       element :sort_code, :refund_review_section_field_labelled, 'Sort code'
     end
 
-    section :declaration, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]]}) do
+    section :declaration, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]] }) do
       element :accept, 'I confirm the above'
 
       def set(value)

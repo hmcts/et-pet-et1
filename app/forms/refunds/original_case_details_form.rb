@@ -1,24 +1,24 @@
 module Refunds
   class OriginalCaseDetailsForm < Form
-    PAYMENT_METHODS = ['card', 'cheque', 'cash']
-    COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland']
-    TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18', '19', '50', '22', '23', '24', '26', '13', '25', '27', '31', '16', '33', '99']
+    PAYMENT_METHODS = ['card', 'cheque', 'cash'].freeze
+    COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland'].freeze
+    TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18', '19', '50', '22', '23', '24', '26', '13', '25', '27', '31', '16', '33', '99'].freeze
     attribute :et_country_of_claim,                     String
     attribute :et_case_number,                          String
     attribute :et_tribunal_office,                      String
     attribute :respondent_name,                         String
-    attribute :respondent_address_building,               String
-    attribute :respondent_address_street,                 String
-    attribute :respondent_address_locality,               String
-    attribute :respondent_address_county,                 String
-    attribute :respondent_address_post_code,              String
-    attribute :claim_had_representative,                  Boolean
+    attribute :respondent_address_building,             String
+    attribute :respondent_address_street,               String
+    attribute :respondent_address_locality,             String
+    attribute :respondent_address_county,               String
+    attribute :respondent_address_post_code,            String
+    attribute :claim_had_representative,                Boolean
     attribute :representative_name,                     String
-    attribute :representative_address_building,               String
-    attribute :representative_address_street,                 String
-    attribute :representative_address_locality,               String
-    attribute :representative_address_county,                 String
-    attribute :representative_address_post_code,              String
+    attribute :representative_address_building,         String
+    attribute :representative_address_street,           String
+    attribute :representative_address_locality,         String
+    attribute :representative_address_county,           String
+    attribute :representative_address_post_code,        String
     attribute :additional_information,                  String
     attribute :address_changed,                         Boolean
     attribute :claimant_address_building,               String

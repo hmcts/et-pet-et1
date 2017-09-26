@@ -38,9 +38,8 @@ class RefundsController < ApplicationController
   end
 
   def current_step
-    "#{params[:page]}".underscore
+    params[:page].underscore
   end
-
 
   helper_method :refund_path_for, :current_step, :page_manager, :resource
 

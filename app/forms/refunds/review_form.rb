@@ -1,6 +1,6 @@
 module Refunds
   class ReviewForm < Form
-    attribute :accept_declaration,  Boolean
+    attribute :accept_declaration, Boolean
     before_save :generate_application_reference
     before_save :generate_submitted_date
     def method_missing(method, *args)

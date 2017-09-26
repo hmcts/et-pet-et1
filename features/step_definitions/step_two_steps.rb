@@ -28,5 +28,3 @@ end
 And(/^I save the claimant details$/) do
   step_two_page.save_and_continue.click
 end
-
-

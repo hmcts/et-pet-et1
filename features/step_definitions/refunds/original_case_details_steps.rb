@@ -1,43 +1,41 @@
 And(/^I fill in my refund original case details with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_case_details do |section|
       node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
-        when "select" then node.select(hash['value'])
-        else node.set(hash['value'])
+      when "select" then node.select(hash['value'])
+      else node.set(hash['value'])
       end
     end
   end
 end
 
-
 And(/^I fill in my refund original case details respondent details with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_respondent_details do |section|
       node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
-        when "select" then node.select(hash['value'])
-        else node.set(hash['value'])
+      when "select" then node.select(hash['value'])
+      else node.set(hash['value'])
       end
     end
   end
 end
 
 And(/^I fill in my refund original case details representative details with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_representative_details do |section|
       node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
-        when "select" then node.select(hash['value'])
-        else node.set(hash['value'])
+      when "select" then node.select(hash['value'])
+      else node.set(hash['value'])
       end
     end
   end
 end
 
-
 And(/^I fill in my refund issue fee with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_claim_fees.et_issue do |section|
       section.fee.set(hash['fee'])
       section.payment_method.select(hash['payment method'])
@@ -46,7 +44,7 @@ And(/^I fill in my refund issue fee with:$/) do |table|
 end
 
 And(/^I fill in my refund hearing fee with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_claim_fees.et_hearing do |section|
       section.fee.set(hash['fee'])
       section.payment_method.select(hash['payment method'])
@@ -55,7 +53,7 @@ And(/^I fill in my refund hearing fee with:$/) do |table|
 end
 
 And(/^I fill in my refund eat issue fee with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_claim_fees.eat_issue do |section|
       section.fee.set(hash['fee'])
       section.payment_method.select(hash['payment method'])
@@ -64,7 +62,7 @@ And(/^I fill in my refund eat issue fee with:$/) do |table|
 end
 
 And(/^I fill in my refund eat hearing fee with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_claim_fees.eat_hearing do |section|
       section.fee.set(hash['fee'])
       section.payment_method.select(hash['payment method'])
@@ -73,7 +71,7 @@ And(/^I fill in my refund eat hearing fee with:$/) do |table|
 end
 
 And(/^I fill in my refund application reconsideration fee with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_original_case_details_page.original_claim_fees.et_reconsideration do |section|
       section.fee.set(hash['fee'])
       section.payment_method.select(hash['payment method'])
@@ -85,11 +83,9 @@ And(/^I answer (Yes|No) to the has your address changed question for refunds$/) 
   refund_original_case_details_page.address_changed.set(arg)
 end
 
-
 And(/^I save the refund case details$/) do
   refund_original_case_details_page.save_and_continue.click
 end
-
 
 And(/^I fill in my refund original case details$/) do
   step('I take a screenshot named "Page 3 - Original Case Details 1 "')
@@ -137,7 +133,6 @@ And(/^I fill in my refund original case details$/) do
 
 end
 
-
 Then(/^all mandatory claimant address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
     expect(refund_original_case_details_page.original_claimant_details.building.error.text).to eql "Enter the building number or name from your address at the time of the original claim"
@@ -147,7 +142,6 @@ Then(/^all mandatory claimant address fields in the refund case details should b
     expect(refund_original_case_details_page.original_claimant_details.county).to have_no_error, 'Expected claimant county not to have an error'
   end
 end
-
 
 And(/^all mandatory respondent address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
@@ -160,7 +154,6 @@ And(/^all mandatory respondent address fields in the refund case details should 
   end
 end
 
-
 And(/^all mandatory representative address fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
     expect(refund_original_case_details_page.original_representative_details.name.error.text).to eql "Enter the representative's name"
@@ -172,7 +165,6 @@ And(/^all mandatory representative address fields in the refund case details sho
   end
 end
 
-
 And(/^the had representative field in the refunds case details should be marked with an error$/) do
   expect(refund_original_case_details_page.claim_had_representative.error.text).to eql "Please select Yes or No"
 end
@@ -180,7 +172,6 @@ end
 And(/^the country of claim field in the refunds case details should be marked with an error$/) do
   expect(refund_original_case_details_page.original_case_details.et_country_of_claim.error.text).to eql "Please select the country where your case was heard"
 end
-
 
 And(/^I answer (Yes|No) to the had representative question for refunds$/) do |had_representative|
   refund_original_case_details_page.claim_had_representative.set(had_representative)

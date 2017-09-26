@@ -1,21 +1,18 @@
 And(/^I fill in my refund bank details with:$/) do |table|
-  table.hashes.each do | hash |
+  table.hashes.each do |hash|
     refund_payment_details_page.bank_details do |section|
       node = section.send(hash['field'].to_sym)
       case node.try(:tag_name)
-        when "select" then node.select(hash['value'])
-        else node.set(hash['value'])
+      when "select" then node.select(hash['value'])
+      else node.set(hash['value'])
       end
     end
   end
 end
 
-
-
 And(/^I save the refund bank details$/) do
   refund_payment_details_page.save_and_continue.click
 end
-
 
 And(/^I fill in my refund bank details$/) do
   if test_user.bank_account.present?
@@ -42,11 +39,9 @@ And(/^I fill in my refund bank details$/) do
 
 end
 
-
 Then(/^I should see the refund bank details page$/) do
   expect(refund_payment_details_page).to be_displayed
 end
-
 
 Then(/^all mandatory bank details fields should be marked with an error$/) do
   aggregate_failures do
@@ -74,11 +69,9 @@ Then(/^all mandatory building society details fields should be marked with an er
   end
 end
 
-
 And(/^I select "([^"]*)" account type in the refund bank details page$/) do |account_type|
   refund_payment_details_page.account_type.select(account_type)
 end
-
 
 Then(/^only the bank details account type field should be marked with an error$/) do
   expect(refund_payment_details_page.account_type.error.text).to eql "Please select one of the options"

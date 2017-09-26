@@ -63,8 +63,6 @@ And(/^I fill in all my refund fee values only$/) do
   refund_fees_page.original_claim_fees.eat_hearing.fee.set(1)
 end
 
-
-
 And(/^the fee fields in the fees page should not be marked with any errors$/) do
   aggregate_failures do
     expect(refund_fees_page.original_claim_fees.et_issue.payment_method).to have_no_error, 'Expected et issue payment method not to have an error'
@@ -80,11 +78,9 @@ And(/^the fee fields in the fees page should not be marked with any errors$/) do
   end
 end
 
-
 And(/^I save the refund fees$/) do
   refund_fees_page.save_and_continue.click
 end
-
 
 And(/^I check all my refund fee unknown dates$/) do
   refund_fees_page.original_claim_fees.et_issue.payment_date.set(:unknown)

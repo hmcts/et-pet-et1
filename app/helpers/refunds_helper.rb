@@ -30,6 +30,7 @@ module RefundsHelper
   end
 
   private
+
   def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end

@@ -4,7 +4,6 @@ And(/^I accept the refund final declaration$/) do
   refund_review_page.save_and_continue.click
 end
 
-
 And(/^I save the final refund$/) do
   refund_review_page.save_and_continue.click
 end
@@ -150,8 +149,8 @@ And(/^I verify the review page and accept the declaration$/) do
   step 'I verify the representative details are not present in the case details of the refund review page' unless test_user.et_claim_to_refund.has_representative == 'Yes'
   step 'I verify the fees in the case details of the refund review page'
   step 'I verify the bank details in the bank details of the refund review page' if test_user.bank_account.present?
-  step 'I verify the bank details are not present in the bank details of the review page' unless test_user.bank_account.present?
+  step 'I verify the bank details are not present in the bank details of the review page' if test_user.bank_account.blank?
   step 'I verify the building society details in the bank details of the refund review page' if test_user.building_society_account.present?
-  step 'I verify the building society details are not present in the bank details of the refund review page' unless test_user.building_society_account.present?
+  step 'I verify the building society details are not present in the bank details of the refund review page' if test_user.building_society_account.blank?
   step 'I accept the refund final declaration'
 end

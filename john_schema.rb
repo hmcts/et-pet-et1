@@ -25,19 +25,19 @@ t.string   "claimant_name", mandatory: true
 t.text     "additional_information", mandatory: false, max_length: 500
 t.string   "claimant_address_post_code", mandatory: true
 t.integer  "et_issue_fee", mandatory: false
-t.string   "et_issue_fee_currency",                   default: "GBP", mandatory: true
+t.string   "et_issue_fee_currency", default: "GBP", mandatory: true
 t.string   "et_issue_fee_payment_method", true_if_et_issue_fee_present?
 t.integer  "et_hearing_fee", mandatory: false
-t.string   "et_hearing_fee_currency",                 default: "GBP", mandatory: true
+t.string   "et_hearing_fee_currency", default: "GBP", mandatory: true
 t.string   "et_hearing_fee_payment_method", true_if_et_hearing_fee_present?
 t.integer  "eat_issue_fee", mandatory: false
-t.string   "eat_issue_fee_currency",                  default: "GBP", mandatory: true
+t.string   "eat_issue_fee_currency", default: "GBP", mandatory: true
 t.string   "eat_issue_fee_payment_method", true_if_eat_issue_fee_present?
 t.integer  "eat_hearing_fee", mandatory: false
-t.string   "eat_hearing_fee_currency",                default: "GBP", mandatory: true
+t.string   "eat_hearing_fee_currency", default: "GBP", mandatory: true
 t.string   "eat_hearing_fee_payment_method", true_if_eat_hearing_fee_present?
 t.integer  "et_reconsideration_fee", mandatory: false
-t.string   "et_reconsideration_fee_currency",         default: "GBP", mandatory: true
+t.string   "et_reconsideration_fee_currency", default: "GBP", mandatory: true
 t.string   "et_reconsideration_fee_payment_method", true_if_et_reconsideration_fee_present?
 t.string   "applicant_address_building", mandatory: true, max_length: 100
 t.string   "applicant_address_street", mandatory: true, max_length: 100
@@ -59,7 +59,7 @@ t.string   "payment_building_society_account_name", mandatory: true_if_payment_a
 t.string   "payment_building_society_name", mandatory: true_if_payment_account_type_is_building_society
 t.string   "payment_building_society_account_number", mandatory: true_if_payment_account_type_is_building_society, max_length: 8
 t.string   "payment_building_society_sort_code", mandatory: true_if_payment_account_type_is_building_society, max_length: 6
-t.boolean  "accept_declaration",                      default: false, mandatory: true
+t.boolean  "accept_declaration", default: false, mandatory: true
 t.string   "claimant_address_building", mandatory: true
 t.string   "claimant_address_street", mandatory: true
 t.string   "claimant_address_locality", mandatory: true

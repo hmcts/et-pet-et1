@@ -87,7 +87,7 @@ def refund_confirmation_page
 end
 
 def test_user
-  @test_user  || raise("test_user used before it was defined")
+  @test_user || raise("test_user used before it was defined")
 end
 
 def test_user=(user)

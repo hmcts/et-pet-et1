@@ -23,7 +23,6 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
 
-
   fees = OpenStruct.new et_issue_fee: '1000.00',
                         et_issue_payment_method: 'Card',
                         et_issue_payment_date: '1/2016',
@@ -49,7 +48,6 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
 
 end
 
-
 And(/^I have a bank account$/) do
   test_user.bank_account = OpenStruct.new account_name: 'Mr Luke Skywalker',
                                           bank_name: 'Starship Enterprises Bank',
@@ -64,11 +62,9 @@ And(/^I have a building society account$/) do
                                                       sort_code: '012345'
 end
 
-
 And(/^my name has not changed since the original claim that I want a refund for$/) do
   test_user.has_name_changed = 'No'
 end
-
 
 And(/^my address has not changed since the original claim that I want a refund for$/) do
   test_user.claim_address_changed = 'No'
@@ -83,7 +79,6 @@ And(/^my address has changed since the original claim that I want a refund for$/
                                                         county: 'Greater London',
                                                         post_code: 'SW1H 9BK'
 end
-
 
 And(/^I did not have a representative$/) do
   test_user.et_claim_to_refund.has_representative = 'No'

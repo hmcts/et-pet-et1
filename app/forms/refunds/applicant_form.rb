@@ -1,8 +1,8 @@
 module Refunds
   class ApplicantForm < Form
-    TITLES               = %w[mr mrs miss ms].freeze
-    GENDERS              = %w[male female prefer_not_to_say].freeze
-    CONTACT_PREFERENCES  = %w[email post].freeze
+    TITLES               = ['mr', 'mrs', 'miss', 'ms'].freeze
+    GENDERS              = ['male', 'female', 'prefer_not_to_say'].freeze
+    CONTACT_PREFERENCES  = ['email', 'post'].freeze
     EMAIL_ADDRESS_LENGTH = 100
     NAME_LENGTH          = 100
 
@@ -16,7 +16,7 @@ module Refunds
     attribute :has_name_changed,         Boolean
 
     validates :address_building, :address_street,
-              :address_post_code, presence: true
+      :address_post_code, presence: true
 
     validates :address_building, :address_street, length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
     validates :address_locality, :address_county, length: { maximum: AddressAttributes::LOCALITY_LENGTH }
