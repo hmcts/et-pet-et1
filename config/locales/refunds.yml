@@ -276,6 +276,8 @@ en:
       refunds_profile_selection:
         profile_type:
           'claimant_direct_not_reimbursed': "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
+          'claimant_via_rep': "I was an individual claimant whose representative paid the fee and I then reimbursed them"
+          'claimant_eat': " I was an individual claimant to an employment tribunal claim, and I paid a fee to the Employment Appeals Tribunal (whether I was the appellant or respondent to the appeal)"
       refunds_applicant:
         title:
           mr: Mr

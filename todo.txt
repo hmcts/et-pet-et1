@@ -31,7 +31,7 @@ DONE Remove support and guide links
 From meeting 21/9
 
 1. Landing page still to be confirmed by the Business and the guidance from the landing page needs to be included in the system as help text.
-2. Add new Representative option in addition to claimant but it will follow 2a path. Business to confirm
+DONE 2. Add new Representative option in addition to claimant but it will follow 2a path. Business to confirm
 3. Waiting for the Business to confirm hand off process when a Claimant has changed their name since original claim
 DONE 4. Representatives postcode must be mandatory
 DONE 5. Respondents postcode, change from mandatory to optional
