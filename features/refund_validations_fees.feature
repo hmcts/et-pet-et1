@@ -13,9 +13,18 @@ Feature: Refund Validations - Fees Page
     And I fill in my refund applicant details
     And I fill in my refund original case details
 
-  Scenario: A user fills in fees but no payment method
-    And I fill in all my refund fees but do not select a payment method
+  Scenario: A user fills in fees but no payment method or date
+    And I fill in all my refund fee values only
     And I save the refund fees
     Then all fee payment method fields in the fees page should be marked with an error
+    Then all fee payment date fields in the fees page should be marked with an error
+
+  Scenario: A user fills in fees but no payment method and an unknown date
+    And I fill in all my refund fee values only
+    And I check all my refund fee unknown dates
+    And I save the refund fees
+    And all fee payment method fields in the fees page should be marked with an error
+    Then all fee payment date fields in the fees page should not be marked with an error
+
 
 

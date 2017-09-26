@@ -43,6 +43,7 @@ en:
       eat_issue_fee: "EAT Issue fee"
       eat_hearing_fee: "EAT Hearing fee"
       et_reconsideration_fee: "ET Reconsideration fee"
+      fee_payment_date: "Payment date (if known)"
     bank_details:
       header: "Repayment Details"
     review:
@@ -170,14 +171,24 @@ en:
           attributes:
             et_issue_fee_payment_method:
               blank: Please select a payment method
+            et_issue_fee_payment_date:
+              invalid: Please enter the payment year and month or tick 'Don't know'
             et_hearing_fee_payment_method:
               blank: Please select a payment method
+            et_hearing_fee_payment_date:
+              invalid: Please enter the payment year and month or tick 'Don't know'
             et_reconsideration_fee_payment_method:
               blank: Please select a payment method
+            et_reconsideration_fee_payment_date:
+              invalid: Please enter the payment year and month or tick 'Don't know'
             eat_issue_fee_payment_method:
               blank: Please select a payment method
+            eat_issue_fee_payment_date:
+              invalid: Please enter the payment year and month or tick 'Don't know'
             eat_hearing_fee_payment_method:
               blank: Please select a payment method
+            eat_hearing_fee_payment_date:
+              invalid: Please enter the payment year and month or tick 'Don't know'
         refunds/bank_details:
           attributes:
             payment_account_type:
@@ -205,14 +216,15 @@ en:
         title: Please select
       refunds_bank_details:
         payment_account_type: Please select
+      refunds_original_case_details:
+        et_country_of_claim: Please select
+        et_tribunal_office: Please select
       refunds_fees:
         et_issue_fee_payment_method: Please select
         et_hearing_fee_payment_method: Please select
         et_reconsideration_fee_payment_method: Please select
         eat_issue_fee_payment_method: Please select
         eat_hearing_fee_payment_method: Please select
-        et_country_of_claim: Please select
-        et_tribunal_office: Please select
     labels:
       refunds_applicant:
         address_building: Building number or name
@@ -252,6 +264,12 @@ en:
         payment_building_society_account_number: Building Society account number
         payment_building_society_sort_code: Building Society sort code
         payment_building_society_reference: Building Society roll/reference number
+      refunds_fees:
+        et_issue_fee_payment_date_unknown: Don't know
+        et_hearing_fee_payment_date_unknown: Don't know
+        et_reconsideration_fee_payment_date_unknown: Don't know
+        eat_issue_fee_payment_date_unknown: Don't know
+        eat_hearing_fee_payment_date_unknown: Don't know
       refunds_review:
         accept_declaration: I confirm the above
     options:

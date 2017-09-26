@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921105113) do
+ActiveRecord::Schema.define(version: 20170925100149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,19 +177,19 @@ ActiveRecord::Schema.define(version: 20170921105113) do
     t.text     "additional_information"
     t.string   "claimant_address_post_code"
     t.integer  "et_issue_fee"
-    t.string   "et_issue_fee_currency",                   default: "GBP"
+    t.string   "et_issue_fee_currency",                       default: "GBP"
     t.string   "et_issue_fee_payment_method"
     t.integer  "et_hearing_fee"
-    t.string   "et_hearing_fee_currency",                 default: "GBP"
+    t.string   "et_hearing_fee_currency",                     default: "GBP"
     t.string   "et_hearing_fee_payment_method"
     t.integer  "eat_issue_fee"
-    t.string   "eat_issue_fee_currency",                  default: "GBP"
+    t.string   "eat_issue_fee_currency",                      default: "GBP"
     t.string   "eat_issue_fee_payment_method"
     t.integer  "eat_hearing_fee"
-    t.string   "eat_hearing_fee_currency",                default: "GBP"
+    t.string   "eat_hearing_fee_currency",                    default: "GBP"
     t.string   "eat_hearing_fee_payment_method"
     t.integer  "et_reconsideration_fee"
-    t.string   "et_reconsideration_fee_currency",         default: "GBP"
+    t.string   "et_reconsideration_fee_currency",             default: "GBP"
     t.string   "et_reconsideration_fee_payment_method"
     t.string   "applicant_address_building"
     t.string   "applicant_address_street"
@@ -212,11 +212,21 @@ ActiveRecord::Schema.define(version: 20170921105113) do
     t.string   "payment_building_society_account_number"
     t.string   "payment_building_society_sort_code"
     t.string   "payment_building_society_reference"
-    t.boolean  "accept_declaration",                      default: false, null: false
+    t.boolean  "accept_declaration",                          default: false, null: false
     t.string   "claimant_address_building"
     t.string   "claimant_address_street"
     t.string   "claimant_address_locality"
     t.string   "claimant_address_county"
+    t.date     "et_issue_fee_payment_date"
+    t.boolean  "et_issue_fee_payment_date_unknown"
+    t.date     "et_hearing_fee_payment_date"
+    t.boolean  "et_hearing_fee_payment_date_unknown"
+    t.date     "et_reconsideration_fee_payment_date"
+    t.boolean  "et_reconsideration_fee_payment_date_unknown"
+    t.date     "eat_issue_fee_payment_date"
+    t.boolean  "eat_issue_fee_payment_date_unknown"
+    t.date     "eat_hearing_fee_payment_date"
+    t.boolean  "eat_hearing_fee_payment_date_unknown"
   end
 
   create_table "representatives", force: :cascade do |t|

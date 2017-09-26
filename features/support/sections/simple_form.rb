@@ -51,4 +51,21 @@ module AppTest
     end
   end
 
+  class FormPaymentDate < SitePrism::Section
+    element :unknown, :field, 'Don\'t know'
+    element :month, :field, 'Month'
+    element :year, :field, 'Year'
+    element :label, 'label'
+    element :error, '.error'
+    def set(value)
+      within @root_element do
+        check("Don't know") and return if value == :unknown
+        uncheck("Don't know")
+      end
+      (month_value, year_value) = value.split("/")
+      month.set(month_value)
+      year.set(year_value)
+    end
+  end
+
 end
