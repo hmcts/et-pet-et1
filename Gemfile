@@ -63,6 +63,9 @@ end
 group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '3.0.0'
+end
+
+group :production, :test do
   gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 end
 
