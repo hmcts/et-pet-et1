@@ -50,8 +50,8 @@ DONE (Until wording comes through) 17. ET has a section which states 'What happe
 18. Dan is currently reviewing landing page and will provide comments to Daniel by COP 22/09/2017
 19. Admin staff will access the ET admin panel and extract the data in by selecting a date range
 20. All requirements must be provided and baselined by 3pm 26/09/2017.
-21. Reference number to be made bigger on Confirmation screen
-22. Include date submitted on Confirmation page
-23. Include Print a copy of application on Confirmation page
+DONE 21. Reference number to be made bigger on Confirmation screen
+DONE 22. Include date submitted on Confirmation page
+DONE 23. Include Print a copy of application on Confirmation page
 
 101: Review table to have fee payment date

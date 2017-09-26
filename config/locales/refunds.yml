@@ -17,6 +17,8 @@ en:
         update: "Submit Claim"
       refunds_confirmation:
         update: "Continue"
+    refunds:
+      payment_date_unknown: "Don't know"
   refunds:
     claimant:
       is_claimant_legend: "Are you the claimant ?"

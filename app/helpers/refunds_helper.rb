@@ -21,6 +21,14 @@ module RefundsHelper
     I18n.t("simple_form.options.refunds_original_case_details.et_tribunal_office.#{id}")
   end
 
+  def payment_date_for(obj, fee)
+    if obj.send("#{fee}_payment_date_unknown")
+      I18n.t('helpers.refunds.payment_date_unknown')
+    else
+      obj.send("#{fee}_payment_date").strftime('%-m/%Y')
+    end
+  end
+
   private
   def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)

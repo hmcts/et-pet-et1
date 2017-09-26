@@ -38,7 +38,7 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
                         eat_hearing_payment_date: '4/2016',
                         et_reconsideration_fee: '1004.00',
                         et_reconsideration_payment_method: 'Card',
-                        et_reconsideration_payment_date: '5/2016'
+                        et_reconsideration_payment_date: 'Don\'t know'
 
   test_user.et_claim_to_refund = OpenStruct.new et_case_number: '1234567/2016',
                                                 et_tribunal_office: 'Newcastle',
