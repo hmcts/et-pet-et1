@@ -232,6 +232,7 @@ en:
                         Your ET case number is 7 digits, followed by / and then the year eg. 1234567/2017.
                         Your EAT case cumber will start UKEAT/xxxx/YY/xxx.
                         If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
+        additional_information: Please use this box to give us any information or reference numbers you think would be helpful in identifying your case
     labels:
       refunds_applicant:
         address_building: Building number or name
