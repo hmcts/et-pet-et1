@@ -252,7 +252,7 @@ en:
         representative_address_post_code: UK Postcode
         et_case_number: Employment tribunal case number
         et_tribunal_office: Employment tribunal office
-        et_country_of_claim: Country of claim
+        et_country_of_claim: Where was your claim issued?
       refunds_bank_details:
         payment_account_type: Account type
         payment_bank_account_name: Bank account holder name

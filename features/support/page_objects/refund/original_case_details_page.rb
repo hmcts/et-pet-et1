@@ -1,7 +1,7 @@
 module Refunds
   class OriginalCaseDetailsPage < BasePage
     section :original_case_details, :xpath, (XPath.generate {|x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your case details")]]}) do
-      section :et_country_of_claim, AppTest::FormSelect, :simple_form_field, 'Country of claim'
+      section :et_country_of_claim, AppTest::FormSelect, :simple_form_field, 'Where was your claim issued?'
       element :et_case_number, 'input[name="refunds_original_case_details[et_case_number]"]'
       section :et_tribunal_office, AppTest::FormSelect, :simple_form_field, 'Employment tribunal office'
       element :additional_information, 'textarea[name="refunds_original_case_details[additional_information]"]'
