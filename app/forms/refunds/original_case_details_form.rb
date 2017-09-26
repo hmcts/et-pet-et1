@@ -20,7 +20,7 @@ module Refunds
     attribute :representative_address_county,                 String
     attribute :representative_address_post_code,              String
     attribute :additional_information,                  String
-    boolean :address_changed
+    attribute :address_changed,                         Boolean
     attribute :claimant_address_building,               String
     attribute :claimant_address_street,                 String
     attribute :claimant_address_locality,               String

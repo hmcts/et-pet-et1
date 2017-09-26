@@ -12,6 +12,8 @@ module Refunds
     attribute :address_county,           String
     attribute :address_post_code,        String
     attribute :address_telephone_number, String
+    attribute :is_claimant,              Boolean
+    attribute :has_name_changed,         Boolean
 
     validates :address_building, :address_street,
               :address_post_code, presence: true
@@ -24,8 +26,6 @@ module Refunds
 
     validates :address_post_code,
       length: { maximum: AddressAttributes::POSTCODE_LENGTH }
-    boolean :is_claimant
-    boolean :has_name_changed
     attribute :first_name,         String
     attribute :last_name,          String
     attribute :date_of_birth,      Date
