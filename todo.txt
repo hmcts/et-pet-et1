@@ -36,7 +36,7 @@ DONE 2. Add new Representative option in addition to claimant but it will follow
 DONE 4. Representatives postcode must be mandatory
 DONE 5. Respondents postcode, change from mandatory to optional
 DONE 6. Business to confirm the question text for 'Country of claim?' , options being  England & Wales/Scotland - Answer 'Where was your claim issued?'
-7. ET & EAT reference number - Business confirmed that this should be freetext
+DONE 7. ET & EAT reference number - Business confirmed that this should be freetext
 8. Make the additional information text box 500 characters and ensure users are informed of the character count.
 9. Include help text for the additional information text box, business to confirm help text
 DONE 10. Fees paid needs to be on a new screen

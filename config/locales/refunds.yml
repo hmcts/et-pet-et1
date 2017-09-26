@@ -225,6 +225,13 @@ en:
         et_reconsideration_fee_payment_method: Please select
         eat_issue_fee_payment_method: Please select
         eat_hearing_fee_payment_method: Please select
+    hints:
+      refunds_original_case_details:
+        et_case_number_html: |
+                        Your Employment Tribunal or Employment Appeal Tribunal case number can be found on the letters you received from HMCTS in relation to your case.
+                        Your ET case number is 7 digits, followed by / and then the year eg. 1234567/2017.
+                        Your EAT case cumber will start UKEAT/xxxx/YY/xxx.
+                        If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
     labels:
       refunds_applicant:
         address_building: Building number or name
