@@ -17,4 +17,8 @@ class Refund < ActiveRecord::Base
     self.application_reference_number = last + 1
     self.application_reference = "C#{application_reference_number}"
   end
+
+  def generate_submitted_at
+    self.submitted_at = Time.now.utc
+  end
 end

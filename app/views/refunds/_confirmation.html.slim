@@ -1,4 +1,18 @@
 div
   = t('.confirmation')
-  p
-    span data-behavior="application_reference" = f.object.application_reference
+  .callout.callout-confirmation
+    p.detail = t '.callout_detail'
+    span.number data-behavior="application_reference" = f.object.application_reference
+
+  section.content-section
+    h2 = t('.what_happens_next.header')
+    ol.numerical-list
+      li
+        TODO What happens next content to be provided by the business
+    table.confirmation-table
+      caption = t('.refund_details.header')
+      tr role="row"
+        th = t '.refund_submitted.header'
+        td  data-behavior="submitted_at" = f.object.submitted_at.strftime('%d %B %Y')
+
+    p = t '.print_link_html'

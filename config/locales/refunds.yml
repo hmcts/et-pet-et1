@@ -109,8 +109,17 @@ en:
       representative_address_post_code: "Representative address post code"
 
     confirmation:
-      header: "Application For Refund Submitted"
-      confirmation: "Your refund claim has been submitted and your reference number is :"
+      header: "Application for refund submitted"
+      confirmation: "Your application for a refund has been submitted"
+      callout_detail: "Your refund reference number"
+      what_happens_next:
+        header: "What happens next"
+      refund_details:
+        header: "Refund details"
+      refund_submitted:
+        header: "Refund submitted"
+      print_link_html: |
+               <a href="javascript:window.print(0);">Print this page</a> for your records
   activemodel:
     errors:
       models:
