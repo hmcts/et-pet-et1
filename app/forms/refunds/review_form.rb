@@ -8,6 +8,11 @@ module Refunds
       super
     end
 
+    def respond_to_missing?(method, *args)
+      return true if !method.to_s.end_with?('=') && resource.respond_to?(method)
+      super
+    end
+
     private
 
     def generate_application_reference

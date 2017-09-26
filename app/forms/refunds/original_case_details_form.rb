@@ -2,7 +2,9 @@ module Refunds
   class OriginalCaseDetailsForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash'].freeze
     COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland'].freeze
-    TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18', '19', '50', '22', '23', '24', '26', '13', '25', '27', '31', '16', '33', '99'].freeze
+    TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18',
+                        '19', '50', '22', '23', '24', '26', '13', '25',
+                        '27', '31', '16', '33', '99'].freeze
     attribute :et_country_of_claim,                     String
     attribute :et_case_number,                          String
     attribute :et_tribunal_office,                      String
@@ -30,9 +32,20 @@ module Refunds
     validates :et_tribunal_office, inclusion: TRIBUNAL_OFFICES, allow_blank: true
     validates :et_country_of_claim, presence: true, inclusion: COUNTRY_OF_CLAIMS
     validates :claim_had_representative, nil: true
-    validates :claimant_address_building, :claimant_address_street, :claimant_address_post_code, presence: true
-    validates :representative_name, :representative_address_building, :representative_address_street, :representative_address_post_code, presence: true, if: :claim_had_representative
-    validates :respondent_name, :respondent_address_building, :respondent_address_street, presence: true
+    validates :claimant_address_building,
+      :claimant_address_street,
+      :claimant_address_post_code,
+      presence: true
+    validates :representative_name,
+      :representative_address_building,
+      :representative_address_street,
+      :representative_address_post_code,
+      presence: true,
+      if: :claim_had_representative
+    validates :respondent_name,
+      :respondent_address_building,
+      :respondent_address_street,
+      presence: true
     before_validation :transfer_address, unless: :address_changed
 
     private

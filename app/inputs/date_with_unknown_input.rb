@@ -18,23 +18,43 @@
 class DateWithUnknownInput < SimpleForm::Inputs::Base
 
   def input(_wrapper_options = nil)
-    field_options = @options.slice(:readonly, :disabled)
-    exceptions = Array(@options.fetch(:except, []))
     template.content_tag(defaults[:tag], class: class_name) do
-      { day: 2, month: 2, year: 4 }.reduce(active_support_buffer) do |buffer, (part, length)|
-        next buffer if exceptions.include?(part)
-        buffer << @builder.simple_fields_for(attribute_name, value) do |f|
-          f.input part, field_options.merge(as: :tel, maxlength: length)
-        end
-      end
-      active_support_buffer << @builder.input("#{attribute_name}_unknown".to_sym, field_options.merge(as: :boolean, required: true, boolean_style: :inline, label_html: { class: 'unknown' }))
+      build_parts(active_support_buffer)
     end
   end
 
   private
 
+  def build_parts(active_support_buffer)
+    parts.reduce(active_support_buffer) do |buffer, (part, length)|
+      build_date_field(buffer, part, length)
+    end
+    build_checkbox_field(active_support_buffer)
+  end
+
+  def parts
+    exceptions = Array(@options.fetch(:except, []))
+    { day: 2, month: 2, year: 4 }.delete_if { |(part, _length)| exceptions.include?(part) }
+  end
+
   def defaults
     SimpleForm.wrapper(:default).defaults
+  end
+
+  def build_date_field(buffer, part, length)
+    field_options = @options.slice(:readonly, :disabled)
+    buffer << @builder.simple_fields_for(attribute_name, value) do |f|
+      f.input part, field_options.merge(as: :tel, maxlength: length)
+    end
+  end
+
+  def build_checkbox_field(buffer)
+    field_options = @options.slice(:readonly, :disabled)
+    part_options = field_options.merge as: :boolean,
+                                       required: true,
+                                       boolean_style: :inline,
+                                       label_html: { class: 'unknown' }
+    buffer << @builder.input("#{attribute_name}_unknown".to_sym, part_options)
   end
 
   # A value could be a Hash if the Virtus type coercion failed e.g.

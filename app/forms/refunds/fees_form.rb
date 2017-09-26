@@ -22,17 +22,71 @@ module Refunds
     attribute :et_reconsideration_fee_payment_date,               Date
     attribute :et_reconsideration_fee_payment_date_unknown,       Boolean
 
-    validates :et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee, numericality: true, allow_blank: true
-    validates :et_issue_fee_payment_method, presence: true, if: ->(obj) { obj.et_issue_fee.present? && obj.et_issue_fee > 0 }
-    validates :et_issue_fee_payment_date, presence: true, date: true, if: ->(obj) { obj.et_issue_fee.present? && obj.et_issue_fee > 0 && !obj.et_issue_fee_payment_date_unknown? }
-    validates :et_hearing_fee_payment_method, presence: true, if: ->(obj) { obj.et_hearing_fee.present? && obj.et_hearing_fee > 0 }
-    validates :et_hearing_fee_payment_date, presence: true, date: true, if: ->(obj) { obj.et_hearing_fee.present? && obj.et_hearing_fee > 0 && !obj.et_hearing_fee_payment_date_unknown? }
-    validates :et_reconsideration_fee_payment_method, presence: true, if: ->(obj) { obj.et_reconsideration_fee.present? && obj.et_reconsideration_fee > 0 }
-    validates :et_reconsideration_fee_payment_date, presence: true, date: true, if: ->(obj) { obj.et_reconsideration_fee.present? && obj.et_reconsideration_fee > 0 && !obj.et_reconsideration_fee_payment_date_unknown? }
-    validates :eat_issue_fee_payment_method, presence: true, if: ->(obj) { obj.eat_issue_fee.present? && obj.eat_issue_fee > 0 }
-    validates :eat_issue_fee_payment_date, presence: true, date: true, if: ->(obj) { obj.eat_issue_fee.present? && obj.eat_issue_fee > 0 && !obj.eat_issue_fee_payment_date_unknown? }
-    validates :eat_hearing_fee_payment_method, presence: true, if: ->(obj) { obj.eat_hearing_fee.present? && obj.eat_hearing_fee > 0 }
-    validates :eat_hearing_fee_payment_date, presence: true, date: true, if: ->(obj) { obj.eat_hearing_fee.present? && obj.eat_hearing_fee > 0 && !obj.eat_hearing_fee_payment_date_unknown? }
+    validates :et_issue_fee, :et_hearing_fee, :et_reconsideration_fee,
+      :eat_issue_fee, :eat_hearing_fee,
+      numericality: true, allow_blank: true
+
+    validates :et_issue_fee_payment_method, presence: true,
+                                            if: lambda {
+                                              et_issue_fee.present? && et_issue_fee.positive?
+                                            }
+
+    validates :et_issue_fee_payment_date, presence: true, date: true,
+                                          if: lambda {
+                                                et_issue_fee.present? &&
+                                                  et_issue_fee.positive? &&
+                                                  !et_issue_fee_payment_date_unknown?
+                                              }
+
+    validates :et_hearing_fee_payment_method,
+      presence: true,
+      if: -> { et_hearing_fee.present? && et_hearing_fee.positive? }
+
+    validates :et_hearing_fee_payment_date,
+      presence: true,
+      date: true,
+      if: lambda {
+            et_hearing_fee.present? && et_hearing_fee.positive? && !et_hearing_fee_payment_date_unknown?
+          }
+
+    validates :et_reconsideration_fee_payment_method,
+      presence: true,
+      if: -> { et_reconsideration_fee.present? && et_reconsideration_fee.positive? }
+
+    validates :et_reconsideration_fee_payment_date,
+      presence: true,
+      date: true,
+      if: lambda {
+            et_reconsideration_fee.present? &&
+              et_reconsideration_fee.positive? &&
+              !et_reconsideration_fee_payment_date_unknown?
+          }
+
+    validates :eat_issue_fee_payment_method, presence: true,
+                                             if: lambda {
+                                               eat_issue_fee.present? &&
+                                                 eat_issue_fee.positive?
+                                             }
+
+    validates :eat_issue_fee_payment_date, presence: true, date: true,
+                                           if: lambda {
+                                                 eat_issue_fee.present? &&
+                                                   eat_issue_fee.positive? &&
+                                                   !eat_issue_fee_payment_date_unknown?
+                                               }
+
+    validates :eat_hearing_fee_payment_method, presence: true,
+                                               if: lambda {
+                                                 eat_hearing_fee.present? &&
+                                                   eat_hearing_fee.positive?
+                                               }
+
+    validates :eat_hearing_fee_payment_date, presence: true, date: true,
+                                             if: lambda {
+                                                   eat_hearing_fee.present? &&
+                                                     eat_hearing_fee.positive? &&
+                                                     !eat_hearing_fee_payment_date_unknown?
+                                                 }
 
     def et_issue_fee_payment_date=(val)
       super(pre_process_partial_date(val, only: :day))
@@ -72,8 +126,8 @@ module Refunds
       parts = Array(options.fetch(:only, [:day, :month, :year])).map(&:to_s)
       parts.reduce(val) do |acc, part|
         acc.merge(part => '1') if acc[part].blank?
+        acc
       end
     end
-
   end
 end
