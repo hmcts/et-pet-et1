@@ -28,7 +28,7 @@ module Refunds
     attribute :claimant_address_locality,               String
     attribute :claimant_address_county,                 String
     attribute :claimant_address_post_code,              String
-
+    attribute :claimant_name,                           String
     validates :et_tribunal_office, inclusion: TRIBUNAL_OFFICES, allow_blank: true
     validates :et_country_of_claim, presence: true, inclusion: COUNTRY_OF_CLAIMS
     validates :claim_had_representative, nil: true
@@ -46,9 +46,19 @@ module Refunds
       :respondent_address_building,
       :respondent_address_street,
       presence: true
+    before_validation :transfer_name
     before_validation :transfer_address, unless: :address_changed
 
     private
+
+    def transfer_name
+      claimant_name = [
+        resource.applicant_title.titleize,
+        resource.applicant_first_name,
+        resource.applicant_last_name
+      ].join(' ')
+      self.claimant_name = claimant_name
+    end
 
     def transfer_address
       self.claimant_address_building = resource.applicant_address_building

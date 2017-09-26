@@ -52,38 +52,5 @@ module Refunds
     def last_name=(name)
       super name.try :strip
     end
-
-    def save
-      if valid?
-        save_with_callbacks
-      else
-        false
-      end
-    end
-
-    private
-
-    def save_with_callbacks
-      run_callbacks :save do
-        ActiveRecord::Base.transaction do
-          target.update_attributes attributes unless target.frozen?
-          clone_claimant_details
-          resource.save
-        end
-      end
-    end
-
-    def clone_claimant_details
-      attrs = target.attributes.with_indifferent_access
-      claimant_name = [
-        attrs[:applicant_title].titleize,
-        attrs[:applicant_first_name],
-        attrs[:applicant_last_name]
-      ].join(' ')
-      new_claim_attributes = {
-        claimant_name: claimant_name
-      }
-      resource.assign_attributes(new_claim_attributes)
-    end
   end
 end

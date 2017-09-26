@@ -55,3 +55,12 @@ DONE 22. Include date submitted on Confirmation page
 DONE 23. Include Print a copy of application on Confirmation page
 
 DONE 101: Review table to have fee payment date
+
+Unit Tests:
+1. Applicant form (validation, standard form stuff, stripping of first and last names)
+2. Bank details form (validation, standard form stuff)
+3. Confirmation form (no validation, standard form stuff - very basic)
+4. Fees form - (Validation (complex), standard form stuff, partial payment date, conversion of fees to integer, conversion of fees from nil/string/integer)
+5. Original case details form - (validation (medium complex), standard form stuff, address transfer, name transfer
+6. Profile selection form - (validation (simple - needs adding of valid values), standard form stuff)
+7. Review form - (validation of accept declaration, acts as a read proxy for all model attributes, generate app reference, generate submitted date)
