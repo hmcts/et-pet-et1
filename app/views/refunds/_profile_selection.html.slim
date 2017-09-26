@@ -1,8 +1,8 @@
 
 fieldset.profile_selection
-  legend = t('.profile_number')
-  = f.input :profile_number,
+  legend = t('.profile_type')
+  = f.input :profile_type,
           as: :radio_buttons,
           label: false,
           required: true,
-          collection: ['2']
+          collection: ['claimant_direct_not_reimbursed']

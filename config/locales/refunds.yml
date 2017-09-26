@@ -23,7 +23,7 @@ en:
     profile_selection:
       header: "Introduction Page"
       please_select_profile: "Introduction Page"
-      profile_number: "Please confirm that you are the following"
+      profile_type: "Please confirm that you are the following"
     original_case_details:
       original_case_details: "Your case details"
       header: "Details about your original case"
@@ -117,7 +117,7 @@ en:
       models:
         refunds/profile_selection:
           attributes:
-            profile_number:
+            profile_type:
               blank: Please confirm
         refunds/applicant:
           attributes:
@@ -274,8 +274,8 @@ en:
         accept_declaration: I confirm the above
     options:
       refunds_profile_selection:
-        profile_number:
-          '2': "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
+        profile_type:
+          'claimant_direct_not_reimbursed': "I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else"
       refunds_applicant:
         title:
           mr: Mr

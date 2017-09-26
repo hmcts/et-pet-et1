@@ -4,7 +4,7 @@ t.string   "email_address", mandatory: false
 t.integer  "application_reference_number", mandatory: true
 t.boolean  "address_changed", mandatory: true
 t.boolean  "has_name_changed", mandatory: true
-t.integer  "profile_number", mandatory: true, notes: "At present will always be 2 - which means the person is a sole claimant who has not been reiumbursed"
+t.integer  "profile_type", mandatory: true, notes: "At present will always be 2 - which means the person is a sole claimant who has not been reiumbursed"
 t.string   "et_country_of_claim", mandatory: true, possible_values: ['england_and_wales', 'scotland']
 t.string   "et_case_number", mandatory: false
 t.string   "et_tribunal_office", mandatory: true, possible_values: ['14', '15', '32', '51', '17', '41', '34', '18', '19', '50', '22', '23', '24', '26', '13', '25', '27', '31', '16', '33', '99']
