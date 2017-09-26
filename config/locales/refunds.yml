@@ -172,23 +172,23 @@ en:
             et_issue_fee_payment_method:
               blank: Please select a payment method
             et_issue_fee_payment_date:
-              invalid: Please enter the payment year and month or tick 'Don't know'
+              blank: Please enter the payment year and month or tick 'Don't know'
             et_hearing_fee_payment_method:
               blank: Please select a payment method
             et_hearing_fee_payment_date:
-              invalid: Please enter the payment year and month or tick 'Don't know'
+              blank: Please enter the payment year and month or tick 'Don't know'
             et_reconsideration_fee_payment_method:
               blank: Please select a payment method
             et_reconsideration_fee_payment_date:
-              invalid: Please enter the payment year and month or tick 'Don't know'
+              blank: Please enter the payment year and month or tick 'Don't know'
             eat_issue_fee_payment_method:
               blank: Please select a payment method
             eat_issue_fee_payment_date:
-              invalid: Please enter the payment year and month or tick 'Don't know'
+              blank: Please enter the payment year and month or tick 'Don't know'
             eat_hearing_fee_payment_method:
               blank: Please select a payment method
             eat_hearing_fee_payment_date:
-              invalid: Please enter the payment year and month or tick 'Don't know'
+              blank: Please enter the payment year and month or tick 'Don't know'
         refunds/bank_details:
           attributes:
             payment_account_type:

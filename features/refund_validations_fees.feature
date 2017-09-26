@@ -19,6 +19,10 @@ Feature: Refund Validations - Fees Page
     Then all fee payment method fields in the fees page should be marked with an error
     Then all fee payment date fields in the fees page should be marked with an error
 
+  Scenario: A user fills in no fees data at all
+    And I save the refund fees
+    Then I should see the refund bank details page
+
   Scenario: A user fills in fees but no payment method and an unknown date
     And I fill in all my refund fee values only
     And I check all my refund fee unknown dates
