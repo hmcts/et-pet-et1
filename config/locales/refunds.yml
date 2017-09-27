@@ -122,6 +122,9 @@ en:
         header: "Refund submitted"
       print_link_html: |
                <a href="javascript:window.print(0);">Print this page</a> for your records
+    applicant:
+      sorry_name_changed:
+        header: "Sorry, you cannot continue"
   activemodel:
     errors:
       models:

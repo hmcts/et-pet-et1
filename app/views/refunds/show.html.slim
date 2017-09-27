@@ -8,7 +8,7 @@ header.main-header role="banner"
 
 .main-section
 
-  .main-content class="#{current_step}"
+  .main-content class="refunds_#{current_step}"
     = simple_form_for resource, url: request.path, multipart: true do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 

@@ -10,8 +10,9 @@ Feature: Refund Validations - Applicant page
     And I am on the landing page
     And I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
 
-  Scenario: A user does not fill in any fields in the applicant step
-    When I save the refund applicant details
+  Scenario: A user does not fill in any fields in the applicant step after answering the name change question as no
+    When I answer No to the has your name changed question for refunds
+    And I save the refund applicant details
     Then the user should be informed that there are errors on the refund applicant page
     And all mandatory fields in the refund applicant page should be marked with an error
     And I take a screenshot named "Page 2 - Applicant with errors"

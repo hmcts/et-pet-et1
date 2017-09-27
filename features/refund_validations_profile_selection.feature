@@ -8,6 +8,6 @@ Feature: Refund Validations - Profile selection page
 
   Scenario: A user does not fill in any fields in the applicant step
     When I save my profile selection on the refund type page
-    Then the user should be informed that there are errors on the profile selection page
+    Then the continue button should be disabled on the profile selection page
     And I take a screenshot named "Page 1 - Profile selection with errors"
 

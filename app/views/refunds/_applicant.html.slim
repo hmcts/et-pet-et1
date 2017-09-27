@@ -7,17 +7,22 @@ fieldset
           item_wrapper_class: 'block-label',
           wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate'},
           input_html: {:class => 'reveal-publish-publisher ga-vpv'},
-          reveal: {true => 'main', false => 'main'}
+          reveal: {true => 'has_name_changed', false => 'has_name_changed'}
 
-fieldset
+fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
   legend= t '.legend_personal_details'
   = render partial: 'personal_details', locals: { f: f }
 
-fieldset
+fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
   legend= t '.legend_contact_details'
 
   = render partial: 'address', locals: { f: f }
 
   = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :email_address
+
+fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='true'
+  legend= t '.sorry_name_changed.header'
+  p
+    TODO Hand off text to be decided by business
 
