@@ -3,6 +3,7 @@ module Refunds
     attribute :accept_declaration, Boolean
     before_save :generate_application_reference
     before_save :generate_submitted_date
+
     def method_missing(method, *args)
       return resource.send(method, *args) if !method.to_s.end_with?('=') && resource.respond_to?(method)
       super

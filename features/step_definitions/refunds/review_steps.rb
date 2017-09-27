@@ -72,30 +72,51 @@ end
 
 And(/I verify the fees in the case details of the refund review page$/) do
   aggregate_failures do
-    refund_review_page.original_claim_fees.et_issue do |section|
-      expect(section.fee.text).to eql "£#{test_user.et_claim_to_refund.fees.et_issue_fee}"
-      expect(section.payment_method.text).to eql test_user.et_claim_to_refund.fees.et_issue_payment_method
-      expect(section.payment_date.text).to eql test_user.et_claim_to_refund.fees.et_issue_payment_date
+    fees = test_user.et_claim_to_refund.fees
+    if fees.et_issue_fee.present?
+      refund_review_page.original_claim_fees.et_issue do |section|
+        expect(section.fee.text).to eql "£#{fees.et_issue_fee}"
+        expect(section.payment_method.text).to eql fees.et_issue_payment_method unless fees.et_issue_payment_method.nil?
+        expect(section.payment_date.text).to eql fees.et_issue_payment_date unless fees.et_issue_payment_date.nil?
+      end
+    else
+      expect(refund_review_page.original_claim_fees).to have_no_et_issue
     end
-    refund_review_page.original_claim_fees.et_hearing do |section|
-      expect(section.fee.text).to eql "£#{test_user.et_claim_to_refund.fees.et_hearing_fee}"
-      expect(section.payment_method.text).to eql test_user.et_claim_to_refund.fees.et_hearing_payment_method
-      expect(section.payment_date.text).to eql test_user.et_claim_to_refund.fees.et_hearing_payment_date
+    if fees.et_hearing_fee.present?
+      refund_review_page.original_claim_fees.et_hearing do |section|
+        expect(section.fee.text).to eql "£#{fees.et_hearing_fee}"
+        expect(section.payment_method.text).to eql fees.et_hearing_payment_method unless fees.et_hearing_payment_method.nil?
+        expect(section.payment_date.text).to eql fees.et_hearing_payment_date unless fees.et_hearing_payment_date.nil?
+      end
+    else
+      expect(refund_review_page.original_claim_fees).to have_no_et_hearing
     end
-    refund_review_page.original_claim_fees.et_reconsideration do |section|
-      expect(section.fee.text).to eql "£#{test_user.et_claim_to_refund.fees.et_reconsideration_fee}"
-      expect(section.payment_method.text).to eql test_user.et_claim_to_refund.fees.et_reconsideration_payment_method
-      expect(section.payment_date.text).to eql test_user.et_claim_to_refund.fees.et_reconsideration_payment_date
+    if fees.et_reconsideration_fee.present?
+      refund_review_page.original_claim_fees.et_reconsideration do |section|
+        expect(section.fee.text).to eql "£#{fees.et_reconsideration_fee}"
+        expect(section.payment_method.text).to eql fees.et_reconsideration_payment_method unless fees.et_reconsideration_payment_method.nil?
+        expect(section.payment_date.text).to eql fees.et_reconsideration_payment_date unless fees.et_reconsideration_payment_date.nil?
+      end
+    else
+      expect(refund_review_page.original_claim_fees).to have_no_et_reconsideration
     end
-    refund_review_page.original_claim_fees.eat_issue do |section|
-      expect(section.fee.text).to eql "£#{test_user.et_claim_to_refund.fees.eat_issue_fee}"
-      expect(section.payment_method.text).to eql test_user.et_claim_to_refund.fees.eat_issue_payment_method
-      expect(section.payment_date.text).to eql test_user.et_claim_to_refund.fees.eat_issue_payment_date
+    if fees.eat_issue_fee.present?
+      refund_review_page.original_claim_fees.eat_issue do |section|
+        expect(section.fee.text).to eql "£#{fees.eat_issue_fee}"
+        expect(section.payment_method.text).to eql fees.eat_issue_payment_method unless fees.eat_issue_payment_method.nil?
+        expect(section.payment_date.text).to eql fees.eat_issue_payment_date unless fees.eat_issue_payment_date.nil?
+      end
+    else
+      expect(refund_review_page.original_claim_fees).to have_no_eat_issue
     end
-    refund_review_page.original_claim_fees.eat_hearing do |section|
-      expect(section.fee.text).to eql "£#{test_user.et_claim_to_refund.fees.eat_hearing_fee}"
-      expect(section.payment_method.text).to eql test_user.et_claim_to_refund.fees.eat_hearing_payment_method
-      expect(section.payment_date.text).to eql test_user.et_claim_to_refund.fees.eat_hearing_payment_date
+    if fees.eat_hearing_fee.present?
+      refund_review_page.original_claim_fees.eat_hearing do |section|
+        expect(section.fee.text).to eql "£#{fees.eat_hearing_fee}"
+        expect(section.payment_method.text).to eql fees.eat_hearing_payment_method unless fees.eat_hearing_payment_method.nil?
+        expect(section.payment_date.text).to eql fees.eat_hearing_payment_date unless fees.eat_hearing_payment_date.nil?
+      end
+    else
+      expect(refund_review_page.original_claim_fees).to have_no_eat_hearing
     end
   end
 end

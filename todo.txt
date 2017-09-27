@@ -56,6 +56,9 @@ DONE 23. Include Print a copy of application on Confirmation page
 
 DONE 101: Review table to have fee payment date
 
+BUGS
+1. Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
+
 Unit Tests:
 1. Applicant form (validation, standard form stuff, stripping of first and last names)
 2. Bank details form (validation, standard form stuff)
@@ -64,3 +67,13 @@ Unit Tests:
 5. Original case details form - (validation (medium complex), standard form stuff, address transfer, name transfer
 6. Profile selection form - (validation (simple - needs adding of valid values), standard form stuff)
 7. Review form - (validation of accept declaration, acts as a read proxy for all model attributes, generate app reference, generate submitted date)
+8. Refund model - should be easy - has a few aliases which I may refactor out
+
+
+From Cathie's discussion
+1. Change intro page text to that from Cathies document
+2. Original case details - initial state collapsed for address changed and representative
+3. Add EAT field 'EAT Case number' below ET Case number
+4. Add don't know to drop down for payment method in fees page
+5. Total in fees page - I think one for whole page but cathie is confirming
+6. Repayment details - initial state based on account type
