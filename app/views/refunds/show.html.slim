@@ -8,7 +8,7 @@ header.main-header role="banner"
 
 .main-section
 
-  .main-content
+  .main-content class="#{current_step}"
     = simple_form_for resource, url: request.path, multipart: true do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
@@ -16,5 +16,8 @@ header.main-header role="banner"
       .form-fields
         = render current_step, f: f
       .form-actions
-        = f.button :submit unless current_step == 'confirmation'
+        - if content_for?(:submit_button)
+            = content_for(:submit_button)
+        - else
+            = f.button :submit, data: { behavior: 'continue_button'}
 

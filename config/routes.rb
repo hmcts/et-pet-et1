@@ -62,5 +62,6 @@ Rails.application.routes.draw do
   end
 
   get '/apply' => 'claims#new'
+  get '/apply/refund', to: redirect('/apply/refund/profile-selection')
   root to: redirect('/apply')
 end
