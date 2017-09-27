@@ -29,7 +29,7 @@ class Refund < ActiveRecord::Base
   end
 
   def et_issue_fee_present?
-    et_issue_fee.present? and et_issue_fee.positive?
+    et_issue_fee.present? && et_issue_fee.positive?
   end
 
   def et_hearing_fee_present?

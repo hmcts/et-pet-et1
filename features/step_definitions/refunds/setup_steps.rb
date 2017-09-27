@@ -99,8 +99,7 @@ And(/^I had a representative$/) do
   test_user.et_claim_to_refund.representative = representative
 end
 
-
 And(/^I did not have an EAT issue fee$/) do
-  fees = test_user.et_claim_to_refund.fees.to_h.delete_if { |(k,v)| k.to_s.start_with?('eat_issue') }
+  fees = test_user.et_claim_to_refund.fees.to_h.delete_if { |(k, _v)| k.to_s.start_with?('eat_issue') }
   test_user.et_claim_to_refund.fees = OpenStruct.new(fees).freeze
 end
