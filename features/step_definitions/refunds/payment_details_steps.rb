@@ -49,10 +49,7 @@ Then(/^all mandatory bank details fields should be marked with an error$/) do
     expect(refund_payment_details_page.bank_details.bank_name.error.text).to eql "Enter the name of the bank"
     expect(refund_payment_details_page.bank_details.account_number.error.text).to eql "Enter the account number that the refund is to be paid into"
     expect(refund_payment_details_page.bank_details.sort_code.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
-    expect(refund_payment_details_page.building_society_details.account_name).to have_no_error
-    expect(refund_payment_details_page.building_society_details.building_society_name).to have_no_error
-    expect(refund_payment_details_page.building_society_details.account_number).to have_no_error
-    expect(refund_payment_details_page.building_society_details.sort_code).to have_no_error
+    expect(refund_payment_details_page).to have_no_building_society_details
   end
 end
 
@@ -62,10 +59,7 @@ Then(/^all mandatory building society details fields should be marked with an er
     expect(refund_payment_details_page.building_society_details.building_society_name.error.text).to eql "Enter the name of the building society"
     expect(refund_payment_details_page.building_society_details.account_number.error.text).to eql "Enter the account number that the refund is to be paid into"
     expect(refund_payment_details_page.building_society_details.sort_code.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
-    expect(refund_payment_details_page.bank_details.account_name).to have_no_error
-    expect(refund_payment_details_page.bank_details.bank_name).to have_no_error
-    expect(refund_payment_details_page.bank_details.account_number).to have_no_error
-    expect(refund_payment_details_page.bank_details.sort_code).to have_no_error
+    expect(refund_payment_details_page).to have_no_bank_details
   end
 end
 
@@ -84,4 +78,8 @@ Then(/^only the bank details account type field should be marked with an error$/
   expect(refund_payment_details_page.building_society_details.account_number).to have_no_error
   expect(refund_payment_details_page.building_society_details.sort_code).to have_no_error
 
+end
+
+Then(/^the continue button should be disabled on the bank details page$/) do
+  expect(refund_payment_details_page.save_and_continue).to be_disabled
 end

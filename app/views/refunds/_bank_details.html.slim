@@ -18,3 +18,8 @@ fieldset.reveal-subscribe data-target='payment_account_type' data-show-array='bu
   = f.input :payment_building_society_account_name, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_building_society_account_number, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_building_society_sort_code, required: true, input_html: {class: 'medium-input'}
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundBankDetailsPage.init()
+      });
