@@ -70,7 +70,7 @@ Testing:
 1. Accessible gem - for testing aria stuff
 
 Unit Tests:
-1. Applicant form (validation, standard form stuff, stripping of first and last names)
+1. DONE Applicant form (validation, standard form stuff, stripping of first and last names)
 2. Bank details form (validation, standard form stuff)
 3. Confirmation form (no validation, standard form stuff - very basic)
 4. Fees form - (Validation (complex), standard form stuff, partial payment date, conversion of fees to integer, conversion of fees from nil/string/integer)

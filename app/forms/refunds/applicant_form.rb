@@ -27,8 +27,6 @@ module Refunds
     validates :applicant_address_telephone_number,
       length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
 
-    include AgeValidator
-
     validates :applicant_address_post_code,
       length: { maximum: AddressAttributes::POSTCODE_LENGTH }
     attribute :applicant_first_name,         String

@@ -41,6 +41,11 @@ Metrics/ClassLength:
     - 'app/forms/**/*'
     - 'features/support/page_objects/**/*'
     - 'features/support/sections/**/*'
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/forms/**/*'
+    - 'features/support/page_objects/**/*'
+    - 'features/support/sections/**/*'
 Metrics/AbcSize:
   Exclude:
     - 'spec/**/*'
