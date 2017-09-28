@@ -1,6 +1,6 @@
 module Refunds
   class OriginalCaseDetailsForm < Form
-    PAYMENT_METHODS = ['card', 'cheque', 'cash'].freeze
+    PAYMENT_METHODS = ['unknown', 'card', 'cheque', 'cash'].freeze
     COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland'].freeze
     TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18',
                         '19', '50', '22', '23', '24', '26', '13', '25',

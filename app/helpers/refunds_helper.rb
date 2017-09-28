@@ -29,6 +29,11 @@ module RefundsHelper
     end
   end
 
+  def payment_method_for(obj, fee)
+    payment_method = obj.send("#{fee}_payment_method")
+    I18n.t("simple_form.options.refunds_fees.#{fee}_payment_method.#{payment_method}")
+  end
+
   private
 
   def markdown

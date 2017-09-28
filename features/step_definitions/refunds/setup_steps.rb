@@ -33,7 +33,7 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
                         eat_issue_payment_method: 'Cheque',
                         eat_issue_payment_date: '3/2016',
                         eat_hearing_fee: '1003.00',
-                        eat_hearing_payment_method: 'Card',
+                        eat_hearing_payment_method: 'Don\'t know',
                         eat_hearing_payment_date: '4/2016',
                         et_reconsideration_fee: '1004.00',
                         et_reconsideration_payment_method: 'Card',

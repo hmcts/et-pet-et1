@@ -345,22 +345,27 @@ en:
           ms: Ms
       refunds_fees:
         et_issue_fee_payment_method:
+          unknown: Don't know
           cheque: Cheque
           card: Card
           cash: Cash
         et_hearing_fee_payment_method:
+          unknown: Don't know
           cheque: Cheque
           card: Card
           cash: Cash
         eat_issue_fee_payment_method:
+          unknown: Don't know
           cheque: Cheque
           card: Card
           cash: Cash
         eat_hearing_fee_payment_method:
+          unknown: Don't know
           cheque: Cheque
           card: Card
           cash: Cash
         et_reconsideration_fee_payment_method:
+          unknown: Don't know
           cheque: Cheque
           card: Card
           cash: Cash

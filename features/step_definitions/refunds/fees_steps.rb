@@ -93,3 +93,12 @@ And(/^I check all my refund fee unknown dates$/) do
   refund_fees_page.original_claim_fees.eat_hearing.payment_date.set(:unknown)
   step('I take a screenshot named "Page 4 - Fees 5"')
 end
+
+And(/^I fill in all my refund fee payment methods with "([^"]*)"$/) do |arg|
+  fees = refund_fees_page.original_claim_fees
+  fees.et_issue.payment_method.set(arg)
+  fees.et_hearing.payment_method.set(arg)
+  fees.et_reconsideration.payment_method.set(arg)
+  fees.eat_issue.payment_method.set(arg)
+  fees.eat_hearing.payment_method.set(arg)
+end

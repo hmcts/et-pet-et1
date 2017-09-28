@@ -77,7 +77,7 @@ Unit Tests:
 From Cathie's discussion
 1. DONE Change intro page text to that from Cathies document
 2. DONE Original case details - initial state collapsed for address changed and representative
-3. Add EAT field 'EAT Case number' below ET Case number
-4. Add don't know to drop down for payment method in fees page
+3. DONE Add EAT field 'EAT Case number' below ET Case number
+4. DONE Add don't know to drop down for payment method in fees page
 5. Total in fees page - I think one for whole page but cathie is confirming
 6. Repayment details - initial state based on account type
