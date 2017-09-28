@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 class StepThreePage < BasePage
 
   section :group_claims, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("People making a claim with you")]] }) do

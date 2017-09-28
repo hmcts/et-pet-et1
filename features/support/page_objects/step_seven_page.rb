@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength
 class StepSevenPage < BasePage
 
   section :your_employment_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your employment details")]] }) do

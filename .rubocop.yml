@@ -39,6 +39,8 @@ Metrics/LineLength:
 Metrics/ClassLength:
   Exclude:
     - 'app/forms/**/*'
+    - 'features/support/page_objects/**/*'
+    - 'features/support/sections/**/*'
 Metrics/AbcSize:
   Exclude:
     - 'spec/**/*'
