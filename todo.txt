@@ -57,7 +57,8 @@ DONE 23. Include Print a copy of application on Confirmation page
 DONE 101: Review table to have fee payment date
 
 BUGS
-1. Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
+1. DONE Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
+2. The state of the continue button on the first 2 pages should not start off as disabled - but should be calculated from the value of the relevant questions
 
 Unit Tests:
 1. Applicant form (validation, standard form stuff, stripping of first and last names)

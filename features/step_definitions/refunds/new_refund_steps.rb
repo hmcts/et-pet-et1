@@ -9,7 +9,7 @@ end
 
 When(/^I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed$/) do
   new_claim_page.start_a_refund.click
-  refund_profile_selection_page.select_profile.set('I am the claimant who paid the tribunal fees directly and have not been reimbursed by anyone else')
+  refund_profile_selection_page.select_profile.set('I was an individual claimant who made the payments set out in this application and have not been reimbursed by anyone pursuant to an order of the Tribunal')
   step("I take a screenshot named \"Page 1 - Applicant Type Selector\"")
   refund_profile_selection_page.save_and_continue.click
 end
