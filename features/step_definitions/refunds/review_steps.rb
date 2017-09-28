@@ -119,6 +119,13 @@ And(/I verify the fees in the case details of the refund review page$/) do
     else
       expect(refund_review_page.original_claim_fees).to have_no_eat_hearing
     end
+    expected_total = [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].reduce(0.0) do |t, fee|
+      fee_value = fees.send("#{fee}_fee".to_sym)
+      next t if fee_value.nil?
+      t + fee_value.to_f
+    end
+    total_value = refund_review_page.original_claim_fees.total.fee.text.gsub(/£/, '').to_f
+    expect(total_value).to eql expected_total
   end
 end
 

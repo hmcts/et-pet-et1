@@ -191,6 +191,8 @@ Metrics/BlockLength:
     - 'config/**/*'
     - 'lib/tasks/**/*'
     - 'features/step_definitions/**/*'
+    - 'features/support/page_objects/**/*'
+    - 'features/support/sections/**/*'
 
 Layout/EmptyLineAfterMagicComment:
   Enabled: false

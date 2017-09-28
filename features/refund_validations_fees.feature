@@ -37,5 +37,3 @@ Feature: Refund Validations - Fees Page
     And I save the refund fees
     Then I should see the refund bank details page
 
-
-

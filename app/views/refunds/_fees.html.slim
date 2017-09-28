@@ -9,7 +9,7 @@ fieldset
         th = t('.payment_method')
       tr
         td
-          = f.input :et_issue_fee,  label: false, input_html: {class: 'small-input'}
+          = f.input :et_issue_fee,  label: false, input_html: {class: 'small-input', data: { behavior: 'fee_field' }}
         td
           = f.input :et_issue_fee_payment_date, as: :date_with_unknown, except: :day, label: false, input_html: {class: 'small-input'}
         td
@@ -24,7 +24,7 @@ fieldset
 
       tr
         td
-          = f.input :et_hearing_fee,  label: false, input_html: {class: 'small-input'}
+          = f.input :et_hearing_fee,  label: false, input_html: {class: 'small-input', data: { behavior: 'fee_field' }}
         td
           = f.input :et_hearing_fee_payment_date, as: :date_with_unknown, except: :day, label: false, input_html: {class: 'small-input'}
         td
@@ -38,7 +38,7 @@ fieldset
         th = t('.payment_method')
       tr
         td
-          = f.input :et_reconsideration_fee, label: false, input_html: {class: 'small-input'}
+          = f.input :et_reconsideration_fee, label: false, input_html: {class: 'small-input', data: { behavior: 'fee_field' }}
         td
           = f.input :et_reconsideration_fee_payment_date, as: :date_with_unknown, except: :day, label: false, input_html: {class: 'small-input'}
         td
@@ -52,7 +52,7 @@ fieldset
         th = t('.payment_method')
       tr
         td
-          = f.input :eat_issue_fee,  label: false, input_html: {class: 'small-input'}
+          = f.input :eat_issue_fee,  label: false, input_html: {class: 'small-input', data: { behavior: 'fee_field' }}
         td
           = f.input :eat_issue_fee_payment_date, as: :date_with_unknown, except: :day, label: false, input_html: {class: 'small-input'}
         td
@@ -67,8 +67,16 @@ fieldset
 
       tr
         td
-          = f.input :eat_hearing_fee,  label: false, input_html: {class: 'small-input'}
+          = f.input :eat_hearing_fee,  label: false, input_html: {class: 'small-input', data: { behavior: 'fee_field' }}
         td
           = f.input :eat_hearing_fee_payment_date, as: :date_with_unknown, except: :day, label: false, input_html: {class: 'small-input'}
         td
           = f.input :eat_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+  fieldset
+    legend = t('.total_fees')
+    div
+      span = "£"
+      span data-behavior='total_fees' = "0.00"
+- content_for(:javascripts)
+  javascript:
+    $(document).ready(function() { refundFeesPage.init() });

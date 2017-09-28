@@ -41,7 +41,7 @@ DONE 8. Make the additional information text box 500 characters and ensure users
 DONE 9. Include help text for the additional information text box, business to confirm help text - The text has been confirmed as 'Please use this box to give us any information or reference numbers you think would be helpful in identifying your case'
 DONE 10. Fees paid needs to be on a new screen
 DONE 11. Include Date field in fees paid, allow MM/YYYY and Don't kmow option
-12. Discussion regarding including Total and Interest fields, however it was agreed that these fields should not be included
+12. Discussion regarding including Total and Interest fields, however it was agreed that these fields should not be included - IT IS NOW TO BE INCLUDED SEE CATHIES DISCUSSION BELOW
 DONE 13. For Representatives, this field is still mandatory for the building, Gary to remove (optional) text from the question on the screen
 DONE 14. Bank questions: Where Building Society selected, put leading question to ask if they have a roll/reference number. If 'Yes' display new field to capture rool/reference number if 'No' go to next question
 15. the Business to confirm changes required to the Declaration statement

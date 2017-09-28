@@ -26,6 +26,9 @@ module Refunds
         section :payment_date, AppTest::FormPaymentDate, '.refunds_fees_eat_hearing_fee_payment_date'
         section :payment_method, AppTest::FormSelect, '.refunds_fees_eat_hearing_fee_payment_method'
       end
+      section :total, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Total fees")]] }) do
+        element :fee, '[data-behavior=\'total_fees\']'
+      end
     end
     element :save_and_continue, 'form.edit_refunds_fees input[value="Continue"]'
   end

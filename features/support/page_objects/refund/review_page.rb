@@ -74,6 +74,9 @@ module Refunds
         element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
         element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
+      section :total, :refund_review_section_fee_type_labelled, 'Total fees' do
+        element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+      end
     end
 
     section :bank_details, :refund_review_section_labelled, 'Your Bank Details' do

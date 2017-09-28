@@ -22,7 +22,7 @@ Then(/^all fee payment date fields in the fees page should not be marked with an
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date).to have_no_error, 'EAT refund payment date should not have an error'
 end
 
-And(/^I fill in my refund fees$/) do
+And(/^I fill in my refund fees and verify the total$/) do
   step('I take a screenshot named "Page 4 - Fees 1"')
   test_user_fees = test_user.et_claim_to_refund.fees
   refund_fees_page.original_claim_fees.et_issue do |section|
@@ -52,6 +52,14 @@ And(/^I fill in my refund fees$/) do
     section.payment_method.select(test_user_fees.eat_hearing_payment_method) unless test_user_fees.eat_hearing_payment_method.nil?
     section.payment_date.set(test_user_fees.eat_hearing_payment_date) unless test_user_fees.eat_hearing_payment_date.nil?
   end
+  expected_total = [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].reduce(0.0) do |t, fee|
+    fee_value = test_user_fees.send("#{fee}_fee".to_sym)
+    next t if fee_value.nil?
+    t + fee_value.to_f
+  end
+  total_value = refund_fees_page.original_claim_fees.total.fee.text.gsub(/£/, '').to_f
+  expect(total_value).to eql expected_total
+
   step('I take a screenshot named "Page 4 - Fees 3"')
   refund_fees_page.save_and_continue.click
 end

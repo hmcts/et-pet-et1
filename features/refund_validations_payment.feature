@@ -12,7 +12,7 @@ Feature: Refund Validations - Payment Page
     And I fill in my refund applicant details
     And I answer No to the has your address changed question for refunds
     And I fill in my refund original case details
-    And I fill in my refund fees
+    And I fill in my refund fees and verify the total
 
   Scenario: A user does not fill in any fields in the bank details page
     When I save the refund bank details

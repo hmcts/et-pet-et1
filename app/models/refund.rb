@@ -28,6 +28,12 @@ class Refund < ActiveRecord::Base
     end
   end
 
+  def total_fees
+    [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].reduce(0) do |sum, fee|
+      sum + (send(fee) || 0)
+    end
+  end
+
   def et_issue_fee_present?
     et_issue_fee.present? && et_issue_fee.positive?
   end

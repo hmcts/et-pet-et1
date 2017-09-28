@@ -155,6 +155,9 @@ div class=("review-list-entry applicant")
             td = number_to_currency(f.object.eat_hearing_fee, delimiter: '')
             td = payment_date_for(f.object, :eat_hearing_fee)
             td = payment_method_for(f.object, :eat_hearing_fee)
+        tr
+          th = t('.total_fees')
+          td = number_to_currency(f.object.total_fees, delimiter: '')
   div data-behavior= "refund-review-section"
     - if f.object.payment_account_type == 'bank'
       h2.list-header
