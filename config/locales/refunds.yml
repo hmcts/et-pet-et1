@@ -130,6 +130,7 @@ en:
     applicant:
       sorry_name_changed:
         header: "Sorry, you cannot continue"
+      date_of_birth: "Date of birth"
   activemodel:
     errors:
       models:
@@ -139,21 +140,21 @@ en:
               blank: Please confirm
         refunds/applicant:
           attributes:
-            date_of_birth:
+            applicant_date_of_birth:
               blank: Enter your date of birth
-            last_name:
+            applicant_last_name:
               blank: Enter your last name
-            first_name:
+            applicant_first_name:
               blank: Enter your first name
-            title:
+            applicant_title:
               blank: Select a title from the list
-            address_building:
+            applicant_address_building:
               blank: Enter the building number or name from your address
-            address_street:
+            applicant_address_street:
               blank: Enter the street from your address
-            address_post_code:
+            applicant_address_post_code:
               blank: Enter your post code
-            address_telephone_number:
+            applicant_address_telephone_number:
               blank: Enter your preferred number
             has_name_changed:
               nil: Please select Yes or No
@@ -256,12 +257,16 @@ en:
         additional_information: Please use this box to give us any information or reference numbers you think would be helpful in identifying your case
     labels:
       refunds_applicant:
-        address_building: Building number or name
-        address_locality: Town/city
-        address_street: Street
-        address_county: County
-        address_post_code: UK Postcode
-        address_telephone_number: Phone or mobile number
+        applicant_address_building: Building number or name
+        applicant_address_locality: Town/city
+        applicant_address_street: Street
+        applicant_address_county: County
+        applicant_address_post_code: UK Postcode
+        applicant_address_telephone_number: Phone or mobile number
+        applicant_title: Title
+        applicant_first_name: First name
+        applicant_last_name: Last name
+        applicant_date_of_birth: Date of birth
 
       refunds_original_case_details:
         claimant_address_building: Building number or name
@@ -308,7 +313,7 @@ en:
           'claimant_via_rep': "I was an individual claimant whose representative paid the fee and I then reimbursed them"
           'claimant_eat': "I was an individual claimant to an employment tribunal claim, and I paid a fee to the Employment Appeals Tribunal (whether I was the appellant or respondent to the appeal)"
       refunds_applicant:
-        title:
+        applicant_title:
           mr: Mr
           mrs: Mrs
           miss: Miss

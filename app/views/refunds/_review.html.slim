@@ -8,10 +8,10 @@ div class=("review-list-entry applicant")
     table.review-table
       tr
         th = t('.full_name')
-        td = [f.object.title.titleize, f.object.first_name, f.object.last_name].join(' ')
+        td = [f.object.applicant_title.titleize, f.object.applicant_first_name, f.object.applicant_last_name].join(' ')
       tr
         th = t('.date_of_birth')
-        td = f.object.date_of_birth.strftime('%d/%m/%Y')
+        td = f.object.applicant_date_of_birth.strftime('%d/%m/%Y')
   div data-behavior= "refund-review-section"
     h2.list-header
       span = t ".sections.applicant_contact_details"
