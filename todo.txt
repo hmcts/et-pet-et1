@@ -37,7 +37,7 @@ DONE 4. Representatives postcode must be mandatory
 DONE 5. Respondents postcode, change from mandatory to optional
 DONE 6. Business to confirm the question text for 'Country of claim?' , options being  England & Wales/Scotland - Answer 'Where was your claim issued?'
 DONE 7. ET & EAT reference number - Business confirmed that this should be freetext
-8. Make the additional information text box 500 characters and ensure users are informed of the character count.
+DONE 8. Make the additional information text box 500 characters and ensure users are informed of the character count.
 DONE 9. Include help text for the additional information text box, business to confirm help text - The text has been confirmed as 'Please use this box to give us any information or reference numbers you think would be helpful in identifying your case'
 DONE 10. Fees paid needs to be on a new screen
 DONE 11. Include Date field in fees paid, allow MM/YYYY and Don't kmow option
@@ -76,7 +76,7 @@ Unit Tests:
 
 From Cathie's discussion
 1. DONE Change intro page text to that from Cathies document
-2. Original case details - initial state collapsed for address changed and representative
+2. DONE Original case details - initial state collapsed for address changed and representative
 3. Add EAT field 'EAT Case number' below ET Case number
 4. Add don't know to drop down for payment method in fees page
 5. Total in fees page - I think one for whole page but cathie is confirming

@@ -43,6 +43,7 @@ And(/^I verify the case details in the case details of the refund review page$/)
   refund_review_page.original_case_details do |section|
     expect(section.et_country_of_claim.text).to eql test_user.et_claim_to_refund.et_country_of_claim
     expect(section.et_case_number.text).to eql test_user.et_claim_to_refund.et_case_number
+    expect(section.eat_case_number.text).to eql test_user.et_claim_to_refund.eat_case_number
     expect(section.et_tribunal_office.text).to eql test_user.et_claim_to_refund.et_tribunal_office
     expect(section.additional_information.text).to eql test_user.et_claim_to_refund.additional_information
   end

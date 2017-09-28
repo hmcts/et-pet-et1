@@ -69,6 +69,7 @@ en:
       respondent_name: "Respondent name"
       respondent_address_post_code: "Respondent post code"
       et_case_number: "Employment tribunal case number"
+      eat_case_number: "Employment appeal tribunal case number"
       et_tribunal_office: "Employment tribunal office"
       additional_information: "Additional information"
       et_issue_fee: "ET issue"
@@ -243,8 +244,11 @@ en:
     hints:
       refunds_original_case_details:
         et_case_number_html: |
-                        Your Employment Tribunal or Employment Appeal Tribunal case number can be found on the letters you received from HMCTS in relation to your case.
+                        Your Employment Tribunal case number can be found on the letters you received from HMCTS in relation to your case.
                         Your ET case number is 7 digits, followed by / and then the year eg. 1234567/2017.
+                        If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
+        eat_case_number_html: |
+                        Your Employment Appeal Tribunal case number can be found on the letters you received from HMCTS in relation to your case.
                         Your EAT case cumber will start UKEAT/xxxx/YY/xxx.
                         If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
         additional_information: Please use this box to give us any information or reference numbers you think would be helpful in identifying your case
@@ -274,6 +278,7 @@ en:
         representative_address_county: County
         representative_address_post_code: UK Postcode
         et_case_number: Employment tribunal case number
+        eat_case_number: Employment appeal tribunal case number
         et_tribunal_office: Employment tribunal office
         et_country_of_claim: Where was your claim issued?
       refunds_bank_details:

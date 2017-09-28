@@ -103,6 +103,7 @@ And(/^I fill in my refund original case details$/) do
   refund_original_case_details_page.original_case_details do |section|
     section.et_country_of_claim.set(test_user.et_claim_to_refund.et_country_of_claim) unless test_user.et_claim_to_refund.et_country_of_claim.nil?
     section.et_case_number.set(test_user.et_claim_to_refund.et_case_number) unless test_user.et_claim_to_refund.et_case_number.nil?
+    section.eat_case_number.set(test_user.et_claim_to_refund.eat_case_number) unless test_user.et_claim_to_refund.eat_case_number.nil?
     section.et_tribunal_office.set(test_user.et_claim_to_refund.et_tribunal_office) unless test_user.et_claim_to_refund.et_tribunal_office.nil?
     section.additional_information.set(test_user.et_claim_to_refund.additional_information) unless test_user.et_claim_to_refund.additional_information.nil?
   end

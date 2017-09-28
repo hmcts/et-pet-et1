@@ -7,6 +7,7 @@ module Refunds
                         '27', '31', '16', '33', '99'].freeze
     attribute :et_country_of_claim,                     String
     attribute :et_case_number,                          String
+    attribute :eat_case_number,                         String
     attribute :et_tribunal_office,                      String
     attribute :respondent_name,                         String
     attribute :respondent_address_building,             String

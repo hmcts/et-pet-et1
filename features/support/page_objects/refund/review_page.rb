@@ -25,6 +25,7 @@ module Refunds
     section :original_case_details, :refund_review_section_labelled, 'Original Case Details' do
       element :et_country_of_claim, :refund_review_section_field_labelled, 'Employment tribunal country of claim'
       element :et_case_number, :refund_review_section_field_labelled, 'Employment tribunal case number'
+      element :eat_case_number, :refund_review_section_field_labelled, 'Employment appeal tribunal case number'
       element :et_tribunal_office, :refund_review_section_field_labelled, 'Employment tribunal office'
       element :additional_information, :refund_review_section_field_labelled, 'Additional information'
     end
