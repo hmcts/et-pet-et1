@@ -60,6 +60,9 @@ BUGS
 1. DONE Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
 2. The state of the continue button on the first 2 pages should not start off as disabled - but should be calculated from the value of the relevant questions
 
+Sporadics:
+1. rspec ./spec/features/admin_panel/admin_show_feature_spec.rb:145
+
 Unit Tests:
 1. Applicant form (validation, standard form stuff, stripping of first and last names)
 2. Bank details form (validation, standard form stuff)
@@ -72,7 +75,7 @@ Unit Tests:
 
 
 From Cathie's discussion
-1. Change intro page text to that from Cathies document
+1. DONE Change intro page text to that from Cathies document
 2. Original case details - initial state collapsed for address changed and representative
 3. Add EAT field 'EAT Case number' below ET Case number
 4. Add don't know to drop down for payment method in fees page
