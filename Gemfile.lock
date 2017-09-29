@@ -190,7 +190,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     email_validator (1.5.0)
       activemodel
-    equalizer (0.0.9)
+    equalizer (0.0.11)
     erubis (2.7.0)
     eventmachine (1.0.4)
     excon (0.55.0)
@@ -250,7 +250,7 @@ GEM
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
     i18n (0.8.6)
-    ice_nine (0.11.1)
+    ice_nine (0.11.2)
     inflection (1.0.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -485,7 +485,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    virtus (1.0.4)
+    virtus (1.0.5)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
