@@ -89,4 +89,4 @@ From Cathie's discussion
 6. DONE Repayment details - initial state based on account type
 
 From Cathie's discussion 29/9
-1. Confirmation page - Amend title to read: Submission details instead of Refund details.  Amend Refund submitted to Claim submitted.  We just need to keep the option of 'Print this page' as well
+1. DONE Confirmation page - Amend title to read: Submission details instead of Refund details.  Amend Refund submitted to Claim submitted.  We just need to keep the option of 'Print this page' as well

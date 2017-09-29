@@ -122,9 +122,9 @@ en:
       what_happens_next:
         header: "What happens next"
       refund_details:
-        header: "Refund details"
+        header: "Submission details"
       refund_submitted:
-        header: "Refund submitted"
+        header: "Claim submitted"
       print_link_html: |
                <a href="javascript:window.print(0);">Print this page</a> for your records
     applicant:
