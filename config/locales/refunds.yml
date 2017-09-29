@@ -343,7 +343,7 @@ en:
           '31': "Southampton"
           '16': "Wales"
           '33': "Watford"
-          '99': "Default"
+          'uknown': "Don't know"
 
         claimant_title:
           mr: Mr

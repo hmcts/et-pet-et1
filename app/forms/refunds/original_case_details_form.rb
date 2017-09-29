@@ -4,7 +4,7 @@ module Refunds
     COUNTRY_OF_CLAIMS = ['england_and_wales', 'scotland'].freeze
     TRIBUNAL_OFFICES = ['14', '15', '32', '51', '17', '41', '34', '18',
                         '19', '50', '22', '23', '24', '26', '13', '25',
-                        '27', '31', '16', '33', '99'].freeze
+                        '27', '31', '16', '33', 'unknown'].freeze
     attribute :et_country_of_claim,                     String
     attribute :et_case_number,                          String
     attribute :eat_case_number,                         String
