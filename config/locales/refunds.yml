@@ -46,7 +46,7 @@ en:
       eat_issue_fee: "EAT Issue fee"
       eat_hearing_fee: "EAT Hearing fee"
       et_reconsideration_fee: "ET Reconsideration fee"
-      fee_payment_date: "Payment date (if known)"
+      fee_payment_date: "Payment date (mm/yyyy)"
       total_fees: "Total fees"
     bank_details:
       header: "Repayment Details"

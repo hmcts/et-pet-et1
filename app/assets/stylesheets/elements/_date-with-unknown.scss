@@ -1,5 +1,17 @@
 .year-month-date-input {
-  label.unknown {
-    font-size: 0.8em;
+  label {
+    display: none;
+  }
+  .unknown {
+    width: 6em;
+    label.unknown {
+      display: block;
+      margin-bottom: 0px;
+      text-align: center;
+      font-size: 0.7em;
+    }
+    input {
+      margin: 0px;
+    }
   }
 }

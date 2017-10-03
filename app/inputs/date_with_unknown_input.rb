@@ -53,6 +53,7 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
     part_options = field_options.merge as: :boolean,
                                        required: true,
                                        boolean_style: :inline,
+                                       wrapper_html: { class: 'unknown' },
                                        label_html: { class: 'unknown' }
     buffer << @builder.input("#{attribute_name}_unknown".to_sym, part_options)
   end
