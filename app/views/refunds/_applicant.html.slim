@@ -1,4 +1,11 @@
 fieldset
+  legend = t('.applicant_personal_information_usage_header')
+  span = t('.applicant_personal_information_usage_sub_header')
+  ul
+    - t('.applicant_personal_information_usage_html').each_line do |line|
+      li= line
+  p = t('applicant_personal_information_usage_footer')
+fieldset
   legend= t '.has_name_changed_legend'
   = f.input :has_name_changed,
           as: :radio_buttons,

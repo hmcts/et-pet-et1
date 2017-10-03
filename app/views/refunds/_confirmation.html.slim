@@ -8,8 +8,8 @@ div
   section.content-section
     h2 = t('.what_happens_next.header')
     ol.numerical-list
-      li
-        TODO What happens next content to be provided by the business
+      - t('.what_happens_next_detail_html').each_line do |line|
+        li= line
     table.confirmation-table
       caption = t('.refund_details.header')
       tr role="row"

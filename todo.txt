@@ -139,12 +139,12 @@ Bank details have still not cleared when changed from Bank to Building Society
   Tick to confirm
 15. Step 6 of 7: Review Your Application - Declaration
   The Submit button must be disabled until the checkbox has been selected
-16. Step 7 of 7: Application for refund submitted
+16. DONE Step 7 of 7: Application for refund submitted
   Amend screen title from Application for refund submitted to read:
 Refund application submitted
 
 This will follow ET format
-17. Step 7 of 7: Application for refund submitted
+17. DONE Step 7 of 7: Application for refund submitted
   What’s happens next section needs to be updated:
   Email from Helen Nolan 29/09/2017:
 
