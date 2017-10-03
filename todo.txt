@@ -131,10 +131,10 @@ Bank details have still not cleared when changed from Bank to Building Society
   In the Original case details section: An ET office was not selected; however the code of ET offices has been populated in the output.
 12. Step 6 of 7: Review Your Application
   When Edit selected for Ordinal case details and ET office amended to ‘unknown’ changes populated on the Review your application were inconsistent and the page layout was changed. Dan sent screen shot
-13. Step 6 of 7: Review Your Application - Declaration
+13. DONE Step 6 of 7: Review Your Application - Declaration
   Remove the text ‘I confirm the above (optional)’ above check box for the Declaration:
 
-14. Step 6 of 7: Review Your Application - Declaration
+14. DONE Step 6 of 7: Review Your Application - Declaration
   Include revised text alongside the checkbox to read:
   Tick to confirm
 15. Step 6 of 7: Review Your Application - Declaration

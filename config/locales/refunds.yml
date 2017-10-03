@@ -305,7 +305,7 @@ en:
         eat_issue_fee_payment_date_unknown: Don't know
         eat_hearing_fee_payment_date_unknown: Don't know
       refunds_review:
-        accept_declaration: I confirm the above
+        accept_declaration: Tick to confirm
     options:
       refunds_profile_selection:
         profile_type:

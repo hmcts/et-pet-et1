@@ -94,7 +94,7 @@ module Refunds
     end
 
     section :declaration, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]] }) do
-      element :accept, 'I confirm the above'
+      element :accept, 'Tick to confirm'
 
       def set(value)
         within @root_element do
