@@ -97,19 +97,19 @@ From Dan's email 2/10/2017
   This should be referred to as About the fees you paid
   Amend Title of page to read:
   About the fees you paid
-2. Step 4 of 7: About your fees paid
+2. QUESTION Step 4 of 7: About your fees paid
   Month field: Include number 10 to 12 and extend the field
-3. Step 4 of 7: About your fees paid
+3. QUESTION Step 4 of 7: About your fees paid
   Year field: Include years 2013 to 2017 only
 4. Step 4 of 7: About your fees paid
   Extend Payment method field as unable to read all the text
-5. Step 4 of 7: About your fees paid
+5. DONE Step 4 of 7: About your fees paid
   Dan & Helen to confirm help text and any error messages
   Confirmed: 02/10/2017 Helen –
 
   Help text under title: Complete the relevant fields for fees you have paid.
 
-6. Step 5 of 7: Repayment details
+6. DONE Step 5 of 7: Repayment details
   Help text required:
   Dan to confirm wording with Helen
   None needed 02/10/17

@@ -37,7 +37,7 @@ en:
       additional_information_hint_html: "Limit is 500 characters"
     fees:
       header: "About the fees you paid"
-      fee_details: "About your fees paid"
+      fee_details: "Complete the relevant fields for fees you have paid"
       issue_fee: "ET Issue fee"
       fee: "Fee (in pounds)"
       date_paid: "Date paid"

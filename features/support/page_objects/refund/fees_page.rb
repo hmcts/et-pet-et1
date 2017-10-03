@@ -1,6 +1,6 @@
 module Refunds
   class FeesPage < BasePage
-    section :original_claim_fees, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your fees paid")]] }) do
+    section :original_claim_fees, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Complete the relevant fields for fees you have paid")]] }) do
       section :et_issue, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("ET Issue fee")]] }) do
         section :fee, AppTest::FormInput, '.refunds_fees_et_issue_fee'
         section :payment_date, AppTest::FormPaymentDate, '.refunds_fees_et_issue_fee_payment_date'
