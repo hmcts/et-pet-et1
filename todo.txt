@@ -125,7 +125,7 @@ Bank details have still not cleared when changed from Bank to Building Society
   Amend title to read: Review your application.
 
   Dan to confirm on Monday following a catch up with Helen. Nothing further 02/10/17
-10. Step 6 of 7: Review Your Application
+10. DONE Step 6 of 7: Review Your Application
   Reword ‘Current Claimant’s details’ label to ‘Claimant details’
 11. Step 6 of 7: Review Your Application
   In the Original case details section: An ET office was not selected; however the code of ET offices has been populated in the output.

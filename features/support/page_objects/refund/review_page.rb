@@ -1,6 +1,6 @@
 module Refunds
   class ReviewPage < BasePage
-    section :about_the_claimant, :refund_review_section_labelled, 'Current Claimants Details' do
+    section :about_the_claimant, :refund_review_section_labelled, 'Claimant Details' do
       element :full_name, :refund_review_section_field_labelled, 'Full Name'
       element :date_of_birth, :refund_review_section_field_labelled, 'Date Of Birth'
     end

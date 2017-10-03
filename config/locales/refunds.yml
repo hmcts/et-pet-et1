@@ -53,7 +53,7 @@ en:
     review:
       header: "Review your application"
       sections:
-        applicant: "Current Claimants Details"
+        applicant: "Claimant Details"
         applicant_contact_details: "Contact Details"
         original_case_details: "Original Case Details"
         original_case_fees: "Original Case Fees"
