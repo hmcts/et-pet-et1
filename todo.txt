@@ -97,11 +97,11 @@ From Dan's email 2/10/2017
   This should be referred to as About the fees you paid
   Amend Title of page to read:
   About the fees you paid
-2. QUESTION Step 4 of 7: About your fees paid
+2. DONE Step 4 of 7: About your fees paid
   Month field: Include number 10 to 12 and extend the field
-3. QUESTION Step 4 of 7: About your fees paid
+3. DONE Step 4 of 7: About your fees paid
   Year field: Include years 2013 to 2017 only
-4. Step 4 of 7: About your fees paid
+4. DONE Step 4 of 7: About your fees paid
   Extend Payment method field as unable to read all the text
 5. DONE Step 4 of 7: About your fees paid
   Dan & Helen to confirm help text and any error messages
@@ -117,11 +117,11 @@ From Dan's email 2/10/2017
   When Bank selected from drop down list, bank fields not automatically appear.
 
 Also include help text for Bank that is documented in specification
-8. Step 5 of 7: Repayment details
+8. DONE Step 5 of 7: Repayment details
   Selected Bank and Bank fields displayed and completed. Then selected BS instead and but did not enter any data into the BS fields and selected Continue.  Original Bank details displayed as well as BS error messages.
 
 Bank details have still not cleared when changed from Bank to Building Society
-9. Step 6 of 7: Review Your Application
+9. DONE Step 6 of 7: Review Your Application
   Amend title to read: Review your application.
 
   Dan to confirm on Monday following a catch up with Helen. Nothing further 02/10/17

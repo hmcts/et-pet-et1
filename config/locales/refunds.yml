@@ -51,7 +51,7 @@ en:
     bank_details:
       header: "Repayment Details"
     review:
-      header: "Review Your Application"
+      header: "Review your application"
       sections:
         applicant: "Current Claimants Details"
         applicant_contact_details: "Contact Details"
