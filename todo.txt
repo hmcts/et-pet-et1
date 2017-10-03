@@ -62,6 +62,7 @@ DONE 101: Review table to have fee payment date
 BUGS
 1. DONE Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
 2. The state of the continue button on the first 2 pages should not start off as disabled - but should be calculated from the value of the relevant questions
+3. If the session contains no id, or an invalid id, the user could be redirected back to the start
 
 Sporadics:
 1. rspec ./spec/features/admin_panel/admin_show_feature_spec.rb:145
@@ -90,3 +91,92 @@ From Cathie's discussion
 
 From Cathie's discussion 29/9
 1. DONE Confirmation page - Amend title to read: Submission details instead of Refund details.  Amend Refund submitted to Claim submitted.  We just need to keep the option of 'Print this page' as well
+
+From Dan's email 2/10/2017
+1. DONE Step 4 of 7: About your fees paid
+  This should be referred to as About the fees you paid
+  Amend Title of page to read:
+  About the fees you paid
+2. Step 4 of 7: About your fees paid
+  Month field: Include number 10 to 12 and extend the field
+3. Step 4 of 7: About your fees paid
+  Year field: Include years 2013 to 2017 only
+4. Step 4 of 7: About your fees paid
+  Extend Payment method field as unable to read all the text
+5. Step 4 of 7: About your fees paid
+  Dan & Helen to confirm help text and any error messages
+  Confirmed: 02/10/2017 Helen –
+
+  Help text under title: Complete the relevant fields for fees you have paid.
+
+6. Step 5 of 7: Repayment details
+  Help text required:
+  Dan to confirm wording with Helen
+  None needed 02/10/17
+7. Step 5 of 7: Repayment details
+  When Bank selected from drop down list, bank fields not automatically appear.
+
+Also include help text for Bank that is documented in specification
+8. Step 5 of 7: Repayment details
+  Selected Bank and Bank fields displayed and completed. Then selected BS instead and but did not enter any data into the BS fields and selected Continue.  Original Bank details displayed as well as BS error messages.
+
+Bank details have still not cleared when changed from Bank to Building Society
+9. Step 6 of 7: Review Your Application
+  Amend title to read: Review your application.
+
+  Dan to confirm on Monday following a catch up with Helen. Nothing further 02/10/17
+10. Step 6 of 7: Review Your Application
+  Reword ‘Current Claimant’s details’ label to ‘Claimant details’
+11. Step 6 of 7: Review Your Application
+  In the Original case details section: An ET office was not selected; however the code of ET offices has been populated in the output.
+12. Step 6 of 7: Review Your Application
+  When Edit selected for Ordinal case details and ET office amended to ‘unknown’ changes populated on the Review your application were inconsistent and the page layout was changed. Dan sent screen shot
+13. Step 6 of 7: Review Your Application - Declaration
+  Remove the text ‘I confirm the above (optional)’ above check box for the Declaration:
+
+14. Step 6 of 7: Review Your Application - Declaration
+  Include revised text alongside the checkbox to read:
+  Tick to confirm
+15. Step 6 of 7: Review Your Application - Declaration
+  The Submit button must be disabled until the checkbox has been selected
+16. Step 7 of 7: Application for refund submitted
+  Amend screen title from Application for refund submitted to read:
+Refund application submitted
+
+This will follow ET format
+17. Step 7 of 7: Application for refund submitted
+  What’s happens next section needs to be updated:
+  Email from Helen Nolan 29/09/2017:
+
+  We have also been ask to provide some wording for the acknowledgement which we can replicate from the landing page wording but given that the actual process has not been defined yet, how long should we state the application will take to process. I think we initially said 5 days? but is this realistic and would we be better to err on he side of caution and say 14 days?. I'll be discussing this with Dan Thompson on Monday so would be grateful for a view before then.
+
+  Updated: 2/10/17 Helen:
+
+  1. The details of your application will be checked and verified.
+  2. We will contact you to confirm your entitlement, or if we require any further information.
+  3. This process may take up to 14 days.
+
+18. Ad hoc: Bank details
+  Email from Mark Bettis:
+  He has just got off the phone with Indesser and Liberata. And there is some information that we need to add to our web based application and paper/pdf forms.
+   
+  The bank account validation that we will do will leave a footprint on their credit file. The validation will NOT affect their credit rating. We do therefore need to add some wording to make it clear what we are doing with their data.
+   
+  I’ve prepared some wording, and I just want Indesser and Equifax to confirm they are happy, then I will send it through.
+   
+  Also – there are a number of clearances connected to the bank account validation contract that need to happen which involve OGDs with an interest, GCHQ and Cabinet Office. We will be seeking assurances from Indesser that the data exchange method is suitable secure and accredited, I believe that GCHQ provide this. Indesser are trying to push this through as quickly as they can, and we are aiming at being able to validate the first payment file on Fri 6/10.
+
+  02/10/2017 Mark Bettis confirms the wording:
+
+  Using your personal information:
+  Personal information which you supply to us may be used in a number of ways, for example:
+  For fraud prevention
+  To validate your entitlement to claim a fee refund
+  For audit
+   
+  HMCTS will verify some of the information you have provided as part of this application using a credit reference agency. This check will appear in your credit history, it will not be visible to lenders and it will not affect your credit rating.
+
+  Can we put this wording on page 2 of 7 under the header Claimant details.
+
+
+

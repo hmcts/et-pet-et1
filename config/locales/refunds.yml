@@ -36,7 +36,7 @@ en:
       claim_had_representative: "Did you have a representative at the time of your original claim ?"
       additional_information_hint_html: "Limit is 500 characters"
     fees:
-      header: "About your fees paid"
+      header: "About the fees you paid"
       fee_details: "About your fees paid"
       issue_fee: "ET Issue fee"
       fee: "Fee (in pounds)"
