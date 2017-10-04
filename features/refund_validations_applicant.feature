@@ -17,3 +17,7 @@ Feature: Refund Validations - Applicant page
     And all mandatory fields in the refund applicant page should be marked with an error
     And I take a screenshot named "Page 2 - Applicant with errors"
 
+  Scenario: A user does not fill in any fields in the applicant step
+    Then the continue button should be disabled on the refund applicant page
+
+
