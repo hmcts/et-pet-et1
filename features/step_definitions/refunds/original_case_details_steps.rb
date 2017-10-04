@@ -178,7 +178,6 @@ And(/^I answer (Yes|No) to the had representative question for refunds$/) do |ha
   refund_original_case_details_page.claim_had_representative.set(had_representative)
 end
 
-
 And(/^all mandatory case details fields in the refund case details should be marked with an error$/) do
   aggregate_failures do
     expect(refund_original_case_details_page.original_case_details.et_country_of_claim.error.text).to eql "Please select the country where your case was heard"
@@ -189,10 +188,18 @@ And(/^all mandatory case details fields in the refund case details should be mar
   end
 end
 
-
 Then(/^I should see the following errors in the case details section of the refund case details step:$/) do |table|
   # table is a table.hashes.keys # => [:field, :error]
   table.hashes.each do |hash|
     expect(refund_original_case_details_page.original_case_details.send(hash['field'].to_sym).error.text).to eql hash['error']
   end
+end
+
+And(/^I enter (\d+) characters into the additional information field in the refund case details$/) do |length|
+  str = "a" * length.to_i
+  refund_original_case_details_page.original_case_details.additional_information.set(str)
+end
+
+Then(/^I should see (\d+) characters in the additional information field in the refund case details$/) do |length|
+  expect(refund_original_case_details_page.original_case_details.additional_information.get.length).to eql length.to_i
 end

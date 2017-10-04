@@ -82,7 +82,6 @@ And(/^I fill in my refund applicant details$/) do
 
 end
 
-
 Then(/^the continue button should be disabled on the refund applicant page$/) do
   expect(refund_applicant_page.save_and_continue).to be_disabled
 end

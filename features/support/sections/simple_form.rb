@@ -17,6 +17,9 @@ module AppTest
 
   class FormTextArea < SitePrism::Section
     delegate :set, to: :field
+    def get
+      field.value
+    end
     element :field, 'textarea'
     element :label, 'label'
     element :error, '.error'

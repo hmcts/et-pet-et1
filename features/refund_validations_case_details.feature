@@ -50,4 +50,8 @@ Feature: Refund Validations - Case Details Page
       | et_case_number  | Must be in the format nnnnnnn/nnnn      |
       | eat_case_number | Must be in the format UKEAT/nnnn/nn/nnn |
 
-
+  Scenario: A user types too many characters into the additional information field in the case details step with same address and no representative
+    When I answer No to the has your address changed question for refunds
+    And I answer No to the had representative question for refunds
+    And I enter 501 characters into the additional information field in the refund case details
+    Then I should see 500 characters in the additional information field in the refund case details

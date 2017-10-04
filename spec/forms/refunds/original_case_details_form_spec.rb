@@ -11,6 +11,7 @@ module Refunds
     end
     let(:refund) { instance_spy(Refund, refund_attributes) }
     let(:form) { described_class.new(refund) }
+
     describe 'validations' do
       context 'et_case_number' do
         it 'allows blank' do

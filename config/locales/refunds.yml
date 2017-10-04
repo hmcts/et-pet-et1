@@ -200,7 +200,7 @@ en:
               blank: Please select the country where your case was heard
             et_case_number:
               invalid: Must be in the format nnnnnnn/nnnn
-            et_case_number:
+            eat_case_number:
               invalid: Must be in the format UKEAT/nnnn/nn/nnn
         refunds/fees:
           attributes:
