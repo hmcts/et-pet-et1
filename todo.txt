@@ -5,13 +5,13 @@ DONE Validation (numeric) for fees - allowing blank
 DONE Please selects everywhere
 DONE Building society - to have capital S
 DONE Review page - to include optional rep and also the bank and building society
-Roll number validation - question with finance
+DONE Roll number validation - question with finance
 DONE Declaration text -
 DONE Yes / No to change to checkbox on review page
-Submit claim to be disabled until checkbox ticked
+DONE Submit claim to be disabled until checkbox ticked
 
 
-Add time/date to the confirmation page
+DONE Add time/date to the confirmation page
 DONE Add print link to the confirmation page
 DONE Reference number to be huge like in ET
 DONE Remove continue button from final page
@@ -180,3 +180,6 @@ This will follow ET format
 
 
 
+
+Garys List 4/10
+1. Put landing page back to how it was

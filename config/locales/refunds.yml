@@ -198,6 +198,10 @@ en:
               nil: Please select Yes or No
             et_country_of_claim:
               blank: Please select the country where your case was heard
+            et_case_number:
+              invalid: Must be in the format nnnnnnn/nnnn
+            et_case_number:
+              invalid: Must be in the format UKEAT/nnnn/nn/nnn
         refunds/fees:
           attributes:
             et_issue_fee_payment_method:

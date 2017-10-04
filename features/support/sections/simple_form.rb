@@ -15,6 +15,13 @@ module AppTest
     element :error, '.error'
   end
 
+  class FormTextArea < SitePrism::Section
+    delegate :set, to: :field
+    element :field, 'textarea'
+    element :label, 'label'
+    element :error, '.error'
+  end
+
   class FormBoolean < SitePrism::Section
     element :field, 'input'
     element :label, 'label'

@@ -20,14 +20,6 @@ Feature: Refund Validations - Case Details Page
     And the country of claim field in the refunds case details should be marked with an error
     And I take a screenshot named "Page 3 - Original case details same address with errors"
 
-  Scenario: A user does not fill in any fields apart from has representative in the case details step with same address
-    When I answer No to the has your address changed question for refunds
-    And I answer Yes to the had representative question for refunds
-    And I save the refund case details
-    Then all mandatory respondent address fields in the refund case details should be marked with an error
-    And all mandatory representative address fields in the refund case details should be marked with an error
-    And I take a screenshot named "Page 3 - Original case details same address with errors"
-
   Scenario: A user does not fill in any fields in the case details step with changed address
     When I answer Yes to the has your address changed question for refunds
     And I save the refund case details
@@ -35,4 +27,27 @@ Feature: Refund Validations - Case Details Page
     And all mandatory respondent address fields in the refund case details should be marked with an error
     And the had representative field in the refunds case details should be marked with an error
     And I take a screenshot named "Page 3 - Original case details different address with errors"
+
+  Scenario: A user does not fill in any fields apart from has representative in the case details step with same address
+    When I answer No to the has your address changed question for refunds
+    And I answer Yes to the had representative question for refunds
+    And I save the refund case details
+    Then all mandatory respondent address fields in the refund case details should be marked with an error
+    And all mandatory representative address fields in the refund case details should be marked with an error
+    And all mandatory case details fields in the refund case details should be marked with an error
+    And I take a screenshot named "Page 3 - Original case details same address with errors"
+
+  Scenario: A user fills in wrongly formatted ET and ET case numbers in the case details step with same address and no representative
+    When I answer No to the has your address changed question for refunds
+    And I answer No to the had representative question for refunds
+    And I fill in my refund original case details with:
+      | field           | value               |
+      | et_case_number  | 12345678/2019       |
+      | eat_case_number | UKWRONG/1234/16/001 |
+    And I save the refund case details
+    Then I should see the following errors in the case details section of the refund case details step:
+      | field           | error                                   |
+      | et_case_number  | Must be in the format nnnnnnn/nnnn      |
+      | eat_case_number | Must be in the format UKEAT/nnnn/nn/nnn |
+
 

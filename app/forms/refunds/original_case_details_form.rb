@@ -47,6 +47,8 @@ module Refunds
       :respondent_address_building,
       :respondent_address_street,
       presence: true
+    validates :et_case_number, format: { with: %r(\A\d{7}\/\d{4}\z) }, allow_blank: true
+    validates :eat_case_number, format: { with: %r(\AUKEAT\/\d{4}\/\d{2}\/\d{3}\z) }, allow_blank: true
     before_validation :transfer_name
     before_validation :transfer_address, unless: :address_changed
 
