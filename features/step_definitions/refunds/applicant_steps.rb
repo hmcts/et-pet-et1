@@ -85,3 +85,8 @@ end
 Then(/^the continue button should be disabled on the refund applicant page$/) do
   expect(refund_applicant_page.save_and_continue).to be_disabled
 end
+
+
+And(/^the email address in the refund applicant page should be marked with an invalid error$/) do
+  expect(refund_applicant_page.claimants_contact_details.email_address.error.text).to eql 'is invalid'
+end
