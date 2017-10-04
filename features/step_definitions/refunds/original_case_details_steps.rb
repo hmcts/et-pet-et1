@@ -203,3 +203,7 @@ end
 Then(/^I should see (\d+) characters in the additional information field in the refund case details$/) do |length|
   expect(refund_original_case_details_page.original_case_details.additional_information.get.length).to eql length.to_i
 end
+
+And(/^the has your address changed field in the refund case details should be marked with an error$/) do
+  expect(refund_original_case_details_page.address_changed.error.text).to eql 'Please select Yes or No'
+end

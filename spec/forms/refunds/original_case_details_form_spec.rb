@@ -165,6 +165,25 @@ module Refunds
           expect(form.errors).to include :eat_case_number
         end
       end
+      context 'address_changed' do
+        it 'validates - allowing true value' do
+          form.address_changed = true
+          form.valid?
+          expect(form.errors).not_to include :address_changed
+        end
+
+        it 'validates - allowing false value' do
+          form.address_changed = false
+          form.valid?
+          expect(form.errors).not_to include :address_changed
+        end
+
+        it 'validates - disallowing nil value' do
+          form.address_changed = nil
+          form.valid?
+          expect(form.errors).to include :address_changed
+        end
+      end
     end
   end
 end

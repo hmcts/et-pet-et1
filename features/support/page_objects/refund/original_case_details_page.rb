@@ -33,11 +33,7 @@ module Refunds
       section :county, AppTest::FormInput, :simple_form_field, 'County'
       section :post_code, AppTest::FormInput, :simple_form_field, 'UK Postcode'
     end
-    section :address_changed, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Has your address changed since you made your employment tribunal claim ?")]] }) do
-      def set(value)
-        choose(value)
-      end
-    end
+    section :address_changed, AppTest::FormBoolean, :simple_form_boolean, "Has your address changed since you made your employment tribunal claim ?"
     element :save_and_continue, 'form.edit_refunds_original_case_details input[value="Continue"]'
   end
 end

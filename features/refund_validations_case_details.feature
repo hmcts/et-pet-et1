@@ -12,6 +12,13 @@ Feature: Refund Validations - Case Details Page
     And I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in my refund applicant details
 
+  Scenario: A user does not fill in any fields in the case details step
+    And I save the refund case details
+    Then all mandatory respondent address fields in the refund case details should be marked with an error
+    And the country of claim field in the refunds case details should be marked with an error
+    And the has your address changed field in the refund case details should be marked with an error
+    And I take a screenshot named "Page 3 - Original case details same address with errors"
+
   Scenario: A user does not fill in any fields in the case details step with same address
     When I answer No to the has your address changed question for refunds
     And I save the refund case details
