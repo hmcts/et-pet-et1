@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928063452) do
+ActiveRecord::Schema.define(version: 20171004182234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,20 +176,20 @@ ActiveRecord::Schema.define(version: 20170928063452) do
     t.string   "claimant_name"
     t.text     "additional_information"
     t.string   "claimant_address_post_code"
-    t.integer  "et_issue_fee"
-    t.string   "et_issue_fee_currency",                       default: "GBP"
+    t.decimal  "et_issue_fee",                                precision: 10, scale: 2
+    t.string   "et_issue_fee_currency",                                                default: "GBP"
     t.string   "et_issue_fee_payment_method"
-    t.integer  "et_hearing_fee"
-    t.string   "et_hearing_fee_currency",                     default: "GBP"
+    t.decimal  "et_hearing_fee",                              precision: 10, scale: 2
+    t.string   "et_hearing_fee_currency",                                              default: "GBP"
     t.string   "et_hearing_fee_payment_method"
-    t.integer  "eat_issue_fee"
-    t.string   "eat_issue_fee_currency",                      default: "GBP"
+    t.decimal  "eat_issue_fee",                               precision: 10, scale: 2
+    t.string   "eat_issue_fee_currency",                                               default: "GBP"
     t.string   "eat_issue_fee_payment_method"
-    t.integer  "eat_hearing_fee"
-    t.string   "eat_hearing_fee_currency",                    default: "GBP"
+    t.decimal  "eat_hearing_fee",                             precision: 10, scale: 2
+    t.string   "eat_hearing_fee_currency",                                             default: "GBP"
     t.string   "eat_hearing_fee_payment_method"
-    t.integer  "et_reconsideration_fee"
-    t.string   "et_reconsideration_fee_currency",             default: "GBP"
+    t.decimal  "et_reconsideration_fee",                      precision: 10, scale: 2
+    t.string   "et_reconsideration_fee_currency",                                      default: "GBP"
     t.string   "et_reconsideration_fee_payment_method"
     t.string   "applicant_address_building"
     t.string   "applicant_address_street"
@@ -211,7 +211,7 @@ ActiveRecord::Schema.define(version: 20170928063452) do
     t.string   "payment_building_society_name"
     t.string   "payment_building_society_account_number"
     t.string   "payment_building_society_sort_code"
-    t.boolean  "accept_declaration",                          default: false, null: false
+    t.boolean  "accept_declaration",                                                   default: false, null: false
     t.string   "claimant_address_building"
     t.string   "claimant_address_street"
     t.string   "claimant_address_locality"
