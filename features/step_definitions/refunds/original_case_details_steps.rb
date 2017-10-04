@@ -207,3 +207,7 @@ end
 And(/^the has your address changed field in the refund case details should be marked with an error$/) do
   expect(refund_original_case_details_page.address_changed.error.text).to eql 'Please select Yes or No'
 end
+
+And(/^the had representative field in the refund case details should be marked with an error$/) do
+  expect(refund_original_case_details_page.claim_had_representative.error.text).to eql 'Please select Yes or No'
+end

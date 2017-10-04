@@ -209,6 +209,25 @@ module Refunds
         end
       end
 
+      context 'claim_had_representative' do
+        it 'validates - allowing true value' do
+          form.claim_had_representative = true
+          form.valid?
+          expect(form.errors).not_to include :claim_had_representative
+        end
+
+        it 'validates - allowing false value' do
+          form.claim_had_representative = false
+          form.valid?
+          expect(form.errors).not_to include :claim_had_representative
+        end
+
+        it 'validates - disallowing nil value' do
+          form.claim_had_representative = nil
+          form.valid?
+          expect(form.errors).to include :claim_had_representative
+        end
+      end
     end
   end
 end
