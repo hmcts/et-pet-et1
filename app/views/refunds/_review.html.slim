@@ -200,4 +200,9 @@ fieldset
     li=line
 
 
-  = f.input :accept_declaration
+  = f.input :accept_declaration, input_html: { data: { behavior: 'accept_declaration'} }
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundReviewPage.init()
+      });

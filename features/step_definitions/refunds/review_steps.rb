@@ -183,3 +183,7 @@ And(/^I verify the review page and accept the declaration$/) do
   step 'I verify the building society details are not present in the bank details of the refund review page' if test_user.building_society_account.blank?
   step 'I accept the refund final declaration'
 end
+
+Then(/^the continue button should be disabled on the review page$/) do
+  expect(refund_review_page.save_and_continue).to be_disabled
+end

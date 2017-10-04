@@ -12,8 +12,8 @@ Submit claim to be disabled until checkbox ticked
 
 
 Add time/date to the confirmation page
-Add print link to the confirmation page
-Reference number to be huge like in ET
+DONE Add print link to the confirmation page
+DONE Reference number to be huge like in ET
 DONE Remove continue button from final page
 
 
@@ -41,7 +41,7 @@ DONE 8. Make the additional information text box 500 characters and ensure users
 DONE 9. Include help text for the additional information text box, business to confirm help text - The text has been confirmed as 'Please use this box to give us any information or reference numbers you think would be helpful in identifying your case'
 DONE 10. Fees paid needs to be on a new screen
 DONE 11. Include Date field in fees paid, allow MM/YYYY and Don't kmow option
-12. Discussion regarding including Total and Interest fields, however it was agreed that these fields should not be included - IT IS NOW TO BE INCLUDED SEE CATHIES DISCUSSION BELOW
+DONE 12. Discussion regarding including Total and Interest fields, however it was agreed that these fields should not be included - IT IS NOW TO BE INCLUDED SEE CATHIES DISCUSSION BELOW
 DONE 13. For Representatives, this field is still mandatory for the building, Gary to remove (optional) text from the question on the screen
 DONE 14. Bank questions: Where Building Society selected, put leading question to ask if they have a roll/reference number. If 'Yes' display new field to capture rool/reference number if 'No' go to next question
 15. the Business to confirm changes required to the Declaration statement
@@ -57,7 +57,7 @@ DONE 23. Include Print a copy of application on Confirmation page
 DONE 101: Review table to have fee payment date
 102: Go through validation tests and make sure we have everything
 103: Fees page - make payment date and method disabled until a fee is entered
-104: Fees page - tidy up styling
+DONE 104: Fees page - tidy up styling
 
 BUGS
 1. DONE Payment date unknown does not seem to be being persisted and causing a failure on review page for some reason
@@ -156,7 +156,7 @@ This will follow ET format
   2. We will contact you to confirm your entitlement, or if we require any further information.
   3. This process may take up to 14 days.
 
-18. Ad hoc: Bank details
+18. DONE Ad hoc: Bank details
   Email from Mark Bettis:
   He has just got off the phone with Indesser and Liberata. And there is some information that we need to add to our web based application and paper/pdf forms.
    
