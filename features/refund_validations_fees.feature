@@ -7,6 +7,7 @@ Feature: Refund Validations - Fees Page
     Given I am "Luke Skywalker"
     And I want a refund for my previous ET claim with case number "1234567/2016"
     And my name has not changed since the original claim that I want a refund for
+    And my address has not changed since the original claim that I want a refund for
     And I did not have a representative
     And I am on the landing page
     And I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
