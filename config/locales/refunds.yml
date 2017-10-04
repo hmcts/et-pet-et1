@@ -250,7 +250,7 @@ en:
   simple_form:
     include_blanks:
       refunds_applicant:
-        title: Please select
+        applicant_title: Please select
       refunds_bank_details:
         payment_account_type: Please select
       refunds_original_case_details:

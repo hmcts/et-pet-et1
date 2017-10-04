@@ -211,3 +211,11 @@ end
 And(/^the had representative field in the refund case details should be marked with an error$/) do
   expect(refund_original_case_details_page.claim_had_representative.error.text).to eql 'Please select Yes or No'
 end
+
+Then(/^the where was your claim issued field in the applicant page should have the correct default option selected$/) do
+  expect(refund_original_case_details_page.original_case_details.et_country_of_claim.get).to eql 'Please select'
+end
+
+And(/^the employment tribunal office field in the applicant page should have the correct default option selected$/) do
+  expect(refund_original_case_details_page.original_case_details.et_tribunal_office.get).to eql 'Please select'
+end

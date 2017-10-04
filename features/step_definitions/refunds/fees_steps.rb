@@ -110,3 +110,19 @@ And(/^I fill in all my refund fee payment methods with "([^"]*)"$/) do |arg|
   fees.eat_issue.payment_method.set(arg)
   fees.eat_hearing.payment_method.set(arg)
 end
+
+Then(/^all fee payment date fields in the fees page should be disabled$/) do
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_date).to be_disabled
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date).to be_disabled
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date).to be_disabled
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date).to be_disabled
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date).to be_disabled
+end
+
+And(/^all fee payment method fields in the fees page should be disabled$/) do
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_method).to be_disabled
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_method).to be_disabled
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_method).to be_disabled
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_method).to be_disabled
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method).to be_disabled
+end

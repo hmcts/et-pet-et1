@@ -3,9 +3,17 @@ module AppTest
     def set(value)
       field.select(value)
     end
+
+    def get
+      value = field.value
+      option = options.find { |v| v.value == value }
+      option ? option.text : ''
+    end
+    delegate :disabled?, to: :field
     element :field, 'select'
     element :label, 'label'
     element :error, '.error'
+    elements :options, 'option'
   end
 
   class FormInput < SitePrism::Section
@@ -65,6 +73,9 @@ module AppTest
     element :unknown, :field, 'Don\'t know'
     element :month, :field, 'Month'
     element :year, :field, 'Year'
+    element :disabled_unknown, :field, 'Don\'t know', disabled: true
+    element :disabled_month, :field, 'Month', disabled: true
+    element :disabled_year, :field, 'Year', disabled: true
     element :label, 'label'
     element :error, '.error'
     def set(value)
@@ -76,6 +87,9 @@ module AppTest
       month.set(month_value)
       year.set(year_value)
     end
-  end
 
+    def disabled?
+      [disabled_month, disabled_year, disabled_unknown].all?(&:present?)
+    end
+  end
 end

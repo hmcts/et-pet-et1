@@ -86,7 +86,10 @@ Then(/^the continue button should be disabled on the refund applicant page$/) do
   expect(refund_applicant_page.save_and_continue).to be_disabled
 end
 
-
 And(/^the email address in the refund applicant page should be marked with an invalid error$/) do
   expect(refund_applicant_page.claimants_contact_details.email_address.error.text).to eql 'is invalid'
+end
+
+Then(/^the title field in the applicant page should have the correct default option selected$/) do
+  expect(refund_applicant_page.about_the_claimant.title.get).to eql 'Please select'
 end
