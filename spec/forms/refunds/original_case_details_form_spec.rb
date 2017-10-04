@@ -1,13 +1,19 @@
 require 'rails_helper'
 module Refunds
   RSpec.describe OriginalCaseDetailsForm, type: :form do
+    # These attributes are required because form objects load these values and
+    # make decisions on them at initialization stage
+    let(:address_attributes) do
+      {
+        address_changed: true
+      }
+    end
     let(:refund_attributes) do
       {
         applicant_title: 'mr',
         applicant_first_name: 'Test',
-        applicant_last_name: 'User',
-        address_changed: true
-      }
+        applicant_last_name: 'User'
+      }.merge(address_attributes)
     end
     let(:refund) { instance_spy(Refund, refund_attributes) }
     let(:form) { described_class.new(refund) }
@@ -184,6 +190,25 @@ module Refunds
           expect(form.errors).to include :address_changed
         end
       end
+
+      context 'claimant_address_building' do
+        it 'validates presence' do
+          expect(form).to validate_presence_of(:claimant_address_building)
+        end
+      end
+
+      context 'claimant_address_street' do
+        it 'validates presence' do
+          expect(form).to validate_presence_of(:claimant_address_street)
+        end
+      end
+
+      context 'claimant_address_post_code' do
+        it 'validates presence' do
+          expect(form).to validate_presence_of(:claimant_address_post_code)
+        end
+      end
+
     end
   end
 end
