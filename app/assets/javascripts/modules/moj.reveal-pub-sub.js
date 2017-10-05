@@ -75,7 +75,7 @@ var revealPubSub = (function () {
       </div>
    */
   revealPubSub.bindPublish = function () {
-    $('.reveal-publish-delegate').on('click pseudo-click', '.reveal-publish-publisher', function (e) {
+    $('.reveal-publish-delegate').on('click pseudo-click change', '.reveal-publish-publisher', function (e) {
       e.stopPropagation(); // stop nested elements to fire event twice
       var $el = $(e.target),
         elValue = $el[0].type === 'checkbox' ? $el[0].checked.toString() : $el.val();
