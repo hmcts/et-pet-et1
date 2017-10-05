@@ -1,4 +1,4 @@
-debug_screenshots_disabled = ENV.fetch('DISABLE_DEBUG_SCREENSHOTS', 'false').downcase == 'true'
+debug_screenshots_disabled = ENV.fetch('DISABLE_DEBUG_SCREENSHOTS', 'false').casecmp('true') == 0
 And(/^I debug$/) do
   sleep 1
   expect(false).to eql(true), "Debugger - used to cause test to fail and a screenshot be saved"
