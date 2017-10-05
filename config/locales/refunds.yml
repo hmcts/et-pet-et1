@@ -47,7 +47,7 @@ en:
       eat_hearing_fee: "EAT Hearing fee"
       et_reconsideration_fee: "ET Reconsideration fee"
       fee_payment_date: "Payment date (mm/yyyy)"
-      total_fees: "Total fees"
+      total_fees: "Total fees paid"
     bank_details:
       header: "Repayment Details"
     review:
@@ -113,7 +113,7 @@ en:
       representative_address_county: "Representative address county"
       representative_address_post_code: "Representative address post code"
       no_fees: "You have not entered any fees"
-      total_fees: "Total fees"
+      total_fees: "Total fees paid"
 
     confirmation:
       header: "Refund application submitted"

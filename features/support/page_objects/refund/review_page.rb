@@ -74,7 +74,7 @@ module Refunds
         element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
         element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
       end
-      section :total, :refund_review_section_fee_type_labelled, 'Total fees' do
+      section :total, :refund_review_section_fee_type_labelled, 'Total fees paid' do
         element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
       end
       element :empty_fees, :xpath, (XPath.generate { |x| x.descendant(:p)[x.string.n.is('You have not entered any fees')] })
