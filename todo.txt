@@ -192,5 +192,5 @@ After meeting with Dan 5/10/2016
 4. DONE On mac in chrome - the bank details dont show until you click on drop down - maybe use change instead of click
 5. DONE Ticking and unticking the tick to onfirm box keeps the submit button enabled on review page - check other pages
 6. DONE Review page - list of text twice in li's at bottom
-7. Confirmation page number alignment weird - lines up dots
+7. DONE Confirmation page number alignment weird - lines up dots
 
