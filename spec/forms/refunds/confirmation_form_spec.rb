@@ -4,6 +4,6 @@ module Refunds
     let(:refund) { instance_spy(Refund) }
     let(:form) { described_class.new(refund) }
 
-    it_behaves_like 'a Form', {  }, Refund
+    it_behaves_like 'a Form', {}, Refund
   end
 end

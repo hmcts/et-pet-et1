@@ -1,9 +1,10 @@
 module Refunds
   class ReviewForm < Form
     attribute :accept_declaration, Boolean
-    before_save :generate_application_reference
-    before_save :generate_submitted_date
+    before_save :generate_application_reference, unless: :target_frozen?
+    before_save :generate_submitted_date, unless: :target_frozen?
 
+    validates :accept_declaration, acceptance: { accept: true }
     def method_missing(method, *args)
       return resource.send(method, *args) if !method.to_s.end_with?('=') && resource.respond_to?(method)
       super
@@ -22,6 +23,10 @@ module Refunds
 
     def generate_submitted_date
       resource.generate_submitted_at
+    end
+
+    def target_frozen?
+      target.frozen?
     end
   end
 end

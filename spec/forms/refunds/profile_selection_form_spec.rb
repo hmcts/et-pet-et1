@@ -14,8 +14,8 @@ module Refunds
 
         it 'validates inclusion' do
           expect(form).to validate_inclusion_of(:profile_type).
-              in_array(['claimant_direct_not_reimbursed', 'claimant_via_rep', 'claimant_eat']).
-              allow_blank(false)
+            in_array(['claimant_direct_not_reimbursed', 'claimant_via_rep', 'claimant_eat']).
+            allow_blank(false)
         end
       end
     end

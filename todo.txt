@@ -66,6 +66,7 @@ BUGS
 
 Sporadics:
 1. rspec ./spec/features/admin_panel/admin_show_feature_spec.rb:145
+2.
 
 Testing:
 1. Accessible gem - for testing aria stuff
@@ -73,11 +74,11 @@ Testing:
 Unit Tests:
 1. DONE Applicant form (validation, standard form stuff, stripping of first and last names)
 2. DONE Bank details form (validation, standard form stuff)
-3. Confirmation form (no validation, standard form stuff - very basic)
-4. Fees form - (Validation (complex), standard form stuff, partial payment date, conversion of fees to integer, conversion of fees from nil/string/integer)
-5. Original case details form - (validation (medium complex), standard form stuff, address transfer, name transfer
-6. Profile selection form - (validation (simple - needs adding of valid values), standard form stuff)
-7. Review form - (validation of accept declaration, acts as a read proxy for all model attributes, generate app reference, generate submitted date)
+3. DONE Confirmation form (no validation, standard form stuff - very basic)
+4. DONE Fees form - (Validation (complex), standard form stuff, partial payment date, conversion of fees to integer, conversion of fees from nil/string/integer)
+5. DONE Original case details form - (validation (medium complex), standard form stuff, address transfer, name transfer
+6. DONE Profile selection form - (validation (simple - needs adding of valid values), standard form stuff)
+7. DONE Review form - (validation of accept declaration, acts as a read proxy for all model attributes, generate app reference, generate submitted date)
 8. Refund model - should be easy - has a few aliases which I may refactor out
 
 
