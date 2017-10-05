@@ -25,14 +25,18 @@ Feature: Refund Validations - Applicant page
     When I answer Yes to the has your name changed question for refunds
     Then the continue button should be disabled on the refund applicant page
 
-  Scenario: A user answers no to name change and fills in an invalid email address
+  Scenario: A user answers no to name change and fills in an invalid email address and date of birth
     When I answer No to the has your name changed question for refunds
     And I fill in my refund claimant contact details with:
       | field         | value      |
       | email_address | domain.com |
+    And I fill in my refund claimant details with:
+      | field         | value      |
+      | date_of_birth | 32/13/3020 |
     And I save the refund applicant details
     Then the user should be informed that there are errors on the refund applicant page
     And the email address in the refund applicant page should be marked with an invalid error
+    And the date of birth in the refund applicant page should be marked with an invalid error
     And I take a screenshot named "Page 2 - Applicant with errors"
 
 

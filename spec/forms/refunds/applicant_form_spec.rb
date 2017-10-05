@@ -134,19 +134,19 @@ module Refunds
       end
 
       context 'has_name_changed' do
-        it 'validates nil - disallowing nil value' do
+        it 'validates - disallowing nil value' do
           applicant_form.has_name_changed = nil
           applicant_form.valid?
           expect(applicant_form.errors).to include :has_name_changed
         end
 
-        it 'validates nil - allowing true' do
+        it 'validates - allowing true' do
           applicant_form.has_name_changed = 'true'
           applicant_form.valid?
           expect(applicant_form.errors).not_to include :has_name_changed
         end
 
-        it 'validates nil - allowing false' do
+        it 'validates - allowing false' do
           applicant_form.has_name_changed = 'false'
           applicant_form.valid?
           expect(applicant_form.errors).not_to include :has_name_changed
