@@ -76,37 +76,37 @@ module Refunds
           end
 
           it 'allows a 6 digit number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '123456')
+            form.send(:"payment_#{account_type}_sort_code=", '123456')
             form.valid?
             expect(form.errors).not_to include :"payment_#{account_type}_sort_code"
           end
 
           it 'disallows a 5 digit number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '12345')
+            form.send(:"payment_#{account_type}_sort_code=", '12345')
             form.valid?
             expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end
 
           it 'disallows a 7 digit number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '1234567')
+            form.send(:"payment_#{account_type}_sort_code=", '1234567')
             form.valid?
             expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end
 
           it 'disallows alphas in the number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '1234a6')
+            form.send(:"payment_#{account_type}_sort_code=", '1234a6')
             form.valid?
             expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end
 
           it 'disallows hyphens in the number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '123-56')
+            form.send(:"payment_#{account_type}_sort_code=", '123-56')
             form.valid?
             expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end
 
           it 'disallows slashes in the number' do
-            form.send(:"payment_#{account_type}_sort_code=",  '123/56')
+            form.send(:"payment_#{account_type}_sort_code=", '123/56')
             form.valid?
             expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end

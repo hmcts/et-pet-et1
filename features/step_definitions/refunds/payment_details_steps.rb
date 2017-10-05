@@ -96,11 +96,9 @@ Then(/^the continue button should be disabled on the bank details page$/) do
   expect(refund_payment_details_page.save_and_continue).to be_disabled
 end
 
-
 Then(/^the bank account number field should be marked with an invalid error in the refund bank details page$/) do
   expect(refund_payment_details_page.bank_details.account_number.error.text).to eql "Must be 8 numbers"
 end
-
 
 Then(/^the bank sort code field should be marked with an invalid error in the refund bank details page$/) do
   expect(refund_payment_details_page.bank_details.sort_code.error.text).to eql "Must be 6 numbers"
@@ -109,7 +107,6 @@ end
 Then(/^the building society account number field should be marked with an invalid error in the refund bank details page$/) do
   expect(refund_payment_details_page.building_society_details.account_number.error.text).to eql "Must be 8 numbers"
 end
-
 
 Then(/^the building society sort code field should be marked with an invalid error in the refund bank details page$/) do
   expect(refund_payment_details_page.building_society_details.sort_code.error.text).to eql "Must be 6 numbers"
