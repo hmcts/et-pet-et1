@@ -1,3 +1,4 @@
+debug_screenshots_disabled = ENV.fetch('DISABLE_DEBUG_SCREENSHOTS', 'false').downcase == 'true'
 And(/^I debug$/) do
   sleep 1
   expect(false).to eql(true), "Debugger - used to cause test to fail and a screenshot be saved"
@@ -8,10 +9,12 @@ And(/^I sleep for (\d+) seconds$/) do |arg|
 end
 
 And(/^I take a screenshot$/) do
+  next if debug_screenshots_disabled
   screenshot_and_save_page
 end
 
 And(/^I take a screenshot named "([^"]*)"$/) do |filename_prefix|
+  next if debug_screenshots_disabled
   Capybara.using_session(Capybara::Screenshot.final_session_name) do
 
     saver = Capybara::Screenshot.new_saver(Capybara, Capybara.page, true, filename_prefix)
