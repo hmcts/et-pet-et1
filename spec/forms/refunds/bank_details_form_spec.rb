@@ -15,54 +15,110 @@ module Refunds
         end
       end
 
-      context 'with payment_account_type as bank' do
-        before { form.payment_account_type = 'bank' }
+      shared_examples 'an account' do |account_type:|
+        before { form.payment_account_type = account_type }
 
-        context 'payment_bank_account_name' do
+        context "payment_#{account_type}_account_name" do
           it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_bank_account_name)
+            expect(form).to validate_presence_of(:"payment_#{account_type}_account_name")
           end
         end
-        context 'payment_bank_name' do
+        context "payment_#{account_type}_name" do
           it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_bank_name)
+            expect(form).to validate_presence_of(:"payment_#{account_type}_name")
           end
         end
-        context 'payment_bank_account_number' do
+        context "payment_#{account_type}_account_number" do
           it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_bank_account_number)
+            expect(form).to validate_presence_of(:"payment_#{account_type}_account_number")
+          end
+
+          it 'allows an 8 digit number' do
+            form.send(:"payment_#{account_type}_account_number=", '12345678')
+            form.valid?
+            expect(form.errors).not_to include :"payment_#{account_type}_account_number"
+          end
+
+          it 'disallows a 7 digit number' do
+            form.send(:"payment_#{account_type}_account_number=", '1234567')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_account_number"
+          end
+
+          it 'disallows a 9 digit number' do
+            form.send(:"payment_#{account_type}_account_number=", '123456789')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_account_number"
+          end
+
+          it 'disallows alphas in the number' do
+            form.send(:"payment_#{account_type}_account_number=", '1234a678')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_account_number"
+          end
+
+          it 'disallows hyphens in the number' do
+            form.send(:"payment_#{account_type}_account_number=", '123-5678')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_account_number"
+          end
+
+          it 'disallows slashes in the number' do
+            form.send(:"payment_#{account_type}_account_number=", '123/5678')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_account_number"
           end
         end
-        context 'payment_bank_sort_code' do
+
+        context "payment_#{account_type}_sort_code" do
           it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_bank_sort_code)
+            expect(form).to validate_presence_of(:"payment_#{account_type}_sort_code")
+          end
+
+          it 'allows a 6 digit number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '123456')
+            form.valid?
+            expect(form.errors).not_to include :"payment_#{account_type}_sort_code"
+          end
+
+          it 'disallows a 5 digit number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '12345')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_sort_code"
+          end
+
+          it 'disallows a 7 digit number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '1234567')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_sort_code"
+          end
+
+          it 'disallows alphas in the number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '1234a6')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_sort_code"
+          end
+
+          it 'disallows hyphens in the number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '123-56')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_sort_code"
+          end
+
+          it 'disallows slashes in the number' do
+            form.send(:"payment_#{account_type}_sort_code=",  '123/56')
+            form.valid?
+            expect(form.errors).to include :"payment_#{account_type}_sort_code"
           end
         end
       end
 
-      context 'with payment_account_type as building_society' do
-        before { form.payment_account_type = 'building_society' }
+      context 'with payment_account_type as bank' do
+        include_examples 'an account', account_type: :bank
+      end
 
-        context 'payment_building_society_account_name' do
-          it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_building_society_account_name)
-          end
-        end
-        context 'payment_building_society_name' do
-          it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_building_society_name)
-          end
-        end
-        context 'payment_building_society_account_number' do
-          it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_building_society_account_number)
-          end
-        end
-        context 'payment_building_society_sort_code' do
-          it 'validates presence' do
-            expect(form).to validate_presence_of(:payment_building_society_sort_code)
-          end
-        end
+      context 'with payment_account_type as building_society' do
+        include_examples 'an account', account_type: :building_society
       end
     end
 
