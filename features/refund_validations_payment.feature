@@ -22,11 +22,13 @@ Feature: Refund Validations - Payment Page
     When I select "Bank" account type in the refund bank details page
     And I save the refund bank details
     Then all mandatory bank details fields should be marked with an error
+    And I take a screenshot named "Page 5 - Bank details with errors"
 
   Scenario: A user does not fill in any fields apart from selecting the building society type
     When I select "Building Society" account type in the refund bank details page
     And I save the refund bank details
     Then all mandatory building society details fields should be marked with an error
+    And I take a screenshot named "Page 5 - Building society details with errors"
 
   Scenario: A user fills in the bank details then changes to a building society but does not fill in any more fields
     When I select "Bank" account type in the refund bank details page

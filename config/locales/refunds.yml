@@ -277,6 +277,11 @@ en:
                         Your EAT case cumber will start UKEAT/xxxx/YY/xxx.
                         If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
         additional_information: Please use this box to give us any information or reference numbers you think would be helpful in identifying your case
+      refunds_bank_details:
+        payment_bank_account_number: Please enter your 8 digit bank account number. This should be a current account in held in your name, not a savings account
+        payment_bank_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
+        payment_building_society_account_number: Please enter your 8 digit building society account number. This should be a current account in held in your name, not a savings account
+        payment_building_society_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
     labels:
       refunds_applicant:
         applicant_address_building: Building number or name
