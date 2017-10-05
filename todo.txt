@@ -190,7 +190,7 @@ After meeting with Dan 5/10/2016
 2. DONE Office 'unknown' in dropdown should be Don't know
 3. DONE Total fees to become Total fees paid in fees page
 4. DONE On mac in chrome - the bank details dont show until you click on drop down - maybe use change instead of click
-5. Ticking and unticking the tick to onfirm box keeps the submit button enabled on review page - check other pages
+5. DONE Ticking and unticking the tick to onfirm box keeps the submit button enabled on review page - check other pages
 6. Review page - list of text twice in li's at bottom
 7. Confirmation page number alignment weird - lines up dots
 
