@@ -183,3 +183,13 @@ This will follow ET format
 
 Garys List 4/10
 1. Put landing page back to how it was
+
+After meeting with Dan 5/10/2016
+1. Hand off text - Dan to provide
+2. Office 'unknown' in dropdown should be Don't know
+3. Total fees to become Total fees paid in fees page
+4. On mac in chrome - the bank details dont show until you click on drop down - maybe use change instead of click
+5. Ticking and unticking the tick to onfirm box keeps the submit button enabled on review page - check other pages
+6. Review page - list of text twice in li's at bottom
+7. Confirmation page number alignment weird - lines up dots
+

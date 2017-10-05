@@ -92,11 +92,11 @@ And(/^I fill in my refund original case details$/) do
   refund_original_case_details_page.address_changed.set(test_user.claim_address_changed) unless test_user.claim_address_changed.nil?
   if test_user.claim_address_changed == 'Yes'
     refund_original_case_details_page.original_claimant_details do |section|
-      section.building.set(test_user.et_claim_to_refund.address.building)
-      section.street.set(test_user.et_claim_to_refund.address.street)
-      section.locality.set(test_user.et_claim_to_refund.address.locality)
-      section.county.set(test_user.et_claim_to_refund.address.county)
-      section.post_code.set(test_user.et_claim_to_refund.address.post_code)
+      section.building.set(test_user.et_claim_to_refund.address.building) unless test_user.et_claim_to_refund.address.building.nil?
+      section.street.set(test_user.et_claim_to_refund.address.street) unless test_user.et_claim_to_refund.address.street.nil?
+      section.locality.set(test_user.et_claim_to_refund.address.locality) unless test_user.et_claim_to_refund.address.locality.nil?
+      section.county.set(test_user.et_claim_to_refund.address.county) unless test_user.et_claim_to_refund.address.county.nil?
+      section.post_code.set(test_user.et_claim_to_refund.address.post_code) unless test_user.et_claim_to_refund.address.post_code.nil?
     end
   end
   step('I take a screenshot named "Page 3 - Original Case Details 2 "')
@@ -109,24 +109,24 @@ And(/^I fill in my refund original case details$/) do
   end
   step('I take a screenshot named "Page 3 - Original Case Details 3 "')
   refund_original_case_details_page.original_respondent_details do |section|
-    section.name.set(test_user.et_claim_to_refund.respondent.name)
-    section.building.set(test_user.et_claim_to_refund.respondent.address.building)
-    section.street.set(test_user.et_claim_to_refund.respondent.address.street)
-    section.locality.set(test_user.et_claim_to_refund.respondent.address.locality)
-    section.county.set(test_user.et_claim_to_refund.respondent.address.county)
-    section.post_code.set(test_user.et_claim_to_refund.respondent.address.post_code)
+    section.name.set(test_user.et_claim_to_refund.respondent.name) unless test_user.et_claim_to_refund.respondent.name.nil?
+    section.building.set(test_user.et_claim_to_refund.respondent.address.building) unless test_user.et_claim_to_refund.respondent.address.building.nil?
+    section.street.set(test_user.et_claim_to_refund.respondent.address.street) unless test_user.et_claim_to_refund.respondent.address.street.nil?
+    section.locality.set(test_user.et_claim_to_refund.respondent.address.locality) unless test_user.et_claim_to_refund.respondent.address.locality.nil?
+    section.county.set(test_user.et_claim_to_refund.respondent.address.county) unless test_user.et_claim_to_refund.respondent.address.county.nil?
+    section.post_code.set(test_user.et_claim_to_refund.respondent.address.post_code) unless test_user.et_claim_to_refund.respondent.address.post_code.nil?
   end
   step('I take a screenshot named "Page 3 - Original Case Details 4 "')
 
   refund_original_case_details_page.claim_had_representative.set(test_user.et_claim_to_refund.has_representative) unless test_user.et_claim_to_refund.has_representative.nil?
   if test_user.et_claim_to_refund.has_representative == 'Yes'
     refund_original_case_details_page.original_representative_details do |section|
-      section.name.set(test_user.et_claim_to_refund.representative.name)
-      section.building.set(test_user.et_claim_to_refund.representative.address.building)
-      section.street.set(test_user.et_claim_to_refund.representative.address.street)
-      section.locality.set(test_user.et_claim_to_refund.representative.address.locality)
-      section.county.set(test_user.et_claim_to_refund.representative.address.county)
-      section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code)
+      section.name.set(test_user.et_claim_to_refund.representative.name) unless test_user.et_claim_to_refund.representative.name.nil?
+      section.building.set(test_user.et_claim_to_refund.representative.address.building) unless test_user.et_claim_to_refund.representative.address.building.nil?
+      section.street.set(test_user.et_claim_to_refund.representative.address.street) unless test_user.et_claim_to_refund.representative.address.street.nil?
+      section.locality.set(test_user.et_claim_to_refund.representative.address.locality) unless test_user.et_claim_to_refund.representative.address.locality.nil?
+      section.county.set(test_user.et_claim_to_refund.representative.address.county) unless test_user.et_claim_to_refund.representative.address.county.nil?
+      section.post_code.set(test_user.et_claim_to_refund.representative.address.post_code) unless test_user.et_claim_to_refund.representative.address.post_code.nil?
     end
   end
   step('I take a screenshot named "Page 3 - Original Case Details 5 "')

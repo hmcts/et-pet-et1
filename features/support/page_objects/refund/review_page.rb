@@ -77,6 +77,7 @@ module Refunds
       section :total, :refund_review_section_fee_type_labelled, 'Total fees' do
         element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
       end
+      element :empty_fees, :xpath, (XPath.generate { |x| x.descendant(:p)[x.string.n.is('You have not entered any fees')] })
     end
 
     section :bank_details, :refund_review_section_labelled, 'Your Bank Details' do

@@ -18,6 +18,7 @@ module RefundsHelper
   end
 
   def et_office_for(id)
+    return '' if id.blank?
     I18n.t("simple_form.options.refunds_original_case_details.et_tribunal_office.#{id}")
   end
 

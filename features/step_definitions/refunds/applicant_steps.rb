@@ -69,13 +69,13 @@ And(/^I fill in my refund applicant details$/) do
   end
   step("I take a screenshot named \"Page 2 - Applicant Details 2 \"")
   refund_applicant_page.claimants_contact_details do |section|
-    section.building.set(test_user.address.building)
-    section.street.set(test_user.address.street)
-    section.locality.set(test_user.address.locality)
-    section.county.set(test_user.address.county)
-    section.post_code.set(test_user.address.post_code)
-    section.telephone_number.set(test_user.telephone_number)
-    section.email_address.set(test_user.email_address)
+    section.building.set(test_user.address.building) unless test_user.address.building.nil?
+    section.street.set(test_user.address.street) unless test_user.address.street.nil?
+    section.locality.set(test_user.address.locality) unless test_user.address.locality.nil?
+    section.county.set(test_user.address.county) unless test_user.address.county.nil?
+    section.post_code.set(test_user.address.post_code) unless test_user.address.post_code.nil?
+    section.telephone_number.set(test_user.telephone_number) unless test_user.telephone_number.nil?
+    section.email_address.set(test_user.email_address) unless test_user.email_address.nil?
   end
   step("I take a screenshot named \"Page 2 - Applicant Details 3 \"")
   step("I save the refund applicant details")
