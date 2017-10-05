@@ -5,6 +5,6 @@ fieldset.profile_selection
           label: false,
           required: true,
           item_wrapper_tag: :div,
-          collection: ['claimant_direct_not_reimbursed', 'claimant_via_rep', 'claimant_eat'],
+          collection: Refunds::ProfileSelectionForm::PROFILE_TYPES,
           input_html: { data: { behavior: 'profile_type' } }
 
