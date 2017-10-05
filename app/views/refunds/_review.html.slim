@@ -196,8 +196,9 @@ div class=("review-list-entry applicant")
 fieldset
   legend= t '.declaration'
   p = t('.declaration_i_confirm')
-  ul=t('.declaration_detail_html').each_line do |line|
-    li=line
+  ul
+    - t('.declaration_detail_html').each_line do |line|
+      li=line
 
 
   = f.input :accept_declaration, required: true, input_html: { data: { behavior: 'accept_declaration'} }
