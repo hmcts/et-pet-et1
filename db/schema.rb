@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004182234) do
+ActiveRecord::Schema.define(version: 20171006134320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,31 +151,31 @@ ActiveRecord::Schema.define(version: 20171004182234) do
   create_table "refunds", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email_address"
-    t.string   "application_reference"
-    t.integer  "application_reference_number"
-    t.boolean  "address_changed"
-    t.boolean  "has_name_changed"
-    t.string   "profile_type"
-    t.string   "et_country_of_claim"
-    t.string   "et_case_number"
-    t.string   "et_tribunal_office"
-    t.string   "respondent_name"
-    t.string   "respondent_address_building"
-    t.string   "respondent_address_street"
-    t.string   "respondent_address_locality"
-    t.string   "respondent_address_county"
-    t.string   "respondent_address_post_code"
-    t.boolean  "claim_had_representative"
-    t.string   "representative_name"
-    t.string   "representative_address_building"
-    t.string   "representative_address_street"
-    t.string   "representative_address_locality"
-    t.string   "representative_address_county"
-    t.string   "representative_address_post_code"
-    t.string   "claimant_name"
-    t.text     "additional_information"
-    t.string   "claimant_address_post_code"
+    t.string   "email_address",                                                                        null: false
+    t.string   "application_reference",                                                                null: false
+    t.integer  "application_reference_number",                                                         null: false
+    t.boolean  "address_changed",                                                                      null: false
+    t.boolean  "has_name_changed",                                                                     null: false
+    t.string   "profile_type",                                                                         null: false
+    t.string   "et_country_of_claim",                                                                  null: false
+    t.string   "et_case_number",                                                                       null: false
+    t.string   "et_tribunal_office",                                                                   null: false
+    t.string   "respondent_name",                                                                      null: false
+    t.string   "respondent_address_building",                                                          null: false
+    t.string   "respondent_address_street",                                                            null: false
+    t.string   "respondent_address_locality",                                                          null: false
+    t.string   "respondent_address_county",                                                            null: false
+    t.string   "respondent_address_post_code",                                                         null: false
+    t.boolean  "claim_had_representative",                                                             null: false
+    t.string   "representative_name",                                                                  null: false
+    t.string   "representative_address_building",                                                      null: false
+    t.string   "representative_address_street",                                                        null: false
+    t.string   "representative_address_locality",                                                      null: false
+    t.string   "representative_address_county",                                                        null: false
+    t.string   "representative_address_post_code",                                                     null: false
+    t.string   "claimant_name",                                                                        null: false
+    t.text     "additional_information",                                                               null: false
+    t.string   "claimant_address_post_code",                                                           null: false
     t.decimal  "et_issue_fee",                                precision: 10, scale: 2
     t.string   "et_issue_fee_currency",                                                default: "GBP"
     t.string   "et_issue_fee_payment_method"
@@ -191,18 +191,18 @@ ActiveRecord::Schema.define(version: 20171004182234) do
     t.decimal  "et_reconsideration_fee",                      precision: 10, scale: 2
     t.string   "et_reconsideration_fee_currency",                                      default: "GBP"
     t.string   "et_reconsideration_fee_payment_method"
-    t.string   "applicant_address_building"
-    t.string   "applicant_address_street"
-    t.string   "applicant_address_locality"
-    t.string   "applicant_address_county"
-    t.string   "applicant_address_post_code"
-    t.string   "applicant_address_telephone_number"
-    t.string   "applicant_first_name"
-    t.string   "applicant_last_name"
+    t.string   "applicant_address_building",                                                           null: false
+    t.string   "applicant_address_street",                                                             null: false
+    t.string   "applicant_address_locality",                                                           null: false
+    t.string   "applicant_address_county",                                                             null: false
+    t.string   "applicant_address_post_code",                                                          null: false
+    t.string   "applicant_address_telephone_number",                                                   null: false
+    t.string   "applicant_first_name",                                                                 null: false
+    t.string   "applicant_last_name",                                                                  null: false
     t.date     "applicant_date_of_birth"
     t.string   "applicant_email_address"
-    t.string   "applicant_title"
-    t.string   "payment_account_type"
+    t.string   "applicant_title",                                                                      null: false
+    t.string   "payment_account_type",                                                                 null: false
     t.string   "payment_bank_account_name"
     t.string   "payment_bank_name"
     t.string   "payment_bank_account_number"
@@ -212,10 +212,10 @@ ActiveRecord::Schema.define(version: 20171004182234) do
     t.string   "payment_building_society_account_number"
     t.string   "payment_building_society_sort_code"
     t.boolean  "accept_declaration",                                                   default: false, null: false
-    t.string   "claimant_address_building"
-    t.string   "claimant_address_street"
-    t.string   "claimant_address_locality"
-    t.string   "claimant_address_county"
+    t.string   "claimant_address_building",                                                            null: false
+    t.string   "claimant_address_street",                                                              null: false
+    t.string   "claimant_address_locality",                                                            null: false
+    t.string   "claimant_address_county",                                                              null: false
     t.date     "et_issue_fee_payment_date"
     t.boolean  "et_issue_fee_payment_date_unknown"
     t.date     "et_hearing_fee_payment_date"
@@ -227,8 +227,8 @@ ActiveRecord::Schema.define(version: 20171004182234) do
     t.date     "eat_hearing_fee_payment_date"
     t.boolean  "eat_hearing_fee_payment_date_unknown"
     t.boolean  "is_claimant"
-    t.datetime "submitted_at"
-    t.text     "eat_case_number"
+    t.datetime "submitted_at",                                                                         null: false
+    t.text     "eat_case_number",                                                                      null: false
   end
 
   create_table "representatives", force: :cascade do |t|
@@ -253,6 +253,12 @@ ActiveRecord::Schema.define(version: 20171004182234) do
     t.datetime "updated_at"
     t.boolean  "worked_at_same_address",                     default: true
     t.boolean  "primary_respondent",                         default: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.jsonb    "data",       default: {}
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

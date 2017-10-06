@@ -1,36 +1,11 @@
 require 'rails_helper'
 module Refunds
   RSpec.describe FeesForm, type: :form do
-    # The refund attributes will be loaded into the form on initialisation
-    let(:refund_attributes) do
-      {
-        et_issue_fee: nil,
-        et_issue_fee_payment_date: nil,
-        et_issue_fee_payment_date_unknown: nil,
-        et_issue_fee_payment_method: nil,
-        et_hearing_fee: nil,
-        et_hearing_fee_payment_date: nil,
-        et_hearing_fee_payment_date_unknown: nil,
-        et_hearing_fee_payment_method: nil,
-        et_reconsideration_fee: nil,
-        et_reconsideration_fee_payment_date: nil,
-        et_reconsideration_fee_payment_date_unknown: nil,
-        et_reconsideration_fee_payment_method: nil,
-        eat_issue_fee: nil,
-        eat_issue_fee_payment_date: nil,
-        eat_issue_fee_payment_date_unknown: nil,
-        eat_issue_fee_payment_method: nil,
-        eat_hearing_fee: nil,
-        eat_hearing_fee_payment_date: nil,
-        eat_hearing_fee_payment_date_unknown: nil,
-        eat_hearing_fee_payment_method: nil
-      }
-    end
+    let(:session_attributes) { Refund.new.attributes.to_h }
+    let(:refund_session) { double('Session', session_attributes) }
+    let(:form) { described_class.new(refund_session) }
 
-    let(:refund) { instance_spy(::Refund, refund_attributes) }
-    let(:form) { described_class.new(refund) }
-
-    it_behaves_like 'a Form', {}, Refund
+    it_behaves_like 'a Form', {}, Session
     describe 'validation' do
       # Start of shared examples
       # As we are testing all 5 fees in the same way, some shared examples

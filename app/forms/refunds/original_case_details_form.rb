@@ -57,7 +57,7 @@ module Refunds
 
     def transfer_name
       claimant_name = [
-        resource.applicant_title.titleize,
+        resource.applicant_title&.titleize,
         resource.applicant_first_name,
         resource.applicant_last_name
       ].join(' ')

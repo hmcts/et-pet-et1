@@ -1,0 +1,46 @@
+class ChangeNulsInRefunds < ActiveRecord::Migration
+  def change
+    change_column_null :refunds, :email_address, false
+    change_column_null :refunds, :application_reference, false
+    change_column_null :refunds, :application_reference_number, false
+    change_column_null :refunds, :address_changed, false
+    change_column_null :refunds, :has_name_changed, false
+    change_column_null :refunds, :profile_type, false
+    change_column_null :refunds, :et_country_of_claim, false
+    change_column_null :refunds, :et_case_number, false
+    change_column_null :refunds, :et_tribunal_office, false
+    change_column_null :refunds, :respondent_name, false
+    change_column_null :refunds, :respondent_address_building, false
+    change_column_null :refunds, :respondent_address_street, false
+    change_column_null :refunds, :respondent_address_locality, false
+    change_column_null :refunds, :respondent_address_county, false
+    change_column_null :refunds, :respondent_address_post_code, false
+    change_column_null :refunds, :claim_had_representative, false
+    change_column_null :refunds, :representative_name, false
+    change_column_null :refunds, :representative_address_building, false
+    change_column_null :refunds, :representative_address_street, false
+    change_column_null :refunds, :representative_address_locality, false
+    change_column_null :refunds, :representative_address_county, false
+    change_column_null :refunds, :representative_address_post_code, false
+    change_column_null :refunds, :claimant_name, false
+    change_column_null :refunds, :additional_information, false
+    change_column_null :refunds, :claimant_address_post_code, false
+    change_column_null :refunds, :applicant_address_building, false
+    change_column_null :refunds, :applicant_address_street, false
+    change_column_null :refunds, :applicant_address_locality, false
+    change_column_null :refunds, :applicant_address_county, false
+    change_column_null :refunds, :applicant_address_post_code, false
+    change_column_null :refunds, :applicant_address_telephone_number, false
+    change_column_null :refunds, :applicant_first_name, false
+    change_column_null :refunds, :applicant_last_name, false
+    change_column_null :refunds, :applicant_title, false
+    change_column_null :refunds, :payment_account_type, false
+    change_column_null :refunds, :accept_declaration, false
+    change_column_null :refunds, :claimant_address_building, false
+    change_column_null :refunds, :claimant_address_street, false
+    change_column_null :refunds, :claimant_address_locality, false
+    change_column_null :refunds, :claimant_address_county, false
+    change_column_null :refunds, :submitted_at, false
+    change_column_null :refunds, :eat_case_number, false
+  end
+end

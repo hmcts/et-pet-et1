@@ -1,8 +1,9 @@
 require 'rails_helper'
 module Refunds
   RSpec.describe ApplicantForm, type: :form do
-    let(:refund) { instance_spy(Refund) }
-    let(:applicant_form) { described_class.new(refund) }
+    let(:session_attributes) { Refund.new.attributes.to_h }
+    let(:refund_session) { double('Session', session_attributes) }
+    let(:applicant_form) { described_class.new(refund_session) }
 
     describe 'validations' do
       context 'applicant_address_building' do
@@ -208,6 +209,21 @@ module Refunds
         applicant_form.applicant_date_of_birth = value
         expect(applicant_form.applicant_date_of_birth).to be value
       end
+    end
+
+    describe 'standard form behavior' do
+      attrs = {
+        applicant_address_building: '1',
+        applicant_address_street: 'Street',
+        applicant_address_post_code: 'DE21 6QQ',
+        applicant_title: 'mr',
+        applicant_first_name: 'First',
+        applicant_last_name: 'Last',
+        applicant_address_telephone_number: '01332 222222',
+        applicant_date_of_birth: 18.years.ago,
+        has_name_changed: false
+      }
+      it_behaves_like 'a Form', attrs, Session
     end
   end
 end

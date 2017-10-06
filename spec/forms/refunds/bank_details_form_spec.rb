@@ -1,8 +1,9 @@
 require 'rails_helper'
 module Refunds
   RSpec.describe BankDetailsForm, type: :form do
-    let(:refund) { instance_spy(Refund) }
-    let(:form) { described_class.new(refund) }
+    let(:session_attributes) { Refund.new.attributes.to_h }
+    let(:refund_session) { double('Session', session_attributes) }
+    let(:form) { described_class.new(refund_session) }
 
     describe 'validations' do
       context 'payment_account_type' do
@@ -129,6 +130,6 @@ module Refunds
         payment_bank_name: 'Starship Bank',
         payment_bank_account_number: '12345678',
         payment_bank_sort_code: '123456'
-      }, Refund
+      }, Session
   end
 end

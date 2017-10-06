@@ -15,8 +15,10 @@ module Refunds
         applicant_last_name: 'User'
       }.merge(address_attributes)
     end
-    let(:refund) { instance_spy(Refund, refund_attributes) }
-    let(:form) { described_class.new(refund) }
+    let(:session_attributes) { Refund.new(refund_attributes).attributes.to_h }
+    let(:refund_session) { double('Session', session_attributes) }
+
+    let(:form) { described_class.new(refund_session) }
 
     describe 'validations' do
       context 'et_case_number' do
@@ -228,6 +230,21 @@ module Refunds
           expect(form.errors).to include :claim_had_representative
         end
       end
+    end
+
+    describe 'standard form behavior' do
+      attrs = {
+        et_country_of_claim: 'england_and_wales',
+        claim_had_representative: false,
+        address_changed: true,
+        claimant_address_building: '1',
+        claimant_address_street: 'Street',
+        claimant_address_post_code: 'DE21 6QQ',
+        respondent_name: 'Mr Resp',
+        respondent_address_building: '1',
+        respondent_address_street: 'Street'
+      }
+      it_behaves_like 'a Form', attrs, Session
     end
   end
 end

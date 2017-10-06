@@ -1,4 +1,11 @@
-RSpec.shared_examples 'a Form' do |attributes, resource_class = Claim|
+RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
+  let(:resource_class) do
+    if resource_class_or_lambda.respond_to?(:call)
+      resource_class_or_lambda.call
+    else
+      resource_class_or_lambda
+    end
+  end
   let(:form) { described_class.new(resource_class.new) { |f| f.assign_attributes attributes } }
 
   describe '.model_name_i18n_key' do
