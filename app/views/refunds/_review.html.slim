@@ -115,7 +115,7 @@ div class=("review-list-entry applicant")
   div data-behavior= "refund-review-section"
     h2.list-header
       span = t ".sections.original_case_fees"
-      = link_to t('.edit'), refund_original_case_details_path(return_to_review: true)
+      = link_to t('.edit'), refund_fees_path(return_to_review: true)
     - unless f.object.has_fees?
       p = t('.no_fees')
     - if f.object.has_fees?

@@ -170,6 +170,11 @@ module Refunds
           expect(form.send(reader_method)).to eql Date.parse('12 December 2016')
         end
 
+        it 'converts a full date from a yyyy-mm-dd string' do
+          form.send(writer_method, '2016-12-24')
+          expect(form.send(reader_method)).to eql Date.parse('24 December 2016')
+        end
+
         it 'leaves an invalid date from a hash as is' do
           form.send(writer_method, 'month' => '13', 'year' => '2016')
           expect(form.send(reader_method)).to eql('month' => '13', 'year' => '2016', 'day' => '1')
@@ -203,6 +208,10 @@ module Refunds
 
       context 'fee date writers' do
         include_examples 'a fee date writer', fee_name: :et_issue
+        include_examples 'a fee date writer', fee_name: :et_hearing
+        include_examples 'a fee date writer', fee_name: :et_reconsideration
+        include_examples 'a fee date writer', fee_name: :eat_issue
+        include_examples 'a fee date writer', fee_name: :eat_hearing
       end
     end
   end

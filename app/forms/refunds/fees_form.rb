@@ -123,9 +123,16 @@ module Refunds
     private
 
     def pre_process_partial_date(val, options)
+      val = attempt_date_parse(val) if val.is_a?(String) and val =~ %r(\A\d{4}\-\d{2}\-\d{2}\z)
       return val if val.is_a?(Date) || val.is_a?(DateTime)
       return nil if val.nil? || !val.respond_to?(:values) || val.values.all?(&:blank?)
       convert_partial_date(options, val)
+    end
+
+    def attempt_date_parse(val)
+      Date.parse(val)
+    rescue ArgumentError
+      val
     end
 
     def convert_partial_date(options, val)
