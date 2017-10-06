@@ -408,4 +408,5 @@ en:
           bank: Bank
           building_society: Building Society
   applicant_personal_information_usage_footer: "HMCTS will verify some of the information you have provided as part of this application using a credit reference agency. This check will appear in your credit history, it will not be visible to lenders and it will not affect your credit rating."
+  name_changed_cannot_continue: "If your name has changed since you submitted your original Employment Tribunal claim you will need to complete a paper form which can be downloaded here"
 
