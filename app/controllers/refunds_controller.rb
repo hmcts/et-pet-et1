@@ -1,4 +1,5 @@
 class RefundsController < ApplicationController
+  before_action :validate_session, unless: :at_the_start?
   def new
     refund_session = Session.create
     session[:refund_session_id] = refund_session.id
@@ -50,16 +51,22 @@ class RefundsController < ApplicationController
   end
 
   def load_refund_session_from_session
-    refund_session = if session[:refund_session_id].present?
-                       Session.find_by(id: session[:refund_session_id])
-                     end
-    refund_session ||= Session.create.tap { |s| session[:refund_session_id] = s.id.to_s }
-    refund_session
+    if session[:refund_session_id].present?
+      Session.find_by(id: session[:refund_session_id])
+    end
   end
 
   def load_refund_from_session
     return nil if session[:refund_id].blank?
     Refund.find_by(id: session[:refund_id])
+  end
+
+  def at_the_start?
+    params[:action] == 'new' || (params[:action] == 'show' && current_step == page_manager.class.first_page.underscore)
+  end
+
+  def validate_session
+    redirect_to({ action: :new }, flash: { alert: t('refunds.show.session_reloaded') }) if refund_session.nil?
   end
 
   helper_method :refund_path_for, :refund, :current_step, :page_manager, :resource

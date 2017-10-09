@@ -20,6 +20,17 @@ en:
     refunds:
       payment_date_unknown: "Don't know"
   refunds:
+    show:
+      page_number: Page %{current_page} of %{total_pages}
+      session_reloaded: 'Your session has been re loaded - this may have been caused by your cookie expiring'
+    application_number:
+      header: Saving your refund
+      application_number: Your refund number
+      intro_text: You can save your refund and return to it at any time. You will need your refund number (above), and memorable word, which you create below.
+      print_link: Print this page
+      print_copy: to have a copy of your refund number for reference
+    personal_details:
+      date_of_birth: Date of birth
     claimant:
       is_claimant_legend: "Are you the claimant ?"
     profile_selection:
@@ -29,6 +40,8 @@ en:
     original_case_details:
       original_case_details: "Your case details"
       header: "Details about your original case"
+      address_changed: "Has your address changed since you made your employment tribunal claim ?"
+      representative_details: "Representative"
       respondent_details: "Who was your claim against (Respondent) ?"
       claimant_details: "Your address at the time of your claim"
       date_of_birth: "Date of birth"
@@ -49,6 +62,8 @@ en:
       fee_payment_date: "Payment date (mm/yyyy)"
       total_fees: "Total fees paid"
     bank_details:
+      your_bank_details: "Your Bank Details"
+      your_building_society_details: "Your Building Society Details"
       header: "Repayment Details"
     review:
       header: "Review your application"
@@ -132,6 +147,10 @@ en:
       print_link_html: |
                <a href="javascript:window.print(0);">Print this page</a> for your records
     applicant:
+      header: Claimant details
+      legend_personal_details: About you
+      legend_contact_details: Your contact details
+      has_name_changed_legend: "Has your name changed since you made your employment tribunal claim ?"
       sorry_name_changed:
         header: "Sorry, you cannot continue"
       date_of_birth: "Date of birth"

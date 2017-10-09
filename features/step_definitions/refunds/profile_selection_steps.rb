@@ -13,3 +13,7 @@ end
 Then(/^the continue button should be disabled on the profile selection page$/) do
   expect(refund_profile_selection_page.save_and_continue).to be_disabled
 end
+
+Then(/^I should see the profile selection page$/) do
+  expect(refund_profile_selection_page).to be_displayed
+end

@@ -452,28 +452,6 @@ en:
     show:
       header: Cookies
 
-  refunds:
-    show:
-      page_number: Page %{current_page} of %{total_pages}
-    application_number:
-      header: Saving your refund
-      application_number: Your refund number
-      intro_text: You can save your refund and return to it at any time. You will need your refund number (above), and memorable word, which you create below.
-      print_link: Print this page
-      print_copy: to have a copy of your refund number for reference
-    applicant:
-      header: Claimant details
-      legend_personal_details: About you
-      legend_contact_details: Your contact details
-      has_name_changed_legend: "Has your name changed since you made your employment tribunal claim ?"
-    personal_details:
-      date_of_birth: Date of birth
-    original_case_details:
-      address_changed: "Has your address changed since you made your employment tribunal claim ?"
-      representative_details: "Representative"
-    bank_details:
-      your_bank_details: "Your Bank Details"
-      your_building_society_details: "Your Building Society Details"
   claims:
     personal_details:
       date_of_birth: Date of birth

@@ -39,3 +39,9 @@ Capybara.add_selector(:refund_review_section_fee_type_labelled) do
     XPath.generate { |x| x.descendant(:table).descendant(:tr)[x.descendant(:th)[x.string.n.is(locator)]] }
   end
 end
+
+Capybara.add_selector(:flash_message_with_text) do
+  xpath do |locator, _options|
+    XPath.generate { |x| x.descendant(:h2)[x.ancestor(:div)[x.attr(:class).contains('flash').and(x.string.equals(locator))]] }
+  end
+end
