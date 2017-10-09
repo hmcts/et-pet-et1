@@ -43,6 +43,54 @@ with HttpConfiguration
         .formParam("refunds_applicant[applicant_address_post_code]", "SW1H 9AJ")
         .formParam("refunds_applicant[applicant_address_telephone_number]", "02074903123")
         .check(status.is(200)))
+ 
+     //////  Page 3 of 7 - Details about your original case //////
+
+     .exec(http("Page 3 of 7 - Details about your original case")
+        .put("/apply/refund/original-case-details")
+        .formParam("refunds_original_case_details[address_changed]", "false")
+        .formParam("refunds_original_case_details[respondent_name]", "Phil Smith")
+        .formParam("refunds_original_case_details[respondent_address_building]", "101")
+        .formParam("refunds_original_case_details[respondent_address_street]", "Petty France")
+        .formParam("refunds_original_case_details[respondent_address_locality]", "London")
+        .formParam("refunds_original_case_details[respondent_address_post_code]", "SW1H 9AJ")
+        .formParam("refunds_original_case_details[et_country_of_claim]", "england_and_wales")
+        .formParam("refunds_original_case_details[et_tribunal_office]", "50")
+        .formParam("refunds_original_case_details[et_tribunal_office]", "50")
+        .check(status.is(200)))
+
+    //////  Page 4 of 7 - About the fees you paid //////
+
+    .exec(http("Page 4 of 7 - About the fees you paid")
+        .put("/apply/refund/fees")
+        .formParam("refunds_fees[et_issue_fee]", "700")
+        .formParam("refunds_fees[et_issue_fee_payment_date_unknown]", "1")
+        .formParam("refunds_fees[et_issue_fee_payment_method]", "cheque")        
+        .check(status.is(200)))
+
+    //////  Page 5 of 7 - Repayment Details //////
+
+    .exec(http("Page 5 of 7 - Repayment Details")
+        .put("/apply/refund/bank-details")
+        .formParam("refunds_bank_details[payment_account_type]", "bank")
+        .formParam("refunds_bank_details[payment_bank_name]", "hsbc")
+        .formParam("refunds_bank_details[payment_bank_account_name]", "Phil Smith")
+        .formParam("refunds_bank_details[payment_bank_account_number]", "00000000")
+        .formParam("refunds_bank_details[payment_bank_sort_code]", "000000")
+        .check(status.is(200)))
+
+    //////  Page 6 of 7 - Review your application //////
+
+    .exec(http("Page 6 of 7 - Review your application")
+        .put("/apply/refund/review")
+        .formParam("refunds_review[accept_declaration]", "1")
+        .check(status.is(200)))
+
+     //////  Page 7 of 7 - Refund application submitted //////
+
+     .exec(http("Page 7 of 7 - Refund application submitted")
+        .put("/apply/refund/confirmation")
+        .check(status.is(200)))
 
   val userCount = conf.getInt("users")
   val durationInSeconds  = conf.getLong("duration")
