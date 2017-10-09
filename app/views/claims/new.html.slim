@@ -21,8 +21,6 @@ header.main-header role="banner"
 
         .clearfix
           = f.button :submit, { class: 'button ga-event' }
-          = link_to t('helpers.link.start_a_refund'), new_refund_path, {class: 'button-return ga-event'}
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
-
 
   = render partial: 'shared/aside'

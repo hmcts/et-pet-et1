@@ -8,7 +8,6 @@ Feature: Refund Form
     And my name has not changed since the original claim that I want a refund for
     And my address has not changed since the original claim that I want a refund for
     And I did not have a representative
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms
@@ -22,7 +21,6 @@ Feature: Refund Form
     And my address has not changed since the original claim that I want a refund for
     And I did not have a representative
     And I did not have an EAT issue fee
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms
@@ -35,7 +33,6 @@ Feature: Refund Form
     And my name has not changed since the original claim that I want a refund for
     And my address has not changed since the original claim that I want a refund for
     And I had a representative
-    And I am on the landing page
 
     When I start a new refund for an individual claimant whos representative paid the fees and the indivual reimbursed them
     And I fill in the refund forms
@@ -48,7 +45,6 @@ Feature: Refund Form
     And my name has not changed since the original claim that I want a refund for
     And my address has not changed since the original claim that I want a refund for
     And I did not have a representative
-    And I am on the landing page
 
     When I start a new refund for an individual claimant who paid a fee to the employment appeal tribunal
     And I fill in the refund forms
@@ -61,7 +57,6 @@ Feature: Refund Form
     And my name has not changed since the original claim that I want a refund for
     And my address has not changed since the original claim that I want a refund for
     And I had a representative
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms
@@ -75,7 +70,6 @@ Feature: Refund Form
     And I have a bank account
     And my name has not changed since the original claim that I want a refund for
     And my address has changed since the original claim that I want a refund for
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms
@@ -88,7 +82,6 @@ Feature: Refund Form
     And I have a building society account
     And my name has not changed since the original claim that I want a refund for
     And my address has not changed since the original claim that I want a refund for
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms

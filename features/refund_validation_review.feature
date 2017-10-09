@@ -9,7 +9,6 @@ Feature: Refund Validations - Confirmation Page
     And my name has not changed since the original claim that I want a refund for
     And I did not have a representative
     And I have a bank account
-    And I am on the landing page
     And I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in my refund applicant details
     And I answer No to the has your address changed question for refunds

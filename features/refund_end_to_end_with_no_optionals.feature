@@ -17,7 +17,6 @@ Feature: Refund form with no optional fields filled in
     And my name has not changed since the original claim that I want a refund for
     And my address has changed (minimal details) since the original claim that I want a refund for
     And I had a representative with minimal details
-    And I am on the landing page
 
     When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
     And I fill in the refund forms
