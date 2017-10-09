@@ -4,7 +4,7 @@ fieldset
   ul
     - t('.applicant_personal_information_usage_html').each_line do |line|
       li= line
-  p = t('applicant_personal_information_usage_footer')
+  p = t('.applicant_personal_information_usage_footer')
 fieldset
   legend= t '.has_name_changed_legend'
   = f.input :has_name_changed,
@@ -39,5 +39,5 @@ fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
 fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='true'
   legend= t '.sorry_name_changed.header'
   p
-    = t('name_changed_cannot_continue')
+    = t('.name_changed_cannot_continue')
 
