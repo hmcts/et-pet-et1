@@ -256,7 +256,7 @@ ActiveRecord::Schema.define(version: 20171006134320) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.jsonb    "data",       default: {}
+    t.json     "data",       default: {}
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
