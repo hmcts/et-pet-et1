@@ -2,7 +2,7 @@ var refundReviewPage = (function() {
     var refundReview = {};
     function updateContinueButton() {
         var disabled = !acceptDeclarationEl().is(':checked');
-        $('.main-content.refunds_review [data-behavior=\'continue_button\']').prop('disabled', disabled)
+        $('.main-content.refunds_review [data-behavior=\'continue_button\']').prop('disabled', disabled);
     }
     function enableContinueWhenAllowed() {
         acceptDeclarationEl().on('click change', updateContinueButton);
@@ -13,6 +13,6 @@ var refundReviewPage = (function() {
     refundReview.init = function() {
         updateContinueButton();
         enableContinueWhenAllowed();
-    }
+    };
     return refundReview;
 })();
