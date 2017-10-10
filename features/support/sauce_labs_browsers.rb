@@ -7,9 +7,8 @@ if ENV['SAUCELABS_ACCOUNT'].present?
       :version => "45"
     }
     Capybara::Selenium::Driver.new(app, browser: :chrome, url: sauce_url, desired_capabilities: caps)
-
-    Capybara::Screenshot.register_driver(:'sauce-chrome-windows7') do |driver, path|
-      driver.browser.save_screenshot(path)
-    end
+  end
+  Capybara::Screenshot.register_driver(:'sauce-chrome-windows7') do |driver, path|
+    driver.browser.save_screenshot(path)
   end
 end
