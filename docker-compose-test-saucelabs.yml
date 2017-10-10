@@ -1,0 +1,17 @@
+version: "2"
+
+services:
+  sauce_tunnel:
+    image: ustwo/sauce-connect
+    environment:
+      SAUCE_USERNAME: garydavidtaylor1
+      SAUCE_ACCESS_KEY: f6ed88b5-df85-45c9-9475-b8335eb52251
+      TUNNEL_ID: my_sc_pool
+    command: -u garydavidtaylor1 -k f6ed88b5-df85-45c9-9475-b8335eb52251 --verbose
+  test:
+    environment:
+      SAUCELABS_ACCOUNT: garydavidtaylor1
+      SAUCELABS_API_KEY: f6ed88b5-df85-45c9-9475-b8335eb52251
+      DRIVER: 'sauce-chrome-windows7'
+    links:
+      - sauce_tunnel
