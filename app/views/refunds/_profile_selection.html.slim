@@ -8,3 +8,8 @@ fieldset.profile_selection
           collection: Refunds::ProfileSelectionForm::PROFILE_TYPES,
           input_html: { data: { behavior: 'profile_type' } }
 
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundProfileSelectionPage.init()
+      });
