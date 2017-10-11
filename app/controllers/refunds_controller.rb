@@ -62,7 +62,7 @@ class RefundsController < ApplicationController
   end
 
   def at_the_start?
-    params[:action] == 'new' || (params[:action] == 'show' && current_step == page_manager.class.first_page.underscore)
+    params[:action] == 'new'
   end
 
   def validate_session
