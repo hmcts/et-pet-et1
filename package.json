@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/ministryofjustice/atet"
   },
-  "devDependencies": {
+  "dependencies": {
     "browserify": "^14.0.0",
     "browserify-incremental": "^3.1.0"
   }

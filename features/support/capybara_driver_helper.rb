@@ -1,7 +1,8 @@
+require 'webrick/log'
 Capybara.configure do |config|
   driver = ENV['DRIVER']&.to_sym || :chrome
   config.default_driver = driver
-  config.default_max_wait_time = 45
+  config.default_max_wait_time = 15
   config.match = :prefer_exact
   config.visible_text_only = true
 
@@ -20,7 +21,7 @@ Capybara.register_driver :firefox do |app|
 end
 
 Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'))
+  Capybara::Selenium::Driver.new(app, browser: :chrome, url: ENV.fetch('SELENIUM_URL', 'http://localhost:4444/wd/hub'), args: ["--window-size=1600,1000"])
 end
 
 if ENV.key?('CIRCLE_ARTIFACTS')
@@ -45,3 +46,4 @@ Capybara.current_driver = Capybara.default_driver
 Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', "http://#{ENV.fetch('HOSTNAME')}:3000")
 Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME'))
 Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000')
+Capybara.server = :webrick, { Logger: WEBrick::Log.new(Rails.logger, WEBrick::Log::DEBUG) }

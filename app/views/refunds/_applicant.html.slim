@@ -1,0 +1,47 @@
+fieldset
+  legend = t('.applicant_personal_information_usage_header')
+  span = t('.applicant_personal_information_usage_sub_header')
+  ul
+    - t('.applicant_personal_information_usage_html').each_line do |line|
+      li= line
+  p = t('.applicant_personal_information_usage_footer')
+fieldset
+  legend= t '.has_name_changed_legend'
+  = f.input :has_name_changed,
+          as: :radio_buttons,
+          required: true,
+          label: false,
+          item_wrapper_class: 'block-label',
+          wrapper_html: {:class => 'form-group-reveal reveal-publish-delegate'},
+          input_html: {:class => 'reveal-publish-publisher ga-vpv'},
+          reveal: {true => 'has_name_changed', false => 'has_name_changed'}
+
+fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
+  legend= t '.legend_personal_details'
+  = f.input :applicant_title, collection: Refunds::ApplicantForm::TITLES, include_blank: :translate
+  = f.input :applicant_first_name, input_html: {class: 'medium-input'}
+  = f.input :applicant_last_name, input_html: {class: 'medium-input'}
+  fieldset
+    legend.form-label = t '.date_of_birth'
+    = f.input :applicant_date_of_birth, label: false, hint: t('simple_form.hints.claimant.date_of_birth')
+  fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
+    legend= t '.legend_contact_details'
+
+  = f.input :applicant_address_building
+  = f.input :applicant_address_street
+  = f.input :applicant_address_locality
+  = f.input :applicant_address_county
+  = f.input :applicant_address_post_code, input_html: {class: 'short-input'}
+
+  = f.input :applicant_address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
+  = f.input :email_address
+
+fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='true'
+  legend= t '.sorry_name_changed.header'
+  p
+    = t('.name_changed_cannot_continue')
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundApplicantPage.init()
+      });

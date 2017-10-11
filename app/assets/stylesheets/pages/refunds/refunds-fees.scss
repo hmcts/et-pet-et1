@@ -1,0 +1,34 @@
+.main-content.refunds_fees {
+  table.fees {
+    .fee {
+      input {
+        width: 6em;
+      }
+    }
+    td.fee_type {
+      margin: 0px;
+      padding: 0px 10px 0px 0px;
+    }
+    .fee_payment_date {
+      width: 50%;
+      .know-date-input.year-month-date-input {
+        width: 15em;
+        .form-group {
+          margin-right: 10px;
+        }
+      }
+    }
+    .fee_payment_method {
+      select {
+        width: 7em;
+
+      }
+    }
+    td {
+      .form-group {
+        margin-bottom: 0px;
+      }
+    }
+    margin-bottom: 20px;
+  }
+}

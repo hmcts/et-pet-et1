@@ -197,6 +197,7 @@ Feature: Output Form
     And I answer Yes to the other important details question
     And I fill in the important details with "Here are some very important details that need to be considered"
     And I save the more about the claim form
+    And I take a screenshot
     And I submit my claim
     And all background jobs for claim submissions are processed
     And I save a copy of my claim

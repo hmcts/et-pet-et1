@@ -1,0 +1,209 @@
+
+
+div class=("review-list-entry applicant")
+  div data-behavior="refund-review-section"
+    h2.list-header
+      span = t ".sections.applicant"
+      = link_to t('.edit'), refund_applicant_path(return_to_review: true)
+    table.review-table
+      tr
+        th = t('.full_name')
+        td = [f.object.applicant_title.titleize, f.object.applicant_first_name, f.object.applicant_last_name].join(' ')
+      tr
+        th = t('.date_of_birth')
+        td = f.object.applicant_date_of_birth.strftime('%d/%m/%Y')
+  div data-behavior= "refund-review-section"
+    h2.list-header
+      span = t ".sections.applicant_contact_details"
+    table.review-table
+      tr
+        th = t('simple_form.labels.claimant.address_building')
+        td = f.object.applicant_address_building
+      tr
+        th = t('simple_form.labels.claimant.address_street')
+        td = f.object.applicant_address_street
+      tr
+        th = t('simple_form.labels.claimant.address_locality')
+        td = f.object.applicant_address_locality
+      tr
+        th = t('simple_form.labels.claimant.address_county')
+        td = f.object.applicant_address_county
+      tr
+        th = t('simple_form.labels.claimant.address_post_code')
+        td = f.object.applicant_address_post_code
+      tr
+        th = t('simple_form.labels.claimant.address_telephone_number')
+        td = f.object.applicant_address_telephone_number
+      tr
+        th = t('.email_address')
+        td = f.object.email_address
+  div data-behavior= "refund-review-section"
+    h2.list-header
+      span = t ".sections.original_case_details"
+      = link_to t('.edit'), refund_original_case_details_path(return_to_review: true)
+    table.review-table
+      tr
+        th = t('.claimant_name')
+        td = f.object.claimant_name
+      tr
+        th = t('.claimant_address_building')
+        td = f.object.claimant_address_building
+      tr
+        th = t('.claimant_address_street')
+        td = f.object.claimant_address_street
+      tr
+        th = t('.claimant_address_locality')
+        td = f.object.claimant_address_locality
+      tr
+        th = t('.claimant_address_county')
+        td = f.object.claimant_address_county
+      tr
+        th = t('.claimant_address_post_code')
+        td = f.object.claimant_address_post_code
+      - if f.object.claim_had_representative?
+        tr
+          th = t('.representative_name')
+          td = f.object.representative_name
+        tr
+          th = t('.representative_address_building')
+          td = f.object.representative_address_building
+        tr
+          th = t('.representative_address_street')
+          td = f.object.representative_address_street
+        tr
+          th = t('.representative_address_locality')
+          td = f.object.representative_address_locality
+        tr
+          th = t('.representative_address_county')
+          td = f.object.representative_address_county
+        tr
+          th = t('.representative_address_post_code')
+          td = f.object.representative_address_post_code
+      tr
+        th = t('.respondent_name')
+        td = f.object.respondent_name
+      tr
+        th = t('.respondent_address_building')
+        td = f.object.respondent_address_building
+      tr
+        th = t('.respondent_address_street')
+        td = f.object.respondent_address_street
+      tr
+        th = t('.respondent_address_locality')
+        td = f.object.respondent_address_locality
+      tr
+        th = t('.respondent_address_county')
+        td = f.object.respondent_address_county
+      tr
+        th = t('.respondent_address_post_code')
+        td = f.object.respondent_address_post_code
+      tr
+        th = t('.et_country_of_claim')
+        td = country_of_claim_for(f.object.et_country_of_claim)
+      tr
+        th = t('.et_tribunal_office')
+        td = et_office_for(f.object.et_tribunal_office)
+      tr
+        th = t('.et_case_number')
+        td = f.object.et_case_number
+      tr
+        th = t('.eat_case_number')
+        td = f.object.eat_case_number
+      tr
+        th = t('.additional_information')
+        td = f.object.additional_information
+  div data-behavior= "refund-review-section"
+    h2.list-header
+      span = t ".sections.original_case_fees"
+      = link_to t('.edit'), refund_fees_path(return_to_review: true)
+    - unless f.object.has_fees?
+      p = t('.no_fees')
+    - if f.object.has_fees?
+      table.review-table
+        tr
+          th = t('.fee_type')
+          td = t('.fee')
+          td = "Payment Date"
+          td = t('.payment_method')
+        - if f.object.et_issue_fee_present?
+          tr
+            th = t('.et_issue_fee')
+            td = number_to_currency(f.object.et_issue_fee, delimiter: '')
+            td = payment_date_for(f.object, :et_issue_fee)
+            td = payment_method_for(f.object, :et_issue_fee)
+        - if f.object.et_hearing_fee_present?
+          tr
+            th = t('.et_hearing_fee')
+            td = number_to_currency(f.object.et_hearing_fee, delimiter: '')
+            td = payment_date_for(f.object, :et_hearing_fee)
+            td = payment_method_for(f.object, :et_hearing_fee)
+        - if f.object.et_reconsideration_fee_present?
+          tr
+            th = t('.et_reconsideration_fee')
+            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '')
+            td = payment_date_for(f.object, :et_reconsideration_fee)
+            td = payment_method_for(f.object, :et_reconsideration_fee)
+        - if f.object.eat_issue_fee_present?
+          tr
+            th = t('.eat_issue_fee')
+            td = number_to_currency(f.object.eat_issue_fee, delimiter: '')
+            td = payment_date_for(f.object, :eat_issue_fee)
+            td = payment_method_for(f.object, :eat_issue_fee)
+        - if f.object.eat_hearing_fee_present?
+          tr
+            th = t('.eat_hearing_fee')
+            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '')
+            td = payment_date_for(f.object, :eat_hearing_fee)
+            td = payment_method_for(f.object, :eat_hearing_fee)
+        tr
+          th = t('.total_fees')
+          td = number_to_currency(f.object.total_fees, delimiter: '')
+  div data-behavior= "refund-review-section"
+    - if f.object.payment_account_type == 'bank'
+      h2.list-header
+        span = t '.sections.bank_details'
+        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
+      table.review-table
+        tr
+          th = t('.payment_bank_account_name')
+          td = f.object.payment_bank_account_name
+        tr
+          th = t('.payment_bank_name')
+          td = f.object.payment_bank_name
+        tr
+          th = t('.payment_bank_account_number')
+          td = f.object.payment_bank_account_number
+        tr
+          th = t('.payment_bank_sort_code')
+          td = f.object.payment_bank_sort_code
+    - if f.object.payment_account_type == 'building_society'
+      h2.list-header
+        span = t '.sections.building_society_details'
+        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
+      table.review-table
+        tr
+          th = t('.payment_building_society_account_name')
+          td = f.object.payment_building_society_account_name
+        tr
+          th = t('.payment_building_society_name')
+          td = f.object.payment_building_society_name
+        tr
+          th = t('.payment_building_society_account_number')
+          td = f.object.payment_building_society_account_number
+        tr
+          th = t('.payment_building_society_sort_code')
+          td = f.object.payment_building_society_sort_code
+fieldset
+  legend= t '.declaration'
+  p = t('.declaration_i_confirm')
+  ul
+    - t('.declaration_detail_html').each_line do |line|
+      li=line
+
+
+  = f.input :accept_declaration, required: true, input_html: { data: { behavior: 'accept_declaration'} }
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundReviewPage.init()
+      });

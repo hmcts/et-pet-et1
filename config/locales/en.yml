@@ -51,7 +51,6 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
-
       additional_claimants:
         collection: :"simple_form.options.claimant"
 
@@ -260,6 +259,7 @@ en:
       your_fee:
         applying_for_remission: Do you want to apply for help with fees?
         remission_claimant_count: How many in your group want to apply for help with fees?
+
 
     hints:
       application_number:

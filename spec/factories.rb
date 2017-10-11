@@ -203,4 +203,49 @@ FactoryGirl.define do
     net_pay_period_type                  "monthly"
     benefit_details                      "All the justice you can eat"
   end
+
+  factory :refund do
+    sequence(:email_address)              { |n| "tester#{n}@domain.com" }
+    accept_declaration                    true
+    address_changed                       true
+    has_name_changed                      false
+    profile_type                          'claimant_direct_not_reimbursed'
+    et_country_of_claim                   'england_and_wales'
+    et_case_number                        '1234567/2016'
+    eat_case_number                       'UKEAT/2016/06/123'
+    et_tribunal_office                    'unknown'
+    sequence(:application_reference_number) { |n| n }
+    application_reference                 { "C#{application_reference_number}" }
+    respondent_name                       'Mr Resp'
+    respondent_address_building           '26'
+    respondent_address_street             'Street'
+    respondent_address_locality           'Locality'
+    respondent_address_county             'County'
+    respondent_address_post_code          'DE22 1ZY'
+    claim_had_representative              true
+    representative_name                   'Mr Rep'
+    representative_address_building       '28'
+    representative_address_street         'Rep Street'
+    representative_address_locality       'Rep Locality'
+    representative_address_county         'Rep County'
+    representative_address_post_code      'DE23 1ZY'
+    claimant_name                         'Mr Claimant'
+    claimant_address_building             '30'
+    claimant_address_street               'Claimant Street'
+    claimant_address_locality             'Claimant Locality'
+    claimant_address_county               'Claimant County'
+    claimant_address_post_code            'DE24 1ZY'
+    applicant_address_building             '30'
+    applicant_address_street               'Applicant Street'
+    applicant_address_locality             'Applicant Locality'
+    applicant_address_county               'Applicant County'
+    applicant_address_post_code            'DE25 1ZY'
+    applicant_address_telephone_number    '01332 123456'
+    applicant_title                       'mr'
+    applicant_first_name                  'First'
+    applicant_last_name                   'Last'
+    additional_information                'Some extra information'
+    payment_account_type                  'bank'
+    submitted_at                          DateTime.parse('1 December 2016 00:00:00').utc
+  end
 end

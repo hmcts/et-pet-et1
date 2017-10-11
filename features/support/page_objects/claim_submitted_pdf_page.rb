@@ -1,4 +1,3 @@
-# rubocop:disable Metrics/BlockLength, Metrics/ClassLength
 class ClaimSubmittedPdfPage < BasePage
   set_url "/uploads/claim/pdf{/p1}{/p2}"
 
