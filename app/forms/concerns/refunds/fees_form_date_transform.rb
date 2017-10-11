@@ -9,13 +9,12 @@ module Refunds
       alias_method_chain :et_reconsideration_fee_payment_date=, :pre_process
       alias_method_chain :eat_issue_fee_payment_date=, :pre_process
       alias_method_chain :eat_hearing_fee_payment_date=, :pre_process
-
-
     end
 
     def et_issue_fee_payment_date_with_pre_process=(val)
       self.et_issue_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
     end
+
     def et_hearing_fee_payment_date_with_pre_process=(val)
       self.et_hearing_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
     end
@@ -58,7 +57,5 @@ module Refunds
         acc
       end
     end
-
-
   end
 end
