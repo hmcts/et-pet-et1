@@ -1,15 +1,9 @@
 Feature: Refund form with error recovery
+  Assuming Anakin Skywalker's profile does not have any
+  of the optional field values such as town/city, county, respondent post code etc..
+  and he has a claim with case number 1234567/2015 which has all optional data missing also
   Background:
     Given I am "Anakin Skywalker"
-    # No town/city, county, email address in applicant page
-    # No town/city, county for your address at time of claim in case details page
-    # No town/city, county for rep address in case details page
-    # No town/city, county or post code for respondent address in case details page
-    # No employment tribunal office, et case no, eat case no or additional info in case details
-    # No fees at all in fees page
-
-
-
     And I want a refund for my previous ET claim with case number "1234567/2015"
 
   Scenario: Refund for a sole party who paid directly, used a representative and whos name or address has changed
