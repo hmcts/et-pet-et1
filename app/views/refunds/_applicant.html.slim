@@ -40,4 +40,8 @@ fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='true'
   legend= t '.sorry_name_changed.header'
   p
     = t('.name_changed_cannot_continue')
-
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          refundApplicantPage.init()
+      });
