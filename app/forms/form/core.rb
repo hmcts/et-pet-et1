@@ -36,6 +36,10 @@ class Form
         self.class.model_name_i18n_key.to_s.dasherize
       end
 
+      def has_attribute?(attr, *args)
+        attributes.key?(attr)
+      end
+
       class << self
         def attribute(attribute, klass, options = {})
           super

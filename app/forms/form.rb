@@ -13,10 +13,6 @@ class Form
     true
   end
 
-  def has_attribute?(attr, *args)
-    attributes.key?(attr)
-  end
-
   def save
     if valid?
       run_callbacks :save do
