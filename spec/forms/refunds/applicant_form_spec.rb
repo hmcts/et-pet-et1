@@ -141,6 +141,12 @@ module Refunds
           expect(applicant_form.errors).to include :has_name_changed
         end
 
+        it 'validates - disallowing empty string value' do
+          applicant_form.has_name_changed = ''
+          applicant_form.valid?
+          expect(applicant_form.errors).to include :has_name_changed
+        end
+
         it 'validates - allowing true' do
           applicant_form.has_name_changed = 'true'
           applicant_form.valid?

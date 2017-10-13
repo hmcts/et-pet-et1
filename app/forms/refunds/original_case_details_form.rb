@@ -32,8 +32,8 @@ module Refunds
     attribute :claimant_name,                           String
     validates :et_tribunal_office, inclusion: TRIBUNAL_OFFICES, allow_blank: true
     validates :et_country_of_claim, presence: true, inclusion: COUNTRY_OF_CLAIMS
-    validates :claim_had_representative, nil: true
-    validates :address_changed, nil: true
+    validates :claim_had_representative, nil_or_empty: true
+    validates :address_changed, nil_or_empty: true
     validates :claimant_address_building,
       :claimant_address_street,
       :claimant_address_post_code,

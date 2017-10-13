@@ -191,6 +191,12 @@ module Refunds
           form.valid?
           expect(form.errors).to include :address_changed
         end
+
+        it 'validates - disallowing empty string value' do
+          form.address_changed = ''
+          form.valid?
+          expect(form.errors).to include :address_changed
+        end
       end
 
       context 'claimant_address_building' do
@@ -226,6 +232,12 @@ module Refunds
 
         it 'validates - disallowing nil value' do
           form.claim_had_representative = nil
+          form.valid?
+          expect(form.errors).to include :claim_had_representative
+        end
+
+        it 'validates - disallowing empty string value' do
+          form.claim_had_representative = ''
           form.valid?
           expect(form.errors).to include :claim_had_representative
         end
