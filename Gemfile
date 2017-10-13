@@ -58,6 +58,7 @@ group :test do
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
   gem 'selenium-webdriver', '~> 3.4'
+  gem 'rails-controller-testing', '~> 1.0'
 end
 
 group :production do
