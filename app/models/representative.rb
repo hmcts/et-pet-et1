@@ -1,4 +1,4 @@
-class Representative < ActiveRecord::Base
+class Representative < ApplicationRecord
   self.inheritance_column = nil
 
   belongs_to :claim

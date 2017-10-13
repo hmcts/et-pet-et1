@@ -1,4 +1,4 @@
-class Claim < ActiveRecord::Base
+class Claim < ApplicationRecord
   include PaymentAndFee
   include Reference
   include ClaimLists

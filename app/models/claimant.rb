@@ -1,4 +1,4 @@
-class Claimant < ActiveRecord::Base
+class Claimant < ApplicationRecord
   belongs_to :claim
   has_one :address, as: :addressable, autosave: true
 

@@ -1,3 +1,3 @@
-class Office < ActiveRecord::Base
+class Office < ApplicationRecord
   belongs_to :claim
 end

@@ -1,4 +1,4 @@
-class Respondent < ActiveRecord::Base
+class Respondent < ApplicationRecord
   belongs_to :claim
   has_many   :addresses, as: :addressable, autosave: true
 

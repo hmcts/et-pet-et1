@@ -1,3 +1,3 @@
-class Employment < ActiveRecord::Base
+class Employment < ApplicationRecord
   belongs_to :claim
 end
