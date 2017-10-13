@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails', '4.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.10'
+gem 'rails', '5.0.0'
 gem 'responders', '~> 2.0'
 
 # Use SCSS for stylesheets
@@ -69,7 +69,7 @@ group :production, :test do
   gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 end
 
-gem 'activeadmin', github: 'activeadmin', ref: '156877'
+gem 'activeadmin', '~> 1.0'
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
@@ -86,9 +86,9 @@ gem 'pdf-forms'
 gem 'pg'
 gem 'redcarpet', '3.4.0'
 gem 'representable', '2.3.0', require: 'representable/xml'
-gem 'simple_form', '3.1.0rc2'
-gem 'slim-rails'
-gem 'sidekiq'
+gem 'simple_form', '~> 3.2.1'
+gem 'slim-rails', '~> 3.1'
+gem 'sidekiq', '~> 4.2.0'
 gem 'state_machine', require: 'state_machine/core'
 gem 'uk_postcode'
 gem 'susy'
