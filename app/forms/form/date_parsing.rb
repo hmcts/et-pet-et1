@@ -29,6 +29,8 @@ class Form
       def coerce_object(obj)
         if obj.respond_to?(:symbolize_keys)
           obj.symbolize_keys if obj.values.any?(&:present?)
+        elsif obj.is_a?(ActionController::Parameters)
+          obj.to_unsafe_hash.symbolize_keys
         else
           obj
         end
