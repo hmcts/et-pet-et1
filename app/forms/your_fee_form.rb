@@ -13,7 +13,7 @@ class YourFeeForm < Form
   end
 
   def applying_for_remission=(bool)
-    bool = ActiveRecord::Type::Boolean.new.type_cast_from_user bool
+    bool = ActiveRecord::Type::Boolean.new.cast bool
     self.remission_claimant_count = bool ? 1 : 0
   end
 

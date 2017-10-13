@@ -52,7 +52,7 @@ class Form
           type = ActiveRecord::Type::Boolean.new
 
           define_method(:"#{attr}=") do |v|
-            instance_variable_set :"@#{attr}", type.type_cast_from_user(v)
+            instance_variable_set :"@#{attr}", type.cast(v)
           end
 
           alias_method :"#{attr}?", attr

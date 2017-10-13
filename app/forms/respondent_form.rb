@@ -52,7 +52,7 @@ class RespondentForm < Form
     acas: true
 
   def worked_at_same_address?
-    ActiveRecord::Type::Boolean.new.type_cast_from_user(attributes[:worked_at_same_address])
+    ActiveRecord::Type::Boolean.new.cast(attributes[:worked_at_same_address])
   end
 
   before_save :reload_addresses
