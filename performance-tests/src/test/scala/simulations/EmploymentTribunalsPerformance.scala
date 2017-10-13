@@ -58,7 +58,7 @@ with HttpConfiguration
      .exec(http("Page 3 of 7 - Details about your original case")
         .put("/apply/refund/original-case-details")
         .formParam("refunds_original_case_details[address_changed]", "false")
-        .formParam("refunds_original_case_details[claim_had_representative]", "true")
+        .formParam("refunds_original_case_details[claim_had_representative]", "false")
         .formParam("refunds_original_case_details[respondent_name]", "Phil Smith")
         .formParam("refunds_original_case_details[respondent_address_building]", "101")
         .formParam("refunds_original_case_details[respondent_address_street]", "Petty France")
