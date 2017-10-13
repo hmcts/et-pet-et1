@@ -32,4 +32,4 @@ ENV PATH /opt/gatling/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbi
 ENV GATLING_HOME /opt/gatling
 ENV JAVA_OPTS ""
 
-CMD ["gatling.sh"]
+ENTRYPOINT ["gatling.sh"]

@@ -17,13 +17,19 @@ with HttpConfiguration
   val scenario1 = scenario("Happy Path for Employment Tribunal Refunds")
 
     .exec(http("Start Session")
-        .get("/apply/refund/new"))
+        .get("/apply/refund"))
+
+    .exec(http("Store authenticity token")
+        .get("/apply/refund/profile-selection")
+        .check(css("input[name='authenticity_token']", "value").saveAs("csrfCookie")))
 
     //////  Page 1 of 7 - Introduction Page //////
 
     .exec(http("Page 1 of 7 - Introduction Page")
         .put("/apply/refund/profile-selection")
         .formParam("refunds_profile_selection[profile_type]", "claimant_direct_not_reimbursed")
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
 
     //////  Page 2 of 7 - Claimant details //////
@@ -42,13 +48,17 @@ with HttpConfiguration
         .formParam("refunds_applicant[applicant_address_locality]", "London")
         .formParam("refunds_applicant[applicant_address_post_code]", "SW1H 9AJ")
         .formParam("refunds_applicant[applicant_address_telephone_number]", "02074903123")
+        .formParam("refunds_applicant[email_address]", "sophie@example.com")
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
- 
+
      //////  Page 3 of 7 - Details about your original case //////
 
      .exec(http("Page 3 of 7 - Details about your original case")
         .put("/apply/refund/original-case-details")
         .formParam("refunds_original_case_details[address_changed]", "false")
+        .formParam("refunds_original_case_details[claim_had_representative]", "true")
         .formParam("refunds_original_case_details[respondent_name]", "Phil Smith")
         .formParam("refunds_original_case_details[respondent_address_building]", "101")
         .formParam("refunds_original_case_details[respondent_address_street]", "Petty France")
@@ -57,15 +67,19 @@ with HttpConfiguration
         .formParam("refunds_original_case_details[et_country_of_claim]", "england_and_wales")
         .formParam("refunds_original_case_details[et_tribunal_office]", "50")
         .formParam("refunds_original_case_details[et_tribunal_office]", "50")
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
 
-    //////  Page 4 of 7 - About the fees you paid //////
+     //////  Page 4 of 7 - About the fees you paid //////
 
     .exec(http("Page 4 of 7 - About the fees you paid")
         .put("/apply/refund/fees")
         .formParam("refunds_fees[et_issue_fee]", "700")
         .formParam("refunds_fees[et_issue_fee_payment_date_unknown]", "1")
         .formParam("refunds_fees[et_issue_fee_payment_method]", "cheque")        
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
 
     //////  Page 5 of 7 - Repayment Details //////
@@ -77,19 +91,23 @@ with HttpConfiguration
         .formParam("refunds_bank_details[payment_bank_account_name]", "Phil Smith")
         .formParam("refunds_bank_details[payment_bank_account_number]", "00000000")
         .formParam("refunds_bank_details[payment_bank_sort_code]", "000000")
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
 
-    //////  Page 6 of 7 - Review your application //////
+     //////  Page 6 of 7 - Review your application //////
 
     .exec(http("Page 6 of 7 - Review your application")
         .put("/apply/refund/review")
         .formParam("refunds_review[accept_declaration]", "1")
+        .formParam("authenticity_token", session => {
+            session("csrfCookie").as[String]})
         .check(status.is(200)))
-
-     //////  Page 7 of 7 - Refund application submitted //////
+    
+    //////  Page 7 of 7 - Refund application submitted //////
 
      .exec(http("Page 7 of 7 - Refund application submitted")
-        .put("/apply/refund/confirmation")
+        .get("/apply/refund/confirmation")
         .check(status.is(200)))
 
   val userCount = conf.getInt("users")
