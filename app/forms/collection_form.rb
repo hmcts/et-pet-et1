@@ -53,7 +53,8 @@ class CollectionForm < Form
   end
 
   def valid?
-    run_callbacks(:validation) { super && collection.map(&:valid?).all? }
+    super # This will call validation callbacks etc... but ignore results
+    collection.all?(&:valid?)
   end
 
   def errors
