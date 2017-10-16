@@ -160,7 +160,7 @@ en:
         For audit
       applicant_personal_information_usage_header: "Using your personal information:"
       applicant_personal_information_usage_sub_header: "Personal information which you supply to us may be used in a number of ways, for example:"
-      name_changed_cannot_continue: "If your name has changed since you submitted your original Employment Tribunal claim you will need to complete a paper form which can be downloaded here. You will be asked to provide evidence of your name change."
+      name_changed_cannot_continue_html: 'If your name has changed since you submitted your original Employment Tribunal claim you will need to complete a paper form which can be downloaded <a target="_blank" href="https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?original_id=2033">here</a>. You will be asked to provide evidence of your name change.'
       applicant_personal_information_usage_footer: "HMCTS will verify some of the information you have provided as part of this application using a credit reference agency. This check will appear in your credit history, it will not be visible to lenders and it will not affect your credit rating."
 
 

@@ -23,6 +23,7 @@ Feature: Refund Validations - Applicant page
   Scenario: A user answers yes to the name changed question in the applicant step
     When I answer Yes to the has your name changed question for refunds
     Then the continue button should be disabled on the refund applicant page
+    And I take a screenshot named "Page 2 - with name change"
 
   Scenario: A user answers no to name change and fills in an invalid email address and date of birth
     When I answer No to the has your name changed question for refunds
