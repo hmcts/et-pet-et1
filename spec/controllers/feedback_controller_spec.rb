@@ -11,9 +11,7 @@ RSpec.describe FeedbackController, type: :controller do
     before { allow(FeedbackForm).to receive(:new).and_return form }
 
     it 'saves the form' do
-      expect(form).to receive(:assign_attributes) do |args|
-        expect(args.to_unsafe_hash).to eq(params.stringify_keys)
-      end
+      expect(form).to receive(:assign_attributes).with(an_object_having_attributes(to_unsafe_hash: params.stringify_keys))
       post :create, feedback: params
     end
 
