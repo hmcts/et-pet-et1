@@ -4,31 +4,29 @@ module Refunds
     included do
       dates :et_issue_fee_payment_date, :et_hearing_fee_payment_date, :eat_issue_fee_payment_date
       dates :eat_hearing_fee_payment_date, :et_reconsideration_fee_payment_date
-      alias_method_chain :et_issue_fee_payment_date=, :pre_process
-      alias_method_chain :et_hearing_fee_payment_date=, :pre_process
-      alias_method_chain :et_reconsideration_fee_payment_date=, :pre_process
-      alias_method_chain :eat_issue_fee_payment_date=, :pre_process
-      alias_method_chain :eat_hearing_fee_payment_date=, :pre_process
+      prepend PreProcess
     end
 
-    def et_issue_fee_payment_date_with_pre_process=(val)
-      self.et_issue_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
-    end
+    module PreProcess
+      def et_issue_fee_payment_date=(val)
+        super pre_process_partial_date(val, only: :day)
+      end
 
-    def et_hearing_fee_payment_date_with_pre_process=(val)
-      self.et_hearing_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
-    end
+      def et_hearing_fee_payment_date=(val)
+        super pre_process_partial_date(val, only: :day)
+      end
 
-    def et_reconsideration_fee_payment_date_with_pre_process=(val)
-      self.et_reconsideration_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
-    end
+      def et_reconsideration_fee_payment_date=(val)
+        super pre_process_partial_date(val, only: :day)
+      end
 
-    def eat_issue_fee_payment_date_with_pre_process=(val)
-      self.eat_issue_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
-    end
+      def eat_issue_fee_payment_date=(val)
+        super pre_process_partial_date(val, only: :day)
+      end
 
-    def eat_hearing_fee_payment_date_with_pre_process=(val)
-      self.eat_hearing_fee_payment_date_without_pre_process = pre_process_partial_date(val, only: :day)
+      def eat_hearing_fee_payment_date=(val)
+        super pre_process_partial_date(val, only: :day)
+      end
     end
 
     private
