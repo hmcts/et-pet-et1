@@ -141,7 +141,7 @@ feature 'Generating XML for a claim', type: :feature do
 
     describe 'Claimants' do
       context 'renders nil elements' do
-        include_context 'assign claim', :null_claimant
+        include_context 'assign claim', :null_primary_claimant
       end
 
       it 'conatins information regarding the primary claimant' do
