@@ -154,7 +154,7 @@ RSpec.describe RespondentForm, type: :form do
     before { allow(respondent_form.target).to receive :enqueue_fee_group_reference_request }
 
     it 'addresses reloaded on save' do
-      expect(respondent_form.target.addresses).to receive(:reload)
+      expect_any_instance_of(respondent_form.target.addresses.class).to receive(:reload)
       respondent_form.save
     end
   end

@@ -41,7 +41,7 @@ RSpec.describe Claim, type: :claim do
         end
 
         it 'destroys all secondary_claimants' do
-          expect(claim.secondary_claimants).to receive(:destroy_all)
+          expect_any_instance_of(claim.secondary_claimants.class).to receive(:destroy_all)
           claim.save
         end
       end
@@ -132,7 +132,7 @@ RSpec.describe Claim, type: :claim do
 
   describe '#claimant_count' do
     it 'delegates to the claimant association proxy' do
-      expect(claim.claimants).to receive(:count).and_return(0)
+      expect_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
 
       claim.claimant_count
     end
