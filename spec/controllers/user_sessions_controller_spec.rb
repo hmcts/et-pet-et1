@@ -17,7 +17,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
         it 'creates a login event' do
           expect(claim).to receive(:create_event)
-          post :create, user_session: { reference: 'lel', password: 'lewl' }
+          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
         end
       end
 
@@ -26,7 +26,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
         it 'does not creates a login event' do
           expect(claim).not_to receive(:create_event)
-          post :create, user_session: { reference: 'lel', password: 'lewl' }
+          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
         end
       end
     end
