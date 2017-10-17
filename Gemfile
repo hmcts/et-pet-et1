@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails', '4.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.6'
+gem 'rails', '5.1.0'
 gem 'responders', '~> 2.0'
 
 # Use SCSS for stylesheets
@@ -74,7 +74,7 @@ gem 'activeadmin', '~> 1.0'
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
-gem 'browserify-rails'
+gem 'browserify-rails', '~> 4.0'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave', ref: '56873b07105396e0f1cfdd5e38be930dc3dcd362'
 gem 'cocaine'
 gem 'epdq', github: 'ministryofjustice/epdq'
