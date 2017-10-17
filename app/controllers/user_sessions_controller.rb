@@ -50,7 +50,7 @@ class UserSessionsController < ApplicationController
   end
 
   def user_session
-    @user_session ||= UserSession.new(user_session_params.to_h)
+    @user_session ||= UserSession.new(user_session_params.to_unsafe_hash)
   end
 
   def user_session_params
