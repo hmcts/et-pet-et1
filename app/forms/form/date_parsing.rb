@@ -23,20 +23,20 @@ class Form
           end
         end
       end
+    end
 
-      private
+    private
 
-      def normalize_date_params(obj)
-        obj = obj.to_unsafe_hash if obj.respond_to?(:to_unsafe_hash)
+    def normalize_date_params(obj)
+      obj = obj.to_unsafe_hash if obj.respond_to?(:to_unsafe_hash)
+      obj
+    end
+
+    def coerce_object(obj)
+      if obj.respond_to?(:symbolize_keys)
+        obj.symbolize_keys if obj.values.any?(&:present?)
+      else
         obj
-      end
-
-      def coerce_object(obj)
-        if obj.respond_to?(:symbolize_keys)
-          obj.symbolize_keys if obj.values.any?(&:present?)
-        else
-          obj
-        end
       end
     end
   end

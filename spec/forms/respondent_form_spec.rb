@@ -152,11 +152,13 @@ RSpec.describe RespondentForm, type: :form do
 
   describe 'callbacks' do
     before { allow(respondent_form.target).to receive :enqueue_fee_group_reference_request }
-
+    # rubocop:disable RSpec/AnyInstance
+    # target.addresses always returns a new proxy so we have to do expect_any_instance
     it 'addresses reloaded on save' do
       expect_any_instance_of(respondent_form.target.addresses.class).to receive(:reload)
       respondent_form.save
     end
+    # rubocop:enable RSpec/AnyInstance
   end
 
   describe 'postcode validation' do

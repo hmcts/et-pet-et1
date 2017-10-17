@@ -55,12 +55,12 @@ FactoryGirl.define do
     trait :null_primary_claimant do
       primary_claimant do
         build :claimant,
-              address_telephone_number: nil,
-              mobile_number: nil,
-              email_address: nil,
-              fax_number: nil,
-              contact_preference: nil,
-              gender: nil, date_of_birth: nil
+          address_telephone_number: nil,
+          mobile_number: nil,
+          email_address: nil,
+          fax_number: nil,
+          contact_preference: nil,
+          gender: nil, date_of_birth: nil
       end
     end
 
@@ -76,10 +76,10 @@ FactoryGirl.define do
     trait :null_representative do
       representative do
         build :representative,
-              address_telephone_number: nil,
-              mobile_number: nil,
-              email_address: nil,
-              dx_number: nil
+          address_telephone_number: nil,
+          mobile_number: nil,
+          email_address: nil,
+          dx_number: nil
       end
     end
 
