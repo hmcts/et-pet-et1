@@ -49,10 +49,6 @@ module App
 
     config.cache_store = :memory_store
 
-    # opt into features that will be the default in the next version of Rails
-    # (and supress the DEPRECATION warnings)
-    config.active_record.raise_in_transactional_callbacks = true
-
     config.action_mailer.default_options = { from: 'no-reply@digital.justice.gov.uk' }
 
     config.secure_session_cookie = false
