@@ -1,5 +1,5 @@
 class Respondent < ApplicationRecord
-  belongs_to :claim
+  belongs_to :claim, optional: true
   has_many   :addresses, as: :addressable, autosave: true
 
   ADDRESS_ATTRIBUTES = [
