@@ -59,7 +59,7 @@ RSpec.describe UserSessionsController, type: :controller do
         context 'when sending email' do
           it 'logs an email event' do
             expect(claim).to receive(:create_event).with 'deliver_access_details', message: "Sent to #{email}"
-            delete :destroy, user_session: { email_address: email }
+            delete :destroy, params: { user_session: { email_address: email } }
           end
         end
 
