@@ -34,7 +34,7 @@ ActiveAdmin.register Claim do
 
   member_action :generate_pdf, method: :post do
     PdfGenerationJob.perform_later resource
-    redirect_to :back, notice: 'Generating a new PDF'
+    redirect_back notice: 'Generating a new PDF', fallback_location: admin_claim_url(resource)
   end
 
   member_action :submit_claim, method: :post do
@@ -43,7 +43,7 @@ ActiveAdmin.register Claim do
       resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
     end
 
-    redirect_to :back, notice: 'Claim submitted to Jadu'
+    redirect_back notice: 'Claim submitted to Jadu', fallback_location: admin_claim_url(resource)
   end
 
   member_action :mark_submitted, method: :post do
@@ -54,7 +54,7 @@ ActiveAdmin.register Claim do
       message: "status changed to submitted"
     )
 
-    redirect_to :back, notice: 'Claim marked as submitted'
+    redirect_back notice: 'Claim marked as submitted', fallback_location: admin_claim_url(resource)
   end
 
   member_action :txt_file, method: :get do
