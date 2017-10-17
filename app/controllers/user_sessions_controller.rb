@@ -23,7 +23,7 @@ class UserSessionsController < ApplicationController
   end
 
   def touch
-    render nothing: true
+    head :ok
   end
 
   def expired
