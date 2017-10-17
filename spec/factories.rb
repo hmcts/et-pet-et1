@@ -52,11 +52,8 @@ FactoryGirl.define do
       after(:create) { |claim| claim.secondary_claimants.clear }
     end
 
-    trait :null_claimant do
-      before(:create) do
-        tmp = 1
-      end
-      claimant do
+    trait :null_primary_claimant do
+      primary_claimant do
         build :claimant,
               address_telephone_number: nil,
               mobile_number: nil,
