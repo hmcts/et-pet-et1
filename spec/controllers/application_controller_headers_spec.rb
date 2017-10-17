@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ApplicationController do
   controller do
     def index
-      render nothing: true
+      head :ok
     end
   end
 
