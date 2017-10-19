@@ -22,6 +22,8 @@ class CollectionForm < Form
   end
 
   def collection_attributes=(attributes)
+    # Ensure we are working with a hash not action controller parameters
+    attributes = attributes.to_unsafe_hash if attributes.respond_to?(:to_unsafe_hash)
     attributes.each_with_index do |(_, resource_attributes), index|
       resource = relation[index] || relation.build
 
@@ -53,7 +55,8 @@ class CollectionForm < Form
   end
 
   def valid?
-    run_callbacks(:validation) { super && collection.map(&:valid?).all? }
+    super # This will call validation callbacks etc... but ignore results
+    collection.all?(&:valid?)
   end
 
   def errors

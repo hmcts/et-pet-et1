@@ -141,6 +141,12 @@ module Refunds
           expect(applicant_form.errors).to include :has_name_changed
         end
 
+        it 'validates - disallowing empty string value' do
+          applicant_form.has_name_changed = ''
+          applicant_form.valid?
+          expect(applicant_form.errors).to include :has_name_changed
+        end
+
         it 'validates - allowing true' do
           applicant_form.has_name_changed = 'true'
           applicant_form.valid?
@@ -204,10 +210,10 @@ module Refunds
         expect(applicant_form.applicant_date_of_birth).to be value
       end
 
-      it 'stores the provided ActionController::Parameters if the date is invalid' do
-        value = ActionController::Parameters.new('day' => '32', 'month' => '15', "year" => '1985')
+      it 'stores the provided ActionController::Parameters as a hash if the date is invalid' do
+        value = ActionController::Parameters.new('day' => '32', 'month' => '15', "year" => '1985').freeze
         applicant_form.applicant_date_of_birth = value
-        expect(applicant_form.applicant_date_of_birth).to be value
+        expect(applicant_form.applicant_date_of_birth).to eql('day' => '32', 'month' => '15', "year" => '1985')
       end
     end
 

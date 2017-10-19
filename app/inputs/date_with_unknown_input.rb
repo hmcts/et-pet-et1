@@ -65,9 +65,10 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
 
   def value
     value = object.send attribute_name
-
     if value.is_a? Hash
       OpenStruct.new value
+    elsif value.is_a? ActionController::Parameters
+      OpenStruct.new value.to_unsafe_hash
     else
       value
     end

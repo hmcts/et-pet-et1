@@ -195,9 +195,9 @@ module Refunds
           expect(form.send(reader_method)).to eql Date.parse('10 December 2016')
         end
 
-        it 'leaves an invalid date from an action controller params instance as is' do
+        it 'leaves an invalid date as a hash from an action controller params instance as is' do
           form.send(writer_method, ActionController::Parameters.new('month' => '13', 'year' => '2016'))
-          expect(form.send(reader_method).to_unsafe_hash).to eql('month' => '13', 'year' => '2016', 'day' => '1')
+          expect(form.send(reader_method)).to eql('month' => '13', 'year' => '2016', 'day' => '1')
         end
 
         it 'does not convert nil' do

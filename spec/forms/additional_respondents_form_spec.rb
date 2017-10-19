@@ -34,7 +34,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
       additional_respondents_form.assign_attributes attributes
     end
 
-    let(:collection) { [Respondent.new, Respondent.new] }
+    let(:collection) { [Respondent.new(claim_id: claim.id), Respondent.new(claim_id: claim.id)] }
 
     it 'builds new respondents with attributes' do
       additional_respondents_form.collection.each_with_index do |c, i|
@@ -46,7 +46,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
     it 'new additional respondents are decorated as Respondents' do
       additional_respondents_form.collection.each_with_index do |_c, i|
-        expect(additional_respondents_form.collection[i].target).to eq collection[i]
+        expect(additional_respondents_form.collection[i].target.as_json).to eq collection[i].as_json
       end
     end
   end
