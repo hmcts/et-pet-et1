@@ -1,5 +1,4 @@
 require 'fog/aws'
-require 'carrierwave/storage/fog'
 CarrierWave.configure do |config|
   credentials = {
     provider:              'AWS',
@@ -8,6 +7,7 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || ''
   }
 
+  config.fog_provider = 'fog/aws'
   if ENV.key?('AWS_ENDPOINT')
     credentials[:endpoint] = ENV['AWS_ENDPOINT']
     credentials[:host] = URI.parse(ENV['AWS_ENDPOINT']).host
