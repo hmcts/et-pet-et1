@@ -6,13 +6,12 @@ Dependencies
 ### Running Gatling tests locally
 
 1. Start docker daemon 
-2. Run below to build your local docker container from where dockerfile exists.  If 'etgatling' image exists in your local you can skip this step
+2. Run below command from the application root folder to build your local docker container from where dockerfile exists.  If 'etgatling' image exists in your local you can skip this step
 
     ```
-    > docker build -t etgatling:local  .
+    > docker build -t etgatling:local -f performance-tests/Dockerfile .
 
     ```
-
 
 3. Run command below locally to run gatling scripts against docker images
    ```
