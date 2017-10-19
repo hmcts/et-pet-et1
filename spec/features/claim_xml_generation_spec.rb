@@ -141,12 +141,7 @@ feature 'Generating XML for a claim', type: :feature do
 
     describe 'Claimants' do
       context 'renders nil elements' do
-        claimant = FactoryGirl.create :claimant,
-          address_telephone_number: nil, mobile_number: nil,
-          email_address: nil, fax_number: nil, contact_preference: nil,
-          gender: nil, date_of_birth: nil
-
-        include_context 'assign claim', primary_claimant: claimant
+        include_context 'assign claim', :null_primary_claimant
       end
 
       it 'conatins information regarding the primary claimant' do
@@ -236,11 +231,7 @@ feature 'Generating XML for a claim', type: :feature do
       end
 
       context 'renders nil elements' do
-        representative = FactoryGirl.create :representative,
-          address_telephone_number: nil, mobile_number: nil,
-          email_address: nil, dx_number: nil
-
-        include_context 'assign claim', representative: representative
+        include_context 'assign claim', :null_representative
       end
 
       context 'Claim with a representative' do

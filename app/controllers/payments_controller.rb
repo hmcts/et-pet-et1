@@ -55,7 +55,7 @@ class PaymentsController < ApplicationController
       message = "Failed to recognize payment order: #{order}, status: #{status}"
       Raven.capture_exception(message)
       # Don't give anything away to attackers poking at the system
-      render nothing: true
+      head :ok
     end
   end
 

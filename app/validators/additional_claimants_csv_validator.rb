@@ -18,7 +18,7 @@ class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
   end
 
   def add_errors(record, attribute)
-    record.errors[:erroneous_line_number] = @result.error_line.to_s
+    record.errors.add(:erroneous_line_number, @result.error_line.to_s)
     @result.errors.each { |e| record.errors[attribute] << e }
   end
 end

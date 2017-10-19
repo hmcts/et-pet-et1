@@ -40,10 +40,13 @@ RSpec.describe Claim, type: :claim do
             to receive(:additional_claimants_csv_changed?).and_return(true)
         end
 
+        # rubocop:disable RSpec/AnyInstance
+        # target.addresses always returns a new proxy so we have to do expect_any_instance
         it 'destroys all secondary_claimants' do
-          expect(claim.secondary_claimants).to receive(:destroy_all)
+          expect_any_instance_of(claim.secondary_claimants.class).to receive(:destroy_all)
           claim.save
         end
+        # rubocop:enable RSpec/AnyInstance
       end
 
       context 'when additional_claimants_csv did not change' do
@@ -131,11 +134,13 @@ RSpec.describe Claim, type: :claim do
   # rubocop:enable DynamicFindBy
 
   describe '#claimant_count' do
+    # rubocop:disable RSpec/AnyInstance
+    # target.addresses always returns a new proxy so we have to do expect_any_instance
     it 'delegates to the claimant association proxy' do
-      expect(claim.claimants).to receive(:count).and_return(0)
-
+      expect_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
       claim.claimant_count
     end
+    # rubocop:enable RSpec/AnyInstance
 
     it 'adds the cached additonal claimants csv count' do
       claim.additional_claimants_csv_record_count = 1

@@ -23,7 +23,7 @@ class UserSessionsController < ApplicationController
   end
 
   def touch
-    render nothing: true
+    head :ok
   end
 
   def expired
@@ -50,7 +50,13 @@ class UserSessionsController < ApplicationController
   end
 
   def user_session
-    @user_session ||= UserSession.new(params[:user_session])
+    @user_session ||= UserSession.new(user_session_params.to_unsafe_hash)
+  end
+
+  def user_session_params
+    params.require(:user_session).permit(:reference, :password, :email_address)
+  rescue ActionController::ParameterMissing
+    ActionController::Parameters.new
   end
 
   helper_method :user_session

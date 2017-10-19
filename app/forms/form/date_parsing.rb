@@ -15,7 +15,7 @@ class Form
             define_method("#{date}=") do |obj|
               obj = obj.to_unsafe_hash if obj.respond_to?(:to_unsafe_hash)
               begin
-                super coerce_object(obj)
+                super coerce_object(normalize_date_params(obj))
               rescue ArgumentError
                 # Handle invalid dates such as 22-54-2010
                 instance_variable_set :"@#{date}", obj
@@ -24,15 +24,20 @@ class Form
           end
         end
       end
+    end
 
-      private
+    private
 
-      def coerce_object(obj)
-        if obj.respond_to?(:symbolize_keys)
-          obj.symbolize_keys if obj.values.any?(&:present?)
-        else
-          obj
-        end
+    def normalize_date_params(obj)
+      obj = obj.to_unsafe_hash if obj.respond_to?(:to_unsafe_hash)
+      obj
+    end
+
+    def coerce_object(obj)
+      if obj.respond_to?(:symbolize_keys)
+        obj.symbolize_keys if obj.values.any?(&:present?)
+      else
+        obj
       end
     end
   end

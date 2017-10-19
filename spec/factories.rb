@@ -52,6 +52,18 @@ FactoryGirl.define do
       after(:create) { |claim| claim.secondary_claimants.clear }
     end
 
+    trait :null_primary_claimant do
+      primary_claimant do
+        build :claimant,
+          address_telephone_number: nil,
+          mobile_number: nil,
+          email_address: nil,
+          fax_number: nil,
+          contact_preference: nil,
+          gender: nil, date_of_birth: nil
+      end
+    end
+
     trait :without_additional_claimants_csv do
       additional_claimants_csv nil
       additional_claimants_csv_record_count 0
@@ -59,6 +71,16 @@ FactoryGirl.define do
 
     trait :without_representative do
       representative nil
+    end
+
+    trait :null_representative do
+      representative do
+        build :representative,
+          address_telephone_number: nil,
+          mobile_number: nil,
+          email_address: nil,
+          dx_number: nil
+      end
     end
 
     trait :with_pdf do

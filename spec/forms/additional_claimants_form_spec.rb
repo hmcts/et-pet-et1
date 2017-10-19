@@ -32,7 +32,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
       additional_claimants_form.assign_attributes attributes
     end
 
-    let(:collection) { [Claimant.new, Claimant.new] }
+    let(:collection) { [Claimant.new(claim_id: claim.id), Claimant.new(claim_id: claim.id)] }
 
     it 'builds new claimants with attributes' do
       additional_claimants_form.collection.each_with_index do |c, i|
@@ -44,7 +44,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
     it 'decorates AdditionalClaimants as Claimants' do
       additional_claimants_form.collection.each_with_index do |_c, i|
-        expect(additional_claimants_form.collection[i].target).to eq collection[i]
+        expect(additional_claimants_form.collection[i].target.as_json).to eq collection[i].as_json
       end
     end
   end
