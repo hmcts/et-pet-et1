@@ -10,7 +10,8 @@ RSpec.configure do |config|
     def perform_active_jobs(klass)
       job_specs = queue_adapter.enqueued_jobs.select { |job_spec| job_spec[:job] == klass }
       job_specs.each do |job_spec|
-        job_spec[:job].perform_now(*job_spec[:args])
+        job = job_spec[:job].new(*ActiveJob::Arguments.deserialize(job_spec[:args]))
+        job.perform_now
       end
     end
   end
