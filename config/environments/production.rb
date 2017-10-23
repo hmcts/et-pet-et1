@@ -108,6 +108,7 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
+  config.secure_session_cookie = true
 end
 CarrierWave.configure do |config|
   config.storage :fog

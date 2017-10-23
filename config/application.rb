@@ -54,5 +54,7 @@ module App
     config.active_record.raise_in_transactional_callbacks = true
 
     config.action_mailer.default_options = { from: 'no-reply@digital.justice.gov.uk' }
+
+    config.secure_session_cookie = false
   end
 end
