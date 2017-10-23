@@ -17,7 +17,7 @@ class Form
                 super coerce_object(normalize_date_params(obj))
               rescue ArgumentError
                 # Handle invalid dates such as 22-54-2010
-                instance_variable_set :"@#{date}", obj
+                instance_variable_set :"@#{date}", normalize_date_params(obj)
               end
             end
           end
