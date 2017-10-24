@@ -37,6 +37,9 @@ Rails.application.configure do
     host: 'localhost', protocol: 'http', port: 3000
   }
 
+  # Randomize the order test cases are executed.
+  config.active_support.test_order = :random
+
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 

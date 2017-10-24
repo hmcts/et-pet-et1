@@ -51,7 +51,7 @@ module Refunds
       let(:refund_instance) { build(:refund, created_at: DateTime.parse('1 December 2012 00:00:00').utc) }
 
       it 'provides read only proxy to underlying target' do
-        expect(form.created_at).to eql DateTime.parse('1 December 2012 00:00:00').utc
+        expect(form.created_at.strftime('%F %R')).to eql '2012-12-01 00:00'
       end
     end
   end
