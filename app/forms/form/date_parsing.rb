@@ -13,7 +13,6 @@ class Form
             # which we need to handle because of the GDS date pattern
 
             define_method("#{date}=") do |obj|
-              obj = obj.to_unsafe_hash if obj.respond_to?(:to_unsafe_hash)
               begin
                 super coerce_object(normalize_date_params(obj))
               rescue ArgumentError
