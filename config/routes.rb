@@ -2,9 +2,9 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   scope :apply do
-    resource :guide,              only: :show
-    resource :terms,              only: :show
-    resource :cookies,            only: :show
+    resource :guide,              only: :show, constraints: { format: :html }
+    resource :terms,              only: :show, constraints: { format: :html }
+    resource :cookies,            only: :show, constraints: { format: :html }
     resource :claim_review,       only: %i<show update>, path: :review
     resource :pdf,                only: :show
     resource :claim_confirmation, only: :show, path: :confirmation
