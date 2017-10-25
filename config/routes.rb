@@ -1,10 +1,10 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  scope :apply do
-    resource :guide,              only: :show, constraints: { format: :html }
-    resource :terms,              only: :show, constraints: { format: :html }
-    resource :cookies,            only: :show, constraints: { format: :html }
+  scope :apply, constraints: { format: :html } do
+    resource :guide,              only: :show
+    resource :terms,              only: :show
+    resource :cookies,            only: :show
     resource :claim_review,       only: %i<show update>, path: :review
     resource :pdf,                only: :show
     resource :claim_confirmation, only: :show, path: :confirmation
@@ -37,7 +37,7 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'ping' => 'ping#index'
+    get 'ping' => 'ping#index', constraints: { format: :json }
 
     get 'healthcheck' => 'healthcheck#index'
 
@@ -53,7 +53,7 @@ Rails.application.routes.draw do
 
     get '/barclaycard-payment-template' => 'barclaycard_payment_template#show'
 
-    get '/stats' => 'stats#index'
+    get '/stats' => 'stats#index', constraints: { format: :json }
 
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1|172\.\d+\.\d+\.\d+/) do
       ActiveAdmin.routes(self)
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/apply' => 'claims#new'
-  get '/apply/refund' => 'refunds#new'
+  get '/apply' => 'claims#new', constraints: { format: :html }
+  get '/apply/refund' => 'refunds#new', constraints: { format: :html }
   root to: redirect('/apply')
 end
