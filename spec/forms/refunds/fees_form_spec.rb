@@ -101,6 +101,16 @@ module Refunds
         end
       end
 
+      shared_examples 'a non numeric fee' do |fee_name:, fee: 'abc123'|
+        fee_field = "#{fee_name}_fee".to_sym
+        before { form.send("#{fee_field}=".to_sym, fee) }
+        context "#{fee_field}" do
+          it 'validates fee - non numeric value are not allowed' do
+            expect(form).to validate_numericality_of(fee_field)
+          end
+        end
+      end
+
       # Start of validation specs
       context 'with positive fees as float with known date' do
         include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 0.01
@@ -148,6 +158,14 @@ module Refunds
         include_examples 'a zero or nil fee', fee_name: :et_reconsideration, fee: 0.0
         include_examples 'a zero or nil fee', fee_name: :eat_issue, fee: 0.0
         include_examples 'a zero or nil fee', fee_name: :eat_hearing, fee: 0.0
+      end
+
+      context 'with non numeric fees' do
+        include_examples 'a non numeric fee', fee_name: :et_issue
+        include_examples 'a non numeric fee', fee_name: :et_hearing
+        include_examples 'a non numeric fee', fee_name: :et_reconsideration
+        include_examples 'a non numeric fee', fee_name: :eat_issue
+        include_examples 'a non numeric fee', fee_name: :eat_hearing
       end
     end
 
