@@ -104,7 +104,7 @@ module Refunds
       shared_examples 'a non numeric fee' do |fee_name:, fee: 'abc123'|
         fee_field = "#{fee_name}_fee".to_sym
         before { form.send("#{fee_field}=".to_sym, fee) }
-        context "#{fee_field}" do
+        context "#{fee_field} attribute" do
           it 'validates fee - non numeric value are not allowed' do
             expect(form).to validate_numericality_of(fee_field)
           end
