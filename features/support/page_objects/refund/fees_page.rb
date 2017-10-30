@@ -1,5 +1,6 @@
 module Refunds
   class FeesPage < BasePage
+    element :form_error_message, '[aria-describedby=error-message]'
     section :original_claim_fees, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Complete the relevant fields for fees you have paid")]] }) do
       section :et_issue, :xpath, (XPath.generate { |x| x.descendant(:tr)[x.descendant(:td)[x.string.n.is("ET Issue")]] }) do
         section :fee, AppTest::FormInput, '.refunds_fees_et_issue_fee'

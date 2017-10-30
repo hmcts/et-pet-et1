@@ -68,7 +68,9 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2015"$
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
 
-  fees = OpenStruct.new
+  fees = OpenStruct.new et_issue_fee: '1000.00',
+                        et_issue_payment_method: 'Card',
+                        et_issue_payment_date: '4/2016'
 
   test_user.et_claim_to_refund = OpenStruct.new respondent: respondent.freeze,
                                                 fees: fees.freeze,

@@ -5,7 +5,12 @@ module Refunds
     let(:refund_session) { double('Session', session_attributes) }
     let(:form) { described_class.new(refund_session) }
 
-    it_behaves_like 'a Form', {}, Session
+    it_behaves_like 'a Form', {
+      et_issue_fee: '0.01',
+      et_issue_fee_payment_method: 'card',
+      et_issue_fee_payment_date: { day: '1', month: '1', year: '2010' }
+    }, Session
+
     describe 'validation' do
       # Start of shared examples
       # As we are testing all 5 fees in the same way, some shared examples
@@ -166,6 +171,24 @@ module Refunds
         include_examples 'a zero or nil fee', fee_name: :et_reconsideration, fee: nil
         include_examples 'a zero or nil fee', fee_name: :eat_issue, fee: nil
         include_examples 'a zero or nil fee', fee_name: :eat_hearing, fee: nil
+
+        it 'fails validation as there are no fees represented as empty string' do
+          [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
+            form.send("#{m}=".to_sym, '')
+          end
+
+          form.valid?
+          expect(form.errors[:base]).to include(I18n.t('activemodel.errors.models.refunds/fees.attributes.base.fees_must_be_positive'))
+        end
+
+        it 'fails validation as there are no fees represented as nil' do
+          [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
+            form.send("#{m}=".to_sym, nil)
+          end
+
+          form.valid?
+          expect(form.errors[:base]).to include(I18n.t('activemodel.errors.models.refunds/fees.attributes.base.fees_must_be_positive'))
+        end
       end
 
       context 'with zero fees' do
@@ -174,6 +197,14 @@ module Refunds
         include_examples 'a zero or nil fee', fee_name: :et_reconsideration, fee: 0.0
         include_examples 'a zero or nil fee', fee_name: :eat_issue, fee: 0.0
         include_examples 'a zero or nil fee', fee_name: :eat_hearing, fee: 0.0
+
+        it 'fails validation as there are no fees' do
+          [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
+            form.send("#{m}=".to_sym, '0')
+          end
+          form.valid?
+          expect(form.errors[:base]).to include(I18n.t('activemodel.errors.models.refunds/fees.attributes.base.fees_must_be_positive'))
+        end
       end
     end
 
