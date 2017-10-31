@@ -1,4 +1,5 @@
 class RefundsController < ApplicationController
+  layout "refunds/application"
   before_action :validate_session, unless: :at_the_start?
   def new
     refund_session = Session.create
