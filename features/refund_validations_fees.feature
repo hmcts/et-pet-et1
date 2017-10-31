@@ -17,7 +17,7 @@ Feature: Refund Validations - Fees Page
     And I fill in all my refund fee values only
     And I save the refund fees
     Then all fee payment method fields in the fees page should be marked with an error
-    Then all fee payment date fields in the fees page should be marked with an error
+    Then all fee payment date fields in the fees page should be marked with an error for blank input
 
   Scenario: A user fills in no fees data at all and submits
     And I save the refund fees
@@ -40,3 +40,9 @@ Feature: Refund Validations - Fees Page
     And I fill in all my refund fee payment methods with "Don't know"
     And I save the refund fees
     Then I should see the refund bank details page
+
+  Scenario: A user fills in fees with a future payment date
+    And I fill in all my refund fee values only
+    And I fill in all my refund fee dates with a future date
+    And I save the refund fees
+    Then all fee payment date fields in the fees page should be marked with an error for future input

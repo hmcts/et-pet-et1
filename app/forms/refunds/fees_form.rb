@@ -35,7 +35,7 @@ module Refunds
         et_issue_fee.present? && et_issue_fee.positive?
       }
 
-    validates :et_issue_fee_payment_date, presence: true, date: true,
+    validates :et_issue_fee_payment_date, presence: true, date: true, past_date: true,
                                           if: lambda {
                                                 et_issue_fee.present? &&
                                                   et_issue_fee.positive? &&
@@ -50,6 +50,7 @@ module Refunds
     validates :et_hearing_fee_payment_date,
       presence: true,
       date: true,
+      past_date: true,
       if: lambda {
             et_hearing_fee.present? && et_hearing_fee.positive? && !et_hearing_fee_payment_date_unknown?
           }
@@ -62,6 +63,7 @@ module Refunds
     validates :et_reconsideration_fee_payment_date,
       presence: true,
       date: true,
+      past_date: true,
       if: lambda {
             et_reconsideration_fee.present? &&
               et_reconsideration_fee.positive? &&
@@ -75,7 +77,7 @@ module Refunds
         eat_issue_fee.present? && eat_issue_fee.positive?
       }
 
-    validates :eat_issue_fee_payment_date, presence: true, date: true,
+    validates :eat_issue_fee_payment_date, presence: true, date: true, past_date: true,
                                            if: lambda {
                                                  eat_issue_fee.present? &&
                                                    eat_issue_fee.positive? &&
@@ -89,7 +91,7 @@ module Refunds
         eat_hearing_fee.present? && eat_hearing_fee.positive?
       }
 
-    validates :eat_hearing_fee_payment_date, presence: true, date: true,
+    validates :eat_hearing_fee_payment_date, presence: true, date: true, past_date: true,
                                              if: lambda {
                                                    eat_hearing_fee.present? &&
                                                      eat_hearing_fee.positive? &&

@@ -6,12 +6,20 @@ Then(/^all fee payment method fields in the fees page should be marked with an e
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method.error.text).to eql 'Please select a payment method'
 end
 
-Then(/^all fee payment date fields in the fees page should be marked with an error$/) do
+Then(/^all fee payment date fields in the fees page should be marked with an error for blank input$/) do
   expect(refund_fees_page.original_claim_fees.et_issue.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.et_hearing.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.eat_issue.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
+end
+
+Then(/^all fee payment date fields in the fees page should be marked with an error for future input$/) do
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_date.error.text).to eql 'The payment date must be in the past'
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date.error.text).to eql 'The payment date must be in the past'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date.error.text).to eql 'The payment date must be in the past'
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date.error.text).to eql 'The payment date must be in the past'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date.error.text).to eql 'The payment date must be in the past'
 end
 
 Then(/^all fee payment date fields in the fees page should not be marked with an error$/) do
@@ -125,4 +133,14 @@ And(/^all fee payment method fields in the fees page should be disabled$/) do
   expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_method).to be_disabled
   expect(refund_fees_page.original_claim_fees.eat_issue.payment_method).to be_disabled
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method).to be_disabled
+end
+
+And(/^I fill in all my refund fee dates with a future date$/) do
+  date = 1.month.since.strftime('%m/%Y')
+  fees = refund_fees_page.original_claim_fees
+  fees.et_issue.payment_date.set(date)
+  fees.et_hearing.payment_date.set(date)
+  fees.et_reconsideration.payment_date.set(date)
+  fees.eat_issue.payment_date.set(date)
+  fees.eat_hearing.payment_date.set(date)
 end
