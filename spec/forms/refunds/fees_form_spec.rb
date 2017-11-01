@@ -32,17 +32,30 @@ module Refunds
             expect(form.errors).not_to include fee_payment_date_field
           end
 
-          it 'validates date disallowing future value using partial date without day' do
-            date = 1.month.since.to_date
-            form.send("#{fee_payment_date_field}=".to_sym, ActionController::Parameters.new(month: date.month.to_s, year: date.year.to_s))
+          it 'validates date disallowing value past end date using partial date without day' do
+            form.send("#{fee_payment_date_field}=".to_sym, ActionController::Parameters.new(month: '11', year: '2017'))
             form.valid?
-            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.past_date")
+            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.date_range", start_date: 'July 2013', end_date: 'October 2017')
           end
 
-          it 'validates date disallowing a ruby date which is in the future' do
-            form.send("#{fee_payment_date_field}=".to_sym, 1.month.since.to_date)
+          it 'validates date disallowing a ruby date which is past the end date' do
+            date = Date.parse('1 November 2017')
+            form.send("#{fee_payment_date_field}=".to_sym, date)
             form.valid?
-            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.past_date")
+            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.date_range", start_date: 'July 2013', end_date: 'October 2017')
+          end
+
+          it 'validates date disallowing value before start date using partial date without day' do
+            form.send("#{fee_payment_date_field}=".to_sym, ActionController::Parameters.new(month: '6', year: '2013'))
+            form.valid?
+            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.date_range", start_date: 'July 2013', end_date: 'October 2017')
+          end
+
+          it 'validates date disallowing a ruby date which is before the start date' do
+            date = Date.parse('30 June 2013')
+            form.send("#{fee_payment_date_field}=".to_sym, date)
+            form.valid?
+            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.date_range", start_date: 'July 2013', end_date: 'October 2017')
           end
 
           it 'validates date disallowing invalid value using partial date without day' do

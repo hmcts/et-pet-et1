@@ -41,8 +41,14 @@ Feature: Refund Validations - Fees Page
     And I save the refund fees
     Then I should see the refund bank details page
 
-  Scenario: A user fills in fees with a future payment date
+  Scenario: A user fills in fees with a date that is past the end date
     And I fill in all my refund fee values only
-    And I fill in all my refund fee dates with a future date
+    And I fill in all my refund fee dates with "November 2017"
     And I save the refund fees
-    Then all fee payment date fields in the fees page should be marked with an error for future input
+    Then all fee payment date fields in the fees page should be marked with an error for out of range
+
+  Scenario: A user fills in fees with a date that is before the end date
+    And I fill in all my refund fee values only
+    And I fill in all my refund fee dates with "June 2013"
+    And I save the refund fees
+    Then all fee payment date fields in the fees page should be marked with an error for out of range

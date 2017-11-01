@@ -1,6 +1,7 @@
 module Refunds
   class FeesForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash', 'unknown'].freeze
+    VALID_PAYMENT_DATE_RANGE = Date.parse('1 July 2013')..Date.parse('31 October 2017')
     attribute :et_issue_fee,                            Float
     attribute :et_issue_fee_payment_method,             String
     attribute :et_issue_fee_payment_date,               Date
@@ -35,7 +36,7 @@ module Refunds
         et_issue_fee.present? && et_issue_fee.positive?
       }
 
-    validates :et_issue_fee_payment_date, presence: true, date: true, past_date: true,
+    validates :et_issue_fee_payment_date, presence: true, date: true, date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
                                           if: lambda {
                                                 et_issue_fee.present? &&
                                                   et_issue_fee.positive? &&
@@ -50,7 +51,7 @@ module Refunds
     validates :et_hearing_fee_payment_date,
       presence: true,
       date: true,
-      past_date: true,
+      date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: lambda {
             et_hearing_fee.present? && et_hearing_fee.positive? && !et_hearing_fee_payment_date_unknown?
           }
@@ -63,7 +64,7 @@ module Refunds
     validates :et_reconsideration_fee_payment_date,
       presence: true,
       date: true,
-      past_date: true,
+      date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: lambda {
             et_reconsideration_fee.present? &&
               et_reconsideration_fee.positive? &&
@@ -77,7 +78,7 @@ module Refunds
         eat_issue_fee.present? && eat_issue_fee.positive?
       }
 
-    validates :eat_issue_fee_payment_date, presence: true, date: true, past_date: true,
+    validates :eat_issue_fee_payment_date, presence: true, date: true, date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
                                            if: lambda {
                                                  eat_issue_fee.present? &&
                                                    eat_issue_fee.positive? &&
@@ -91,7 +92,7 @@ module Refunds
         eat_hearing_fee.present? && eat_hearing_fee.positive?
       }
 
-    validates :eat_hearing_fee_payment_date, presence: true, date: true, past_date: true,
+    validates :eat_hearing_fee_payment_date, presence: true, date: true, date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
                                              if: lambda {
                                                    eat_hearing_fee.present? &&
                                                      eat_hearing_fee.positive? &&

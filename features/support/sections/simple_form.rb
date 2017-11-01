@@ -83,7 +83,7 @@ module AppTest
         check("Don't know") && return if [:dont_know, :unknown, 'Don\'t know'].include?(value)
         uncheck("Don't know")
       end
-      (month_value, year_value) = value.split("/")
+      (month_value, year_value) = value.split(" ")
       month.select(month_value)
       year.select(year_value)
     end

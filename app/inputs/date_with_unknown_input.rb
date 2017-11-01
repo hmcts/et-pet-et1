@@ -26,22 +26,22 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
   private
 
   def build_parts(active_support_buffer)
-    parts.reduce(active_support_buffer) do |buffer, (part, length)|
-      build_date_field(buffer, part, length)
+    parts.reduce(active_support_buffer) do |buffer, part|
+      build_date_field(buffer, part)
     end
     build_checkbox_field(active_support_buffer)
   end
 
   def parts
     exceptions = Array(@options.fetch(:except, []))
-    { day: 2, month: 2, year: 4 }.delete_if { |(part, _length)| exceptions.include?(part) }
+    [:day, :month, :year].delete_if { |part| exceptions.include?(part) }
   end
 
   def defaults
     SimpleForm.wrapper(:default).defaults
   end
 
-  def build_date_field(buffer, part, length)
+  def build_date_field(buffer, part)
     field_options = @options.slice(:readonly, :disabled)
     buffer << @builder.simple_fields_for(attribute_name, value) do |f|
       collection = send("#{part}_collection")
@@ -54,11 +54,11 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
   end
 
   def month_collection
-    (1..12).to_a
+    (1..12).map {|m| [Date::MONTHNAMES[m], m]}
   end
 
   def year_collection
-    (date_range.first.year .. date_range.last.year).to_a
+    (date_range.first.year..date_range.last.year).to_a
   end
 
   def date_range
