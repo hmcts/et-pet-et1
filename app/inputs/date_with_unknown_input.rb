@@ -54,7 +54,7 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
   end
 
   def month_collection
-    (1..12).map {|m| [Date::MONTHNAMES[m], m]}
+    (1..12).map { |m| [Date::MONTHNAMES[m], m] }
   end
 
   def year_collection
