@@ -84,8 +84,8 @@ module AppTest
         uncheck("Don't know")
       end
       (month_value, year_value) = value.split("/")
-      month.set(month_value)
-      year.set(year_value)
+      month.select(month_value)
+      year.select(year_value)
     end
 
     def disabled?

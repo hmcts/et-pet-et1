@@ -44,8 +44,25 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
   def build_date_field(buffer, part, length)
     field_options = @options.slice(:readonly, :disabled)
     buffer << @builder.simple_fields_for(attribute_name, value) do |f|
-      f.input part, field_options.merge(as: :tel, maxlength: length)
+      collection = send("#{part}_collection")
+      f.input part, field_options.merge(as: :select, collection: collection)
     end
+  end
+
+  def day_collection
+    (1..31).to_a
+  end
+
+  def month_collection
+    (1..12).to_a
+  end
+
+  def year_collection
+    (date_range.first.year .. date_range.last.year).to_a
+  end
+
+  def date_range
+    @date_range ||= @options.fetch(:date_range, [10.years.ago, 10.years.since])
   end
 
   def build_checkbox_field(buffer)
