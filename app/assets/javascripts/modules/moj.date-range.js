@@ -4,18 +4,6 @@ var dateRangeInput = (function() {
 
     var dateRangeInput = {};
 
-    function yearSelects() {
-        return $('[data-date-range-input] [data-part="year"]');
-    }
-
-    function monthSelects() {
-        return $('[data-date-range-input] [data-part="month"]');
-    }
-
-    function daySelects() {
-        return $('[data-date-range-input] [data-part="day"]');
-    }
-
     function onYearChange(e) {
         var delegate = $(e.delegateTarget);
         filterMonthSelect(delegate);
