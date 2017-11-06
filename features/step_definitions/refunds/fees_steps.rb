@@ -6,12 +6,20 @@ Then(/^all fee payment method fields in the fees page should be marked with an e
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method.error.text).to eql 'Please select a payment method'
 end
 
-Then(/^all fee payment date fields in the fees page should be marked with an error$/) do
+Then(/^all fee payment date fields in the fees page should be marked with an error for blank input$/) do
   expect(refund_fees_page.original_claim_fees.et_issue.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.et_hearing.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.eat_issue.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
+end
+
+Then(/^all fee payment date fields in the fees page should be marked with an error for out of range$/) do
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_date.error.text).to eql 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date.error.text).to eql 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date.error.text).to eql 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date.error.text).to eql 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date.error.text).to eql 'The payment date must be between July 2013 and August 2017'
 end
 
 Then(/^all fee payment date fields in the fees page should not be marked with an error$/) do
@@ -125,4 +133,42 @@ And(/^all fee payment method fields in the fees page should be disabled$/) do
   expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_method).to be_disabled
   expect(refund_fees_page.original_claim_fees.eat_issue.payment_method).to be_disabled
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method).to be_disabled
+end
+
+And(/^I fill in all my refund fee dates with "([^"]*)"$/) do |date|
+  fees = refund_fees_page.original_claim_fees
+  fees.et_issue.payment_date.set(date)
+  fees.et_hearing.payment_date.set(date)
+  fees.et_reconsideration.payment_date.set(date)
+  fees.eat_issue.payment_date.set(date)
+  fees.eat_hearing.payment_date.set(date)
+end
+
+Then(/^I should only see months "([^"]*)" in "([^"]*)" in all of the fee dates$/) do |months_as_string, year|
+  months = ['Please select'] + months_as_string.split(',')
+  original_claim_fees = refund_fees_page.original_claim_fees
+  [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
+    payment_date_field = original_claim_fees.send(fee).payment_date
+    payment_date_field.year.select(year)
+    payment_date_field.assert_months_dropdown_contains_exactly(months)
+  end
+end
+
+Then(/^I should see all months in "([^"]*)" in all of the fee dates$/) do |year|
+  months = ['Please select', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  original_claim_fees = refund_fees_page.original_claim_fees
+  [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
+    payment_date_field = original_claim_fees.send(fee).payment_date
+    payment_date_field.year.select(year)
+    payment_date_field.assert_months_dropdown_contains_exactly(months)
+  end
+end
+
+Then(/^I should see only years "([^"]*)" in the year dropdown of all of the fee dates$/) do |years_as_string|
+  years = ['Please select'] + years_as_string.split(',')
+  original_claim_fees = refund_fees_page.original_claim_fees
+  [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
+    payment_date_field = original_claim_fees.send(fee).payment_date
+    expect(payment_date_field.years_dropdown_containing_exactly(years)).to be_visible
+  end
 end

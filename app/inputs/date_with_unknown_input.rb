@@ -18,7 +18,10 @@
 class DateWithUnknownInput < SimpleForm::Inputs::Base
 
   def input(_wrapper_options = nil)
-    template.content_tag(defaults[:tag], class: class_name) do
+    data_attr = { date_range_start: date_range.first.to_s,
+                  date_range_end: date_range.last.to_s,
+                  date_range_input: true }
+    template.content_tag(defaults[:tag], class: class_name, data: data_attr) do
       build_parts(active_support_buffer)
     end
   end
@@ -26,26 +29,46 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
   private
 
   def build_parts(active_support_buffer)
-    parts.reduce(active_support_buffer) do |buffer, (part, length)|
-      build_date_field(buffer, part, length)
+    parts.reduce(active_support_buffer) do |buffer, part|
+      build_date_field(buffer, part)
     end
     build_checkbox_field(active_support_buffer)
   end
 
   def parts
     exceptions = Array(@options.fetch(:except, []))
-    { day: 2, month: 2, year: 4 }.delete_if { |(part, _length)| exceptions.include?(part) }
+    [:year, :month, :day].delete_if { |part| exceptions.include?(part) }
   end
 
   def defaults
     SimpleForm.wrapper(:default).defaults
   end
 
-  def build_date_field(buffer, part, length)
+  def build_date_field(buffer, part)
     field_options = @options.slice(:readonly, :disabled)
     buffer << @builder.simple_fields_for(attribute_name, value) do |f|
-      f.input part, field_options.merge(as: :tel, maxlength: length)
+      collection = send("#{part}_collection")
+      f.input part, field_options.merge(as: :select,
+                                        collection: collection,
+                                        include_blank: :translate,
+                                        input_html: { data: { part: part } })
     end
+  end
+
+  def day_collection
+    (1..31).to_a
+  end
+
+  def month_collection
+    (1..12).map { |m| [Date::MONTHNAMES[m], m] }
+  end
+
+  def year_collection
+    (date_range.first.year..date_range.last.year).to_a
+  end
+
+  def date_range
+    @date_range ||= @options.fetch(:date_range, [10.years.ago, 10.years.since])
   end
 
   def build_checkbox_field(buffer)

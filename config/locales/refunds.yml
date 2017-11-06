@@ -59,7 +59,7 @@ en:
       eat_issue_fee: "EAT Issue fee"
       eat_hearing_fee: "EAT Hearing fee"
       et_reconsideration_fee: "ET Reconsideration fee"
-      fee_payment_date: "Payment date (mm/yyyy)"
+      fee_payment_date: "Payment date (year / month)"
       total_fees: "Total fees paid"
     bank_details:
       your_bank_details: "Your Bank Details"
@@ -231,22 +231,27 @@ en:
               blank: Please select a payment method
             et_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
+              date_range: The payment date must be between %{start_date} and %{end_date}
             et_hearing_fee_payment_method:
               blank: Please select a payment method
             et_hearing_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
+              date_range: The payment date must be between %{start_date} and %{end_date}
             et_reconsideration_fee_payment_method:
               blank: Please select a payment method
             et_reconsideration_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
+              date_range: The payment date must be between %{start_date} and %{end_date}
             eat_issue_fee_payment_method:
               blank: Please select a payment method
             eat_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
+              date_range: The payment date must be between %{start_date} and %{end_date}
             eat_hearing_fee_payment_method:
               blank: Please select a payment method
             eat_hearing_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
+              date_range: The payment date must be between %{start_date} and %{end_date}
         refunds/bank_details:
           attributes:
             payment_account_type:
@@ -283,10 +288,25 @@ en:
         et_tribunal_office: Please select
       refunds_fees:
         et_issue_fee_payment_method: Please select
+        et_issue_fee_payment_date:
+          month: Please select
+          year: Please select
         et_hearing_fee_payment_method: Please select
+        et_hearing_fee_payment_date:
+          month: Please select
+          year: Please select
         et_reconsideration_fee_payment_method: Please select
+        et_reconsideration_fee_payment_date:
+          month: Please select
+          year: Please select
         eat_issue_fee_payment_method: Please select
+        eat_issue_fee_payment_date:
+          month: Please select
+          year: Please select
         eat_hearing_fee_payment_method: Please select
+        eat_hearing_fee_payment_date:
+          month: Please select
+          year: Please select
     hints:
       refunds_original_case_details:
         et_case_number_html: |
