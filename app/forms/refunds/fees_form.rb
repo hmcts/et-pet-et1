@@ -108,6 +108,8 @@ module Refunds
               !eat_hearing_fee_payment_date_unknown?
           }
 
+    validate :validate_fees
+
     private
 
     def total_fees

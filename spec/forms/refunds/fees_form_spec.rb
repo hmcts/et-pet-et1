@@ -8,7 +8,7 @@ module Refunds
     it_behaves_like 'a Form', {
       et_issue_fee: '0.01',
       et_issue_fee_payment_method: 'card',
-      et_issue_fee_payment_date: { day: '1', month: '1', year: '2010' }
+      et_issue_fee_payment_date: { day: '1', month: '1', year: '2016' }
     }, Session
 
     describe 'validation' do

@@ -253,7 +253,7 @@ en:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
             base:
-              fees_must_be_positive: You must have at least one fee
+              fees_must_be_positive: You must enter an amount in the relevant fee/s field/s
         refunds/bank_details:
           attributes:
             payment_account_type:
