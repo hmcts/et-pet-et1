@@ -41,14 +41,20 @@ Feature: Refund Validations - Fees Page
     And I save the refund fees
     Then I should see the refund bank details page
 
-  Scenario: A user fills in fees with a date that is past the end date
+  Scenario: A user must see all valid years only
     And I fill in all my refund fee values only
-    And I fill in all my refund fee dates with "November 2017"
-    And I save the refund fees
-    Then all fee payment date fields in the fees page should be marked with an error for out of range
+    Then I should see only years "2013,2014,2015,2016,2017" in the year dropdown of all of the fee dates
 
-  Scenario: A user fills in fees with a date that is before the end date
+  Scenario: A user is prevented from selecting a month before the start date
     And I fill in all my refund fee values only
-    And I fill in all my refund fee dates with "June 2013"
-    And I save the refund fees
-    Then all fee payment date fields in the fees page should be marked with an error for out of range
+    Then I should only see months "July,August,September,October,November,December" in "2013" in all of the fee dates
+
+  Scenario: A user sees all months in 2014,2015 and 2016
+    And I fill in all my refund fee values only
+    Then I should see all months in "2014" in all of the fee dates
+    And I should see all months in "2015" in all of the fee dates
+    And I should see all months in "2016" in all of the fee dates
+
+  Scenario: A user is prevented from selecting a month after the end date
+    And I fill in all my refund fee values only
+    Then I should only see months "January,February,March,April,May,June,July,August" in "2017" in all of the fee dates

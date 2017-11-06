@@ -1,7 +1,7 @@
 module Refunds
   class FeesForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash', 'unknown'].freeze
-    VALID_PAYMENT_DATE_RANGE = Date.parse('1 July 2013')..Date.parse('31 October 2017')
+    VALID_PAYMENT_DATE_RANGE = Date.parse('1 July 2013')..Date.parse('31 August 2017')
     attribute :et_issue_fee,                            Float
     attribute :et_issue_fee_payment_method,             String
     attribute :et_issue_fee_payment_date,               Date

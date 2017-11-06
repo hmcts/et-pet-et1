@@ -26,7 +26,7 @@ module RefundsHelper
     if obj.send("#{fee}_payment_date_unknown")
       I18n.t('helpers.refunds.payment_date_unknown')
     else
-      obj.send("#{fee}_payment_date").strftime('%-m/%Y')
+      obj.send("#{fee}_payment_date").strftime('%B %Y')
     end
   end
 
