@@ -108,5 +108,18 @@ module Refunds
               !eat_hearing_fee_payment_date_unknown?
           }
 
+    validate :validate_fees
+
+    private
+
+    def total_fees
+      [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].sum do |fee|
+        send(fee).to_f
+      end
+    end
+
+    def validate_fees
+      errors.add(:base, :fees_must_be_positive) unless total_fees.positive?
+    end
   end
 end

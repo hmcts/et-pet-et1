@@ -21,7 +21,7 @@ Feature: Refund Validations - Fees Page
 
   Scenario: A user fills in no fees data at all and submits
     And I save the refund fees
-    Then I should see the refund bank details page
+    Then the refund fees form should show an error stating that at least one fee should be present
 
   Scenario: A user fills in no fees data at all and does not submit
     Then all fee payment date fields in the fees page should be disabled
