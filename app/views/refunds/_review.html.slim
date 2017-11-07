@@ -128,31 +128,31 @@ div class=("review-list-entry applicant")
         - if f.object.et_issue_fee_present?
           tr
             th = t('.et_issue_fee')
-            td = number_to_currency(f.object.et_issue_fee, delimiter: '')
+            td = number_to_currency(f.object.et_issue_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_issue_fee)
             td = payment_method_for(f.object, :et_issue_fee)
         - if f.object.et_hearing_fee_present?
           tr
             th = t('.et_hearing_fee')
-            td = number_to_currency(f.object.et_hearing_fee, delimiter: '')
+            td = number_to_currency(f.object.et_hearing_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_hearing_fee)
             td = payment_method_for(f.object, :et_hearing_fee)
         - if f.object.et_reconsideration_fee_present?
           tr
             th = t('.et_reconsideration_fee')
-            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '')
+            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_reconsideration_fee)
             td = payment_method_for(f.object, :et_reconsideration_fee)
         - if f.object.eat_issue_fee_present?
           tr
             th = t('.eat_issue_fee')
-            td = number_to_currency(f.object.eat_issue_fee, delimiter: '')
+            td = number_to_currency(f.object.eat_issue_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :eat_issue_fee)
             td = payment_method_for(f.object, :eat_issue_fee)
         - if f.object.eat_hearing_fee_present?
           tr
             th = t('.eat_hearing_fee')
-            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '')
+            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :eat_hearing_fee)
             td = payment_method_for(f.object, :eat_hearing_fee)
         tr
