@@ -291,24 +291,24 @@ en:
       refunds_fees:
         et_issue_fee_payment_method: Please select
         et_issue_fee_payment_date:
-          month: Please select
-          year: Please select
+          month: month
+          year: year
         et_hearing_fee_payment_method: Please select
         et_hearing_fee_payment_date:
-          month: Please select
-          year: Please select
+          month: month
+          year: year
         et_reconsideration_fee_payment_method: Please select
         et_reconsideration_fee_payment_date:
-          month: Please select
-          year: Please select
+          month: month
+          year: year
         eat_issue_fee_payment_method: Please select
         eat_issue_fee_payment_date:
-          month: Please select
-          year: Please select
+          month: month
+          year: year
         eat_hearing_fee_payment_method: Please select
         eat_hearing_fee_payment_date:
-          month: Please select
-          year: Please select
+          month: month
+          year: year
     hints:
       refunds_original_case_details:
         et_case_number_html: |
