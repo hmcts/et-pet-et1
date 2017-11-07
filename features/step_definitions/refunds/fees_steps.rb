@@ -174,5 +174,5 @@ Then(/^I should see only years "([^"]*)" in the year dropdown of all of the fee 
 end
 
 Then(/^the refund fees form should show an error stating that at least one fee should be present$/) do
-  expect(refund_fees_page.form_error_message).to have_text('You must enter an amount in the relevant fee/s field/s')
+  expect(refund_fees_page.form_error_message).to have_text('You must enter a fee in the relevant field')
 end
