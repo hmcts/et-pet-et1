@@ -268,12 +268,12 @@ module Refunds
         writer_method = "#{fee_name}_fee=".to_sym
         it 'converts an amount from a string' do
           form.send(writer_method, '10.51')
-          expect(form.send(reader_method)).to eql 10
+          expect(form.send(reader_method)).to be 10
         end
 
         it 'converts an amount from a float' do
           form.send(writer_method, 10.51)
-          expect(form.send(reader_method)).to eql 10
+          expect(form.send(reader_method)).to be 10
         end
 
         it 'leaves an invalid number from a string as is' do
