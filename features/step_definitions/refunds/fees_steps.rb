@@ -145,7 +145,7 @@ And(/^I fill in all my refund fee dates with "([^"]*)"$/) do |date|
 end
 
 Then(/^I should only see months "([^"]*)" in "([^"]*)" in all of the fee dates$/) do |months_as_string, year|
-  months = ['Please select'] + months_as_string.split(',')
+  months = ['month'] + months_as_string.split(',')
   original_claim_fees = refund_fees_page.original_claim_fees
   [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
     payment_date_field = original_claim_fees.send(fee).payment_date
@@ -155,7 +155,7 @@ Then(/^I should only see months "([^"]*)" in "([^"]*)" in all of the fee dates$/
 end
 
 Then(/^I should see all months in "([^"]*)" in all of the fee dates$/) do |year|
-  months = ['Please select', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  months = ['month', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
   original_claim_fees = refund_fees_page.original_claim_fees
   [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
     payment_date_field = original_claim_fees.send(fee).payment_date
@@ -165,7 +165,7 @@ Then(/^I should see all months in "([^"]*)" in all of the fee dates$/) do |year|
 end
 
 Then(/^I should see only years "([^"]*)" in the year dropdown of all of the fee dates$/) do |years_as_string|
-  years = ['Please select'] + years_as_string.split(',')
+  years = ['year'] + years_as_string.split(',')
   original_claim_fees = refund_fees_page.original_claim_fees
   [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
     payment_date_field = original_claim_fees.send(fee).payment_date
