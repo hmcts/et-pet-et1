@@ -21,9 +21,9 @@ var dateRangeInput = (function() {
         var yearEnd = endDate.split('-')[0];
         var monthEnd = parseInt(endDate.split('-')[1]);
         var monthStart = parseInt(startDate.split('-')[1]);
-        if(yearPart.val() == yearStart) {
+        if(yearPart.val() === yearStart) {
             enableMonths(component, monthStart, 12);
-        } else if(yearPart.val() == yearEnd) {
+        } else if(yearPart.val() === yearEnd) {
             enableMonths(component, 1, monthEnd);
         } else {
             enableMonths(component, 1,12);
