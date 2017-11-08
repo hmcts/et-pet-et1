@@ -1,5 +1,5 @@
 .main-content.refunds_fees {
-  width: 75%;
+  width: 85%;
   table.fees {
     .fee {
       input {
@@ -12,9 +12,17 @@
     }
     .fee_payment_date {
       .know-date-input.year-month-date-input {
-        width: 16em;
+        width: 17em;
+        .form-group.year {
+          width: 25%;
+        }
+        .form-group.month {
+          width: 45%;
+        }
+        .form-group.unknown {
+          width: 20%;
+        }
         .form-group {
-          width: 30%;
           margin-right: 5px;
         }
         select {
