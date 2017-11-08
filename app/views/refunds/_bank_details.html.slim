@@ -1,3 +1,6 @@
+fieldset
+  span = t('.account_help')
+
 = f.input :payment_account_type,
         required: true,
         collection: Refunds::BankDetailsForm::ACCOUNT_TYPES,
