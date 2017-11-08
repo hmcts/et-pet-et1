@@ -65,6 +65,7 @@ en:
       your_bank_details: "Your Bank Details"
       your_building_society_details: "Your Building Society Details"
       header: "Repayment Details"
+      account_help: "This is the account, which must be held in your name, where any valid refund payments will be made."
     review:
       header: "Review your application"
       sections:
