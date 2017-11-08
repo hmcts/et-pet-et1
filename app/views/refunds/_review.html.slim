@@ -119,45 +119,45 @@ div class=("review-list-entry applicant")
     - unless f.object.has_fees?
       p = t('.no_fees')
     - if f.object.has_fees?
-      table.review-table
+      table.review-table.fees
         tr
-          th = t('.fee_type')
-          td = t('.fee')
-          td = "Payment Date"
-          td = t('.payment_method')
+          th.fee_type = t('.fee_type')
+          td.fee = t('.fee')
+          td.payment_date = "Payment Date"
+          td.payment_method = t('.payment_method')
         - if f.object.et_issue_fee_present?
           tr
             th = t('.et_issue_fee')
-            td = number_to_currency(f.object.et_issue_fee, delimiter: '')
+            td = number_to_currency(f.object.et_issue_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_issue_fee)
             td = payment_method_for(f.object, :et_issue_fee)
         - if f.object.et_hearing_fee_present?
           tr
             th = t('.et_hearing_fee')
-            td = number_to_currency(f.object.et_hearing_fee, delimiter: '')
+            td = number_to_currency(f.object.et_hearing_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_hearing_fee)
             td = payment_method_for(f.object, :et_hearing_fee)
         - if f.object.et_reconsideration_fee_present?
           tr
             th = t('.et_reconsideration_fee')
-            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '')
+            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :et_reconsideration_fee)
             td = payment_method_for(f.object, :et_reconsideration_fee)
         - if f.object.eat_issue_fee_present?
           tr
             th = t('.eat_issue_fee')
-            td = number_to_currency(f.object.eat_issue_fee, delimiter: '')
+            td = number_to_currency(f.object.eat_issue_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :eat_issue_fee)
             td = payment_method_for(f.object, :eat_issue_fee)
         - if f.object.eat_hearing_fee_present?
           tr
             th = t('.eat_hearing_fee')
-            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '')
+            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '', precision: 0)
             td = payment_date_for(f.object, :eat_hearing_fee)
             td = payment_method_for(f.object, :eat_hearing_fee)
         tr
           th = t('.total_fees')
-          td = number_to_currency(f.object.total_fees, delimiter: '')
+          td = number_to_currency(f.object.total_fees, delimiter: '', precision: 0)
   div data-behavior= "refund-review-section"
     - if f.object.payment_account_type == 'bank'
       h2.list-header

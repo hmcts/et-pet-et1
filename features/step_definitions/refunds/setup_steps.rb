@@ -35,19 +35,19 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
 
-  fees = OpenStruct.new et_issue_fee: '1000.00',
+  fees = OpenStruct.new et_issue_fee: '1000',
                         et_issue_payment_method: 'Card',
                         et_issue_payment_date: 'January 2016',
-                        et_hearing_fee: '1001.01',
+                        et_hearing_fee: '1001',
                         et_hearing_payment_method: 'Cash',
                         et_hearing_payment_date: 'February 2016',
-                        eat_issue_fee: '1002.02',
+                        eat_issue_fee: '1002',
                         eat_issue_payment_method: 'Cheque',
                         eat_issue_payment_date: 'March 2016',
-                        eat_hearing_fee: '1003.03',
+                        eat_hearing_fee: '1003',
                         eat_hearing_payment_method: 'Don\'t know',
                         eat_hearing_payment_date: 'April 2016',
-                        et_reconsideration_fee: '1004.04',
+                        et_reconsideration_fee: '1004',
                         et_reconsideration_payment_method: 'Card',
                         et_reconsideration_payment_date: 'Don\'t know'
 
@@ -68,7 +68,7 @@ And(/^I want a refund for my previous ET claim with case number "1234567\/2015"$
   respondent = OpenStruct.new name: 'Respondent Name',
                               address: respondent_address
 
-  fees = OpenStruct.new et_issue_fee: '1000.00',
+  fees = OpenStruct.new et_issue_fee: '1000',
                         et_issue_payment_method: 'Card',
                         et_issue_payment_date: 'April 2016'
 

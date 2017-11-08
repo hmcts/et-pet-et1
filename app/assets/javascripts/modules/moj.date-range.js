@@ -10,48 +10,39 @@ var dateRangeInput = (function() {
     }
 
     function filterMonthSelect(component) {
-        filterMonthsSelectOnStartDate(component);
-        filterMonthsSelectOnEndDate(component);
+        filterMonthsSelect(component);
     }
 
-    function filterMonthsSelectOnStartDate(component) {
-        var monthPart = component.find('[data-part="month"]');
-        var yearPart = component.find('[data-part="year"]');
-        var startDate = component.attr('data-date-range-start');
-        var yearStart = startDate.split('-')[0];
-        if(yearPart.val() === yearStart) {
-            var startMonth = parseInt(startDate.split('-')[1]);
-            monthPart.find('option').each(function(_idx, option) {
-                if(option.value === '') {
-                    return;
-                }
-                if(parseInt(option.value) < startMonth) {
-                    $(option).prop('disabled', true);
-                } else {
-                    $(option).prop('disabled', false);
-                }
-            });
-        }
-    }
-
-    function filterMonthsSelectOnEndDate(component) {
-        var monthPart = component.find('[data-part="month"]');
+    function filterMonthsSelect(component) {
         var yearPart = component.find('[data-part="year"]');
         var endDate = component.attr('data-date-range-end');
+        var startDate = component.attr('data-date-range-start');
+        var yearStart = startDate.split('-')[0];
         var yearEnd = endDate.split('-')[0];
-        if(yearPart.val() === yearEnd) {
-            var endMonth = parseInt(endDate.split('-')[1]);
-            monthPart.find('option').each(function(_idx, option) {
-                if(option.value === '') {
-                    return;
-                }
-                if(parseInt(option.value) > endMonth) {
-                    $(option).prop('disabled', true);
-                } else {
-                    $(option).prop('disabled', false);
-                }
-            });
+        var monthEnd = parseInt(endDate.split('-')[1]);
+        var monthStart = parseInt(startDate.split('-')[1]);
+        if(yearPart.val() === yearStart) {
+            enableMonths(component, monthStart, 12);
+        } else if(yearPart.val() === yearEnd) {
+            enableMonths(component, 1, monthEnd);
+        } else {
+            enableMonths(component, 1,12);
         }
+    }
+
+    function enableMonths(component, startMonth, endMonth) {
+        var monthPart = component.find('[data-part="month"]');
+        monthPart.find('option').each(function(_idx, option) {
+            if(option.value === '') {
+                return;
+            }
+            if(parseInt(option.value) < startMonth || parseInt(option.value) > endMonth) {
+                $(option).prop('disabled', true);
+            } else {
+                $(option).prop('disabled', false);
+            }
+        });
+
     }
 
     dateRangeInput.init = function() {

@@ -6,7 +6,7 @@ module Refunds
     let(:form) { described_class.new(refund_session) }
 
     it_behaves_like 'a Form', {
-      et_issue_fee: '0.01',
+      et_issue_fee: '12',
       et_issue_fee_payment_method: 'card',
       et_issue_fee_payment_date: { day: '1', month: '1', year: '2016' }
     }, Session
@@ -134,35 +134,35 @@ module Refunds
 
       # Start of validation specs
       context 'with positive fees as float with known date' do
-        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 0.01
-        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: 0.01
-        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: 0.01
-        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: 0.01
-        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: 0.01
+        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 12
+        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: 12
+        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: 12
+        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: 12
+        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: 12
       end
 
       context 'with positive fees as string with known date' do
-        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: '0.01'
-        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: '0.01'
-        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: '0.01'
-        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: '0.01'
-        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: '0.01'
+        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: '12'
+        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: '12'
+        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: '12'
+        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: '12'
+        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: '12'
       end
 
       context 'with positive fees as float with unknown date' do
-        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: 0.01
-        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: 0.01
-        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: 0.01
-        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: 0.01
-        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: 0.01
+        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: 12
+        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: 12
+        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: 12
+        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: 12
+        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: 12
       end
 
       context 'with positive fees as string with unknown date' do
-        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: '0.01'
-        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: '0.01'
-        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: '0.01'
-        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: '0.01'
-        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: '0.01'
+        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: '12'
+        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: '12'
+        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: '12'
+        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: '12'
+        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: '12'
       end
 
       context 'with no fees' do
@@ -263,12 +263,44 @@ module Refunds
         end
       end
 
+      shared_examples 'a fee amount writer' do |fee_name:|
+        reader_method = "#{fee_name}_fee".to_sym
+        writer_method = "#{fee_name}_fee=".to_sym
+        it 'converts an amount from a string' do
+          form.send(writer_method, '10.51')
+          expect(form.send(reader_method)).to be 10
+        end
+
+        it 'converts an amount from a float' do
+          form.send(writer_method, 10.51)
+          expect(form.send(reader_method)).to be 10
+        end
+
+        it 'leaves an invalid number from a string as is' do
+          form.send(writer_method, 'non-numeric')
+          expect(form.send(reader_method)).to eql 'non-numeric'
+        end
+
+        it 'does not convert nil' do
+          form.send(writer_method, nil)
+          expect(form.send(reader_method)).to be_nil
+        end
+      end
+
       context 'fee date writers' do
         include_examples 'a fee date writer', fee_name: :et_issue
         include_examples 'a fee date writer', fee_name: :et_hearing
         include_examples 'a fee date writer', fee_name: :et_reconsideration
         include_examples 'a fee date writer', fee_name: :eat_issue
         include_examples 'a fee date writer', fee_name: :eat_hearing
+      end
+
+      context 'fee amount writers' do
+        include_examples 'a fee amount writer', fee_name: :et_issue
+        include_examples 'a fee amount writer', fee_name: :et_hearing
+        include_examples 'a fee amount writer', fee_name: :et_reconsideration
+        include_examples 'a fee amount writer', fee_name: :eat_issue
+        include_examples 'a fee amount writer', fee_name: :eat_hearing
       end
     end
   end
