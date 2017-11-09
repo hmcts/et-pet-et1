@@ -51,6 +51,7 @@ class DateWithUnknownInput < SimpleForm::Inputs::Base
       f.input part, field_options.merge(as: :select,
                                         collection: collection,
                                         include_blank: :translate,
+                                        wrapper_html: { class: part },
                                         input_html: { data: { part: part } })
     end
   end
