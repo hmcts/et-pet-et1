@@ -325,7 +325,7 @@ en:
       refunds_bank_details:
         payment_bank_account_number: Please enter your 8 digit bank account number. This should be a current account held in your name, not a savings account
         payment_bank_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
-        payment_building_society_account_number: Please enter your 8 digit building society account number. This should be a current account in held in your name, not a savings account
+        payment_building_society_account_number: Please enter your 8 digit building society account number. This should be a current account held in your name, not a savings account
         payment_building_society_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
     labels:
       refunds_applicant:
