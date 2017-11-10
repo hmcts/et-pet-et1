@@ -132,13 +132,11 @@ module Refunds
         end
       end
 
-      shared_examples 'a negative fee' do |fee_name:, fee:|
-        before { form.send("#{fee_name}_fee=", fee) }
-        it 'validates against negative values' do
+      shared_examples 'any fee' do |fee_name:|
+        it 'validates numeric values disallowing negative values' do
           expect(form).to validate_numericality_of("#{fee_name}_fee").
             is_greater_than_or_equal_to(0)
         end
-
       end
 
       # Start of validation specs
@@ -216,12 +214,12 @@ module Refunds
         end
       end
 
-      context 'with negative fees' do
-        include_examples 'a negative fee', fee_name: :et_issue, fee: -1
-        include_examples 'a negative fee', fee_name: :et_hearing, fee: -1
-        include_examples 'a negative fee', fee_name: :et_reconsideration, fee: -1
-        include_examples 'a negative fee', fee_name: :eat_issue, fee: -1
-        include_examples 'a negative fee', fee_name: :eat_hearing, fee: -1
+      context 'common validations per fee' do
+        include_examples 'any fee', fee_name: :et_issue
+        include_examples 'any fee', fee_name: :et_hearing
+        include_examples 'any fee', fee_name: :et_reconsideration
+        include_examples 'any fee', fee_name: :eat_issue
+        include_examples 'any fee', fee_name: :eat_hearing
       end
     end
 
