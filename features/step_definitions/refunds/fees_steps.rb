@@ -185,7 +185,6 @@ Then(/^the refund fees form should show an error stating that at least one fee s
   expect(refund_fees_page.form_error_message).to have_text('You must enter a fee in the relevant field')
 end
 
-
 And(/^I fill in the refund fee values with negative values$/) do
   original_claim_fees = refund_fees_page.original_claim_fees
   [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|

@@ -33,81 +33,57 @@ module Refunds
     validates :et_issue_fee_payment_method,
       presence: true,
       inclusion: PAYMENT_METHODS,
-      if: lambda {
-        et_issue_fee.present? && et_issue_fee.try(:positive?)
-      }
+      if: -> { et_issue_fee.try(:positive?) }
 
     validates :et_issue_fee_payment_date,
       presence: true,
       date: true,
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
-      if: lambda {
-            et_issue_fee.present? &&
-              et_issue_fee.try(:positive?) &&
-              !et_issue_fee_payment_date_unknown?
-          }
+      if: -> { et_issue_fee.try(:positive?) && !et_issue_fee_payment_date_unknown? }
 
     validates :et_hearing_fee_payment_method,
       presence: true,
       inclusion: PAYMENT_METHODS,
-      if: -> { et_hearing_fee.present? && et_hearing_fee.try(:positive?) }
+      if: -> { et_hearing_fee.try(:positive?) }
 
     validates :et_hearing_fee_payment_date,
       presence: true,
       date: true,
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
-      if: lambda {
-            et_hearing_fee.present? && et_hearing_fee.try(:positive?) && !et_hearing_fee_payment_date_unknown?
-          }
+      if: -> { et_hearing_fee.try(:positive?) && !et_hearing_fee_payment_date_unknown? }
 
     validates :et_reconsideration_fee_payment_method,
       presence: true,
       inclusion: PAYMENT_METHODS,
-      if: -> { et_reconsideration_fee.present? && et_reconsideration_fee.try(:positive?) }
+      if: -> {  et_reconsideration_fee.try(:positive?) }
 
     validates :et_reconsideration_fee_payment_date,
       presence: true,
       date: true,
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
-      if: lambda {
-            et_reconsideration_fee.present? &&
-              et_reconsideration_fee.try(:positive?) &&
-              !et_reconsideration_fee_payment_date_unknown?
-          }
+      if: -> { et_reconsideration_fee.try(:positive?) && !et_reconsideration_fee_payment_date_unknown? }
 
     validates :eat_issue_fee_payment_method,
       presence: true,
       inclusion: PAYMENT_METHODS,
-      if: lambda {
-        eat_issue_fee.present? && eat_issue_fee.try(:positive?)
-      }
+      if: -> { eat_issue_fee.try(:positive?) }
 
     validates :eat_issue_fee_payment_date,
       presence: true,
       date: true,
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
-      if: lambda {
-            eat_issue_fee.present? &&
-              eat_issue_fee.try(:positive?) &&
-              !eat_issue_fee_payment_date_unknown?
-          }
+      if: -> { eat_issue_fee.try(:positive?) && !eat_issue_fee_payment_date_unknown? }
 
     validates :eat_hearing_fee_payment_method,
       presence: true,
       inclusion: PAYMENT_METHODS,
-      if: lambda {
-        eat_hearing_fee.present? && eat_hearing_fee.try(:positive?)
-      }
+      if: -> { eat_hearing_fee.try(:positive?) }
 
     validates :eat_hearing_fee_payment_date,
       presence: true,
       date: true,
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
-      if: lambda {
-            eat_hearing_fee.present? &&
-              eat_hearing_fee.try(:positive?) &&
-              !eat_hearing_fee_payment_date_unknown?
-          }
+      if: -> { eat_hearing_fee.try(:positive?) && !eat_hearing_fee_payment_date_unknown? }
 
     validate :validate_fees
 
