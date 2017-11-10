@@ -132,6 +132,15 @@ module Refunds
         end
       end
 
+      shared_examples 'a negative fee' do |fee_name:, fee:|
+        before { form.send("#{fee_name}_fee=", fee) }
+        it 'validates against negative values' do
+          expect(form).to validate_numericality_of("#{fee_name}_fee").
+            is_greater_than_or_equal_to(0)
+        end
+
+      end
+
       # Start of validation specs
       context 'with positive fees as float with known date' do
         include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 12
@@ -205,6 +214,14 @@ module Refunds
           form.valid?
           expect(form.errors[:base]).to include(I18n.t('activemodel.errors.models.refunds/fees.attributes.base.fees_must_be_positive'))
         end
+      end
+
+      context 'with negative fees' do
+        include_examples 'a negative fee', fee_name: :et_issue, fee: -1
+        include_examples 'a negative fee', fee_name: :et_hearing, fee: -1
+        include_examples 'a negative fee', fee_name: :et_reconsideration, fee: -1
+        include_examples 'a negative fee', fee_name: :eat_issue, fee: -1
+        include_examples 'a negative fee', fee_name: :eat_hearing, fee: -1
       end
     end
 

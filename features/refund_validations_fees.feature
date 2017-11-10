@@ -19,6 +19,11 @@ Feature: Refund Validations - Fees Page
     Then all fee payment method fields in the fees page should be marked with an error
     Then all fee payment date fields in the fees page should be marked with an error for blank input
 
+  Scenario: A user fills in negative fees
+    And I fill in the refund fee values with negative values
+    And I save the refund fees
+    Then all fee value fields in the fees page should be marked with an error for negative values
+
   Scenario: A user fills in no fees data at all and submits
     And I save the refund fees
     Then the refund fees form should show an error stating that at least one fee should be present
