@@ -30,6 +30,14 @@ Then(/^all fee payment date fields in the fees page should not be marked with an
   expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date).to have_no_error, 'EAT refund payment date should not have an error'
 end
 
+Then(/^all fee value fields in the fees page should be marked with an error for negative values$/) do
+  expect(refund_fees_page.original_claim_fees.et_issue.fee.error.text).to eql 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.et_hearing.fee.error.text).to eql 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.fee.error.text).to eql 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.eat_issue.fee.error.text).to eql 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.fee.error.text).to eql 'Fee must be greater than 0'
+end
+
 And(/^I fill in my refund fees and verify the total$/) do
   step('I take a screenshot named "Page 4 - Fees 1"')
   test_user_fees = test_user.et_claim_to_refund.fees
@@ -175,4 +183,11 @@ end
 
 Then(/^the refund fees form should show an error stating that at least one fee should be present$/) do
   expect(refund_fees_page.form_error_message).to have_text('You must enter a fee in the relevant field')
+end
+
+And(/^I fill in the refund fee values with negative values$/) do
+  original_claim_fees = refund_fees_page.original_claim_fees
+  [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].each do |fee|
+    original_claim_fees.send(fee).fee.set('-1')
+  end
 end

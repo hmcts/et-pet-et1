@@ -229,26 +229,36 @@ en:
               nil_or_empty: Please select Yes or No
         refunds/fees:
           attributes:
+            et_issue_fee:
+              greater_than_or_equal_to: Fee must be greater than %{count}
             et_issue_fee_payment_method:
               blank: Please select a payment method
             et_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+            et_hearing_fee:
+              greater_than_or_equal_to: Fee must be greater than %{count}
             et_hearing_fee_payment_method:
               blank: Please select a payment method
             et_hearing_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+            et_reconsideration_fee:
+              greater_than_or_equal_to: Fee must be greater than %{count}
             et_reconsideration_fee_payment_method:
               blank: Please select a payment method
             et_reconsideration_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+            eat_issue_fee:
+              greater_than_or_equal_to: Fee must be greater than %{count}
             eat_issue_fee_payment_method:
               blank: Please select a payment method
             eat_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+            eat_hearing_fee:
+              greater_than_or_equal_to: Fee must be greater than %{count}
             eat_hearing_fee_payment_method:
               blank: Please select a payment method
             eat_hearing_fee_payment_date:

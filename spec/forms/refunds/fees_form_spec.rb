@@ -132,6 +132,13 @@ module Refunds
         end
       end
 
+      shared_examples 'any fee' do |fee_name:|
+        it 'validates numeric values disallowing negative values' do
+          expect(form).to validate_numericality_of("#{fee_name}_fee").
+            is_greater_than_or_equal_to(0)
+        end
+      end
+
       # Start of validation specs
       context 'with positive fees as float with known date' do
         include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 12
@@ -205,6 +212,14 @@ module Refunds
           form.valid?
           expect(form.errors[:base]).to include(I18n.t('activemodel.errors.models.refunds/fees.attributes.base.fees_must_be_positive'))
         end
+      end
+
+      context 'common validations per fee' do
+        include_examples 'any fee', fee_name: :et_issue
+        include_examples 'any fee', fee_name: :et_hearing
+        include_examples 'any fee', fee_name: :et_reconsideration
+        include_examples 'any fee', fee_name: :eat_issue
+        include_examples 'any fee', fee_name: :eat_hearing
       end
     end
 
