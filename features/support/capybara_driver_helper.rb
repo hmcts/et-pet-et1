@@ -46,5 +46,4 @@ Capybara.current_driver = Capybara.default_driver
 Capybara.always_include_port = true
 Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST', "http://#{ENV.fetch('HOSTNAME')}")
 Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME'))
-#Capybara.server_port = ENV.fetch('CAPYBARA_SERVER_PORT', '3000')
 Capybara.server = :webrick, { Logger: WEBrick::Log.new(Rails.logger, WEBrick::Log::DEBUG) }
