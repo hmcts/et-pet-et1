@@ -46,7 +46,8 @@ group :development, :test do
   gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers'
   gem 'spring'
-  gem "activerecord-nulldb-adapter"
+  gem 'activerecord-nulldb-adapter'
+  gem 'parallel_tests', '~> 2.17'
 end
 
 group :test do

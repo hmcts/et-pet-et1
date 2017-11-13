@@ -311,6 +311,8 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.11.2)
+    parallel_tests (2.17.0)
+      parallel
     parser (2.4.0.0)
       ast (~> 2.2)
     pdf-forms (1.1.1)
@@ -544,6 +546,7 @@ DEPENDENCIES
   logstasher
   moj_template (= 0.23.0)
   non-stupid-digest-assets
+  parallel_tests (~> 2.17)
   pdf-forms
   pg
   poltergeist (= 1.15.0)
