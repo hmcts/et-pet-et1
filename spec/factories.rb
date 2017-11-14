@@ -343,6 +343,17 @@ FactoryGirl.define do
       submitted_at                                          '2017-11-13 11:14:47 +0000'
       eat_case_number                                       'UKEAT/1234/17/123'
     end
+
+    trait :society_payment do
+      payment_building_society_account_name "Tom Dunhill"
+      payment_building_society_name "Yorkshire Building Society"
+      payment_building_society_account_number "98765432"
+      payment_building_society_sort_code "332211"
+      et_issue_fee                                          '10.0'
+      et_issue_fee_currency                                 'GBP'
+      et_issue_fee_payment_method                           'card'
+      et_issue_fee_payment_date                             '2013-08-01'
+    end
   end
 
 end
