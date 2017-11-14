@@ -6,7 +6,7 @@ ActiveAdmin.register Refund do
 
   batch_action :Export do |ids|
     csv = Refund.to_csv(ids)
-    send_data csv
-    # redirect_to collection_path, alert: "The File was exported"
+    filename = "refund_export_#{Time.now.to_s(:db)}.csv"
+    send_data csv, filename: filename
   end
 end
