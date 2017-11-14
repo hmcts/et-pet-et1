@@ -17,7 +17,7 @@ local:
 
 test: &test
   <<: *default
-  database: <%= ENV.fetch('DB_NAME', 'atet_test') %>
+  database: <%= ENV.fetch('DB_NAME', 'atet_test') %><%= ENV['TEST_ENV_NUMBER'] %>
   host: <%= ENV.fetch('DB_HOST', 'localhost') %>
   user: <%= ENV.fetch('DB_USERNAME', %x<whoami>.chomp) %>
 
