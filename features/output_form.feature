@@ -6,6 +6,7 @@ Feature: Output Form
     And I want to apply for an employee tribunal
     And I have special needs for an employee tribunal
     And I want 4 group claimaints for an employee tribunal
+    And I want a representative for an employee tribunal
     And I am on the new claim page
     When I start a new claim
     And I save my claim with a valid email address and password
@@ -15,32 +16,9 @@ Feature: Output Form
     And I fill in my group claimant details
     And I save the group claims
     And I answer Yes to the representative question
-    And I fill in the representative's details with:
-      | field             | value                          |
-      | type              | Solicitor                      |
-      | organisation_name | Solicitors Are Us Fake Company |
-      | name              | Solicitor Name                 |
-    And I fill in the representative's contact details with:
-      | field                        | value                                 |
-      | building                     | 106                                   |
-      | street                       | Mayfair                               |
-      | locality                     | London                                |
-      | county                       | Greater London                        |
-      | post_code                    | SW1H 9PP                              |
-      | telephone_number             | 01111 123456                          |
-      | alternative_telephone_number | 02222 654321                          |
-      | email_address                | solicitor.test@digital.justice.gov.uk |
-      | dx_number                    | dx1234567890                          |
+    And I fill in the representative's details
     And I save the representative's details
-    And I fill in the respondent's details with:
-      | field            | value           |
-      | name             | Respondent Name |
-      | building         | 108             |
-      | street           | Regent Street   |
-      | locality         | London          |
-      | county           | Greater London  |
-      | post_code        | SW1H 9QR        |
-      | telephone_number | 02222 321654    |
+    And I fill in the respondent's details
     And I answer No to working at the same address question
     And I fill in my work address with:
       | field            | value            |

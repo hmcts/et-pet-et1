@@ -7,7 +7,11 @@ class StepFourPage < BasePage
       end
     end
     section :about_your_representative, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About your representative")]] }) do
-      element :type, 'select[name="representative[type]"]'
+      section :type, 'select[name="representative[type]"]' do
+        def set(value)
+          select(value)
+        end
+      end
       element :organisation_name, 'input[name="representative[organisation_name]"]'
       element :name, 'input[name="representative[name]"]'
     end

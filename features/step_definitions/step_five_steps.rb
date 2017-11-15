@@ -11,6 +11,19 @@ And(/^I fill in the respondent's details with:$/) do |table|
   end
 end
 
+And(/^I fill in the respondent's details$/) do
+  resp = test_user.et_case.respondent
+  step_five_page.about_the_respondent do |s|
+    s.name.set resp.name
+    s.building.set resp.building
+    s.street.set resp.street
+    s.locality.set resp.locality
+    s.county.set resp.county
+    s.post_code.set resp.post_code
+    s.telephone_number.set resp.telephone_number
+  end
+end
+
 And(/^I answer No to working at the same address question$/) do
   step_five_page.your_work_address.same_address.set("No")
 end

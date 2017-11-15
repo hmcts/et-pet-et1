@@ -58,5 +58,31 @@ end
 
 
 And(/^I want to apply for an employee tribunal/) do
-  test_user.et_case = OpenStruct.new
+  resp = OpenStruct.new name: 'Respondent Name',
+                        building: '108',
+                        street: 'Regent Street',
+                        locality: 'London',
+                        county: 'Greater London',
+                        post_code: 'SW1H 9QR',
+                        telephone_number: '02222 321654'
+
+    test_user.et_case = OpenStruct.new respondent: resp
+end
+
+
+And(/^I want a representative for an employee tribunal$/) do
+  address = OpenStruct.new building: '106',
+                           street: 'Mayfair',
+                           locality: 'London',
+                           county: 'Greater London',
+                           post_code: 'SW1H 9PP'
+  rep = OpenStruct.new type: 'Solicitor',
+                       organisation_name: 'Solicitors Are Us Fake Company',
+                       name: 'Solicitor Name',
+                       address: address,
+                       telephone_number: '01111 123456',
+                       alternative_telephone_number: '02222 654321',
+                       email_address: 'solicitor.test@digital.justice.gov.uk',
+                       dx_number: 'dx1234567890'
+  test_user.et_case.representative = rep
 end
