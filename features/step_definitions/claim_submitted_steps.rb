@@ -24,6 +24,30 @@ And(/^the claim pdf file's Your details section should contain:$/) do |table|
   end
 end
 
+And(/^the claim pdf file's Your details section should contain my details$/) do
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    pdf_page.pdf_document.your_details do |s|
+      expect(s.title.value).to eql test_user.title
+      expect(s.first_name.value).to eql test_user.first_name
+      expect(s.last_name.value).to eql test_user.last_name
+      expect(s.date_of_birth.value).to eql test_user.date_of_birth
+      expect(s.gender.value).to eql test_user.gender
+      expect(s.building.value).to eql test_user.address.building
+      expect(s.street.value).to eql test_user.address.street
+      expect(s.locality.value).to eql test_user.address.locality unless test_user.address.locality.nil?
+      expect(s.county.value).to eql test_user.address.county unless test_user.address.county.nil?
+      expect(s.post_code.value).to eql test_user.address.post_code
+      expect(s.telephone_number.value).to eql test_user.telephone_number
+      expect(s.alternative_telephone_number.value).to eql test_user.alternative_telephone_number unless test_user.alternative_telephone_number.nil?
+      expect(s.email_address.value).to eql test_user.email_address unless test_user.email_address.nil?
+      expect(s.correspondence.value).to eql test_user.correspondence unless test_user.correspondence.nil?
+    end
+  end
+end
+
 And(/^the claim pdf file's Respondent's details name section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do

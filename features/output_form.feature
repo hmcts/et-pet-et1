@@ -2,91 +2,17 @@ Feature: Output Form
 
   @mock_jadu
   Scenario: Full claim with many claimants and respondents
-    Given I am on the new claim page
+    Given I am "Luke Skywalker"
+    And I want to apply for an employee tribunal
+    And I have special needs for an employee tribunal
+    And I want 4 group claimaints for an employee tribunal
+    And I am on the new claim page
     When I start a new claim
     And I save my claim with a valid email address and password
-    And I fill in my claimant details with:
-      | field             | value                           |
-      | title             | Mr                              |
-      | first_name        | First                           |
-      | last_name         | Last                            |
-      | date_of_birth     | 21/11/1982                      |
-      | gender            | Male                            |
-      | has_special_needs | Yes                             |
-      | special_needs     | My special needs are as follows |
-    And I fill in my claimant contact details with:
-      | field                        | value                       |
-      | building                     | 102                         |
-      | street                       | Petty France                |
-      | locality                     | London                      |
-      | county                       | Greater London              |
-      | post_code                    | SW1H 9AJ                    |
-      | country                      | United Kingdom              |
-      | telephone_number             | 01234 567890                |
-      | alternative_telephone_number | 01234 098765                |
-      | email_address                | test@digital.justice.gov.uk |
-      | correspondence               | Email                       |
+    And I fill in my claimant details
+    And I fill in my claimant contact details
     And I save the claimant details
-    And I answer Yes to the group claims question
-    And I fill in the first group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | GroupFirst     |
-      | last_name     | GroupLast      |
-      | date_of_birth | 25/12/1989     |
-      | building      | 104            |
-      | street        | Oxford Street  |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JA       |
-    And I choose to add more claimants
-    And I fill in the second group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group2First    |
-      | last_name     | Group2Last     |
-      | date_of_birth | 25/12/1988     |
-      | building      | 106            |
-      | street        | Regent Street  |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JB       |
-    And I choose to add more claimants
-    And I fill in the third group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group3First    |
-      | last_name     | Group3Last     |
-      | date_of_birth | 21/12/1993     |
-      | building      | 108            |
-      | street        | Pall Mall      |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JJ       |
-    And I choose to add more claimants
-    And I fill in the fourth group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group4First    |
-      | last_name     | Group4Last     |
-      | date_of_birth | 21/11/1992     |
-      | building      | 110            |
-      | street        | Buckingham Pl  |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JT       |
-    And I choose to add more claimants
-    And I fill in the fifth group claimant details with:
-      | field         | value          |
-      | title         | Mrs            |
-      | first_name    | Group5First    |
-      | last_name     | Group5Last     |
-      | date_of_birth | 21/10/1991     |
-      | building      | 112            |
-      | street        | Oxford Road    |
-      | locality      | London         |
-      | county        | Greater London |
-      | post_code     | SW1H 9JY       |
+    And I fill in my group claimant details
     And I save the group claims
     And I answer Yes to the representative question
     And I fill in the representative's details with:
@@ -201,22 +127,7 @@ Feature: Output Form
     And I submit my claim
     And all background jobs for claim submissions are processed
     And I save a copy of my claim
-    Then the claim pdf file's Your details section should contain:
-      | field                        | value                       |
-      | title                        | Mr                          |
-      | first_name                   | First                       |
-      | last_name                    | Last                        |
-      | date_of_birth                | 21/11/1982                  |
-      | gender                       | Male                        |
-      | building                     | 102                         |
-      | street                       | Petty France                |
-      | locality                     | London                      |
-      | county                       | Greater London              |
-      | post_code                    | SW1H9AJ                     |
-      | telephone_number             | 01234 567890                |
-      | alternative_telephone_number | 01234 098765                |
-      | email_address                | test@digital.justice.gov.uk |
-      | correspondence               | Email                       |
+    Then the claim pdf file's Your details section should contain my details
     And the claim pdf file's Respondent's details name section should contain:
       | field | value           |
       | name  | Respondent Name |

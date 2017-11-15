@@ -1,30 +1,3 @@
-Given(/^I am "Luke Skywalker"$/) do
-  address = OpenStruct.new building: '102',
-                           street: 'Petty France',
-                           locality: 'London',
-                           county: 'Greater London',
-                           post_code: 'SW1H 9AJ'
-  self.test_user = OpenStruct.new title: "Mr",
-                                  first_name: "Luke",
-                                  last_name: "Skywalker",
-                                  date_of_birth: '21/11/1985',
-                                  address: address,
-                                  telephone_number: '01234 567890',
-                                  email_address: 'test@digital.justice.gov.uk'
-end
-
-Given(/^I am "Anakin Skywalker"$/) do
-  address = OpenStruct.new building: '102',
-                           street: 'Petty France',
-                           post_code: 'SW1H 9AJ'
-  self.test_user = OpenStruct.new title: "Mr",
-                                  first_name: "Luke",
-                                  last_name: "Skywalker",
-                                  date_of_birth: '21/11/1985',
-                                  address: address,
-                                  telephone_number: '01234 567890'
-end
-
 And(/^I want a refund for my previous ET claim with case number "1234567\/2016"$/) do
   respondent_address = OpenStruct.new post_code: 'SW1H 9QR',
                                       building: '106',
