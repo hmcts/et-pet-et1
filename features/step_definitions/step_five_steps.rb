@@ -22,6 +22,17 @@ And(/^I fill in the respondent's details$/) do
     s.post_code.set resp.post_code
     s.telephone_number.set resp.telephone_number
   end
+  step_five_page.your_work_address.same_address.set(test_user.et_case.worked_at_respondent_address)
+  work_address = test_user.et_case.work_address
+  step_five_page.your_work_address do |s|
+    s.building.set work_address.building
+    s.street.set work_address.street
+    s.locality.set work_address.locality
+    s.county.set work_address.county
+    s.post_code.set work_address.post_code
+    s.telephone_number.set work_address.telephone_number
+  end
+
 end
 
 And(/^I answer No to working at the same address question$/) do

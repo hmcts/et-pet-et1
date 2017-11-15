@@ -86,3 +86,16 @@ And(/^I want a representative for an employee tribunal$/) do
                        dx_number: 'dx1234567890'
   test_user.et_case.representative = rep
 end
+
+
+And(/^I worked at a different address to the respondent address for an employee tribunal$/) do
+  work_address = OpenStruct.new building: '110',
+                                street: 'Piccadily Circus',
+                                locality: 'London',
+                                county: 'Greater London',
+                                post_code: 'SW1H 9ST',
+                                telephone_number: '03333 423554'
+
+  test_user.et_case.worked_at_respondent_address = 'No'
+  test_user.et_case.work_address = work_address
+end

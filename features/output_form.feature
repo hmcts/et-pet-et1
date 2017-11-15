@@ -7,6 +7,7 @@ Feature: Output Form
     And I have special needs for an employee tribunal
     And I want 4 group claimaints for an employee tribunal
     And I want a representative for an employee tribunal
+    And I worked at a different address to the respondent address for an employee tribunal
     And I am on the new claim page
     When I start a new claim
     And I save my claim with a valid email address and password
@@ -19,15 +20,6 @@ Feature: Output Form
     And I fill in the representative's details
     And I save the representative's details
     And I fill in the respondent's details
-    And I answer No to working at the same address question
-    And I fill in my work address with:
-      | field            | value            |
-      | building         | 110              |
-      | street           | Piccadily Circus |
-      | locality         | London           |
-      | county           | Greater London   |
-      | post_code        | SW1H 9ST         |
-      | telephone_number | 03333 423554     |
     And I fill in my acas certificate number with AC123456/78/90
     And I save the respondent's details
     And I answer Yes to the additional respondents question
