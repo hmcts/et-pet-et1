@@ -4,7 +4,7 @@ class StepSixPage < BasePage
     def set(value)
       choose value, name: "additional_respondents[of_collection_type]"
     end
-    ['two', 'three', 'four', 'five'].each_with_index do |number, idx|
+    (2..5).each_with_index do |number, idx|
       section :"respondent_#{number}", :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Respondent #{idx + 2}")]] }) do |*_args|
         element :name, "input[name=\"additional_respondents[collection_attributes][#{idx}][name]\"]"
         element :building, "input[name=\"additional_respondents[collection_attributes][#{idx}][address_building]\"]"

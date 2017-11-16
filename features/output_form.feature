@@ -8,6 +8,7 @@ Feature: Output Form
     And I want 4 group claimaints for an employee tribunal
     And I want a representative for an employee tribunal
     And I worked at a different address to the respondent address for an employee tribunal
+    And I want 4 additional respondents for an employee tribunal
     And I am on the new claim page
     When I start a new claim
     And I save my claim with a valid email address and password
@@ -22,46 +23,7 @@ Feature: Output Form
     And I fill in the respondent's details
     And I fill in my acas certificate number with AC123456/78/90
     And I save the respondent's details
-    And I answer Yes to the additional respondents question
-    And I fill in the second respondent's details with:
-      | field       | value          |
-      | name        | Respondent Two |
-      | building    | 112            |
-      | street      | Oxford Street  |
-      | locality    | London         |
-      | county      | Greater London |
-      | post_code   | SW1H 9UV       |
-      | acas_number | AC654321/87/09 |
-    And I choose to add another respondent
-    And I fill in the third respondent's details with:
-      | field       | value            |
-      | name        | Respondent Three |
-      | building    | 114              |
-      | street      | Knightsbridge    |
-      | locality    | London           |
-      | county      | Greater London   |
-      | post_code   | SW1H 9WX         |
-      | acas_number | AC654321/88/10   |
-    And I choose to add another respondent
-    And I fill in the fourth respondent's details with:
-      | field       | value           |
-      | name        | Respondent Four |
-      | building    | 116             |
-      | street      | Mayfair         |
-      | locality    | London          |
-      | county      | Greater London  |
-      | post_code   | SW1H 9YZ        |
-      | acas_number | AC654321/88/10  |
-    And I choose to add another respondent
-    And I fill in the fifth respondent's details with:
-      | field       | value           |
-      | name        | Respondent Five |
-      | building    | 118             |
-      | street      | Marylebone Road |
-      | locality    | London          |
-      | county      | Greater London  |
-      | post_code   | SW1H 8AB        |
-      | acas_number | AC654321/89/11  |
+    And I fill in my additional respondents for an employee tribunal
     And I save the additional respondents
     And I answer Yes to the have you ever been employed by the person you are making the claim against question
     And I answer "Still working for this employer" to the current work situation question
@@ -122,32 +84,32 @@ Feature: Output Form
       | post_code        | SW1H9ST          |
       | telephone_number | 03333 423554     |
     And the claim pdf file's Respondent's details second respondent name section should contain:
-      | field | value          |
-      | name  | Respondent Two |
+      | field | value               |
+      | name  | Respondent2 Surname |
     And the claim pdf file's Respondent's details second respondent address section should contain:
       | field    | value          |
-      | building | 112            |
+      | building | 2              |
       | street   | Oxford Street  |
       | locality | London         |
       | county   | Greater London |
     And the claim pdf file's Respondent's details second respondent acas section should contain:
       | field       | value          |
       | have_acas   | Yes            |
-      | acas_number | AC654321/87/09 |
+      | acas_number | AC654321/87/02 |
     And the claim pdf file's Respondent's details third respondent name section should contain:
-      | field | value            |
-      | name  | Respondent Three |
+      | field | value               |
+      | name  | Respondent3 Surname |
     And the claim pdf file's Respondent's details third respondent address section should contain:
       | field     | value          |
-      | building  | 114            |
-      | street    | Knightsbridge  |
+      | building  | 3              |
+      | street    | Oxford Street  |
       | locality  | London         |
       | county    | Greater London |
-      | post_code | SW1H9WX        |
+      | post_code | SW1H3UV        |
     And the claim pdf file's Respondent's details third respondent acas section should contain:
       | field       | value          |
       | have_acas   | Yes            |
-      | acas_number | AC654321/88/10 |
+      | acas_number | AC654321/87/03 |
     And the claim pdf file's Multiple cases section should contain:
       | field               | value                          |
       | have_similar_claims | Yes                            |
@@ -227,27 +189,27 @@ Feature: Output Form
       | has_special_needs | Yes                             |
       | special_needs     | My special needs are as follows |
     And the claim pdf file's Additional respondents section should contain the following for respondent 4:
-      | field            | value           |
-      | name             | Respondent Four |
-      | building         | 116             |
-      | street           | Mayfair         |
-      | locality         | London          |
-      | county           | Greater London  |
-      | post_code        | SW1H9YZ         |
-      | telephone_number |                 |
-      | have_acas        | Yes             |
-      | acas_number      | AC654321/88/10  |
+      | field            | value               |
+      | name             | Respondent4 Surname |
+      | building         | 4                   |
+      | street           | Oxford Street       |
+      | locality         | London              |
+      | county           | Greater London      |
+      | post_code        | SW1H4UV             |
+      | telephone_number |                     |
+      | have_acas        | Yes                 |
+      | acas_number      | AC654321/87/04      |
     And the claim pdf file's Additional respondents section should contain the following for respondent 5:
-      | field            | value           |
-      | name             | Respondent Five |
-      | building         | 118             |
-      | street           | Marylebone Road |
-      | locality         | London          |
-      | county           | Greater London  |
-      | post_code        | SW1H8AB         |
-      | telephone_number |                 |
-      | have_acas        | Yes             |
-      | acas_number      | AC654321/89/11  |
+      | field            | value               |
+      | name             | Respondent5 Surname |
+      | building         | 5                   |
+      | street           | Oxford Street       |
+      | locality         | London              |
+      | county           | Greater London      |
+      | post_code        | SW1H5UV             |
+      | telephone_number |                     |
+      | have_acas        | Yes                 |
+      | acas_number      | AC654321/87/05      |
     And the claim pdf file's Final check section should contain:
       | field     | value |
       | satisfied | No    |

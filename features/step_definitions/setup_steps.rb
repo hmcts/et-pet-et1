@@ -99,3 +99,21 @@ And(/^I worked at a different address to the respondent address for an employee 
   test_user.et_case.worked_at_respondent_address = 'No'
   test_user.et_case.work_address = work_address
 end
+
+
+And(/^I want (\d+) additional respondents for an employee tribunal$/) do |qty_str|
+  qty = qty_str.to_i
+  test_user.et_case.additional_respondents = []
+  qty.times do |idx|
+    respondent = OpenStruct.new name: "Respondent#{idx + 2} Surname",
+                                building: (idx + 2).to_s,
+                                street: 'Oxford Street',
+                                locality: 'London',
+                                county: 'Greater London',
+                                post_code: "SW1H #{idx + 2}UV",
+                                acas_number: "AC654321/87/0#{idx + 2}"
+
+      test_user.et_case.additional_respondents << respondent
+  end
+
+end
