@@ -66,7 +66,7 @@ And(/^I want to apply for an employee tribunal/) do
                         post_code: 'SW1H 9QR',
                         telephone_number: '02222 321654'
 
-    test_user.et_case = OpenStruct.new respondent: resp
+  test_user.et_case = OpenStruct.new respondent: resp
 end
 
 
@@ -113,7 +113,21 @@ And(/^I want (\d+) additional respondents for an employee tribunal$/) do |qty_st
                                 post_code: "SW1H #{idx + 2}UV",
                                 acas_number: "AC654321/87/0#{idx + 2}"
 
-      test_user.et_case.additional_respondents << respondent
+    test_user.et_case.additional_respondents << respondent
   end
+
+end
+
+
+And(/^I worked as a project manager for the respondent for an employee tribunal$/) do
+  test_user.et_case.employment = OpenStruct.new job_title: 'Project Manager',
+                                                start_date: '18/11/2009',
+                                                notice_period: 'Yes',
+                                                notice_period_value: '3 Months',
+                                                average_weekly_hours: '38',
+                                                pay_before_tax: '3000 Monthly',
+                                                pay_after_tax: '2000 Monthly',
+                                                employers_pension_scheme: 'Yes',
+                                                benefits: 'Company car, private health care'
 
 end

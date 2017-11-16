@@ -7,6 +7,7 @@ Feature: Output Form
     And I have special needs for an employee tribunal
     And I want 4 group claimaints for an employee tribunal
     And I want a representative for an employee tribunal
+    And I worked as a project manager for the respondent for an employee tribunal
     And I worked at a different address to the respondent address for an employee tribunal
     And I want 4 additional respondents for an employee tribunal
     And I am on the new claim page
@@ -17,7 +18,6 @@ Feature: Output Form
     And I save the claimant details
     And I fill in my group claimant details
     And I save the group claims
-    And I answer Yes to the representative question
     And I fill in the representative's details
     And I save the representative's details
     And I fill in the respondent's details
@@ -27,23 +27,13 @@ Feature: Output Form
     And I save the additional respondents
     And I answer Yes to the have you ever been employed by the person you are making the claim against question
     And I answer "Still working for this employer" to the current work situation question
-    And I fill in the employment details with:
-      | field                | value           |
-      | job_title            | Project Manager |
-      | start_date           | 18/11/2009      |
-      | notice_period        | Yes             |
-      | notice_period_value  | 3 Months        |
-      | average_weekly_hours | 38              |
-    And I fill in the pay, pension and benefits with:
-      | field                    | value                            |
-      | pay_before_tax           | 3000 Monthly                     |
-      | pay_after_tax            | 2000 Monthly                     |
-      | employers_pension_scheme | Yes                              |
-      | benefits                 | Company car, private health care |
+    And I fill in my employment details for an employee tribunal
     And I save the employment details
+
     And I answer "Unfair dismissal (including constructive dismissal)" to the about the claim question
     And I answer Yes to the whistleblowing claim question
     And I answer Yes to the send copy to relevant person that deals with whistleblowing question
+
     And I save the claim type
     And I fill in the claim description with "Full text version of claim"
     And I answer Yes to the similar claims question

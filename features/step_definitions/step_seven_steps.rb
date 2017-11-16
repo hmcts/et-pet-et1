@@ -19,6 +19,23 @@ And(/^I fill in the employment details with:$/) do |table|
   end
 end
 
+And(/^I fill in my employment details for an employee tribunal$/) do
+  employment = test_user.et_case.employment
+  step_seven_page.your_employment_details.employment_details do |section|
+    section.job_title.set employment.job_title
+    section.start_date.set employment.start_date
+    section.notice_period.set employment.notice_period
+    section.notice_period_value.set employment.notice_period_value
+    section.average_weekly_hours.set employment.average_weekly_hours
+  end
+  step_seven_page.your_employment_details.pay_pension_benefits do |section|
+    section.pay_before_tax.set employment.pay_before_tax
+    section.pay_after_tax.set employment.pay_after_tax
+    section.employers_pension_scheme.set employment.employers_pension_scheme
+    section.benefits.set employment.benefits
+  end
+end
+
 And(/^I fill in the pay, pension and benefits with:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   table.hashes.each do |hash|

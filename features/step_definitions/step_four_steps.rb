@@ -31,7 +31,7 @@ And(/^I fill in the representative's contact details with:$/) do |table|
 end
 
 And(/^I fill in the representative's details$/) do
-  # table is a table.hashes.keys # => [:field, :value]
+  step 'I answer Yes to the representative question'
   rep = test_user.et_case.representative
   step_four_page.representatives_details.about_your_representative do |s|
     s.type.set rep.type
