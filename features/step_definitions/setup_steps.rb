@@ -64,7 +64,8 @@ And(/^I want to apply for an employee tribunal/) do
                         locality: 'London',
                         county: 'Greater London',
                         post_code: 'SW1H 9QR',
-                        telephone_number: '02222 321654'
+                        telephone_number: '02222 321654',
+                        acas_number: 'AC654321/87/01'
 
   test_user.et_case = OpenStruct.new respondent: resp,
                                      claim_types: [],

@@ -26,7 +26,7 @@ Feature: Output Form
     And I fill in the representative's details
     And I save the representative's details
     And I fill in the respondent's details
-    And I fill in my acas certificate number with AC123456/78/90
+    And I fill in my acas certificate number with AC654321/87/01
     And I save the respondent's details
     And I fill in my additional respondents for an employee tribunal
     And I save the additional respondents
@@ -49,56 +49,8 @@ Feature: Output Form
     And all background jobs for claim submissions are processed
     And I save a copy of my claim
     Then the claim pdf file's Your details section should contain my details
-    And the claim pdf file's Respondent's details name section should contain:
-      | field | value           |
-      | name  | Respondent Name |
-    And the claim pdf file's Respondent's details address section should contain:
-      | field            | value          |
-      | building         | 108            |
-      | street           | Regent Street  |
-      | locality         | London         |
-      | county           | Greater London |
-      | post_code        | SW1H9QR        |
-      | telephone_number | 02222 321654   |
-    And the claim pdf file's Respondent's details acas section should contain:
-      | field       | value          |
-      | have_acas   | Yes            |
-      | acas_number | AC123456/78/90 |
-    And the claim pdf file's Respondent's details different address section should contain:
-      | field            | value            |
-      | building         | 110              |
-      | street           | Piccadily Circus |
-      | locality         | London           |
-      | county           | Greater London   |
-      | post_code        | SW1H9ST          |
-      | telephone_number | 03333 423554     |
-    And the claim pdf file's Respondent's details second respondent name section should contain:
-      | field | value               |
-      | name  | Respondent2 Surname |
-    And the claim pdf file's Respondent's details second respondent address section should contain:
-      | field    | value          |
-      | building | 2              |
-      | street   | Oxford Street  |
-      | locality | London         |
-      | county   | Greater London |
-    And the claim pdf file's Respondent's details second respondent acas section should contain:
-      | field       | value          |
-      | have_acas   | Yes            |
-      | acas_number | AC654321/87/02 |
-    And the claim pdf file's Respondent's details third respondent name section should contain:
-      | field | value               |
-      | name  | Respondent3 Surname |
-    And the claim pdf file's Respondent's details third respondent address section should contain:
-      | field     | value          |
-      | building  | 3              |
-      | street    | Oxford Street  |
-      | locality  | London         |
-      | county    | Greater London |
-      | post_code | SW1H3UV        |
-    And the claim pdf file's Respondent's details third respondent acas section should contain:
-      | field       | value          |
-      | have_acas   | Yes            |
-      | acas_number | AC654321/87/03 |
+    And the employment tribunal claim pdf file's Respondent's details should match the first 3 of mine
+
     And the claim pdf file's Multiple cases section should contain:
       | field               | value                          |
       | have_similar_claims | Yes                            |

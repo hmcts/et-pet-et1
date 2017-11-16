@@ -75,7 +75,7 @@ class ClaimSubmittedPdfPage < BasePage
         element :telephone_number, :pdf_field_named, '2.3 phone number'
       end
 
-      section :respondent_two, :pdf_fieldset, :respondent_two do
+      section :respondent_2, :pdf_fieldset, :respondent_two do
         section :name, :pdf_fieldset, :name do
           element :name, :pdf_field_named, '2.4 R2 name'
         end
@@ -94,7 +94,7 @@ class ClaimSubmittedPdfPage < BasePage
         end
       end
 
-      section :respondent_three, :pdf_fieldset, :respondent_three do
+      section :respondent_3, :pdf_fieldset, :respondent_three do
         section :name, :pdf_fieldset, :name do
           element :name, :pdf_field_named, '2.4 R3 name'
         end

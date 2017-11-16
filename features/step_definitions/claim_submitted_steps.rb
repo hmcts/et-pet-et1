@@ -312,3 +312,54 @@ And(/^the claim pdf file's Additional information section should contain:$/) do 
     end
   end
 end
+
+
+And(/^the employment tribunal claim pdf file's Respondent's details should match the first 3 of mine$/) do
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    doc = pdf_page.pdf_document
+    (1..3).each do |idx|
+      root = doc.respondents_details if idx == 1
+      root = doc.respondents_details.send("respondent_#{idx}") unless idx == 1
+      respondent = test_user.et_case.respondent if idx == 1
+      respondent = test_user.et_case.additional_respondents[idx - 2] if idx > 1
+
+      expect(root.name.name.value).to eql respondent.name
+
+      address = root.address
+      if idx == 1
+        # Only the first respondent is expected to have a telelphone number
+        # unsure if this is correct, but its how it is for now.
+        expect(address.telephone_number.value).to eql respondent.telephone_number
+
+        # Only the first has a potential different address captured
+        if(test_user.et_case.worked_at_respondent_address == 'No')
+          work_address = test_user.et_case.work_address
+          root.different_address do |s|
+            expect(s.building.value).to eql work_address.building
+            expect(s.street.value).to eql work_address.street
+            expect(s.locality.value).to eql work_address.locality
+            expect(s.county.value).to eql work_address.county
+            expect(s.post_code.value).to eql work_address.post_code.gsub(/ /, '')
+            expect(s.telephone_number.value).to eql work_address.telephone_number
+          end
+        end
+      end
+      expect(address.building.value).to eql respondent.building
+      expect(address.street.value).to eql respondent.street
+      expect(address.locality.value).to eql respondent.locality
+      expect(address.county.value).to eql respondent.county
+      expect(address.post_code.value).to eql respondent.post_code.gsub(/ /, '')
+
+      acas = root.acas
+      expect(acas.have_acas.value).to eql respondent.acas_number.present? ? 'Yes' : 'No'
+      expect(acas.acas_number.value).to eql respondent.acas_number
+    end
+
+
+
+
+  end
+
+end
