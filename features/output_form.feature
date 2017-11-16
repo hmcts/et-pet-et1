@@ -9,6 +9,9 @@ Feature: Output Form
     And I want a representative for an employee tribunal
     And I worked as a project manager for the respondent for an employee tribunal
     And I worked at a different address to the respondent address for an employee tribunal
+    And I want to claim for unfair dismissal in my employee tribunal
+    And I want to blow the whistle on someone in my employee tribunal
+    And I want to send the whistleblowing claim to the relevant person in my employee tribunal
     And I want 4 additional respondents for an employee tribunal
     And I am on the new claim page
     When I start a new claim
@@ -29,10 +32,8 @@ Feature: Output Form
     And I answer "Still working for this employer" to the current work situation question
     And I fill in my employment details for an employee tribunal
     And I save the employment details
-
-    And I answer "Unfair dismissal (including constructive dismissal)" to the about the claim question
-    And I answer Yes to the whistleblowing claim question
-    And I answer Yes to the send copy to relevant person that deals with whistleblowing question
+    And I fill in my claim type details for my employment tribunal
+    And I fill in my whistleblowing details for my employment tribunal
 
     And I save the claim type
     And I fill in the claim description with "Full text version of claim"

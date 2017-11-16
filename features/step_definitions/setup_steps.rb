@@ -66,7 +66,8 @@ And(/^I want to apply for an employee tribunal/) do
                         post_code: 'SW1H 9QR',
                         telephone_number: '02222 321654'
 
-  test_user.et_case = OpenStruct.new respondent: resp
+  test_user.et_case = OpenStruct.new respondent: resp,
+                                     claim_types: {}
 end
 
 
@@ -130,4 +131,19 @@ And(/^I worked as a project manager for the respondent for an employee tribunal$
                                                 employers_pension_scheme: 'Yes',
                                                 benefits: 'Company car, private health care'
 
+end
+
+
+And(/^I want to claim for unfair dismissal in my employee tribunal$/) do
+  test_user.et_case.claim_types['Unfair dismissal (including constructive dismissal)'] = 'Yes'
+end
+
+
+And(/^I want to blow the whistle on someone in my employee tribunal$/) do
+  test_user.et_case.whistleblowing_claim = 'Yes'
+end
+
+
+And(/^I want to send the whistleblowing claim to the relevant person in my employee tribunal$/) do
+  test_user.et_case.send_whistleblowing_claim_to_relevant_person
 end
