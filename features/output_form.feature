@@ -13,6 +13,7 @@ Feature: Output Form
     And I want to blow the whistle on someone in my employee tribunal
     And I want to send the whistleblowing claim to the relevant person in my employee tribunal
     And I want 4 additional respondents for an employee tribunal
+    And I know about 2 similar claims for my employment tribunal
     And I am on the new claim page
     When I start a new claim
     And I save my claim with a valid email address and password
@@ -34,12 +35,10 @@ Feature: Output Form
     And I save the employment details
     And I fill in my claim type details for my employment tribunal
     And I fill in my whistleblowing details for my employment tribunal
-
     And I save the claim type
-    And I fill in the claim description with "Full text version of claim"
-    And I answer Yes to the similar claims question
-    And I fill in the similar claim names with "Similar Claim1, Similar Claim2"
+    And I fill in my claim details for my employment tribunal
     And I save the claim details
+
     And I answer "Compensation" to the preferred outcome question
     And I fill in the compensation field with "I would like 50,000 GBP due to the stress this caused me"
     And I save the claim outcome

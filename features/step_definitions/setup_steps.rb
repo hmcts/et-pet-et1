@@ -67,7 +67,8 @@ And(/^I want to apply for an employee tribunal/) do
                         telephone_number: '02222 321654'
 
   test_user.et_case = OpenStruct.new respondent: resp,
-                                     claim_types: {}
+                                     claim_types: {},
+                                     claim_description: 'Full text version of claim'
 end
 
 
@@ -146,4 +147,9 @@ end
 
 And(/^I want to send the whistleblowing claim to the relevant person in my employee tribunal$/) do
   test_user.et_case.send_whistleblowing_claim_to_relevant_person
+end
+
+
+And(/^I know about 2 similar claims for my employment tribunal$/) do
+  test_user.et_case.similar_claims = ['Similar Claim1', 'Similar Claim2']
 end
