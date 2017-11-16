@@ -3,8 +3,8 @@ And(/^I answer "Unfair dismissal \(including constructive dismissal\)" to the ab
 end
 
 And(/^I fill in my claim type details for my employment tribunal$/) do
-  test_user.et_case.claim_types.each_pair do |key, value|
-    step_eight_page.claim_type.set(key) if value
+  test_user.et_case.claim_types.each do |claim_type|
+    step_eight_page.claim_type.set(claim_type)
   end
 end
 

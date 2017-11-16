@@ -67,8 +67,9 @@ And(/^I want to apply for an employee tribunal/) do
                         telephone_number: '02222 321654'
 
   test_user.et_case = OpenStruct.new respondent: resp,
-                                     claim_types: {},
-                                     claim_description: 'Full text version of claim'
+                                     claim_types: [],
+                                     claim_description: 'Full text version of claim',
+                                     preferred_outcomes: []
 end
 
 
@@ -136,7 +137,7 @@ end
 
 
 And(/^I want to claim for unfair dismissal in my employee tribunal$/) do
-  test_user.et_case.claim_types['Unfair dismissal (including constructive dismissal)'] = 'Yes'
+  test_user.et_case.claim_types << 'Unfair dismissal (including constructive dismissal)'
 end
 
 
@@ -152,4 +153,10 @@ end
 
 And(/^I know about 2 similar claims for my employment tribunal$/) do
   test_user.et_case.similar_claims = ['Similar Claim1', 'Similar Claim2']
+end
+
+
+And(/^I want 50,000 pounds compensation from my employee tribunal$/) do
+  test_user.et_case.preferred_outcomes << 'Compensation'
+  test_user.et_case.preferred_outcome_notes = 'I would like 50,000 GBP due to the stress this caused me'
 end
