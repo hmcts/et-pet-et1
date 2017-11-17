@@ -287,6 +287,35 @@ And(/^the claim pdf file's Type and details of claim section should contain:$/) 
   end
 end
 
+And(/^my employment tribunal claim pdf file's Type and details of claim section should be correct$/) do
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+
+    pdf_page.pdf_document.type_and_details_of_claim do |s|
+      expect(s.unfairly_dismissed.value).to eql(test_user.et_case.claim_types.include?('Unfair dismissal (including constructive dismissal)') ? 'Yes' : 'No')
+      expect(s.discriminated_age.value).to eql(test_user.et_case.claim_types.include?('Age') ? 'Yes' : 'No')
+      expect(s.discriminated_race.value).to eql(test_user.et_case.claim_types.include?('Race') ? 'Yes' : 'No')
+      expect(s.discriminated_gender_reassignment.value).to eql(test_user.et_case.claim_types.include?('Gender reassignment') ? 'Yes' : 'No')
+      expect(s.discriminated_disability.value).to eql(test_user.et_case.claim_types.include?('Disability') ? 'Yes' : 'No')
+      expect(s.discriminated_pregnancy.value).to eql(test_user.et_case.claim_types.include?('Pregnancy or maternity') ? 'Yes' : 'No')
+      expect(s.discriminated_marriage.value).to eql(test_user.et_case.claim_types.include?('Marriage or civil partnership') ? 'Yes' : 'No')
+      expect(s.discriminated_sexual_orientation.value).to eql(test_user.et_case.claim_types.include?('Sexual orientation') ? 'Yes' : 'No')
+      expect(s.discriminated_sex.value).to eql(test_user.et_case.claim_types.include?('Sex (including equal pay)') ? 'Yes' : 'No')
+      expect(s.discriminated_religion.value).to eql(test_user.et_case.claim_types.include?('Religion or belief') ? 'Yes' : 'No')
+      expect(s.claiming_redundancy_payment.value).to eql(test_user.et_case.claim_types.include?('claiming_redundancy_payment') ? 'Yes' : 'No')
+      expect(s.owed_notice_pay.value).to eql(test_user.et_case.claim_types.include?('Notice pay') ? 'Yes' : 'No')
+      expect(s.owed_holiday_pay.value).to eql(test_user.et_case.claim_types.include?('Holiday pay') ? 'Yes' : 'No')
+      expect(s.owed_arrears_of_pay.value).to eql(test_user.et_case.claim_types.include?('Arrears of pay') ? 'Yes' : 'No')
+      expect(s.owed_other_payments.value).to eql(test_user.et_case.claim_types.include?('Other payments') ? 'Yes' : 'No')
+      expect(s.other_type_of_claim.value).to eql(test_user.et_case.claim_types.include?('Other type of claim') ? 'Yes' : 'No')
+      expect(s.other_type_of_claim_details.value).to eql('')
+      expect(s.claim_description.value).to eql(test_user.et_case.claim_description)
+    end
+  end
+end
+
 And(/^the claim pdf file's What do you want section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do

@@ -62,26 +62,7 @@ Feature: Output Form
       | have_another_job | No    |
       | start_date       |       |
       | salary           |       |
-    And the claim pdf file's Type and details of claim section should contain:
-      | field                             | value                      |
-      | unfairly_dismissed                | Yes                        |
-      | discriminated_age                 | No                         |
-      | discriminated_race                | No                         |
-      | discriminated_gender_reassignment | No                         |
-      | discriminated_disability          | No                         |
-      | discriminated_pregnancy           | No                         |
-      | discriminated_marriage            | No                         |
-      | discriminated_sexual_orientation  | No                         |
-      | discriminated_sex                 | No                         |
-      | discriminated_religion            | No                         |
-      | claiming_redundancy_payment       | No                         |
-      | owed_notice_pay                   | No                         |
-      | owed_holiday_pay                  | No                         |
-      | owed_arrears_of_pay               | No                         |
-      | owed_other_payments               | No                         |
-      | other_type_of_claim               | No                         |
-      | other_type_of_claim_details       |                            |
-      | claim_description                 | Full text version of claim |
+    And my employment tribunal claim pdf file's Type and details of claim section should be correct
     And the claim pdf file's What do you want section should contain:
       | field                 | value                                                    |
       | prefer_re_instatement | No                                                       |
