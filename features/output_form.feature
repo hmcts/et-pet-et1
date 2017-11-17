@@ -31,7 +31,6 @@ Feature: Output Form
     And I fill in my additional respondents for an employee tribunal
     And I save the additional respondents
     And I answer Yes to the have you ever been employed by the person you are making the claim against question
-    And I answer "Still working for this employer" to the current work situation question
     And I fill in my employment details for an employee tribunal
     And I save the employment details
     And I fill in my claim type details for my employment tribunal
@@ -50,30 +49,14 @@ Feature: Output Form
     And I save a copy of my claim
     Then the claim pdf file's Your details section should contain my details
     And the employment tribunal claim pdf file's Respondent's details should match the first 3 of mine
-
-    And the claim pdf file's Multiple cases section should contain:
-      | field               | value                          |
-      | have_similar_claims | Yes                            |
-      | other_claimants     | Similar Claim1, Similar Claim2 |
+    And the claim pdf file's Multiple cases section should be correct for my employment tribunal
+    # Check this out - I think it is always blank - but should it come from a field somewhere ?
     And the claim pdf file's Respondent not your employer section should contain:
       | field      | value |
       | claim_type |       |
-    And the claim pdf file's Respondent Employment details section should contain:
-      | field                 | value           |
-      | job_title             | Project Manager |
-      | start_date            | 18/11/2009      |
-      | employment_continuing | Yes             |
-      | ended_date            |                 |
-      | ending_date           |                 |
-    And the claim pdf file's Respondent Earnings and benefits section should contain:
-      | field                    | value                            |
-      | average_weekly_hours     | 38.0                             |
-      | pay_before_tax           | 3000 Monthly                     |
-      | pay_after_tax            | 2000 Monthly                     |
-      | paid_for_notice_period   | No                               |
-      | notice_period            |                                  |
-      | employers_pension_scheme | Yes                              |
-      | benefits                 | Company car, private health care |
+
+    And the employment tribunal claim pdf file's Respondent Employment details section should match mine
+    And the employment tribunal claim pdf file's Respondent Earnings and benefits section should match my employment details
     And the claim pdf file's What happened since section should contain:
       | field            | value |
       | have_another_job | No    |

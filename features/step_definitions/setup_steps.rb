@@ -128,11 +128,12 @@ And(/^I worked as a project manager for the respondent for an employee tribunal$
                                                 start_date: '18/11/2009',
                                                 notice_period: 'Yes',
                                                 notice_period_value: '3 Months',
-                                                average_weekly_hours: '38',
+                                                average_weekly_hours: '38.0',
                                                 pay_before_tax: '3000 Monthly',
                                                 pay_after_tax: '2000 Monthly',
                                                 employers_pension_scheme: 'Yes',
-                                                benefits: 'Company car, private health care'
+                                                benefits: 'Company car, private health care',
+                                                current_situation: 'Still working for this employer'
 
 end
 

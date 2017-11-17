@@ -169,6 +169,24 @@ And(/^the claim pdf file's Multiple cases section should contain:$/) do |table|
   end
 end
 
+And(/^the claim pdf file's Multiple cases section should be correct for my employment tribunal$/) do
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    similar_claims = test_user.et_case.similar_claims
+    pdf_page.pdf_document.multiple_cases do |s|
+      if similar_claims.present?
+        expect(s.have_similar_claims.value).to eql 'Yes'
+        expect(s.other_claimants.value).to eql similar_claims.join(', ')
+      else
+        expect(s.have_similar_claims.value).to eql 'No'
+        expect(s.other_claimants.value).to eql ''
+      end
+    end
+  end
+end
+
 And(/^the claim pdf file's Respondent not your employer section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -191,6 +209,24 @@ And(/^the claim pdf file's Respondent Employment details section should contain:
   end
 end
 
+And(/^the employment tribunal claim pdf file's Respondent Employment details section should match mine$/) do
+  # table is a table.hashes.keys # => [:field, :value]
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    e = test_user.et_case.employment
+    pdf_page.pdf_document.employment_details do |s|
+      expect(s.job_title.value).to eql e.job_title
+      expect(s.start_date.value).to eql e.start_date
+      expect(s.employment_continuing.value).to eql(e.current_situation == 'No longer working for this employer' ? 'No' : 'Yes')
+      expect(s.ended_date.value).to eql e.ended_date if e.ended_date.present?
+      expect(s.ended_date.value).to eql '' if e.ended_date.blank?
+      expect(s.ending_date.value).to eql e.ending_date if e.ending_date.present?
+      expect(s.ending_date.value).to eql '' if e.ending_date.blank?
+    end
+  end
+end
+
 And(/^the claim pdf file's Respondent Earnings and benefits section should contain:$/) do |table|
   # table is a table.hashes.keys # => [:field, :value]
   claim_submitted_page.within_popup_window do
@@ -198,6 +234,33 @@ And(/^the claim pdf file's Respondent Earnings and benefits section should conta
     expect(pdf_page).to be_displayed
     table.hashes.each do |hash|
       expect(pdf_page.pdf_document.earnings_and_benefits.send(hash['field'].to_sym).value).to eql hash['value']
+    end
+  end
+end
+
+And(/^the employment tribunal claim pdf file's Respondent Earnings and benefits section should match my employment details$/) do
+  e = test_user.et_case.employment
+  claim_submitted_page.within_popup_window do
+    pdf_page = ClaimSubmittedPdfPage.new
+    expect(pdf_page).to be_displayed
+    pdf_page.pdf_document.earnings_and_benefits do |s|
+      if e.current_situation == 'Still working for this employer'
+        expect(s.paid_for_notice_period.value).to eql 'No'
+        expect(s.average_weekly_hours.value).to eql e.average_weekly_hours
+        expect(s.pay_before_tax.value).to eql e.pay_before_tax
+        expect(s.pay_after_tax.value).to eql e.pay_after_tax
+        expect(s.notice_period.value).to eql ''
+        expect(s.employers_pension_scheme.value).to eql e.employers_pension_scheme
+        expect(s.benefits.value).to eql e.benefits
+      else
+        expect(s.paid_for_notice_period.value).to eql e.notice_period
+        expect(s.average_weekly_hours.value).to eql e.average_weekly_hours
+        expect(s.pay_before_tax.value).to eql e.pay_before_tax
+        expect(s.pay_after_tax.value).to eql e.pay_after_tax
+        expect(s.notice_period.value).to eql e.notice_period_value
+        expect(s.employers_pension_scheme.value).to eql e.employers_pension_scheme
+        expect(s.benefits.value).to eql e.benefits
+      end
     end
   end
 end

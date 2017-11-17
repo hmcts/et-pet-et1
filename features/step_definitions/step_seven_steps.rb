@@ -21,6 +21,7 @@ end
 
 And(/^I fill in my employment details for an employee tribunal$/) do
   employment = test_user.et_case.employment
+  step_seven_page.your_employment_details.current_work_situation.set(employment.current_situation)
   step_seven_page.your_employment_details.employment_details do |section|
     section.job_title.set employment.job_title
     section.start_date.set employment.start_date
