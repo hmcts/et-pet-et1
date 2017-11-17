@@ -141,7 +141,7 @@ en:
       what_happens_next_detail_html: |
         The details of your application will be checked and verified.
         We will contact you to confirm your entitlement, or if we require any further information.
-        This process may take up to 14 days.
+        This process may take up to 15 working days.
       refund_details:
         header: "Submission details"
       refund_submitted:
