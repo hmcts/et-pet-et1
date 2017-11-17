@@ -15,10 +15,3 @@ When(/^I start a new refund for an individual claimant whos representative paid 
   step("I take a screenshot named \"Page 1 - Applicant Type Selector\"")
   refund_profile_selection_page.save_and_continue.click
 end
-
-When(/^I start a new refund for an individual claimant who paid a fee to the employment appeal tribunal$/) do
-  visit '/apply/refund'
-  refund_profile_selection_page.select_profile.set('I was an individual claimant to an employment tribunal claim, and I paid a fee to the Employment Appeals Tribunal (whether I was the appellant or respondent to the appeal)')
-  step("I take a screenshot named \"Page 1 - Applicant Type Selector\"")
-  refund_profile_selection_page.save_and_continue.click
-end
