@@ -81,7 +81,7 @@
   border-radius: 0;
 }
 
-.form-control:not([type=radio][type=checkbox]) {
+.form-control:not([type=radio]):not([type=checkbox]):not(select) {
   // Disable webkit appearance and remove rounded corners
   -webkit-appearance: none;
 }
