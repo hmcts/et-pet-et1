@@ -12,13 +12,83 @@ module Refunds
       {
         applicant_title: 'mr',
         applicant_first_name: 'Test',
-        applicant_last_name: 'User'
+        applicant_last_name: 'User',
+        applicant_email_address: 'test.user@emaildomain.com'
       }.merge(address_attributes)
     end
     let(:session_attributes) { Refund.new(refund_attributes).attributes.to_h }
     let(:refund_session) { double('Session', session_attributes) }
 
     let(:form) { described_class.new(refund_session) }
+
+    describe 'before validations' do
+      context 'without changed address' do
+        let(:address_attributes) do
+          {
+            address_changed: false,
+            applicant_address_building: '102',
+            applicant_address_street: 'Petty France',
+            applicant_address_locality: 'London',
+            applicant_address_county: 'Greater London',
+            applicant_address_post_code: 'SW12 3HQ'
+          }
+        end
+
+        it 'transfers the address' do
+          # Act
+          form.valid?
+
+          # Assert
+          expect(form).to have_attributes claimant_address_building: '102',
+                                          claimant_address_street: 'Petty France',
+                                          claimant_address_locality: 'London',
+                                          claimant_address_county: 'Greater London',
+                                          claimant_address_post_code: 'SW12 3HQ'
+        end
+      end
+
+      context 'with address changed' do
+        let(:address_attributes) do
+          {
+            address_changed: true,
+            applicant_address_building: '102',
+            applicant_address_street: 'Petty France',
+            applicant_address_locality: 'London',
+            applicant_address_county: 'Greater London',
+            applicant_address_post_code: 'SW12 3HQ'
+          }
+        end
+
+        it 'does not transfer the address' do
+          # Act
+          form.valid?
+
+          # Assert
+          expect(form).not_to have_attributes claimant_address_building: '102',
+                                              claimant_address_street: 'Petty France',
+                                              claimant_address_locality: 'London',
+                                              claimant_address_county: 'Greater London',
+                                              claimant_address_post_code: 'SW12 3HQ'
+
+        end
+      end
+
+      it 'transfers personal email' do
+        # Act
+        form.valid?
+
+        # Assert
+        expect(form.claimant_email_address).to eq 'test.user@emaildomain.com'
+      end
+
+      it 'transfers name and titleize the title' do
+        # Act
+        form.valid?
+
+        # Assert
+        expect(form.claimant_name).to eql 'Mr Test User'
+      end
+    end
 
     describe 'validations' do
       context 'et_case_number' do

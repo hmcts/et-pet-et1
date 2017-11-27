@@ -35,8 +35,8 @@ div class=("review-list-entry applicant")
         th = t('simple_form.labels.claimant.address_telephone_number')
         td = f.object.applicant_address_telephone_number
       tr
-        th = t('.email_address')
-        td = f.object.email_address
+        th = t('.applicant_email_address')
+        td = f.object.applicant_email_address
   div data-behavior= "refund-review-section"
     h2.list-header
       span = t ".sections.original_case_details"
@@ -45,6 +45,9 @@ div class=("review-list-entry applicant")
       tr
         th = t('.claimant_name')
         td = f.object.claimant_name
+      tr
+        th = t('.claimant_email_address')
+        td = f.object.claimant_email_address
       tr
         th = t('.claimant_address_building')
         td = f.object.claimant_address_building

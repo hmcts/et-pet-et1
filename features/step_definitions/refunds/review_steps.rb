@@ -31,6 +31,7 @@ end
 And(/^I verify the claimants name and address in the original case details of the refund review page$/) do
   refund_review_page.original_claimant_details do |section|
     expect(section.name.text).to eql "#{test_user.title} #{test_user.first_name} #{test_user.last_name}"
+    expect(section.email_address.text).to eql test_user.email_address.to_s
     expect(section.building.text).to eql test_user.et_claim_to_refund.address.building.to_s
     expect(section.street.text).to eql test_user.et_claim_to_refund.address.street.to_s
     expect(section.locality.text).to eql test_user.et_claim_to_refund.address.locality.to_s

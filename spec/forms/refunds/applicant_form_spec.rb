@@ -80,27 +80,27 @@ module Refunds
         end
       end
 
-      context 'email_address' do
+      context 'applicant_email_address' do
         it 'allows blank' do
-          applicant_form.email_address = ''
+          applicant_form.applicant_email_address = ''
           applicant_form.valid?
-          expect(applicant_form.errors).not_to include :email_address
+          expect(applicant_form.errors).not_to include :applicant_email_address
         end
 
         it 'validates email - allowing a good email address' do
-          applicant_form.email_address = 'test@test.com'
+          applicant_form.applicant_email_address = 'test@test.com'
           applicant_form.valid?
-          expect(applicant_form.errors).not_to include :email_address
+          expect(applicant_form.errors).not_to include :applicant_email_address
         end
 
         it 'validates email - disallowing a bad email address' do
-          applicant_form.email_address = 'test.com'
+          applicant_form.applicant_email_address = 'test.com'
           applicant_form.valid?
-          expect(applicant_form.errors).to include :email_address
+          expect(applicant_form.errors).to include :applicant_email_address
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:email_address).is_at_most(100)
+          expect(applicant_form).to ensure_length_of(:applicant_email_address).is_at_most(100)
         end
       end
 

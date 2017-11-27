@@ -32,16 +32,16 @@ module Refunds
     attribute :applicant_first_name,         String
     attribute :applicant_last_name,          String
     attribute :applicant_date_of_birth,      Date
-    attribute :email_address, String
+    attribute :applicant_email_address, String
     attribute :applicant_title, String
 
     validates :applicant_title, :applicant_first_name, :applicant_last_name, presence: true
 
     validates :applicant_title, inclusion: { in: TITLES }
     validates :applicant_first_name, :applicant_last_name, length: { maximum: NAME_LENGTH }
-    validates :email_address, allow_blank: true,
-                              email: true,
-                              length: { maximum: EMAIL_ADDRESS_LENGTH }
+    validates :applicant_email_address, allow_blank: true,
+                                        email: true,
+                                        length: { maximum: EMAIL_ADDRESS_LENGTH }
     validates :applicant_address_telephone_number, presence: true
     validates :applicant_date_of_birth, presence: true
     validates :has_name_changed, nil_or_empty: true

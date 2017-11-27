@@ -227,7 +227,7 @@ FactoryGirl.define do
   end
 
   factory :refund do
-    sequence(:email_address)              { |n| "tester#{n}@domain.com" }
+    sequence(:applicant_email_address)    { |n| "tester#{n}@domain.com" }
     accept_declaration                    true
     address_changed                       true
     has_name_changed                      false
