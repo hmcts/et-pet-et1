@@ -31,8 +31,6 @@ en:
       print_copy: to have a copy of your refund number for reference
     personal_details:
       date_of_birth: Date of birth
-    claimant:
-      is_claimant_legend: "Are you the claimant ?"
     profile_selection:
       header: "Introduction Page"
       please_select_profile: "Introduction Page"

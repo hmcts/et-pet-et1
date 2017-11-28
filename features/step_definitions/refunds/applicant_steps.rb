@@ -1,7 +1,3 @@
-And(/^I answer Yes to the are you the claimant question for refunds$/) do
-  refund_applicant_page.is_claimant.set("Yes")
-end
-
 And(/^I answer (Yes|No) to the has your name changed question for refunds$/) do |value|
   refund_applicant_page.has_name_changed.set(value)
 end

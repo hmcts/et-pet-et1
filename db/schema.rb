@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127135309) do
+ActiveRecord::Schema.define(version: 20171128092945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -226,7 +226,6 @@ ActiveRecord::Schema.define(version: 20171127135309) do
     t.boolean  "eat_issue_fee_payment_date_unknown"
     t.date     "eat_hearing_fee_payment_date"
     t.boolean  "eat_hearing_fee_payment_date_unknown"
-    t.boolean  "is_claimant"
     t.datetime "submitted_at",                                                                         null: false
     t.text     "eat_case_number",                                                                      null: false
   end
