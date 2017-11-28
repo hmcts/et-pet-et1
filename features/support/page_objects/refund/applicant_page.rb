@@ -3,12 +3,6 @@ module Refunds
     section :form_error_message, '[aria-describedby=error-message]' do |section|
 
     end
-    section :is_claimant, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Are you the claimant ?")]] }) do
-      def set(value)
-        choose(value)
-      end
-    end
-
     section :has_name_changed, AppTest::FormBoolean, :simple_form_boolean, 'Has your name changed since you made your employment tribunal claim ?'
 
     section :about_the_claimant, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About you")]] }) do
