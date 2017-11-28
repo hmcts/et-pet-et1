@@ -78,7 +78,8 @@ en:
         building_society_details: "Your Building Society Details"
       full_name: "Full Name"
       date_of_birth: "Date Of Birth"
-      email_address: "Email Address"
+      applicant_email_address: "Email Address"
+      claimant_email_address: "Claimant email address"
       edit: "Edit"
       claimant_name: "Claimant name"
       claimant_address_post_code: "Claimant address post code"
@@ -349,6 +350,7 @@ en:
         applicant_first_name: First name
         applicant_last_name: Last name
         applicant_date_of_birth: Date of birth
+        applicant_email_address: Email address
 
       refunds_original_case_details:
         claimant_address_building: Building number or name

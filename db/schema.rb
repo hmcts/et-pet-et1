@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006134320) do
+ActiveRecord::Schema.define(version: 20171127135309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20171006134320) do
   create_table "refunds", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email_address",                                                                        null: false
+    t.string   "applicant_email_address",                                                              null: false
     t.string   "application_reference",                                                                null: false
     t.integer  "application_reference_number",                                                         null: false
     t.boolean  "address_changed",                                                                      null: false
@@ -200,7 +200,7 @@ ActiveRecord::Schema.define(version: 20171006134320) do
     t.string   "applicant_first_name",                                                                 null: false
     t.string   "applicant_last_name",                                                                  null: false
     t.date     "applicant_date_of_birth"
-    t.string   "applicant_email_address"
+    t.string   "claimant_email_address"
     t.string   "applicant_title",                                                                      null: false
     t.string   "payment_account_type",                                                                 null: false
     t.string   "payment_bank_account_name"

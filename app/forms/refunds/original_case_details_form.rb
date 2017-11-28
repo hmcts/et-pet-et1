@@ -30,6 +30,7 @@ module Refunds
     attribute :claimant_address_county,                 String
     attribute :claimant_address_post_code,              String
     attribute :claimant_name,                           String
+    attribute :claimant_email_address,                  String
     validates :et_tribunal_office, inclusion: TRIBUNAL_OFFICES, allow_blank: true
     validates :et_country_of_claim, presence: true, inclusion: COUNTRY_OF_CLAIMS
     validates :claim_had_representative, nil_or_empty: true
@@ -50,18 +51,19 @@ module Refunds
       presence: true
     validates :et_case_number, format: { with: %r(\A\d{7}\/\d{4}\z) }, allow_blank: true
     validates :eat_case_number, format: { with: %r(\AUKEAT\/\d{4}\/\d{2}\/\d{3}\z) }, allow_blank: true
-    before_validation :transfer_name
+    before_validation :transfer_personal_info
     before_validation :transfer_address, unless: :address_changed
 
     private
 
-    def transfer_name
+    def transfer_personal_info
       claimant_name = [
         resource.applicant_title&.titleize,
         resource.applicant_first_name,
         resource.applicant_last_name
       ].join(' ')
       self.claimant_name = claimant_name
+      self.claimant_email_address = resource.applicant_email_address
     end
 
     def transfer_address

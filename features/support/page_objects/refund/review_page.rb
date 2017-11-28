@@ -15,6 +15,7 @@ module Refunds
     end
     section :original_claimant_details, :refund_review_section_labelled, 'Original Case Details' do
       element :name, :refund_review_section_field_labelled, 'Claimant name'
+      element :email_address, :refund_review_section_field_labelled, 'Claimant email address'
       element :building, :refund_review_section_field_labelled, 'Claimant address building number or name'
       element :street, :refund_review_section_field_labelled, 'Claimant address street'
       element :locality, :refund_review_section_field_labelled, 'Claimant address town/city'
