@@ -12,7 +12,7 @@ module Refunds
     attribute :applicant_address_county,           String
     attribute :applicant_address_post_code,        String
     attribute :applicant_address_telephone_number, String
-    attribute :has_name_changed,         Boolean
+    attribute :has_name_changed, Boolean
 
     validates :applicant_address_building, :applicant_address_street,
       :applicant_address_post_code, presence: true

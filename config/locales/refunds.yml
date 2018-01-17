@@ -60,6 +60,9 @@ en:
       fee_payment_date: "Payment date (year / month)"
       total_fees: "Total fees paid"
       fees_help: "Fees were charged in the Employment Tribunal and Employment Appeals Tribunal between 29 July 2013 and 26 July 2017"
+      fees_help_type_a: "A type A claim had an issue fee of £160 and a hearing fee of £230."
+      fees_help_type_b: "A type B claim had an issue fee of £250 and a hearing fee of £950."
+      fees_help_type_appeal: "An Employment Appeal Tribunal fee had a lodgement fee of £400 and a hearing fee of £1200."
     bank_details:
       your_bank_details: "Your Bank Details"
       your_building_society_details: "Your Building Society Details"
