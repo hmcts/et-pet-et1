@@ -67,6 +67,10 @@ feature 'Multiple respondents' do
         check "I don’t have an Acas number"
 
         choose "My employer has already been in touch with Acas"
+        within('.panel-indent') do
+          expect(page).to have_text 'Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS.'
+          expect(page).to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        end
       end
 
       click_button 'Save and continue'
