@@ -11,7 +11,7 @@
 - content_for :javascripts do
   = javascript_include_tag "application"
 
-  - if ENV.has_key?('GOOGLE_ANALYTICS_ID')
+  - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present?
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
   javascript:
