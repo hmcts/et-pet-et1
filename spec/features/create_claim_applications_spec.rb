@@ -123,6 +123,25 @@ feature 'Claim applications', type: :feature do
       expect(page).to have_session_prompt
     end
 
+    scenario 'Display ACAS hints', js: true do
+      start_claim
+      fill_in_password
+      fill_in_personal_details
+      fill_in_additional_claimant_details
+      fill_in_representative_details
+
+      check  "I don’t have an Acas number"
+
+      within('form#edit_respondent') do
+        within('.acas .panel-indent') do
+          expect(page).to have_text 'Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS.'
+          expect(page).not_to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+          choose 'respondent_no_acas_number_reason_interim_relief'
+          expect(page).to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        end
+      end
+    end
+
     scenario 'Entering respondent details' do
       start_claim
       fill_in_password
