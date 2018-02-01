@@ -41,12 +41,14 @@ fieldset
           .clearfix.toggle-content.reveal-subscribe data-target="main-#{builder.index}" data-show-array="true"
             fieldset.panel-indent
                 legend.visuallyhidden.form-label = t '.no_acas_number_reason'
+                span.form-hint = t '.no_acas_number_note_one'
                 = builder.input :no_acas_number_reason,
                   label:false,
                   collection: RespondentForm::NO_ACAS_REASON,
                   as: :radio_buttons,
                   required: true,
                   item_wrapper_class: 'block-label large-label'
+                span.form-hint.toggle-content.reveal-acas-hint = t '.no_acas_number_note_two'
 
     - if resource.collection.length >= Rails.application.config.additional_respondents_limit
         p= t '.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit

@@ -12,3 +12,19 @@
     }
   });
 })();
+
+(function() {
+  $('.panel-indent input[type=radio]').each(function(i, field){
+    var container = $(field);
+    if(container.length){
+      container.on('change', function(){
+        var hint = $(this).parents('.panel-indent').children('.reveal-acas-hint');
+        if(this.value == 'interim_relief' && this.checked) {
+          hint.show();
+        } else {
+          hint.hide();
+        }
+      });
+    }
+  });
+})();
