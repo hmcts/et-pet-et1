@@ -189,6 +189,8 @@ en:
               blank: Enter the building number or name from your address
             applicant_address_street:
               blank: Enter the street from your address
+            applicant_address_locality:
+              blank: Enter the town or city from the claimant’s address
             applicant_address_post_code:
               blank: Enter your post code
             applicant_address_telephone_number:

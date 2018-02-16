@@ -15,7 +15,7 @@ module Refunds
     attribute :has_name_changed, Boolean
 
     validates :applicant_address_building, :applicant_address_street,
-      :applicant_address_post_code, presence: true
+      :applicant_address_post_code, :applicant_address_locality, presence: true
 
     validates :applicant_address_building,
       :applicant_address_street,
