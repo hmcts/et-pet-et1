@@ -16,6 +16,7 @@ end
 Given(/^I am "Anakin Skywalker"$/) do
   address = OpenStruct.new building: '102',
                            street: 'Petty France',
+                           locality: 'London',
                            post_code: 'SW1H 9AJ'
   self.test_user = OpenStruct.new title: "Mr",
                                   first_name: "Luke",

@@ -45,10 +45,10 @@ And(/^all mandatory fields in the refund applicant page should be marked with an
     expect(refund_applicant_page.about_the_claimant.date_of_birth.error.text).to eql "Enter your date of birth"
     expect(refund_applicant_page.claimants_contact_details.building.error.text).to eql "Enter the building number or name from your address"
     expect(refund_applicant_page.claimants_contact_details.street.error.text).to eql "Enter the street from your address"
+    expect(refund_applicant_page.claimants_contact_details.locality.error.text).to eql "Enter the town or city from the claimant’s address"
     expect(refund_applicant_page.claimants_contact_details.post_code.error.text).to eql "Enter your post code"
     expect(refund_applicant_page.claimants_contact_details.telephone_number.error.text).to eql "Enter your preferred number"
 
-    expect(refund_applicant_page.claimants_contact_details.locality).to have_no_error, 'Expected locality not to have an error'
     expect(refund_applicant_page.claimants_contact_details.county).to have_no_error, 'Expected county not to have an error'
     expect(refund_applicant_page.claimants_contact_details.email_address).to have_no_error, 'Expected email address not to have an error'
   end

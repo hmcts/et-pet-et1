@@ -27,6 +27,10 @@ module Refunds
       end
 
       context 'applicant_address_locality' do
+        it 'validates presence' do
+          expect(applicant_form).to validate_presence_of(:applicant_address_locality)
+        end
+
         it 'validates the length' do
           expect(applicant_form).to ensure_length_of(:applicant_address_locality).is_at_most(25)
         end
@@ -221,6 +225,7 @@ module Refunds
       attrs = {
         applicant_address_building: '1',
         applicant_address_street: 'Street',
+        applicant_address_locality: 'Locality',
         applicant_address_post_code: 'DE21 6QQ',
         applicant_title: 'mr',
         applicant_first_name: 'First',
