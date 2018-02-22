@@ -303,7 +303,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nenv (0.2.0)
-    nokogiri (1.8.1)
+    nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     non-stupid-digest-assets (1.0.9)
       sprockets (>= 2.0)
@@ -580,4 +580,4 @@ DEPENDENCIES
   zendesk_api
 
 BUNDLED WITH
-   1.15.4
+   1.16.0
