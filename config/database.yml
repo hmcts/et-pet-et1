@@ -11,9 +11,9 @@ development:
 
 local:
   <<: *default
-  database: atet_local
-  host: db
-  user: postgres
+  database: <%= ENV['DB_NAME'] || 'atet_local' %>
+  host: <%= ENV['DB_HOST'] || 'db' %>
+  user: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
 
 test: &test
   <<: *default
