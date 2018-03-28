@@ -43,4 +43,5 @@ class Refund < ActiveRecord::Base
   def eat_hearing_fee_present?
     eat_hearing_fee.present? && eat_hearing_fee.positive?
   end
+
 end
