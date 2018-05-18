@@ -14,12 +14,8 @@ Feature: Refund Validations - Payment Page
     And I fill in my refund original case details
     And I fill in my refund fees and verify the total
 
-  Scenario: A user does not fill in any fields in the bank details page
-    Then the continue button should be disabled on the bank details page
-
   Scenario: A user does not fill in any fields apart from selecting the bank account type
-    When I select "Bank" account type in the refund bank details page
-    And I save the refund bank details
+    When I save the refund bank details
     Then all mandatory bank details fields should be marked with an error
     And I take a screenshot named "Page 5 - Bank details with errors"
 

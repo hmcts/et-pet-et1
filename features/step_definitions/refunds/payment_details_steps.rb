@@ -56,10 +56,6 @@ Then(/^only the bank details account type field should be marked with an error$/
   expect(refund_payment_details_page.bank_details.sort_code).to have_no_error
 end
 
-Then(/^the continue button should be disabled on the bank details page$/) do
-  expect(refund_payment_details_page.save_and_continue).to be_disabled
-end
-
 Then(/^the bank account number field should be marked with an invalid error in the refund bank details page$/) do
   expect(refund_payment_details_page.bank_details.account_number.error.text).to eql "Must be 8 numbers"
 end

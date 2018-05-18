@@ -68,6 +68,9 @@ Visit `http://<insert-ip-from-previous-command>:8080` to access the locally runn
 ```bash
 rake
 ```
+### Running the feature test via docker
+docker-compose -f docker-compose-test.yml up
+docker-compose -f docker-compose-test.yml run test bash -c "bundle exec parallel_cucumber features"
 
 ## Deploying
 
