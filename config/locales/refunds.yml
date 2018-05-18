@@ -277,9 +277,9 @@ en:
             payment_bank_account_name:
               blank: Enter Account holder name
             payment_bank_name:
-              blank: Enter Bank name
+              blank: Enter Bank/Building Society name
             payment_bank_account_number:
-              blank: Enter Bank account
+              blank: Enter Account number
               invalid: Must be 8 numbers
             payment_bank_sort_code:
               blank: Enter Sort Code
@@ -377,10 +377,10 @@ en:
         et_country_of_claim: Where was your claim issued?
       refunds_bank_details:
         payment_account_type: Account type
-        payment_bank_account_name: Bank account holder name
-        payment_bank_name: Bank name
-        payment_bank_account_number: Bank account number
-        payment_bank_sort_code: Bank sort code
+        payment_bank_account_name: Account holder name
+        payment_bank_name: Bank/Building Society name
+        payment_bank_account_number: Account number
+        payment_bank_sort_code: Sort code
         payment_building_society_account_name: Building Society account holder name
         payment_building_society_name: Building Society name
         payment_building_society_account_number: Building Society account number
@@ -464,6 +464,6 @@ en:
           cash: Cash
       refunds_bank_details:
         payment_account_type:
-          bank: Bank
+          bank: Bank/Building Society
           building_society: Building Society
 
