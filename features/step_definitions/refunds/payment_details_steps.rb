@@ -37,10 +37,9 @@ end
 Then(/^all mandatory bank details fields should be marked with an error$/) do
   aggregate_failures do
     expect(refund_payment_details_page.bank_details.account_name.error.text).to eql "Enter Account holder name"
-    expect(refund_payment_details_page.bank_details.bank_name.error.text).to eql "Enter Bank name"
-    expect(refund_payment_details_page.bank_details.account_number.error.text).to eql "Enter Bank account"
+    expect(refund_payment_details_page.bank_details.bank_name.error.text).to eql "Enter Bank/Building Society name"
+    expect(refund_payment_details_page.bank_details.account_number.error.text).to eql "Enter Account number"
     expect(refund_payment_details_page.bank_details.sort_code.error.text).to eql "Enter Sort Code"
-    expect(refund_payment_details_page).to have_no_building_society_details
   end
 end
 

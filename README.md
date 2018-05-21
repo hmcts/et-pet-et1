@@ -68,9 +68,13 @@ Visit `http://<insert-ip-from-previous-command>:8080` to access the locally runn
 ```bash
 rake
 ```
-### Running the feature test via docker
+### Running the feature tests via docker
 docker-compose -f docker-compose-test.yml up
 docker-compose -f docker-compose-test.yml run test bash -c "bundle exec parallel_cucumber features"
+
+### Running feature tests with only Selenium docker image and "normal" db setup
+docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.12.0-americium
+bundle exec cucumber features/
 
 ## Deploying
 
