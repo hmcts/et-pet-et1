@@ -64,7 +64,7 @@ en:
       fees_help_type_b: "A type B claim had an issue fee of £250 and a hearing fee of £950."
       fees_help_type_appeal: "An Employment Appeal Tribunal fee had a lodgement fee of £400 and a hearing fee of £1200."
     bank_details:
-      your_bank_details: "Your Bank Details"
+      your_bank_details: "Your Bank/Building Society Details"
       your_building_society_details: "Your Building Society Details"
       header: "Repayment Details"
       account_help: "We can only make payment to a UK bank account in the name of the person or organisation making this refund application."
@@ -75,7 +75,7 @@ en:
         applicant_contact_details: "Contact Details"
         original_case_details: "Original Case Details"
         original_case_fees: "Original Case Fees"
-        bank_details: "Your Bank Details"
+        bank_details: "Your Bank/Building Society Details"
         building_society_details: "Your Building Society Details"
       full_name: "Full Name"
       date_of_birth: "Date Of Birth"
@@ -100,11 +100,11 @@ en:
       eat_hearing_fee: "EAT hearing"
       et_reconsideration_fee: "ET reconsideration"
       fee_type: "Fee Type"
-      payment_bank_account_name: "Account holder name"
-      payment_bank_name: "Bank name"
+      payment_bank_account_name: "Account Name"
+      payment_bank_name: "Bank/Building Society Name"
       payment_bank_account_number: "Account number"
       payment_bank_sort_code: "Sort code"
-      payment_building_society_account_name: "Account holder name"
+      payment_building_society_account_name: "Account Name"
       payment_building_society_name: "Building society name"
       payment_building_society_account_number: "Account number"
       payment_building_society_sort_code: "Sort code"
@@ -275,7 +275,7 @@ en:
             payment_account_type:
               blank: Please select one of the options
             payment_bank_account_name:
-              blank: Enter Account holder name
+              blank: Enter Account Name
             payment_bank_name:
               blank: Enter Bank/Building Society name
             payment_bank_account_number:
@@ -377,7 +377,7 @@ en:
         et_country_of_claim: Where was your claim issued?
       refunds_bank_details:
         payment_account_type: Account type
-        payment_bank_account_name: Account holder name
+        payment_bank_account_name: Account Name
         payment_bank_name: Bank/Building Society name
         payment_bank_account_number: Account number
         payment_bank_sort_code: Sort code
