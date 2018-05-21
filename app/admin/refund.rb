@@ -2,6 +2,8 @@
 ActiveAdmin.register Refund do
   filter :submitted_at
 
+  index download_links: [:csv]
+
   index do
     selectable_column
     column "Id", :id
