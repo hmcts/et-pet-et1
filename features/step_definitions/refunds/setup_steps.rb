@@ -86,13 +86,6 @@ And(/^I have a bank account$/) do
                                           sort_code: '012345'
 end
 
-And(/^I have a building society account$/) do
-  test_user.building_society_account = OpenStruct.new account_name: 'Mr Luke Skywalker',
-                                                      building_society_name: 'Starship Enterprises Building Society',
-                                                      account_number: '12345678',
-                                                      sort_code: '012345'
-end
-
 And(/^my name has not changed since the original claim that I want a refund for$/) do
   test_user.has_name_changed = 'No'
 end

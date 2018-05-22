@@ -162,40 +162,22 @@ div class=("review-list-entry applicant")
           th = t('.total_fees')
           td = number_to_currency(f.object.total_fees, delimiter: '', precision: 0)
   div data-behavior= "refund-review-section"
-    - if f.object.payment_account_type == 'bank'
-      h2.list-header
-        span = t '.sections.bank_details'
-        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
-      table.review-table
-        tr
-          th = t('.payment_bank_account_name')
-          td = f.object.payment_bank_account_name
-        tr
-          th = t('.payment_bank_name')
-          td = f.object.payment_bank_name
-        tr
-          th = t('.payment_bank_account_number')
-          td = f.object.payment_bank_account_number
-        tr
-          th = t('.payment_bank_sort_code')
-          td = f.object.payment_bank_sort_code
-    - if f.object.payment_account_type == 'building_society'
-      h2.list-header
-        span = t '.sections.building_society_details'
-        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
-      table.review-table
-        tr
-          th = t('.payment_building_society_account_name')
-          td = f.object.payment_building_society_account_name
-        tr
-          th = t('.payment_building_society_name')
-          td = f.object.payment_building_society_name
-        tr
-          th = t('.payment_building_society_account_number')
-          td = f.object.payment_building_society_account_number
-        tr
-          th = t('.payment_building_society_sort_code')
-          td = f.object.payment_building_society_sort_code
+    h2.list-header
+      span = t '.sections.bank_details'
+      = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
+    table.review-table
+      tr
+        th = t('.payment_bank_account_name')
+        td = f.object.payment_bank_account_name
+      tr
+        th = t('.payment_bank_name')
+        td = f.object.payment_bank_name
+      tr
+        th = t('.payment_bank_account_number')
+        td = f.object.payment_bank_account_number
+      tr
+        th = t('.payment_bank_sort_code')
+        td = f.object.payment_bank_sort_code
 fieldset
   legend= t '.declaration'
   p = t('.declaration_i_confirm')
