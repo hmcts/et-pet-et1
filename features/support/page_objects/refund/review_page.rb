@@ -88,13 +88,6 @@ module Refunds
       element :sort_code, :refund_review_section_field_labelled, 'Sort code'
     end
 
-    section :building_society_details, :refund_review_section_labelled, 'Your Building Society Details' do
-      element :account_name, :refund_review_section_field_labelled, 'Account Name'
-      element :building_society_name, :refund_review_section_field_labelled, 'Building society name'
-      element :account_number, :refund_review_section_field_labelled, 'Account number'
-      element :sort_code, :refund_review_section_field_labelled, 'Sort code'
-    end
-
     section :declaration, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]] }) do
       element :accept, 'Tick to confirm'
 

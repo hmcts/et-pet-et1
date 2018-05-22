@@ -1,9 +1,7 @@
 fieldset
   span = t('.account_help')
 
-= f.input :payment_account_type, as: :hidden, input_html: { value: 'bank' }
-
-fieldset.reveal-subscribe data-target='payment_account_type'
+fieldset.reveal-subscribe
   legend = t('.your_bank_details')
   = f.input :payment_bank_name, required: true, input_html: {class: 'medium-input'}
   = f.input :payment_bank_account_name, required: true, input_html: {class: 'medium-input'}

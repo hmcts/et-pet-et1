@@ -43,10 +43,6 @@ Then(/^all mandatory bank details fields should be marked with an error$/) do
   end
 end
 
-And(/^I select "([^"]*)" account type in the refund bank details page$/) do |account_type|
-  refund_payment_details_page.account_type.select(account_type)
-end
-
 Then(/^only the bank details account type field should be marked with an error$/) do
   expect(refund_payment_details_page.account_type.error.text).to eql "Please select one of the options"
   expect(refund_payment_details_page.bank_details.account_name).to have_no_error

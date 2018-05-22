@@ -267,7 +267,6 @@ FactoryGirl.define do
     applicant_first_name                  'First'
     applicant_last_name                   'Last'
     additional_information                'Some extra information'
-    payment_account_type                  'bank'
     submitted_at                          DateTime.parse('1 December 2016 00:00:00').utc
   end
 end
