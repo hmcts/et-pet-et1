@@ -64,15 +64,3 @@ Feature: Refund Form
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
     And I take a screenshot named "Page 7 - Confirmation"
-
-  Scenario: Refund for a sole party who paid directly and whos name or address has not changed but uses a building society account
-    And I did not have a representative
-    And I have a building society account
-    And my name has not changed since the original claim that I want a refund for
-    And my address has not changed since the original claim that I want a refund for
-
-    When I start a new refund for a sole party who paid the tribunal fees directly and has not been reimbursed
-    And I fill in the refund forms
-    And I verify the review page and accept the declaration
-    Then I should see a valid confirmation page for a claimant
-
