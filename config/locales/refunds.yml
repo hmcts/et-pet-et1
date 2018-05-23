@@ -100,8 +100,8 @@ en:
       fee_type: "Fee Type"
       payment_bank_account_name: "Account Name"
       payment_bank_name: "Bank/Building Society Name"
-      payment_bank_account_number: "Account number"
-      payment_bank_sort_code: "Sort code"
+      payment_bank_account_number: "Account Number"
+      payment_bank_sort_code: "Sort Code"
       declaration: "Declaration"
       declaration_detail_html: |
         I am making an application on behalf of myself.
@@ -271,7 +271,7 @@ en:
             payment_bank_name:
               blank: Enter Bank/Building Society name
             payment_bank_account_number:
-              blank: Enter Account number
+              blank: Enter Account Number
               invalid: Must be 8 numbers
             payment_bank_sort_code:
               blank: Enter Sort Code
@@ -355,8 +355,8 @@ en:
       refunds_bank_details:
         payment_bank_account_name: Account Name
         payment_bank_name: Bank/Building Society name
-        payment_bank_account_number: Account number
-        payment_bank_sort_code: Sort code
+        payment_bank_account_number: Account Number
+        payment_bank_sort_code: Sort Code
       refunds_fees:
         et_issue_fee_payment_date_unknown: Don't know
         et_hearing_fee_payment_date_unknown: Don't know

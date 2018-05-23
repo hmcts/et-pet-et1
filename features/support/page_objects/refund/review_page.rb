@@ -84,8 +84,8 @@ module Refunds
     section :bank_details, :refund_review_section_labelled, 'Your Bank/Building Society Details' do
       element :account_name, :refund_review_section_field_labelled, 'Account Name'
       element :bank_name, :refund_review_section_field_labelled, 'Bank/Building Society Name'
-      element :account_number, :refund_review_section_field_labelled, 'Account number'
-      element :sort_code, :refund_review_section_field_labelled, 'Sort code'
+      element :account_number, :refund_review_section_field_labelled, 'Account Number'
+      element :sort_code, :refund_review_section_field_labelled, 'Sort Code'
     end
 
     section :declaration, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]] }) do
