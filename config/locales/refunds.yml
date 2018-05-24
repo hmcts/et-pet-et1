@@ -316,6 +316,7 @@ en:
                         If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
         additional_information: Please use this box to give us any information or reference numbers you think would be helpful in identifying your case
       refunds_bank_details:
+        payment_bank_account_name: Enter exactly as it appears on your bank statement
         payment_bank_account_number: Please enter your 8 digit bank account number. This should be a current account held in your name, not a savings account
         payment_bank_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
     labels:
