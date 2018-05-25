@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128092945) do
+ActiveRecord::Schema.define(version: 20180522100701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -202,15 +202,10 @@ ActiveRecord::Schema.define(version: 20171128092945) do
     t.date     "applicant_date_of_birth"
     t.string   "claimant_email_address"
     t.string   "applicant_title",                                                                      null: false
-    t.string   "payment_account_type",                                                                 null: false
     t.string   "payment_bank_account_name"
     t.string   "payment_bank_name"
     t.string   "payment_bank_account_number"
     t.string   "payment_bank_sort_code"
-    t.string   "payment_building_society_account_name"
-    t.string   "payment_building_society_name"
-    t.string   "payment_building_society_account_number"
-    t.string   "payment_building_society_sort_code"
     t.boolean  "accept_declaration",                                                   default: false, null: false
     t.string   "claimant_address_building",                                                            null: false
     t.string   "claimant_address_street",                                                              null: false
