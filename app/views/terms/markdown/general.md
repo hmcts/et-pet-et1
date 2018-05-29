@@ -1,7 +1,5 @@
 *By using this ‘apply to an employment tribunal’ service you agree to our privacy policy and to these terms and conditions. Read them carefully.*
 <h2 class="legend">General terms and conditions</h2>
-THESE TERMS AND CONDITIONS AFFECT YOUR RIGHTS AND LIABILITIES UNDER THE LAW. THEY GOVERN YOUR USE OF, AND RELATIONSHIP WITH, THIS ‘APPLY TO AN EMPLOYMENT TRIBUNAL’ SERVICE. THEY DO NOT APPLY TO OTHER MINISTRY OF JUSTICE (HM COURTS AND TRIBUNALS SERVICE) SERVICES, OR TO ANY DEPARTMENT OR SERVICE THAT IS LINKED TO IN THIS SERVICE.
+These terms and conditions affect your rights and liabilities under the law. They govern your use of, and relationship with, this ‘apply to an employment tribunal’ service. They do not apply to other Ministry of Justice (HM Courts and Tribunals Service) services, or to any department or service that is linked to in this service.
 
-WE MAY OCCASIONALLY UPDATE THESE TERMS AND CONDITIONS. THIS MIGHT HAPPEN IF THERE IS A CHANGE IN THE LAW OR TO THE WAY THE SERVICE WORKS. IF THERE IS A CHANGE, YOU WILL BE ASKED TO AGREE TO THE NEW TERMS AND CONDITIONS THE NEXT TIME YOU SIGN IN, SO YOU CAN CONTINUE TO USE THIS SERVICE.
-
-IF YOU DO NOT AGREE TO THE TERMS AND CONDITIONS AND PRIVACY POLICY SET OUT IN THIS DOCUMENT, DO NOT USE THIS SERVICE.
+If you do not agree to the terms and conditions and privacy notice set out in this document, do not use this service.
