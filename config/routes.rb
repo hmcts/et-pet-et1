@@ -55,7 +55,7 @@ Rails.application.routes.draw do
 
     get '/stats' => 'stats#index'
 
-    get 'diversity' => 'diversity#index'
+    resources :diversities
 
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1|172\.\d+\.\d+\.\d+/) do
       ActiveAdmin.routes(self)

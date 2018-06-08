@@ -1,0 +1,44 @@
+fieldset
+  = f.input :ethnicity,
+    collection: t('diversities.form.ethnicity.options'),
+    hint: t('diversities.form.ethnicity.hint'),
+    include_blank: :translate,
+    input_html: {data: {target: 'ethnicity'}},
+    reveal: {'white' => 'ethnicity', 'building_society' => 'ethnicity'}
+
+fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.white.data')
+  = f.input :ethnicity_subgroup,
+    collection: t('diversities.form.ethnicity_subgroup.white.options'),
+    label: t('diversities.form.ethnicity_subgroup.white.label'),
+    include_blank: :translate
+
+fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.mixed.data')
+  = f.input :ethnicity_subgroup,
+    collection: t('diversities.form.ethnicity_subgroup.mixed.options'),
+    label: t('diversities.form.ethnicity_subgroup.mixed.label'),
+    include_blank: :translate
+
+fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.asian.data')
+  = f.input :ethnicity_subgroup,
+    collection: t('diversities.form.ethnicity_subgroup.asian.options'),
+    label: t('diversities.form.ethnicity_subgroup.asian.label'),
+    include_blank: :translate
+
+fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.black.data')
+  = f.input :ethnicity_subgroup,
+    collection: t('diversities.form.ethnicity_subgroup.black.options'),
+    label: t('diversities.form.ethnicity_subgroup.black.label'),
+    include_blank: :translate
+
+fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.other.data')
+  = f.input :ethnicity_subgroup,
+    collection: t('diversities.form.ethnicity_subgroup.other.options'),
+    label: t('diversities.form.ethnicity_subgroup.other.label'),
+    include_blank: :translate
+
+- content_for(:javascripts)
+  javascript:
+      $(document).ready(function () {
+          diversityEthinicityPage.init()
+      });
+
