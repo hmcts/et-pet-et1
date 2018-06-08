@@ -1,9 +1,180 @@
 en:
-  diversity:
+  diversities:
     index:
       header: Diversity monitoring questionnaire
       optional_text: This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
       anonymous: Your answers will be anonymous.
       begin_form: Begin this form
+    new:
+      header: Diversity monitoring questionnaire
+    form:
+      submit: 'Submit questionnaire'
+      claim_type:
+        hint: Please confirm your type of claim to help us analyse other information provided in this form.
+        options:
+          - Unfair dismissal or constructive dismissal
+          - Discrimination
+          - Redundancy payment
+          - Other payments you are owed
+          - Other complaints
+      sex:
+        hint: What is your sex?
+        options:
+          - Male
+          - Female
+          - Prefer not to say
+      sexual_identity:
+        hint: Which of the options below best describes your sexual identity?
+        options:
+          - Heterosexual / Straight
+          - Gay / Lesbian
+          - Bisexual
+          - Other
+          - Prefer not to say
+      gender:
+        hint: Please select your gender identity.
+        options:
+          - Male (including female-to-male trans men)
+          - Female (including male-to-female trans women)
+          - Prefer not to say
+      gender_at_birth:
+        hint: Is your gender identity different to the sex you were assumed to be at birth?
+        options:
+          - 'Yes'
+          - 'No'
+          - Prefer not to say
+      ethnicity:
+        hint: What is your ethnic group?
+        options:
+          - White
+          - Mixed / multiple ethnic groups
+          - Asian / Asian British
+          - Black / African / Caribbean / Black British
+          - Other ethnic group
+          - Prefer not to say
+      ethnicity_subgroup:
+        white:
+          label: 'White'
+          data: 'White'
+          options:
+            - English / Welsh / Scottish / Northern Irish / British
+            - Irish
+            - Gypsy or Irish Traveller
+            - Any other White background
+            - None of the above
+        mixed:
+          label: 'Mixed'
+          data: 'Mixed / multiple ethnic groups'
+          options:
+            - White and Black Caribbean
+            - White and Black African
+            - White and Asian
+            - Any other Mixed / multiple ethnic background
+            - None of the above
+        asian:
+          label: 'Asian'
+          data: 'Asian / Asian British'
+          options:
+            - Indian
+            - Pakistani
+            - Bangladeshi
+            - Chinese
+            - Any other Asian background
+            - None of the above
+        black:
+          label: 'Black'
+          data: 'Black / African / Caribbean / Black British'
+          options:
+            - African
+            - Caribbean
+            - Any other Black / African / Caribbean background
+            - None of the above
+        other:
+          label: 'Other'
+          data: 'Other ethnic group'
+          options:
+            - Arab
+            - Any other ethnic group
+            - None of the above
+
+      age_group:
+        hint: Which age group are you in?
+        options:
+          - Under 25
+          - 25-34
+          - 35-44
+          - 45-54
+          - 55-64
+          - 65 and over
+          - Prefer not to say
+      relationship:
+        hint: Please describe your relationship status.
+        options:
+          - Single, that is, never married and never registered in a same-sex civil partnership
+          - Married
+          - Separated, but still legally married
+          - Divorced
+          - Widowed
+          - In a registered same-sex civil partnership
+          - Separated, but still legally in a same-sex civil partnership
+          - Formerly in a same-sex civil partnership which is now legally dissolved
+          - Surviving partner from a same-sex civil partnership
+          - Prefer not to say
+      religion:
+        hint: What is your religion?
+        options:
+          - No religion
+          - Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
+          - Buddhist
+          - Hindu
+          - Jewish
+          - Muslim
+          - Sikh
+          - Any other religion (please describe below)
+          - Prefer not to say
+      disability:
+        label: Disability
+        act: The Equality Act 2010 defines a disabled person as 'someone who has a physical or mental impairment and the impairment has a substantial and long-term adverse effect on his or her ability to carry out normal day-to-day activities'.
+        conditions: Conditions covered may include, for example, severe depression, dyslexia, epilepsy and arthritis.
+        hint: Do you have any physical or mental health conditions or illnesses lasting or expected to last for 12 months or more?
+        options:
+          - 'Yes'
+          - 'No'
+          - Prefer not to say
+      caring_responsibility:
+        hint: Do you have any caring responsibilities (eg, children, elderly relatives, partners etc)?
+        options:
+          - 'Yes'
+          - 'No'
+          - Prefer not to say
+      pregnancy:
+        hint: Were you pregnant when you were dismissed?
+        options:
+          - 'Yes'
+          - 'No'
+          - Prefer not to say
+      gender_at_birth:
+        hint: Is your gender identity different to the sex you were assumed to be at birth?
+        options:
+          - 'Yes'
+          - 'No'
+          - Prefer not to say
 
 
+  simple_form:
+    include_blanks:
+      diversity:
+        claim_type: Please select
+        sex: Please select
+        sexual_identity: Please select
+        gender: Please select
+        gender_at_birth: Please select
+        ethnicity: Please select
+        ethnicity_subgroup: Please select
+        age_group: Please select
+        relationship: Please select
+        religion: Please select
+        disability: Please select
+        caring_responsibility: Please select
+        pregnancy: Please select
+        gender_at_birth: Please select
