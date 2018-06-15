@@ -7,38 +7,40 @@ fieldset
     reveal: {'white' => 'ethnicity', 'building_society' => 'ethnicity'}
 
 fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.white.data')
-  = f.input :ethnicity_subgroup,
+  = f.input :ethnicity_subgroup_white,
     collection: t('diversities.form.ethnicity_subgroup.white.options'),
     label: t('diversities.form.ethnicity_subgroup.white.label'),
     include_blank: :translate
 
 fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.mixed.data')
-  = f.input :ethnicity_subgroup,
+  = f.input :ethnicity_subgroup_mixed,
     collection: t('diversities.form.ethnicity_subgroup.mixed.options'),
     label: t('diversities.form.ethnicity_subgroup.mixed.label'),
     include_blank: :translate
 
 fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.asian.data')
-  = f.input :ethnicity_subgroup,
+  = f.input :ethnicity_subgroup_asian,
     collection: t('diversities.form.ethnicity_subgroup.asian.options'),
     label: t('diversities.form.ethnicity_subgroup.asian.label'),
     include_blank: :translate
 
 fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.black.data')
-  = f.input :ethnicity_subgroup,
+  = f.input :ethnicity_subgroup_black,
     collection: t('diversities.form.ethnicity_subgroup.black.options'),
     label: t('diversities.form.ethnicity_subgroup.black.label'),
     include_blank: :translate
 
 fieldset.ethnicity_subgroup data-name= t('diversities.form.ethnicity_subgroup.other.data')
-  = f.input :ethnicity_subgroup,
+  = f.input :ethnicity_subgroup_other,
     collection: t('diversities.form.ethnicity_subgroup.other.options'),
     label: t('diversities.form.ethnicity_subgroup.other.label'),
     include_blank: :translate
 
+= f.input :ethnicity_subgroup, as: :hidden
+
 - content_for(:javascripts)
   javascript:
-      $(document).ready(function () {
-          diversityEthinicityPage.init()
-      });
+    $(document).ready(function () {
+        diversityEthinicityPage.init()
+    });
 
