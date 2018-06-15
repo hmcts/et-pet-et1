@@ -1,1 +1,11 @@
-show.html.slim
+header.main-header role="banner"
+  h1= t '.header'
+  table.confirmation-table
+    - Diversity::FIELDS.each do |field_name|
+      tr role="row"
+        th = t "diversities.form.#{field_name}.hint"
+        td = @diversity.send(field_name)
+
+  p
+    =  link_to t('.edit'), edit_diversity_path(@diversity), class: 'button'
+    =  link_to t('.submit'), diversity_submit_path(@diversity), class: 'button'

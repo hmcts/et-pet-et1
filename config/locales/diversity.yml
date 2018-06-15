@@ -7,8 +7,17 @@ en:
       begin_form: Begin this form
     new:
       header: Diversity monitoring questionnaire
+    show:
+      header: Diversity monitoring questionnaire summary
+      edit: Edit your answers
+      submit: Submit questionnaire
+    edit:
+      header: Editing Diversity monitoring questionnaire
+    submit:
+      header: Diversity monitoring questionnaire
+      thank_you: Thank you for submitting a diversity questionnaire.
     form:
-      submit: 'Submit questionnaire'
+      next: 'Next step'
       claim_type:
         hint: Please confirm your type of claim to help us analyse other information provided in this form.
         options:
@@ -53,6 +62,7 @@ en:
           - Other ethnic group
           - Prefer not to say
       ethnicity_subgroup:
+        hint: What type is your ethnic group?
         white:
           label: 'White'
           data: 'White'
