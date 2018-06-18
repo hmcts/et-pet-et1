@@ -5,13 +5,13 @@ var diversityEthinicityPage = (function(){
       $('select#diversity_ethnicity').change('change', function(e){
         hide_subgroups();
         var selected = $(this).val();
-        $(`*[data-name='${selected}']`).show();
+        $("*[data-name='"+selected+"']").show();
       })
     }
 
     function show_selected_subgroup(){
       var selected = $('select#diversity_ethnicity').val();
-      $(`*[data-name='${selected}']`).show();
+      $("*[data-name='"+selected+"']").show();
     }
 
     function hide_subgroups(){
