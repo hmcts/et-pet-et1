@@ -1,23 +1,28 @@
 en:
   diversities:
+    header: Diversity monitoring questionnaire
     index:
-      header: Diversity monitoring questionnaire
       optional_text: This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
       anonymous: Your answers will be anonymous.
       begin_form: Begin this form
-    new:
-      header: Diversity monitoring questionnaire
     show:
-      header: Diversity monitoring questionnaire summary
+      sub_header: Confirmation of supplied details
       edit: Edit your answers
-      submit: Submit questionnaire
-    edit:
-      header: Editing Diversity monitoring questionnaire
+      previous: Previous
+      hint: Pressing "Submit Form" below will send the details confirmed below for processing.
+      submit: Submit Form
     submit:
-      header: Diversity monitoring questionnaire
-      thank_you: Thank you for submitting a diversity questionnaire.
+      sub_header: Thank you
+      thank_you: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+    aside:
+      header: Other relevant links
+      how_to_make_claim: How to make a claim
+      how_to_make_response: How to make a response
+      how_to_contact_us: How to contact us
+      more_from_the_working: More from the Working, jobs and pensions category
     form:
-      next: 'Next step'
+      next: 'Next'
       claim_type:
         hint: Please confirm your type of claim to help us analyse other information provided in this form.
         options:
@@ -174,17 +179,17 @@ en:
   simple_form:
     include_blanks:
       diversity:
-        claim_type: Please select
-        sex: Please select
-        sexual_identity: Please select
-        gender: Please select
-        gender_at_birth: Please select
-        ethnicity: Please select
-        ethnicity_subgroup: Please select
-        age_group: Please select
-        relationship: Please select
-        religion: Please select
-        disability: Please select
-        caring_responsibility: Please select
-        pregnancy: Please select
-        gender_at_birth: Please select
+        claim_type: Please select ...
+        sex: Please select ...
+        sexual_identity: Please select ...
+        gender: Please select ...
+        gender_at_birth: Please select ...
+        ethnicity: Please select ...
+        ethnicity_subgroup: Please select ...
+        age_group: Please select ...
+        relationship: Please select ...
+        religion: Please select ...
+        disability: Please select ...
+        caring_responsibility: Please select ...
+        pregnancy: Please select ...
+        gender_at_birth: Please select ...

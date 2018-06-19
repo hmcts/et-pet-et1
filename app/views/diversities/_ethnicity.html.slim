@@ -1,7 +1,7 @@
 fieldset
   = f.input :ethnicity,
     collection: t('diversities.form.ethnicity.options'),
-    hint: t('diversities.form.ethnicity.hint'),
+    label: t('diversities.form.ethnicity.hint'),
     include_blank: :translate,
     input_html: {data: {target: 'ethnicity'}},
     reveal: {'white' => 'ethnicity', 'building_society' => 'ethnicity'}

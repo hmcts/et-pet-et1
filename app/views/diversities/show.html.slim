@@ -1,5 +1,11 @@
 header.main-header role="banner"
-  h1= t '.header'
+  h1= t 'diversities.header'
+.main-content
+  h2.bold = t('.sub_header')
+  p = t('.hint')
+  p
+    =  link_to t('.previous'), edit_diversity_path(@diversity), class: 'button-return'
+    =  link_to t('.submit'), diversity_submit_path(@diversity), class: 'button'
   table.confirmation-table
     - Diversity::FIELDS.each do |field_name|
       tr role="row"
@@ -8,4 +14,6 @@ header.main-header role="banner"
 
   p
     =  link_to t('.edit'), edit_diversity_path(@diversity), class: 'button'
-    =  link_to t('.submit'), diversity_submit_path(@diversity), class: 'button'
+
+aside
+  = render partial: 'sidebar'
