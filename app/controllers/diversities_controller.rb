@@ -1,4 +1,6 @@
 class DiversitiesController < ApplicationController
+  layout "diversities/application"
+
   def index; end
 
   def new
@@ -44,7 +46,6 @@ class DiversitiesController < ApplicationController
 
   def ethnicity_subgroup
     subgroups = params[:diversity].keys.select{|a| a.include? 'ethnicity_subgroup_'}
-    # binding.pry
     subgroups.map {|key| params[:diversity][key] if params[:diversity][key].present?}.compact.first
   end
 end

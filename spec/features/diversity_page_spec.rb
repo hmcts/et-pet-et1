@@ -18,21 +18,21 @@ feature 'Diversity' do
 
     fill_the_questionaire
 
-    click_button "Next step"
+    click_button "Next"
 
-    claim_type = find(:xpath,".//table//tr[1]").text
-    sex = find(:xpath,".//table//tr[2]").text
-    identity = find(:xpath,".//table//tr[3]").text
-    age = find(:xpath,".//table//tr[4]").text
-    ethnicity = find(:xpath,".//table//tr[5]").text
-    ethnicity_sugroup = find(:xpath,".//table//tr[6]").text
-    disability = find(:xpath,".//table//tr[7]").text
-    caring = find(:xpath,".//table//tr[8]").text
-    gender = find(:xpath,".//table//tr[9]").text
-    gender_birth = find(:xpath,".//table//tr[10]").text
-    pregnancy = find(:xpath,".//table//tr[11]").text
-    relationship = find(:xpath,".//table//tr[12]").text
-    religion = find(:xpath,".//table//tr[13]").text
+    claim_type = find(:xpath, ".//table//tr[1]").text
+    sex = find(:xpath, ".//table//tr[2]").text
+    identity = find(:xpath, ".//table//tr[3]").text
+    age = find(:xpath, ".//table//tr[4]").text
+    ethnicity = find(:xpath, ".//table//tr[5]").text
+    ethnicity_sugroup = find(:xpath, ".//table//tr[6]").text
+    disability = find(:xpath, ".//table//tr[7]").text
+    caring = find(:xpath, ".//table//tr[8]").text
+    gender = find(:xpath, ".//table//tr[9]").text
+    gender_birth = find(:xpath, ".//table//tr[10]").text
+    pregnancy = find(:xpath, ".//table//tr[11]").text
+    relationship = find(:xpath, ".//table//tr[12]").text
+    religion = find(:xpath, ".//table//tr[13]").text
 
     expect(claim_type).to eql "Please confirm your type of claim to help us analyse other information provided in this form.Discrimination"
     expect(sex).to eql "What is your sex?Male"
@@ -48,8 +48,8 @@ feature 'Diversity' do
     expect(relationship).to eql "Please describe your relationship status.Married"
     expect(religion).to eql "What is your religion?Hindu"
 
-    click_link "Submit questionnaire"
-    expect(page).to have_text "Thank you for submitting a diversity questionnaire."
+    click_link "Submit Form"
+    expect(page).to have_text "Thank you for completing this diversity monitoring questionnaire."
   end
 
 
@@ -58,43 +58,41 @@ feature 'Diversity' do
     click_link "Begin this form"
 
     fill_the_questionaire
-    click_button "Next step"
+    click_button "Next"
 
-    expect(page).to have_text "Diversity monitoring questionnaire summary"
+    expect(page).to have_text "Confirmation of supplied details"
 
     sex = find(:xpath,".//table/tr[2]").text
     expect(sex).to eql('What is your sex?Male')
 
     click_link "Edit your answers"
 
-    expect(page).to have_text "Editing Diversity monitoring questionnaire"
+    select "Female", from: 'diversity_sex'
+    click_button "Next"
 
-    select "Female", from: 'Sex (optional)'
-    click_button "Next step"
-
-    expect(page).to have_text "Diversity monitoring questionnaire summary"
+    expect(page).to have_text "Confirmation of supplied details"
     sex = find(:xpath,".//table/tr[2]").text
     expect(sex).to eql('What is your sex?Female')
   end
 
 
   def fill_the_questionaire
-    select "Discrimination", from: 'Claim type'
-    select "Male", from: 'Sex (optional)'
-    select "Other", from: 'Sexual identity'
-    select "Male (including female-to-male trans men)", from: 'Gender (optional)'
-    select "Yes", from: 'Gender at birth'
+    select "Discrimination", from: 'diversity_claim_type'
+    select "Male", from: 'diversity_sex'
+    select "Other", from: 'diversity_sexual_identity'
+    select "Male (including female-to-male trans men)", from: 'diversity_gender'
+    select "Yes", from: 'diversity_gender_at_birth'
 
-    select "White", from: 'Ethnicity'
+    select "White", from: 'diversity_ethnicity'
     within(:xpath, './/fieldset[@data-name="White"]') do
       select "Irish", from: 'White (optional)'
     end
 
-    select "25-34", from: 'Age group'
-    select "Married", from: 'Relationship'
-    select "Hindu", from: 'Religion'
-    select "No", from: 'Caring responsibility'
-    select "No", from: 'Pregnancy'
+    select "25-34", from: 'diversity_age_group'
+    select "Married", from: 'diversity_relationship'
+    select "Hindu", from: 'diversity_religion'
+    select "No", from: 'diversity_caring_responsibility'
+    select "No", from: 'diversity_pregnancy'
     select "No", from: 'diversity_disability'
   end
 end
