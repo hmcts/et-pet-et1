@@ -11,6 +11,7 @@ en:
       previous: Previous
       hint: Pressing "Submit Form" below will send the details confirmed below for processing.
       submit: Submit Form
+      page_number: page number
     submit:
       sub_header: Thank you
       thank_you: Thank you for completing this diversity monitoring questionnaire.
@@ -21,16 +22,17 @@ en:
       how_to_make_response: How to make a response
       how_to_contact_us: How to contact us
       more_from_the_working: More from the Working, jobs and pensions category
+    claim_type:
+      header: Claim type
+      hint: Please confirm your type of claim to help us analyse other information provided in this form.
+      options:
+        - Unfair dismissal or constructive dismissal
+        - Discrimination
+        - Redundancy payment
+        - Other payments you are owed
+        - Other complaints
     form:
       next: 'Next'
-      claim_type:
-        hint: Please confirm your type of claim to help us analyse other information provided in this form.
-        options:
-          - Unfair dismissal or constructive dismissal
-          - Discrimination
-          - Redundancy payment
-          - Other payments you are owed
-          - Other complaints
       sex:
         hint: What is your sex?
         options:

@@ -47,7 +47,6 @@ class PageManager
       else
         [self.class.namespace, p.name].join('/') == @resource.form_name
       end
-
     end
   end
 end

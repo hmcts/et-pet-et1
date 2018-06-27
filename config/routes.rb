@@ -37,6 +37,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resource :diversity, only: [:create, :new], path: "/diversity" do
+      DiversityPagesManager.page_names.each do |page|
+        resource page.underscore, only: %i<show update>, controller: :diversities,
+          page: page, path: page
+      end
+    end
+
     get 'ping' => 'ping#index'
 
     get 'healthcheck' => 'healthcheck#index'
@@ -54,10 +61,6 @@ Rails.application.routes.draw do
     get '/barclaycard-payment-template' => 'barclaycard_payment_template#show'
 
     get '/stats' => 'stats#index'
-
-    resources :diversities do
-      get 'submit'
-    end
 
     constraints(ip: /81\.134\.202\.29|127\.0\.0\.1|172\.\d+\.\d+\.\d+/) do
       ActiveAdmin.routes(self)
