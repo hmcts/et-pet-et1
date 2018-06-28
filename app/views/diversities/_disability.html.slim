@@ -1,5 +1,7 @@
 fieldset
-  = f.input :ethnicity,
+  p = t('.act')
+  p = t('.conditions')
+  = f.input :disability,
     as: :radio_buttons,
     collection: t('.options'),
     item_wrapper_class: 'govuk-radios__item',

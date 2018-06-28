@@ -12,12 +12,14 @@ class DiversitiesController < ApplicationController
 
   def update
     resource.assign_attributes params.fetch("diversities_#{current_step}", {})
-
     if resource.save
       redirect_to next_page
     else
       render action: :show
     end
+  end
+
+  def show
   end
 
   private
@@ -70,8 +72,12 @@ class DiversitiesController < ApplicationController
   end
 
   def validate_session
-    redirect_to({ action: :new }, flash: { alert: t('diversitys.show.session_reloaded') }) if diversity_session.nil?
+    redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') }) if diversity_session.nil?
   end
 
-  helper_method :diversity_path_for, :diversity, :current_step, :page_manager, :resource
+  def ethnicity_type
+    diversity_session.ethnicity.try(:parameterize)
+  end
+
+  helper_method :diversity_path_for, :diversity, :current_step, :page_manager, :resource, :ethnicity_type
 end

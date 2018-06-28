@@ -2,40 +2,44 @@ class DiversityPagesManager < PageManager
   namespace :diversities
   page 'claim-type',
     number: 1,
-    transitions_to: 'applicant'
+    transitions_to: 'identity'
 
   page 'identity',
     number: 2,
-    transitions_to: 'original-case-details'
+    transitions_to: 'relationship'
 
   page 'relationship',
     number: 3,
-    transitions_to: 'fees'
+    transitions_to: 'age-caring'
 
   page 'age-caring',
     number: 4,
-    transitions_to: 'bank-details'
+    transitions_to: 'religion'
 
   page 'religion',
     number: 5,
-    transitions_to: 'review'
+    transitions_to: 'ethnicity'
 
-  page 'etnicity',
+  page 'ethnicity',
     number: 6,
-    transitions_to: 'confirmation'
+    transitions_to: 'ethnicity-subgroup'
 
-  page 'etnicity-subgroup',
-    number: 6,
-    transitions_to: 'confirmation'
+  page 'ethnicity-subgroup',
+    number: 7,
+    transitions_to: 'disability'
 
   page 'disability',
-    number: 6,
-    transitions_to: 'confirmation'
+    number: 8,
+    transitions_to: 'pregnancy'
 
   page 'pregnancy',
-    number: 6,
+    number: 9,
+    transitions_to: 'review'
+
+  page 'review',
+    number: 10,
     transitions_to: 'confirmation'
 
   page 'confirmation',
-    number: 7
+    number: 11
 end
