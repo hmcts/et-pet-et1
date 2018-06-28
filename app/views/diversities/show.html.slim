@@ -22,13 +22,11 @@
 
 header.main-header role="banner"
   h1.page-trail
-    span.page-number= t('.page_number', current_page: current_page, total_pages: total_pages)
     span.page-title
       = diversity_header
 
 .main-section
-
-  .main-content class="diversities_#{current_step}"
+  .main-content class="diversities diversities_#{current_step}"
     = simple_form_for resource, url: request.path, multipart: true do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 

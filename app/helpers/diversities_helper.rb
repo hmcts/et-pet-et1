@@ -6,7 +6,7 @@ module DiversitiesHelper
   end
 
   def diversity_header
-    I18n.t("diversities.#{current_step}.header")
+    I18n.t("diversities.#{current_step}.hint")
   end
 
   def diversity_title
