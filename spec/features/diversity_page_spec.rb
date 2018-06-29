@@ -52,7 +52,6 @@ feature 'Diversity' do
     expect(page).to have_text "Thank you for completing this diversity monitoring questionnaire."
   end
 
-
   scenario "I can edit my responses" do
     expect(page).to have_text "Diversity monitoring questionnaire"
     click_link "Begin this form"
@@ -62,7 +61,7 @@ feature 'Diversity' do
 
     expect(page).to have_text "Confirmation of supplied details"
 
-    sex = find(:xpath,".//table/tr[2]").text
+    sex = find(:xpath, ".//table/tr[2]").text
     expect(sex).to eql('What is your sex?Male')
 
     click_link "Edit your answers"
@@ -71,10 +70,9 @@ feature 'Diversity' do
     click_button "Next"
 
     expect(page).to have_text "Confirmation of supplied details"
-    sex = find(:xpath,".//table/tr[2]").text
+    sex = find(:xpath, ".//table/tr[2]").text
     expect(sex).to eql('What is your sex?Female')
   end
-
 
   def fill_the_questionaire
     select "Discrimination", from: 'diversity_claim_type'

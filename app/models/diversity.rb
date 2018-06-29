@@ -9,13 +9,12 @@ class Diversity < ActiveRecord::Base
     :ethnicity_subgroup_black,
     :ethnicity_subgroup_other
 
-
   def ethinicity_subgroup
-    self.ethnicity_subgroup
+    ethnicity_subgroup
   end
-  alias :ethnicity_subgroup_white :ethinicity_subgroup
-  alias :ethnicity_subgroup_mixed :ethinicity_subgroup
-  alias :ethnicity_subgroup_asian :ethinicity_subgroup
-  alias :ethnicity_subgroup_black :ethinicity_subgroup
-  alias :ethnicity_subgroup_other :ethinicity_subgroup
+  alias ethnicity_subgroup_white ethinicity_subgroup
+  alias ethnicity_subgroup_mixed ethinicity_subgroup
+  alias ethnicity_subgroup_asian ethinicity_subgroup
+  alias ethnicity_subgroup_black ethinicity_subgroup
+  alias ethnicity_subgroup_other ethinicity_subgroup
 end
