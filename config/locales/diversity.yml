@@ -4,14 +4,14 @@ en:
     index:
       optional_text: This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
       anonymous: Your answers will be anonymous.
-      begin_form: Begin this form
+      begin_form: Start now
     show:
       sub_header: Confirmation of supplied details
       edit: Edit your answers
       previous: Previous
       hint: Pressing "Submit Form" below will send the details confirmed below for processing.
       submit: Submit Form
-      page_number: page number
+      session_reloaded: Your session has been re loaded - this may have been caused by your cookie expiring
     submit:
       sub_header: Thank you
       thank_you: Thank you for completing this diversity monitoring questionnaire.
@@ -89,7 +89,8 @@ en:
           - 65 and over
           - Prefer not to say
       caring_responsibility:
-        hint: Do you have any caring responsibilities (eg, children, elderly relatives, partners etc)?
+        hint: Do you have any caring responsibilities?
+        form_hint: eg, children, elderly relatives, partners etc
         options:
           - 'Yes'
           - 'No'
@@ -118,8 +119,8 @@ en:
         - Other ethnic group
         - Prefer not to say
     ethnicity_subgroup:
-      hint: What type is your ethnic group?
-      header: Ethnic type
+      hint: Please select one of the following.
+      header: What is your ethnic type?
       white:
         label: 'White'
         data: 'White'
@@ -181,9 +182,13 @@ en:
         - Prefer not to say
     review:
       hint: Check your answers
+      submit: Submit Form
+    confirmation:
+      hint: Thank you
+      message: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+      return_title: return to GOV.UK website
     edit: Change
-    form:
-      next: 'Next'
 
 
   simple_form:

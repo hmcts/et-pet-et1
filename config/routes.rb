@@ -43,6 +43,7 @@ Rails.application.routes.draw do
           page: page, path: page
       end
     end
+    get 'diversity' => 'diversities#index', as: 'diversity_landing'
 
     get 'ping' => 'ping#index'
 

@@ -6,7 +6,11 @@ module DiversitiesHelper
   end
 
   def diversity_header
-    I18n.t("diversities.#{current_step}.hint")
+    if current_step == 'ethnicity_subgroup'
+      @diversity_session[:data]['ethnicity']
+    else
+      I18n.t("diversities.#{current_step}.hint")
+    end
   end
 
   def diversity_title
