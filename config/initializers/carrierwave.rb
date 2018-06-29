@@ -8,7 +8,10 @@ CarrierWave.configure do |config|
     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'] || ''
   }
 
-  credentials.merge!(endpoint: ENV['AWS_ENDPOINT'], host: URI.parse(ENV['AWS_ENDPOINT']).host) if ENV.key?('AWS_ENDPOINT')
+  if ENV.key?('AWS_ENDPOINT')
+    credentials[:endpoint] = ENV['AWS_ENDPOINT']
+    credentials[:host] = URI.parse(ENV['AWS_ENDPOINT']).host
+  end
 
   credentials[:path_style] = true if ENV.fetch('AWS_S3_FORCE_PATH_STYLE', 'false') == 'true'
 

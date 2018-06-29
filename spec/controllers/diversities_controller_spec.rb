@@ -5,7 +5,7 @@ RSpec.describe DiversitiesController, type: :controller do
     let(:diversity_session) { Session.create }
 
     context 'empty ethinicity' do
-      let(:params) {{ "ethnicity" => "" }}
+      let(:params) { { "ethnicity" => "" } }
 
       describe 'redirects to /diversity/disability with a flash' do
         before do
@@ -19,7 +19,7 @@ RSpec.describe DiversitiesController, type: :controller do
     end
 
     context '"prefer not to say" ethinicity' do
-      let(:params) {{ "ethnicity" => "Prefer not to say" }}
+      let(:params) { { "ethnicity" => "Prefer not to say" } }
 
       describe 'redirects to /diversity/disability with a flash' do
         before do
@@ -33,7 +33,7 @@ RSpec.describe DiversitiesController, type: :controller do
     end
 
     context '"white" ethinicity' do
-      let(:params) {{ "ethnicity" => "White" }}
+      let(:params) { { "ethnicity" => "White" } }
 
       describe 'redirects to /diversity/ethnicity-subgroup with a flash' do
         before do
