@@ -38,10 +38,11 @@ div
       th = t('diversities.ethnicity.hint')
       td = f.object.ethnicity
       td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
-    tr
-      th = t('diversities.ethnicity_subgroup.hint')
-      td = f.object.ethnicity_subgroup
-      td = link_to t('diversities.edit'),  diversity_ethnicity_subgroup_path(return_to_review: true)
+    - if display_ethnicity_subgroup?
+      tr
+        th = t('diversities.ethnicity_subgroup.hint')
+        td = f.object.ethnicity_subgroup
+        td = link_to t('diversities.edit'),  diversity_ethnicity_subgroup_path(return_to_review: true)
     tr
       th = t('diversities.disability.hint')
       td = f.object.disability

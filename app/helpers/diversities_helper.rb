@@ -13,6 +13,10 @@ module DiversitiesHelper
     page_title(diversity_header)
   end
 
+  def display_ethnicity_subgroup?
+    !(resource.ethnicity.blank? || resource.ethnicity == t('diversities.ethnicity.options').last)
+  end
+
   private
 
   def markdown
