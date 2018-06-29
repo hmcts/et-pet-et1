@@ -1,11 +1,9 @@
 header.main-header role="banner"
   h1= t 'diversities.header'
-.main-content
-  p = t '.optional_text'
-  p
-    b = t '.anonymous'
+.main-section
+  .main-content class="diversities"
+    p = t '.optional_text'
+    p
+      b = t '.anonymous'
 
-  = link_to (t '.begin_form'), new_diversity_path, class: 'button'
-
-aside
-  = render partial: 'sidebar'
+    = link_to (t '.begin_form'), new_diversity_path, class: 'button button-start'

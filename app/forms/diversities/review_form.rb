@@ -1,7 +1,7 @@
 module Diversities
   class ReviewForm < Form
-    before_save :generate_application_reference, unless: :target_frozen?
-    before_save :generate_submitted_date, unless: :target_frozen?
+    # before_save :generate_application_reference, unless: :target_frozen?
+    # before_save :generate_submitted_date, unless: :target_frozen?
     after_save :persist_diversity_id_into_session
 
     validates :accept_declaration, acceptance: { accept: true }
@@ -24,10 +24,6 @@ module Diversities
     private
 
     attr_accessor :diversity_session
-
-    def generate_application_reference
-      resource.generate_application_reference
-    end
 
     def generate_submitted_date
       resource.generate_submitted_at

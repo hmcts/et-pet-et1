@@ -1,5 +1,3 @@
-
-
 div
   table.review-table
     tr
@@ -38,9 +36,10 @@ div
       th = t('diversities.ethnicity.hint')
       td = f.object.ethnicity
       td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
+
     - if display_ethnicity_subgroup?
       tr
-        th = t('diversities.ethnicity_subgroup.hint')
+        th = t('diversities.ethnicity_subgroup.header')
         td = f.object.ethnicity_subgroup
         td = link_to t('diversities.edit'),  diversity_ethnicity_subgroup_path(return_to_review: true)
     tr
@@ -56,17 +55,5 @@ div
       td = f.object.pregnancy
       td = link_to t('diversities.edit'),  diversity_pregnancy_path(return_to_review: true)
 
-/ fieldset
-/   legend= t '.declaration'
-/   p = t('.declaration_i_confirm')
-/   ul
-/     - t('.declaration_detail_html').each_line do |line|
-/       li=line
-
-
-/   = f.input :accept_declaration, required: true, input_html: { data: { behavior: 'accept_declaration'} }
-/ - content_for(:javascripts)
-/   javascript:
-/       $(document).ready(function () {
-/           refundReviewPage.init()
-/       });
+- content_for :submit_button do
+  = f.button :submit, t('.submit'), class: 'button'

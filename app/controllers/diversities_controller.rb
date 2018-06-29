@@ -2,7 +2,7 @@ class DiversitiesController < ApplicationController
   MyForm = Struct.new(:form_name)
   layout "diversities/application"
 
-  before_action :validate_session, unless: :at_the_start?
+  before_action :validate_session, unless: :at_the_start?, except: [:index]
 
   def new
     diversity_session = Session.create
