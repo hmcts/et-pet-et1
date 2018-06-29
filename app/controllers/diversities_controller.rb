@@ -27,6 +27,8 @@ class DiversitiesController < ApplicationController
   def next_page
     if params[:return_to_review].present?
       diversity_review_path
+    elsif skip_the_subgroup_page?
+      diversity_path_for page_manager.skip
     else
       diversity_path_for page_manager.forward
     end
@@ -79,5 +81,10 @@ class DiversitiesController < ApplicationController
     diversity_session.ethnicity.try(:parameterize)
   end
 
-  helper_method :diversity_path_for, :diversity, :current_step, :page_manager, :resource, :ethnicity_type
+  def skip_the_subgroup_page?
+    current_step == 'ethnicity' && (ethnicity_type.blank? || ethnicity_type == 'prefer-not-to-say')
+  end
+
+  helper_method :diversity_path_for, :diversity, :current_step,
+    :page_manager, :resource, :ethnicity_type
 end

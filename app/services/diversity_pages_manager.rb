@@ -22,7 +22,8 @@ class DiversityPagesManager < PageManager
 
   page 'ethnicity',
     number: 6,
-    transitions_to: 'ethnicity-subgroup'
+    transitions_to: 'ethnicity-subgroup',
+    skip_to: 'disability'
 
   page 'ethnicity-subgroup',
     number: 7,
