@@ -23,7 +23,13 @@ module DiversitiesHelper
 
   def religion_value(object)
     return object.religion if object.religion_text.blank?
-    "#{object.religion}: #{object.religion_text}"
+    object.religion_text
+  end
+
+  def ethnicity_type_list
+    list = t('diversities.ethnicity.options').map(&:parameterize)
+    list.delete('prefer-not-to-say')
+    list
   end
 
   private
