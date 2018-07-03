@@ -9,6 +9,8 @@ class Diversity < ActiveRecord::Base
     :ethnicity_subgroup_black,
     :ethnicity_subgroup_other
 
+  attr_accessor :religion_text
+
   def ethinicity_subgroup
     ethnicity_subgroup
   end
@@ -17,4 +19,10 @@ class Diversity < ActiveRecord::Base
   alias ethnicity_subgroup_asian ethinicity_subgroup
   alias ethnicity_subgroup_black ethinicity_subgroup
   alias ethnicity_subgroup_other ethinicity_subgroup
+
+  before_save :fill_religion
+
+  def fill_religion
+    self.religion = self.religion_text if self.religion_text.present?
+  end
 end

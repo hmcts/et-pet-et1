@@ -106,8 +106,9 @@ en:
         - Jewish
         - Muslim
         - Sikh
-        - Any other religion (please describe below)
         - Prefer not to say
+        - Any other religion
+      free_text: Please describe
     ethnicity:
       header: Ethnicity
       hint: What is your ethnic group?
