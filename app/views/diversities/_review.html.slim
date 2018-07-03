@@ -30,7 +30,7 @@ div
       td = link_to t('diversities.edit'),  diversity_age_caring_path(return_to_review: true)
     tr
       th = t('diversities.religion.hint')
-      td = f.object.religion
+      td = religion_value(f.object)
       td = link_to t('diversities.edit'),  diversity_religion_path(return_to_review: true)
     tr
       th = t('diversities.ethnicity.hint')

@@ -21,6 +21,11 @@ module DiversitiesHelper
     !(resource.ethnicity.blank? || resource.ethnicity == t('diversities.ethnicity.options').last)
   end
 
+  def religion_value(object)
+    return object.religion if object.religion_text.blank?
+    "#{object.religion}: #{object.religion_text}"
+  end
+
   private
 
   def markdown
