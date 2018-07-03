@@ -2,31 +2,34 @@ var diversityEthinicityPage = (function(){
     var diversityEthinicityPage = {};
 
     function subscribeToEthnicitySwitch(){
-      $('select#diversity_ethnicity').change('change', function(e){
+      $('.diversities_ethnicity_ethnicity input[type="radio"]').change('change', function(e){
         hide_subgroups();
-        var selected = $(this).val();
-        $("*[data-name='"+selected+"']").show();
+        resetSelections();
+
+        var selected = parameterize($(this).val());
+        $("fieldset."+selected).show();
       })
     }
 
     function show_selected_subgroup(){
-      var selected = $('select#diversity_ethnicity').val();
-      $("*[data-name='"+selected+"']").show();
+      var checked_value = $('input[name="diversities_ethnicity[ethnicity]"]:checked').val();
+      var selected = parameterize(checked_value);
+      $("fieldset."+selected).show();
     }
 
     function hide_subgroups(){
       $('fieldset.ethnicity_subgroup').hide();
-      resetSelections();
     }
 
     function resetSelections(){
-      var subgroup_value = $('#diversity_ethnicity_subgroup').val();
-      $('fieldset.ethnicity_subgroup select').each(function(i, element) {
-        if($(element).val() !== subgroup_value){
-          $(element).val('');
-        }
+      $('fieldset.ethnicity_subgroup input:checked').each(function(i, element) {
+        $(element).prop('checked', false)
       });
-      $('#diversity_ethnicity_subgroup').val('')
+    }
+
+    function parameterize(value){
+      var selected = value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+      return selected;
     }
 
     diversityEthinicityPage.init = function() {

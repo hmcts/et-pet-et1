@@ -22,25 +22,20 @@ class DiversityPagesManager < PageManager
 
   page 'ethnicity',
     number: 6,
-    transitions_to: 'ethnicity-subgroup',
-    skip_to: 'disability'
-
-  page 'ethnicity-subgroup',
-    number: 7,
     transitions_to: 'disability'
 
   page 'disability',
-    number: 8,
+    number: 7,
     transitions_to: 'pregnancy'
 
   page 'pregnancy',
-    number: 9,
+    number: 8,
     transitions_to: 'review'
 
   page 'review',
-    number: 10,
+    number: 8,
     transitions_to: 'confirmation'
 
   page 'confirmation',
-    number: 11
+    number: 9
 end

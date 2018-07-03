@@ -4,3 +4,18 @@ fieldset
     collection: t('.options'),
     item_wrapper_class: 'govuk-radios__item',
     label: false, input_html: {class: 'govuk-radios__input'}
+
+- ethnicity_type_list.each do |ethnicity_type|
+  fieldset class = "#{ethnicity_type} ethnicity_subgroup"
+    = f.input :ethnicity_subgroup,
+      as: :radio_buttons,
+      collection: t(".#{ethnicity_type}.options"),
+      item_wrapper_class: 'govuk-radios__item',
+      label: t(".hint"), input_html: {class: 'govuk-radios__input'}
+
+
+- content_for(:javascripts)
+  javascript:
+    $(document).ready(function () {
+      diversityEthinicityPage.init()
+    });
