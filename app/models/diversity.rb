@@ -23,6 +23,6 @@ class Diversity < ActiveRecord::Base
   before_save :fill_religion
 
   def fill_religion
-    self.religion = self.religion_text if self.religion_text.present?
+    self.religion = religion_text if religion_text.present?
   end
 end
