@@ -24,7 +24,7 @@ en:
       more_from_the_working: More from the Working, jobs and pensions category
     claim_type:
       header: Claim type
-      hint: Please confirm your type of claim to help us analyse other information provided in this form.
+      hint: What is the type of your claim? This will help us analyse other information provided in this form
       options:
         - Unfair dismissal or constructive dismissal
         - Discrimination
@@ -32,7 +32,7 @@ en:
         - Other payments you are owed
         - Other complaints
     identity:
-      hint: Your identity
+      hint: How do you identify?
       header: Indentity
       sex:
         hint: What is your sex?
@@ -49,7 +49,7 @@ en:
           - Other
           - Prefer not to say
       gender:
-        hint: Please select your gender identity.
+        hint: What is your gender identity?
         options:
           - Male (including female-to-male trans men)
           - Female (including male-to-female trans women)
@@ -64,7 +64,7 @@ en:
 
     relationship:
       header: Relationship
-      hint: Please describe your relationship status.
+      hint: What is your relationship status?
       options:
         - Single, that is, never married and never registered in a same-sex civil partnership
         - Married
@@ -77,7 +77,7 @@ en:
         - Surviving partner from a same-sex civil partnership
         - Prefer not to say
     age_caring:
-      hint: Age group and carring responsibilities
+      hint: What is your age group and caring responsibilities?
       age_group:
         hint: Which age group are you in?
         options:
@@ -90,7 +90,7 @@ en:
           - Prefer not to say
       caring_responsibility:
         hint: Do you have any caring responsibilities?
-        form_hint: eg, children, elderly relatives, partners etc
+        form_hint: For example, children, elderly relatives or partners
         options:
           - 'Yes'
           - 'No'
@@ -163,7 +163,6 @@ en:
           - Any other ethnic group
           - None of the above
     ethnicity_subgroup:
-      hint: Please select one of the following.
       header: What is your ethnic type?
 
     disability:
@@ -191,22 +190,3 @@ en:
       return: Return to GOV.UK
       return_title: return to GOV.UK website
     edit: Change
-
-
-  simple_form:
-    include_blanks:
-      diversity:
-        claim_type: Please select ...
-        sex: Please select ...
-        sexual_identity: Please select ...
-        gender: Please select ...
-        gender_at_birth: Please select ...
-        ethnicity: Please select ...
-        ethnicity_subgroup: Please select ...
-        age_group: Please select ...
-        relationship: Please select ...
-        religion: Please select ...
-        disability: Please select ...
-        caring_responsibility: Please select ...
-        pregnancy: Please select ...
-        gender_at_birth: Please select ...
