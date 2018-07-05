@@ -2,9 +2,12 @@
 
 header.main-header role="banner"
   h1.page-trail
-    span.page-title
+    span
       = diversity_header
 
+    - if diversity_subheader
+      p.page-subheader
+        = diversity_subheader
 .main-section
   .main-content class="diversities diversities_#{current_step}"
     = simple_form_for resource, url: request.path, multipart: true do |f|
