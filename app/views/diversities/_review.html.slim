@@ -50,10 +50,6 @@ div
       th = t('diversities.pregnancy.hint')
       td = f.object.pregnancy
       td = link_to t('diversities.edit'),  diversity_pregnancy_path(return_to_review: true)
-    tr
-      th = t('diversities.pregnancy.hint')
-      td = f.object.pregnancy
-      td = link_to t('diversities.edit'),  diversity_pregnancy_path(return_to_review: true)
 
 - content_for :submit_button do
   = f.button :submit, t('.submit'), class: 'button'
