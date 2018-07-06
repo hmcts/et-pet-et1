@@ -4,46 +4,24 @@ RSpec.describe DiversitiesController, type: :controller do
   describe 'PUT update' do
     let(:diversity_session) { Session.create }
 
-    context 'empty ethinicity' do
+    context 'confirmation page' do
       let(:params) { { "ethnicity" => "" } }
 
-      describe 'redirects to /diversity/disability with a flash' do
-        before do
-          allow(controller).to receive(:diversity_session).and_return diversity_session
-          put :update, diversities_ethnicity: params, page: 'ethnicity'
-        end
+      before do
+        allow(controller).to receive(:diversity_session).and_return diversity_session
+      end
 
-        it { expect(response).to have_http_status(302) }
-        it { expect(response.location).to end_with '/diversity/disability' }
+      it "render the page as usual" do
+        get :show,  page: 'confirmation'
+        expect(response).to have_http_status(200)
+      end
+
+      it 'destroy the session' do
+        expect(diversity_session).to receive(:destroy)
+        get :show,  page: 'confirmation'
+        expect(response).to have_http_status(200)
       end
     end
 
-    context '"prefer not to say" ethinicity' do
-      let(:params) { { "ethnicity" => "Prefer not to say" } }
-
-      describe 'redirects to /diversity/disability with a flash' do
-        before do
-          allow(controller).to receive(:diversity_session).and_return diversity_session
-          put :update, diversities_ethnicity: params, page: 'ethnicity'
-        end
-
-        it { expect(response).to have_http_status(302) }
-        it { expect(response.location).to end_with '/diversity/disability' }
-      end
-    end
-
-    context '"white" ethinicity' do
-      let(:params) { { "ethnicity" => "White" } }
-
-      describe 'redirects to /diversity/ethnicity-subgroup with a flash' do
-        before do
-          allow(controller).to receive(:diversity_session).and_return diversity_session
-          put :update, diversities_ethnicity: params, page: 'ethnicity'
-        end
-
-        it { expect(response).to have_http_status(302) }
-        it { expect(response.location).to end_with '/diversity/ethnicity-subgroup' }
-      end
-    end
   end
 end

@@ -19,7 +19,9 @@ class DiversitiesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    diversity_session.destroy if current_step == 'confirmation'
+  end
 
   private
 
