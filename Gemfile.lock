@@ -246,9 +246,15 @@ GEM
       activesupport (>= 3.2, < 5)
     hashie (3.3.2)
     hitimes (1.2.2)
+    http-2 (0.9.1)
+    http-form_data (2.1.1)
     http_parser.rb (0.6.0)
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
+    httpx (0.1.0)
+      http-2 (>= 0.9.0)
+      http-form_data (>= 2.0.0, < 3)
+      http_parser.rb (>= 0.6.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
@@ -541,6 +547,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload
   httparty
+  httpx
   jbuilder (~> 2.0)
   jquery-rails (= 4.3.1)
   launchy
