@@ -3,6 +3,7 @@ class DiversitiesController < ApplicationController
   layout "diversities/application"
 
   before_action :validate_session, unless: :at_the_start?, except: [:index]
+  skip_after_action :set_session_expiry, except: :new
 
   def new
     diversity_session = Session.create
@@ -73,7 +74,9 @@ class DiversitiesController < ApplicationController
   end
 
   def validate_session
-    redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') }) if diversity_session.nil?
+    if diversity_session.nil? || expired_session?
+      redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') })
+    end
   end
 
   helper_method :diversity_path_for, :diversity, :current_step,

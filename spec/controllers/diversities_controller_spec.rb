@@ -5,8 +5,6 @@ RSpec.describe DiversitiesController, type: :controller do
     let(:diversity_session) { Session.create }
 
     context 'confirmation page' do
-      let(:params) { { "ethnicity" => "" } }
-
       before do
         allow(controller).to receive(:diversity_session).and_return diversity_session
       end
@@ -23,5 +21,16 @@ RSpec.describe DiversitiesController, type: :controller do
       end
     end
 
+    context 'expired session' do
+      before do
+        session[:expires_in] = 2.minutes.ago
+        allow(controller).to receive(:diversity_session).and_return diversity_session
+      end
+
+      it "redirect the page" do
+        get :show,  page: 'confirmation'
+        expect(response).to redirect_to( new_diversity_url)
+      end
+    end
   end
 end
