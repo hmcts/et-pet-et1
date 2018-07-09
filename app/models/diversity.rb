@@ -26,7 +26,4 @@ class Diversity < ActiveRecord::Base
   def fill_religion
     self.religion = religion_text if religion_text.present?
   end
-
-  def send_the_data
-  end
 end

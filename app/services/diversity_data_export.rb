@@ -1,14 +1,14 @@
 class DiversityDataExport
-  include HTTParty
-  base_uri 'http://host:port/api/v2'
+  require "httpx"
+  attr_reader :response
 
-  def initialize(id)
+  def initialize(id, uuid)
     @diveristy = Diversity.find(id)
-    @uuid = SecureRandom.uuid
+    @uuid = uuid
   end
 
-  def format_the_data
-    { body: {
+  def data
+    {
       command: 'BuildDiversityResponse',
       data: {
         claim_type: @diveristy.claim_type,
@@ -26,10 +26,15 @@ class DiversityDataExport
         religion: @diveristy.religion
       },
       uuid: @uuid
-    }}
+    }
+  end
+
+  def headers
+    { 'Accept' => 'application/json' }
   end
 
   def send_data
-    HTTParty.post('/diversity/build_diversity_response', format_the_data)
+    uri = URI.join(ENV['ET_API_URL'], '/diversity/build_diversity_response')
+    @response = HTTPX.timeout(total_timeout: 10).post(uri, headers: headers, json: data)
   end
 end
