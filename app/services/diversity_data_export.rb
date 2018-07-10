@@ -1,30 +1,26 @@
 class DiversityDataExport
   require "httpx"
   attr_reader :response
+  KEYS = [:claim_type, :sex, :sexual_identity, :age_group, :ethnicity,
+    :ethnicity_subgroup, :disability, :caring_responsibility, :gender,
+    :gender_at_birth, :pregnancy, :relationship, :religion]
 
   def initialize(id, uuid)
-    @diveristy = Diversity.find(id)
+    @diversity = Diversity.find(id)
     @uuid = uuid
   end
+
+  def send_data
+    uri = URI.join(ENV['ET_API_URL'], '/diversity/build_diversity_response')
+    @response = HTTPX.timeout(total_timeout: 10).post(uri, headers: headers, json: data)
+  end
+
+  private
 
   def data
     {
       command: 'BuildDiversityResponse',
-      data: {
-        claim_type: @diveristy.claim_type,
-        sex: @diveristy.sex,
-        sexual_identity: @diveristy.sexual_identity,
-        age_group: @diveristy.age_group,
-        ethnicity: @diveristy.ethnicity,
-        ethnicity_subgroup: @diveristy.ethnicity_subgroup,
-        disability: @diveristy.disability,
-        caring_responsibility: @diveristy.caring_responsibility,
-        gender: @diveristy.gender,
-        gender_at_birth: @diveristy.gender_at_birth,
-        pregnancy: @diveristy.pregnancy,
-        relationship: @diveristy.relationship,
-        religion: @diveristy.religion
-      },
+      data: diversity_hash,
       uuid: @uuid
     }
   end
@@ -33,8 +29,10 @@ class DiversityDataExport
     { 'Accept' => 'application/json' }
   end
 
-  def send_data
-    uri = URI.join(ENV['ET_API_URL'], '/diversity/build_diversity_response')
-    @response = HTTPX.timeout(total_timeout: 10).post(uri, headers: headers, json: data)
+  def diversity_hash
+    div_hash = {}
+    KEYS.each {|key| div_hash.merge!(key.to_sym => @diversity.send(key))}
+    div_hash
   end
+
 end
