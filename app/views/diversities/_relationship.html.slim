@@ -1,0 +1,6 @@
+fieldset
+  = f.input :relationship,
+    as: :radio_buttons,
+    collection: t('.options'),
+    item_wrapper_class: 'govuk-radios__item',
+    label: false, input_html: {class: 'govuk-radios__input'}

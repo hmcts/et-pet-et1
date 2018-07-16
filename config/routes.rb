@@ -37,6 +37,14 @@ Rails.application.routes.draw do
       end
     end
 
+    resource :diversity, only: [:create, :new], path: "/diversity" do
+      DiversityPagesManager.page_names.each do |page|
+        resource page.underscore, only: %i<show update>, controller: :diversities,
+          page: page, path: page
+      end
+    end
+    get 'diversity' => 'diversities#index', as: 'diversity_landing'
+
     get 'ping' => 'ping#index'
 
     get 'healthcheck' => 'healthcheck#index'

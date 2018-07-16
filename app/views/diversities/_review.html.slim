@@ -1,0 +1,55 @@
+div
+  table.review-table
+    tr
+      th = t('diversities.claim_type.hint')
+      td = f.object.claim_type
+      td = link_to t('diversities.edit'),  diversity_claim_type_path(return_to_review: true)
+    tr
+      th = t('diversities.identity.sex.hint')
+      td = f.object.sex
+      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
+    tr
+      th = t('diversities.identity.sexual_identity.hint')
+      td = f.object.sexual_identity
+      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
+    tr
+      th = t('diversities.identity.gender.hint')
+      td = f.object.gender
+      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
+    tr
+      th = t('diversities.relationship.hint')
+      td = f.object.relationship
+      td = link_to t('diversities.edit'),  diversity_relationship_path(return_to_review: true)
+    tr
+      th = t('diversities.age_caring.age_group.hint')
+      td = f.object.age_group
+      td = link_to t('diversities.edit'),  diversity_age_caring_path(return_to_review: true)
+    tr
+      th = t('diversities.age_caring.caring_responsibility.hint')
+      td = f.object.caring_responsibility
+      td = link_to t('diversities.edit'),  diversity_age_caring_path(return_to_review: true)
+    tr
+      th = t('diversities.religion.hint')
+      td = religion_value(f.object)
+      td = link_to t('diversities.edit'),  diversity_religion_path(return_to_review: true)
+    tr
+      th = t('diversities.ethnicity.hint')
+      td = f.object.ethnicity
+      td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
+
+    - if display_ethnicity_subgroup?
+      tr
+        th = t('diversities.ethnicity_subgroup.header')
+        td = f.object.ethnicity_subgroup
+        td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
+    tr
+      th = t('diversities.disability.hint')
+      td = f.object.disability
+      td = link_to t('diversities.edit'),  diversity_disability_path(return_to_review: true)
+    tr
+      th = t('diversities.pregnancy.hint')
+      td = f.object.pregnancy
+      td = link_to t('diversities.edit'),  diversity_pregnancy_path(return_to_review: true)
+
+- content_for :submit_button do
+  = f.button :submit, t('.submit'), class: 'button'

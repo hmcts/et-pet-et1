@@ -13,7 +13,7 @@ feature 'Terms' do
   let(:privacy_policy_personal_information_header)     { '<h2>How we use your personal data</h2>' }
   let(:privacy_policy_non_personal_information_header) { '<h2>How we use non-personal data</h2>' }
   let(:privacy_policy_data_storage_header)             { '<h2>How your personal data is stored</h2>' }
-  let(:privacy_policy_non_personal_data_storage_header){ '<h2>How non-personal data is stored</h2>' }
+  let(:privacy_policy_non_personal_data_storage_header) { '<h2>How non-personal data is stored</h2>' }
   let(:privacy_policy_secure_data)                     { '<h2>Keeping your data secure</h2>' }
   let(:privacy_policy_disclosing_data)                 { '<h2>Disclosing your data</h2>' }
   let(:session_management_header)                      { '<h2>How we manage sessions</h2>' }
