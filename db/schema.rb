@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128092945) do
+ActiveRecord::Schema.define(version: 20180607104828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,24 @@ ActiveRecord::Schema.define(version: 20171128092945) do
   end
 
   add_index "claims", ["application_reference"], name: "index_claims_on_application_reference", unique: true, using: :btree
+
+  create_table "diversities", force: :cascade do |t|
+    t.string   "claim_type"
+    t.string   "sex"
+    t.string   "sexual_identity"
+    t.string   "age_group"
+    t.string   "ethnicity"
+    t.string   "ethnicity_subgroup"
+    t.string   "disability"
+    t.string   "caring_responsibility"
+    t.string   "gender"
+    t.string   "gender_at_birth"
+    t.string   "pregnancy"
+    t.string   "relationship"
+    t.string   "religion"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
 
   create_table "employments", force: :cascade do |t|
     t.boolean  "enrolled_in_pension_scheme"

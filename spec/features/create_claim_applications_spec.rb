@@ -130,7 +130,7 @@ feature 'Claim applications', type: :feature do
       fill_in_additional_claimant_details
       fill_in_representative_details
 
-      check  "I don’t have an Acas number"
+      check "I don’t have an Acas number"
 
       within('form#edit_respondent') do
         within('.acas .panel-indent') do
