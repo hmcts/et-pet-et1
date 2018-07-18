@@ -191,3 +191,7 @@ en:
       return: Return to GOV.UK
       return_title: return to GOV.UK website
     edit: Change
+    expired:
+      header: Session Expired
+      message:  Your session has expired due to inactivity. The information you have provided has not been saved. We apologise for the inconvenience and request that you fill in the form again.
+      link: Return to Diversity questionnaire

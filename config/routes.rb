@@ -42,6 +42,7 @@ Rails.application.routes.draw do
         resource page.underscore, only: %i<show update>, controller: :diversities,
           page: page, path: page
       end
+      get 'expired'
     end
     get 'diversity' => 'diversities#index', as: 'diversity_landing'
 
