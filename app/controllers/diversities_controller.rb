@@ -2,7 +2,7 @@ class DiversitiesController < ApplicationController
   MyForm = Struct.new(:form_name)
   layout "diversities/application"
 
-  before_action :validate_session, unless: :at_the_start?, except: [:index]
+  before_action :validate_session, unless: :at_the_start?, except: [:index, :expired]
   skip_after_action :set_session_expiry, except: :new
 
   def new
@@ -23,6 +23,8 @@ class DiversitiesController < ApplicationController
   def show
     diversity_session.destroy if current_step == 'confirmation'
   end
+
+  def expired;end
 
   private
 
@@ -75,7 +77,7 @@ class DiversitiesController < ApplicationController
 
   def validate_session
     if diversity_session.nil? || expired_session?
-      redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') })
+      redirect_to expired_diversity_path
     end
   end
 
