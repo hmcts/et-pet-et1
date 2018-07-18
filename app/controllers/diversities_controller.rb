@@ -24,7 +24,7 @@ class DiversitiesController < ApplicationController
     diversity_session.destroy if current_step == 'confirmation'
   end
 
-  def expired;end
+  def expired; end
 
   private
 

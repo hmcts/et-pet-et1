@@ -10,13 +10,13 @@ RSpec.describe DiversitiesController, type: :controller do
       end
 
       it "render the page as usual" do
-        get :show,  page: 'confirmation'
+        get :show, page: 'confirmation'
         expect(response).to have_http_status(200)
       end
 
       it 'destroy the session' do
         expect(diversity_session).to receive(:destroy)
-        get :show,  page: 'confirmation'
+        get :show, page: 'confirmation'
         expect(response).to have_http_status(200)
       end
     end
@@ -28,8 +28,8 @@ RSpec.describe DiversitiesController, type: :controller do
       end
 
       it "redirect the page" do
-        get :show,  page: 'confirmation'
-        expect(response).to redirect_to( new_diversity_url)
+        get :show, page: 'confirmation'
+        expect(response).to redirect_to(new_diversity_url)
       end
     end
   end
