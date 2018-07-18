@@ -15,7 +15,7 @@ RSpec.describe DiversitiesController, type: :controller do
       end
 
       it 'destroy the session' do
-        expect(diversity_session).to receive(:destroy)
+        allow(diversity_session).to receive(:destroy)
         get :show, page: 'confirmation'
         expect(response).to have_http_status(200)
       end
@@ -27,9 +27,9 @@ RSpec.describe DiversitiesController, type: :controller do
         allow(controller).to receive(:diversity_session).and_return diversity_session
       end
 
-      it "redirect the page" do
+      it "redirect the expired session page" do
         get :show, page: 'confirmation'
-        expect(response).to redirect_to(new_diversity_url)
+        expect(response).to redirect_to(expired_diversity_path)
       end
     end
   end
