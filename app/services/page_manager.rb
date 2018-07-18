@@ -1,5 +1,5 @@
 class PageManager
-  Page = Struct.new(:name, :number, :transitions_to, :namespace)
+  Page = Struct.new(:name, :number, :transitions_to, :skip_to, :namespace)
 
   class << self
     def pages
@@ -7,7 +7,7 @@ class PageManager
     end
 
     def page(name, config = {})
-      pages << Page.new(name, *config.values_at(:number, :transitions_to))
+      pages << Page.new(name, *config.values_at(:number, :transitions_to, :skip_to))
     end
 
     def first_page
@@ -32,6 +32,10 @@ class PageManager
     page.transitions_to
   end
 
+  def skip
+    page.skip_to
+  end
+
   def current_page
     page.number
   end
@@ -47,7 +51,6 @@ class PageManager
       else
         [self.class.namespace, p.name].join('/') == @resource.form_name
       end
-
     end
   end
 end

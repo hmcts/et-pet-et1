@@ -1,0 +1,27 @@
+- content_for(:page_title, diversity_title)
+
+header.main-header role="banner"
+  h1.page-trail
+    span
+      = diversity_header
+
+    - if diversity_subheader
+      p.page-subheader
+        = diversity_subheader
+.main-section
+  .main-content class="diversities diversities_#{current_step}"
+    = simple_form_for resource, url: request.path, multipart: true do |f|
+      = hidden_field_tag :return_to_review, params[:return_to_review]
+
+      = f.error_notification
+      .form-fields
+        = render current_step, f: f
+      .form-actions
+        - if content_for?(:submit_button)
+            = content_for(:submit_button)
+        - else
+            = f.button :submit
+
+.session-note
+  span.bold Please note
+  p.bold If you don’t enter any information for more than 60 minutes, then your session will time out and you’ll need to start again.
