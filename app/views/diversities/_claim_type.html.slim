@@ -1,6 +1,6 @@
 fieldset
   = f.input :claim_type,
     as: :radio_buttons,
-    collection: t('.options'),
+    collection: Diversities::ClaimTypeForm::CLAIM_TYPES,
     item_wrapper_class: 'govuk-radios__item',
     label: false, input_html: {class: 'govuk-radios__input'}

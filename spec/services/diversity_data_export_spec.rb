@@ -5,7 +5,7 @@ RSpec.describe DiversityDataExport, type: :service do
 
   let(:diversity) { build_stubbed(:diversity) }
   let(:uuid) { "246b26b3-e383-4b68-b5b7-6d4ed6c76093" }
-  let(:uri) { URI.join('http://127.0.0.1:3000/api/v2', '/diversity/build_diversity_response') }
+  let(:uri) { 'http://127.0.0.1:3000/api/v2/diversity/build_diversity_response' }
   let(:httpx) { class_double(HTTPX) }
   let(:diversity_data) {
     {

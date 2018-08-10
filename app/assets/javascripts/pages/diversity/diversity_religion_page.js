@@ -5,7 +5,7 @@ var diversityReligionPage = (function(){
     $('input[name="diversities_religion[religion]"][type="radio"]').change('change', function(e){
       var selected = $(this).attr('id');
 
-      if(selected == 'diversities_religion_religion_any_other_religion'){
+      if(selected == 'diversities_religion_religion_any-other-religion'){
         showReligionTextField();
       } else {
         hideReligionTextField();
