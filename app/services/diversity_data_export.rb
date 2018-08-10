@@ -11,7 +11,7 @@ class DiversityDataExport
   end
 
   def send_data
-    uri = URI.join(ENV['ET_API_URL'], '/diversity/build_diversity_response')
+    uri = File.join(ENV['ET_API_URL'], '/diversity/build_diversity_response')
     @response = HTTPX.timeout(total_timeout: 10).post(uri, headers: headers, json: data)
   end
 

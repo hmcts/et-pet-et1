@@ -1,4 +1,12 @@
 en:
+  simple_form:
+    options:
+      diversity:
+        claim_type:
+          claim_type:
+            admin: 'Administrator'
+            editor: 'Editor'
+
   diversities:
     header: Diversity monitoring questionnaire
     index:
@@ -26,143 +34,51 @@ en:
       header: Claim type
       hint: What is the type of your claim?
       sub_header: This will help us analyse other information provided in this form
-      options:
-        - Unfair dismissal or constructive dismissal
-        - Discrimination
-        - Redundancy payment
-        - Other payments you are owed
-        - Other complaints
     identity:
       hint: How do you identify?
       header: Indentity
       sex:
         hint: What is your sex?
-        options:
-          - Male
-          - Female
-          - Prefer not to say
       sexual_identity:
         hint: Which of the options below best describes your sexual identity?
-        options:
-          - Heterosexual / Straight
-          - Gay / Lesbian
-          - Bisexual
-          - Other
-          - Prefer not to say
       gender:
         hint: What is your gender identity?
-        options:
-          - Male (including female-to-male trans men)
-          - Female (including male-to-female trans women)
-          - Prefer not to say
 
       gender_at_birth:
         hint: Is your gender identity different to the sex you were assumed to be at birth?
-        options:
-          - 'Yes'
-          - 'No'
-          - Prefer not to say
 
     relationship:
       header: Relationship
       hint: What is your relationship status?
-      options:
-        - Single, that is, never married and never registered in a same-sex civil partnership
-        - Married
-        - Separated, but still legally married
-        - Divorced
-        - Widowed
-        - In a registered same-sex civil partnership
-        - Separated, but still legally in a same-sex civil partnership
-        - Formerly in a same-sex civil partnership which is now legally dissolved
-        - Surviving partner from a same-sex civil partnership
-        - Prefer not to say
     age_caring:
       hint: What is your age group and caring responsibilities?
       age_group:
         hint: Which age group are you in?
-        options:
-          - Under 25
-          - 25-34
-          - 35-44
-          - 45-54
-          - 55-64
-          - 65 and over
-          - Prefer not to say
       caring_responsibility:
         hint: Do you have any caring responsibilities?
         form_hint: For example, children, elderly relatives or partners
-        options:
-          - 'Yes'
-          - 'No'
-          - Prefer not to say
     religion:
       header: Religion
       hint: What is your religion?
-      options:
-        - No religion
-        - Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
-        - Buddhist
-        - Hindu
-        - Jewish
-        - Muslim
-        - Sikh
-        - Prefer not to say
-        - Any other religion
       free_text: Please describe
     ethnicity:
       header: Ethnicity
       hint: What is your ethnic group?
-      options:
-        - White
-        - Mixed / multiple ethnic groups
-        - Asian / Asian British
-        - Black / African / Caribbean / Black British
-        - Other ethnic group
-        - Prefer not to say
       white:
         label: 'White'
         data: 'White'
-        options:
-          - English / Welsh / Scottish / Northern Irish / British
-          - Irish
-          - Gypsy or Irish Traveller
-          - Any other White background
-          - None of the above
       mixed-multiple-ethnic-groups:
         label: 'Mixed'
         data: 'Mixed / multiple ethnic groups'
-        options:
-          - White and Black Caribbean
-          - White and Black African
-          - White and Asian
-          - Any other Mixed / multiple ethnic background
-          - None of the above
       asian-asian-british:
         label: 'Asian'
         data: 'Asian / Asian British'
-        options:
-          - Indian
-          - Pakistani
-          - Bangladeshi
-          - Chinese
-          - Any other Asian background
-          - None of the above
       black-african-caribbean-black-british:
         label: 'Black'
         data: 'Black / African / Caribbean / Black British'
-        options:
-          - African
-          - Caribbean
-          - Any other Black / African / Caribbean background
-          - None of the above
       other-ethnic-group:
         label: 'Other'
         data: 'Other ethnic group'
-        options:
-          - Arab
-          - Any other ethnic group
-          - None of the above
     ethnicity_subgroup:
       header: What is your ethnic type?
 
@@ -191,3 +107,109 @@ en:
       return: Return to GOV.UK
       return_title: return to GOV.UK website
     edit: Change
+
+  simple_form:
+    options:
+      diversities_claim_type:
+        claim_type:
+          unfair-dismissal-or-constructive-dismissal: "Unfair dismissal or constructive dismissal"
+          discrimination: "Discrimination"
+          redundancy-payment: "Redundancy payment"
+          other-payments-you-are-owed: "Other payments you are owed"
+          other-complaints: "Other complaints"
+      diversities_identity:
+        sex:
+          male: Male
+          female: Female
+          prefer-not-to-say: Prefer not to say
+        sexual_identity:
+          heterosexual-straight: Heterosexual / Straight
+          gay-lesbian: Gay / Lesbian
+          bisexual: Bisexual
+          other: Other
+          prefer-not-to-say: Prefer not to say
+        gender_at_birth:
+          yes_d: 'Yes'
+          no_d: 'No'
+          prefer-not-to-say: Prefer not to say
+        gender:
+          male-including-female-to-male-trans-men: Male (including female-to-male trans men)
+          female-including-male-to-female-trans-women: Female (including male-to-female trans women)
+          prefer-not-to-say: Prefer not to say
+      diversities_relationship:
+        relationship:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Single, that is, never married and never registered in a same-sex civil partnership
+          married: Married
+          separated-but-still-legally-married: Separated, but still legally married
+          divorced: Divorced
+          widowed: Widowed
+          in-a-registered-same-sex-civil-partnership: In a registered same-sex civil partnership
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Separated, but still legally in a same-sex civil partnership
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Formerly in a same-sex civil partnership which is now legally dissolved
+          surviving-partner-from-a-same-sex-civil-partnership: Surviving partner from a same-sex civil partnership
+          prefer-not-to-say: Prefer not to say
+      diversities_age_caring:
+        age_group:
+          under-25: Under 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 and over
+          prefer-not-to-say: Prefer not to say
+        caring_responsibility:
+          yes_d: 'Yes'
+          no_d: 'No'
+          prefer-not-to-say: Prefer not to say
+      diversities_religion:
+        religion:
+          no-religion: No religion
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
+          buddhist: Buddhist
+          hindu: Hindu
+          jewish: Jewish
+          muslim: Muslim
+          sikh: Sikh
+          prefer-not-to-say: Prefer not to say
+          any-other-religion: Any other religion
+      diversities_ethnicity:
+        ethnicity:
+          white: White
+          mixed-multiple-ethnic-groups: Mixed / multiple ethnic groups
+          asian-asian-british: Asian / Asian British
+          black-african-caribbean-black-british: Black / African / Caribbean / Black British
+          other-ethnic-group: Other ethnic group
+          prefer-not-to-say: Prefer not to say
+        ethnicity_subgroup:
+            english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
+            irish: Irish
+            gypsy-or-irish-traveller: Gypsy or Irish Traveller
+            any-other-white-background: Any other White background
+            white-and-black-caribbean: White and Black Caribbean
+            white-and-black-african: White and Black African
+            white-and-asian: White and Asian
+            any-other-mixed-multiple-ethnic-background: Any other Mixed / multiple ethnic background
+            none-of-the-above: None of the above
+            indian: Indian
+            pakistani: Pakistani
+            bangladeshi: Bangladeshi
+            chinese: Chinese
+            any-other-asian-background: Any other Asian background
+            african: African
+            caribbean: Caribbean
+            any-other-black-african-caribbean-background: Any other Black / African / Caribbean background
+            arab: Arab
+            any-other-ethnic-group: Any other ethnic group
+      diversities_disability:
+        disability:
+          yes_d: 'Yes'
+          no_d: 'No'
+          prefer-not-to-say: Prefer not to say
+      diversities_pregnancy:
+        pregnancy:
+          yes_d: 'Yes'
+          no_d: 'No'
+          prefer-not-to-say: Prefer not to say
+
+
+

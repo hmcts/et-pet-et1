@@ -1,7 +1,7 @@
 fieldset
   = f.input :ethnicity,
     as: :radio_buttons,
-    collection: t('.options'),
+    collection: Diversities::EthnicityForm::ETHNICITY,
     item_wrapper_class: 'govuk-radios__item',
     label: false, input_html: {class: 'govuk-radios__input'}
 
@@ -9,7 +9,7 @@ fieldset
   fieldset class = "#{ethnicity_type} ethnicity_subgroup"
     = f.input :ethnicity_subgroup,
       as: :radio_buttons,
-      collection: t(".#{ethnicity_type}.options"),
+      collection: Diversities::EthnicityForm::ETHNICITY_SUBGROUP[ethnicity_type],
       item_wrapper_class: 'govuk-radios__item',
       label: t("diversities.ethnicity_subgroup.header"), input_html: {class: 'govuk-radios__input'}
 
