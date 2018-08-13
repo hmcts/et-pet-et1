@@ -27,7 +27,7 @@ module DiversitiesHelper
   end
 
   def ethnicity_type_list
-    Diversities::EthnicityForm::ETHNICITY.select{ |type| type != 'prefer-not-to-say' }
+    Diversities::EthnicityForm::ETHNICITY.reject { |type| type == 'prefer-not-to-say' }
   end
 
   private
