@@ -2,8 +2,8 @@ class DiversityDataExport
   require "httpx"
   attr_reader :response
   KEYS = [:claim_type, :sex, :sexual_identity, :age_group, :ethnicity,
-    :ethnicity_subgroup, :disability, :caring_responsibility, :gender,
-    :gender_at_birth, :pregnancy, :relationship, :religion]
+          :ethnicity_subgroup, :disability, :caring_responsibility, :gender,
+          :gender_at_birth, :pregnancy, :relationship, :religion].freeze
 
   def initialize(id, uuid)
     @diversity = Diversity.find(id)
@@ -31,7 +31,7 @@ class DiversityDataExport
 
   def diversity_hash
     div_hash = {}
-    KEYS.each {|key| div_hash.merge!(key.to_sym => @diversity.send(key))}
+    KEYS.each { |key| div_hash.merge!(key.to_sym => @diversity.send(key)) }
     div_hash
   end
 

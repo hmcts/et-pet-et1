@@ -1,6 +1,6 @@
 module Diversities
   class DisabilityForm < Form
-    DISABILITY = ['yes_d', 'no_d', 'prefer-not-to-say'].freeze
+    DISABILITY = ['yes_answer', 'no_answer', 'prefer-not-to-say'].freeze
 
     attribute :disability, String
   end
