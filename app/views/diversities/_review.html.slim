@@ -6,6 +6,7 @@ div
         - if f.object.claim_type
            = t("simple_form.options.diversities_claim_type.claim_type.#{f.object.claim_type}")
       td = link_to t('diversities.edit'), diversity_claim_type_path(return_to_review: true)
+
     tr
       th = t('diversities.identity.sex.hint')
       td
@@ -13,17 +14,25 @@ div
            = t("simple_form.options.diversities_identity.sex.#{f.object.sex}")
       td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
     tr
-      th = t('diversities.identity.sexual_identity.hint')
-      td
-        - if f.object.sexual_identity
-          = t("simple_form.options.diversities_identity.sexual_identity.#{f.object.sexual_identity}")
-      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
-    tr
       th = t('diversities.identity.gender.hint')
       td
         - if f.object.gender
           = t("simple_form.options.diversities_identity.gender.#{f.object.gender}")
       td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+    tr
+      th = t('diversities.identity.gender_at_birth.hint')
+      td
+        - if f.object.gender_at_birth
+          = t("simple_form.options.diversities_identity.gender_at_birth.#{f.object.gender_at_birth}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+
+    tr
+      th = t('diversities.identity.sexual_identity.hint')
+      td
+        - if f.object.sexual_identity
+          = t("simple_form.options.diversities_identity.sexual_identity.#{f.object.sexual_identity}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+
     tr
       th = t('diversities.relationship.hint')
       td
