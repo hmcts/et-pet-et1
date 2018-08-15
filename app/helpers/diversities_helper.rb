@@ -18,7 +18,7 @@ module DiversitiesHelper
   end
 
   def display_ethnicity_subgroup?
-    !(resource.ethnicity.blank? || resource.ethnicity == t('diversities.ethnicity.options').last)
+    !(resource.ethnicity.blank? || resource.ethnicity == 'prefer-not-to-say')
   end
 
   def religion_value(object)
@@ -27,9 +27,7 @@ module DiversitiesHelper
   end
 
   def ethnicity_type_list
-    list = t('diversities.ethnicity.options').map(&:parameterize)
-    list.delete('prefer-not-to-say')
-    list
+    Diversities::EthnicityForm::ETHNICITY.reject { |type| type == 'prefer-not-to-say' }
   end
 
   private

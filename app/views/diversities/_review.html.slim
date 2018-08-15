@@ -2,54 +2,85 @@ div
   table.review-table
     tr
       th = t('diversities.claim_type.hint')
-      td = f.object.claim_type
-      td = link_to t('diversities.edit'),  diversity_claim_type_path(return_to_review: true)
+      td
+        - if f.object.claim_type
+           = t("simple_form.options.diversities_claim_type.claim_type.#{f.object.claim_type}")
+      td = link_to t('diversities.edit'), diversity_claim_type_path(return_to_review: true)
+
     tr
       th = t('diversities.identity.sex.hint')
-      td = f.object.sex
-      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
-    tr
-      th = t('diversities.identity.sexual_identity.hint')
-      td = f.object.sexual_identity
-      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
+      td
+        - if f.object.sex
+           = t("simple_form.options.diversities_identity.sex.#{f.object.sex}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
     tr
       th = t('diversities.identity.gender.hint')
-      td = f.object.gender
-      td = link_to t('diversities.edit'),  diversity_identity_path(return_to_review: true)
+      td
+        - if f.object.gender
+          = t("simple_form.options.diversities_identity.gender.#{f.object.gender}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+    tr
+      th = t('diversities.identity.gender_at_birth.hint')
+      td
+        - if f.object.gender_at_birth
+          = t("simple_form.options.diversities_identity.gender_at_birth.#{f.object.gender_at_birth}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+
+    tr
+      th = t('diversities.identity.sexual_identity.hint')
+      td
+        - if f.object.sexual_identity
+          = t("simple_form.options.diversities_identity.sexual_identity.#{f.object.sexual_identity}")
+      td = link_to t('diversities.edit'), diversity_identity_path(return_to_review: true)
+
     tr
       th = t('diversities.relationship.hint')
-      td = f.object.relationship
-      td = link_to t('diversities.edit'),  diversity_relationship_path(return_to_review: true)
+      td
+        - if f.object.relationship
+          = t("simple_form.options.diversities_relationship.relationship.#{f.object.relationship}")
+      td = link_to t('diversities.edit'), diversity_relationship_path(return_to_review: true)
     tr
       th = t('diversities.age_caring.age_group.hint')
-      td = f.object.age_group
-      td = link_to t('diversities.edit'),  diversity_age_caring_path(return_to_review: true)
+      td
+        - if f.object.age_group
+          = t("simple_form.options.diversities_age_caring.age_group.#{f.object.age_group}")
+      td = link_to t('diversities.edit'), diversity_age_caring_path(return_to_review: true)
     tr
       th = t('diversities.age_caring.caring_responsibility.hint')
-      td = f.object.caring_responsibility
-      td = link_to t('diversities.edit'),  diversity_age_caring_path(return_to_review: true)
+      td
+        -if f.object.caring_responsibility
+          = t("simple_form.options.diversities_age_caring.caring_responsibility.#{f.object.caring_responsibility}")
+      td = link_to t('diversities.edit'), diversity_age_caring_path(return_to_review: true)
     tr
       th = t('diversities.religion.hint')
-      td = religion_value(f.object)
-      td = link_to t('diversities.edit'),  diversity_religion_path(return_to_review: true)
+      td
+        - if religion_value(f.object)
+          = t("simple_form.options.diversities_religion.religion.#{religion_value(f.object)}")
+      td = link_to t('diversities.edit'), diversity_religion_path(return_to_review: true)
     tr
       th = t('diversities.ethnicity.hint')
-      td = f.object.ethnicity
-      td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
+      td
+        - if f.object.ethnicity
+          = t("simple_form.options.diversities_ethnicity.ethnicity.#{f.object.ethnicity}")
+      td = link_to t('diversities.edit'), diversity_ethnicity_path(return_to_review: true)
 
-    - if display_ethnicity_subgroup?
+    - if display_ethnicity_subgroup? && f.object.ethnicity_subgroup
       tr
         th = t('diversities.ethnicity_subgroup.header')
-        td = f.object.ethnicity_subgroup
-        td = link_to t('diversities.edit'),  diversity_ethnicity_path(return_to_review: true)
+        td = t("simple_form.options.diversities_ethnicity.ethnicity_subgroup.#{f.object.ethnicity_subgroup}")
+        td = link_to t('diversities.edit'), diversity_ethnicity_path(return_to_review: true)
     tr
       th = t('diversities.disability.hint')
-      td = f.object.disability
-      td = link_to t('diversities.edit'),  diversity_disability_path(return_to_review: true)
+      td
+        - if f.object.disability
+          = t("simple_form.options.diversities_disability.disability.#{f.object.disability}")
+      td = link_to t('diversities.edit'), diversity_disability_path(return_to_review: true)
     tr
       th = t('diversities.pregnancy.hint')
-      td = f.object.pregnancy
-      td = link_to t('diversities.edit'),  diversity_pregnancy_path(return_to_review: true)
+      td
+        - if f.object.pregnancy
+          = t("simple_form.options.diversities_pregnancy.pregnancy.#{f.object.pregnancy}")
+      td = link_to t('diversities.edit'), diversity_pregnancy_path(return_to_review: true)
 
 - content_for :submit_button do
   = f.button :submit, t('.submit'), class: 'button'

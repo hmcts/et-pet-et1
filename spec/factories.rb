@@ -270,4 +270,20 @@ FactoryGirl.define do
     payment_account_type                  'bank'
     submitted_at                          DateTime.parse('1 December 2016 00:00:00').utc
   end
+
+  factory :diversity do
+    claim_type             "Discrimination"
+    sex                    "Prefer not to say"
+    sexual_identity        "Bisexual"
+    age_group              "35-44"
+    ethnicity              "Asian / Asian British"
+    ethnicity_subgroup     "Chinese"
+    disability             "No"
+    caring_responsibility  "No"
+    gender                 "Female (including male-to-female trans women)"
+    gender_at_birth        "No"
+    pregnancy              "No"
+    relationship           "Married"
+    religion               "Jewish"
+  end
 end

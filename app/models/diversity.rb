@@ -21,8 +21,14 @@ class Diversity < ActiveRecord::Base
   alias ethnicity_subgroup_other ethinicity_subgroup
 
   before_save :fill_religion
+  after_create :send_the_data_to_api
 
   def fill_religion
     self.religion = religion_text if religion_text.present?
+  end
+
+  def send_the_data_to_api
+    uuid = SecureRandom.uuid
+    DiversityFormJob.perform_later id, uuid
   end
 end

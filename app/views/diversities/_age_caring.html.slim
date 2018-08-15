@@ -1,13 +1,13 @@
 fieldset
   = f.input :age_group,
     as: :radio_buttons,
-    collection: t('.age_group.options'),
+    collection: Diversities::AgeCaringForm::AGE_GROUP,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.age_group.hint'), input_html: {class: 'govuk-radios__input'}
 
   = f.input :caring_responsibility,
     as: :radio_buttons,
-    collection: t('.caring_responsibility.options'),
+    collection: Diversities::AgeCaringForm::CARING_RESPONSIBILITY,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.caring_responsibility.hint'),
     hint: t('.caring_responsibility.form_hint'), input_html: {class: 'govuk-radios__input'}
