@@ -1,0 +1,6 @@
+cy:
+  pdfs:
+    show:
+      header: "Prosesu copi o'ch hawliad "
+      will_redirect: |
+        Byddwch yn cael eich ailgyfeirio at gopi o'ch hawliad. Peidiwch â gadael y dudalen hon.
