@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"]       = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
+  before_action  :set_locale
+
   class << self
     def redispatch_request(opts = {})
       states = Array(opts.delete(:unless))
@@ -65,4 +67,9 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :claim, :claim_path_for
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
 end
