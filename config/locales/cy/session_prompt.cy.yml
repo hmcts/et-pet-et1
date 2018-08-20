@@ -1,0 +1,6 @@
+cy:
+  session_prompt:
+    header_html: |
+      Oherwydd anactifedd bydd eich sesiwn yn dod i ben mewn <span id="session_prompt_time_left"></span>
+    session_continue: "A oes angen rhagor o amser arnoch i gwblhau eich hawliad?"
+    session_continue_button: "Oes, mae angen rhagor o amser arnaf i gwblhau fy hawliad"
