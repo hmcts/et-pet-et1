@@ -10,6 +10,11 @@ class ApplicationController < ActionController::Base
 
   before_action  :set_locale
 
+  def default_url_options
+    { locale: I18n.locale }
+  end
+
+
   class << self
     def redispatch_request(opts = {})
       states = Array(opts.delete(:unless))
