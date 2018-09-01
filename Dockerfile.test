@@ -1,4 +1,4 @@
-FROM ruby:2.3.3-slim
+FROM ruby:2.5.1
 COPY . /app
 RUN apt-get update && apt-get install -y sudo curl wget git build-essential libpq-dev pdftk unzip
 

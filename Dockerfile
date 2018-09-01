@@ -1,10 +1,9 @@
-FROM ministryofjustice/ruby:2.3.3-webapp-onbuild
+FROM ministryofjustice/ruby:2.5.1-webapp-onbuild
 
 # Ensure the pdftk package is installed as a prereq for ruby PDF generation
 ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update && \
-    apt-get install -y pdftk
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get update && \
+    apt-get install -y pdftk nodejs
 
 RUN npm install
 
