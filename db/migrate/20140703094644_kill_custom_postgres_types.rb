@@ -1,4 +1,4 @@
-class KillCustomPostgresTypes < ActiveRecord::Migration
+class KillCustomPostgresTypes < ActiveRecord::Migration[4.2]
   def change
     execute "DROP TYPE gender CASCADE;"
     execute "DROP TYPE contact_preference CASCADE;"

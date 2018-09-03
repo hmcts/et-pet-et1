@@ -1,4 +1,4 @@
-class CreateClaimants < ActiveRecord::Migration
+class CreateClaimants < ActiveRecord::Migration[4.2]
   def self.up
     execute "CREATE TYPE gender AS enum('male', 'female');"
     execute "CREATE TYPE contact_preference AS enum('email', 'post', 'fax');"

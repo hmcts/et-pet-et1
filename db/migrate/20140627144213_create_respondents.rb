@@ -1,4 +1,4 @@
-class CreateRespondents < ActiveRecord::Migration
+class CreateRespondents < ActiveRecord::Migration[4.2]
   def change
     create_table :respondents do |t|
       t.string :name

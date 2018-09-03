@@ -1,4 +1,4 @@
-class RenameIncorrectFieldsInRefunds < ActiveRecord::Migration
+class RenameIncorrectFieldsInRefunds < ActiveRecord::Migration[4.2]
   class Refund < ActiveRecord::Base
     self.table_name = :refunds
   end

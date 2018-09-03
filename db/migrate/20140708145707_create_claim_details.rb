@@ -1,4 +1,4 @@
-class CreateClaimDetails < ActiveRecord::Migration
+class CreateClaimDetails < ActiveRecord::Migration[4.2]
   def change
     create_table :claim_details do |t|
       t.boolean :is_unfair_dismissal

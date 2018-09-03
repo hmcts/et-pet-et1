@@ -1,4 +1,4 @@
-class MoveFieldsOntoClaim < ActiveRecord::Migration
+class MoveFieldsOntoClaim < ActiveRecord::Migration[4.2]
   class ClaimDetail < ActiveRecord::Base; end
   class Claim < ActiveRecord::Base;
     has_one :claim_detail

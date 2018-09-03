@@ -1,4 +1,4 @@
-class CreateEmployments < ActiveRecord::Migration
+class CreateEmployments < ActiveRecord::Migration[4.2]
   def change
     create_table :employments do |t|
       t.boolean :enrolled_in_pension_scheme

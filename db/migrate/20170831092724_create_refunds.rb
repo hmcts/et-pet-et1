@@ -1,4 +1,4 @@
-class CreateRefunds < ActiveRecord::Migration
+class CreateRefunds < ActiveRecord::Migration[4.2]
   def change
     create_table :refunds do |t|
       t.timestamps

@@ -1,4 +1,4 @@
-class ConvertFeesToDecimalsInRefunds < ActiveRecord::Migration
+class ConvertFeesToDecimalsInRefunds < ActiveRecord::Migration[4.2]
   def up
     change_column :refunds, :et_issue_fee, :decimal, precision: 10, scale: 2
     change_column :refunds, :et_hearing_fee, :decimal, precision: 10, scale: 2
