@@ -71,8 +71,8 @@ group :production, :test do
 end
 
 gem 'activeadmin', '~> 1.3'
-gem 'base32_pure'
-gem 'bcrypt'
+gem 'base32_pure', '~> 0.1'
+gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes'
 gem 'browserify-rails', '~> 4.0'
 gem 'carrierwave', '~> 1.2'
