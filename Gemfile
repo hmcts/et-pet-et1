@@ -70,7 +70,7 @@ group :production, :test do
   gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 end
 
-gem 'activeadmin', '~> 1.0'
+gem 'activeadmin', '~> 1.3'
 gem 'base32_pure'
 gem 'bcrypt'
 gem 'bitmask_attributes'
