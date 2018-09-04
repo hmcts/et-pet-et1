@@ -23,7 +23,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.2'
 
 # Use unicorn as the app server
-gem 'unicorn'
+gem 'unicorn', '~> 5.4'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
