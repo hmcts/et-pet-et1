@@ -324,7 +324,7 @@ GEM
       parallel
     parser (2.4.0.0)
       ast (~> 2.2)
-    pdf-forms (1.1.1)
+    pdf-forms (1.1.2)
       cliver (~> 0.3.2)
       safe_shell (>= 1.0.3, < 2.0)
     pg (0.20.0)
@@ -425,7 +425,7 @@ GEM
       rubocop (>= 0.42.0)
     ruby-progressbar (1.8.1)
     rubyzip (1.2.1)
-    safe_shell (1.0.3)
+    safe_shell (1.1.0)
     safe_yaml (1.0.4)
     sass (3.4.25)
     sass-rails (5.0.7)
@@ -555,7 +555,7 @@ DEPENDENCIES
   moj_template (= 0.23.0)
   non-stupid-digest-assets
   parallel_tests (~> 2.22)
-  pdf-forms
+  pdf-forms (~> 1.1)
   pg
   poltergeist (= 1.18)
   pry-rails
