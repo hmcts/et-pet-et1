@@ -14,13 +14,13 @@ gem 'rails', '5.1.6'
 gem 'responders', '~> 2.4'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0.3'
+gem 'sass-rails', '~> 5.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.2'
 
 # Use unicorn as the app server
 gem 'unicorn'
