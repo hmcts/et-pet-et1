@@ -7,11 +7,11 @@ source 'https://rubygems.org'
 gem 'jbuilder', '~> 2.7'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.6'
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 2.4'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.3'
