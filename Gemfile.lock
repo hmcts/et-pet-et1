@@ -76,6 +76,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
+    backports (3.11.4)
     base32_pure (0.1.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
@@ -141,27 +142,32 @@ GEM
       sass (>= 3.2, < 3.5)
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
-    crack (0.4.2)
+    crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.4)
-    cucumber (2.4.0)
+    cucumber (3.1.2)
       builder (>= 2.1.2)
-      cucumber-core (~> 1.5.0)
+      cucumber-core (~> 3.2.0)
+      cucumber-expressions (~> 6.0.1)
       cucumber-wire (~> 0.0.1)
-      diff-lcs (>= 1.1.3)
-      gherkin (~> 4.0)
+      diff-lcs (~> 1.3)
+      gherkin (~> 5.1.0)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.2)
-    cucumber-core (1.5.0)
-      gherkin (~> 4.0)
-    cucumber-rails (1.5.0)
-      capybara (>= 1.1.2, < 3)
-      cucumber (>= 1.3.8, < 4)
+    cucumber-core (3.2.0)
+      backports (>= 3.8.0)
+      cucumber-tag_expressions (~> 1.1.0)
+      gherkin (>= 5.0.0)
+    cucumber-expressions (6.0.1)
+    cucumber-rails (1.6.0)
+      capybara (>= 1.1.2, < 4)
+      cucumber (>= 3.0.2, < 4)
       mime-types (>= 1.17, < 4)
-      nokogiri (~> 1.5)
-      railties (>= 4, < 5.2)
+      nokogiri (~> 1.8)
+      railties (>= 4, < 6)
+    cucumber-tag_expressions (1.1.1)
     cucumber-wire (0.0.1)
-    database_cleaner (1.5.3)
+    database_cleaner (1.7.0)
     debug_inspector (0.0.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -210,7 +216,7 @@ GEM
     formtastic (3.1.5)
       actionpack (>= 3.2.13)
     formtastic_i18n (0.6.0)
-    gherkin (4.1.3)
+    gherkin (5.1.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     govuk_frontend_toolkit (4.0.1)
@@ -232,6 +238,7 @@ GEM
     has_scope (0.7.1)
       actionpack (>= 4.1, < 5.2)
       activesupport (>= 4.1, < 5.2)
+    hashdiff (0.3.7)
     hashie (3.3.2)
     hitimes (1.2.2)
     http-2 (0.9.1)
@@ -322,8 +329,8 @@ GEM
       cliver (~> 0.3.2)
       safe_shell (>= 1.0.3, < 2.0)
     pg (0.20.0)
-    poltergeist (1.15.0)
-      capybara (~> 2.1)
+    poltergeist (1.18.0)
+      capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     polyamorous (1.3.1)
@@ -497,9 +504,10 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
-    webmock (1.20.4)
+    webmock (3.4.2)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+      hashdiff
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -532,8 +540,8 @@ DEPENDENCIES
   cocaine
   codeclimate-test-reporter
   compass
-  cucumber-rails (~> 1.5)
-  database_cleaner
+  cucumber-rails (~> 1.6)
+  database_cleaner (~> 1.7)
   dotenv-rails (= 0.11.1)
   email_validator
   epdq!
@@ -552,7 +560,7 @@ DEPENDENCIES
   parallel_tests (~> 2.22)
   pdf-forms
   pg
-  poltergeist (= 1.15.0)
+  poltergeist (= 1.18)
   pry-rails
   rack-livereload
   rails (= 5.1.6)
@@ -580,7 +588,7 @@ DEPENDENCIES
   uk_postcode
   unicorn (~> 5.4)
   virtus
-  webmock
+  webmock (~> 3.4)
   zendesk_api
 
 BUNDLED WITH
