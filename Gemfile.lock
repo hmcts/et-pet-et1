@@ -562,7 +562,7 @@ DEPENDENCIES
   rack-livereload
   rails (= 5.1.6)
   rails-controller-testing (~> 1.0)
-  redcarpet (= 3.4.0)
+  redcarpet (= 3.4)
   representable (= 2.3.0)
   responders (~> 2.4)
   rspec-its (~> 1.2)
