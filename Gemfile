@@ -40,8 +40,8 @@ group :development, :test do
   gem 'launchy'
   gem 'pry-rails'
   gem 'rack-livereload'
-  gem 'rspec-its', require: 'rspec/its'
-  gem 'rspec-rails', '~> 3.6'
+  gem 'rspec-its', '~> 1.2', require: 'rspec/its'
+  gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', :require => false
   gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers'
