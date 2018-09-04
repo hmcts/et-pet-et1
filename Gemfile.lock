@@ -327,7 +327,7 @@ GEM
     pdf-forms (1.1.2)
       cliver (~> 0.3.2)
       safe_shell (>= 1.0.3, < 2.0)
-    pg (0.20.0)
+    pg (1.1.2)
     poltergeist (1.18.0)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
@@ -556,7 +556,7 @@ DEPENDENCIES
   non-stupid-digest-assets
   parallel_tests (~> 2.22)
   pdf-forms (~> 1.1)
-  pg
+  pg (~> 1.1)
   poltergeist (= 1.18)
   pry-rails
   rack-livereload
