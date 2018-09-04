@@ -32,7 +32,7 @@ group :development, :test do
   gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capybara', '~> 2.15'
+  gem 'capybara', '~> 2.17'
   gem 'codeclimate-test-reporter', require: nil
   gem 'dotenv-rails', '0.11.1'
   gem 'factory_girl_rails'
