@@ -44,8 +44,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', :require => false
   gem 'rubocop-rspec', :require => false
-  gem 'shoulda-matchers'
-  gem 'spring'
+  gem 'shoulda-matchers', '~> 2.7'
+  gem 'spring', '~> 2.0'
   gem 'activerecord-nulldb-adapter'
   gem 'parallel_tests', '~> 2.17'
 end
