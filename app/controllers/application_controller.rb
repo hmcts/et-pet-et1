@@ -45,6 +45,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def expired_session?
+    Time.current > session[:expires_in]
+  rescue
+    return false
+  end
+
   def claim
     @claim ||= load_claim_from_session
   end

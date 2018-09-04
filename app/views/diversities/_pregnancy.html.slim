@@ -1,0 +1,6 @@
+fieldset
+  = f.input :pregnancy,
+    as: :radio_buttons,
+    collection: Diversities::PregnancyForm::PREGNANCY,
+    item_wrapper_class: 'govuk-radios__item',
+    label: false, input_html: {class: 'govuk-radios__input'}

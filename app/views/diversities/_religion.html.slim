@@ -1,0 +1,15 @@
+fieldset
+  = f.input :religion,
+    as: :radio_buttons,
+    collection:  Diversities::ReligionForm::RELIGION,
+    item_wrapper_class: 'govuk-radios__item',
+    label: false, input_html: {class: 'govuk-radios__input'}
+
+  = f.input :religion_text, label: false, hint: t('.free_text'),
+    item_wrapper_class: 'religion_text_field'
+
+- content_for(:javascripts)
+  javascript:
+    $(document).ready(function () {
+      diversityReligionPage.init()
+    });

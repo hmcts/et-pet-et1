@@ -1,0 +1,209 @@
+en:
+  simple_form:
+    options:
+      diversity:
+        claim_type:
+          claim_type:
+            admin: 'Administrator'
+            editor: 'Editor'
+
+  diversities:
+    header: Diversity monitoring questionnaire
+    index:
+      optional_text: This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
+      anonymous: Your answers will be anonymous.
+      begin_form: Start now
+    show:
+      sub_header: Confirmation of supplied details
+      edit: Edit your answers
+      previous: Previous
+      hint: Pressing "Submit Form" below will send the details confirmed below for processing.
+      submit: Submit Form
+      session_reloaded: Your session has been re loaded - this may have been caused by your cookie expiring
+    submit:
+      sub_header: Thank you
+      thank_you: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+    aside:
+      header: Other relevant links
+      how_to_make_claim: How to make a claim
+      how_to_make_response: How to make a response
+      how_to_contact_us: How to contact us
+      more_from_the_working: More from the Working, jobs and pensions category
+    claim_type:
+      header: Claim type
+      hint: What is the type of your claim?
+      sub_header: This will help us analyse other information provided in this form
+    identity:
+      hint: How do you identify?
+      header: Indentity
+      sex:
+        hint: What is your sex?
+      sexual_identity:
+        hint: Which of the options below best describes your sexual identity?
+      gender:
+        hint: What is your gender identity?
+
+      gender_at_birth:
+        hint: Is your gender identity different to the sex you were assumed to be at birth?
+
+    relationship:
+      header: Relationship
+      hint: What is your relationship status?
+    age_caring:
+      hint: What is your age group and caring responsibilities?
+      age_group:
+        hint: Which age group are you in?
+      caring_responsibility:
+        hint: Do you have any caring responsibilities?
+        form_hint: For example, children, elderly relatives or partners
+    religion:
+      header: Religion
+      hint: What is your religion?
+      free_text: Please describe
+    ethnicity:
+      header: Ethnicity
+      hint: What is your ethnic group?
+      white:
+        label: 'White'
+        data: 'White'
+      mixed-multiple-ethnic-groups:
+        label: 'Mixed'
+        data: 'Mixed / multiple ethnic groups'
+      asian-asian-british:
+        label: 'Asian'
+        data: 'Asian / Asian British'
+      black-african-caribbean-black-british:
+        label: 'Black'
+        data: 'Black / African / Caribbean / Black British'
+      other-ethnic-group:
+        label: 'Other'
+        data: 'Other ethnic group'
+    ethnicity_subgroup:
+      header: What is your ethnic type?
+
+    disability:
+      header: Disability
+      act: The Equality Act 2010 defines a disabled person as 'someone who has a physical or mental impairment and the impairment has a substantial and long-term adverse effect on his or her ability to carry out normal day-to-day activities'.
+      conditions: Conditions covered may include, for example, severe depression, dyslexia, epilepsy and arthritis.
+      hint: Do you have any physical or mental health conditions or illnesses lasting or expected to last for 12 months or more?
+    pregnancy:
+      header: Pregnancy
+      hint: Were you pregnant when you were dismissed?
+    review:
+      hint: Check your answers
+      submit: Submit Form
+    confirmation:
+      hint: Thank you
+      message: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+      return_title: return to GOV.UK website
+    edit: Change
+
+  simple_form:
+    options:
+      diversities_claim_type:
+        claim_type:
+          unfair-dismissal-or-constructive-dismissal: "Unfair dismissal or constructive dismissal"
+          discrimination: "Discrimination"
+          redundancy-payment: "Redundancy payment"
+          other-payments-you-are-owed: "Other payments you are owed"
+          other-complaints: "Other complaints"
+      diversities_identity:
+        sex:
+          male: Male
+          female: Female
+          prefer-not-to-say: Prefer not to say
+        sexual_identity:
+          heterosexual-straight: Heterosexual / Straight
+          gay-lesbian: Gay / Lesbian
+          bisexual: Bisexual
+          other: Other
+          prefer-not-to-say: Prefer not to say
+        gender_at_birth:
+          bananas: 'Bananas'
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+
+        gender:
+          male-including-female-to-male-trans-men: Male (including female-to-male trans men)
+          female-including-male-to-female-trans-women: Female (including male-to-female trans women)
+          prefer-not-to-say: Prefer not to say
+      diversities_relationship:
+        relationship:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Single, that is, never married and never registered in a same-sex civil partnership
+          married: Married
+          separated-but-still-legally-married: Separated, but still legally married
+          divorced: Divorced
+          widowed: Widowed
+          in-a-registered-same-sex-civil-partnership: In a registered same-sex civil partnership
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Separated, but still legally in a same-sex civil partnership
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Formerly in a same-sex civil partnership which is now legally dissolved
+          surviving-partner-from-a-same-sex-civil-partnership: Surviving partner from a same-sex civil partnership
+          prefer-not-to-say: Prefer not to say
+      diversities_age_caring:
+        age_group:
+          under-25: Under 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 and over
+          prefer-not-to-say: Prefer not to say
+        caring_responsibility:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+      diversities_religion:
+        religion:
+          no-religion: No religion
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
+          buddhist: Buddhist
+          hindu: Hindu
+          jewish: Jewish
+          muslim: Muslim
+          sikh: Sikh
+          prefer-not-to-say: Prefer not to say
+          any-other-religion: Any other religion
+      diversities_ethnicity:
+        ethnicity:
+          white: White
+          mixed-multiple-ethnic-groups: Mixed / multiple ethnic groups
+          asian-asian-british: Asian / Asian British
+          black-african-caribbean-black-british: Black / African / Caribbean / Black British
+          other-ethnic-group: Other ethnic group
+          prefer-not-to-say: Prefer not to say
+        ethnicity_subgroup:
+            english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
+            irish: Irish
+            gypsy-or-irish-traveller: Gypsy or Irish Traveller
+            any-other-white-background: Any other White background
+            white-and-black-caribbean: White and Black Caribbean
+            white-and-black-african: White and Black African
+            white-and-asian: White and Asian
+            any-other-mixed-multiple-ethnic-background: Any other Mixed / multiple ethnic background
+            none-of-the-above: None of the above
+            indian: Indian
+            pakistani: Pakistani
+            bangladeshi: Bangladeshi
+            chinese: Chinese
+            any-other-asian-background: Any other Asian background
+            african: African
+            caribbean: Caribbean
+            any-other-black-african-caribbean-background: Any other Black / African / Caribbean background
+            arab: Arab
+            any-other-ethnic-group: Any other ethnic group
+      diversities_disability:
+        disability:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+      diversities_pregnancy:
+        pregnancy:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+
+
+
