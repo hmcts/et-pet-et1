@@ -525,7 +525,7 @@ DEPENDENCIES
   binding_of_caller
   bitmask_attributes
   browserify-rails (~> 4.0)
-  capybara (~> 2.17)
+  capybara (~> 2.18)
   capybara-screenshot (~> 1.0)
   carrierwave (~> 1.2)
   cocaine
