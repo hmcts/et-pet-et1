@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.0'
+gem 'rails', '5.2.1'
 gem 'responders', '~> 2.4'
 
 # Use SCSS for stylesheets
@@ -98,6 +98,7 @@ gem 'virtus', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
 gem 'logstasher', '~> 1.2', groups: [:production, :local]
+gem 'bootsnap', '~> 1.3', '>= 1.3.1'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
