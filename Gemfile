@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
 gem 'responders', '~> 2.4'
 
 # Use SCSS for stylesheets
