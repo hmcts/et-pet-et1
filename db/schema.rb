@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607104828) do
+ActiveRecord::Schema.define(version: 2018_06_07_104828) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 20180607104828) do
     t.text "body"
     t.string "resource_id", null: false
     t.string "resource_type", null: false
-    t.string "author_type"
     t.integer "author_id"
+    t.string "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
@@ -92,24 +92,22 @@ ActiveRecord::Schema.define(version: 20180607104828) do
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 
-  add_index "claims", ["application_reference"], name: "index_claims_on_application_reference", unique: true, using: :btree
-
-  create_table "diversities", force: :cascade do |t|
-    t.string   "claim_type"
-    t.string   "sex"
-    t.string   "sexual_identity"
-    t.string   "age_group"
-    t.string   "ethnicity"
-    t.string   "ethnicity_subgroup"
-    t.string   "disability"
-    t.string   "caring_responsibility"
-    t.string   "gender"
-    t.string   "gender_at_birth"
-    t.string   "pregnancy"
-    t.string   "relationship"
-    t.string   "religion"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+  create_table "diversities", id: :serial, force: :cascade do |t|
+    t.string "claim_type"
+    t.string "sex"
+    t.string "sexual_identity"
+    t.string "age_group"
+    t.string "ethnicity"
+    t.string "ethnicity_subgroup"
+    t.string "disability"
+    t.string "caring_responsibility"
+    t.string "gender"
+    t.string "gender_at_birth"
+    t.string "pregnancy"
+    t.string "relationship"
+    t.string "religion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employments", id: :serial, force: :cascade do |t|
