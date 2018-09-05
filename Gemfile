@@ -93,10 +93,10 @@ gem 'sidekiq', '~> 5.2.0'
 gem 'state_machine', '~> 1.2', require: 'state_machine/core'
 gem 'uk_postcode', '~> 1.0'
 gem 'susy', '~> 2.2'
-gem 'compass'
-gem 'virtus'
-gem 'zendesk_api'
-gem 'email_validator'
+gem 'compass', '~> 1.0'
+gem 'virtus', '~> 1.0'
+gem 'zendesk_api', '~> 1.5.1x'
+gem 'email_validator', '~> 1.6'
 gem 'logstasher', groups: [:production, :local]
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
