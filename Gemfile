@@ -97,8 +97,8 @@ gem 'compass', '~> 1.0'
 gem 'virtus', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
-gem 'logstasher', groups: [:production, :local]
+gem 'logstasher', '~> 1.2', groups: [:production, :local]
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
-gem "non-stupid-digest-assets"
+gem "non-stupid-digest-assets", '~> 1.0'
