@@ -22,8 +22,11 @@ module DiversitiesHelper
   end
 
   def religion_value(object)
-    return object.religion if object.religion_text.blank?
-    object.religion_text
+    if object.religion_text.blank? && object.religion
+      t("simple_form.options.diversities_religion.religion.#{object.religion}")
+    elsif object.religion_text
+      object.religion_text
+    end
   end
 
   def ethnicity_type_list

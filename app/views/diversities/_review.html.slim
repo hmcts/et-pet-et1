@@ -55,7 +55,7 @@ div
       th = t('diversities.religion.hint')
       td
         - if religion_value(f.object)
-          = t("simple_form.options.diversities_religion.religion.#{religion_value(f.object)}")
+          = religion_value(f.object)
       td = link_to t('diversities.edit'), diversity_religion_path(return_to_review: true)
     tr
       th = t('diversities.ethnicity.hint')
