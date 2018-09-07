@@ -21,7 +21,7 @@ class Diversity < ActiveRecord::Base
   alias ethnicity_subgroup_other ethinicity_subgroup
 
   before_save :fill_religion
-  after_create :send_the_data_to_api
+  after_commit :send_the_data_to_api, on: :create
 
   def fill_religion
     self.religion = religion_text if religion_text.present?

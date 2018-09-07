@@ -58,6 +58,7 @@ group :test do
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
   gem 'selenium-webdriver', '~> 3.4'
+  gem 'test_after_commit', '~> 1.1'
 end
 
 group :production do
