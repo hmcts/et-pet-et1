@@ -11,8 +11,10 @@ header.main-header role="banner"
         li = link_to t(".#{name}"), guide_path(anchor: name)
 
     .static-content.guide
-      - @presenter.each_rendered_file do |name, contents|
-        article id="#{name}" = contents
+      = render 'guides/markdown/time_limits'
+      = render 'guides/markdown/acas_early_conciliation'
+      = render 'guides/markdown/acas_early_conciliation_exceptions'
+      = render 'guides/markdown/writing_your_claim_statement'
 
 aside role="complementary"
   h3= t '.aside.gethelp_header'
