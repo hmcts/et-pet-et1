@@ -7,7 +7,18 @@ module ETFees
       end
     end
 
+    def has_errors?
+      return false unless object && object.respond_to?(:errors)
+      !errors_blank?(object.errors)
+    end
+
     private
+
+    def errors_blank?(errors)
+      errors.all? do |k, v|
+        (v.is_a?(ActiveModel::Errors) && errors_blank?(v)) || (v && v.empty? && !v.is_a?(String))
+      end
+    end
 
     def message
       if errors[:base].any?
