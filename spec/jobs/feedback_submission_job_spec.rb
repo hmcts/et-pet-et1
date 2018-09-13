@@ -26,7 +26,7 @@ RSpec.describe FeedbackSubmissionJob, type: :job do
     end
 
     let(:the_request) do
-      stub_request(:post, "https://lol%40example.com%2Ftoken:rofltoken@rofldesk.lol.biz.info/api/v2/tickets")
+      stub_request(:post, "https://rofldesk.lol.biz.info/api/v2/tickets").with(basic_auth: ["#{user}/token", token])
     end
 
     before do

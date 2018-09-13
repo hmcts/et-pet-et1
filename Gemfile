@@ -32,14 +32,14 @@ gem 'activerecord-nulldb-adapter', '~> 0.3'
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
-  gem 'awesome_print'
-  gem 'better_errors'
-  gem 'binding_of_caller'
+  gem 'awesome_print', '~> 1.8'
+  gem 'better_errors', '~> 2.5'
+  gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 2.18'
-  gem 'codeclimate-test-reporter', require: nil
-  gem 'dotenv-rails', '0.11.1'
+  gem 'codeclimate-test-reporter', '~> 0.4', require: nil
+  gem 'dotenv-rails', '~> 2.5'
   gem 'factory_girl_rails'
-  gem 'guard-livereload'
+  gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rack-livereload'
@@ -53,7 +53,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock', '1.20.4'
+  gem 'webmock', '~> 3.4'
   gem 'database_cleaner', '~> 1.7'
   gem 'cucumber-rails', '~> 1.6', require: false
   gem 'poltergeist', '1.18'
@@ -85,7 +85,7 @@ gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'httparty', '~> 0.16'
 gem 'httpx'
 gem 'moj_template', '0.23.0'
-gem 'pdf-forms', '~> 1.1'
+gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.4'
 gem 'representable', '2.3.0', require: 'representable/xml'
