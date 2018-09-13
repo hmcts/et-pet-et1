@@ -12,7 +12,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_building).is_at_most(75)
+          expect(applicant_form).to validate_length_of(:applicant_address_building).is_at_most(75)
         end
       end
 
@@ -22,7 +22,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_street).is_at_most(75)
+          expect(applicant_form).to validate_length_of(:applicant_address_street).is_at_most(75)
         end
       end
 
@@ -32,13 +32,13 @@ module Refunds
         end
 
         it 'validates the length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_locality).is_at_most(25)
+          expect(applicant_form).to validate_length_of(:applicant_address_locality).is_at_most(25)
         end
       end
 
       context 'applicant_address_county' do
         it 'validates the length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_county).is_at_most(25)
+          expect(applicant_form).to validate_length_of(:applicant_address_county).is_at_most(25)
         end
       end
 
@@ -48,7 +48,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_post_code).is_at_most(8)
+          expect(applicant_form).to validate_length_of(:applicant_address_post_code).is_at_most(8)
         end
       end
 
@@ -58,7 +58,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_address_telephone_number).is_at_most(21)
+          expect(applicant_form).to validate_length_of(:applicant_address_telephone_number).is_at_most(21)
         end
       end
 
@@ -74,13 +74,13 @@ module Refunds
 
       context 'applicant_first_name' do
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_first_name).is_at_most(100)
+          expect(applicant_form).to validate_length_of(:applicant_first_name).is_at_most(100)
         end
       end
 
       context 'applicant_last_name' do
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_last_name).is_at_most(100)
+          expect(applicant_form).to validate_length_of(:applicant_last_name).is_at_most(100)
         end
       end
 
@@ -104,7 +104,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to ensure_length_of(:applicant_email_address).is_at_most(100)
+          expect(applicant_form).to validate_length_of(:applicant_email_address).is_at_most(100)
         end
       end
 
