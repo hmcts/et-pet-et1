@@ -76,22 +76,19 @@ RSpec.describe Jadu::Claim, type: :service do
 
       it 'creates a log event' do
         expect(claim).to receive(:create_event).with 'rejected_by_jadu', message: "1 herp derp"
-        allow(StandardError).to receive(:new)
-        Jadu::Claim.create claim
+        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
       end
 
       it 'does not update the claim' do
         expect(claim).not_to receive(:update)
 
-        allow(StandardError).to receive(:new)
-        Jadu::Claim.create claim
+        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
       end
 
       it 'does not finalize the claim' do
         expect(claim).not_to receive(:finalize!)
 
-        allow(StandardError).to receive(:new)
-        Jadu::Claim.create claim
+        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
       end
     end
 
