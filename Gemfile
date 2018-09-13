@@ -41,8 +41,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
-  gem 'pry-rails'
-  gem 'rack-livereload'
+  gem 'pry-rails', '~> 0.3'
+  gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', :require => false
@@ -59,7 +59,7 @@ group :test do
   gem 'poltergeist', '1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
-  gem 'selenium-webdriver', '~> 3.4'
+  gem 'selenium-webdriver', '~> 3.14'
   gem 'rails-controller-testing', '~> 1.0'
 end
 
