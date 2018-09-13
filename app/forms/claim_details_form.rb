@@ -1,8 +1,8 @@
 class ClaimDetailsForm < Form
-  attribute :claim_details,               String
-  attribute :other_known_claimant_names,  String
-  attribute :claim_details_rtf,           AttachmentUploader
-  attribute :remove_claim_details_rtf,    Boolean
+  attribute :claim_details,               :string
+  attribute :other_known_claimant_names,  :string
+  attribute :claim_details_rtf,           :attachment_uploader_type
+  attribute :remove_claim_details_rtf,    :boolean
 
   boolean :other_known_claimants
 

@@ -19,7 +19,7 @@ module Diversities
       "other-ethnic-group" =>
         ["arab", "any-other-ethnic-group", "none-of-the-above"]
     }.freeze
-    attribute :ethnicity, String
-    attribute :ethnicity_subgroup, String
+    attribute :ethnicity, :string
+    attribute :ethnicity_subgroup, :string
   end
 end

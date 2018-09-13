@@ -1,13 +1,13 @@
 class RepresentativeForm < Form
   include AddressAttributes
 
-  attribute :type,               String
-  attribute :name,               String
-  attribute :organisation_name,  String
-  attribute :mobile_number,      String
-  attribute :email_address,      String
-  attribute :dx_number,          String
-  attribute :contact_preference, String
+  attribute :type,               :string
+  attribute :name,               :string
+  attribute :organisation_name,  :string
+  attribute :mobile_number,      :string
+  attribute :email_address,      :string
+  attribute :dx_number,          :string
+  attribute :contact_preference, :string
 
   boolean :has_representative
 

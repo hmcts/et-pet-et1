@@ -2,26 +2,26 @@ module Refunds
   class FeesForm < Form
     PAYMENT_METHODS = ['card', 'cheque', 'cash', 'unknown'].freeze
     VALID_PAYMENT_DATE_RANGE = Date.parse('1 July 2013')..Date.parse('31 August 2017')
-    attribute :et_issue_fee,                            Integer
-    attribute :et_issue_fee_payment_method,             String
-    attribute :et_issue_fee_payment_date,               Date
-    attribute :et_issue_fee_payment_date_unknown,       Boolean
-    attribute :et_hearing_fee,                          Integer
-    attribute :et_hearing_fee_payment_method,           String
-    attribute :et_hearing_fee_payment_date,               Date
-    attribute :et_hearing_fee_payment_date_unknown,       Boolean
-    attribute :eat_issue_fee,                           Integer
-    attribute :eat_issue_fee_payment_method,            String
-    attribute :eat_issue_fee_payment_date,               Date
-    attribute :eat_issue_fee_payment_date_unknown,       Boolean
-    attribute :eat_hearing_fee,                         Integer
-    attribute :eat_hearing_fee_payment_method,          String
-    attribute :eat_hearing_fee_payment_date,               Date
-    attribute :eat_hearing_fee_payment_date_unknown,       Boolean
-    attribute :et_reconsideration_fee,                 Integer
-    attribute :et_reconsideration_fee_payment_method,  String
-    attribute :et_reconsideration_fee_payment_date,               Date
-    attribute :et_reconsideration_fee_payment_date_unknown,       Boolean
+    attribute :et_issue_fee,                            :integer
+    attribute :et_issue_fee_payment_method,             :string
+    attribute :et_issue_fee_payment_date,               :gds_date_type
+    attribute :et_issue_fee_payment_date_unknown,       :boolean
+    attribute :et_hearing_fee,                          :integer
+    attribute :et_hearing_fee_payment_method,           :string
+    attribute :et_hearing_fee_payment_date,               :gds_date_type
+    attribute :et_hearing_fee_payment_date_unknown,       :boolean
+    attribute :eat_issue_fee,                           :integer
+    attribute :eat_issue_fee_payment_method,            :string
+    attribute :eat_issue_fee_payment_date,               :gds_date_type
+    attribute :eat_issue_fee_payment_date_unknown,       :boolean
+    attribute :eat_hearing_fee,                         :integer
+    attribute :eat_hearing_fee_payment_method,          :string
+    attribute :eat_hearing_fee_payment_date,               :gds_date_type
+    attribute :eat_hearing_fee_payment_date_unknown,       :boolean
+    attribute :et_reconsideration_fee,                 :integer
+    attribute :et_reconsideration_fee_payment_method,  :string
+    attribute :et_reconsideration_fee_payment_date,               :gds_date_type
+    attribute :et_reconsideration_fee_payment_date_unknown,       :boolean
 
     include ::Refunds::FeesFormDateTransform
 

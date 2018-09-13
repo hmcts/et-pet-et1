@@ -12,16 +12,16 @@ class RespondentForm < Form
     'employer_contacted_acas', 'interim_relief'
   ].freeze
 
-  attribute :name,                                       String
-  attribute :acas_early_conciliation_certificate_number, String
-  attribute :no_acas_number_reason,                      String
-  attribute :worked_at_same_address,                     Boolean
-  attribute :work_address_building,                      String
-  attribute :work_address_street,                        String
-  attribute :work_address_locality,                      String
-  attribute :work_address_county,                        String
-  attribute :work_address_post_code,                     String
-  attribute :work_address_telephone_number,              String
+  attribute :name,                                       :string
+  attribute :acas_early_conciliation_certificate_number, :string
+  attribute :no_acas_number_reason,                      :string
+  attribute :worked_at_same_address,                     :boolean
+  attribute :work_address_building,                      :string
+  attribute :work_address_street,                        :string
+  attribute :work_address_locality,                      :string
+  attribute :work_address_county,                        :string
+  attribute :work_address_post_code,                     :string
+  attribute :work_address_telephone_number,              :string
 
   boolean :no_acas_number
 
@@ -50,10 +50,6 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
     presence: { unless: -> { no_acas_number? } },
     acas: true
-
-  def worked_at_same_address?
-    ActiveRecord::Type::Boolean.new.cast(attributes[:worked_at_same_address])
-  end
 
   before_save :reload_addresses
 

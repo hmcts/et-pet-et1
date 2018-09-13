@@ -1,6 +1,6 @@
 module Refunds
   class ReviewForm < Form
-    attribute :accept_declaration, Boolean
+    attribute :accept_declaration, :boolean
     before_save :generate_application_reference, unless: :target_frozen?
     before_save :generate_submitted_date, unless: :target_frozen?
     after_save :persist_refund_id_into_session

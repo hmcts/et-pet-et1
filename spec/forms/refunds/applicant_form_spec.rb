@@ -2,7 +2,7 @@ require 'rails_helper'
 module Refunds
   RSpec.describe ApplicantForm, type: :form do
     let(:session_attributes) { Refund.new.attributes.to_h }
-    let(:refund_session) { double('Session', session_attributes) }
+    let(:refund_session) { Session.new session_attributes }
     let(:applicant_form) { described_class.new(refund_session) }
 
     describe 'validations' do
@@ -211,7 +211,7 @@ module Refunds
       it 'stores the provided hash if the date is invalid' do
         value = { 'day' => '32', 'month' => '15', "year" => '1985' }
         applicant_form.applicant_date_of_birth = value
-        expect(applicant_form.applicant_date_of_birth).to be value
+        expect(applicant_form.applicant_date_of_birth_before_type_cast).to be value
       end
 
       it 'stores the provided ActionController::Parameters as a hash if the date is invalid' do

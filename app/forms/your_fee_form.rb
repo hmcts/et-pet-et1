@@ -1,5 +1,5 @@
 class YourFeeForm < Form
-  attribute :remission_claimant_count, Integer
+  attribute :remission_claimant_count, :integer
 
   validates :remission_claimant_count, numericality: {
     less_than_or_equal_to: ->(form) { form.target.claimant_count },

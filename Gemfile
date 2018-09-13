@@ -25,6 +25,9 @@ gem 'turbolinks', '~> 5.2'
 # Use unicorn as the app server
 gem 'unicorn', '~> 5.4'
 
+# Use null db adapter for the form objects
+gem 'activerecord-nulldb-adapter', '~> 0.3'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -46,7 +49,6 @@ group :development, :test do
   gem 'rubocop-rspec', :require => false
   gem 'shoulda-matchers', '~> 2.7'
   gem 'spring', '~> 2.0'
-  gem 'activerecord-nulldb-adapter', '~> 0.3'
   gem 'parallel_tests', '~> 2.22'
 end
 
@@ -94,7 +96,6 @@ gem 'state_machine', '~> 1.2', require: 'state_machine/core'
 gem 'uk_postcode', '~> 1.0'
 gem 'susy', '~> 2.2'
 gem 'compass', '~> 1.0'
-gem 'virtus', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
 gem 'logstasher', '~> 1.2', groups: [:production, :local]

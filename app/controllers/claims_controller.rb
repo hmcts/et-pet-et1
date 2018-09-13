@@ -38,7 +38,7 @@ class ClaimsController < ApplicationController
   end
 
   def resource
-    @form ||= Form.for(current_step).new(claim)
+    @resource ||= Form.for(current_step).new(claim)
   end
 
   def current_step

@@ -5,9 +5,9 @@ class AdditionalRespondentsForm
 
     include AddressAttributes
 
-    attribute :name,                                       String
-    attribute :acas_early_conciliation_certificate_number, String
-    attribute :no_acas_number_reason,                      String
+    attribute :name,                                       :string
+    attribute :acas_early_conciliation_certificate_number, :string
+    attribute :no_acas_number_reason,                      :string
 
     booleans :no_acas_number, :_destroy
 

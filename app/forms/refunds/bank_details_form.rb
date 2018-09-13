@@ -1,15 +1,15 @@
 module Refunds
   class BankDetailsForm < Form
     ACCOUNT_TYPES = ['bank', 'building_society'].freeze
-    attribute :payment_account_type, String
-    attribute :payment_bank_account_name, String
-    attribute :payment_bank_name, String
-    attribute :payment_bank_account_number, String
-    attribute :payment_bank_sort_code, String
-    attribute :payment_building_society_account_name, String
-    attribute :payment_building_society_name, String
-    attribute :payment_building_society_account_number, String
-    attribute :payment_building_society_sort_code, String
+    attribute :payment_account_type, :string
+    attribute :payment_bank_account_name, :string
+    attribute :payment_bank_name, :string
+    attribute :payment_bank_account_number, :string
+    attribute :payment_bank_sort_code, :string
+    attribute :payment_building_society_account_name, :string
+    attribute :payment_building_society_name, :string
+    attribute :payment_building_society_account_number, :string
+    attribute :payment_building_society_sort_code, :string
 
     validates :payment_account_type, presence: true, inclusion: { in: ACCOUNT_TYPES }
     validates :payment_bank_account_name, :payment_bank_name, presence: true, if: :is_bank_type?

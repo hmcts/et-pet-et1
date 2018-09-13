@@ -280,6 +280,7 @@ module Refunds
 
       shared_examples 'a fee amount writer' do |fee_name:|
         reader_method = "#{fee_name}_fee".to_sym
+        reader_before_cast_method = "#{fee_name}_fee_before_type_cast".to_sym
         writer_method = "#{fee_name}_fee=".to_sym
         it 'converts an amount from a string' do
           form.send(writer_method, '10.51')
@@ -293,7 +294,7 @@ module Refunds
 
         it 'leaves an invalid number from a string as is' do
           form.send(writer_method, 'non-numeric')
-          expect(form.send(reader_method)).to eql 'non-numeric'
+          expect(form.send(reader_before_cast_method)).to eql 'non-numeric'
         end
 
         it 'does not convert nil' do

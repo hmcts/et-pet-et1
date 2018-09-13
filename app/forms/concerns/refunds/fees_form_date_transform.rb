@@ -2,30 +2,33 @@ module Refunds
   module FeesFormDateTransform
     extend ActiveSupport::Concern
     included do
-      dates :et_issue_fee_payment_date, :et_hearing_fee_payment_date, :eat_issue_fee_payment_date
-      dates :eat_hearing_fee_payment_date, :et_reconsideration_fee_payment_date
+      validates :et_issue_fee_payment_date, date: true
+      validates :eat_issue_fee_payment_date, date: true
+      validates :et_hearing_fee_payment_date, date: true
+      validates :eat_hearing_fee_payment_date, date: true
+      validates :et_reconsideration_fee_payment_date, date: true
       prepend PreProcess
     end
 
     module PreProcess
       def et_issue_fee_payment_date=(val)
-        super pre_process_partial_date(val, only: :day)
+        write_attribute :et_issue_fee_payment_date, pre_process_partial_date(val, only: :day)
       end
 
       def et_hearing_fee_payment_date=(val)
-        super pre_process_partial_date(val, only: :day)
+        write_attribute :et_hearing_fee_payment_date, pre_process_partial_date(val, only: :day)
       end
 
       def et_reconsideration_fee_payment_date=(val)
-        super pre_process_partial_date(val, only: :day)
+        write_attribute :et_reconsideration_fee_payment_date, pre_process_partial_date(val, only: :day)
       end
 
       def eat_issue_fee_payment_date=(val)
-        super pre_process_partial_date(val, only: :day)
+        write_attribute :eat_issue_fee_payment_date, pre_process_partial_date(val, only: :day)
       end
 
       def eat_hearing_fee_payment_date=(val)
-        super pre_process_partial_date(val, only: :day)
+        write_attribute :eat_hearing_fee_payment_date, pre_process_partial_date(val, only: :day)
       end
     end
 
