@@ -39,7 +39,7 @@ cy:
         one_html: "ydych chi'n gwneud yr hawliad gydag unigolyn arall sydd eisoes wedi bod drwy gymodi cynnar"
         two_html: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o'ch hawliad neu'ch hawliad cyfan"
         three_html: "mae eich cyflogwr eisoes wedi bod mewn cysylltiad ag Acas - bydd angen i chi ddarparu tystiolaeth o hyn"
-        four_html: "rydych chi'n gwneud hawliad am fath penodol o ddiswyddo annheg sy'n caniatáu i chi wneud cais am ['gymorth interim'](#cymorth-interim) os yw'r cais o fewn 7 diwrnod i'r diswyddiad"
+        four_html: "rydych chi'n gwneud hawliad am fath penodol o ddiswyddo annheg sy'n caniatáu i chi wneud cais am <a href=\"#interim-relief\">'gymorth interim'</a> os yw'r cais o fewn 7 diwrnod i'r diswyddiad"
       line_two_html: "Os ydych o'r farn nad oes angen i chi gysylltu ag Acas, efallai yr hoffech gael cyngor cyfreithiol cyn i chi gychwyn eich hawliad."
       title_two: Cymorth interim
       line_three: "Cymorth interim yw pan fydd tribiwnlys cyflogaeth yn gorchymyn bod cyflogwr neu fusnes yn rhoi'r swydd yn ôl i rywun maent wedi'i ddiswyddo nes cynhelir gwrandawiad."
