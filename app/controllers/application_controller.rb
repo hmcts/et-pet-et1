@@ -8,12 +8,11 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"]       = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
-  before_action  :set_locale
+  before_action :set_locale
 
   def default_url_options
     { locale: I18n.locale }
   end
-
 
   class << self
     def redispatch_request(opts = {})
