@@ -11,5 +11,9 @@ variables:
 
 steps:
 - script: docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+- script: docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+- script: docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+- script: docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+- script: docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
 - script: docker build -f Dockerfile -t $(imageName) .
   displayName: 'docker build'
