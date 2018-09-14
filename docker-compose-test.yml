@@ -22,16 +22,16 @@ services:
       HTTP_READ_TIMEOUT_S: 100
       JADU_API: https://fgr-stub-service.herokuapp.com/1/
       PAYMENT_GATEWAY_PING_ENDPOINT: https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1
-      EPDQ_PSPID:
-      EPDQ_SECRET_IN:
-      EPDQ_SECRET_OUT:
-      S3_UPLOAD_BUCKET:
-      AWS_ACCESS_KEY_ID:
-      AWS_SECRET_ACCESS_KEY:
-      ZENDESK_URL:
-      ZENDESK_USER:
-      ZENDESK_TOKEN:
-      ZENDESK_GROUP_ID:
+      EPDQ_PSPID: notused
+      EPDQ_SECRET_IN: notused
+      EPDQ_SECRET_OUT: notused
+      S3_UPLOAD_BUCKET: bucket
+      AWS_ACCESS_KEY_ID: doesntmatter
+      AWS_SECRET_ACCESS_KEY: doesntmatter
+      ZENDESK_URL: doesntmatter
+      ZENDESK_USER: doesntmatter
+      ZENDESK_TOKEN: doesntmatter
+      ZENDESK_GROUP_ID: doesntmatter
 
     volumes:
       - rubygems_cache:/rubygems
