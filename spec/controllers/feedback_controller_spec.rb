@@ -24,7 +24,7 @@ RSpec.describe FeedbackController, type: :controller do
       before { post :create, params: { feedback: params } }
 
       it { expect(response).to have_http_status(302) }
-      it { expect(response.location).to end_with '/apply/feedback' }
+      it { expect(response.location).to end_with '/apply/feedback?locale=en' }
       it { expect(flash[:info]).to eq 'Thank you for your feedback' }
     end
   end
