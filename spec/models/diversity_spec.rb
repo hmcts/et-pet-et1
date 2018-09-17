@@ -4,6 +4,15 @@ RSpec.describe Diversity, type: :model do
   let(:diversity) { build(:diversity, religion: 'describe') }
   let(:uuid) { '246b26b3-e383-4b68-b5b7-6d4ed6c76093' }
 
+  shared_context 'with transactions off' do
+    around do |example|
+      old = use_transactional_fixtures
+      self.use_transactional_fixtures = false
+      example.run
+      self.use_transactional_fixtures = old
+    end
+  end
+
   describe '#fill_religion' do
     it 'save the free text value if present' do
       diversity.religion_text = 'Jedi'
@@ -18,7 +27,8 @@ RSpec.describe Diversity, type: :model do
     end
   end
 
-  describe 'send_the_data to ET API' do
+  describe 'send_the_data to ET API', clean_with_truncation: true do
+    include_context 'with transactions off'
     before do
       allow(SecureRandom).to receive(:uuid).and_return uuid
     end
