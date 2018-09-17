@@ -31,17 +31,17 @@ feature 'Guide', type: :feature do
     end
 
     scenario "User can click time time_limits_link" do
-      expect(page).to have_link(time_limits_link, href: (guide_path + time_limits_div).to_s)
+      expect(page).to have_link(time_limits_link, href: ("?locale=en" + time_limits_div).to_s)
       expect(page.find(time_limits_div)).not_to be_nil
     end
 
     scenario "User can click time acas_link" do
-      expect(page).to have_link(acas_link, href: (guide_path + acas_div).to_s)
+      expect(page).to have_link(acas_link, href: ("?locale=en" + acas_div).to_s)
       expect(page.find(acas_div)).not_to be_nil
     end
 
     scenario "User can click time acas_exceptions_link" do
-      expect(page).to have_link(acas_exceptions_link, href: (guide_path + acas_exceptions_div).to_s)
+      expect(page).to have_link(acas_exceptions_link, href: ("?locale=en" + acas_exceptions_div).to_s)
       expect(page.find(acas_exceptions_div)).not_to be_nil
     end
 
