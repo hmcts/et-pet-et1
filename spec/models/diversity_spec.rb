@@ -6,10 +6,10 @@ RSpec.describe Diversity, type: :model do
 
   shared_context 'with transactions off' do
     around do |example|
-      old = use_transactional_fixtures
-      self.use_transactional_fixtures = false
+      old = use_transactional_tests
+      self.use_transactional_tests = false
       example.run
-      self.use_transactional_fixtures = old
+      self.use_transactional_tests = old
     end
   end
 
