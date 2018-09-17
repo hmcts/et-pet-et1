@@ -6,12 +6,10 @@ RSpec.describe Diversity, type: :model do
 
   shared_context 'with transactions off' do
     around do |example|
-      DatabaseCleaner.strategy = :truncation
       old = use_transactional_fixtures
       self.use_transactional_fixtures = false
       example.run
       self.use_transactional_fixtures = old
-      DatabaseCleaner.strategy = :transaction
     end
   end
 
@@ -29,7 +27,7 @@ RSpec.describe Diversity, type: :model do
     end
   end
 
-  describe 'send_the_data to ET API' do
+  describe 'send_the_data to ET API', clean_with_truncation: true do
     include_context 'with transactions off'
     before do
       allow(SecureRandom).to receive(:uuid).and_return uuid
