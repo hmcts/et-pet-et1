@@ -4,6 +4,7 @@ fieldset
 
   = f.input :of_collection_type,
     as: :radio_buttons,
+    include_hidden: false,
     label: false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
@@ -46,6 +47,7 @@ fieldset
                   label:false,
                   collection: RespondentForm::NO_ACAS_REASON,
                   as: :radio_buttons,
+                  include_hidden: false,
                   required: true,
                   item_wrapper_class: 'block-label large-label'
                 span.form-hint.toggle-content.reveal-acas-hint = t '.no_acas_number_note_two'

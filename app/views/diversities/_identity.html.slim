@@ -1,6 +1,7 @@
 fieldset
   = f.input :sex,
     as: :radio_buttons,
+    include_hidden: false,
     collection: Diversities::IdentityForm::SEX,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.sex.hint'), input_html: {class: 'govuk-radios__input'}
@@ -8,6 +9,7 @@ fieldset
 fieldset
   = f.input :gender,
     as: :radio_buttons,
+    include_hidden: false,
     collection: Diversities::IdentityForm::GENDER,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.gender.hint'), input_html: {class: 'govuk-radios__input'}
@@ -15,6 +17,7 @@ fieldset
 fieldset
   = f.input :gender_at_birth,
     as: :radio_buttons,
+    include_hidden: false,
     collection: Diversities::IdentityForm::GENDER_AT_BIRTH,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.gender_at_birth.hint'), input_html: {class: 'govuk-radios__input'}
@@ -22,6 +25,7 @@ fieldset
 fieldset
   = f.input :sexual_identity,
     as: :radio_buttons,
+    include_hidden: false,
     collection: Diversities::IdentityForm::SEXUAL_IDENTITY,
     item_wrapper_class: 'govuk-radios__item',
     label: t('.sexual_identity.hint'), input_html: {class: 'govuk-radios__input'}
