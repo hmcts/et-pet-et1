@@ -61,6 +61,7 @@ fieldset
   legend= t '.whistleblowing'
   = f.input :is_whistleblowing,
     as: :radio_buttons,
+    include_hidden: false,
     item_wrapper_class: 'block-label',
     input_html: { class: 'reveal-publish-publisher ga-vpv'},
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
@@ -69,6 +70,7 @@ fieldset
 
   = f.input :send_claim_to_whistleblowing_entity,
     as: :radio_buttons,
+    include_hidden: false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'panel-indent toggle-content',
     input_html: { class: 'ga-vpv'},

@@ -3,6 +3,7 @@ fieldset
   p = t('.conditions')
   = f.input :disability,
     as: :radio_buttons,
+    include_hidden: false,
     collection: Diversities::DisabilityForm::DISABILITY,
     item_wrapper_class: 'govuk-radios__item',
     label: false, input_html: {class: 'govuk-radios__input'}

@@ -2,6 +2,7 @@ fieldset.profile_selection
   legend = t('.profile_type')
   = f.input :profile_type,
           as: :radio_buttons,
+          include_hidden: false,
           label: false,
           required: true,
           item_wrapper_tag: :div,

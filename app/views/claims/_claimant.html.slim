@@ -4,10 +4,12 @@ fieldset
   = render partial: 'personal_details', locals: { f: f }
 
   = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
-    item_wrapper_class: 'block-label'
+    item_wrapper_class: 'block-label',
+    include_hidden: false
 
   = f.input :has_special_needs,
     as: :radio_buttons,
+    include_hidden: false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'form-group-reveal reveal-publish-delegate',
     input_html: { :class => 'reveal-publish-publisher ga-vpv'},
@@ -34,4 +36,5 @@ fieldset
     = f.input :contact_preference,
       collection: ClaimantForm::CONTACT_PREFERENCES,
       as: :radio_buttons,
+      include_hidden: false,
       item_wrapper_class: 'block-label'
