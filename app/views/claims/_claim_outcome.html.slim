@@ -4,7 +4,6 @@ fieldset
   = f.input :desired_outcomes,
     collection: Claim::DESIRED_OUTCOMES,
     as: :check_boxes,
-    include_hidden: false,
     item_wrapper_class: 'block-label'
 
   = f.input :other_outcome,

@@ -33,7 +33,6 @@ fieldset.acas
   = f.input :acas_early_conciliation_certificate_number, hint: t('.acas_early_conciliation_certificate_number_html', path:guide_path), required: true, label: false
   = f.input :no_acas_number,
     as: :gds_check_boxes,
-    include_hidden: false,
     required: true,
     wrapper_class: 'reveal-publish-delegate clearfix options',
     input_html: { :class => 'reveal-publish-publisher ga-vpv',
