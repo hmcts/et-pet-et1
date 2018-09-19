@@ -10,14 +10,14 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
 
     it { expect(additional_claimant).to validate_inclusion_of(:title).in_array ['mr', 'mrs', 'miss', 'ms'] }
 
-    it { expect(additional_claimant).to ensure_length_of(:first_name).is_at_most(100) }
-    it { expect(additional_claimant).to ensure_length_of(:last_name).is_at_most(100) }
+    it { expect(additional_claimant).to validate_length_of(:first_name).is_at_most(100) }
+    it { expect(additional_claimant).to validate_length_of(:last_name).is_at_most(100) }
 
-    it { expect(additional_claimant).to ensure_length_of(:address_building).is_at_most(75) }
-    it { expect(additional_claimant).to ensure_length_of(:address_street).is_at_most(75) }
-    it { expect(additional_claimant).to ensure_length_of(:address_locality).is_at_most(25) }
-    it { expect(additional_claimant).to ensure_length_of(:address_county).is_at_most(25) }
-    it { expect(additional_claimant).to ensure_length_of(:address_post_code).is_at_most(8) }
+    it { expect(additional_claimant).to validate_length_of(:address_building).is_at_most(75) }
+    it { expect(additional_claimant).to validate_length_of(:address_street).is_at_most(75) }
+    it { expect(additional_claimant).to validate_length_of(:address_locality).is_at_most(25) }
+    it { expect(additional_claimant).to validate_length_of(:address_county).is_at_most(25) }
+    it { expect(additional_claimant).to validate_length_of(:address_post_code).is_at_most(8) }
   end
 
   context "claimant with target" do

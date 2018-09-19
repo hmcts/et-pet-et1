@@ -145,32 +145,6 @@ feature 'Multiple claimants', js: true do
         end
       end
     end
-
-    scenario "display DoB format error message", js: false do
-      expect(page).not_to have_selector '#resource_1'
-
-      click_button "Add more claimants"
-      expect(page).to have_selector '#resource_1'
-
-      within '#resource_1' do
-        fill_in 'Day', with: '1'
-        fill_in 'Month', with: '1'
-        fill_in 'Year', with: '99'
-      end
-
-      click_button "Save and continue"
-      expect(page).to have_text("Provide information in the highlighted fields")
-
-      within '#resource_1' do
-        expect(page).to have_text("Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)")
-        expect(page).not_to have_text("Claimant must be 16 years of age or over")
-      end
-
-      within '#resource_0' do
-        expect(page).not_to have_text("Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)")
-        expect(page).not_to have_text("Claimant must be 16 years of age or over")
-      end
-    end
   end
 
   describe 'destroying claimants' do

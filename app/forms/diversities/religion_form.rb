@@ -5,7 +5,7 @@ module Diversities
                 "buddhist", "hindu", "jewish", "muslim", "sikh",
                 "prefer-not-to-say", "any-other-religion"].freeze
 
-    attribute :religion, String
-    attribute :religion_text, String
+    attribute :religion, :string
+    attribute :religion_text, :string
   end
 end

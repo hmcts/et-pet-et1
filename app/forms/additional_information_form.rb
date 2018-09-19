@@ -1,6 +1,6 @@
 class AdditionalInformationForm < Form
   boolean   :has_miscellaneous_information
-  attribute :miscellaneous_information, String
+  attribute :miscellaneous_information, :string
 
   before_validation :reset_miscellaneous_information!,
     unless: :has_miscellaneous_information?

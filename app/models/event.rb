@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   CREATED                     = 'created'.freeze
   LOGIN                       = 'login'.freeze
   LOGOUT                      = 'logout'.freeze

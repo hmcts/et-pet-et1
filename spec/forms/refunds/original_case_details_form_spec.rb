@@ -17,7 +17,7 @@ module Refunds
       }.merge(address_attributes)
     end
     let(:session_attributes) { Refund.new(refund_attributes).attributes.to_h }
-    let(:refund_session) { double('Session', session_attributes) }
+    let(:refund_session) { Session.new session_attributes }
 
     let(:form) { described_class.new(refund_session) }
 

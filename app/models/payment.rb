@@ -1,3 +1,3 @@
-class Payment < ActiveRecord::Base
-  belongs_to :claim
+class Payment < ApplicationRecord
+  belongs_to :claim, optional: true
 end

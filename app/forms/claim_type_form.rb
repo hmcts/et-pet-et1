@@ -1,13 +1,13 @@
 class ClaimTypeForm < Form
   boolean :is_other_type_of_claim
 
-  attribute :is_unfair_dismissal,                 Boolean
-  attribute :is_protective_award,                 Boolean
-  attribute :discrimination_claims,               Array[String]
-  attribute :pay_claims,                          Array[String]
-  attribute :is_whistleblowing,                   Boolean
-  attribute :send_claim_to_whistleblowing_entity, Boolean
-  attribute :other_claim_details,                 String
+  attribute :is_unfair_dismissal,                 :boolean
+  attribute :is_protective_award,                 :boolean
+  attribute :discrimination_claims,               :array_of_strings_type
+  attribute :pay_claims,                          :array_of_strings_type
+  attribute :is_whistleblowing,                   :boolean
+  attribute :send_claim_to_whistleblowing_entity, :boolean
+  attribute :other_claim_details,                 :string
 
   before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
   validate :presence_of_at_least_one_claim_type

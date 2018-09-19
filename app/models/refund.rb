@@ -1,4 +1,10 @@
-class Refund < ActiveRecord::Base
+class Refund < ApplicationRecord
+  attribute :applicant_date_of_birth, :gds_date_type
+  attribute :et_issue_fee_payment_date, :gds_date_type
+  attribute :et_hearing_fee_payment_date, :gds_date_type
+  attribute :et_reconsideration_fee_payment_date, :gds_date_type
+  attribute :eat_issue_fee_payment_date, :gds_date_type
+  attribute :eat_hearing_fee_payment_date, :gds_date_type
   REFERENCE_START = 1000000
 
   def generate_application_reference

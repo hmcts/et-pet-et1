@@ -17,7 +17,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
         it 'creates a login event' do
           expect(claim).to receive(:create_event)
-          post :create, user_session: { reference: 'lel', password: 'lewl' }
+          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
         end
       end
 
@@ -26,7 +26,7 @@ RSpec.describe UserSessionsController, type: :controller do
 
         it 'does not creates a login event' do
           expect(claim).not_to receive(:create_event)
-          post :create, user_session: { reference: 'lel', password: 'lewl' }
+          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
         end
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe UserSessionsController, type: :controller do
         context 'when sending email' do
           it 'logs an email event' do
             expect(claim).to receive(:create_event).with 'deliver_access_details', message: "Sent to #{email}"
-            delete :destroy, user_session: { email_address: email }
+            delete :destroy, params: { user_session: { email_address: email } }
           end
         end
 

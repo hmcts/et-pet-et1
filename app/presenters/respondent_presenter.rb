@@ -1,4 +1,5 @@
 class RespondentPresenter < Presenter
+  PRESENTED_METHODS = [:name, :address, :telephone_number, :acas_early_conciliation_certificate_number, :work_address].freeze
   present :name
 
   def address
@@ -24,10 +25,12 @@ class RespondentPresenter < Presenter
   private
 
   def items
+    # NOTE: For some unexplained reason, using the standard 'instance_methods'
+    # way of getting 'items' comes out in a different order in OSX - hence these are defined in a constant
     if target.worked_at_same_address?
-      super.tap { |s| s.delete :work_address }
+      PRESENTED_METHODS.dup.tap { |s| s.delete :work_address }
     else
-      super
+      PRESENTED_METHODS
     end
   end
 end

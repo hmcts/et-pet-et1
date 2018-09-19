@@ -7,7 +7,7 @@ class FeedbackController < ApplicationController
   end
 
   def resource
-    @resource ||= FeedbackForm.new
+    @resource ||= FeedbackForm.new({})
   end
 
   helper_method :resource

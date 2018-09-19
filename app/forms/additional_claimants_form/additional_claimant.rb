@@ -8,13 +8,13 @@ class AdditionalClaimantsForm
 
     delegate :id, :id=, to: :resource
 
-    attribute :first_name,    String
-    attribute :last_name,     String
-    attribute :date_of_birth, Date
-    attribute :title,         String
+    attribute :first_name,    :string
+    attribute :last_name,     :string
+    attribute :date_of_birth, :gds_date_type
+    attribute :title,         :string
 
     booleans   :has_special_needs, :has_representative
-    dates      :date_of_birth
+    validates  :date_of_birth, date: true
 
     validates :title, inclusion: { in: TITLES }
     validates :title, :first_name, :last_name, presence: true

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Claim, type: :claim do
+RSpec.describe Claim, type: [:claim, :model] do
   it { is_expected.to have_secure_password }
 
   it { is_expected.to have_many(:claimants).dependent(:destroy) }

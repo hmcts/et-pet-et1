@@ -1,4 +1,4 @@
-class RemoveIsClaimantFromRefunds < ActiveRecord::Migration
+class RemoveIsClaimantFromRefunds < ActiveRecord::Migration[4.2]
   def up
     remove_column :refunds, :is_claimant
   end

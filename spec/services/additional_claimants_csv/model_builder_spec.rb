@@ -16,7 +16,7 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
       address_locality: "motown",
       address_county: "county",
       address_post_code: "se17nx"
-    }
+    }.stringify_keys
   }
 
   describe "attributes constant" do

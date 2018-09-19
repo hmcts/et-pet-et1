@@ -1,4 +1,4 @@
-class ChangeNulsInRefunds < ActiveRecord::Migration
+class ChangeNulsInRefunds < ActiveRecord::Migration[4.2]
   def change
     change_column_null :refunds, :email_address, false
     change_column_null :refunds, :application_reference, false

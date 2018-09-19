@@ -13,17 +13,17 @@ class ClaimantForm < Form
     post_code: true, length: { maximum: POSTCODE_LENGTH },
     unless: :international_address?
 
-  attribute :first_name,         String
-  attribute :last_name,          String
-  attribute :date_of_birth,      Date
-  attribute :address_country,    String
-  attribute :mobile_number,      String
-  attribute :fax_number,         String
-  attribute :email_address,      String
-  attribute :special_needs,      String
-  attribute :title,              String
-  attribute :gender,             String
-  attribute :contact_preference, String
+  attribute :first_name,         :string
+  attribute :last_name,          :string
+  attribute :date_of_birth,      :gds_date_type
+  attribute :address_country,    :string
+  attribute :mobile_number,      :string
+  attribute :fax_number,         :string
+  attribute :email_address,      :string
+  attribute :special_needs,      :string
+  attribute :title,              :string
+  attribute :gender,             :string
+  attribute :contact_preference, :string
 
   boolean   :has_special_needs
 
@@ -47,10 +47,10 @@ class ClaimantForm < Form
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 
-  dates :date_of_birth
+  validates :date_of_birth, date: true
 
   def contact_preference
-    (super || "").inquiry
+    (read_attribute(:contact_preference) || "").inquiry
   end
 
   def has_special_needs
@@ -62,11 +62,11 @@ class ClaimantForm < Form
   end
 
   def first_name=(name)
-    super name.try :strip
+    write_attribute :first_name, name.try(:strip)
   end
 
   def last_name=(name)
-    super name.try :strip
+    write_attribute :last_name, name.try(:strip)
   end
 
   private

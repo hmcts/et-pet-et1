@@ -1,8 +1,8 @@
 class AdditionalClaimantsUploadForm < Form
   boolean :has_additional_claimants
 
-  attribute :additional_claimants_csv,        AttachmentUploader
-  attribute :remove_additional_claimants_csv, Boolean
+  attribute :additional_claimants_csv,        :attachment_uploader_type
+  attribute :remove_additional_claimants_csv, :boolean
 
   delegate :additional_claimants_csv_cache, :additional_claimants_csv_cache=,
     :additional_claimants_csv_record_count=, :remove_additional_claimants_csv!,

@@ -22,15 +22,15 @@ module AddressAttributes
       const_set :POSTCODE_LENGTH,     8
 
       included do
-        attribute :address_building,         String
-        attribute :address_street,           String
-        attribute :address_locality,         String
-        attribute :address_county,           String
-        attribute :address_post_code,        String
-        attribute :address_telephone_number, String
+        attribute :address_building,         :string
+        attribute :address_street,           :string
+        attribute :address_locality,         :string
+        attribute :address_county,           :string
+        attribute :address_post_code,        :string
+        attribute :address_telephone_number, :string
 
         validates :address_building, :address_street, :address_locality,
-          :address_county, :address_post_code, presence: true
+                  :address_county, :address_post_code, presence: true
 
         validates :address_building, :address_street, length: { maximum: ADDRESS_LINE_LENGTH }
         validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }
@@ -38,5 +38,4 @@ module AddressAttributes
       end
     end
   end
-  # rubocop:enable MethodLength
 end

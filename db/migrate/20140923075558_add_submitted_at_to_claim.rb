@@ -1,4 +1,4 @@
-class AddSubmittedAtToClaim < ActiveRecord::Migration
+class AddSubmittedAtToClaim < ActiveRecord::Migration[4.2]
   def change
     add_column :claims, :submitted_at, :datetime
   end

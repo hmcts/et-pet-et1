@@ -1,4 +1,4 @@
-class CreateDiversities < ActiveRecord::Migration
+class CreateDiversities < ActiveRecord::Migration[4.2]
   def change
     create_table :diversities do |t|
       t.string :claim_type

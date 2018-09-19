@@ -18,13 +18,13 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
       it { expect(additional_respondent).to validate_presence_of(attr) }
     end
 
-    it { expect(additional_respondent).to ensure_length_of(:name).is_at_most(100) }
+    it { expect(additional_respondent).to validate_length_of(:name).is_at_most(100) }
 
-    it { expect(additional_respondent).to ensure_length_of(:address_building).is_at_most(75) }
-    it { expect(additional_respondent).to ensure_length_of(:address_street).is_at_most(75) }
-    it { expect(additional_respondent).to ensure_length_of(:address_locality).is_at_most(25) }
-    it { expect(additional_respondent).to ensure_length_of(:address_county).is_at_most(25) }
-    it { expect(additional_respondent).to ensure_length_of(:address_post_code).is_at_most(8) }
+    it { expect(additional_respondent).to validate_length_of(:address_building).is_at_most(75) }
+    it { expect(additional_respondent).to validate_length_of(:address_street).is_at_most(75) }
+    it { expect(additional_respondent).to validate_length_of(:address_locality).is_at_most(25) }
+    it { expect(additional_respondent).to validate_length_of(:address_county).is_at_most(25) }
+    it { expect(additional_respondent).to validate_length_of(:address_post_code).is_at_most(8) }
 
     describe 'presence of ACAS certificate number' do
       describe 'when ACAS number is indicated' do

@@ -50,18 +50,18 @@ RSpec.describe RepresentativeForm, type: :form do
            'solicitor', 'private_individual', 'trade_association', 'other']
       end
 
-      it { expect(representative_form).to ensure_length_of(:name).is_at_most(100) }
-      it { expect(representative_form).to ensure_length_of(:organisation_name).is_at_most(100) }
+      it { expect(representative_form).to validate_length_of(:name).is_at_most(100) }
+      it { expect(representative_form).to validate_length_of(:organisation_name).is_at_most(100) }
 
-      it { expect(representative_form).to ensure_length_of(:address_building).is_at_most(75) }
-      it { expect(representative_form).to ensure_length_of(:address_street).is_at_most(75) }
-      it { expect(representative_form).to ensure_length_of(:address_locality).is_at_most(25) }
-      it { expect(representative_form).to ensure_length_of(:address_county).is_at_most(25) }
-      it { expect(representative_form).to ensure_length_of(:address_post_code).is_at_most(8) }
+      it { expect(representative_form).to validate_length_of(:address_building).is_at_most(75) }
+      it { expect(representative_form).to validate_length_of(:address_street).is_at_most(75) }
+      it { expect(representative_form).to validate_length_of(:address_locality).is_at_most(25) }
+      it { expect(representative_form).to validate_length_of(:address_county).is_at_most(25) }
+      it { expect(representative_form).to validate_length_of(:address_post_code).is_at_most(8) }
 
-      it { expect(representative_form).to ensure_length_of(:address_telephone_number).is_at_most(21) }
-      it { expect(representative_form).to ensure_length_of(:mobile_number).is_at_most(21) }
-      it { expect(representative_form).to ensure_length_of(:dx_number).is_at_most(40) }
+      it { expect(representative_form).to validate_length_of(:address_telephone_number).is_at_most(21) }
+      it { expect(representative_form).to validate_length_of(:mobile_number).is_at_most(21) }
+      it { expect(representative_form).to validate_length_of(:dx_number).is_at_most(40) }
 
     end
 

@@ -7,9 +7,9 @@ module Diversities
     GENDER = ["male-including-female-to-male-trans-men", "female-including-male-to-female-trans-women",
               "prefer-not-to-say"].freeze
 
-    attribute :sex, String
-    attribute :sexual_identity, String
-    attribute :gender_at_birth, String
-    attribute :gender, String
+    attribute :sex, :string
+    attribute :sexual_identity, :string
+    attribute :gender_at_birth, :string
+    attribute :gender, :string
   end
 end

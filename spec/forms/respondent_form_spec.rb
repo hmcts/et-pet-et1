@@ -27,21 +27,21 @@ RSpec.describe RespondentForm, type: :form do
       it { expect(respondent_form).to validate_presence_of(attr) }
     end
 
-    it { expect(respondent_form).to ensure_length_of(:name).is_at_most(100) }
+    it { expect(respondent_form).to validate_length_of(:name).is_at_most(100) }
 
-    it { expect(respondent_form).to ensure_length_of(:address_building).is_at_most(75) }
-    it { expect(respondent_form).to ensure_length_of(:address_street).is_at_most(75) }
-    it { expect(respondent_form).to ensure_length_of(:address_locality).is_at_most(25) }
-    it { expect(respondent_form).to ensure_length_of(:address_county).is_at_most(25) }
-    it { expect(respondent_form).to ensure_length_of(:address_post_code).is_at_most(8) }
-    it { expect(respondent_form).to ensure_length_of(:address_telephone_number).is_at_most(21) }
+    it { expect(respondent_form).to validate_length_of(:address_building).is_at_most(75) }
+    it { expect(respondent_form).to validate_length_of(:address_street).is_at_most(75) }
+    it { expect(respondent_form).to validate_length_of(:address_locality).is_at_most(25) }
+    it { expect(respondent_form).to validate_length_of(:address_county).is_at_most(25) }
+    it { expect(respondent_form).to validate_length_of(:address_post_code).is_at_most(8) }
+    it { expect(respondent_form).to validate_length_of(:address_telephone_number).is_at_most(21) }
 
-    it { expect(respondent_form).to ensure_length_of(:work_address_building).is_at_most(75) }
-    it { expect(respondent_form).to ensure_length_of(:work_address_street).is_at_most(75) }
-    it { expect(respondent_form).to ensure_length_of(:work_address_locality).is_at_most(25) }
-    it { expect(respondent_form).to ensure_length_of(:work_address_county).is_at_most(25) }
-    it { expect(respondent_form).to ensure_length_of(:work_address_post_code).is_at_most(8) }
-    it { expect(respondent_form).to ensure_length_of(:work_address_telephone_number).is_at_most(21) }
+    it { expect(respondent_form).to validate_length_of(:work_address_building).is_at_most(75) }
+    it { expect(respondent_form).to validate_length_of(:work_address_street).is_at_most(75) }
+    it { expect(respondent_form).to validate_length_of(:work_address_locality).is_at_most(25) }
+    it { expect(respondent_form).to validate_length_of(:work_address_county).is_at_most(25) }
+    it { expect(respondent_form).to validate_length_of(:work_address_post_code).is_at_most(8) }
+    it { expect(respondent_form).to validate_length_of(:work_address_telephone_number).is_at_most(21) }
 
     describe 'presence of work address' do
       describe "when respondent didn't work at a different address" do

@@ -22,7 +22,7 @@ RSpec.describe PaymentsController do
         it 'logs an event' do
           expect(claim).to receive(:create_event).with 'payment_received'
 
-          get :success,
+          get :success, params: {
             'orderID' => '511234567800',
             'amount' => '250',
             'PM' => 'CreditCard',
@@ -34,6 +34,7 @@ RSpec.describe PaymentsController do
             'NCERROR' => '0',
             'BRAND' => 'VISA',
             'SHASIGN' => 'A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+          }
         end
       end
 
@@ -43,7 +44,7 @@ RSpec.describe PaymentsController do
             expect(claim).to receive(:create_event).
               with 'payment_uncertain', message: /Status 52: Authorisation Not Known/
 
-            get :success,
+            get :success, params: {
               'orderID' => '511234567800',
               'amount' => '250',
               'PM' => 'CreditCard',
@@ -55,6 +56,7 @@ RSpec.describe PaymentsController do
               'NCERROR' => '0',
               'BRAND' => 'VISA',
               'SHASIGN' => '05D8A34BA87286420FB2FCBEE78DB1223FB241505CBA8DAED09D3D384235CAD2'
+            }
           end
         end
 
@@ -63,7 +65,7 @@ RSpec.describe PaymentsController do
             expect(claim).to receive(:create_event).
               with 'payment_uncertain', message: /Status 92: Payment Uncertain/
 
-            get :success,
+            get :success, params: {
               'orderID' => '511234567800',
               'amount' => '250',
               'PM' => 'CreditCard',
@@ -75,6 +77,7 @@ RSpec.describe PaymentsController do
               'NCERROR' => '0',
               'BRAND' => 'VISA',
               'SHASIGN' => '5C4888CBF89FD8005B22E106D8F3F1CD3453982D7475E78F724BB0951C27C27F'
+            }
           end
         end
 
@@ -83,7 +86,7 @@ RSpec.describe PaymentsController do
             expect(claim).to receive(:create_event).
               with 'payment_uncertain', message: /Status Code: 999/
 
-            get :success,
+            get :success, params: {
               'orderID' => '511234567800',
               'amount' => '250',
               'PM' => 'CreditCard',
@@ -95,6 +98,7 @@ RSpec.describe PaymentsController do
               'NCERROR' => '0',
               'BRAND' => 'VISA',
               'SHASIGN' => '2DD49AE6327E81A8CF8ADF95165BB440E28A6F4B21F9CF4EA83CC7CBBFB76D18'
+            }
           end
         end
       end
@@ -105,7 +109,7 @@ RSpec.describe PaymentsController do
         it 'logs an event' do
           expect(claim).to receive(:create_event).with 'payment_declined'
 
-          get :decline,
+          get :decline, params: {
             'orderID' => '511234567800',
             'amount' => '250',
             'PM' => 'CreditCard',
@@ -117,6 +121,7 @@ RSpec.describe PaymentsController do
             'NCERROR' => '0',
             'BRAND' => 'VISA',
             'SHASIGN' => 'A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+          }
         end
 
         it 'payment_response is not valid' do
@@ -125,7 +130,7 @@ RSpec.describe PaymentsController do
           message = "Failed to recognize payment order: 511234567800, status: 9"
           expect(Raven).to receive(:capture_exception).with(message)
 
-          get :decline,
+          get :decline, params: {
             'orderID' => '511234567800',
             'amount' => '250',
             'PM' => 'CreditCard',
@@ -137,6 +142,7 @@ RSpec.describe PaymentsController do
             'NCERROR' => '0',
             'BRAND' => 'VISA',
             'SHASIGN' => 'A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
+          }
         end
       end
     end

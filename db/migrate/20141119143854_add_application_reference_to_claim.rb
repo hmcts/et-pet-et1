@@ -1,4 +1,4 @@
-class AddApplicationReferenceToClaim < ActiveRecord::Migration
+class AddApplicationReferenceToClaim < ActiveRecord::Migration[4.2]
   class Claim < ActiveRecord::Base
     def generate_application_reference!
       update application_reference: ApplicationReference.generate

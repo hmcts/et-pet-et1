@@ -1,4 +1,4 @@
-class RenameProfileNumberAndChangeTypeInRefunds < ActiveRecord::Migration
+class RenameProfileNumberAndChangeTypeInRefunds < ActiveRecord::Migration[4.2]
   def up
     rename_column :refunds, :profile_number, :profile_type
     change_column :refunds, :profile_type, :string

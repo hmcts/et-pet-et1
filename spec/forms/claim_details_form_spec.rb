@@ -14,8 +14,8 @@ RSpec.describe ClaimDetailsForm, type: :form do
     end
 
     context 'character lengths' do
-      it { expect(claim_details_form).to ensure_length_of(:claim_details).is_at_most(2500) }
-      it { expect(claim_details_form).to ensure_length_of(:other_known_claimant_names).is_at_most(350) }
+      it { expect(claim_details_form).to validate_length_of(:claim_details).is_at_most(2500) }
+      it { expect(claim_details_form).to validate_length_of(:other_known_claimant_names).is_at_most(350) }
     end
   end
 

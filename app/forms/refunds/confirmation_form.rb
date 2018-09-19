@@ -1,7 +1,7 @@
 module Refunds
   class ConfirmationForm < Form
-    attribute :application_reference, String
-    attribute :submitted_at, Date
+    attribute :application_reference, :string
+    attribute :submitted_at, :gds_date_type
 
     def initialize(resource, &block)
       raise 'Session has no persisted refund' unless resource.respond_to?('_refund_id')

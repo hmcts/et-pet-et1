@@ -11,13 +11,13 @@ RSpec.describe ClaimantForm, type: :form do
       context 'when address_country is united_kingdom' do
         before { claimant_form.address_country = 'united_kingdom' }
 
-        it { expect(claimant_form).to ensure_length_of(:address_post_code).is_at_most(8) }
+        it { expect(claimant_form).to validate_length_of(:address_post_code).is_at_most(8) }
       end
 
       context 'when address_country is not united_kingdom' do
         before { claimant_form.address_country = 'other' }
 
-        it { expect(claimant_form).not_to ensure_length_of(:address_post_code).is_at_most(8) }
+        it { expect(claimant_form).not_to validate_length_of(:address_post_code).is_at_most(8) }
 
         it 'allows illegal (from a UK p.o.v) postcodes' do
           claimant_form.address_post_code = "obviously shabby"
@@ -36,17 +36,17 @@ RSpec.describe ClaimantForm, type: :form do
     it { expect(claimant_form).to validate_inclusion_of(:gender).in_array ['male', 'female', 'prefer_not_to_say'] }
     it { expect(claimant_form).to validate_inclusion_of(:contact_preference).in_array ['email', 'post'] }
 
-    it { expect(claimant_form).to ensure_length_of(:first_name).is_at_most(100) }
-    it { expect(claimant_form).to ensure_length_of(:last_name).is_at_most(100) }
+    it { expect(claimant_form).to validate_length_of(:first_name).is_at_most(100) }
+    it { expect(claimant_form).to validate_length_of(:last_name).is_at_most(100) }
 
-    it { expect(claimant_form).to ensure_length_of(:address_building).is_at_most(75) }
-    it { expect(claimant_form).to ensure_length_of(:address_street).is_at_most(75) }
-    it { expect(claimant_form).to ensure_length_of(:address_locality).is_at_most(25) }
-    it { expect(claimant_form).to ensure_length_of(:address_county).is_at_most(25) }
+    it { expect(claimant_form).to validate_length_of(:address_building).is_at_most(75) }
+    it { expect(claimant_form).to validate_length_of(:address_street).is_at_most(75) }
+    it { expect(claimant_form).to validate_length_of(:address_locality).is_at_most(25) }
+    it { expect(claimant_form).to validate_length_of(:address_county).is_at_most(25) }
     it { expect(claimant_form).to validate_inclusion_of(:address_country).in_array ['united_kingdom', 'other'] }
 
     [:address_telephone_number, :mobile_number, :fax_number].each do |number|
-      it { expect(claimant_form).to ensure_length_of(number).is_at_most(21) }
+      it { expect(claimant_form).to validate_length_of(number).is_at_most(21) }
     end
 
     ['email_address', 'fax_number'].each do |attribute|

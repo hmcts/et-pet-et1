@@ -1,4 +1,4 @@
-class CreateOfficeTable < ActiveRecord::Migration
+class CreateOfficeTable < ActiveRecord::Migration[4.2]
   def change
     create_table :offices do |t|
       t.integer :code

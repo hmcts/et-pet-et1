@@ -8,6 +8,6 @@ module Diversities
                     "formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved",
                     "surviving-partner-from-a-same-sex-civil-partnership", "prefer-not-to-say"].freeze
 
-    attribute :relationship, String
+    attribute :relationship, :string
   end
 end
