@@ -39,7 +39,7 @@ module PaymentGateway
     end
 
     def query_string
-      request.query_string.gsub(/locale=(en|cy)&/,'')
+      request.query_string.gsub(/locale=(en|cy)&/, '')
     end
   end
 end
