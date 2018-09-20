@@ -78,22 +78,22 @@ feature 'Terms' do
   end
 
   scenario "User can click applicable law responsible use link" do
-    expect(page).to have_link(applicable_law_responsible_use_link, href: (applicable_law_responsible_use_div).to_s)
+    expect(page).to have_link(applicable_law_responsible_use_link, href: applicable_law_responsible_use_div.to_s)
     expect(page.find(applicable_law_div)).not_to be_nil
   end
 
   scenario "User can click privacy policy link" do
-    expect(page).to have_link(privacy_policy_link, href: (privacy_policy_div).to_s)
+    expect(page).to have_link(privacy_policy_link, href: privacy_policy_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click data protection link" do
-    expect(page).to have_link(data_protection_link, href: (data_protection_div).to_s)
+    expect(page).to have_link(data_protection_link, href: data_protection_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
   scenario "User can click disclaimer link" do
-    expect(page).to have_link(disclaimer_link, href: (disclaimer_div).to_s)
+    expect(page).to have_link(disclaimer_link, href: disclaimer_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 end
