@@ -44,7 +44,8 @@ class Form < ApplicationRecord
     resource
   end
 
-  # @TODO This is used to provide a boolean which isn't technically an attribute so doesnt get output to the underlying resource
+  # @TODO This is used to provide a boolean which isn't technically
+  # an attribute so doesnt get output to the underlying resource
   def self.boolean(attr)
     define_method(attr) { instance_variable_get :"@#{attr}" }
 
@@ -60,11 +61,8 @@ class Form < ApplicationRecord
   # @TODO This is used just to do multiple booleans !!  (crazy)
   def self.booleans(*attrs)
     attrs.each(&method(:boolean))
-  end
+  end # This is requires as all the I18n translations are setup to use it
 
-
-
-  # This is requires as all the I18n translations are setup to use it
   # @TODO Decide whether to change or not
   def self.i18n_scope
     :activemodel
@@ -100,14 +98,12 @@ class Form < ApplicationRecord
     end
   end
 
-
   # Resource methods
 
   # Loads the form object with values from the target
   def reload
     attributes.each_key { |key| send "#{key}=", target.send(key) }
   end
-
 
   private
 
