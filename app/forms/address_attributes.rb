@@ -30,7 +30,7 @@ module AddressAttributes
         attribute :address_telephone_number, :string
 
         validates :address_building, :address_street, :address_locality,
-                  :address_county, :address_post_code, presence: true
+          :address_county, :address_post_code, presence: true
 
         validates :address_building, :address_street, length: { maximum: ADDRESS_LINE_LENGTH }
         validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }

@@ -74,22 +74,26 @@ RSpec.describe Jadu::Claim, type: :service do
         expect { Jadu::Claim.create claim }.to raise_error StandardError
       end
 
-      it 'creates a log event' do
-        expect(claim).to receive(:create_event).with 'rejected_by_jadu', message: "1 herp derp"
-        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
+      # rubocop:disable RSpec/AnyInstance
+      context 'raise erro' do
+        before { allow_any_instance_of(Jadu::Claim).to receive(:request_error) }
+
+        it 'creates a log event' do
+          expect(claim).to receive(:create_event).with 'rejected_by_jadu', message: "1 herp derp"
+          Jadu::Claim.create claim
+        end
+
+        it 'does not update the claim' do
+          expect(claim).not_to receive(:update)
+          Jadu::Claim.create claim
+        end
+
+        it 'does not finalize the claim' do
+          expect(claim).not_to receive(:finalize!)
+          Jadu::Claim.create claim
+        end
       end
-
-      it 'does not update the claim' do
-        expect(claim).not_to receive(:update)
-
-        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
-      end
-
-      it 'does not finalize the claim' do
-        expect(claim).not_to receive(:finalize!)
-
-        expect { Jadu::Claim.create claim }.to raise_error(StandardError)
-      end
+      # rubocop:enable RSpec/AnyInstance
     end
 
     describe 'on success' do
