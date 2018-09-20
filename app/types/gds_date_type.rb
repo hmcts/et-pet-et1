@@ -42,7 +42,6 @@ class GdsDateType < ActiveRecord::Type::Date
       value = value.stringify_keys if value.respond_to?(:stringify_keys)
       begin
         super 1 => value['year'], 2 => value['month'], 3 => value['day']
-
       rescue ArgumentError
         value
       end

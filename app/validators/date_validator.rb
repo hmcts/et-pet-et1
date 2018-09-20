@@ -1,4 +1,5 @@
-# @TODO This class can be much simpler once we are not worrying about values being hashes, strings etc.. (once all forms are converted to NullDbForm)
+# @TODO This class can be much simpler once we are not worrying about values being hashes,
+# strings etc.. (once all forms are converted to NullDbForm)
 class DateValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     if coercion_failed?(value, attribute, record) || non_empty_string?(value, attribute, record) || illegal_year?(value)
@@ -14,8 +15,6 @@ class DateValidator < ActiveModel::EachValidator
     original_value = read_attribute_before_type_cast(record, attribute, default: value)
     (value.nil? && original_value.is_a?(Hash) && original_value.values.any?(&:present?)) || value.is_a?(Hash)
   end
-
-
 
   def non_empty_string?(value, attribute, record)
     # Strings can be passed in the date field when uploading a CSV
