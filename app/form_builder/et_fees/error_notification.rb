@@ -15,7 +15,7 @@ module ETFees
     private
 
     def errors_blank?(errors)
-      errors.all? do |k, v|
+      errors.all? do |_k, v|
         (v.is_a?(ActiveModel::Errors) && errors_blank?(v)) || (v && v.empty? && !v.is_a?(String))
       end
     end

@@ -1,5 +1,6 @@
 class RespondentPresenter < Presenter
-  PRESENTED_METHODS = [:name, :address, :telephone_number, :acas_early_conciliation_certificate_number, :work_address].freeze
+  PRESENTED_METHODS = [:name, :address, :telephone_number,
+                       :acas_early_conciliation_certificate_number, :work_address].freeze
   present :name
 
   def address
