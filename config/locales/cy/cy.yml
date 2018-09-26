@@ -178,7 +178,21 @@ cy:
       additional_claimants:
         of_collection_type: |
           A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
-        collection: ""
+        collection:
+          first_name: Enw cyntaf
+          last_name: Enw olaf
+          title: Teitl
+          date_of_birth:
+            day: "Diwrnod"
+            month: "Mis"
+            year: "Blwyddyn"
+          address_building: Rhif neu enw'r adeilad
+          address_locality: Tref/dinas
+          address_street: Stryd
+          address_county: Sir
+          address_post_code: Cod post
+          address_country: Gwlad
+
 
       additional_claimants_upload:
         has_additional_claimants: "Ydych chi eisiau uwchlwytho manylion 6 hawlydd neu fwy?"
@@ -222,7 +236,30 @@ cy:
 
       additional_respondents:
         of_collection_type: "Ydych chi'n gwneud hawliad yn erbyn cyflogwr, unigolyn neu sefydliad arall?"
-        collection: ""
+        collection:
+          name: Enw'r atebydd
+          first_name: Enw cyntaf
+          last_name: Enw olaf
+          title: Teitl
+          date_of_birth:
+            day: "Diwrnod"
+            month: "Mis"
+            year: "Blwyddyn"
+          address_building: Rhif neu enw'r adeilad
+          address_locality: Tref/dinas
+          address_street: Stryd
+          address_county: Sir
+          address_post_code: Cod post
+          address_country: Gwlad
+          acas_early_conciliation_certificate_number: Rhif Acas
+          no_acas_number: Nid oes gen i rif Acas
+          no_acas_number_reason:
+            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/hi rif tystysgrif cymodi cynnar Acas "
+            acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan "
+            employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas "
+            interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
+
+
 
       employment:
         job_title: Teitl swydd
@@ -234,6 +271,14 @@ cy:
         notice_pay_period_count: "Am faint o wythnosau neu fisoedd gawsoch chi dâl?"
         was_employed: "Ydych chi erioed wedi cael eich cyflogi gan yr unigolyn neu'r sefydliad yr ydych chi'n gwneud yr hawliad hwn yn ei erbyn?"
         new_job_gross_pay: Tâl y swydd newydd cyn treth
+        start_date:
+          day: "Diwrnod "
+          month: "Mis"
+          year: "Blwyddyn"
+        notice_period_end_date:
+          day: "Diwrnod"
+          month: "Mis"
+          year: "Blwyddyn"
 
       claim:
         is_unfair_dismissal: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
@@ -561,6 +606,7 @@ cy:
       work_address: "Rhowch fanylion eich cyfeiriad gwaith "
       acas_early_conciliation_certificate_number_html: |
         Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
+
     additional_respondents:
       no_acas_number_reason: "Pam nad oes gennych rif Acas?"
       header: Atebwyr ychwanegol
@@ -570,8 +616,8 @@ cy:
       add_fields: Ychwanegu atebydd arall
       remove_resource_link: "Dileu'r atebydd yma "
       additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na %{max} atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
-      no_acas_number_note_one: ""
-      no_acas_number_note_two: ""
+      no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
+      no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
 
 
     employment:
