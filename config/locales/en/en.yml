@@ -162,6 +162,15 @@ en:
           email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
+        first_name: First name
+        last_name: Last name
+        title: Title
+        date_of_birth:
+          day: Day
+          month: Month
+          year: Year
+
+
         mobile_number: Alternative phone or mobile number
         fax_number: Fax
         has_special_needs: Do you have a disability which means you require assistance at the tribunal hearing?
@@ -474,7 +483,7 @@ en:
       are_you_in_time:
         legend: Are you in time?
         body_html: |
-          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
+          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}#time_limits">Learn about when you can apply</a>.
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
@@ -483,7 +492,7 @@ en:
         legend: What you’ll need
         body_html: |
           <ul>
-            <li>your <a href="%{path}/#acas_early_conciliation">Acas early conciliation certificate number</a></li>
+            <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
     application_number:
