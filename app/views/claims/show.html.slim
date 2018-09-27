@@ -13,7 +13,7 @@ header.main-header role="banner"
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.error_notification
-      .form-fields
+      .form-fields lang= "#{I18n.locale}"
         = render current_step, f: f
       .form-actions
         = f.button :submit
