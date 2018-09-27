@@ -69,6 +69,11 @@ FactoryGirl.define do
       additional_claimants_csv_record_count 0
     end
 
+    trait :without_rtf do
+      claim_details_rtf nil
+    end
+
+
     trait :without_representative do
       representative nil
     end
@@ -108,6 +113,13 @@ FactoryGirl.define do
 
     trait :with_secondary_claimants do
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
+    end
+
+    trait :with_secondary_respondents do
+      after(:build) do |claim|
+        claim.secondary_respondents.build(attributes_for(:respondent))
+        claim.secondary_respondents.build(attributes_for(:respondent))
+      end
     end
 
     trait :payment_no_remission_payment_failed do

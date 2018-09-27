@@ -6,14 +6,13 @@ services:
       - "${DB_PORT:-5432}:5432"
   zalenium:
     image: "dosel/zalenium"
-    container_name: zalenium
     hostname: zalenium
     tty: true
     volumes:
       - /tmp/videos:/home/seluser/videos
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - 4444:4444
+      - "${SELENIUM_PORT:-4444}:4444"
     command: >
       start --desiredContainers 2
             --maxDockerSeleniumContainers 8

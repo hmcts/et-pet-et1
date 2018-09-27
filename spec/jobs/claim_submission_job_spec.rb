@@ -7,13 +7,13 @@ describe ClaimSubmissionJob, type: :job do
 
   before do
     allow(BaseMailer).to receive(:confirmation_email).with(claim).and_return mailer
-    allow(Jadu::Claim).to receive(:create).with claim
+    allow(EtApi).to receive(:create_claim).with claim
     allow(claim).to receive(:generate_pdf!)
   end
 
   describe '#perform' do
     it 'submits the claim' do
-      expect(Jadu::Claim).to receive(:create).with claim
+      expect(EtApi).to receive(:create_claim).with claim
       claim_submission_job.perform(claim)
     end
 

@@ -5,7 +5,7 @@ class ClaimSubmissionJob < ActiveJob::Base
     Rails.logger.info "Starting ClaimSubmissionJob"
 
     claim.generate_pdf!
-    Jadu::Claim.create claim
+    EtApi.create_claim claim
 
     if claim.confirmation_email_recipients?
       BaseMailer.confirmation_email(claim).deliver

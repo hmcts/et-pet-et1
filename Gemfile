@@ -61,6 +61,7 @@ group :test do
   gem 'site_prism', '~> 2.9'
   gem 'selenium-webdriver', '~> 3.14'
   gem 'rails-controller-testing', '~> 1.0'
+  gem 'climate_control', '~> 0.2'
 end
 
 group :production do
@@ -88,7 +89,6 @@ gem 'moj_template', '0.23.0'
 gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.4'
-gem 'representable', '2.3.0', require: 'representable/xml'
 gem 'simple_form', '~> 4.0'
 gem 'slim-rails', '~> 3.1'
 gem 'sidekiq', '~> 5.2.0'
