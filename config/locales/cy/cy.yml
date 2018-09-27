@@ -36,7 +36,8 @@ cy:
       representative:
         type: Dewiswch
       additional_claimants:
-        claimants: ""
+        collection:
+          title: Dewiswch
 
     options:
       claimant:
@@ -181,6 +182,7 @@ cy:
         contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
         _destroy: 'Dileu''r hawlydd yma'
         email_address: Cyfeiriad e-bost
+        gender: Rhywedd
 
       additional_claimants:
         of_collection_type: |
@@ -574,8 +576,8 @@ cy:
       csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a href=\"%{path}\" class=\"ga-event\">uwchlwytho eu manylion mewn taenlen ar wahân</a>."
 
     additional_claimants_upload:
-      header: ""
-      subheader: ""
+      header: "Hawliadau grŵp "
+      subheader: Unigolion sy'n gwneud hawliad gyda chi
       steps_header: Taenlen ar gyfer hawliad grŵp
       error_line: "Mae gwall wedi'i ddarganfod ar linell %{line_number} o'r ffeil sydd wedi cael ei huwchlwytho. "
       malformatted_csv: "Nid yw'r CSV wedi cael ei fformatio'n gywir. "
@@ -832,6 +834,10 @@ cy:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
             new_job_start_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+            gross_pay_period_type:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            net_pay_period_type:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
         password:
           attributes:
             password:
