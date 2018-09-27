@@ -1,0 +1,13 @@
+fieldset:lang(cy) .know-date-input div {
+  margin-right: 30px;
+}
+
+fieldset:lang(cy) .employment_notice_pay_period_type span,
+fieldset:lang(cy) .employment_gross_pay_period_type span,
+fieldset:lang(cy) .employment_net_pay_period_type span  {
+  display: block;
+  padding: 5px 30px 10px 30px !important;
+  input[type="radio"] {
+    margin-right: 10px;
+  }
+}
