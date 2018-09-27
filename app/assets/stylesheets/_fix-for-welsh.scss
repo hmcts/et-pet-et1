@@ -1,13 +1,21 @@
-fieldset:lang(cy) .know-date-input div {
+div.form-fields:lang(cy) .know-date-input div {
   margin-right: 30px;
 }
 
-fieldset:lang(cy) .employment_notice_pay_period_type span,
-fieldset:lang(cy) .employment_gross_pay_period_type span,
-fieldset:lang(cy) .employment_net_pay_period_type span  {
+div.form-fields:lang(cy) .employment_notice_pay_period_type span,
+div.form-fields:lang(cy) .employment_gross_pay_period_type span,
+div.form-fields:lang(cy) .employment_net_pay_period_type span  {
   display: block;
   padding: 5px 30px 10px 30px !important;
   input[type="radio"] {
     margin-right: 10px;
   }
+}
+
+div.form-fields:lang(cy) div.claim_type_discrimination_claims {
+  font-size: 17px;
+}
+
+div.main-section:lang(cy) .callout-confirmation {
+  width: 99%;
 }
