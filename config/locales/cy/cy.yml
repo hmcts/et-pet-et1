@@ -80,7 +80,13 @@ cy:
           interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
 
       additional_respondents:
-        collection: ""
+        collection:
+          no_acas_number_reason:
+            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/hi rif tystysgrif cymodi cynnar Acas "
+            acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan "
+            employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas "
+            interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
+
 
       employment:
         current_situation:
@@ -174,6 +180,7 @@ cy:
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu eich ffi (a elwir yn \"help i dalu ffioedd\")?"
         contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
         _destroy: 'Dileu''r hawlydd yma'
+        email_address: Cyfeiriad e-bost
 
       additional_claimants:
         of_collection_type: |
@@ -192,6 +199,7 @@ cy:
           address_county: Sir
           address_post_code: Cod post
           address_country: Gwlad
+          email_address: Cyfeiriad e-bost
 
 
       additional_claimants_upload:
@@ -213,6 +221,7 @@ cy:
         mobile_number: Rhif ffôn neu rif ffôn symudol arall
         dx_number: Rhif cyfnewid dogfennau (DX)
         contact_preference: Y ffordd orau i anfon gohebiaeth at eich cynrychiolydd
+        email_address: Cyfeiriad e-bost
 
       respondent:
         name: Enw'r atebydd
@@ -272,6 +281,10 @@ cy:
         was_employed: "Ydych chi erioed wedi cael eich cyflogi gan yr unigolyn neu'r sefydliad yr ydych chi'n gwneud yr hawliad hwn yn ei erbyn?"
         new_job_gross_pay: Tâl y swydd newydd cyn treth
         start_date:
+          day: "Diwrnod "
+          month: "Mis"
+          year: "Blwyddyn"
+        end_date:
           day: "Diwrnod "
           month: "Mis"
           year: "Blwyddyn"
