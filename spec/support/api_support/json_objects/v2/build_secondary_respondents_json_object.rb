@@ -5,7 +5,7 @@ module Et1
         class BuildSecondaryRespondentsJsonObject < Base
           include RSpec::Matchers
           include RSpec::Mocks::ArgumentMatchers
-          def has_valid_json_for_model?(collection, errors, indent: 1)
+          def has_valid_json_for_model?(collection, errors: [], indent: 1)
             expect(json).to include command: 'BuildSecondaryRespondents',
                                     uuid: instance_of(String)
             data_matchers = collection.map do |model|

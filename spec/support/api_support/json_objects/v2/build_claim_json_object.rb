@@ -6,9 +6,9 @@ module Et1
           include RSpec::Matchers
           include RSpec::Mocks::ArgumentMatchers
 
-          def has_valid_json_for_model?(claim, errors, indent: 1)
+          def has_valid_json_for_model?(claim, errors: [], indent: 1)
             employment = claim.employment
-            expect(json).to include case_type: claim.multiple_claimants? ? 'Multiple' : 'Single',
+            expect(json[:data]).to include case_type: claim.multiple_claimants? ? 'Multiple' : 'Single',
                                     claim_details: claim.claim_details,
                                     date_of_receipt: claim.submitted_at.strftime('%FT%T.%L%:z'),
                                     desired_outcomes: claim.desired_outcomes.map(&:to_s),

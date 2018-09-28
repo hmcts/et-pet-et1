@@ -5,7 +5,7 @@ module Et1
         class BuildPrimaryRepresentativeJsonObject < Base
           include RSpec::Matchers
           include RSpec::Mocks::ArgumentMatchers
-          def has_valid_json_for_model?(model, errors, indent: 1)
+          def has_valid_json_for_model?(model, errors: [], indent: 1)
             expect(json).to include command: 'BuildPrimaryRepresentative',
                                     uuid: instance_of(String)
             expect(RepresentativeJsonObject.new(json[:data])).to have_valid_json_for_model(model, errors: errors, indent: indent + 1)

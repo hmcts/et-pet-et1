@@ -5,7 +5,7 @@ module Et1
         class BuildPrimaryClaimantJsonObject < Base
           include RSpec::Matchers
           include RSpec::Mocks::ArgumentMatchers
-          def has_valid_json_for_model?(model, errors, indent: 1)
+          def has_valid_json_for_model?(model, errors: [], indent: 1)
             expect(json).to include command: 'BuildPrimaryClaimant',
                                     uuid: instance_of(String)
             expect(ClaimantJsonObject.new(json[:data])).to have_valid_json_for_model(model, errors: errors, indent: indent + 1)
