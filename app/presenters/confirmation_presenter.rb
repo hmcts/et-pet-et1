@@ -16,7 +16,12 @@ class ConfirmationPresenter < Presenter
     if attachment_filenames.empty?
       I18n.t 'claim_confirmations.show.no_attachments'
     else
-      attachment_filenames.map { |f| sanitize(f) }.join(file_separator)
+      names = []
+      attachment_filenames.each_with_index { |f, i|
+        names << sanitize(f)
+        names << tag('br') if i.even?
+      }
+      safe_join(names)
     end
   end
 
