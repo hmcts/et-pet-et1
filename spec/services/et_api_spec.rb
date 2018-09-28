@@ -35,10 +35,26 @@ RSpec.describe EtApi, type: :service do
         chain :for_db_data do |db_data|
           @db_data = db_data
         end
+        errors = []
 
         match do |actual|
+          errors = []
           json = JSON.parse(actual.body).deep_symbolize_keys[:data].detect { |command| command[:command] == expected_command }
           expect(json).to be_a_valid_api_command(expected_command).version(@version).for_db_data(@db_data)
+        rescue RSpec::Expectations::ExpectationNotMetError => err
+          errors << "Json did not contain valid api command for #{expected_command}"
+          errors.concat(err.message.lines.map { |l| "#{'  ' * 2}#{l.gsub(/\n\z/, '')}" })
+          false
+        end
+
+        failure_message do |actual|
+          "Expected sent request body to be a valid api command for #{expected_command} but it wasn't\n\nThe errors reported were: #{errors.join("\n")}"
+
+        end
+      end
+      matcher :contain_api_command do |expected_command|
+        match do |actual|
+          JSON.parse(actual.body).deep_symbolize_keys[:data].any? { |command| command[:command] == expected_command }
         end
       end
     end
@@ -58,23 +74,12 @@ RSpec.describe EtApi, type: :service do
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimantsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimDetailsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
     context 'with a claim with single claimant, single respondent and no representative' do
@@ -84,26 +89,16 @@ RSpec.describe EtApi, type: :service do
       include_context 'issue command before each'
       let(:example_claim) { create(:claim, :with_pdf, :without_representative, :no_attachments) }
 
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimantsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimDetailsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildPrimaryRepresentative') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
     context 'with a claim with multiple claimants, single respondent and a representative' do
@@ -113,28 +108,16 @@ RSpec.describe EtApi, type: :service do
       include_context 'issue command before each'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_claimants, :no_attachments) }
 
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildSecondaryClaimants').version('2').for_db_data(example_claim.secondary_claimants) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimantsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimDetailsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.to contain_valid_api_command('BuildSecondaryClaimants').version('2').for_db_data(example_claim.secondary_claimants) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
     context 'with a claim with single claimant, multiple respondents and a representative' do
@@ -144,28 +127,16 @@ RSpec.describe EtApi, type: :service do
       include_context 'issue command before each'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_respondents, :no_attachments) }
 
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildSecondaryRespondents').version('2').for_db_data(example_claim.secondary_respondents) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimantsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimDetailsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildSecondaryRespondents').version('2').for_db_data(example_claim.secondary_respondents) }
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
     context 'with a claim with multiple claimants via CSV, single respondent and a representative' do
@@ -175,27 +146,16 @@ RSpec.describe EtApi, type: :service do
       include_context 'issue command before each'
       let(:example_claim) { create(:claim, :without_rtf, :with_pdf) }
 
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaimantsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimDetailsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.to contain_valid_api_command('BuildClaimantsFile').version('2').for_db_data(example_claim.additional_claimants_csv) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
     context 'with a claim with single claimant, single respondent, a representative and an rtf file' do
@@ -205,27 +165,16 @@ RSpec.describe EtApi, type: :service do
       include_context 'issue command before each'
       let(:example_claim) { create(:claim, :with_pdf, :without_additional_claimants_csv) }
 
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it 'includes the json for claim, claimant, single respondent and a representative' do
-        # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys
-        aggregate_failures 'validate json content at top level' do
-          expect(json).to include uuid: instance_of(String), command: 'SerialSequence'
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaim')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryClaimant')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRespondent')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPrimaryRepresentative')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildPdfFile')
-          expect(json[:data]).to include hash_including(uuid: instance_of(String), command: 'BuildClaimDetailsFile')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryClaimants')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRespondents')
-          expect(json[:data]).not_to include hash_including(command: 'BuildSecondaryRepresentatives')
-          expect(json[:data]).not_to include hash_including(command: 'BuildClaimantsFile')
-        end
-      end
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.to contain_valid_api_command('BuildClaimDetailsFile').version('2').for_db_data(example_claim.claim_details_rtf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
     end
   end
 end
