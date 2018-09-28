@@ -6,7 +6,7 @@ json.data do
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
   json.jurisdiction claim.attracts_higher_fee? ? 2 : 1
-  json.office_code office.code
+  json.office_code office.try(:code)
   json.date_of_receipt claim.submitted_at
   json.other_known_claimant_names claim.other_known_claimant_names
   json.is_unfair_dismissal claim.is_unfair_dismissal
