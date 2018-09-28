@@ -17,10 +17,10 @@ class ConfirmationPresenter < Presenter
       I18n.t 'claim_confirmations.show.no_attachments'
     else
       names = []
-      attachment_filenames.each_with_index { |f, i|
+      attachment_filenames.each_with_index do |f, i|
         names << sanitize(f)
         names << tag('br') if i.even?
-      }
+      end
       safe_join(names)
     end
   end
