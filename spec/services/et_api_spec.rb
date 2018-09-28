@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EtApi, type: :service do
+  let(:errors) { [] }
   shared_context 'with api environment variable' do
     let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
     around do |example|
@@ -31,133 +32,62 @@ RSpec.describe EtApi, type: :service do
 
         # Assert
         json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildClaim' }[:data]
-        claim = example_claim
-        employment = example_claim.employment
-        expect(json).to include case_type: claim.multiple_claimants? ? 'Multiple' : 'Single',
-                                claim_details: claim.claim_details,
-                                date_of_receipt: claim.submitted_at.strftime('%FT%T.%L%:z'),
-                                desired_outcomes: claim.desired_outcomes.map(&:to_s),
-                                discrimination_claims: claim.discrimination_claims.map(&:to_s),
-                                employment_details: a_hash_including(
-                                  :average_hours_worked_per_week => employment.average_hours_worked_per_week,
-                                  :benefit_details => employment.benefit_details,
-                                  :end_date => employment.end_date.try(:strftime, '%Y-%m-%d'),
-                                  :enrolled_in_pension_scheme => employment.enrolled_in_pension_scheme,
-                                  :found_new_job => employment.found_new_job,
-                                  :gross_pay => employment.gross_pay,
-                                  :gross_pay_period_type => employment.gross_pay_period_type,
-                                  :job_title => employment.job_title,
-                                  :net_pay => employment.net_pay,
-                                  :net_pay_period_type => employment.net_pay_period_type,
-                                  :new_job_gross_pay => employment.new_job_gross_pay,
-                                  :new_job_start_date => employment.new_job_start_date.try(:strftime, '%Y-%m-%d'),
-                                  :notice_pay_period_count => employment.notice_pay_period_count,
-                                  :notice_pay_period_type => employment.notice_pay_period_type,
-                                  :notice_period_end_date => employment.notice_period_end_date.try(:strftime, '%Y-%m-%d'),
-                                  :start_date => employment.start_date.try(:strftime, '%Y-%m-%d'),
-                                  :worked_notice_period_or_paid_in_lieu => employment.worked_notice_period_or_paid_in_lieu
-                                ),
-                                is_unfair_dismissal: claim.is_unfair_dismissal,
-                                jurisdiction: claim.attracts_higher_fee? ? 2 : 1,
-                                office_code: claim.office.code,
-                                other_claim_details: claim.other_claim_details,
-                                other_known_claimant_names: claim.other_known_claimant_names,
-                                other_outcome: claim.other_outcome,
-                                pay_claims: claim.pay_claims.map(&:to_s),
-                                reference: claim.fee_group_reference,
-                                send_claim_to_whistleblowing_entity: claim.send_claim_to_whistleblowing_entity,
-                                submission_channel: "Web",
-                                submission_reference: claim.reference
-
-
+        expect(json).to be_a_valid_api_command('BuildClaim').version('2').for_db_data(example_claim)
       end
     end
     shared_examples 'has valid primary claimant json' do
       let(:example_claimant) { example_claim.primary_claimant }
-      let(:example_address) { example_claimant.address }
       it 'presents the correct claimant data' do
         # Act
         described_class.create_claim example_claim
 
         # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryClaimant' }[:data]
-        expect(json).to include title: example_claimant.title.try(:titleize),
-                                first_name: example_claimant.first_name,
-                                last_name: example_claimant.last_name,
-                                gender: { 'male' => 'Male', 'female' => 'Female', 'prefer_not_to_say' => 'N/K' }[example_claimant.gender],
-                                email_address: example_claimant.email_address,
-                                date_of_birth: example_claimant.date_of_birth.strftime('%Y-%m-%d'),
-                                contact_preference: example_claimant.contact_preference.try(:humanize),
-                                fax_number: example_claimant.fax_number,
-                                special_needs: example_claimant.special_needs,
-                                mobile_number: example_claimant.mobile_number,
-                                address_telephone_number: example_claimant.address_telephone_number,
-                                address_attributes: example_address.nil? ? nil : a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street)
+        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryClaimant' }
+        expect(json).to be_a_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claimant)
+      end
+    end
+    shared_examples 'has valid secondary claimants json' do
+      let(:example_claimants) { example_claim.secondary_claimants }
+      it 'presents the correct claimants data' do
+        # Act
+        described_class.create_claim example_claim
+
+        # Assert
+        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildSecondaryClaimants' }
+        expect(json).to be_a_valid_api_command('BuildSecondaryClaimants').version('2').for_db_data(example_claimants)
       end
     end
     shared_examples 'has valid primary respondent json' do
       let(:example_respondent) { example_claim.primary_respondent }
-      let(:example_address) { example_respondent.address }
-      let(:example_work_address) { example_respondent.work_address }
       it 'presents the correct respondent data' do
         # Act
         described_class.create_claim example_claim
 
         # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryRespondent' }[:data]
-        expect(json).to include acas_certificate_number: example_respondent.acas_early_conciliation_certificate_number,
-                                acas_exemption_code: example_respondent.no_acas_number_reason,
-                                address_attributes: a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street),
-                                address_telephone_number: example_respondent.address_telephone_number,
-                                alt_phone_number: example_respondent.work_address_telephone_number,
-                                contact: nil,
-                                contact_preference: nil,
-                                disability: nil,
-                                disability_information: nil,
-                                dx_number: nil,
-                                email_address: nil,
-                                employment_at_site_number: nil,
-                                fax_number: nil,
-                                name: example_respondent.name,
-                                organisation_employ_gb: nil,
-                                organisation_more_than_one_site: nil,
-                                work_address_attributes: example_work_address.nil? ? nil : a_hash_including(building: example_work_address.building, county: example_work_address.county, locality: example_work_address.locality, post_code: example_work_address.post_code, street: example_work_address.street),
-                                work_address_telephone_number: example_respondent.work_address_telephone_number
+        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryRespondent' }
+        expect(json).to be_a_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_respondent)
+      end
+    end
+    shared_examples 'has valid secondary respondents json' do
+      let(:example_respondents) { example_claim.secondary_respondents }
+      it 'presents the correct respondents data' do
+        # Act
+        described_class.create_claim example_claim
+
+        # Assert
+        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildSecondaryRespondents' }
+        expect(json).to be_a_valid_api_command('BuildSecondaryRespondents').version('2').for_db_data(example_respondents)
       end
     end
     shared_examples 'has valid primary representative json' do
       let(:example_rep) { example_claim.representative }
-      let(:example_address) { example_rep.address }
-      let(:rep_types) do
-        {
-          'citizen_advice_bureau' => 'CAB',
-          'free_representation_unit' => 'FRU',
-          'law_centre' => 'Law Centre',
-          'trade_union' => 'Union',
-          'solicitor' => 'Solicitor',
-          'private_individual' => 'Private Individual',
-          'trade_association' => 'Trade Association',
-          'other' => 'Other'
-        }
-      end
-      it 'presents the correct respondent data' do
+      it 'presents the correct representative data' do
         # Act
         described_class.create_claim example_claim
 
         # Assert
-        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryRepresentative' }[:data]
-        r = example_rep
-        expect(json).to include address_attributes: a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street),
-                                address_telephone_number: r.address_telephone_number,
-                                contact_preference: nil,
-                                dx_number: r.dx_number,
-                                email_address: r.email_address,
-                                fax_number: nil,
-                                mobile_number: r.mobile_number,
-                                name: r.name,
-                                organisation_name: r.organisation_name,
-                                reference: nil,
-                                representative_type: rep_types[r.type]
+        json = JSON.parse(recorded_request.body).deep_symbolize_keys[:data].detect { |command| command[:command] == 'BuildPrimaryRepresentative' }
+        expect(json).to be_a_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_rep)
       end
     end
     context 'with a claim with single claimant, single respondent and a representative' do
@@ -194,6 +124,9 @@ RSpec.describe EtApi, type: :service do
     context 'with a claim with single claimant, single respondent and no representative' do
       include_context 'with build claim endpoint recording'
       include_context 'with api environment variable'
+      include_examples 'has valid primary claimant json'
+      include_examples 'has valid primary respondent json'
+      include_examples 'has valid claim json'
       let(:example_claim) { create(:claim, :with_pdf, :without_representative, :no_attachments) }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
       it 'includes the json for claim, claimant, single respondent and a representative' do
@@ -221,6 +154,12 @@ RSpec.describe EtApi, type: :service do
     context 'with a claim with multiple claimants, single respondent and a representative' do
       include_context 'with build claim endpoint recording'
       include_context 'with api environment variable'
+      include_examples 'has valid primary claimant json'
+      include_examples 'has valid secondary claimants json'
+      include_examples 'has valid primary respondent json'
+      include_examples 'has valid primary representative json'
+      include_examples 'has valid claim json'
+
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_claimants, :no_attachments) }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
       it 'includes the json for claim, claimant, single respondent and a representative' do
@@ -248,6 +187,11 @@ RSpec.describe EtApi, type: :service do
     context 'with a claim with single claimant, multiple respondents and a representative' do
       include_context 'with build claim endpoint recording'
       include_context 'with api environment variable'
+      include_examples 'has valid primary claimant json'
+      include_examples 'has valid primary respondent json'
+      include_examples 'has valid secondary respondents json'
+      include_examples 'has valid primary representative json'
+      include_examples 'has valid claim json'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_respondents, :no_attachments) }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
       it 'includes the json for claim, claimant, single respondent and a representative' do
@@ -275,6 +219,10 @@ RSpec.describe EtApi, type: :service do
     context 'with a claim with multiple claimants via CSV, single respondent and a representative' do
       include_context 'with build claim endpoint recording'
       include_context 'with api environment variable'
+      include_examples 'has valid primary claimant json'
+      include_examples 'has valid primary respondent json'
+      include_examples 'has valid primary representative json'
+      include_examples 'has valid claim json'
       let(:example_claim) { create(:claim, :without_rtf, :with_pdf) }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
       it 'includes the json for claim, claimant, single respondent and a representative' do
@@ -302,6 +250,10 @@ RSpec.describe EtApi, type: :service do
     context 'with a claim with single claimant, single respondent, a representative and an rtf file' do
       include_context 'with build claim endpoint recording'
       include_context 'with api environment variable'
+      include_examples 'has valid primary claimant json'
+      include_examples 'has valid primary respondent json'
+      include_examples 'has valid primary representative json'
+      include_examples 'has valid claim json'
       let(:example_claim) { create(:claim, :with_pdf, :without_additional_claimants_csv) }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
       it 'includes the json for claim, claimant, single respondent and a representative' do
