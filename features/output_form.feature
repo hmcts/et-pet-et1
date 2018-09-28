@@ -1,6 +1,6 @@
 Feature: Output Form
 
-  @mock_jadu
+  @mock_et_api
   Scenario: Full claim with many claimants and respondents
     Given I am on the new claim page
     When I start a new claim
