@@ -20,7 +20,12 @@ var countable = (function() {
     Countable.live(area, callback);
 
     function callback(counter) {
-      hint.html(txt + ' (' + remainder(counter.all) + ' characters remaining)');
+      if($('div.form-fields[lang="cy"]').length){
+       var remaining = ' o nodau yn weddill';
+      } else {
+        var remaining = ' characters remaining';
+      }
+      hint.html(txt + ' (' + remainder(counter.all) + remaining +')');
     }
 
     function remainder(count){
