@@ -11,7 +11,7 @@ cy:
       sections:
         claimant: Manylion yr hawlydd
         additional_claimants: "Hawliad grŵp "
-        additional_claimants_upload: ""
+        additional_claimants_upload: "Hawliad grŵp "
         representative: "Manylion y cynrychiolydd "
         respondent: Manylion yr atebydd
         additional_respondents: Atebwyr ychwanegol
@@ -53,7 +53,7 @@ cy:
         address: Cyfeiriad
 
       additional_claimants_upload:
-        group_claim: ""
+        group_claim: "Hawliad grŵp "
         file_name: Enw Ffeil CSV
         number_claimants: Nifer o hawlwyr ychwanegol
 
