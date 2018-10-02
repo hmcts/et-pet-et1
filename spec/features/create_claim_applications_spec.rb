@@ -283,9 +283,12 @@ feature 'Claim applications', type: :feature do
     context 'Downloading the PDF' do
       let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
       let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
+      let(:create_reference_url) { "#{et_api_url}/references/create_reference" }
+
       around do |example|
         ClimateControl.modify ET_API_URL: et_api_url do
           stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
+          stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: { status: 'created', data: { reference: 'somereference' } }.to_json, status: 201, headers: { 'Content-Type': 'application/json' })
           example.run
         end
       end
