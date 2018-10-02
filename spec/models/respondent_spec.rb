@@ -39,7 +39,7 @@ RSpec.describe Respondent, type: :model do
             before { respondent.address.post_code = 'W1F 7JG' }
 
             it 'enqueues a fee group reference request with that post code' do
-              expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim, 'W1F 7JG')
+              expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim)
 
               respondent.save
             end
@@ -64,7 +64,7 @@ RSpec.describe Respondent, type: :model do
             end
 
             it 'enqueues a fee group reference request with that post code' do
-              expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim, 'SW1A 1AA')
+              expect(FeeGroupReferenceJob).to receive(:perform_later).with(claim)
 
               respondent.save
             end

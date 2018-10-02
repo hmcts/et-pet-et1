@@ -10,22 +10,8 @@ RSpec.describe EtApi, type: :service do
     end
   end
 
+
   describe '.create_claim' do
-    let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
-
-    shared_context 'with build claim endpoint recording' do
-      my_request = nil
-      subject(:recorded_request) { my_request }
-
-      before do
-        my_request = nil
-        stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
-          my_request = request
-          { body: '{}', headers: { 'Content-Type': 'application/json' } }
-        end
-      end
-    end
-
     shared_context 'with command matcher' do
       matcher :contain_valid_api_command do |expected_command|
         chain :version do |version|
@@ -58,15 +44,34 @@ RSpec.describe EtApi, type: :service do
       end
     end
 
+    let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
+
+    shared_context 'with build claim endpoint recording' do
+      my_request = nil
+      subject(:recorded_request) { my_request }
+
+      before do
+        my_request = nil
+        stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
+          my_request = request
+          { body: '{}', headers: { 'Content-Type': 'application/json' } }
+        end
+      end
+    end
+
+    shared_context 'perform action before example' do
+      before do
+        described_class.create_claim example_claim
+      end
+    end
+
     include_context 'with api environment variable'
     include_context 'with build claim endpoint recording'
     include_context 'with command matcher'
 
-    before do
-      described_class.create_claim example_claim
-    end
 
     context 'with a claim with single claimant, single respondent and a representative' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :with_pdf, :no_attachments) }
 
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
@@ -82,6 +87,7 @@ RSpec.describe EtApi, type: :service do
     end
 
     context 'with a claim with single claimant, single respondent and no representative' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :with_pdf, :without_representative, :no_attachments) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
@@ -97,6 +103,7 @@ RSpec.describe EtApi, type: :service do
     end
 
     context 'with a claim with multiple claimants, single respondent and a representative' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_claimants, :no_attachments) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
@@ -112,6 +119,7 @@ RSpec.describe EtApi, type: :service do
     end
 
     context 'with a claim with single claimant, multiple respondents and a representative' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_respondents, :no_attachments) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
@@ -127,6 +135,7 @@ RSpec.describe EtApi, type: :service do
     end
 
     context 'with a claim with multiple claimants via CSV, single respondent and a representative' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :without_rtf, :with_pdf) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
@@ -142,6 +151,7 @@ RSpec.describe EtApi, type: :service do
     end
 
     context 'with a claim with single claimant, single respondent, a representative and an rtf file' do
+      include_context 'perform action before example'
       let(:example_claim) { create(:claim, :with_pdf, :without_additional_claimants_csv) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
@@ -154,6 +164,114 @@ RSpec.describe EtApi, type: :service do
       it { is_expected.not_to contain_api_command('BuildClaimantsRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
       it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+    end
+
+    context 'with a timeout from the API endpoint' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
+      before { stub_request(:post, build_claim_url).to_timeout }
+      it 'raises a retryable exception' do
+        expect { described_class.create_claim example_claim }.to raise_error(EtApi::Timeout) { |error| expect(error.retry?).to be true }
+      end
+    end
+
+    context 'with a 422 from the API endpoint' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
+      before { stub_request(:post, build_claim_url).to_return(body: '{}', status: 422, headers: {'Content-Type': 'application/json'}) }
+      it 'raises a non retryable exception' do
+        expect { described_class.create_claim example_claim }.to raise_error(EtApi::UnprocessableEntity) { |error| expect(error.retry?).to be false }
+      end
+    end
+
+    context 'with a 400 from the API endpoint' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
+      before { stub_request(:post, build_claim_url).to_return(body: '{}', status: 400, headers: {'Content-Type': 'application/json'}) }
+      it 'raises a non retryable exception' do
+        expect { described_class.create_claim example_claim }.to raise_error(EtApi::BadRequest) { |error| expect(error.retry?).to be false }
+      end
+    end
+
+    context 'with a 500 from the API endpoint' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
+      before { stub_request(:post, build_claim_url).to_return(body: '{}', status: 500, headers: {'Content-Type': 'application/json'}) }
+      it 'raises a retryable exception' do
+        expect { described_class.create_claim example_claim }.to raise_error(EtApi::InternalServerError) { |error| expect(error.retry?).to be true }
+      end
+    end
+  end
+
+  describe '.create_reference' do
+
+    #
+    # json_data = {
+    #         uuid: uuid,
+    #         command: 'CreateReference',
+    #         async: false,
+    #         data: {
+    #           post_code: 'SW1H 209ST'
+    #         }
+    #       }
+    #
+    #
+    #
+    # expect(json_response).to include 'status' => 'created',
+    #                                        'uuid' => uuid,
+    #                                        'data' => a_hash_including(
+    #                                          'office' => a_hash_including(
+    #                                            'code' => '22',
+    #                                            'name' => 'London Central',
+    #                                            'address' => 'Victory House, 30-34 Kingsway, London WC2B 6EX',
+    #                                            'telephone' => '020 7273 8603'
+    #                                          ),
+    #                                          'reference' => an_instance_of(String)
+    #                                        )
+    #
+    #
+    #
+    let(:create_reference_url) { "#{et_api_url}/references/create_reference" }
+
+    shared_context 'with create reference endpoint recording' do
+      my_request = nil
+      let(:example_response_body) do
+        {
+          reference: '1234567890',
+          office: {
+            code: '11',
+            name: 'Puddletown',
+            address: '1 Some road, Puddletown',
+            telephone: '020 1234 5678'
+          }
+        }
+      end
+      let(:recorded_request) { my_request }
+      subject {  JSON.parse(recorded_request.body).deep_symbolize_keys }
+
+      before do
+        my_request = nil
+        stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
+          my_request = request
+          { body: example_response_body.to_json, headers: { 'Content-Type': 'application/json' } }
+        end
+      end
+    end
+
+    shared_context 'perform action before example' do
+      before do
+        described_class.create_reference example_claim
+      end
+    end
+
+    include_context 'with api environment variable'
+    include_context 'with create reference endpoint recording'
+    include_context 'perform action before example'
+
+    context 'with a single respondent with both a work address and an address' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
+      it { is_expected.to be_a_valid_api_command('CreateReference').version(2).for_db_data(example_claim.primary_respondent.work_address) }
+    end
+
+    context 'with a single respondent with just an address' do
+      let(:example_claim) { create(:claim, :no_attachments, :without_representative, primary_respondent: create(:respondent, :without_work_address)) }
+      it { is_expected.to be_a_valid_api_command('CreateReference').version(2).for_db_data(example_claim.primary_respondent.address) }
     end
   end
 end

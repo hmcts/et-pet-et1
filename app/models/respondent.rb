@@ -27,7 +27,7 @@ class Respondent < ApplicationRecord
   end
 
   def enqueue_fee_group_reference_request
-    FeeGroupReferenceJob.perform_later claim, fee_group_reference_address.post_code
+    FeeGroupReferenceJob.perform_later claim
   end
 
   delegate :post_code_changed?, to: :fee_group_reference_address, allow_nil: true, prefix: true

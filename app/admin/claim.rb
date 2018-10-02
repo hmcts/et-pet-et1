@@ -39,7 +39,7 @@ ActiveAdmin.register Claim do
 
   member_action :submit_claim, method: :post do
     if resource.enqueued_for_submission?
-      ClaimSubmissionJob.perform_later resource
+      ClaimSubmissionJob.perform_later resource, SecureRandom.uuid
       resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
     end
 

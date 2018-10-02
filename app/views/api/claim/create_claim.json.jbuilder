@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-json.uuid SecureRandom.uuid
+json.uuid uuid
 json.command 'SerialSequence'
 json.data do
   json.child! do

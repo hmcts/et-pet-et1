@@ -401,7 +401,7 @@ RSpec.describe Claim, type: [:claim, :model] do
           end
 
           it 'creates a claim submission job' do
-            expect(ClaimSubmissionJob).to receive(:perform_later).with claim
+            expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
             claim.submit!
           end
 
@@ -440,7 +440,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       end
 
       it 'creates a claim submission job' do
-        expect(ClaimSubmissionJob).to receive(:perform_later).with claim
+        expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
         claim.enqueue!
       end
 
