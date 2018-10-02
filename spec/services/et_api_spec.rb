@@ -231,7 +231,7 @@ RSpec.describe EtApi, type: :service do
 
     shared_context 'with create reference endpoint recording' do
       my_request = nil
-      let(:example_response_body) do
+      let(:example_response_data) do
         {
           reference: '1234567890',
           office: {
@@ -240,6 +240,14 @@ RSpec.describe EtApi, type: :service do
             address: '1 Some road, Puddletown',
             telephone: '020 1234 5678'
           }
+        }
+      end
+      let(:example_response_body) do
+        {
+          status: 'created',
+          meta: {},
+          uuid: SecureRandom.uuid,
+          data: example_response_data
         }
       end
       let(:recorded_request) { my_request }
@@ -256,22 +264,27 @@ RSpec.describe EtApi, type: :service do
 
     shared_context 'perform action before example' do
       before do
-        described_class.create_reference example_claim
+        described_class.create_reference postcode: example_postcode
       end
     end
 
     include_context 'with api environment variable'
     include_context 'with create reference endpoint recording'
-    include_context 'perform action before example'
 
-    context 'with a single respondent with both a work address and an address' do
-      let(:example_claim) { create(:claim, :no_attachments, :without_representative) }
-      it { is_expected.to be_a_valid_api_command('CreateReference').version(2).for_db_data(example_claim.primary_respondent.work_address) }
+    context 'with a valid post code' do
+      include_context 'perform action before example'
+      let(:example_postcode) { 'DE21 6AA' }
+
+      it { is_expected.to be_a_valid_api_command('CreateReference').version(2).for_db_data(Address.new(post_code: example_postcode)) }
     end
 
-    context 'with a single respondent with just an address' do
-      let(:example_claim) { create(:claim, :no_attachments, :without_representative, primary_respondent: create(:respondent, :without_work_address)) }
-      it { is_expected.to be_a_valid_api_command('CreateReference').version(2).for_db_data(example_claim.primary_respondent.address) }
+    context 'return value' do
+      let(:example_postcode) { 'DE21 6AA' }
+      it 'contains the data from the example response body' do
+        value = described_class.create_reference postcode: example_postcode
+
+        expect(value).to eql example_response_data
+      end
     end
   end
 end

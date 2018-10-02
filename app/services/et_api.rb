@@ -19,16 +19,15 @@ class EtApi
     raise Timeout.new('Timeout')
   end
 
-  def create_reference(claim, api_base: ENV.fetch('ET_API_URL'), uuid: SecureRandom.uuid)
-    respondent = claim.primary_respondent
-    address = [respondent.work_address, respondent.address].detect { |a| a.post_code.present? }
+  def create_reference(postcode:, api_base: ENV.fetch('ET_API_URL'), uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/reference/create_reference.json.jbuilder', locals: {
-      address: address, uuid: uuid
+      post_code: postcode, uuid: uuid
     }
     Rails.logger.info "Sent reference request to API at #{api_base}/references/create_reference - json was #{JSON.pretty_generate(JSON.parse(json))}"
 
     response = HTTParty.post("#{api_base}/references/create_reference", body: json, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' })
     raise_on_response(response)
+    JSON.parse(response.body)['data'].deep_symbolize_keys
   rescue ::Net::OpenTimeout
     raise Timeout.new('Timeout')
   end
