@@ -7,29 +7,19 @@ class EtApi
     new.create_reference(*args)
   end
 
-  def create_claim(claim, api_base: ENV.fetch('ET_API_URL'), uuid: SecureRandom.uuid)
+  def create_claim(claim, uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/claim/create_claim.json.jbuilder', locals: {
       claim: claim, office: claim.office, employment: claim.employment, uuid: uuid
     }
-    Rails.logger.info "Sent claim to API at #{api_base}/claims/build_claim - json was #{JSON.pretty_generate(JSON.parse(json))}"
-
-    response = HTTParty.post("#{api_base}/claims/build_claim", body: json, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' })
-    raise_on_response(response)
-  rescue ::Net::OpenTimeout
-    raise Timeout.new('Timeout')
+    send_request(json, path: '/claims/build_claim', subject: 'claim')
   end
 
-  def create_reference(postcode:, api_base: ENV.fetch('ET_API_URL'), uuid: SecureRandom.uuid)
+  def create_reference(postcode:, uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/reference/create_reference.json.jbuilder', locals: {
       post_code: postcode, uuid: uuid
     }
-    Rails.logger.info "Sent reference request to API at #{api_base}/references/create_reference - json was #{JSON.pretty_generate(JSON.parse(json))}"
-
-    response = HTTParty.post("#{api_base}/references/create_reference", body: json, headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' })
-    raise_on_response(response)
+    response = send_request(json, path: '/references/create_reference', subject: 'reference')
     JSON.parse(response.body)['data'].deep_symbolize_keys
-  rescue ::Net::OpenTimeout
-    raise Timeout.new('Timeout')
   end
 
   def raise_on_response(response)
@@ -40,7 +30,6 @@ class EtApi
 
     end
   end
-
 
   class BaseException < RuntimeError
     def initialize(msg, response)
@@ -77,5 +66,24 @@ class EtApi
     def initialize(msg)
       super(msg, '{}')
     end
+  end
+
+  private
+
+  def send_request(json, api_base: ENV.fetch('ET_API_URL'), path:, subject:)
+    log_json(json, url: "#{api_base}#{path}", subject: subject)
+
+    response = HTTParty.post "#{api_base}#{path}",
+      body: json,
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    raise_on_response(response)
+    response
+  rescue ::Net::OpenTimeout
+    raise Timeout, 'Timeout'
+  end
+
+  def log_json(json, url:, subject:)
+    pretty_json = JSON.pretty_generate(JSON.parse(json))
+    Rails.logger.info "Sent #{subject} to API at #{url} - json was #{pretty_json}"
   end
 end
