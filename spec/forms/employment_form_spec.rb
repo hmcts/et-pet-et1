@@ -94,6 +94,16 @@ RSpec.describe EmploymentForm, type: :form do
         end
       end
 
+      context 'empty current_situation' do
+        before do
+          employment_form.current_situation = nil
+          employment_form.valid?
+        end
+
+        it { expect(employment_form).not_to be_valid}
+        it { expect(employment_form.errors.details[:current_situation]).to eql([{:error=>:blank}]) }
+      end
+
       context 'when in notice period clears other fields but keeps notice period end dat' do
         before do
           employment_form.current_situation = 'notice_period'

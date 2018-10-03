@@ -850,6 +850,8 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             net_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            current_situation:
+              blank: "Dewiswch un o’r opsiynau os gwelwch yn dda"
         password:
           attributes:
             password:
