@@ -49,6 +49,7 @@ class EmploymentForm < Form
   validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
   validates :gross_pay_period_type,       presence: { if: :gross_pay? }
   validates :net_pay_period_type,         presence: { if: :net_pay? }
+  validates :current_situation,           presence: { if: :was_employed? }
 
   def was_employed
     @was_employed ||= target.persisted?
@@ -67,6 +68,7 @@ class EmploymentForm < Form
   end
 
   def reset_unwanted_situations!
+    return if current_situation.blank?
     unwanted = CURRENT_SITUATION - [current_situation.to_sym, :still_employed]
     unwanted.each { |situation| send("reset_#{situation}!") }
   end
