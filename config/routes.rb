@@ -1,6 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  match "/404", :to => "errors#not_found", :via => :all
+  match "/422", :to => "errors#unprocessable", :via => :all
+  match "/500", :to => "errors#internal_server_error", :via => :all
+  match "/503", :to => "errors#service_unavailable", :via => :all
+
   scope :apply do
     resource :guide,              only: :show
     resource :terms,              only: :show
