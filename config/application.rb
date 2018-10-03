@@ -57,5 +57,6 @@ module App
     config.action_mailer.default_options = { from: 'no-reply@digital.justice.gov.uk' }
 
     config.secure_session_cookie = false
+    config.exceptions_app = self.routes
   end
 end
