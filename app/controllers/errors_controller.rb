@@ -1,18 +1,18 @@
 class ErrorsController < ApplicationController
 
   def not_found
-    render(:status => 404)
+    render(status: 404)
   end
 
   def unprocessable
-    render(:status => 422)
+    render(status: 422)
   end
 
   def internal_server_error
-    render(:status => 500)
+    render(status: 500)
   end
 
   def service_unavailable
-    render(:status => 503)
+    render(status: 503)
   end
 end
