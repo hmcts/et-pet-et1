@@ -593,7 +593,8 @@ en:
       additional_respondents_limit: If you are making a claim against more than %{max} additional respondents, enter their details in the ‘more about the claim’ section later in the form.
       no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
       no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
-
+      'true': 'Yes'
+      'false': 'No'
 
     employment:
       header: Employment details
@@ -607,6 +608,10 @@ en:
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job
+      'true': 'Yes'
+      'false': 'No'
+      'true_v2': 'Yes'
+      'false_v2': 'No'
 
     claim:
       header: Claim details
@@ -628,6 +633,8 @@ en:
       pay: Pay
       other_type: Other type of claim (not shown above)
       whistleblowing: Whistleblowing claim
+      'true': 'Yes'
+      'false': 'No'
 
     claim_details:
       header: Claim details
@@ -641,6 +648,9 @@ en:
       remove_claim_details_rtf: |
         Remove previously uploaded document: %{file}
       similar_claims: Similar claims
+      'true': 'Yes'
+      'false': 'No'
+
 
     claim_outcome:
       header: Claim outcome
