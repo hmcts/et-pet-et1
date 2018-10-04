@@ -633,6 +633,9 @@ cy:
       work_address: "Rhowch fanylion eich cyfeiriad gwaith "
       acas_early_conciliation_certificate_number_html: |
         Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
+      'true': 'Oeddwn'
+      'false': 'Nac oeddwn'
+
 
     additional_respondents:
       no_acas_number_reason: "Pam nad oes gennych rif Acas?"

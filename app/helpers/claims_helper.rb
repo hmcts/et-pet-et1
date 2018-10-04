@@ -13,6 +13,10 @@ module ClaimsHelper
     page_title(claim_header)
   end
 
+  def respondent_collection
+    [[t('.true'), true], [t('.false'), false]]
+  end
+
   private def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
