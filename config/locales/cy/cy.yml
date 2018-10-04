@@ -75,7 +75,7 @@ cy:
 
       respondent:
         no_acas_number_reason:
-          joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/hi rif tystysgrif cymodi cynnar Acas "
+          joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas "
           acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan "
           employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas "
           interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
@@ -83,7 +83,7 @@ cy:
       additional_respondents:
         collection:
           no_acas_number_reason:
-            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/hi rif tystysgrif cymodi cynnar Acas "
+            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas "
             acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan "
             employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas "
             interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
@@ -265,7 +265,7 @@ cy:
           acas_early_conciliation_certificate_number: Rhif Acas
           no_acas_number: Nid oes gen i rif Acas
           no_acas_number_reason:
-            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/hi rif tystysgrif cymodi cynnar Acas "
+            joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas "
             acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan "
             employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas "
             interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim. "
@@ -294,6 +294,11 @@ cy:
           day: "Diwrnod"
           month: "Mis"
           year: "Blwyddyn"
+        new_job_start_date:
+          day: "Diwrnod"
+          month: "Mis"
+          year: "Blwyddyn"
+        average_hours_worked_per_week: Oriau gwaith bob wythnos ar gyfartaledd
 
       claim:
         is_unfair_dismissal: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
@@ -636,7 +641,6 @@ cy:
       'true': 'Oeddwn'
       'false': 'Nac oeddwn'
 
-
     additional_respondents:
       no_acas_number_reason: "Pam nad oes gennych rif Acas?"
       header: Atebwyr ychwanegol
@@ -648,7 +652,8 @@ cy:
       additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na %{max} atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
       no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
       no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
-
+      'true': 'Ydw'
+      'false': 'Nac ydw'
 
     employment:
       header: Manylion cyflogaeth
@@ -662,6 +667,10 @@ cy:
       employment_details_legend: Manylion cyflogaeth
       pay_legend: "Tâl, pensiwn a buddion"
       new_job_legend: Swydd newydd
+      'true': 'Do'
+      'false': 'Naddo'
+      'true_v2': 'Ydw'
+      'false_v2': 'Nac ydw'
 
     claim:
       header: Manylion yr hawliad
@@ -683,6 +692,9 @@ cy:
       pay: Tâl
       other_type: Math arall o hawliad (na ddangosir uchod)
       whistleblowing: Hawliad chwythu'r chwiban
+      'true': 'Ydw'
+      'false': 'Nac ydw'
+
 
     claim_details:
       header: Manylion yr hawliad
@@ -696,6 +708,9 @@ cy:
       remove_claim_details_rtf: |
         Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}
       similar_claims: Hawliadau tebyg
+      'true': 'Ydw'
+      'false': 'Nac ydw'
+
 
     claim_outcome:
       header: Canlyniad yr hawliad
