@@ -6,6 +6,7 @@ fieldset
     as: :radio_buttons,
     readonly: nil,
     include_hidden: false,
+    collection: responses_collection,
     item_wrapper_class: 'block-label',
     wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
     input_html: { :class => 'reveal-publish-publisher ga-vpv'},
@@ -61,6 +62,7 @@ fieldset
           = f.input_field :worked_notice_period_or_paid_in_lieu,
             as: :radio_buttons,
             readonly: nil,
+            collection: responses_collection,
             include_hidden: false,
             :class => 'reveal-publish-publisher',
             reveal: { true => 'sub2', false => 'sub2' },
@@ -119,6 +121,7 @@ fieldset
           as: :radio_buttons,
           readonly: nil,
           include_hidden: false,
+          collection: [[t('.true_v2'), true], [t('.false_v2'), false]],
           item_wrapper_class: 'block-label'
 
         = f.input :benefit_details,

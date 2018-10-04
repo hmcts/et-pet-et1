@@ -13,7 +13,7 @@ module ClaimsHelper
     page_title(claim_header)
   end
 
-  def respondent_collection
+  def responses_collection
     [[t('.true'), true], [t('.false'), false]]
   end
 

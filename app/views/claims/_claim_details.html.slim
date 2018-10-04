@@ -28,6 +28,7 @@ fieldset
   = f.input :other_known_claimants,
     as: :radio_buttons,
     readonly: nil,
+    collection: responses_collection,
     include_hidden: false,
     item_wrapper_class: 'block-label',
     wrapper_class: 'form-group-reveal reveal-publish-delegate',

@@ -43,7 +43,7 @@ cy:
         mobile_number: Ffôn Symudol
         email_address: E-bost
         contact_preference: Dull cyswllt dewisol
-        is_disabled: "A fyddwch angen cymorth yn y tribiwnlys?"
+        is_disabled: "Angen cymorth yn y tribiwnlys?"
         has_representative: Cynrychiolydd
 
       additional_claimants:
