@@ -579,6 +579,8 @@ en:
       work_address: Give details of your work address.
       acas_early_conciliation_certificate_number_html: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
+      'true': 'Yes'
+      'false': 'No'
 
     additional_respondents:
       no_acas_number_reason: Why don’t you have an Acas number?
