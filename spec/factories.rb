@@ -78,6 +78,10 @@ FactoryGirl.define do
       representative nil
     end
 
+    trait :without_employment do
+      employment nil
+    end
+
     trait :null_representative do
       representative do
         build :representative,

@@ -101,6 +101,22 @@ RSpec.describe EtApi, type: :service do
       it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
+    context 'with a claim with single claimant, single respondent, no representative and no employment' do
+      include_context 'with action performed before each example'
+      let(:example_claim) { create(:claim, :with_pdf, :without_representative, :no_attachments, :without_employment) }
+
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildPrimaryRepresentative') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
+    end
+
     context 'with a claim with multiple claimants, single respondent and a representative' do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_pdf, :with_secondary_claimants, :no_attachments) }
