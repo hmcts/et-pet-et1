@@ -2,6 +2,7 @@ default: &default
   adapter: <%= ENV['DB_ADAPTOR'] || 'postgresql' %>
   encoding: unicode
   pool: 5
+  port: <%= ENV.fetch('DB_PORT', '5432') %>
 
 development:
   <<: *default

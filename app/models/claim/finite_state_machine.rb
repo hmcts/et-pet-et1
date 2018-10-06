@@ -44,7 +44,7 @@ class Claim::FiniteStateMachine
 
       claim.touch(:submitted_at)
       claim.create_event Event::ENQUEUED
-      ClaimSubmissionJob.perform_later claim
+      ClaimSubmissionJob.perform_later claim, SecureRandom.uuid
     }
   end
   # rubocop:enable Style/AlignHash

@@ -45,8 +45,8 @@ group :development, :test do
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', :require => false
-  gem 'rubocop-rspec', :require => false
+  gem 'rubocop', '~> 0.59', :require => false
+  gem 'rubocop-rspec', '~> 1.29', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 2.22'
@@ -61,6 +61,7 @@ group :test do
   gem 'site_prism', '~> 2.9'
   gem 'selenium-webdriver', '~> 3.14'
   gem 'rails-controller-testing', '~> 1.0'
+  gem 'climate_control', '~> 0.2'
 end
 
 group :production do
@@ -88,7 +89,6 @@ gem 'moj_template', '0.23.0'
 gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.4'
-gem 'representable', '2.3.0', require: 'representable/xml'
 gem 'simple_form', '~> 4.0'
 gem 'slim-rails', '~> 3.1'
 gem 'sidekiq', '~> 5.2.0'

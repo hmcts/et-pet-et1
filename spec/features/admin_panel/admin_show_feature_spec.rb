@@ -144,7 +144,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
   scenario 're-submitting a claim' do
 
-    expect(ClaimSubmissionJob).to receive(:perform_later).with(enqueued_claim)
+    expect(ClaimSubmissionJob).to receive(:perform_later).with(enqueued_claim, instance_of(String))
 
     visit admin_claim_path enqueued_claim.reference
 

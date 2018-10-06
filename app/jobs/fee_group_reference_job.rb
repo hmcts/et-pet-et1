@@ -4,9 +4,9 @@ class FeeGroupReferenceJob < ActiveJob::Base
   def perform(claim, postcode)
     Rails.logger.info "Starting FeeGroupReferenceJob"
 
-    fee_group_reference = FeeGroupReference.create postcode: postcode
+    fee_group_reference = EtApi.create_reference postcode: postcode
     claim.create_event Event::FEE_GROUP_REFERENCE_REQUEST
-    claim.update! fee_group_reference: fee_group_reference.reference
+    claim.update! fee_group_reference: fee_group_reference[:reference]
     create_office(claim, fee_group_reference)
 
     Rails.logger.info "Finished FeeGroupReferenceJob"
@@ -16,10 +16,10 @@ class FeeGroupReferenceJob < ActiveJob::Base
 
   def create_office(claim, fee_group_reference)
     claim.create_office!(
-      code:      fee_group_reference.office_code,
-      name:      fee_group_reference.office_name,
-      address:   fee_group_reference.office_address,
-      telephone: fee_group_reference.office_telephone
+      code:      fee_group_reference.dig(:office, :code),
+      name:      fee_group_reference.dig(:office, :name),
+      address:   fee_group_reference.dig(:office, :address),
+      telephone: fee_group_reference.dig(:office, :telephone)
     )
   end
 end

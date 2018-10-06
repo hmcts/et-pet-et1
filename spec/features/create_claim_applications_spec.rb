@@ -281,6 +281,18 @@ feature 'Claim applications', type: :feature do
     end
 
     context 'Downloading the PDF' do
+      let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
+      let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
+      let(:create_reference_url) { "#{et_api_url}/references/create_reference" }
+
+      around do |example|
+        ClimateControl.modify ET_API_URL: et_api_url do
+          stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
+          stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: { status: 'created', data: { reference: 'somereference', office: { code: '44', name: 'Birmingham', address: { building: '1', street: 'Street', locality: 'Birmingham', county: 'Warwickshire', post_code: 'B1 3AG' } } } }.to_json, status: 201, headers: { 'Content-Type': 'application/json' })
+          example.run
+        end
+      end
+
       scenario 'when the file is available', js: true do
         complete_a_claim seeking_remissions: true
         click_button 'Submit claim'
