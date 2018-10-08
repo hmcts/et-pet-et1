@@ -6,6 +6,7 @@ class ClaimSubmissionJob < ActiveJob::Base
 
     claim.generate_pdf!
     EtApi.create_claim claim, uuid: uuid
+    claim.finalize!
 
     if claim.confirmation_email_recipients?
       BaseMailer.confirmation_email(claim).deliver

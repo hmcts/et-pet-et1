@@ -9,6 +9,7 @@ describe ClaimSubmissionJob, type: :job do
     allow(BaseMailer).to receive(:confirmation_email).with(claim).and_return mailer
     allow(EtApi).to receive(:create_claim).with(claim, uuid: instance_of(String))
     allow(claim).to receive(:generate_pdf!)
+    allow(claim).to receive(:finalize!)
   end
 
   describe '#perform' do
@@ -19,6 +20,11 @@ describe ClaimSubmissionJob, type: :job do
 
     it 'generates the pdf' do
       expect(claim).to receive(:generate_pdf!)
+      claim_submission_job.perform(claim, SecureRandom.uuid)
+    end
+
+    it 'finalizes the claim' do
+      expect(claim).to receive(:finalize!)
       claim_submission_job.perform(claim, SecureRandom.uuid)
     end
 
