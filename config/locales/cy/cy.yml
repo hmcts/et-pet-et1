@@ -57,7 +57,12 @@ cy:
           united_kingdom: Deyrnas Unedig
           other: Tu allan i'r Deyrnas Unedig
       additional_claimants:
-        collection: ""
+        collection:
+          title:
+            mr: Mr
+            mrs: Mrs
+            miss: Miss
+            ms: Ms
 
       representative:
         type:
@@ -724,7 +729,7 @@ cy:
         Include anything that will help the tribunal come to a decision about whether your case can be heard.
         What you write may be seen by the respondent. If you are making a claim against more than 3 additional respondents,
         enter their details below.
-      has_miscellaneous_information_hint: "Dylech gynnwys unrhyw beth fyddai'n helpu'r tribiwnlys i ddod i benderfyniad ynghylch p'un a ellir gwrando eich achos. Efallai y bydd yr atebydd yn gweid beth ydych yn ysgrifennu. "
+      has_miscellaneous_information_hint: "Dylech gynnwys unrhyw beth fyddai'n helpu'r tribiwnlys i ddod i benderfyniad ynghylch p'un a ellir gwrando eich achos. Efallai y bydd yr atebydd yn gweld beth ydych yn ysgrifennu. "
       additional_respondents_callout: "Os ydych chi'n gwneud hawliad yn erbyn mwy na 3 atebydd ychwanegol, rhowch eu manylion isod. "
 
     your_fee:
