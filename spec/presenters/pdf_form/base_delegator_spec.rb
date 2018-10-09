@@ -10,7 +10,7 @@ RSpec.describe PdfForm::BaseDelegator, type: :presenter do
         it { expect(pdf_form_base_delagator.format_postcode('m1 1aa')).to eq('M1  1AA') }
         it { expect(pdf_form_base_delagator.format_postcode('dn551pt')).to eq('DN551PT') }
         it { expect(pdf_form_base_delagator.format_postcode('a99aa')).to eq('A9  9AA') }
-        it { expect(pdf_form_base_delagator.format_postcode('1065')).to eq('IO65') }
+        it { expect(pdf_form_base_delagator.format_postcode('1065')).to eq('1065') }
       end
     end
 

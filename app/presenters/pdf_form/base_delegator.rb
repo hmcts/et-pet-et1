@@ -10,8 +10,8 @@ module PdfForm
     def format_postcode(postcode)
       uk_postcode = UKPostcode.new(postcode ||= '')
 
-      if uk_postcode.valid?
-        ("%-4s" % uk_postcode.outcode) + (uk_postcode.incode || '')
+      if uk_postcode.valid? && uk_postcode.outcode.present? && uk_postcode.incode.present?
+        ("%-4s" % uk_postcode.outcode) + uk_postcode.incode
       else
         postcode
       end
