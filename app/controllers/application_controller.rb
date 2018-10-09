@@ -73,8 +73,11 @@ class ApplicationController < ActionController::Base
   helper_method :claim, :claim_path_for
 
   def set_locale
-    session[:locale] = params[:locale] if params[:locale]
+    session[:locale] = params[:locale] if params[:locale] && valid_locale?
     I18n.locale = session[:locale] || I18n.default_locale
   end
 
+  def valid_locale?
+    I18n.available_locales.include?(params[:locale].to_sym)
+  end
 end
