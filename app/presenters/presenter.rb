@@ -65,7 +65,8 @@ class Presenter
   end
 
   def date(date)
-    date.try :strftime, '%d %B %Y'
+    return unless date
+    I18n.l date, format: '%d %B %Y'
   end
 
   def simple_format(value)
