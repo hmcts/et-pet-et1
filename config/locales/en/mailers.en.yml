@@ -68,3 +68,5 @@ en:
         apply_for_fee_remission: Complete an application for help with fees
       button_complete_claim:
         complete_claim: 'Complete claim'
+      application_number_light:
+        claim_number: Claim number
