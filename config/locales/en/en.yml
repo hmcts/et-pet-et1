@@ -476,10 +476,6 @@ en:
       privacy_policy: HMCTS Privacy Notice
       disclaimer: Disclaimer
 
-  cookies:
-    show:
-      header: Cookies
-
   claims:
     personal_details:
       date_of_birth: Date of birth
