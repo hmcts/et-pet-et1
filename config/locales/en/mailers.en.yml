@@ -10,6 +10,13 @@ en:
       about_confirmation: |
         You’ll receive a confirmation email once you’ve submitted your claim.
 
+      line_one: "Claim number: %{reference}"
+      line_two: "You’ve started a claim to an employment tribunal. To return to your claim you’ll need your claim number (above), and memorable word."
+      line_three: Clicking on the links below will not work. Please copy and paste the URLs into your browser.
+      line_four: "COMPLETE CLAIM: %{url}"
+      line_five: line_five You’ll receive a confirmation email once you’ve submitted your claim.
+      line_six: "Contact us: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+
     confirmation_email:
       footer: :base_mailer.footer
       subject: 'Employment tribunal: claim submitted'

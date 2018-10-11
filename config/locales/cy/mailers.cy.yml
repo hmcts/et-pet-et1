@@ -6,9 +6,17 @@ cy:
     access_details_email:
       subject: 'Tribiwnlys Cyflogaeth: cwblhau eich hawliad'
       intro: |
-        Rydych wedi cychwyn gwneud hawliad i'r tribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad bydd arnoch angen eich rhif hawliad (uchod), a gair cofiadwy. 
+        Rydych wedi cychwyn gwneud hawliad i'r tribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad bydd arnoch angen eich rhif hawliad (uchod), a gair cofiadwy.
       about_confirmation: |
-        Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno eich hawliad. 
+        Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno eich hawliad.
+
+      line_one: "Rhif yr hawliad: %{reference}"
+      line_two: "Rydych wedi cychwyn gwneud hawliad i dribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad byddwch angen eich rhif hawliad (uchod), a'ch gair cofiadwy."
+      line_three: "Ni fydd clicio ar y dolenni isod yn gweithio. Copïwch a gludwch yr URL i'ch porwr."
+      line_four: "CWBLHAU EICH HAWLIAD: %{url}"
+      line_five: "Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno'ch hawliad."
+      line_six: "Cysylltwch â ni: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+
     confirmation_email:
       footer: ""
       subject: 'Tribiwnlys Cyflogaeth: hawliad wedi''i gyflwyno'
