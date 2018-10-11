@@ -6,5 +6,82 @@ header.main-header role="banner"
 .main-content
   - cache do
     .static-content
-      - @presenter.each_rendered_file do |name, contents|
-        article id="#{name}" = contents
+      article#general
+
+        p = t '.line_one'
+
+        h3 = t '.section_one.title_one'
+
+        ul
+          li = t '.section_one.list.one'
+          li = t '.section_one.list.two'
+
+        p = t '.section_one.line_one'
+        p = t '.section_one.line_two_html'
+
+        h2.legend = t '.section_two.title_one'
+        h3 = t '.section_two.title_two'
+
+        p = t '.section_two.line_one'
+
+        ul
+          li = t '.section_two.list.one'
+          li = t '.section_two.list.two'
+          li = t '.section_two.list.three'
+          li = t '.section_two.list.four'
+
+        p = t '.section_two.line_two'
+
+        table
+          tr
+            th = t '.section_two.table.labels.name'
+            th = t '.section_two.table.labels.purpose'
+            th = t '.section_two.table.labels.expires'
+          tr
+            td = t '.section_two.table.one.name'
+            td = t '.section_two.table.one.purpose'
+            td = t '.section_two.table.one.expires'
+          tr
+            td = t '.section_two.table.two.name'
+            td = t '.section_two.table.two.purpose'
+            td = t '.section_two.table.two.expires'
+          tr
+            td = t '.section_two.table.three.name'
+            td = t '.section_two.table.three.purpose'
+            td = t '.section_two.table.three.expires'
+          tr
+            td = t '.section_two.table.four.name'
+            td = t '.section_two.table.four.purpose'
+            td = t '.section_two.table.four.expires'
+          tr
+            td = t '.section_two.table.five.name'
+            td = t '.section_two.table.five.purpose'
+            td = t '.section_two.table.five.expires'
+
+        p = t '.section_two.line_three_html'
+
+        h3 = t '.section_three.title_one'
+        p = t '.section_three.line_one'
+
+        table
+          tr
+            th = t '.section_three.table.labels.name'
+            th = t '.section_three.table.labels.purpose'
+            th = t '.section_three.table.labels.expires'
+          tr
+            td = t '.section_three.table.one.name'
+            td = t '.section_three.table.one.purpose'
+            td = t '.section_three.table.one.expires'
+
+        h3 = t '.section_four.title_one'
+        p = t '.section_four.line_one'
+
+        table
+          tr
+            th = t '.section_four.table.labels.name'
+            th = t '.section_four.table.labels.purpose'
+            th = t '.section_four.table.labels.expires'
+          tr
+            td = t '.section_four.table.one.name'
+            td = t '.section_four.table.one.purpose'
+            td = t '.section_four.table.one.expires'
