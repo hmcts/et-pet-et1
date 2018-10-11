@@ -541,10 +541,6 @@ cy:
       disclaimer: Ymwrthodiad
       cookies: Cwcis
 
-  cookies:
-    show:
-      header: Cwcis
-
   claims:
     personal_details:
       date_of_birth: Dyddiad geni
