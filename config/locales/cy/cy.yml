@@ -356,7 +356,7 @@ cy:
         applying_for_remission: |
           Efallai na fydd rhaid i chi dalu ffi os nad oes gennych lawer o gynilion a'ch bod yn cael budd-daliadau neu ar incwm isel. Ydw i'n gymwys i gael help?
         contact_preference: |
-          Noder, os oes gennych cynrychiolydd (ee cyfreithiwr), yna fe anfonir pob gohebiaeth atynt
+          Noder, os oes gennych gynrychiolydd (ee cyfreithiwr), yna fe anfonir pob gohebiaeth atynt
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimants:
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
