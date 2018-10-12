@@ -21,11 +21,20 @@ RSpec.feature 'Switching language', type: :feature do
     click_button 'Start a claim'
 
     expect(page).to have_text('Saving your claim')
+    expect(current_langauge_selector).to eql('locale=en')
     click_link('Cymraeg')
 
     expect(page).to have_text('Cadw eich hawliad')
+    expect(current_langauge_selector).to eql('locale=cy')
     click_button('Cadw a pharhau')
+
     expect(page).to have_text('Mae gwallau ar y dudalen')
     expect(page).to have_text("Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad")
+    expect(current_langauge_selector).to eql('locale=cy')
   end
+
+end
+
+def current_langauge_selector
+  current_url.split('?').last
 end
