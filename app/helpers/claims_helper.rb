@@ -17,6 +17,13 @@ module ClaimsHelper
     [[t('.true'), true], [t('.false'), false]]
   end
 
+  def language_specific_feedback_url
+    if I18n.locale.to_s == 'en'
+      return 'https://www.gov.uk/done/employment-tribunals-make-a-claim'
+    end
+    "/apply/feedback?locale=#{I18n.locale}"
+  end
+
   private def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
