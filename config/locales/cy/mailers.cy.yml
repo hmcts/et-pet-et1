@@ -18,7 +18,8 @@ cy:
       line_six: "Cysylltwch â ni: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
 
     confirmation_email:
-      footer: ""
+      footer:
+        contact_us: Cysylltu â ni
       subject: 'Tribiwnlys Cyflogaeth: hawliad wedi''i gyflwyno'
       header: Hawliad wedi'i gyflwyno
       intro:
@@ -29,15 +30,21 @@ cy:
           single: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad. "
           group: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad. "
 
-      what_happens_next: ""
-      contact_re_payment: ""
-      must_apply_for_remission: ""
-      apply_for_fee_remission: ""
-      no_remission_copy_sent_to_respondent: ""
-      we_will_contact_you: ""
+      what_happens_next: "Beth sy'n digwydd nesaf"
+      contact_re_payment: "Byddwn yn cysylltu â chi o fewn 5 diwrnod gwaith i drefnu taliad. "
+      must_apply_for_remission: |
+          Rydych wedi cychwyn gwneud cais am help i dalu ffioedd.
+          Mae'n rhaid i chi nawr gwblhau eich cais o fewn 7 diwrnod neu gellir gwrthod eich hawliad.
+      apply_for_fee_remission: "Gwneud cais am help i dalu ffioedd "
+      no_remission_copy_sent_to_respondent: |
+          Fe anfonir copi o'r hawliad at yr atebydd.
+          Bydd ganddynt 28 diwrnod i ymateb.
+      we_will_contact_you:  |
+          Byddwn yn cysylltu â chi pan fyddwn wedi anfon eich hawliad at yr atebydd i
+          esbonio beth yw'r camau nesaf.
       remission_we_will_contact_you_england_wales_html: ""
       remission_we_will_contact_you_scotland_html: ""
-      remission_review: ""
+      remission_review: "Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad."
 
        # SPECIFIC TO TEXT EMAIL
       apply_for_fee_remission_text: 'GWNEUD CAIS AM HELP I DALU FFIOEDD: https://gov.uk/help-with-court-fees'
@@ -68,6 +75,7 @@ cy:
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}">holiadur monitro amrywiaeth</a>.
       diversity_text: |
         Helpwch ni i gadw cofnodion cywir . Llenwch ein holiadur monitro amrywiaeth.
+
     shared:
       button_fee_remission:
         apply_for_fee_remission: "Gwneud cais am help i dalu ffioedd "
