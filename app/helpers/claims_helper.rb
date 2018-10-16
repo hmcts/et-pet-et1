@@ -24,6 +24,14 @@ module ClaimsHelper
     "/apply/feedback?locale=#{I18n.locale}"
   end
 
+  def group_claim_template_file_path
+    if I18n.locale.to_s == 'cy'
+      "/assets/group-claims-template-cy.csv"
+    else
+      "/assets/group-claims-template.csv"
+    end
+  end
+
   private def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
