@@ -52,8 +52,15 @@ class ConfirmationPresenter < Presenter
   end
 
   def submission_with_office_message
+    if display_wales_address_in_welsh?
+     return I18n.t 'claim_confirmations.show.submission_details.submission_with_office_wales', date: date(submitted_at)
+    end
     I18n.t 'claim_confirmations.show.submission_details.submission_with_office',
       date: date(submitted_at), office: [office.name, office.address].join(', ')
+  end
+
+  def display_wales_address_in_welsh?
+    I18n.locale.to_s == 'cy' && office.name == 'Wales'
   end
 
 end
