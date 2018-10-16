@@ -76,6 +76,16 @@ describe BaseMailer, type: :mailer do
         expect(attachment.filename).to eq('et1_barrington_wrigglesworth.pdf')
       end
 
+      it "has what happen next step 1" do
+        expect(email).
+          to match_pattern ['A copy of the claim will be sent to the respondent.', 'They’ll have 28 days to reply.']
+      end
+
+      it "has what happen next step 2" do
+        expect(email).
+          to match_pattern ['We’ll contact you when we’ve sent your claim to the respondent', 'and explain the next steps.']
+      end
+
       context 'when no office' do
         before { claim.office = nil }
 
@@ -122,6 +132,54 @@ describe BaseMailer, type: :mailer do
 
         it 'does not show outstanding fee' do
           expect(email).not_to match_pattern '£250.00'
+        end
+      end
+    end
+
+    context "Welsh post" do
+      before { I18n.locale = :cy }
+
+      it 'has been delivered' do
+        email
+        expect(ActionMailer::Base.deliveries).to be_present
+      end
+
+      it "has a subject" do
+        expect(email.subject).to eq "Tribiwnlys Cyflogaeth: hawliad wedi'i gyflwyno"
+      end
+
+      it 'has recipients' do
+        expect(email.to).to eq email_addresses
+      end
+
+      it 'has reference in the body' do
+        expect(email).to match_pattern claim.reference
+      end
+
+      it 'has office' do
+        expect(email).
+          to match_pattern 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
+      end
+
+      it 'has an attachment' do
+        expect(attachment.filename).to eq('et1_barrington_wrigglesworth.pdf')
+      end
+
+      it "has what happen next step 1" do
+        expect(email).
+          to match_pattern ["Fe anfonir copi o", "r hawliad at yr atebydd.", "Bydd ganddynt 28 diwrnod i ymateb."]
+      end
+
+      it "has what happen next step 2" do
+        expect(email).
+          to match_pattern ["Byddwn yn cysylltu â chi pan fyddwn wedi anfon eich hawliad at yr atebydd i","esbonio beth yw'r camau nesaf."]
+      end
+
+      context 'when no office' do
+        before { claim.office = nil }
+
+        it 'does not show office details' do
+          expect(email).not_to match_pattern 'to tribunal office'
         end
       end
     end
