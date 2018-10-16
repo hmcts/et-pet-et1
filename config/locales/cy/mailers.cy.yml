@@ -83,3 +83,5 @@ cy:
         complete_claim: 'Cwblhau hawliad'
       application_number_light:
         claim_number: Eich rhif hawliad
+      application_number_dark:
+        claim_number: Eich rhif hawliad

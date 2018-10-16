@@ -77,3 +77,5 @@ en:
         complete_claim: 'Complete claim'
       application_number_light:
         claim_number: Claim number
+      application_number_dark:
+        claim_number: Claim number
