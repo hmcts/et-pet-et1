@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def default_url_options
+    return {} if @active_admin
     { locale: I18n.locale }
   end
 
@@ -79,5 +80,10 @@ class ApplicationController < ActionController::Base
 
   def valid_locale?
     I18n.available_locales.include?(params[:locale].to_sym)
+  end
+
+  def set_admin_locale
+    @active_admin = true
+    I18n.locale = :en
   end
 end
