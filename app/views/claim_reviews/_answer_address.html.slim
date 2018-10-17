@@ -1,0 +1,8 @@
+tr
+  th = t "claim_reviews.item.#{section_name}.#{question}"
+  - if value.present? && [:building, :street, :locality, :county, :post_code].any? { |attr| value.send(attr).present? }
+    td
+      = render partial: 'address', locals: { address: value }
+  - else
+    td.not-entered
+      = t 'claim_reviews.item.not_entered'

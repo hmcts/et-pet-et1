@@ -121,8 +121,8 @@ FactoryGirl.define do
 
     trait :with_secondary_respondents do
       after(:build) do |claim|
-        claim.secondary_respondents.build(attributes_for(:respondent))
-        claim.secondary_respondents.build(attributes_for(:respondent))
+        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
+        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
       end
     end
 
@@ -144,6 +144,7 @@ FactoryGirl.define do
     trait :no_attachments do
       claim_details_rtf nil
       additional_claimants_csv nil
+      additional_claimants_csv_record_count 0
     end
 
     trait :non_sanitized_attachment_filenames do

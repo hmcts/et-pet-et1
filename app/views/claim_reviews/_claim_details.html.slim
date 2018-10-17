@@ -1,0 +1,12 @@
+= render 'answer', section_name: 'claim_details', question: 'claim_details' do
+  - if claim.claim_details.present?
+    = sanitize simple_format(claim.claim_details), tags: ['br']
+= render 'answer', section_name: 'claim_details', question: 'other_known_claimant_names' do
+  - if claim.other_known_claimant_names.present?
+    = sanitize simple_format(claim.other_known_claimant_names), tags: ['br']
+= render 'answer', section_name: 'claim_details', question: 'attached_document' do
+  - if claim.claim.claim_details_rtf.present?
+    = CarrierwaveFilename.for claim.claim_details_rtf
+
+
+

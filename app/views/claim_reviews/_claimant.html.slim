@@ -1,0 +1,19 @@
+= render 'answer', section_name: 'claimant', question: 'email_address' do
+  = claimant.email_address
+= render 'answer_address', section_name: 'claimant', question: 'address', value: claimant.address
+= render 'answer', section_name: 'claimant', question: 'is_disabled' do
+  = yes_no claimant.special_needs
+= render 'answer', section_name: 'claimant', question: 'mobile_number' do
+  = claimant.mobile_number
+= render 'answer', section_name: 'claimant', question: 'telephone_number' do
+  = claimant.address_telephone_number
+= render 'answer', section_name: 'claimant', question: 'contact_preference' do
+  - if claimant.contact_preference.present?
+    = t "simple_form.options.claimant.contact_preference.#{claimant.contact_preference}"
+= render 'answer', section_name: 'claimant', question: 'gender' do
+  - if claimant.gender.present?
+    = I18n.t "simple_form.options.claimant.gender.#{claimant.gender}"
+= render 'answer', section_name: 'claimant', question: 'date_of_birth' do
+  = review_date claimant.date_of_birth
+= render 'answer', section_name: 'claimant', question: 'full_name' do
+  = review_claimant_full_name claimant

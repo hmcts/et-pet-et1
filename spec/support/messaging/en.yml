@@ -1,0 +1,102 @@
+en:
+  review:
+    group_claim:
+      title: "Group claim"
+      claimant_header: 'Claimant '
+      questions:
+        group_claim: 'Group claim'
+        csv_file_name: 'CSV File Name'
+        number_of_additional_claimants: 'Number Of Additional Claimants'
+      claimant:
+        person_title:
+          mr: 'Mr'
+          mrs: 'Mrs'
+          miss: 'Miss'
+          ms: 'Ms'
+        questions:
+          full_name: 'Full name'
+          date_of_birth: 'Date of birth'
+          address: 'Address'
+    additional_information:
+      title: 'Additional information'
+      questions:
+        important_details: 'Important details'
+    claim_details:
+      title: 'Claim details'
+      questions:
+        attached_documents: 'Attached documents'
+        claim_details: 'Claim details'
+        other_known_claimants: 'Other known claimants'
+    claim_outcome:
+      title: 'Claim outcome'
+      questions:
+        what_outcome: 'What outcome?'
+        outcome_details: 'Outcome details'
+    claim_type:
+      title: 'Claim type'
+      questions:
+        send_to_whistleblowing_body: 'Send to whistleblowing body'
+        whistleblowing: 'Whistleblowing'
+        types: 'Type(s)'
+    claimant:
+      title: "Claimant’s details"
+      questions:
+        date_of_birth: 'Date of birth'
+        preferred_contact: 'Preferred contact'
+        address: 'Address'
+        email: 'Email'
+        assistance_required: 'Assistance required at the tribunal?'
+        full_name: 'Full name'
+        mobile: 'Mobile'
+        phone: 'Phone'
+        gender: 'Gender'
+    employment:
+      title: 'Employment details'
+      questions:
+        pension_scheme: 'Pension scheme'
+        notice_period: 'Notice period'
+        end_date: 'End date'
+        start_date: 'Start date'
+        pay_before_tax: 'Pay before tax'
+        pay_after_tax: 'Pay after tax'
+        average_weekly_hours_worked: 'Average weekly hours worked'
+        current_situation: 'Current situation'
+        job: 'Job'
+        benefit_details: 'Benefit details'
+        another_job: 'Another job'
+        notice_pay: 'Notice pay'
+        notice_period_end_date: 'Notice period end date'
+        pay_before_tax_at_new_job: 'Pay before tax at new job'
+        employed_by_employer: 'Employed by employer'
+    representative:
+      title: "Representative’s details"
+      questions:
+        type_of_representative: 'Type of representative'
+        email: 'Email'
+        address: 'Address'
+        full_name: 'Full name'
+        dx_number: 'DX number'
+        mobile: 'Mobile'
+        preferred_contact: 'Preferred contact'
+        phone: 'Phone'
+        organisation_name: 'Organisation name'
+        representative: 'Representative'
+    respondent:
+      title: "Respondent’s details"
+      questions:
+        name: 'Name'
+        address: 'Address'
+        phone: 'Phone'
+        acas_number: 'Acas number'
+        work_address: 'Work address'
+    additional_respondents:
+      title: 'Additional respondents'
+      respondent_header: 'Respondent '
+      questions:
+        additional_respondents: 'Additional respondents'
+      respondent:
+        questions:
+          name: 'Name'
+          acas_number: 'Acas number'
+          address: 'Address'
+

@@ -1,0 +1,41 @@
+- if employment.present?
+  = render 'answer', section_name: 'employment', question: 'job_title' do
+    = employment.job_title
+  = render 'answer', section_name: 'employment', question: 'start_date' do
+    = review_date employment.start_date
+  = render 'answer', section_name: 'employment', question: 'average_hours_worked_per_week' do
+    = employment.average_hours_worked_per_week
+  = render 'answer', section_name: 'employment', question: 'gross_pay' do
+    = review_pay_for employment.gross_pay, employment.gross_pay_period_type
+  = render 'answer', section_name: 'employment', question: 'net_pay' do
+    = review_pay_for employment.net_pay, employment.net_pay_period_type
+  = render 'answer', section_name: 'employment', question: 'enrolled_in_pension_scheme' do
+    = yes_no employment.enrolled_in_pension_scheme?
+  = render 'answer', section_name: 'employment', question: 'benefit_details' do
+    = employment.benefit_details
+  = render 'answer', section_name: 'employment', question: 'current_situation' do
+    - if employment.current_situation
+      = t "simple_form.options.employment.current_situation.#{employment.current_situation}"
+  - unless employment.current_situation == 'still_employed' || employment.current_situation == 'notice_period'
+    = render 'answer', section_name: 'employment', question: 'end_date' do
+      = review_date employment.end_date
+    = render 'answer', section_name: 'employment', question: 'worked_notice_period_or_paid_in_lieu' do
+      = yes_no employment.worked_notice_period_or_paid_in_lieu?
+  - unless employment.current_situation == 'still_employed' || employment.current_situation == 'employment_terminated'
+    = render 'answer', section_name: 'employment', question: 'notice_period_end_date' do
+      = review_date employment.notice_period_end_date
+  - unless !employment.worked_notice_period_or_paid_in_lieu? || employment.current_situation == 'still_employed' || employment.current_situation == 'notice_period'
+    = render 'answer', section_name: 'employment', question: 'notice_period_pay' do
+      - if [employment.notice_pay_period_count, employment.notice_pay_period_type].all?(&:present?)
+        = "#{employment.notice_pay_period_count} #{employment.notice_pay_period_type}"
+  = render 'answer', section_name: 'employment', question: 'new_job' do
+    = yes_no employment.found_new_job?
+  - if employment.found_new_job?
+    = render 'answer', section_name: 'employment', question: 'new_job_gross_pay' do
+      - if employment.new_job_gross_pay.present? && employment.new_job_gross_pay_frequency.present?
+        = "#{number_to_currency(employment.new_job_gross_pay)} #{t("claim_reviews.item.employment.pay_period_#{employment.new_job_gross_pay_frequency}")}"
+    = render 'answer', section_name: 'employment', question: 'new_job_start_date' do
+      = review_date employment.new_job_start_date
+- else
+  = render 'answer', section_name: 'employment', question: 'was_employed' do
+    = yes_no false
