@@ -6,4 +6,5 @@ tmp/**/*
 /public/assets
 /public/apply
 !/public/assets/group-claims-template.csv
+!/public/assets/group-claims-template-cy.csv
 /node_modules
