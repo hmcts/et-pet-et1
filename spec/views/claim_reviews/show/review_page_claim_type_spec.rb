@@ -22,6 +22,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     context 'temp' do
+      let(:null_object) { NullObject.new }
       before do
         render template: "claim_reviews/show", locals: {
           primary_claimant: claim.primary_claimant || null_object,

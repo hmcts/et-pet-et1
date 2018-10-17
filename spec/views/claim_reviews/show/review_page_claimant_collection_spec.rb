@@ -22,6 +22,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     context 'temp' do
+      let(:null_object) { NullObject.new }
       let(:claimant_collection_section) { review_page.group_claim }
 
       let(:claim) { create :claim }

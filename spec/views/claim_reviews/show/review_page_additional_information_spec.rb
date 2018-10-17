@@ -22,6 +22,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     context 'temp' do
+      let(:null_object) { NullObject.new }
       let(:claim) { create :claim, miscellaneous_information: "hey\r\nhey" }
 
       before do

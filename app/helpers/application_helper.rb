@@ -13,10 +13,6 @@ module ApplicationHelper
     end
   end
 
-  def null_object
-    @null_object ||= ::NullObject.new
-  end
-
   private def generic_header
     I18n.t("#{controller_name}.#{action_name}.header")
   end

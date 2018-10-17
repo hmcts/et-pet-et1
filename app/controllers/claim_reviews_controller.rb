@@ -1,6 +1,7 @@
 class ClaimReviewsController < ApplicationController
   redispatch_request unless: :created?
   before_action :check_session_expiry
+  helper_method :null_object
 
   def update
     claim.update confirmation_email_recipients: email_addresses
@@ -20,6 +21,10 @@ class ClaimReviewsController < ApplicationController
   end
 
   private
+
+  def null_object
+    @null_object ||= NullObject.new
+  end
 
   def email_addresses
     params[:confirmation_email][:email_addresses].reject(&:blank?)
