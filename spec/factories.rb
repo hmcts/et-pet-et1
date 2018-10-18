@@ -201,7 +201,7 @@ FactoryGirl.define do
     name                    "Ministry of Justice"
     no_acas_number_reason   "employer_contacted_acas"
     worked_at_same_address  false
-    addresses               { [create(:address, primary: true), create(:address, primary: false)] }
+    addresses               { [build(:address, primary: true), build(:address, primary: false)] }
 
     trait :with_acas_number do
       no_acas_number_reason nil
@@ -209,7 +209,7 @@ FactoryGirl.define do
     end
 
     trait :without_work_address do
-      addresses { [create(:address, primary: true)] }
+      addresses { [build(:address, primary: true)] }
     end
   end
 

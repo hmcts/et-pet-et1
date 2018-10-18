@@ -14,6 +14,7 @@ describe "claim_reviews/show.html.slim" do
 
     before do
       render template: "claim_reviews/show", locals: {
+        claim: claim,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,

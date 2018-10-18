@@ -10,6 +10,7 @@ describe "claim_reviews/show.html.slim" do
     let(:null_object) { NullObject.new }
     before do
       render template: "claim_reviews/show", locals: {
+        claim: claim,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,
@@ -21,9 +22,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     let(:claim) do
-      create :claim,
-        claim_details: "wut\r\nwut",
-        other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys"
+      create :claim, claim_details: "wut\r\nwut", other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys"
     end
 
     context 'Claim details' do

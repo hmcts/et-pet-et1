@@ -10,6 +10,7 @@ describe "claim_reviews/show.html.slim" do
     let(:null_object) { NullObject.new }
     before do
       render template: "claim_reviews/show", locals: {
+        claim: claim,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,
@@ -23,14 +24,14 @@ describe "claim_reviews/show.html.slim" do
     let(:respondent_section) { review_page.respondent_section }
 
     let(:respondent) do
-      Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
+      build :respondent, name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
         address_locality: 'Lolzville', address_county: 'Lolzfordshire',
         address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
         acas_early_conciliation_certificate_number: '123',
         no_acas_number_reason: :acas_has_no_jurisdiction,
         primary_respondent: true
     end
-    let(:claim) { create :claim, primary_respondent: respondent }
+    let(:claim) { build_stubbed :claim, primary_respondent: respondent }
 
     it { expect(respondent_section.name.answer).to have_text('Lol Corp') }
 
@@ -48,7 +49,7 @@ describe "claim_reviews/show.html.slim" do
 
       context 'when target.acas_number_reason is nil' do
         let(:respondent) do
-          Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
+          build :respondent, name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
             address_locality: 'Lolzville', address_county: 'Lolzfordshire',
             address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
             acas_early_conciliation_certificate_number: '',
@@ -62,7 +63,7 @@ describe "claim_reviews/show.html.slim" do
 
     context 'when worked at a different address' do
       let(:respondent) do
-        Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
+        build :respondent, :without_work_address, name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
           address_locality: 'Lolzville', address_county: 'Lolzfordshire',
           address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
           acas_early_conciliation_certificate_number: '123',
@@ -77,7 +78,7 @@ describe "claim_reviews/show.html.slim" do
 
     context 'when worked at same address' do
       let(:respondent) do
-        Respondent.new name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
+        build :respondent, name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
           address_locality: 'Lolzville', address_county: 'Lolzfordshire',
           address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
           acas_early_conciliation_certificate_number: '123',

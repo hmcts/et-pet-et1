@@ -1,5 +1,5 @@
 module ClaimReviewsHelper
-  def incomplete_claim_warning
+  def incomplete_claim_warning(claim)
     unless claim.submittable?
       render partial: 'error_header', locals: {
         summary: t('.incomplete_claim_summary'),
@@ -8,7 +8,7 @@ module ClaimReviewsHelper
     end
   end
 
-  def email_addresses
+  def email_addresses(claim)
     ConfirmationEmailAddressesPresenter.email_addresses_for claim
   end
 
@@ -24,7 +24,7 @@ module ClaimReviewsHelper
     link_to t('.edit'), claim_path_for(section, return_to_review: true)
   end
 
-  def submit_button_text
+  def submit_button_text(claim)
     if claim.application_fee_after_remission.zero?
       t '.submit_with_remission'
     else

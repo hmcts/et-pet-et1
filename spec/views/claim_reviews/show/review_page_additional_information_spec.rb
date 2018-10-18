@@ -8,10 +8,11 @@ describe "claim_reviews/show.html.slim" do
     end
 
     let(:null_object) { NullObject.new }
-    let(:claim) { create :claim, miscellaneous_information: "hey\r\nhey" }
+    let(:claim) { build_stubbed :claim, miscellaneous_information: "hey\r\nhey" }
 
     before do
       render template: "claim_reviews/show", locals: {
+        claim: claim,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,

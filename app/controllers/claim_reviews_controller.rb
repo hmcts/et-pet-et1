@@ -11,6 +11,7 @@ class ClaimReviewsController < ApplicationController
 
   def show
     render locals: {
+      claim: claim,
       primary_claimant: claim.primary_claimant || null_object,
       representative: claim.representative || null_object,
       employment: claim.employment || null_object,

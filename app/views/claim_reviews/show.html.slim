@@ -7,7 +7,7 @@ header.main-header role="banner"
 .main-section
 
   .main-content
-    = incomplete_claim_warning
+    = incomplete_claim_warning(claim)
 
     div class=("review-list-entry claimant")
       h2.list-header
@@ -91,7 +91,7 @@ header.main-header role="banner"
       table.review-table
         = render 'additional_information', claim: claim, section_name: 'additional_information'
 
-    = render 'email_addresses'
+    = render 'email_addresses', claim: claim
 
     p.print = link_to t('.print_link').html_safe
 
