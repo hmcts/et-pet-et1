@@ -65,6 +65,13 @@ describe "claim_reviews/show.html.slim" do
       it { expect(employment_section).not_to have_pay_before_tax_at_new_job }
     end
 
+    context "when found_new_job is nil" do
+      let(:employment_attributes) { { found_new_job: nil } }
+
+      it { expect(employment_section.another_job.answer).to have_text 'Not entered' }
+      it { expect(employment_section).not_to have_pay_before_tax_at_new_job }
+    end
+
     describe 'current_situation' do
       context 'when still_employed' do
         let(:employment_attributes) { { current_situation: :still_employed, new_job_start_date: nil, new_job_gross_pay: nil } }

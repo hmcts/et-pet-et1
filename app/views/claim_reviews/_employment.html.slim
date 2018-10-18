@@ -29,7 +29,7 @@
     = render 'answer', section_name: 'employment', question: 'notice_period_end_date' do
       = review_date employment.notice_period_end_date
   = render 'answer', section_name: 'employment', question: 'new_job' do
-    = yes_no employment.found_new_job?
+    = yes_no employment.found_new_job
   - if employment.found_new_job?
     = render 'answer', section_name: 'employment', question: 'new_job_gross_pay' do
       - if employment.new_job_gross_pay.present? && employment.new_job_gross_pay_frequency.present?
