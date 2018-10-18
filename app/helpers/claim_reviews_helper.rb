@@ -33,7 +33,8 @@ module ClaimReviewsHelper
   end
 
   def review_date(date)
-    date.try :strftime, '%d %B %Y'
+    return date if date.nil?
+    I18n.l date, format: '%d %B %Y'
   end
 
   def review_pay_for(pay, period)
