@@ -7,6 +7,12 @@ module ApplicationHelper
     super(record, options.merge(builder: ETFees::FormBuilder), &block)
   end
 
+  def yes_no(val)
+    unless val.nil?
+      I18n.t "simple_form.#{val ? 'yes' : 'no'}"
+    end
+  end
+
   private def generic_header
     I18n.t("#{controller_name}.#{action_name}.header")
   end

@@ -1,0 +1,5 @@
+= render 'answer', section_name: 'claimant', question: 'full_name' do
+  = review_claimant_full_name claimant
+= render 'answer', section_name: 'claimant', question: 'date_of_birth' do
+  = review_date claimant.date_of_birth
+= render 'answer_address', section_name: 'claimant', question: 'address', value: claimant.address

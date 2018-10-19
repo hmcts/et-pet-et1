@@ -10,18 +10,87 @@ feature 'Quick edit' do
     visit claim_review_path
   end
 
-  sections = ['claimant', 'additional-claimants', 'representative', 'respondent', 'employment', 'claim-type', 'claim-details', 'claim-outcome', 'additional-information']
-
-  sections.each do |section|
-    translation = I18n.t('claim_reviews.show.sections.' + section.underscore).to_s
-
-    scenario "editing '#{translation}'" do
-      within(".#{section}") do
-        click_link 'Edit'
-      end
-      expect(page.current_path).to eq "/apply/#{section}"
-      click_button 'Save and continue'
-      expect(page.current_path).to eq "/apply/review"
+  scenario "editing 'Claimant’s details'" do
+    within(".claimant") do
+      click_link 'Edit'
     end
+    expect(page.current_path).to eq "/apply/claimant"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
   end
+
+  scenario "editing 'Group claim'" do
+    within(".additional-claimants") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/additional-claimants"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Representative’s details'" do
+    within(".representative") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/representative"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Respondent’s details'" do
+    within(".respondent") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/respondent"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Employment details'" do
+    within(".employment") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/employment"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Claim type'" do
+    within(".claim-type") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/claim-type"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Claim details'" do
+    within(".claim-details") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/claim-details"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Claim outcome'" do
+    within(".claim-outcome") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/claim-outcome"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+  scenario "editing 'Additional information'" do
+    within(".additional-information") do
+      click_link 'Edit'
+    end
+    expect(page.current_path).to eq "/apply/additional-information"
+    click_button 'Save and continue'
+    expect(page.current_path).to eq "/apply/review"
+  end
+
+
+
 end

@@ -1,0 +1,8 @@
+= render 'answer', section_name: 'respondent', question: 'name' do
+  = respondent.name
+= render 'answer_address', section_name: 'respondent', question: 'address', value: respondent.address
+= render 'answer', section_name: 'respondent', question: 'acas_early_conciliation_certificate_number' do
+  - if respondent.acas_early_conciliation_certificate_number?
+    = respondent.acas_early_conciliation_certificate_number
+  - elsif respondent.no_acas_number_reason
+    = I18n.t "simple_form.options.respondent.no_acas_number_reason.#{respondent.no_acas_number_reason}"

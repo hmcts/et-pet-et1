@@ -121,8 +121,8 @@ FactoryGirl.define do
 
     trait :with_secondary_respondents do
       after(:build) do |claim|
-        claim.secondary_respondents.build(attributes_for(:respondent))
-        claim.secondary_respondents.build(attributes_for(:respondent))
+        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
+        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
       end
     end
 
@@ -144,6 +144,7 @@ FactoryGirl.define do
     trait :no_attachments do
       claim_details_rtf nil
       additional_claimants_csv nil
+      additional_claimants_csv_record_count 0
     end
 
     trait :non_sanitized_attachment_filenames do
@@ -200,7 +201,7 @@ FactoryGirl.define do
     name                    "Ministry of Justice"
     no_acas_number_reason   "employer_contacted_acas"
     worked_at_same_address  false
-    addresses               { [create(:address, primary: true), create(:address, primary: false)] }
+    addresses               { [build(:address, primary: true), build(:address, primary: false)] }
 
     trait :with_acas_number do
       no_acas_number_reason nil
@@ -208,7 +209,7 @@ FactoryGirl.define do
     end
 
     trait :without_work_address do
-      addresses { [create(:address, primary: true)] }
+      addresses { [build(:address, primary: true)] }
     end
   end
 
