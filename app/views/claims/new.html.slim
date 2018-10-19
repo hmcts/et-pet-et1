@@ -20,7 +20,7 @@ header.main-header role="banner"
           p = t('.what_you_need_to_know.body_html', path: guide_path)
 
         .clearfix
-          = f.button :submit, { class: 'button ga-event' }
-          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return ga-event'}
+          = f.button :submit, { class: 'button' }
+          = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return'}
 
   = render partial: 'shared/aside'

@@ -119,6 +119,9 @@ Rails.application.configure do
   config.active_job.queue_adapter = :sidekiq
 
   config.flatten_pdf = false
+
+  # The google tag manager account - set to false if you do not want google tag manager in this environment
+  config.google_tag_manager_account = false
 end
 CarrierWave.configure do |config|
   config.storage :fog
