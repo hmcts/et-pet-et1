@@ -10,8 +10,13 @@ RSpec.describe PdfFormBuilder, type: :service do
       end
     end
 
-    it "exists" do
+    it "english exists" do
       file_existence = File.exist?(described_class::ET1_PDF_PATH)
+      expect(file_existence).to eq true
+    end
+
+    it "welsh exists" do
+      file_existence = File.exist?(described_class::ET1_PDF_PATH_CY)
       expect(file_existence).to eq true
     end
   end

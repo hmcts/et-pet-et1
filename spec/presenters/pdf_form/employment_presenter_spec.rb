@@ -9,7 +9,7 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
     context 'when notice period is monthly' do
       let(:employment) {
         Employment.new(
-          notice_pay_period_type: 'monthly',
+          notice_pay_period_type: 'months',
           notice_pay_period_count: 1
         )
       }
@@ -35,7 +35,7 @@ RSpec.describe PdfForm::EmploymentPresenter, type: :presenter do
     describe 'when notice period is weekly' do
       let(:employment) {
         Employment.new(
-          notice_pay_period_type: 'weekly',
+          notice_pay_period_type: 'weeks',
           notice_pay_period_count: 1
         )
       }
