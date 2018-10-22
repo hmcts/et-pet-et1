@@ -18,6 +18,7 @@ en:
       line_six: "Contact us: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
 
     confirmation_email:
+      claim_number: Claim number
       footer: :base_mailer.footer
       subject: 'Employment tribunal: claim submitted'
       header: Claim submitted
