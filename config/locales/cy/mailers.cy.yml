@@ -18,6 +18,7 @@ cy:
       line_six: "Cysylltwch â ni: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
 
     confirmation_email:
+      claim_number: Eich rhif hawliad
       footer:
         contact_us: Cysylltu â ni
       subject: 'Tribiwnlys Cyflogaeth: hawliad wedi''i gyflwyno'

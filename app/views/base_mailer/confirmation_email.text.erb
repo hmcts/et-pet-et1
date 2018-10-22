@@ -1,4 +1,5 @@
-Claim number: <%= @presenter.reference %>
+
+<%= t('.claim_number') %>: <%= @presenter.reference %>
 
 <%= @presenter.primary_claimant_full_name %>
 
@@ -24,8 +25,8 @@ Claim number: <%= @presenter.reference %>
 
 <%= @presenter.text_email_line_break %>
 
-<%= t('.feedback_text') -%> https://www.gov.uk/done/employment-tribunals-make-a-claim
+<%= t('.feedback_text') -%> <%= language_specific_feedback_url %>
 
-<%= t('.diversity_text') -%> https://www.employmenttribunals.service.gov.uk/forms/form/175/en/diversity_monitoring_questionnaire
+<%= t('.diversity_text') -%> <%= diversity_landing_url(locale: I18n.locale) %>
 
 <%= t('.footer.contact_us') %>: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment

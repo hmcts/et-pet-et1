@@ -21,7 +21,7 @@ module ClaimsHelper
     if I18n.locale.to_s == 'en'
       return 'https://www.gov.uk/done/employment-tribunals-make-a-claim'
     end
-    "/apply/feedback?locale=#{I18n.locale}"
+    feedback_url(locale: I18n.locale)
   end
 
   def group_claim_template_file_path
