@@ -16,8 +16,8 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
       "6.2 normal pay" => net_pay,
       "6.2 normal pay tick boxes" => use_or_off(net_pay_period_type, PAY_PERIODS),
       "6.3 tick boxes" => tri_state(worked_notice_period_or_paid_in_lieu),
-      "6.3 weeks" => notice_period('weekly'),
-      "6.3 months" => notice_period('monthly'),
+      "6.3 weeks" => notice_period('weeks'),
+      "6.3 months" => notice_period('months'),
       "6.4 tick boxes" => tri_state(enrolled_in_pension_scheme),
       "6.5" => benefit_details,
       "7.1 tick boxes" => tri_state(found_new_job),
@@ -31,6 +31,6 @@ class PdfForm::EmploymentPresenter < PdfForm::BaseDelegator
   private
 
   def notice_period(type)
-    type.to_sym == notice_pay_period_type.try(:to_sym) ? notice_pay_period_count : nil
+    (type.to_sym == notice_pay_period_type.try(:to_sym)) ? notice_pay_period_count : nil
   end
 end
