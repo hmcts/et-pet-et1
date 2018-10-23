@@ -12,7 +12,7 @@ RSpec.describe ClaimsHelper, type: :helper do
 
     context 'when Welsh' do
       before { I18n.locale = :cy }
-      it { expect(helper.language_specific_feedback_url).to eql(default_link) }
+      it { expect(helper.language_specific_feedback_url).to include(default_link) }
     end
   end
 
