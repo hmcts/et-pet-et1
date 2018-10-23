@@ -1,6 +1,8 @@
-shared_examples 'google tag manager' do |page_object_class:|
-  subject(:page_object_class) { page_object_class }
+RSpec.shared_examples 'google tag manager' do |page_object_class:|
   subject(:page_object) { page_object_class.new.tap(&:load) }
+
+  let(:page_object_class) { page_object_class }
+
   context 'google tag manager', js: false do
     context 'with account' do
       around do |example|
@@ -27,5 +29,4 @@ shared_examples 'google tag manager' do |page_object_class:|
       end
     end
   end
-
 end
