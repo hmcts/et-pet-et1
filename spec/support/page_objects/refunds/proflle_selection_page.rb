@@ -1,4 +1,4 @@
-require_relative './base_page'
+require_relative '../base_page'
 module ET1
   module Test
     module Refunds
