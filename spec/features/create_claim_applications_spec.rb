@@ -299,7 +299,7 @@ feature 'Claim applications', type: :feature do
         perform_active_jobs(FeeGroupReferenceJob)
         perform_active_jobs(ClaimSubmissionJob)
         page_pdf_link = URI.parse(page.find_link('Save a copy')['href']).path
-        expect(page_pdf_link).to eq pdf_path
+        expect(page_pdf_link).to eq pdf_path(locale: :en)
 
         pdf_file_data = Claim.last.pdf.read
         pdf_data = pdf_to_hash(pdf_file_data)
@@ -317,7 +317,7 @@ feature 'Claim applications', type: :feature do
         remove_pdf_from_claim
         click_link 'Save a copy'
 
-        expect(current_path).to eq pdf_path
+        expect(current_path).to eq pdf_path(locale: :en)
         expect(page).to have_text "Processing a copy of your claim"
         expect(page).not_to have_signout_button
         expect(page).not_to have_session_prompt

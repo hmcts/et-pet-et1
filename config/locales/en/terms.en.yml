@@ -2,12 +2,12 @@ en:
   terms:
     show:
       links:
-        general_html: '<a href="?locale=en#general">General Terms and conditions</a>'
-        applicable_law_html: '<a href="?locale=en#applicable_law">Applicable law</a>'
-        responsible_html: '<a href="?locale=en#responsible">Responsible use of this service</a>'
-        gdpr_html: '<a href="?locale=en#gdpr">General Data Protection Regulations (GDPR)</a>'
-        hmcts_privacy_html: '<a href="?locale=en#hmcts_privacy">HMCTS Privacy Notice</a>'
-        disclaimer_html: '<a href="?locale=en#disclaimer">Disclaimer</a>'
+        general_html: '<a href="#general">General Terms and conditions</a>'
+        applicable_law_html: '<a href="#applicable_law">Applicable law</a>'
+        responsible_html: '<a href="#responsible">Responsible use of this service</a>'
+        gdpr_html: '<a href="#gdpr">General Data Protection Regulations (GDPR)</a>'
+        hmcts_privacy_html: '<a href="#hmcts_privacy">HMCTS Privacy Notice</a>'
+        disclaimer_html: '<a href="#disclaimer">Disclaimer</a>'
       line_one: "By using this ‘apply to an employment tribunal’ service you agree to our privacy policy and to these terms and conditions. Read them carefully."
 
       article_general:

@@ -57,7 +57,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the payment page' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_payment_path
+            expect(page.current_path).to eq claim_payment_path(locale: :en)
           end
         end
 
@@ -66,7 +66,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
 
@@ -75,7 +75,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
       end
@@ -95,7 +95,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the payment page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_payment_path
+            expect(page.current_path).to eq claim_payment_path(locale: :en)
           end
         end
 
@@ -104,7 +104,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
 
@@ -113,7 +113,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
       end
@@ -133,7 +133,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the claimant page' do
             visit claim_payment_path
-            expect(page.current_path).to eq claim_claimant_path
+            expect(page.current_path).to eq claim_claimant_path(locale: :en)
           end
         end
 
@@ -142,7 +142,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_payment_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
 
@@ -151,7 +151,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_payment_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
       end
@@ -180,7 +180,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the claimant page' do
             visit claim_confirmation_path
-            expect(page.current_path).to eq claim_claimant_path
+            expect(page.current_path).to eq claim_claimant_path(locale: :en)
           end
         end
 
@@ -189,7 +189,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the payment page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_payment_path
+            expect(page.current_path).to eq claim_payment_path(locale: :en)
           end
         end
       end
