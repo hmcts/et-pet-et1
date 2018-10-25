@@ -31,17 +31,17 @@ feature 'Guide', type: :feature do
     end
 
     scenario "User can click time time_limits_link" do
-      expect(page).to have_link(time_limits_link, href: ("?locale=en" + time_limits_div).to_s)
+      expect(page).to have_link(time_limits_link, href: (time_limits_div).to_s)
       expect(page.find(time_limits_div)).not_to be_nil
     end
 
     scenario "User can click time acas_link" do
-      expect(page).to have_link(acas_link, href: ("?locale=en" + acas_div).to_s)
+      expect(page).to have_link(acas_link, href: (acas_div).to_s)
       expect(page.find(acas_div)).not_to be_nil
     end
 
     scenario "User can click time acas_exceptions_link" do
-      expect(page).to have_link(acas_exceptions_link, href: ("?locale=en" + acas_exceptions_div).to_s)
+      expect(page).to have_link(acas_exceptions_link, href: (acas_exceptions_div).to_s)
       expect(page.find(acas_exceptions_div)).not_to be_nil
     end
 
@@ -70,16 +70,16 @@ feature 'Guide', type: :feature do
       within('aside') { click_link 'Guide' }
       click_link 'Return to form'
 
-      expect(current_path).to eq claim_additional_claimants_path
+      expect(current_path).to eq claim_additional_claimants_path(locale: :en)
       click_button 'Save and continue'
-      expect(current_path).to eq claim_review_path
+      expect(current_path).to eq claim_review_path(locale: :en)
     end
 
     scenario 'Redirects to claim apply path when not referred from current site' do
       visit guide_path
       click_link 'Return to form'
 
-      expect(current_path).to eq apply_path
+      expect(current_path).to eq apply_path(locale: :en)
     end
   end
 end

@@ -2,10 +2,10 @@ en:
   guides:
     show:
       links:
-        time_limits_html: '<a href="?locale=en#time_limits">Time limits</a>'
-        acas_early_conciliation_html: '<a href="?locale=en#acas_early_conciliation">Acas: early conciliation</a>'
-        acas_early_conciliation_exceptions_html: '<a href="?locale=en#acas_early_conciliation_exceptions">Exceptions to early conciliation</a>'
-        writing_your_claim_statement_html: '<a href="?locale=en#writing_your_claim_statement">Writing your claim statement</a>'
+        time_limits_html: '<a href="#time_limits">Time limits</a>'
+        acas_early_conciliation_html: '<a href="#acas_early_conciliation">Acas: early conciliation</a>'
+        acas_early_conciliation_exceptions_html: '<a href="#acas_early_conciliation_exceptions">Exceptions to early conciliation</a>'
+        writing_your_claim_statement_html: '<a href="#writing_your_claim_statement">Writing your claim statement</a>'
 
     time_limits:
       title: Time limits
