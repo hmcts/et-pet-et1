@@ -13,7 +13,7 @@ feature 'Session Expiry', type: :feature do
           travel_to TimeHelper.session_expiry_time do
             visit(page_name.to_s)
             expect(page).to have_text 'Session expired'
-            expect(current_path).to eq expired_user_session_path
+            expect(current_path).to eq expired_user_session_path(locale: :en)
           end
         end
       end
@@ -21,7 +21,7 @@ feature 'Session Expiry', type: :feature do
       scenario 'a user is unable to re-enter the form from the expiry page' do
         travel_to TimeHelper.session_expiry_time do
           visit claim_claimant_path
-          expect(current_path).to eq expired_user_session_path
+          expect(current_path).to eq expired_user_session_path(locale: :en)
           visit claim_claimant_path
           expect(current_path).to eq apply_path
         end
@@ -34,7 +34,7 @@ feature 'Session Expiry', type: :feature do
       visit apply_path
       travel_to TimeHelper.session_expiry_time do
         click_button 'Start a claim'
-        expect(current_path).to eq claim_application_number_path
+        expect(current_path).to eq claim_application_number_path(locale: :en)
       end
     end
   end

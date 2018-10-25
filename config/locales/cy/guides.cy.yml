@@ -2,10 +2,10 @@ cy:
   guides:
     show:
       links:
-        time_limits_html: '<a href="?locale=cy#time_limits">Terfynau amser</a>'
-        acas_early_conciliation_html: '<a href="?locale=cy#acas_early_conciliation">Acas: cymodi cynnar</a>'
-        acas_early_conciliation_exceptions_html: '<a href="?locale=cy#acas_early_conciliation_exceptions">Eithriadau i gymodi cynnar</a>'
-        writing_your_claim_statement_html: '<a href="?locale=cy#writing_your_claim_statement">Ysgrifennu datganiad i gefnogi eich hawliad</a>'
+        time_limits_html: '<a href="#time_limits">Terfynau amser</a>'
+        acas_early_conciliation_html: '<a href="#acas_early_conciliation">Acas: cymodi cynnar</a>'
+        acas_early_conciliation_exceptions_html: '<a href="#acas_early_conciliation_exceptions">Eithriadau i gymodi cynnar</a>'
+        writing_your_claim_statement_html: '<a href="#writing_your_claim_statement">Ysgrifennu datganiad i gefnogi eich hawliad</a>'
 
     time_limits:
       title: Terfynau amser
