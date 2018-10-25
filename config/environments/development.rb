@@ -82,6 +82,7 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
   config.active_job.queue_adapter = :sidekiq
 
+  config.flatten_pdf = false
 end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true

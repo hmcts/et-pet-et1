@@ -13,7 +13,7 @@ class PdfFormBuilder
   end
 
   def perform(&_block)
-    pdf_builder.fill_form(ET1_PDF_PATH, tempfile, document_data, flatten: !Rails.env.test?)
+    pdf_builder.fill_form(ET1_PDF_PATH, tempfile, document_data, flatten: Rails.application.config.flatten_pdf)
     yield tempfile
     tempfile.close!
   end
