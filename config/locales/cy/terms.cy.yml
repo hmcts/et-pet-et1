@@ -2,12 +2,12 @@ cy:
   terms:
     show:
       links:
-        general_html: '<a href="?locale=cy#general">Telerau ac amodau cyffredinol</a>'
-        applicable_law_html: '<a href="?locale=cy#applicable_law">Y gyfraith gymwys</a>'
-        responsible_html: "<a href='?locale=cy#responsible'>Defnydd cyfrifol o'r gwasanaeth hwn</a>"
-        gdpr_html: '<a href="?locale=cy#gdpr">Rheoliadau Cyffredinol Diogelu Data (GDPR)</a>'
-        hmcts_privacy_html: '<a href="?locale=cy#hmcts_privacy">Hysbysiad Preifatrwydd GLlTEM</a>'
-        disclaimer_html: '<a href="?locale=cy#disclaimer">Ymwrthodiad</a>'
+        general_html: '<a href="#general">Telerau ac amodau cyffredinol</a>'
+        applicable_law_html: '<a href="#applicable_law">Y gyfraith gymwys</a>'
+        responsible_html: "<a href='#responsible'>Defnydd cyfrifol o'r gwasanaeth hwn</a>"
+        gdpr_html: '<a href="#gdpr">Rheoliadau Cyffredinol Diogelu Data (GDPR)</a>'
+        hmcts_privacy_html: '<a href="#hmcts_privacy">Hysbysiad Preifatrwydd GLlTEM</a>'
+        disclaimer_html: '<a href="#disclaimer">Ymwrthodiad</a>'
       line_one: "Drwy ddefnyddio’r gwasanaeth ‘gwneud cais i dribiwnlys cyflogaeth’ hwn, rydych yn cytuno i’n polisi preifatrwydd a’r telerau ac amodau hyn. Darllenwch nhw’n ofalus."
 
       article_general:
