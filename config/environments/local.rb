@@ -120,9 +120,9 @@ Rails.application.configure do
 
   config.flatten_pdf = false
 
-  # The google tag manager account - set to false if you do not want google tag manager in this environment
-  # @TODO Dont let this through
-  config.google_tag_manager_account = "changemebacktofalse"
+  # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
+  # var can also be used to disable.
+  config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)
 end
 CarrierWave.configure do |config|
   config.storage :fog
