@@ -2,18 +2,18 @@ cy:
   claim_confirmations:
     show:
       header: Hawliad wedi'i gyflwyno
-      callout_detail: "Eich rhif hawliad "
+      callout_detail: "Eich rhif hawliad"
       feedback_html: |
         <a href="%{href}" rel="external">Mae eich adborth</a> yn ein helpu i wella'r gwasanaeth hwn.
       diversity_html: |
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}" rel="external">holiadur monitro amrywiaeth</a>.
       what_happens_next:
         header: Beth sy'n digwydd nesaf
-        payment_failed: "Byddwn yn cysylltu â chi o fewn 5 diwrnod gwaith i drefnu taliad. "
+        payment_failed: "Byddwn yn cysylltu â chi o fewn 5 diwrnod gwaith i drefnu taliad."
         apply_for_remission: |
           Rydych wedi cychwyn gwneud cais am help i dalu ffioedd.
           Mae'n rhaid i chi nawr gwblhau eich cais o fewn 7 diwrnod neu gellir gwrthod eich hawliad.
-        remission_link_text: "Gwneud cais am help i dalu ffioedd "
+        remission_link_text: "Gwneud cais am help i dalu ffioedd"
         send_to_respondent: |
           Fe anfonir copi o'r hawliad at yr atebydd.
           Bydd ganddynt 28 diwrnod i ymateb.
