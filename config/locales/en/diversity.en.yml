@@ -17,8 +17,8 @@ en:
       sub_header: Confirmation of supplied details
       edit: Edit your answers
       previous: Previous
-      hint: Pressing "Submit Form" below will send the details confirmed below for processing.
-      submit: Submit Form
+      hint: Pressing "Submit form" below will send the details confirmed below for processing.
+      submit: Submit form
       session_reloaded: Your session has been re loaded - this may have been caused by your cookie expiring
     submit:
       sub_header: Thank you
@@ -92,7 +92,7 @@ en:
       hint: Were you pregnant when you were dismissed?
     review:
       hint: Check your answers
-      submit: Submit Form
+      submit: Submit form
     confirmation:
       hint: Thank you
       message: Thank you for completing this diversity monitoring questionnaire.
