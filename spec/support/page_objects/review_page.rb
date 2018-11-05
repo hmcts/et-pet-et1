@@ -2,7 +2,7 @@ require_relative './base_page'
 module ET1
   module Test
     class ReviewPage < BasePage
-      set_url "/apply/review"
+      set_url "/en/apply/review"
       section :group_claim, :et1_review_section_labelled, 'review.group_claim.title' do
         section :group_claim, :et1_review_question_labelled, 'review.group_claim.questions.group_claim' do
           element :answer, :css, 'td'
