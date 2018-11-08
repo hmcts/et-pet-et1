@@ -867,12 +867,20 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             new_job_start_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+            gross_pay:
+              not_a_number: Rhaid rhoi rhif
             gross_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            net_pay:
+              not_a_number: Rhaid rhoi rhif
             net_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             current_situation:
               blank: "Dewiswch un o’r opsiynau os gwelwch yn dda"
+            new_job_gross_pay:
+              not_a_number: Rhaid rhoi rhif
+            new_job_gross_pay_frequency:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
         password:
           attributes:
             password:
