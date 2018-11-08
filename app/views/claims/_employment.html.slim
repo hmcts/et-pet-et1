@@ -4,6 +4,7 @@ fieldset
   /! Radios: main yes / no
   = f.input :was_employed,
     as: :radio_buttons,
+    readonly: nil,
     include_hidden: false,
     item_wrapper_class: 'block-label',
     wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate' },
@@ -18,6 +19,7 @@ fieldset
       = f.input :current_situation, input_html: { class: 'reveal-publish-publisher'}, label: false,
         collection: EmploymentForm::CURRENT_SITUATION,
         as: :radio_buttons,
+        readonly: nil,
         include_hidden: false,
         item_wrapper_class: 'block-label',
         wrapper_html: { :class => 'form-group-reveal' },
@@ -58,6 +60,7 @@ fieldset
 
           = f.input_field :worked_notice_period_or_paid_in_lieu,
             as: :radio_buttons,
+            readonly: nil,
             include_hidden: false,
             :class => 'reveal-publish-publisher',
             reveal: { true => 'sub2', false => 'sub2' },
@@ -73,6 +76,7 @@ fieldset
               = f.input_field :notice_pay_period_count, {type: 'text', class: 'string'}
               = f.input :notice_pay_period_type, label: false,
                 collection: EmploymentForm::NOTICE_PAY_PERIODS, as: :radio_buttons,
+                readonly: nil,
                 include_hidden: false,
                 item_wrapper_class: 'slim-label'
 
@@ -93,6 +97,7 @@ fieldset
               label: false,
               collection: EmploymentForm::PAY_PERIODS,
               as: :radio_buttons,
+              readonly: nil,
               include_hidden: false,
               item_wrapper_class: 'slim-label'
 
@@ -106,11 +111,13 @@ fieldset
               label: false,
               collection: EmploymentForm::PAY_PERIODS,
               as: :radio_buttons,
+              readonly: nil,
               include_hidden: false,
               item_wrapper_class: 'slim-label'
 
         = f.input :enrolled_in_pension_scheme,
           as: :radio_buttons,
+          readonly: nil,
           include_hidden: false,
           item_wrapper_class: 'block-label'
 
@@ -125,6 +132,7 @@ fieldset
 
       = f.input :found_new_job,
         as: :radio_buttons,
+        readonly: nil,
         include_hidden: false,
         item_wrapper_class: 'block-label',
         input_html: { :class => 'reveal-publish-publisher'},
@@ -149,5 +157,6 @@ fieldset
             label: false,
             collection: EmploymentForm::PAY_PERIODS,
             as: :radio_buttons,
+            readonly: nil,
             include_hidden: false,
             item_wrapper_class: 'slim-label'

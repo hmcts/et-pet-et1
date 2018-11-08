@@ -1,6 +1,7 @@
 fieldset
   = f.input :age_group,
     as: :radio_buttons,
+    readonly: nil,
     include_hidden: false,
     collection: Diversities::AgeCaringForm::AGE_GROUP,
     item_wrapper_class: 'govuk-radios__item',
@@ -8,6 +9,7 @@ fieldset
 
   = f.input :caring_responsibility,
     as: :radio_buttons,
+    readonly: nil,
     include_hidden: false,
     collection: Diversities::AgeCaringForm::CARING_RESPONSIBILITY,
     item_wrapper_class: 'govuk-radios__item',
