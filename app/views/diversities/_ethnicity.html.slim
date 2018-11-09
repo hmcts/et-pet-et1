@@ -1,6 +1,7 @@
 fieldset
   = f.input :ethnicity,
     as: :radio_buttons,
+    readonly: nil,
     include_hidden: false,
     collection: Diversities::EthnicityForm::ETHNICITY,
     item_wrapper_class: 'govuk-radios__item',
@@ -10,6 +11,7 @@ fieldset
   fieldset class = "#{ethnicity_type} ethnicity_subgroup"
     = f.input :ethnicity_subgroup,
       as: :radio_buttons,
+      readonly: nil,
       include_hidden: false,
       collection: Diversities::EthnicityForm::ETHNICITY_SUBGROUP[ethnicity_type],
       item_wrapper_class: 'govuk-radios__item',
