@@ -8,6 +8,13 @@ class ApplicationController < ActionController::Base
     response.headers["Expires"]       = "Fri, 01 Jan 1990 00:00:00 GMT"
   end
 
+  before_action :set_locale
+
+  def default_url_options
+    return {} if @active_admin
+    { locale: I18n.locale }
+  end
+
   class << self
     def redispatch_request(opts = {})
       states = Array(opts.delete(:unless))
@@ -65,4 +72,18 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :claim, :claim_path_for
+
+  def set_locale
+    session[:locale] = params[:locale] if params[:locale] && valid_locale?
+    I18n.locale = session[:locale] || I18n.default_locale
+  end
+
+  def valid_locale?
+    I18n.available_locales.include?(params[:locale].to_sym)
+  end
+
+  def set_admin_locale
+    @active_admin = true
+    I18n.locale = :en
+  end
 end

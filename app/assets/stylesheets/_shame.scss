@@ -268,6 +268,12 @@ label{
   p {
     @include core-16;
     margin:0;
+    display: table;
+  }
+  .language-picker {
+    float: right;
+    vertical-align: baseline;
+    @include core-16;
   }
 }
 //==========================================================================//

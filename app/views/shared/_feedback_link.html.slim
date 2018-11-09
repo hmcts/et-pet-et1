@@ -1,2 +1,6 @@
 .feedback-notice
-  p= t('.feedback_statement_html', path: '/apply/feedback')
+  .language-picker
+    =link_to t('switch.language'), locale: t('switch.locale')
+  p
+    = t('.feedback_statement_html', path: "/apply/feedback?locale=#{I18n.locale}")
+

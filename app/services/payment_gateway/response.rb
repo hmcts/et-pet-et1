@@ -9,7 +9,7 @@ module PaymentGateway
     end
 
     def valid?
-      EPDQ::Response.new(request.query_string).valid_signature?
+      EPDQ::Response.new(query_string).valid_signature?
     rescue RuntimeError
       # EPDQ::Response#valid_signature? raises error when SHASIGN is missing
       # This error is likely if someone starts poking at the system so catch it.
@@ -32,8 +32,14 @@ module PaymentGateway
       params['STATUS']
     end
 
-    private def params
-      @params ||= Hash[CGI.parse(request.query_string).map { |k, v| [k.upcase, v.first] }]
+    private
+
+    def params
+      @params ||= Hash[CGI.parse(query_string).map { |k, v| [k.upcase, v.first] }]
+    end
+
+    def query_string
+      request.query_string.gsub(/locale=(en|cy)&/, '')
     end
   end
 end

@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  switch:
+    language: Cymraeg
+    locale: cy
+
   number:
     currency:
       format:
@@ -158,6 +162,15 @@ en:
           email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
+        first_name: First name
+        last_name: Last name
+        title: Title
+        date_of_birth:
+          day: Day
+          month: Month
+          year: Year
+
+
         mobile_number: Alternative phone or mobile number
         fax_number: Fax
         has_special_needs: Do you have a disability which means you require assistance at the tribunal hearing?
@@ -394,6 +407,17 @@ en:
     error_summary: Errors on page
 
   errors:
+    internal_server_error:
+      title: The website is experiencing a technical issue and cannot complete your request.
+    not_found:
+      title: The page you are looking for does not exist or is temporarily unavailable.
+      title_two: Please try retyping the address or go back to the previous page.
+    unprocessable:
+      title: You do not have permission to make the requested change.
+      title_two: Please contact the website administrator.
+    service_unavailable:
+      title: Service unavailable
+      title_two: The employment tribunal online service is currently unavailable. Please check back later.
     messages:
       rtf: is not an RTF
       csv: is not a CSV
@@ -452,10 +476,6 @@ en:
       privacy_policy: HMCTS Privacy Notice
       disclaimer: Disclaimer
 
-  cookies:
-    show:
-      header: Cookies
-
   claims:
     personal_details:
       date_of_birth: Date of birth
@@ -470,7 +490,7 @@ en:
       are_you_in_time:
         legend: Are you in time?
         body_html: |
-          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}/#time_limits">Learn about when you can apply</a>.
+          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}#time_limits">Learn about when you can apply</a>.
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
@@ -479,7 +499,7 @@ en:
         legend: What you’ll need
         body_html: |
           <ul>
-            <li>your <a href="%{path}/#acas_early_conciliation">Acas early conciliation certificate number</a></li>
+            <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
     application_number:
@@ -555,6 +575,8 @@ en:
       work_address: Give details of your work address.
       acas_early_conciliation_certificate_number_html: |
           Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
+      'true': 'Yes'
+      'false': 'No'
 
     additional_respondents:
       no_acas_number_reason: Why don’t you have an Acas number?
@@ -567,7 +589,8 @@ en:
       additional_respondents_limit: If you are making a claim against more than %{max} additional respondents, enter their details in the ‘more about the claim’ section later in the form.
       no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
       no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
-
+      'true': 'Yes'
+      'false': 'No'
 
     employment:
       header: Employment details
@@ -581,6 +604,10 @@ en:
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job
+      'true': 'Yes'
+      'false': 'No'
+      'true_v2': 'Yes'
+      'false_v2': 'No'
 
     claim:
       header: Claim details
@@ -602,6 +629,8 @@ en:
       pay: Pay
       other_type: Other type of claim (not shown above)
       whistleblowing: Whistleblowing claim
+      'true': 'Yes'
+      'false': 'No'
 
     claim_details:
       header: Claim details
@@ -615,6 +644,9 @@ en:
       remove_claim_details_rtf: |
         Remove previously uploaded document: %{file}
       similar_claims: Similar claims
+      'true': 'Yes'
+      'false': 'No'
+
 
     claim_outcome:
       header: Claim outcome
@@ -773,6 +805,9 @@ en:
               invalid: The date you have provided is invalid
             new_job_start_date:
               invalid: The date you have provided is invalid
+            current_situation:
+              blank: Please select one of the options
+
         password:
           attributes:
             password:

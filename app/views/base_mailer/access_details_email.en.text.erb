@@ -1,14 +1,11 @@
-Claim number: <%= @claim.reference %>
 
-You’ve started a claim to an employment tribunal. To return to your claim you’ll
-need your claim number (above), and memorable word.
+<%= t('.line_one', reference: @claim.reference) %>
 
-Clicking on the links below will not work. Please copy and paste the URLs into your
-browser.
+<%= t('.line_two') %>
+<%= t('.line_three') %>
 
-COMPLETE CLAIM: <%= new_user_session_url %>
+<%= t('.line_four', url: new_user_session_url(locale: I18n.locale)) %>
 
-You’ll receive a confirmation email once you’ve submitted your claim.
+<%= t('.line_five') %>
 
-Contact us: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
-
+<%= t('.line_six') %>

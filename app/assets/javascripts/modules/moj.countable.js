@@ -20,7 +20,8 @@ var countable = (function() {
     Countable.live(area, callback);
 
     function callback(counter) {
-      hint.html(txt + ' (' + remainder(counter.all) + ' characters remaining)');
+      var remaining = characters_left_language();
+      hint.html(txt + ' (' + remainder(counter.all) + remaining +')');
     }
 
     function remainder(count){
@@ -35,6 +36,15 @@ var countable = (function() {
       }
     }
   };
+
+  function characters_left_language() {
+    if($('div.form-fields[lang="cy"]').length){
+      var remaining = ' o nodau yn weddill';
+    } else {
+      var remaining = ' characters remaining';
+    }
+    return remaining;
+  }
 
   return countable;
 })();

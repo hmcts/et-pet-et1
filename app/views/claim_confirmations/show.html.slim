@@ -3,7 +3,7 @@
 header.main-header role="banner"
   h1= t '.header'
 
-.main-section
+.main-section lang= "#{I18n.locale}"
   .main-content#main-sub-content
     .callout.callout-confirmation
       p.detail = t '.callout_detail'
@@ -45,5 +45,5 @@ header.main-header role="banner"
 
       p = t '.print_link_html'
 
-      p = t('.feedback_html', href: 'https://www.gov.uk/done/employment-tribunals-make-a-claim')
+      p = t('.feedback_html', href: language_specific_feedback_url)
       p = t('.diversity_html', href: diversity_landing_path)

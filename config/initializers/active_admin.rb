@@ -134,6 +134,8 @@ ActiveAdmin.setup do |config|
   #
   config.batch_actions = true
 
+  config.before_action :set_admin_locale
+
   # == Controller Filters
   #
   # You can add before, after and around filters to all of your

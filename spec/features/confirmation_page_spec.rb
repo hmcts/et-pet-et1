@@ -23,7 +23,7 @@ RSpec.feature 'Confirmation page', type: :feature do
       expect(page).not_to have_text 'We’ll contact you within 5 working days to arrange payment.'
       expect(page).not_to have_link 'Complete an application for help with fees'
 
-      expect(page).to have_link 'Save a copy', href: pdf_path
+      expect(page).to have_link 'Save a copy', href: pdf_path(locale: :en)
 
       expect(page).to have_text 'Claim submitted'
       expect(page).to have_text 'Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'

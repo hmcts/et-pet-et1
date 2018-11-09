@@ -7,12 +7,16 @@ header.main-header role="banner"
   - cache do
     nav.nav-static-content
       ul
-      - @presenter.file_names.each do |name|
-        li = link_to t(".#{name}"), guide_path(anchor: name)
+        li = t '.links.time_limits_html'
+        li = t '.links.acas_early_conciliation_html'
+        li = t '.links.acas_early_conciliation_exceptions_html'
+        li = t '.links.writing_your_claim_statement_html'
 
     .static-content.guide
-      - @presenter.each_rendered_file do |name, contents|
-        article id="#{name}" = contents
+      = render 'time_limits'
+      = render 'acas_early_conciliation'
+      = render 'acas_early_conciliation_exceptions'
+      = render 'writing_your_claim_statement'
 
 aside role="complementary"
   h3= t '.aside.gethelp_header'

@@ -1,0 +1,88 @@
+cy:
+  base_mailer:
+    footer:
+      contact_us: Cysylltu â ni
+
+    access_details_email:
+      subject: 'Tribiwnlys Cyflogaeth: cwblhau eich hawliad'
+      intro: |
+        Rydych wedi cychwyn gwneud hawliad i'r tribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad bydd arnoch angen eich rhif hawliad (uchod), a gair cofiadwy.
+      about_confirmation: |
+        Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno eich hawliad.
+
+      line_one: "Rhif yr hawliad: %{reference}"
+      line_two: "Rydych wedi cychwyn gwneud hawliad i dribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad byddwch angen eich rhif hawliad (uchod), a'ch gair cofiadwy."
+      line_three: "Ni fydd clicio ar y dolenni isod yn gweithio. Copïwch a gludwch yr URL i'ch porwr."
+      line_four: "CWBLHAU EICH HAWLIAD: %{url}"
+      line_five: "Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno'ch hawliad."
+      line_six: "Cysylltwch â ni: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+
+    confirmation_email:
+      claim_number: Eich rhif hawliad
+      footer:
+        contact_us: Cysylltu â ni
+      subject: 'Tribiwnlys Cyflogaeth: hawliad wedi''i gyflwyno'
+      header: Hawliad wedi'i gyflwyno
+      intro:
+        normal:
+          single: "Diolch am gyflwyno eich hawliad i dribiwnlys cyflogaeth."
+          group: "Diolch am gyflwyno eich hawliad i dribiwnlys cyflogaeth."
+        payment_not_processed:
+          single: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad."
+          group: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad."
+
+      what_happens_next: "Beth sy'n digwydd nesaf"
+      contact_re_payment: "Byddwn yn cysylltu â chi o fewn 5 diwrnod gwaith i drefnu taliad."
+      must_apply_for_remission: |
+          Rydych wedi cychwyn gwneud cais am help i dalu ffioedd.
+          Mae'n rhaid i chi nawr gwblhau eich cais o fewn 7 diwrnod neu gellir gwrthod eich hawliad.
+      apply_for_fee_remission: "Gwneud cais am help i dalu ffioedd"
+      no_remission_copy_sent_to_respondent: |
+          Fe anfonir copi o'r hawliad at yr atebydd.
+          Bydd ganddynt 28 diwrnod i ymateb.
+      we_will_contact_you:  |
+          Byddwn yn cysylltu â chi pan fyddwn wedi anfon eich hawliad at yr atebydd i
+          esbonio beth yw'r camau nesaf.
+      remission_we_will_contact_you_england_wales_html: ""
+      remission_we_will_contact_you_scotland_html: ""
+      remission_review: "Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad."
+
+       # SPECIFIC TO TEXT EMAIL
+      apply_for_fee_remission_text: 'GWNEUD CAIS AM HELP I DALU FFIOEDD: https://gov.uk/help-with-court-fees'
+      remission_we_will_contact_you_england_wales_text: |
+        Os ydych chi'n gwneud hawliad yng Nghymru neu Lloegr, anfonwch eich cais am help i dalu ffioedd drwy e-bost i eREMISSIONS@hmcts.gsi.gov.uk.
+      remission_we_will_contact_you_scotland_text: |
+        Os ydych chi yn Yr Alban (neu os fyddai'n well gennych bostio eich ffurflen), gweler y <a href="https://gov.uk/help-with-court-fees" rel="external">canllaw ar sut i wneud cais am help i dalu ffioedd</a> er mwyn cael y cyfeiriad.
+
+        CANLLAW AR SUT I WNEUD CAIS AM HELP I DALU FFIOEDD: https://gov.uk/help-with-court-fees
+      details:
+        header: Manylion cyflwyno
+        claim_completed: 'Hawliad wedi''i gwblhau:'
+        see_attached_pdf: Gweler y PDF sydd ynghlwm
+        attachments: 'Dogfennau ychwanegol:'
+        submission_information: 'Hawliad wedi''i gyflwyno:'
+        submitted_on: "ar %{date}"
+        submitted_to: "i swyddfa tribiwnlys %{office}"
+        payment_amount: 'Ffi cyflwyno wedi''i thalu:'
+        fee_to_pay: 'Talu ffi cyflwyno:'
+
+      remisison_further_information_html: |
+        Os oes gennych unrhyw gwestiynau, cysylltwch â'r Llinell Ymholiadau Cyhoeddus:<br/>Cymru a Lloegr: 0300 123 1024<br/>Yr Alban: 0141 354 8574
+      feedback_html: |
+        <a href="%{href}">Mae eich adborth</a> yn ein helpu i wella'r gwasanaeth hwn.
+      feedback_text: |
+        Mae eich adborth yn ein helpu i wella'r gwasanaeth hwn:
+      diversity_html: |
+        Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}">holiadur monitro amrywiaeth</a>.
+      diversity_text: |
+        Helpwch ni i gadw cofnodion cywir . Llenwch ein holiadur monitro amrywiaeth.
+
+    shared:
+      button_fee_remission:
+        apply_for_fee_remission: "Gwneud cais am help i dalu ffioedd"
+      button_complete_claim:
+        complete_claim: 'Cwblhau hawliad'
+      application_number_light:
+        claim_number: Eich rhif hawliad
+      application_number_dark:
+        claim_number: Eich rhif hawliad

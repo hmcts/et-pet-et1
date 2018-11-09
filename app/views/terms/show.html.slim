@@ -4,12 +4,161 @@ header.main-header role="banner"
   h1= t '.header'
 
 .main-content
-  - cache do
-    nav.nav-static-content
-      ul
-      - @presenter.file_names.each do |name|
-        li = link_to t(".#{name}"), terms_path(anchor: name)
 
-    .static-content
-      - @presenter.each_rendered_file do |name, contents|
-        article id="#{name}" = contents
+  nav.nav-static-content
+    ul
+      li = t '.links.general_html'
+      li = t '.links.applicable_law_html'
+      li = t '.links.responsible_html'
+      li = t '.links.gdpr_html'
+      li = t '.links.hmcts_privacy_html'
+      li = t '.links.disclaimer_html'
+
+  .static-content
+
+    span = t '.line_one'
+
+    article#general
+      h2.legend = t '.article_general.title'
+
+      p = t '.article_general.line_one'
+      p = t '.article_general.line_two'
+
+    article#applicable_law
+      h2.legend = t '.article_applicable_law.title'
+
+      p = t '.article_applicable_law.line_one'
+      ul
+        li  = t '.article_applicable_law.list_one.one'
+        li  = t '.article_applicable_law.list_one.two'
+        li  = t '.article_applicable_law.list_one.three'
+
+    article#responsible
+      h2.legend = t '.article_responsible.title'
+      p = t '.article_responsible.line_one'
+      p = t '.article_responsible.line_two'
+      p = t '.article_responsible.line_three'
+
+    article#gdpr
+      h2.legend = t '.article_gdpr.title'
+      p = t '.article_gdpr.line_one'
+      p = t '.article_gdpr.line_two'
+      p = t '.article_gdpr.line_three'
+      p = t '.article_gdpr.line_four'
+
+    article#hmcts_privacy
+      h2.legend = t '.article_hmcts_privacy.title'
+      h3  = t '.article_hmcts_privacy.section_one.title'
+      p = t '.article_hmcts_privacy.section_one.line_one'
+      p = t '.article_hmcts_privacy.section_one.line_two'
+      p = t '.article_hmcts_privacy.section_one.line_three_html'
+
+      h3  = t '.article_hmcts_privacy.section_two.title'
+      p = t '.article_hmcts_privacy.section_two.line_one'
+      p = t '.article_hmcts_privacy.section_two.line_two'
+      p = t '.article_hmcts_privacy.section_two.line_three'
+
+      h3 = t '.article_hmcts_privacy.section_three.title'
+      p = t '.article_hmcts_privacy.section_three.line_one'
+
+      ul
+        li = t '.article_hmcts_privacy.section_three.list_one.one'
+        li = t '.article_hmcts_privacy.section_three.list_one.two'
+        li = t '.article_hmcts_privacy.section_three.list_one.three'
+
+      p = t '.article_hmcts_privacy.section_three.line_two'
+
+      p = t '.article_hmcts_privacy.section_three.line_three'
+      ul
+        li = t '.article_hmcts_privacy.section_three.list_two.one'
+        li = t '.article_hmcts_privacy.section_three.list_two.two'
+
+      p = t '.article_hmcts_privacy.section_three.line_four'
+      ul
+        li = t '.article_hmcts_privacy.section_three.list_three.one'
+        li = t '.article_hmcts_privacy.section_three.list_three.two'
+
+
+      h3 = t '.article_hmcts_privacy.section_four.title'
+      p = t '.article_hmcts_privacy.section_four.line_one'
+      p = t '.article_hmcts_privacy.section_four.line_two'
+
+      h3 = t '.article_hmcts_privacy.section_five.title'
+      p = t '.article_hmcts_privacy.section_five.line_one'
+      p = t '.article_hmcts_privacy.section_five.line_two'
+
+      p = t '.article_hmcts_privacy.section_five.line_three'
+      ul
+        li = t '.article_hmcts_privacy.section_five.list_one.one'
+        li = t '.article_hmcts_privacy.section_five.list_one.two'
+        li = t '.article_hmcts_privacy.section_five.list_one.three'
+
+      p = t '.article_hmcts_privacy.section_five.line_four'
+      ul
+        li = t '.article_hmcts_privacy.section_five.list_two.one'
+        li = t '.article_hmcts_privacy.section_five.list_two.two'
+        li = t '.article_hmcts_privacy.section_five.list_two.three'
+
+      p = t '.article_hmcts_privacy.section_five.line_five'
+
+      h3 = t '.article_hmcts_privacy.section_six.title'
+      p = t '.article_hmcts_privacy.section_six.line_one'
+      p = t '.article_hmcts_privacy.section_six.line_two_html'
+      p = t '.article_hmcts_privacy.section_six.line_three_html'
+      p = t '.article_hmcts_privacy.section_six.line_four'
+
+      h3 = t '.article_hmcts_privacy.section_seven.title'
+      p = t '.article_hmcts_privacy.section_seven.line_one_html'
+
+      h3 = t '.article_hmcts_privacy.section_eight.title'
+      p = t '.article_hmcts_privacy.section_eight.line_one'
+
+      h3 = t '.article_hmcts_privacy.section_nine.title'
+      p = t '.article_hmcts_privacy.section_nine.line_one'
+
+      h3 = t '.article_hmcts_privacy.section_ten.title'
+      p = t '.article_hmcts_privacy.section_ten.line_one'
+      p = t '.article_hmcts_privacy.section_ten.line_two'
+
+      h3 = t '.article_hmcts_privacy.section_eleven.title'
+      p = t '.article_hmcts_privacy.section_eleven.line_one_html'
+
+      h3 = t '.article_hmcts_privacy.section_twelve.title'
+
+      p = t '.article_hmcts_privacy.section_twelve.line_one'
+      ul
+        li = t '.article_hmcts_privacy.section_twelve.list_one.one'
+        li = t '.article_hmcts_privacy.section_twelve.list_one.two'
+        li = t '.article_hmcts_privacy.section_twelve.list_one.three'
+
+      h3 = t '.article_hmcts_privacy.section_thirteen.title'
+      p = t '.article_hmcts_privacy.section_thirteen.line_one_html'
+
+      h3 = t '.article_hmcts_privacy.section_fourteen.title'
+      p = t '.article_hmcts_privacy.section_fourteen.line_one'
+
+      address
+        = t '.article_hmcts_privacy.section_fourteen.address.name'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.house'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.street'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.city'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.county'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.postcode'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.phone'
+        br
+        = t '.article_hmcts_privacy.section_fourteen.address.url_html'
+
+      br
+
+    article#disclaimer
+      h2.legend = t '.article_disclaimer.title'
+      p = t '.article_disclaimer.line_one'
+      p = t '.article_disclaimer.line_two'
+
+

@@ -2,7 +2,9 @@ require "rails_helper"
 require 'tempfile'
 
 RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
-
+  before {
+    I18n.locale = :en
+  }
   describe "#validate" do
 
     let(:valid_header) {
