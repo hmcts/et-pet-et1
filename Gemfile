@@ -67,6 +67,8 @@ end
 group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '3.0.0'
+  # Only use bootsnap in prod to prevent debugging issues
+  gem 'bootsnap', '~> 1.3', '>= 1.3.1'
 end
 
 group :production, :test do
@@ -99,7 +101,6 @@ gem 'compass', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
 gem 'logstasher', '~> 1.2', groups: [:production, :local]
-gem 'bootsnap', '~> 1.3', '>= 1.3.1'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
