@@ -453,7 +453,7 @@ cy:
       contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
       signout: Cadw a chwblhau wedyn
     feedback_link:
-      feedback_statement_html: "Mae hwn yn wasanaeth newydd. <a href=\"%{path}\">Mae eich adborth</a> yn ein helpu i'w wella i eraill."
+      feedback_statement_html: "<a href=\"%{path}\">Bydd eich adborth</a>  yn ein helpu i wella’r gwasanaeth."
     mobile_nav:
       save_and_complete: Cadw a chwblhau wedyn
       support: Cymorth

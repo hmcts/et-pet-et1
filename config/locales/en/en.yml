@@ -395,7 +395,7 @@ en:
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
     feedback_link:
-      feedback_statement_html: This is a new service. <a href="%{path}">Your feedback</a> helps improve it for others.
+      feedback_statement_html: <a href="%{path}">Your feedback</a> helps us to improve this service.
     mobile_nav:
       save_and_complete: Save and complete later
       support: Support
