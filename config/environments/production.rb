@@ -124,7 +124,7 @@ Rails.application.configure do
 
   config.secure_session_cookie = true
 
-  config.flatten_pdf = true
+  config.flatten_pdf = ENV.fetch('FLATTEN_PDF', 'true').downcase == 'true'
 
   # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
   # var can also be used to disable.
