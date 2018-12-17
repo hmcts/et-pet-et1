@@ -10,6 +10,14 @@ RSpec.describe EmploymentForm, type: :form do
     :start_date, :end_date, :notice_period_end_date, :new_job_start_date
 
   describe 'validations' do
+    shared_examples 'common date examples' do |field:|
+      it 'rejects a 2 digit year' do
+        employment_form.send(:"#{field}=", {day: '1', month: '1', year: '16'})
+        employment_form.valid?
+        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid_year)
+
+      end
+    end
     [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
     end
@@ -28,7 +36,23 @@ RSpec.describe EmploymentForm, type: :form do
             it { expect(employment_form).not_to validate_presence_of type }
           end
         end
-      end
+    end
+
+    describe 'end_date' do
+      include_examples 'common date examples', field: :end_date
+    end
+
+    describe 'new_job_start_date' do
+      include_examples 'common date examples', field: :new_job_start_date
+    end
+
+    describe 'notice_period_end_date' do
+      include_examples 'common date examples', field: :notice_period_end_date
+    end
+
+    describe 'start_date' do
+      include_examples 'common date examples', field: :start_date
+    end
   end
 
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attr|

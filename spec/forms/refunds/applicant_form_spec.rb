@@ -119,6 +119,12 @@ module Refunds
           expect(applicant_form.errors).not_to include :applicant_date_of_birth
         end
 
+        it 'validate date - disallowing an 2 digit year' do
+          applicant_form.applicant_date_of_birth = { day: '1', month: '1', year: '80' }
+          applicant_form.valid?
+          expect(applicant_form.errors).to include :applicant_date_of_birth
+        end
+
         it 'validate date - disallowing an invalid date' do
           applicant_form.applicant_date_of_birth = { day: '32', month: '15', year: '1980' }
           applicant_form.valid?

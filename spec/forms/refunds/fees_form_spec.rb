@@ -37,6 +37,12 @@ module Refunds
             expect(form.errors).not_to include fee_payment_date_field
           end
 
+          it 'validates date disallowing value with 2 digit year' do
+            form.send("#{fee_payment_date_field}=".to_sym, ActionController::Parameters.new(month: '12', year: '16'))
+            form.valid?
+            expect(form.errors[fee_payment_date_field]).to include I18n.t("activemodel.errors.models.refunds/fees.attributes.#{fee_payment_date_field}.invalid_year")
+          end
+
           it 'validates date disallowing value past end date using partial date without day' do
             form.send("#{fee_payment_date_field}=".to_sym, ActionController::Parameters.new(month: '9', year: '2017'))
             form.valid?

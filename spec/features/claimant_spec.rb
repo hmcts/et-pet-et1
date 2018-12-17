@@ -70,5 +70,18 @@ feature 'Claimant page' do
       expect(page).to have_text("Provide information in the highlighted fields")
       expect(page).to have_text("Claimant must be 16 years of age or over")
     end
+
+    it "displays validation of DOB is 2 digits" do
+      fill_in 'Day', with: '1'
+      fill_in 'Month', with: '1'
+      fill_in 'Year', with: '12'
+
+      click_button "Save and continue"
+      expect(page).to have_text("Provide information in the highlighted fields")
+
+      within(:xpath, './/fieldset/div[contains(@class,"claimant_date_of_birth")]') do
+        expect(page).to have_text("Year must be 4 digits")
+      end
+    end
   end
 end
