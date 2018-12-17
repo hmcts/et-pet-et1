@@ -29,9 +29,11 @@ class DateValidator < ActiveModel::EachValidator
 
   def illegal_year?(value)
     # Needs to verify that four digits are given for a year
-    return false if value.nil? || value.is_a?(Date) || value.is_a?(DateTime)
+    return false if value.nil?
     if value.is_a?(String)
       Date.parse(value).year < 1000
+    elsif value.is_a?(Date) || value.is_a?(Time)
+      value.year < 1000
     else
       value[:year].present? && value[:year].to_i < 1000
     end
