@@ -14,7 +14,7 @@ RSpec.describe EmploymentForm, type: :form do
       it 'rejects a 2 digit year' do
         employment_form.send(:"#{field}=", {day: '1', month: '1', year: '16'})
         employment_form.valid?
-        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid_year)
+        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
 
       end
     end

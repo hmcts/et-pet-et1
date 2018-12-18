@@ -80,7 +80,7 @@ feature 'Claimant page' do
       expect(page).to have_text("Provide information in the highlighted fields")
 
       within(:xpath, './/fieldset/div[contains(@class,"claimant_date_of_birth")]') do
-        expect(page).to have_text("Year must be 4 digits")
+        expect(page).to have_text("Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)")
       end
     end
   end

@@ -792,7 +792,6 @@ cy:
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
             date_of_birth:
               invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
         additional_claimant:
           attributes:
             title:
@@ -827,7 +826,6 @@ cy:
             date_of_birth:
               invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
               too_young: Rhaid i hawlydd fod yn 16 oed neu drosodd
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
             title:
               blank: Dewiswch deitl o'r rhestr
             gender:
@@ -861,18 +859,14 @@ cy:
           attributes:
             start_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
             end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
             notice_period_end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
             notice_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             new_job_start_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
-              invalid_year: "Rhaid i'r flwyddyn fod yn 4 digid"
             gross_pay:
               not_a_number: Rhaid rhoi rhif
             gross_pay_period_type:
