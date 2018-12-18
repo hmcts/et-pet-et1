@@ -1,6 +1,6 @@
 class GdsDateType < ActiveRecord::Type::Date
   def cast(value)
-    post_process super(pre_process(value))
+    super(pre_process(value))
   end
 
   def deserialize(value)
@@ -8,12 +8,6 @@ class GdsDateType < ActiveRecord::Type::Date
   end
 
   private
-
-  def post_process(value)
-    return value unless value.is_a?(Date)
-    return value if value.year > 99
-    Date.new(value.year + 1900, value.month, value.day)
-  end
 
   def pre_process(value)
     value = from_params(value)
@@ -33,7 +27,6 @@ class GdsDateType < ActiveRecord::Type::Date
     return nil if value.values.all?(&:empty?)
     value = value.symbolize_keys
     return nil if value[:year].to_i.zero?
-    value[:year] = "19#{value[:year]}" if value[:year].is_a?(String) && value[:year].to_i < 100
     value
   end
 
