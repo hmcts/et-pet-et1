@@ -240,6 +240,7 @@ en:
             et_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+              invalid: Enter the date in the correct format (DD/MM/YYYY)
             et_hearing_fee:
               greater_than_or_equal_to: Fee must be greater than %{count}
             et_hearing_fee_payment_method:
@@ -247,6 +248,7 @@ en:
             et_hearing_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+              invalid: Enter the date in the correct format (DD/MM/YYYY)
             et_reconsideration_fee:
               greater_than_or_equal_to: Fee must be greater than %{count}
             et_reconsideration_fee_payment_method:
@@ -254,6 +256,7 @@ en:
             et_reconsideration_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+              invalid: Enter the date in the correct format (DD/MM/YYYY)
             eat_issue_fee:
               greater_than_or_equal_to: Fee must be greater than %{count}
             eat_issue_fee_payment_method:
@@ -261,6 +264,7 @@ en:
             eat_issue_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+              invalid: Enter the date in the correct format (DD/MM/YYYY)
             eat_hearing_fee:
               greater_than_or_equal_to: Fee must be greater than %{count}
             eat_hearing_fee_payment_method:
@@ -268,6 +272,7 @@ en:
             eat_hearing_fee_payment_date:
               blank: Please enter the payment year and month or tick 'Don't know'
               date_range: The payment date must be between %{start_date} and %{end_date}
+              invalid: Enter the date in the correct format (DD/MM/YYYY)
             base:
               fees_must_be_positive: You must enter a fee in the relevant field
         refunds/bank_details:
