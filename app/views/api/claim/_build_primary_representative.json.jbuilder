@@ -4,12 +4,16 @@ json.data do
   json.name representative.name
   json.organisation_name representative.organisation_name
   representative.address.tap do |a|
-    json.address_attributes do
-      json.building a.try(:building)
-      json.street a.try(:street)
-      json.locality a.try(:locality)
-      json.county a.try(:county)
-      json.post_code a.try(:post_code)
+    if a.nil? ||a.blank?
+      json.address_attributes({})
+    else
+      json.address_attributes do
+        json.building a.building
+        json.street a.street
+        json.locality a.locality
+        json.county a.county
+        json.post_code a.post_code
+      end
     end
   end
 

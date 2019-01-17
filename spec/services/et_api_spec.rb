@@ -85,6 +85,54 @@ RSpec.describe EtApi, type: :service do
       it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
     end
 
+    context 'with a claim with single claimant, single respondent (with no work address) and a representative' do
+      include_context 'with action performed before each example'
+      let(:example_claim) { create(:claim, :with_pdf, :no_attachments, :primary_respondent_with_no_work_address) }
+
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
+    end
+
+    context 'with a claim with single claimant, single respondent (with no addresses) and a representative' do
+      include_context 'with action performed before each example'
+      let(:example_claim) { create(:claim, :with_pdf, :no_attachments, :primary_respondent_with_no_addresses) }
+
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
+    end
+
+    context 'with a claim with single claimant, single respondent and a representative (with no address)' do
+      include_context 'with action performed before each example'
+      let(:example_claim) { create(:claim, :with_pdf, :no_attachments, :primary_representative_with_no_address) }
+
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPdfFile').version('2').for_db_data(example_claim.pdf) }
+      it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
+      it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
+      it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
+      it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
+    end
+
     context 'with a claim with single claimant, single respondent and no representative' do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_pdf, :without_representative, :no_attachments) }

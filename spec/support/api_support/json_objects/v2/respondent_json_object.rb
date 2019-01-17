@@ -11,7 +11,7 @@ module Et1
             example_work_address = example_respondent.work_address
             expect(json).to include acas_certificate_number: example_respondent.acas_early_conciliation_certificate_number,
                                     acas_exemption_code: example_respondent.no_acas_number_reason,
-                                    address_attributes: a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street),
+                                    address_attributes: example_address.nil? || example_address.empty? ? {} : a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street),
                                     address_telephone_number: example_respondent.address_telephone_number,
                                     alt_phone_number: example_respondent.work_address_telephone_number,
                                     contact: nil,
@@ -25,7 +25,7 @@ module Et1
                                     name: example_respondent.name,
                                     organisation_employ_gb: nil,
                                     organisation_more_than_one_site: nil,
-                                    work_address_attributes: example_work_address.nil? ? nil : a_hash_including(building: example_work_address.building, county: example_work_address.county, locality: example_work_address.locality, post_code: example_work_address.post_code, street: example_work_address.street),
+                                    work_address_attributes: example_work_address.nil? || example_work_address.empty? ? {} : a_hash_including(building: example_work_address.building, county: example_work_address.county, locality: example_work_address.locality, post_code: example_work_address.post_code, street: example_work_address.street),
                                     work_address_telephone_number: example_respondent.work_address_telephone_number
 
           rescue RSpec::Expectations::ExpectationNotMetError => err

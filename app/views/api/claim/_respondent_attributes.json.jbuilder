@@ -1,22 +1,30 @@
 json.name respondent.name
 json.contact nil
 respondent.address.tap do |a|
-  json.address_attributes do
-    json.building a.try(:building)
-    json.street a.try(:street)
-    json.locality a.try(:locality)
-    json.county a.try(:county)
-    json.post_code a.try(:post_code)
+  if a.empty?
+    json.address_attributes({})
+  else
+    json.address_attributes do
+      json.building a.building
+      json.street a.street
+      json.locality a.locality
+      json.county a.county
+      json.post_code a.post_code
+    end
   end
 end
 
 respondent.work_address.tap do |a|
-  json.work_address_attributes do
-    json.building a.try(:building)
-    json.street a.try(:street)
-    json.locality a.try(:locality)
-    json.county a.try(:county)
-    json.post_code a.try(:post_code)
+  if a.empty?
+    json.work_address_attributes({})
+  else
+    json.work_address_attributes do
+      json.building a.building
+      json.street a.street
+      json.locality a.locality
+      json.county a.county
+      json.post_code a.post_code
+    end
   end
 end
 json.address_telephone_number respondent.address_telephone_number
