@@ -19,7 +19,7 @@ module Et1
                                          special_needs: example_claimant.special_needs,
                                          mobile_number: example_claimant.mobile_number,
                                          address_telephone_number: example_claimant.address_telephone_number,
-                                         address_attributes: example_address.nil? ? nil : a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street)
+                                         address_attributes: example_address.nil? || example_address.empty? ? {} : a_hash_including(building: example_address.building, county: example_address.county, locality: example_address.locality, post_code: example_address.post_code, street: example_address.street)
           rescue RSpec::Expectations::ExpectationNotMetError => err
             errors << "Missing or invalid claimant json"
             errors.concat(err.message.lines.map { |l| "#{'  ' * indent}#{l.gsub(/\n\z/, '')}" })

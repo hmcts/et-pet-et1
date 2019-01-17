@@ -92,6 +92,24 @@ FactoryGirl.define do
       end
     end
 
+    trait :primary_respondent_with_no_work_address do
+      primary_respondent do
+        build(:respondent, addresses: [build(:address, primary: true)])
+      end
+    end
+
+    trait :primary_respondent_with_no_addresses do
+      primary_respondent do
+        build(:respondent, addresses: [build(:address, primary: true)])
+      end
+    end
+
+    trait :primary_representative_with_no_address do
+      representative do
+        build(:representative, address: nil)
+      end
+    end
+
     trait :with_pdf do
       after(:create, &:generate_pdf!)
     end
