@@ -443,6 +443,8 @@ GEM
       connection_pool (~> 2.2, >= 2.2.2)
       rack-protection (>= 1.5.0)
       redis (>= 3.3.5, < 5)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     simple_form (4.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -565,6 +567,7 @@ DEPENDENCIES
   sentry-raven!
   shoulda-matchers (~> 3.1)
   sidekiq (~> 5.2.0)
+  sidekiq-failures (~> 1.0)
   simple_form (~> 4.0)
   site_prism (~> 2.9)
   slim-rails (~> 3.1)
