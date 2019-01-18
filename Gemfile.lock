@@ -6,10 +6,10 @@ GIT
 
 GIT
   remote: https://github.com/getsentry/raven-ruby.git
-  revision: 11fe4ccf8f95e15eef90a4fdc3fd56935af05ac5
+  revision: 1b3553f2b8986968672df4810c61645190db7d75
   specs:
-    sentry-raven (2.0.2)
-      faraday (>= 0.7.6, < 0.10.x)
+    sentry-raven (2.8.0)
+      faraday (>= 0.7.6, < 1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -186,7 +186,7 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
-    faraday (0.9.2)
+    faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
     fog-aws (3.0.0)
