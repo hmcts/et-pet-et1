@@ -7,6 +7,10 @@ class EtApi
     new.create_reference(*args)
   end
 
+  def self.build_diversity_response(*args)
+    new.build_diversity_response(*args)
+  end
+
   def create_claim(claim, uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/claim/create_claim.json.jbuilder', locals: {
       claim: claim, office: claim.office, employment: claim.employment, uuid: uuid
@@ -20,6 +24,13 @@ class EtApi
     }
     response = send_request(json, path: '/references/create_reference', subject: 'reference')
     JSON.parse(response.body)['data'].deep_symbolize_keys
+  end
+
+  def build_diversity_response(diversity_response, uuid: SecureRandom.uuid)
+    json = ApplicationController.render 'api/diversity/build_diversity_response.json.jbuilder', locals: {
+      response: diversity_response, uuid: uuid
+    }
+    send_request(json, path: '/diversity/build_diversity_response', subject: 'diversity_response')
   end
 
   class BaseException < RuntimeError
@@ -68,19 +79,28 @@ class EtApi
     when 500 then raise InternalServerError.new('Internal server error', response.body)
 
     end
+    case response.return_code
+    when :operation_timedout then raise Timeout, 'Timeout'
+    end
   end
 
   def send_request(json, api_base: ENV.fetch('ET_API_URL'), path:, subject:)
     log_json(json, url: "#{api_base}#{path}", subject: subject)
 
-    response = HTTParty.post "#{api_base}#{path}",
-      body: json,
+    request = Typhoeus::Request.new "#{api_base}#{path}",
+      verbose: true, method: :post, body: json,
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    hydra.queue(request)
+    hydra.run
+    response = request.response
+
     log_response(response)
     raise_on_response(response)
     response
-  rescue ::Net::OpenTimeout
-    raise Timeout, 'Timeout'
+  end
+
+  def hydra
+    @hydra ||= Typhoeus::Hydra.new max_concurrency: 1
   end
 
   def log_json(json, url:, subject:)
@@ -91,4 +111,5 @@ class EtApi
   def log_response(response)
     Rails.logger.info "API Responded with status #{response.code} and a body of #{response.body}"
   end
+
 end

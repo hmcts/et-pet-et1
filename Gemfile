@@ -86,7 +86,6 @@ gem 'epdq', github: 'ministryofjustice/epdq'
 gem 'fog-aws', '~> 3.0'
 gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'httparty', '~> 0.16'
-gem 'httpx'
 gem 'moj_template', '0.23.0'
 gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
@@ -102,6 +101,7 @@ gem 'compass', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
 gem 'logstasher', '~> 1.2', groups: [:production, :local]
+gem 'typhoeus', '~> 1.3', '>= 1.3.1'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
