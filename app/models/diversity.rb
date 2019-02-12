@@ -29,6 +29,6 @@ class Diversity < ActiveRecord::Base
 
   def send_the_data_to_api
     uuid = SecureRandom.uuid
-    DiversityFormJob.perform_later id, uuid
+    DiversityFormJob.perform_later self, uuid
   end
 end
