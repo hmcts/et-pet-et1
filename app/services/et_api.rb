@@ -70,17 +70,27 @@ class EtApi
     end
   end
 
+  class UnknownResponse < BaseException
+
+  end
+
   private
 
-  def raise_on_response(response)
+  def raise_on_response_code(response)
     case response.code
+    when 200, 201, 202, 0 then return
     when 422 then raise UnprocessableEntity.new('Unprocessible entity', response.body)
     when 400 then raise BadRequest.new('Bad request', response.body)
     when 500 then raise InternalServerError.new('Internal server error', response.body)
-
+    else raise UnknownResponse.new("An unknown response code of #{response.code} was returned from the api", response.body)
     end
+  end
+
+  def raise_on_return_code(response)
     case response.return_code
+    when nil, :ok, 0 then return
     when :operation_timedout then raise Timeout, 'Timeout'
+    else raise UnknownResponse.new("Unknown response return code - #{response.return_code}", response.body)
     end
   end
 
@@ -90,13 +100,18 @@ class EtApi
     request = Typhoeus::Request.new "#{api_base}#{path}",
       verbose: true, method: :post, body: json,
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
-    hydra.queue(request)
-    hydra.run
+    perform_requests(request)
     response = request.response
 
     log_response(response)
-    raise_on_response(response)
+    raise_on_response_code(response)
+    raise_on_return_code(response)
     response
+  end
+
+  def perform_requests(request)
+    hydra.queue(request)
+    hydra.run
   end
 
   def hydra
@@ -109,7 +124,7 @@ class EtApi
   end
 
   def log_response(response)
-    Rails.logger.info "API Responded with status #{response.code} and a body of #{response.body}"
+    Rails.logger.info "API Responded with status #{response.code}, a return code of #{response.return_code} and a body of #{response.body}"
   end
 
 end
