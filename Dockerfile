@@ -4,15 +4,17 @@ FROM ministryofjustice/ruby:2.5.1-webapp-onbuild
 ENV DEBIAN_FRONTEND noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && \
-    apt-get install -y pdftk nodejs
+    apt-get install -y pdftk nodejs supervisor && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
+    truncate -s 0 /var/log/*log
 
 
 RUN npm install
 
 EXPOSE 8080
 
-ADD docker/rails/logstash-conf.sh /etc/logstash-conf.sh
-ADD docker/rails/runit_bootstrap.sh /run.sh
+ADD run.sh /run.sh
 ADD ./run_sidekiq.sh /run_sidekiq.sh
 
 RUN chmod +x /run.sh /run_sidekiq.sh
@@ -22,8 +24,6 @@ RUN curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-
 RUN mkdir /etc/cron.d
 RUN touch /etc/cron.d/awslogs
 
-RUN apt-get update
-RUN apt-get -y install supervisor
 RUN mkdir -p /var/log/supervisor
 RUN mkdir -p /etc/supervisor/conf.d/
 COPY supervisor_awslogs.conf /etc/supervisor/conf.d/
