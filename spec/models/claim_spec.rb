@@ -348,8 +348,8 @@ RSpec.describe Claim, type: [:claim, :model] do
       context 'when the claim is not in a submittable state' do
         before { allow(claim).to receive(:submittable?).and_return false }
 
-        it 'raises "StateMachine::InvalidTransition"' do
-          expect { claim.submit! }.to raise_error StateMachine::InvalidTransition
+        it 'raises a runtime error' do
+          expect { claim.submit! }.to raise_error RuntimeError, 'Invalid state - cannot submit'
         end
       end
     end

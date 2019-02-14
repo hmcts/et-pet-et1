@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_14_145527) do
+ActiveRecord::Schema.define(version: 2019_02_14_161051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2019_02_14_145527) do
     t.boolean "send_claim_to_whistleblowing_entity"
     t.text "miscellaneous_information"
     t.string "fee_group_reference"
-    t.string "state"
+    t.string "state", default: "created"
     t.datetime "submitted_at"
     t.string "claim_details_rtf"
     t.string "email_address"
