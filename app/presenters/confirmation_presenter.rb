@@ -27,11 +27,8 @@ class ConfirmationPresenter < Presenter
     tag :br
   end
 
-  # @TODO Why this deleting of payment_amount ?
   def items
-    [:submission_information, :attachments].tap do |arr|
-      arr.delete :payment_amount
-    end
+    [:submission_information, :attachments]
   end
 
   def attachment_filenames
