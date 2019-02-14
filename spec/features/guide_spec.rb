@@ -44,13 +44,6 @@ feature 'Guide', type: :feature do
       expect(page).to have_link(acas_exceptions_link, href: (acas_exceptions_div).to_s)
       expect(page.find(acas_exceptions_div)).not_to be_nil
     end
-
-    scenario "User cannot see any fee related guides" do
-      expect(page).not_to have_text('Fees and payment')
-      expect(page).not_to have_text('Working out your fee')
-      expect(page).not_to have_text('Paying your issue fee')
-      expect(page).not_to have_text('Help with fees')
-    end
   end
 
   context 'Returning to the form from the guide page' do

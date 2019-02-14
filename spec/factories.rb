@@ -4,7 +4,6 @@ FactoryGirl.define do
     association :primary_respondent, factory: :respondent
     association :representative
     association :employment
-    association :payment
     association :office
 
     state 'enqueued_for_submission'
@@ -114,25 +113,6 @@ FactoryGirl.define do
       after(:create, &:generate_pdf!)
     end
 
-    trait :payment_no_remission do
-      remission_claimant_count 0
-    end
-
-    trait :payment_failed do
-      payment nil
-    end
-
-    trait :remission_only do
-      remission_claimant_count 6
-      payment_failed
-    end
-
-    trait :group_payment_with_remission do
-      without_additional_claimants_csv
-      remission_claimant_count 2
-      with_secondary_claimants
-    end
-
     trait :with_secondary_claimants do
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
     end
@@ -142,16 +122,6 @@ FactoryGirl.define do
         claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
         claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
       end
-    end
-
-    trait :payment_no_remission_payment_failed do
-      payment_no_remission
-      payment_failed
-    end
-
-    trait :group_payment_with_remission_payment_failed do
-      group_payment_with_remission
-      payment_failed
     end
 
     trait :no_fee_group_reference do
@@ -229,11 +199,6 @@ FactoryGirl.define do
     trait :without_work_address do
       addresses { [build(:address, primary: true)] }
     end
-  end
-
-  factory :payment do
-    amount 250
-    reference { rand 99999999 }
   end
 
   factory :office do

@@ -377,8 +377,6 @@ en:
         create: Find my claim
         destroy: Sign out now
         update: Save and continue
-      confirmation_email:
-        create: Submit claim and proceed to payment
     link:
       claim:
         return: Return to a claim

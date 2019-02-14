@@ -28,7 +28,6 @@ class Claim < ApplicationRecord
   has_one  :representative, dependent: :destroy
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
-  has_one  :payment
 
   delegate :file, to: :claim_details_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true

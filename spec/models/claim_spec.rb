@@ -14,7 +14,6 @@ RSpec.describe Claim, type: [:claim, :model] do
   it { is_expected.to have_one(:office).dependent(:destroy) }
   it { is_expected.to have_one(:primary_claimant).conditions primary_claimant: true }
   it { is_expected.to have_one(:primary_respondent).conditions primary_respondent: true }
-  it { is_expected.to have_one(:payment) }
 
   before do
     allow(ClaimSubmissionJob).to receive :perform_later
@@ -387,14 +386,6 @@ RSpec.describe Claim, type: [:claim, :model] do
     context 'when `state` is' do
       context 'created' do
         before { claim.state = 'created' }
-
-        it 'is false' do
-          expect(claim).not_to be_immutable
-        end
-      end
-
-      context 'payment_required' do
-        before { claim.state = 'payment_required' }
 
         it 'is false' do
           expect(claim).not_to be_immutable

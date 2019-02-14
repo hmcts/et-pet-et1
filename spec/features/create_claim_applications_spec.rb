@@ -268,15 +268,11 @@ feature 'Claim applications', type: :feature do
       expect(Claim.last.confirmation_email_recipients).to be_empty
     end
 
-    # @TODO Payment is never required
-    scenario 'Submitting the claim when payment is not required' do
+    scenario 'Submitting the claim' do
       complete_a_claim
       click_button 'Submit claim'
 
       expect(page).to have_text     "Claim submitted"
-      expect(page).not_to have_text "Fee paid"
-      expect(page).not_to have_text "Fee to pay"
-      expect(page).not_to have_text "Complete an application for help with fees"
       expect(page).not_to have_signout_button
       expect(page).not_to have_session_prompt
     end
@@ -337,8 +333,6 @@ feature 'Claim applications', type: :feature do
 
         click_button 'Submit claim', exact: true
         expect(page).to have_text 'Claim submitted'
-        expect(page).not_to have_text 'We’ll contact you within 5 working days to arrange payment.'
-        expect(page).not_to have_text 'Issue fee paid'
       end
     end
   end
