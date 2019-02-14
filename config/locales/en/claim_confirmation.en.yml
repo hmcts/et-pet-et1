@@ -10,11 +10,6 @@ en:
 
       what_happens_next:
         header: What happens next
-        payment_failed: We’ll contact you within 5 working days to arrange payment.
-        apply_for_remission: |
-          You have started an application for help with fees.
-          You must now complete your application within 7 days or your claim may be rejected.
-        remission_link_text: Complete an application for help with fees
         send_to_respondent: |
           A copy of the claim will be sent to the respondent.
           They’ll have 28 days to reply.
@@ -35,14 +30,12 @@ en:
         header: Submission details
         submission_information: Claim submitted
         attachments: Attachments included
-        payment_amount: Issue fee paid
         submission_without_office: Submitted %{date}
         submission_with_office: Submitted %{date} to tribunal office %{office}
 
       print_link_html: |
         <a href="javascript:window.print(0);">Print this page</a> for your
         records
-      unprocessable_payment: Unable to process payment
 
       pel_info: |
         If you have any questions, contact the Public Enquiry Line:

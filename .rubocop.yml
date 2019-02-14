@@ -229,8 +229,6 @@ Rails/OutputSafety:
 
 RSpec/VerifiedDoubles:
   Exclude:
-    - 'spec/services/health_status/deployment_spec.rb'
-    - 'spec/services/health_status/health_check_spec.rb'
     - 'spec/services/zendesk_sender_spec.rb'
     - 'spec/forms/refunds/**/*_spec.rb'
 

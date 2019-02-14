@@ -1,3 +1,4 @@
+# @TODO Should we even have this ?
 class ConfirmationEmailPreview < ActionMailer::Preview
   [:payment_no_remission, :remission_only, :group_payment_with_remission, :payment_no_remission_payment_failed, :group_payment_with_remission_payment_failed].each do |claim_scenario|
     define_method(claim_scenario) { claim_for claim_scenario }

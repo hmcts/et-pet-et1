@@ -18,13 +18,6 @@ feature 'Request redispatch' do
       end
     end
 
-    describe 'accessing the payment page' do
-      it 'redirects to the start page' do
-        visit claim_payment_path
-        expect(page.current_path).to eq apply_path
-      end
-    end
-
     describe 'accessing the confirmation page' do
       it 'redirects to the start page' do
         visit claim_confirmation_path
@@ -49,15 +42,6 @@ feature 'Request redispatch' do
           specify 'the request is not redirected' do
             visit claim_claimant_path
             expect(page.current_path).to eq claim_claimant_path
-          end
-        end
-
-        context 'payment_required' do
-          before { claim.update state: 'payment_required' }
-
-          it 'redirects to the payment page' do
-            visit claim_claimant_path
-            expect(page.current_path).to eq claim_payment_path(locale: :en)
           end
         end
 
@@ -90,15 +74,6 @@ feature 'Request redispatch' do
           end
         end
 
-        context 'payment_required' do
-          before { claim.update state: 'payment_required' }
-
-          it 'redirects to the payment page' do
-            visit claim_review_path
-            expect(page.current_path).to eq claim_payment_path(locale: :en)
-          end
-        end
-
         context 'enqueued_for_submission' do
           before { claim.update state: 'enqueued_for_submission' }
 
@@ -113,44 +88,6 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
-          end
-        end
-      end
-
-      describe 'accessing the payment page when the claim state is' do
-        context 'payment_required' do
-          before { claim.update state: 'payment_required' }
-
-          specify 'the request is not redirected' do
-            visit claim_payment_path
-            expect(page.current_path).to eq claim_payment_path
-          end
-        end
-
-        context 'created' do
-          before { claim.update state: 'created' }
-
-          it 'redirects to the claimant page' do
-            visit claim_payment_path
-            expect(page.current_path).to eq claim_claimant_path(locale: :en)
-          end
-        end
-
-        context 'enqueued_for_submission' do
-          before { claim.update state: 'enqueued_for_submission' }
-
-          it 'redirects to the confirmation page' do
-            visit claim_payment_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
-          end
-        end
-
-        context 'submitted' do
-          before { claim.update state: 'submitted' }
-
-          it 'redirects to the confirmation page' do
-            visit claim_payment_path
             expect(page.current_path).to eq claim_confirmation_path(locale: :en)
           end
         end
@@ -181,15 +118,6 @@ feature 'Request redispatch' do
           it 'redirects to the claimant page' do
             visit claim_confirmation_path
             expect(page.current_path).to eq claim_claimant_path(locale: :en)
-          end
-        end
-
-        context 'payment_required' do
-          before { claim.update state: 'payment_required' }
-
-          it 'redirects to the payment page' do
-            visit claim_review_path
-            expect(page.current_path).to eq claim_payment_path(locale: :en)
           end
         end
       end

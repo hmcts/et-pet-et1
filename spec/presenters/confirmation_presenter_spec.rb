@@ -71,6 +71,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
           [:attachments, "file.rtf<br />file.csv"]
     end
 
+    # @TODO Decide on this one
     context 'when payment fails' do
       let(:claim) { create :claim, :payment_no_remission_payment_failed }
 

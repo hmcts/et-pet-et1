@@ -16,6 +16,7 @@ RSpec.feature 'Confirmation page', type: :feature do
     travel_to(Time.new(2014).utc) { example.run }
   end
 
+  # @TODO - What should we do with this ?
   context 'when payment is skipped' do
     let(:claim) { create :claim, :not_submitted, :payment_no_remission }
 

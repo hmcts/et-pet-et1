@@ -39,19 +39,6 @@ module FormMethods
         with(body: "postcode=AT3%200AS", headers: { 'Accept' => 'application/json' }).
         to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
     end
-
-    around do |example|
-      load "app/services/payment_gateway.rb"
-
-      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ&lang=1").
-        to_return(status: 200, body: "", headers: {})
-      stub_request(:get, "https://mdepayments.epdq.co.uk/ncol/test/backoffice?BRANDING=EPDQ%5C&lang=1").
-        to_return(status: 200, body: "", headers: {})
-
-      PaymentGateway::TASK.run
-      example.run
-      PaymentGateway::TASK.stop
-    end
   end
 
   def start_claim
@@ -274,15 +261,6 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  # def complete_payment(gateway_response: 'success')
-  #   path = "/apply/pay/#{gateway_response}?orderID=511234567800&amount=250&PM=CreditCard&" +
-  #     'ACCEPTANCE=test123&STATUS=9&CARDNO=XXXXXXXXXXXX111&TRXDATE=09%2F15%2F14&' +
-  #     'PAYID=34707458&NCERROR=0&BRAND=VISA&' +
-  #     'SHASIGN=A8410E130DA5C6AB210CF8E64CAFA64EC8AC8EFF0D958AC0D2CB3AF3EE467E75'
-
-  #   visit path
-  # end
-
   def complete_a_claim(options = {})
     start_claim
     fill_in_password
@@ -301,7 +279,6 @@ module FormMethods
   def complete_and_submit_claim
     complete_a_claim
     click_button "Submit claim"
-    # complete_payment
   end
 
   def deselect_claimant_email

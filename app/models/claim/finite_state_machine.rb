@@ -20,13 +20,7 @@ class Claim::FiniteStateMachine
   state_machine :state, initial: :created do
     event :submit do
       transition created: :enqueued_for_submission,
-        if: ->(claim) { claim.submittable? && !claim.payment_applicable? }
-      transition created: :payment_required,
-        if: ->(claim) { claim.submittable? && claim.payment_applicable? }
-    end
-
-    event :enqueue do
-      transition payment_required: :enqueued_for_submission
+        if: ->(claim) { claim.submittable? }
     end
 
     event :finalize do
@@ -34,10 +28,6 @@ class Claim::FiniteStateMachine
     end
 
     after_transition do: ->(claim) { claim.save! }
-
-    after_transition created: :payment_required, do: lambda { |machine|
-      PdfGenerationJob.perform_later machine.claim
-    }
 
     after_transition any => :enqueued_for_submission, do: lambda { |machine|
       claim = machine.claim

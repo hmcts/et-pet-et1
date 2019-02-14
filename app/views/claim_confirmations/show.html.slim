@@ -12,23 +12,10 @@ header.main-header role="banner"
     section.content-section
       h2 = t('.what_happens_next.header')
       ol.numerical-list
-        - if confirmation_presenter.payment_failed?
-          li
-            p= p= t('.what_happens_next.payment_failed')
-        - if confirmation_presenter.remission_applicable?
-          li
-            p= t('.what_happens_next.apply_for_remission')
-
-            p= link_to t('.what_happens_next.remission_link_text'),
-                  'https://gov.uk/help-with-court-fees',
-                  class: 'button'
-          li
-            p= t('.what_happens_next.next_steps_final_step')
-        -else
-          li
-            p= t('.what_happens_next.send_to_respondent')
-          li
-            p= t('.what_happens_next.next_steps')
+        li
+          p= t('.what_happens_next.send_to_respondent')
+        li
+          p= t('.what_happens_next.next_steps')
 
       table.confirmation-table
         caption = t('.submission_details.header')

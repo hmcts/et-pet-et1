@@ -1,5 +1,4 @@
 class Claim < ApplicationRecord
-  include PaymentAndFee
   include Reference
   include ClaimLists
 
@@ -103,6 +102,11 @@ class Claim < ApplicationRecord
 
   def remove_claim_details_rtf!
     super.tap { update_column(:claim_details_rtf, nil) }
+  end
+
+  # @TODO Rename this as it is only to determine the jurisdiction - maybe it should be in a helper as its presentational
+  def attracts_higher_fee?
+    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing? || is_protective_award?
   end
 
   private

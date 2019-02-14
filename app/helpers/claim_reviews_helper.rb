@@ -25,11 +25,7 @@ module ClaimReviewsHelper
   end
 
   def submit_button_text(claim)
-    if claim.application_fee_after_remission.zero?
-      t '.submit_with_remission'
-    else
-      t '.submit_go_to_payment'
-    end
+    t '.submit'
   end
 
   def review_date(date)

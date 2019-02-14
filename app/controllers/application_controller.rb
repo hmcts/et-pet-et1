@@ -35,8 +35,6 @@ class ApplicationController < ActionController::Base
       root_path
     elsif claim.created?
       claim_claimant_path
-    elsif claim.payment_required?
-      claim_payment_path
     elsif claim.immutable?
       claim_confirmation_path
     end

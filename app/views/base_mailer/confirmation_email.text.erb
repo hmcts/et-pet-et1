@@ -2,16 +2,12 @@
 <%= t('.claim_number') %>: <%= @presenter.reference %>
 
 <%= @presenter.primary_claimant_full_name %>
-
-<%= @presenter.payment_information -%>
-
+<%= t("base_mailer.confirmation_email.intro") %>
 <%= @presenter.text_email_line_break %>
 
 <%= t('.what_happens_next').upcase %>
 
-<%- unless @presenter.remission_applicable? %>
-<%= t('.no_remission_copy_sent_to_respondent') -%>
-<%- end %>
+<%= t('.send_to_respondent') -%>
 <%= t('.we_will_contact_you') -%>
 
 <%= @presenter.text_email_line_break %>

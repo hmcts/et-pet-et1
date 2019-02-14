@@ -514,10 +514,6 @@ cy:
       acas_early_conciliation: |
         Acas: cymodi cynnar
       acas_early_conciliation_exceptions: Eithriadau i gymodi cynnar
-      fees_and_payment: Ffioedd a thaliadau
-      fees_and_payment_working_out_your_fee: Cyfrifo eich ffi
-      fees_and_payment_paying_your_fee: Talu eich ffi cyflwyno
-      reducing_fees: "Help i dalu ffioedd"
       writing_your_claim_statement: Ysgrifennu datganiad i gefnogi eich hawliad
       aside:
         gethelp_header: Cymorth
@@ -535,7 +531,6 @@ cy:
       privacy_policy_personal_information: "Sut rydym yn defnyddio eich gwybodaeth bersonol"
       privacy_policy_non_personal_information: Sut rydym yn defnyddio gwybodaeth nad ydyw'n bersonol
       privacy_policy_data_storage: Sut rydym yn cadw eich gwybodaeth yn ddiogel
-      online_payment: Talu ar-lein
       session_management: Sut rydym yn rheoli sesiynau
       data_protection: Deddf Diogelu Data 1998
       disclaimer: Ymwrthodiad

@@ -22,10 +22,12 @@ module Messages
   end
 
   def payment_message
+    raise "Payment stuff"
     format I18n.t('claim_reviews.confirmation.fee_paid')
   end
 
   def remission_help
+    raise "Payment stuff"
     format I18n.t('claim_reviews.confirmation.remission_help')
   end
 

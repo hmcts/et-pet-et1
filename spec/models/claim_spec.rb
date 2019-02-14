@@ -261,43 +261,9 @@ RSpec.describe Claim, type: [:claim, :model] do
     end
   end
 
-  describe '#fee_calculation' do
-    it 'delegates to ClaimFeeCalculator.calculate' do
-      expect(ClaimFeeCalculator).to receive(:calculate).with claim: claim
-      claim.fee_calculation
-    end
-  end
-
-  describe '#payment_applicable?' do
-    before do
-      allow(PaymentGateway).to receive(:available?).and_return true
-      allow(claim).to receive(:fee_group_reference?).and_return true
-      allow(ClaimFeeCalculator).to receive(:calculate).with(claim: claim).
-        and_return instance_double(ClaimFeeCalculator::Calculation, fee_to_pay?: true)
-    end
-
-    context 'is set to default false' do
-      it { expect(claim.payment_applicable?).to be_falsey }
-    end
-  end
-
   describe '#state' do
     describe 'for a new record' do
       it { expect(claim.state).to eq 'created' }
-    end
-  end
-
-  describe '#unpaid?' do
-    context 'with a payment assosciated with the claim' do
-      let(:claim) { create :claim, payment: Payment.new }
-
-      it { expect(claim.unpaid?).to be_falsey }
-    end
-
-    context 'with no payment assosciated with the claim' do
-      let(:claim) { create :claim, payment: nil }
-
-      it { expect(claim.unpaid?).to be_truthy }
     end
   end
 
@@ -378,42 +344,24 @@ RSpec.describe Claim, type: [:claim, :model] do
       context 'when the claim is in a submittable state' do
         before { allow(claim).to receive_messages submittable?: true, save!: true }
 
-        context 'and payment is required' do
-          before { allow(claim).to receive(:payment_applicable?).and_return true }
-
-          it 'transitions state to "payment_required"' do
-            claim.submit!
-            expect(claim.state).to eq('payment_required')
-          end
-
-          it 'creates a pdf generation job' do
-            expect(PdfGenerationJob).to receive(:perform_later).with claim
-            claim.submit!
-          end
+        it 'transitions state to "enqueued_for_submission"' do
+          claim.submit!
+          expect(claim.state).to eq('enqueued_for_submission')
         end
 
-        context 'and payment is not required' do
-          before { allow(claim).to receive(:payment_applicable?).and_return false }
+        it 'creates a claim submission job' do
+          expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
+          claim.submit!
+        end
 
-          it 'transitions state to "enqueued_for_submission"' do
-            claim.submit!
-            expect(claim.state).to eq('enqueued_for_submission')
-          end
+        it 'saves the claim' do
+          expect(claim).to receive(:save!)
+          claim.submit!
+        end
 
-          it 'creates a claim submission job' do
-            expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
-            claim.submit!
-          end
-
-          it 'saves the claim' do
-            expect(claim).to receive(:save!)
-            claim.submit!
-          end
-
-          it 'creates a log event' do
-            expect(claim).to receive(:create_event).with 'enqueued'
-            claim.submit!
-          end
+        it 'creates a log event' do
+          expect(claim).to receive(:create_event).with 'enqueued'
+          claim.submit!
         end
       end
 
@@ -423,35 +371,6 @@ RSpec.describe Claim, type: [:claim, :model] do
         it 'raises "StateMachine::InvalidTransition"' do
           expect { claim.submit! }.to raise_error StateMachine::InvalidTransition
         end
-      end
-    end
-  end
-
-  describe '#enqueue' do
-    context 'transitioning state from "payment_required"' do
-      before do
-        allow(claim).to receive_messages save!: true
-        claim.state = 'payment_required'
-      end
-
-      it 'transitions state to "enqueued_for_submission"' do
-        claim.enqueue!
-        expect(claim.state).to eq('enqueued_for_submission')
-      end
-
-      it 'creates a claim submission job' do
-        expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
-        claim.enqueue!
-      end
-
-      it 'saves the claim' do
-        expect(claim).to receive(:save!)
-        claim.enqueue!
-      end
-
-      it 'creates a log event' do
-        expect(claim).to receive(:create_event).with 'enqueued'
-        claim.enqueue!
       end
     end
   end
@@ -480,24 +399,6 @@ RSpec.describe Claim, type: [:claim, :model] do
 
     it 'sets primary_claimant as true' do
       expect(claimant.primary_claimant).to be true
-    end
-  end
-
-  describe '#payment_fee_group_reference' do
-    context 'when payment_attempts is 0' do
-      it 'is the same as the fee group reference' do
-        expect(claim.payment_fee_group_reference).
-          to eq claim.fee_group_reference
-      end
-    end
-
-    context 'when payment_attempts is > 0' do
-      before { claim.payment_attempts = 100 }
-
-      it 'equals "#{fee_group_reference}-#{payment_attempts}"' do
-        expect(claim.payment_fee_group_reference).
-          to eq "#{claim.fee_group_reference}-#{claim.payment_attempts}"
-      end
     end
   end
 

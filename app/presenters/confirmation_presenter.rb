@@ -8,10 +8,6 @@ class ConfirmationPresenter < Presenter
     end
   end
 
-  def payment_failed?
-    false
-  end
-
   def attachments
     if attachment_filenames.empty?
       I18n.t 'claim_confirmations.show.no_attachments'
@@ -25,23 +21,16 @@ class ConfirmationPresenter < Presenter
     end
   end
 
-  def payment_amount
-    if payment.present?
-      number_to_currency target.payment_amount
-    else
-      I18n.t 'claim_confirmations.show.unprocessable_payment'
-    end
-  end
-
   private
 
   def file_separator
     tag :br
   end
 
+  # @TODO Why this deleting of payment_amount ?
   def items
     [:submission_information, :attachments].tap do |arr|
-      arr.delete :payment_amount unless fee_to_pay?
+      arr.delete :payment_amount
     end
   end
 

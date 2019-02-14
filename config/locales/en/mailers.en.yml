@@ -22,23 +22,10 @@ en:
       footer: :base_mailer.footer
       subject: 'Employment tribunal: claim submitted'
       header: Claim submitted
-      intro:
-        normal:
-          single: Thank you for submitting your claim to an employment tribunal.
-          group: Thank you for submitting your claim to an employment tribunal.
-        payment_not_processed:
-          single: Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
-          group: Your claim to an employment tribunal has been submitted but unfortunately we weren’t able to process your payment.
-
+      intro: Thank you for submitting your claim to an employment tribunal.
       what_happens_next: :claim_confirmations.show.what_happens_next.header
-      contact_re_payment: :claim_confirmations.show.what_happens_next.payment_failed
-      must_apply_for_remission: :claim_confirmations.show.what_happens_next.apply_for_remission
-      apply_for_fee_remission: :claim_confirmations.show.what_happens_next.remission_link_text
-      no_remission_copy_sent_to_respondent: :claim_confirmations.show.what_happens_next.send_to_respondent
+      send_to_respondent: :claim_confirmations.show.what_happens_next.send_to_respondent
       we_will_contact_you: :claim_confirmations.show.what_happens_next.next_steps
-      remission_we_will_contact_you_england_wales_html: :claim_confirmations.show.what_happens_next.next_steps_remission_england_wales_html
-      remission_we_will_contact_you_scotland_html: :claim_confirmations.show.what_happens_next.next_steps_remission_scotland_html
-      remission_review: :claim_confirmations.show.what_happens_next.next_steps_final_step
 
        # SPECIFIC TO TEXT EMAIL
       apply_for_fee_remission_text: 'COMPLETE AN APPLICATION FOR HELP WITH FEES: https://gov.uk/help-with-court-fees'
@@ -57,8 +44,6 @@ en:
         submission_information: 'Claim submitted:'
         submitted_on: "on %{date} "
         submitted_to: to tribunal office %{office}
-        payment_amount: 'Issue fee paid:'
-        fee_to_pay: 'Issue fee payment:'
 
       remisison_further_information_html: |
         If you have any questions, contact the Public Enquiry Line:<br/>England & Wales: 0300 123 1024<br/>Scotland: 0141 354 8574

@@ -455,10 +455,6 @@ en:
       acas_early_conciliation: |
         Acas: early conciliation
       acas_early_conciliation_exceptions: Exceptions to early conciliation
-      fees_and_payment: Fees and payment
-      fees_and_payment_working_out_your_fee: Working out your fee
-      fees_and_payment_paying_your_fee: Paying your issue fee
-      reducing_fees: Help with fees
       writing_your_claim_statement: Writing your claim statement
       aside:
         gethelp_header: Support
@@ -663,31 +659,6 @@ en:
       has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
       additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
 
-    your_fee:
-      header: Fee
-      standard_fee: Standard fee
-      standard_fee_detail: This is the claim fee for your claim
-      application_fee: Fee
-      callout_fee_intro: This issue fee for your claim is
-      callout_fee_amount: £ %{application_fee}
-      callout_fee_footnote_html: If your claim goes to a tribunal, you’ll have to pay an additional hearing fee of <strong>£%{hearing_fee}</strong>. <a href="%{path}#fees_and_payment">See more about fees</a>
-      reduce_fee: Exemption from paying fees
-      applying_for_remission_single_html:
-        You may be eligible to pay a reduced fee or no fee at all (known as help with fees). Check the <a href="%{path}#reducing_fees">guide on help with fees</a>.
-      applying_for_remission_multiple_html:
-        You may be eligible to pay a reduced fee or no fee at all (known as help with fees). Check the <a href="%{path}#reducing_fees">guide on help with fees</a>.
-      applying_for_remission_multiple_note_html: You’ll be able to apply for help with fees when you’ve submitted this claim. Each eligible claimant will need to apply separately within 7 days of submitting this claim (or the claim will be rejected).
-      remission_applied_info_html:
-        <p>You are making an application for help with fees.</p>
-
-        <p>You must complete and submit your help with fees application form within 7 days of submitting your claim, or your help with fees application will be rejected.</p>
-
-        <p>You won’t need to pay the issue fee when you submit this claim.</p>
-
-      initial_fee: |
-        From the information you’ve given us, you have to pay <strong>£%{fee}</strong> by debit or credit card.
-      hearing_fee: |
-        If your case goes to a tribunal, you’ll have to pay a hearing fee of <strong>£%{fee}</strong>.
 
   # Form Errors - Handled by ActiveModel
   activemodel:

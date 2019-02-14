@@ -268,6 +268,7 @@ feature 'Claim applications', type: :feature do
       expect(Claim.last.confirmation_email_recipients).to be_empty
     end
 
+    # @TODO Payment is never required
     scenario 'Submitting the claim when payment is not required' do
       complete_a_claim
       click_button 'Submit claim'
