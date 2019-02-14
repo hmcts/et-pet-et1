@@ -539,7 +539,7 @@ class PdfContent
 
   def pdf_response
     hydra ||= Typhoeus::Hydra.new max_concurrency: 1
-    request = Typhoeus::Request.new "#{api_base}#{path}", method: :get
+    request = Typhoeus::Request.new url, method: :get
     hydra.queue(request)
     hydra.run
     @pdf_response ||= request.response
