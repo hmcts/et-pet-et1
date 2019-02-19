@@ -1,4 +1,0 @@
-en:
-  barclaycard_payment_template:
-    show:
-      header: :'payments.show.header'

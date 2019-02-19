@@ -26,8 +26,6 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     {
       id: "Id #{claim_with_attachments.id}",
       submitted_to_jadu: 'Submitted To Jadu June 05, 2015 00:00',
-      payment_required: 'Payment Required Yes',
-      payment_received: 'Payment Received Yes',
       fee_group_reference: 'Fee Group Reference 511234567800',
       fgr_postcode: 'Fgr Postcode SW1A 1AH',
       confirmation_emails: 'Confirmation Emails such@lolz.com and wow@lol.biz'

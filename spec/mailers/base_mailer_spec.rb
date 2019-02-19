@@ -45,8 +45,6 @@ describe BaseMailer, type: :mailer do
 
     before do
       claim.confirmation_email_recipients = email_addresses
-      allow(claim).to receive(:payment_applicable?).and_return false
-      allow(claim).to receive(:remission_applicable?).and_return false
     end
 
     context "post delivery" do
@@ -94,43 +92,14 @@ describe BaseMailer, type: :mailer do
         end
       end
 
+      # @TODO Think about renaming this - nothing to do with payment anymore
       context 'when paid' do
-        before do
-          allow(claim).to receive(:fee_to_pay?).and_return(true)
-        end
-
         describe 'hide paid message' do
           it { expect(email).to match_pattern('Thank you for submitting') }
           it { expect(email).not_to match_pattern('Issue fee paid:') }
         end
 
         it 'hide amount paid' do
-          expect(email).not_to match_pattern '£250.00'
-        end
-      end
-
-      context 'when payment is skipped' do
-        let(:fee_calculation) do
-          instance_double(ClaimFeeCalculator::Calculation, application_fee: 100, fee_to_pay?: true)
-        end
-
-        before do
-          claim.payment = nil
-
-          allow(claim).to receive(:payment_applicable?).and_return false
-          allow(claim).to receive(:fee_calculation).and_return fee_calculation
-        end
-
-        it 'shows the intro for payment failure' do
-          expect(email).
-            not_to match_pattern 'we weren’t able to process your payment'
-        end
-
-        it 'explains payment was unsuccessful' do
-          expect(email).not_to match_pattern 'Unable to process payment'
-        end
-
-        it 'does not show outstanding fee' do
           expect(email).not_to match_pattern '£250.00'
         end
       end

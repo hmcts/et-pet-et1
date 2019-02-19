@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_07_104828) do
+ActiveRecord::Schema.define(version: 2019_02_14_161051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2018_06_07_104828) do
     t.boolean "send_claim_to_whistleblowing_entity"
     t.text "miscellaneous_information"
     t.string "fee_group_reference"
-    t.string "state"
+    t.string "state", default: "created"
     t.datetime "submitted_at"
     t.string "claim_details_rtf"
     t.string "email_address"
@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_104828) do
     t.integer "remission_claimant_count", default: 0
     t.integer "additional_claimants_csv_record_count", default: 0
     t.string "application_reference", null: false
-    t.integer "payment_attempts", default: 0
     t.string "pdf"
     t.string "confirmation_email_recipients", default: [], array: true
     t.boolean "is_protective_award", default: false
@@ -153,14 +152,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_104828) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "claim_id"
-  end
-
-  create_table "payments", id: :serial, force: :cascade do |t|
-    t.integer "amount"
-    t.integer "claim_id"
-    t.string "reference"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "refunds", id: :serial, force: :cascade do |t|

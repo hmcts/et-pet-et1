@@ -71,26 +71,6 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
           [:attachments, "file.rtf<br />file.csv"]
     end
 
-    context 'when payment fails' do
-      let(:claim) { create :claim, :payment_no_remission_payment_failed }
-
-      it 'yields payment failure message' do
-        expect { |b| confirmation_presenter.each_item(&b) }.
-          to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
-            [:attachments, "file.rtf<br />file.csv"]
-      end
-    end
-
-    context 'when no payment applies' do
-      let(:claim) { create :claim, :remission_only }
-
-      it 'yields no payment or fee office information' do
-        expect { |b| confirmation_presenter.each_item(&b) }.
-          to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
-            [:attachments, "file.rtf<br />file.csv"]
-      end
-    end
-
     context 'when no attachments were uploaded' do
       let(:claim) { create :claim, :no_attachments }
 

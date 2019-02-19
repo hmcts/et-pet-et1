@@ -130,8 +130,7 @@ cy:
       submit_warning_header: Cyflwyno eich hawliad
       submit_warning: "Hwn yw'r cyfle olaf i chi newid manylion eich hawliad ar-lein. Gwiriwch fod yr holl wybodaeth uchod yn gywir."
       confirmation: Cadarnhad drwy e-bost
-      submit_with_remission: "Cyflwyno'r hawliad"
-      submit_go_to_payment: "Cyflwyno'r hawliad"
+      submit: "Cyflwyno'r hawliad"
       hint: |
         Fe anfonir copi o'r hawliad wedi'i gwblhau at:
       add_email_address: Ychwanegu cyfeiriad e-bost

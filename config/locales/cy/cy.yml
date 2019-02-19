@@ -435,8 +435,6 @@ cy:
         create: Cael hyd i fy hawliad
         destroy: Allgofnodi nawr
         update: Cadw a pharhau
-      confirmation_email:
-        create: Cyflwyno'r hawliad a pharhau i dalu
     link:
       claim:
         return: Dychwelyd i hawliad
@@ -514,10 +512,6 @@ cy:
       acas_early_conciliation: |
         Acas: cymodi cynnar
       acas_early_conciliation_exceptions: Eithriadau i gymodi cynnar
-      fees_and_payment: Ffioedd a thaliadau
-      fees_and_payment_working_out_your_fee: Cyfrifo eich ffi
-      fees_and_payment_paying_your_fee: Talu eich ffi cyflwyno
-      reducing_fees: "Help i dalu ffioedd"
       writing_your_claim_statement: Ysgrifennu datganiad i gefnogi eich hawliad
       aside:
         gethelp_header: Cymorth
@@ -535,7 +529,6 @@ cy:
       privacy_policy_personal_information: "Sut rydym yn defnyddio eich gwybodaeth bersonol"
       privacy_policy_non_personal_information: Sut rydym yn defnyddio gwybodaeth nad ydyw'n bersonol
       privacy_policy_data_storage: Sut rydym yn cadw eich gwybodaeth yn ddiogel
-      online_payment: Talu ar-lein
       session_management: Sut rydym yn rheoli sesiynau
       data_protection: Deddf Diogelu Data 1998
       disclaimer: Ymwrthodiad
@@ -733,9 +726,6 @@ cy:
       standard_fee: Ffi safonol
       standard_fee_detail: "Dyma yw'r ffi am wneud eich hawliad"
       application_fee: Ffi
-      callout_fee_intro: Y ffi cyflwyno ar gyfer eich hawliad yw
-      callout_fee_amount: "£ %{application_fee}"
-      callout_fee_footnote_html: "Os bydd eich hawliad yn mynd i dribiwnlys, bydd rhaid i chi dalu ffi gwrandawiad ychwanegol o <strong>£%{hearing_fee}</strong>. <a href=\"%{path}#fees_and_payment\">Gweler mwy am ffioedd</a>"
       reduce_fee: "Esemptiad rhag talu ffioedd"
       applying_for_remission_single_html:
         "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."

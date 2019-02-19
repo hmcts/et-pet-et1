@@ -1,5 +1,4 @@
 class Claim < ApplicationRecord
-  include PaymentAndFee
   include Reference
   include ClaimLists
 
@@ -29,9 +28,7 @@ class Claim < ApplicationRecord
   has_one  :representative, dependent: :destroy
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
-  has_one  :payment
 
-  delegate :amount, :created_at, :reference, :present?, to: :payment, prefix: true, allow_nil: true
   delegate :file, to: :claim_details_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
   delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
@@ -48,7 +45,6 @@ class Claim < ApplicationRecord
   bitmask :pay_claims,            as: PAY_COMPLAINTS
   bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
 
-  after_initialize :setup_state_machine
   after_initialize :generate_application_reference
 
   delegate :destroy_all, :any?, to: :secondary_claimants, prefix: true
@@ -105,24 +101,47 @@ class Claim < ApplicationRecord
     super.tap { update_column(:claim_details_rtf, nil) }
   end
 
+  # @TODO Rename this as it is only to determine the jurisdiction - maybe it should be in a helper as its presentational
+  def attracts_higher_fee?
+    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing? || is_protective_award?
+  end
+
+  def submit!
+    raise "Invalid state - cannot submit" unless state == "created" && submittable?
+    self.state = "enqueued_for_submission"
+
+    perform_submission!
+    save!
+  end
+
+  def finalize!
+    raise "Invalid state - cannot finalize!" unless state == "enqueued_for_submission"
+    self.state = "submitted"
+    save!
+  end
+
+  def created?
+    state == 'created'
+  end
+
+  def submitted?
+    state == 'submitted'
+  end
+
+  def enqueued_for_submission?
+    state == 'enqueued_for_submission'
+  end
+
+  def immutable?
+    submitted? || enqueued_for_submission?
+  end
+
+
   private
 
-  def state_machine
-    @state_machine ||= Claim::FiniteStateMachine.new(claim: self)
-  end
-
-  alias setup_state_machine state_machine
-
-  def respond_to_missing?(meth, include_private = false)
-    return true if state_machine.respond_to?(meth)
-    super
-  end
-
-  def method_missing(meth, *args, &blk)
-    if state_machine.respond_to? meth
-      state_machine.send meth, *args, &blk
-    else
-      super
-    end
+  def perform_submission!
+    touch(:submitted_at)
+    create_event Event::ENQUEUED
+    ClaimSubmissionJob.perform_later self, SecureRandom.uuid
   end
 end

@@ -27,18 +27,17 @@ html
               tr
                 td
                   p style="font-family:arial; font-size:19px"
-                    = @presenter.payment_information
+                    = t("base_mailer.confirmation_email.intro")
 
                   p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
                     = t('.what_happens_next')
 
                   ol
-                    - unless @presenter.remission_applicable?
-                      li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.no_remission_copy_sent_to_respondent')
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.send_to_respondent')
 
-                      li style="font-family:arial; font-size:19px; line-height:26px;"
-                        p= t('.we_will_contact_you')
+                    li style="font-family:arial; font-size:19px; line-height:26px;"
+                      p= t('.we_will_contact_you')
 
                   p style="font-family:arial; font-size:19px; font-weight:bold; margin-top:50px;"
                     = t('.details.header')

@@ -8,9 +8,6 @@ class Event < ApplicationRecord
   RECEIVED_BY_JADU            = 'received_by_jadu'.freeze
   REJECTED_BY_JADU            = 'rejected_by_jadu'.freeze
   CONFIRMATION_EMAIL_SENT     = 'confirmation_email_sent'.freeze
-  PAYMENT_RECEIVED            = 'payment_received'.freeze
-  PAYMENT_UNCERTAIN           = 'payment_uncertain'.freeze
-  PAYMENT_DECLINED            = 'payment_declined'.freeze
   PDF_GENERATED               = 'pdf_generated'.freeze
   MANUAL_STATUS_CHANGE        = 'manual_status_change'.freeze
   MANUALLY_SUBMITTED          = 'manually_submitted'.freeze

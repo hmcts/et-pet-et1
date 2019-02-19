@@ -23,7 +23,7 @@ RSpec.describe PdfsController, type: :controller do
     end
 
     context 'pdf is unavailable' do
-      ['payment_required', 'submitted', 'enqueued_for_submission'].each do |state|
+      ['submitted', 'enqueued_for_submission'].each do |state|
         context "claim is in a '#{state}' state" do
           let(:claim) { create :claim, state: state }
 

@@ -45,9 +45,5 @@ class ClaimsController < ApplicationController
     params[:page].underscore
   end
 
-  def fee_calculation
-    @fee_calculation ||= claim.fee_calculation
-  end
-
-  helper_method :page_manager, :resource, :current_step, :fee_calculation
+  helper_method :page_manager, :resource, :current_step
 end

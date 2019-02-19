@@ -23,29 +23,14 @@ cy:
         contact_us: Cysylltu â ni
       subject: 'Tribiwnlys Cyflogaeth: hawliad wedi''i gyflwyno'
       header: Hawliad wedi'i gyflwyno
-      intro:
-        normal:
-          single: "Diolch am gyflwyno eich hawliad i dribiwnlys cyflogaeth."
-          group: "Diolch am gyflwyno eich hawliad i dribiwnlys cyflogaeth."
-        payment_not_processed:
-          single: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad."
-          group: "Mae eich hawliad i dribiwnlys cyflogaeth wedi'i gyflwyno ond yn anffodus nid oeddem yn gallu prosesu eich taliad."
-
+      intro: "Diolch am gyflwyno eich hawliad i dribiwnlys cyflogaeth."
       what_happens_next: "Beth sy'n digwydd nesaf"
-      contact_re_payment: "Byddwn yn cysylltu â chi o fewn 5 diwrnod gwaith i drefnu taliad."
-      must_apply_for_remission: |
-          Rydych wedi cychwyn gwneud cais am help i dalu ffioedd.
-          Mae'n rhaid i chi nawr gwblhau eich cais o fewn 7 diwrnod neu gellir gwrthod eich hawliad.
-      apply_for_fee_remission: "Gwneud cais am help i dalu ffioedd"
-      no_remission_copy_sent_to_respondent: |
+      send_to_respondent: |
           Fe anfonir copi o'r hawliad at yr atebydd.
           Bydd ganddynt 28 diwrnod i ymateb.
       we_will_contact_you:  |
           Byddwn yn cysylltu â chi pan fyddwn wedi anfon eich hawliad at yr atebydd i
           esbonio beth yw'r camau nesaf.
-      remission_we_will_contact_you_england_wales_html: ""
-      remission_we_will_contact_you_scotland_html: ""
-      remission_review: "Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad."
 
        # SPECIFIC TO TEXT EMAIL
       apply_for_fee_remission_text: 'GWNEUD CAIS AM HELP I DALU FFIOEDD: https://gov.uk/help-with-court-fees'
@@ -63,8 +48,6 @@ cy:
         submission_information: 'Hawliad wedi''i gyflwyno:'
         submitted_on: "ar %{date}"
         submitted_to: "i swyddfa tribiwnlys %{office}"
-        payment_amount: 'Ffi cyflwyno wedi''i thalu:'
-        fee_to_pay: 'Talu ffi cyflwyno:'
 
       remisison_further_information_html: |
         Os oes gennych unrhyw gwestiynau, cysylltwch â'r Llinell Ymholiadau Cyhoeddus:<br/>Cymru a Lloegr: 0300 123 1024<br/>Yr Alban: 0141 354 8574

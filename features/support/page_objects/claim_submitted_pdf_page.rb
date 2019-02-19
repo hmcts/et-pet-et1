@@ -1,3 +1,4 @@
+require 'typhoeus'
 class ClaimSubmittedPdfPage < BasePage
   set_url "/uploads/claim/pdf{/p1}{/p2}"
 
@@ -537,7 +538,11 @@ class PdfContent
   end
 
   def pdf_response
-    @pdf_response ||= HTTParty.get url
+    hydra ||= Typhoeus::Hydra.new max_concurrency: 1
+    request = Typhoeus::Request.new url, method: :get
+    hydra.queue(request)
+    hydra.run
+    @pdf_response ||= request.response
   end
 
   def all(selector_type, selector, options)

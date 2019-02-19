@@ -36,7 +36,6 @@ feature 'Terms' do
   let(:privacy_policy_personal_information_div)     { "#privacy_policy_personal_information" }
   let(:privacy_policy_non_personal_information_div) { "#privacy_policy_non_personal_information" }
   let(:privacy_policy_data_storage_div)             { "#privacy_policy_data_storage" }
-  let(:online_payment_div)                          { "#online_payment" }
   let(:session_management_div)                      { "#session_management" }
   let(:data_protection_div)                         { "#gdpr" }
   let(:disclaimer_div)                              { "#disclaimer" }

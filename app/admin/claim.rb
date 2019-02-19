@@ -3,7 +3,7 @@ ActiveAdmin.register Claim do
   filter :submitted_at
   filter :state, as: :select,
                  collection: [
-                   :created, :payment_required,
+                   :created,
                    :enqueued_for_submission, :submitted
                  ]
   filter :fee_group_reference
@@ -22,8 +22,6 @@ ActiveAdmin.register Claim do
     end
 
     column :fee_group_reference
-
-    column(:payment_status) { |claim| Admin::PaymentStatus.for claim }
 
     column(:tribunal_office) { |claim| claim.office.try :name }
 
@@ -122,8 +120,6 @@ ActiveAdmin.register Claim do
       attributes_table_for claim do
         row(:id)
         row('Submitted to JADU') { |c| c.submitted? ? c.submitted_at : 'No' }
-        row('Payment required') { |c| c.fee_to_pay? ? 'Yes' : 'No' }
-        row('Payment received') { |c| c.payment_present? ? 'Yes' : 'No' }
         row :fee_group_reference
         row :state
 

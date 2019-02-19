@@ -1,5 +1,0 @@
-en:
-  healthcheck:
-    status:
-      "true": ok
-      "false": bad
