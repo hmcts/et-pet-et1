@@ -109,9 +109,9 @@ class Claim < ApplicationRecord
   def submit!
     raise "Invalid state - cannot submit" unless state == "created" && submittable?
     self.state = "enqueued_for_submission"
+    save!
 
     perform_submission!
-    save!
   end
 
   def finalize!
