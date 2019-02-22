@@ -49,7 +49,7 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 1.29', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
-  gem 'parallel_tests', '~> 2.22'
+  gem 'parallel_tests', '~> 2.28'
 end
 
 group :test do
