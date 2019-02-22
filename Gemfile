@@ -68,7 +68,7 @@ group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '3.0.0'
   # Only use bootsnap in prod to prevent debugging issues
-  gem 'bootsnap', '~> 1.3', '>= 1.3.1'
+  gem 'bootsnap', '~> 1.4'
 end
 
 group :production, :test do
@@ -79,6 +79,8 @@ gem 'activeadmin', '~> 1.3'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
+
+
 gem 'browserify-rails', '~> 4.3'
 gem 'carrierwave', '~> 1.2'
 gem 'fog-aws', '~> 3.0'
@@ -88,8 +90,8 @@ gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.4'
 gem 'simple_form', '~> 4.0'
-gem 'slim-rails', '~> 3.1'
-gem 'sidekiq', '~> 5.2.0'
+gem 'slim-rails', '~> 3.2'
+gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'uk_postcode', '~> 1.0'
 gem 'susy', '~> 2.2'
