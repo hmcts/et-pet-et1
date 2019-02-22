@@ -53,7 +53,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock', '~> 3.4'
+  gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
   gem 'cucumber-rails', '~> 1.6', require: false
   gem 'poltergeist', '1.18'
