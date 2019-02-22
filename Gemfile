@@ -72,7 +72,7 @@ group :production do
 end
 
 group :production, :test do
-  gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+  gem 'sentry-raven', '~> 2.9'
 end
 
 gem 'activeadmin', '~> 1.3'
