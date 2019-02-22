@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/getsentry/raven-ruby.git
-  revision: 11fe4ccf8f95e15eef90a4fdc3fd56935af05ac5
-  specs:
-    sentry-raven (2.0.2)
-      faraday (>= 0.7.6, < 0.10.x)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -414,6 +407,8 @@ GEM
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
+    sentry-raven (2.9.0)
+      faraday (>= 0.7.6, < 1.0)
     shellany (0.0.1)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
@@ -536,7 +531,7 @@ DEPENDENCIES
   rubocop-rspec (~> 1.29)
   sass-rails (~> 5.0)
   selenium-webdriver (~> 3.14)
-  sentry-raven!
+  sentry-raven (~> 2.9)
   shoulda-matchers (~> 3.1)
   sidekiq (~> 5.2.0)
   sidekiq-failures (~> 1.0)
