@@ -59,7 +59,7 @@ group :test do
   gem 'poltergeist', '1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 2.9'
-  gem 'selenium-webdriver', '~> 3.14'
+  gem 'selenium-webdriver', '~> 3.141'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
 end
