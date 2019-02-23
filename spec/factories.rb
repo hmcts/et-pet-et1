@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :claim do
     association :primary_claimant,   factory: :claimant, primary_claimant: true
     association :primary_respondent, factory: :respondent
