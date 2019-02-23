@@ -9,7 +9,7 @@ module AppTest
       option = options.find { |v| v.value == value }
       option ? option.text : ''
     end
-    delegate :disabled?, to: :field
+    delegate disabled?: :field
     element :field, 'select'
     element :label, 'label'
     element :error, '.error'
@@ -17,14 +17,14 @@ module AppTest
   end
 
   class FormInput < SitePrism::Section
-    delegate :set, to: :field
+    delegate set: :field
     element :field, 'input'
     element :label, 'label'
     element :error, '.error'
   end
 
   class FormTextArea < SitePrism::Section
-    delegate :set, to: :field
+    delegate set: :field
     def get
       field.value
     end
@@ -38,9 +38,7 @@ module AppTest
     element :label, 'label'
     element :error, '.error'
     def set(value)
-      within @root_element do
-        choose(value)
-      end
+      choose(value)
     end
   end
 
@@ -49,9 +47,7 @@ module AppTest
     element :label, 'label'
     element :error, '.error'
     def set(value)
-      within @root_element do
-        choose(value)
-      end
+      choose(value)
     end
   end
 
@@ -80,10 +76,8 @@ module AppTest
     element :label, 'label'
     element :error, '.error'
     def set(value)
-      within @root_element do
-        check("Don't know") && return if [:dont_know, :unknown, 'Don\'t know'].include?(value)
-        uncheck("Don't know")
-      end
+      check("Don't know") && return if [:dont_know, :unknown, 'Don\'t know'].include?(value)
+      uncheck("Don't know")
       (month_value, year_value) = value.split(" ")
       year.select(year_value)
       month.select(month_value)
@@ -104,9 +98,7 @@ module AppTest
       xpath = XPath.generate do |x|
         x.descendant(:select)[x.string.n.is(years.join(' '))]
       end
-      within @root_element do
-        find(:xpath, xpath, exact: true, visible: true)
-      end
+      find(:xpath, xpath, exact: true, visible: true)
     end
 
     private
