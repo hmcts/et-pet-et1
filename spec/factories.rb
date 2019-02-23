@@ -6,10 +6,10 @@ FactoryBot.define do
     association :employment
     association :office
 
-    state 'enqueued_for_submission'
+    state { 'enqueued_for_submission' }
 
-    is_unfair_dismissal true
-    is_protective_award false
+    is_unfair_dismissal { true }
+    is_protective_award { false }
 
     claim_details_rtf do
       Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'
@@ -19,31 +19,31 @@ FactoryBot.define do
       Rack::Test::UploadedFile.new 'spec/support/files/file.csv'
     end
 
-    fee_group_reference "511234567800"
+    fee_group_reference { "511234567800" }
 
-    additional_claimants_csv_record_count 5
+    additional_claimants_csv_record_count { 5 }
 
-    claim_details             'I am sad'
-    other_claim_details       'Really sad'
-    other_outcome             'I wanna take him to the cleaners!'
-    is_whistleblowing         false
-    miscellaneous_information 'Still really sad'
+    claim_details             { 'I am sad' }
+    other_claim_details       { 'Really sad' }
+    other_outcome             { 'I wanna take him to the cleaners!' }
+    is_whistleblowing         { false }
+    miscellaneous_information { 'Still really sad' }
 
-    discrimination_claims  [:sex_including_equal_pay, :disability, :race]
-    pay_claims             [:redundancy, :notice, :holiday, :arrears, :other]
-    desired_outcomes       [:compensation_only, :tribunal_recommendation]
+    discrimination_claims  { [:sex_including_equal_pay, :disability, :race] }
+    pay_claims             { [:redundancy, :notice, :holiday, :arrears, :other] }
+    desired_outcomes       { [:compensation_only, :tribunal_recommendation] }
 
-    password 'lollolol'
+    password { 'lollolol' }
 
     submitted_at { Time.current }
 
     trait :not_submitted do
-      submitted_at nil
-      state        'created'
+      submitted_at { nil }
+      state        { 'created' }
     end
 
     trait :submitted do
-      state 'submitted'
+      state { 'submitted' }
     end
 
     trait :single_claimant do
@@ -64,21 +64,21 @@ FactoryBot.define do
     end
 
     trait :without_additional_claimants_csv do
-      additional_claimants_csv nil
-      additional_claimants_csv_record_count 0
+      additional_claimants_csv { nil }
+      additional_claimants_csv_record_count { 0 }
     end
 
     trait :without_rtf do
-      claim_details_rtf nil
+      claim_details_rtf { nil }
     end
 
 
     trait :without_representative do
-      representative nil
+      representative { nil }
     end
 
     trait :without_employment do
-      employment nil
+      employment { nil }
     end
 
     trait :null_representative do
@@ -125,14 +125,14 @@ FactoryBot.define do
     end
 
     trait :no_fee_group_reference do
-      office nil
-      fee_group_reference nil
+      office { nil }
+      fee_group_reference { nil }
     end
 
     trait :no_attachments do
-      claim_details_rtf nil
-      additional_claimants_csv nil
-      additional_claimants_csv_record_count 0
+      claim_details_rtf { nil }
+      additional_claimants_csv { nil }
+      additional_claimants_csv_record_count { 0 }
     end
 
     trait :non_sanitized_attachment_filenames do
@@ -153,47 +153,47 @@ FactoryBot.define do
   factory :claimant do
     association :address, country: 'United Kingdom'
 
-    title      'mr'
-    first_name 'Barrington'
-    last_name  'Wrigglesworth'
-    gender     'male'
+    title      { 'mr' }
+    first_name { 'Barrington' }
+    last_name  { 'Wrigglesworth' }
+    gender     { 'male' }
 
-    date_of_birth Date.civil(1960, 6, 6)
+    date_of_birth { Date.civil(1960, 6, 6) }
 
-    mobile_number      '07956273434'
-    contact_preference 'email'
+    mobile_number      { '07956273434' }
+    contact_preference { 'email' }
     email_address      { "#{first_name}.#{last_name}@example.com" }
   end
 
   factory :address do
-    building  '102'
-    street    'Petty France'
-    locality  'London'
-    county    'Greater London'
-    post_code 'SW1A 1AH'
+    building  { '102' }
+    street    { 'Petty France' }
+    locality  { 'London' }
+    county    { 'Greater London' }
+    post_code { 'SW1A 1AH' }
 
-    telephone_number '020 7123 4567'
+    telephone_number { '020 7123 4567' }
   end
 
   factory :representative do
     association :address
 
-    type              "law_centre"
-    name              "Saul Goodman"
-    organisation_name "Better Call Saul"
-    dx_number         "1234"
+    type              { "law_centre" }
+    name              { "Saul Goodman" }
+    organisation_name { "Better Call Saul" }
+    dx_number         { "1234" }
   end
 
   factory :respondent do
-    primary_respondent      true
-    name                    "Ministry of Justice"
-    no_acas_number_reason   "employer_contacted_acas"
-    worked_at_same_address  false
+    primary_respondent      { true }
+    name                    { "Ministry of Justice" }
+    no_acas_number_reason   { "employer_contacted_acas" }
+    worked_at_same_address  { false }
     addresses               { [build(:address, primary: true), build(:address, primary: false)] }
 
     trait :with_acas_number do
-      no_acas_number_reason nil
-      acas_early_conciliation_certificate_number "SOMEACASNUMBER"
+      no_acas_number_reason { nil }
+      acas_early_conciliation_certificate_number { "SOMEACASNUMBER" }
     end
 
     trait :without_work_address do
@@ -202,88 +202,88 @@ FactoryBot.define do
   end
 
   factory :office do
-    code      11
-    name      "Birmingham"
-    address   "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"
-    telephone "0121 600 7780"
+    code      { 11 }
+    name      { "Birmingham" }
+    address   { "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU" }
+    telephone { "0121 600 7780" }
   end
 
   factory :employment do
-    enrolled_in_pension_scheme           true
-    found_new_job                        false
-    worked_notice_period_or_paid_in_lieu false
+    enrolled_in_pension_scheme           { true }
+    found_new_job                        { false }
+    worked_notice_period_or_paid_in_lieu { false }
     end_date                             { 3.weeks.ago }
     new_job_start_date                   { 3.days.ago }
     start_date                           { 10.years.ago }
-    gross_pay                            4000
-    net_pay                              3000
-    new_job_gross_pay                    4000
-    average_hours_worked_per_week        37.5
-    current_situation                    "employment_terminated"
-    gross_pay_period_type                "monthly"
-    job_title                            "tea boy"
-    net_pay_period_type                  "monthly"
-    benefit_details                      "All the justice you can eat"
+    gross_pay                            { 4000 }
+    net_pay                              { 3000 }
+    new_job_gross_pay                    { 4000 }
+    average_hours_worked_per_week        { 37.5 }
+    current_situation                    { "employment_terminated" }
+    gross_pay_period_type                { "monthly" }
+    job_title                            { "tea boy" }
+    net_pay_period_type                  { "monthly" }
+    benefit_details                      { "All the justice you can eat" }
   end
 
   factory :refund do
     sequence(:applicant_email_address)    { |n| "tester#{n}@domain.com" }
-    accept_declaration                    true
-    address_changed                       true
-    has_name_changed                      false
-    profile_type                          'claimant_direct_not_reimbursed'
-    et_country_of_claim                   'england_and_wales'
-    et_case_number                        '1234567/2016'
-    eat_case_number                       'UKEAT/2016/06/123'
-    et_tribunal_office                    'unknown'
+    accept_declaration                    { true }
+    address_changed                       { true }
+    has_name_changed                      { false }
+    profile_type                          { 'claimant_direct_not_reimbursed' }
+    et_country_of_claim                   { 'england_and_wales' }
+    et_case_number                        { '1234567/2016' }
+    eat_case_number                       { 'UKEAT/2016/06/123' }
+    et_tribunal_office                    { 'unknown' }
     sequence(:application_reference_number) { |n| n }
     application_reference                 { "C#{application_reference_number}" }
-    respondent_name                       'Mr Resp'
-    respondent_address_building           '26'
-    respondent_address_street             'Street'
-    respondent_address_locality           'Locality'
-    respondent_address_county             'County'
-    respondent_address_post_code          'DE22 1ZY'
-    claim_had_representative              true
-    representative_name                   'Mr Rep'
-    representative_address_building       '28'
-    representative_address_street         'Rep Street'
-    representative_address_locality       'Rep Locality'
-    representative_address_county         'Rep County'
-    representative_address_post_code      'DE23 1ZY'
-    claimant_name                         'Mr Claimant'
-    claimant_address_building             '30'
-    claimant_address_street               'Claimant Street'
-    claimant_address_locality             'Claimant Locality'
-    claimant_address_county               'Claimant County'
-    claimant_address_post_code            'DE24 1ZY'
-    applicant_address_building             '30'
-    applicant_address_street               'Applicant Street'
-    applicant_address_locality             'Applicant Locality'
-    applicant_address_county               'Applicant County'
-    applicant_address_post_code            'DE25 1ZY'
-    applicant_address_telephone_number    '01332 123456'
-    applicant_title                       'mr'
-    applicant_first_name                  'First'
-    applicant_last_name                   'Last'
-    additional_information                'Some extra information'
-    payment_account_type                  'bank'
-    submitted_at                          DateTime.parse('1 December 2016 00:00:00').utc
+    respondent_name                       { 'Mr Resp' }
+    respondent_address_building           { '26' }
+    respondent_address_street             { 'Street' }
+    respondent_address_locality           { 'Locality' }
+    respondent_address_county             { 'County' }
+    respondent_address_post_code          { 'DE22 1ZY' }
+    claim_had_representative              { true }
+    representative_name                   { 'Mr Rep' }
+    representative_address_building       { '28' }
+    representative_address_street         { 'Rep Street' }
+    representative_address_locality       { 'Rep Locality' }
+    representative_address_county         { 'Rep County' }
+    representative_address_post_code      { 'DE23 1ZY' }
+    claimant_name                         { 'Mr Claimant' }
+    claimant_address_building             { '30' }
+    claimant_address_street               { 'Claimant Street' }
+    claimant_address_locality             { 'Claimant Locality' }
+    claimant_address_county               { 'Claimant County' }
+    claimant_address_post_code            { 'DE24 1ZY' }
+    applicant_address_building            { '30' }
+    applicant_address_street              { 'Applicant Street' }
+    applicant_address_locality            { 'Applicant Locality' }
+    applicant_address_county              { 'Applicant County' }
+    applicant_address_post_code           { 'DE25 1ZY' }
+    applicant_address_telephone_number    { '01332 123456' }
+    applicant_title                       { 'mr' }
+    applicant_first_name                  { 'First' }
+    applicant_last_name                   { 'Last' }
+    additional_information                { 'Some extra information' }
+    payment_account_type                  { 'bank' }
+    submitted_at                          { DateTime.parse('1 December 2016 00:00:00').utc }
   end
 
   factory :diversity do
-    claim_type             "Discrimination"
-    sex                    "Prefer not to say"
-    sexual_identity        "Bisexual"
-    age_group              "35-44"
-    ethnicity              "Asian / Asian British"
-    ethnicity_subgroup     "Chinese"
-    disability             "No"
-    caring_responsibility  "No"
-    gender                 "Female (including male-to-female trans women)"
-    gender_at_birth        "No"
-    pregnancy              "No"
-    relationship           "Married"
-    religion               "Jewish"
+    claim_type             { "Discrimination" }
+    sex                    { "Prefer not to say" }
+    sexual_identity        { "Bisexual" }
+    age_group              { "35-44" }
+    ethnicity              { "Asian / Asian British" }
+    ethnicity_subgroup     { "Chinese" }
+    disability             { "No" }
+    caring_responsibility  { "No" }
+    gender                 { "Female (including male-to-female trans women)" }
+    gender_at_birth        { "No" }
+    pregnancy              { "No" }
+    relationship           { "Married" }
+    religion               { "Jewish" }
   end
 end
