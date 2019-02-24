@@ -58,7 +58,7 @@ Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*'
 
-Style/PredicateName:
+Naming/PredicateName:
   Enabled: false
 
 # Don't worry about long methods in specs.
