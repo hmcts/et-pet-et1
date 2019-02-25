@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # gem 'coffee-rails', '~> 4.0.0'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.8'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '4.3.3'
@@ -35,7 +35,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
-  gem 'capybara', '~> 2.18'
+  gem 'capybara', '~> 3.13'
   gem 'codeclimate-test-reporter', '~> 0.4', require: nil
   gem 'dotenv-rails', '~> 2.7'
   gem 'factory_bot_rails', '~> 5.0'
@@ -45,40 +45,42 @@ group :development, :test do
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.59', :require => false
-  gem 'rubocop-rspec', '~> 1.29', :require => false
+  gem 'rubocop', '~> 0.65', :require => false
+  gem 'rubocop-rspec', '~> 1.32', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
-  gem 'parallel_tests', '~> 2.22'
+  gem 'parallel_tests', '~> 2.28'
 end
 
 group :test do
-  gem 'webmock', '~> 3.4'
+  gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
   gem 'cucumber-rails', '~> 1.6', require: false
   gem 'poltergeist', '1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 2.9'
-  gem 'selenium-webdriver', '~> 3.14'
+  gem 'site_prism', '~> 3.0'
+  gem 'selenium-webdriver', '~> 3.141'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
 end
 
 group :production do
   # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier', '3.0.0'
+  gem 'uglifier', '~> 4.1'
   # Only use bootsnap in prod to prevent debugging issues
-  gem 'bootsnap', '~> 1.3', '>= 1.3.1'
+  gem 'bootsnap', '~> 1.4'
 end
 
 group :production, :test do
-  gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+  gem 'sentry-raven', '~> 2.9'
 end
 
 gem 'activeadmin', '~> 1.3'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
+
+
 gem 'browserify-rails', '~> 4.3'
 gem 'carrierwave', '~> 1.2'
 gem 'fog-aws', '~> 3.0'
@@ -88,12 +90,11 @@ gem 'pdf-forms', '~> 1.2'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.4'
 gem 'simple_form', '~> 4.0'
-gem 'slim-rails', '~> 3.1'
-gem 'sidekiq', '~> 5.2.0'
+gem 'slim-rails', '~> 3.2'
+gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'uk_postcode', '~> 1.0'
 gem 'susy', '~> 2.2'
-gem 'compass', '~> 1.0'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.3', '>= 1.3.1'

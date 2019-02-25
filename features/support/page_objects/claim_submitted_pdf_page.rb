@@ -8,7 +8,7 @@ class ClaimSubmittedPdfPage < BasePage
     @pdf_content ||= PdfContent.new(current_url)
   end
 
-  def find(*args)
+  def _find(*args)
     return super unless args.first == :pdf_document
     @pdf_document ||= Capybara::Node::Element.new Capybara.current_session, PdfDocument.new(current_url), nil, nil
   end
