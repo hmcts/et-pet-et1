@@ -74,7 +74,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
-    bootsnap (1.4.0)
+    bootsnap (1.4.1)
       msgpack (~> 1.0)
     browserify-rails (4.3.0)
       addressable (>= 2.4.0)
