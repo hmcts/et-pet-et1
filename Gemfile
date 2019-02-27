@@ -35,7 +35,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
-  gem 'capybara', '~> 3.13'
+  gem 'capybara', '~> 3.14'
   gem 'codeclimate-test-reporter', '~> 0.4', require: nil
   gem 'dotenv-rails', '~> 2.7'
   gem 'factory_bot_rails', '~> 5.0'
