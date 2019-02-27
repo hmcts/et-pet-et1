@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/ministryofjustice/azure_env_secrets.git
+  revision: 73d252c53b9b8d3db448d7515896ab7d7c20354e
+  tag: v0.1.2
+  specs:
+    azure_env_secrets (0.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -481,6 +488,7 @@ DEPENDENCIES
   activeadmin (~> 1.3)
   activerecord-nulldb-adapter (~> 0.3)
   awesome_print (~> 1.8)
+  azure_env_secrets!
   base32_pure (~> 0.1)
   bcrypt (~> 3.1)
   better_errors (~> 2.5)

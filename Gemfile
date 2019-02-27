@@ -13,6 +13,9 @@ gem 'jquery-rails', '4.3.3'
 gem 'rails', '5.2.2'
 gem 'responders', '~> 2.4'
 
+# Azure deployment so we need this
+gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_secrets.git', tag: 'v0.1.2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
