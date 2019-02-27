@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/ministryofjustice/azure_env_secrets.git
-  revision: 73d252c53b9b8d3db448d7515896ab7d7c20354e
-  tag: v0.1.2
+  revision: b72195789c350839d8a7f492eb2938c5101d5400
+  tag: v0.1.3
   specs:
-    azure_env_secrets (0.1.2)
+    azure_env_secrets (0.1.3)
 
 GEM
   remote: https://rubygems.org/
