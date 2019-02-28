@@ -25,7 +25,6 @@ Rails.application.configure do
   config.serve_static_files = true
 
   # This makes rails serve all the assets from under /apply as they are in prod.
-  config.assets.prefix = "apply/assets"
   config.relative_url_root = ""
 
   # Compress JavaScripts and CSS.

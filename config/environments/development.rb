@@ -46,7 +46,6 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
   # This makes rails serve all the assets from under /apply as they are in prod.
-  config.assets.prefix = "apply/assets"
   config.relative_url_root = ""
 
   # Debug mode disables concatenation and preprocessing of assets.
