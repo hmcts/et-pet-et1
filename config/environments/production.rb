@@ -33,6 +33,8 @@ Rails.application.configure do
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
+  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
+  config.assets.prefix = ENV['ASSET_PREFIX'] if ENV['ASSET_PREFIX'].present?
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
