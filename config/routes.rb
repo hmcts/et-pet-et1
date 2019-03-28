@@ -68,7 +68,7 @@ Rails.application.routes.draw do
   end
 
   scope :apply do
-    constraints(ip: /81\.134\.202\.29|127\.0\.0\.1|172\.\d+\.\d+\.\d+/) do
+    constraints(ip: /81\.134\.202\.29|51\.145\.6\.230|127\.0\.0\.1|172\.\d+\.\d+\.\d+/) do
       ActiveAdmin.routes(self)
       mount Sidekiq::Web => '/sidekiq'
     end
