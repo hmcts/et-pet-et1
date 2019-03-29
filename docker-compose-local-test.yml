@@ -32,3 +32,7 @@ services:
       - BROWSER_STACK_KEY
       - TESTINGBOT_KEY
       - TESTINGBOT_SECRET
+  redis:
+    image: redis
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
