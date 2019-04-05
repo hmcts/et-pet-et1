@@ -3,6 +3,8 @@ class ClaimDetailsForm < Form
   attribute :other_known_claimant_names,  :string
   attribute :claim_details_rtf,           :attachment_uploader_type
   attribute :remove_claim_details_rtf,    :boolean
+  attribute :uploaded_file_key,           :string
+  attribute :uploaded_file_name,          :string
 
   boolean :other_known_claimants
 
@@ -14,7 +16,7 @@ class ClaimDetailsForm < Form
 
   validates :claim_details, length: { maximum: 2500 },
                             presence: true,
-                            unless: -> { claim_details_rtf.present? }
+                            unless: -> { uploaded_file_key.present? }
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :claim_details_rtf, content_type: {
     in: ['text/rtf'], message: I18n.t('errors.messages.rtf')
