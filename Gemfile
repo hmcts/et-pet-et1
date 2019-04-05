@@ -26,7 +26,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.2'
 
 # Use unicorn as the app server
-gem 'unicorn', '~> 5.4'
+gem 'unicorn', '~> 5.5'
 
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 0.3'
