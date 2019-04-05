@@ -1,46 +1,43 @@
-.main-section
+= simple_form_for resource, url: request.fullpath, multipart: true do |f|
+  = hidden_field_tag :return_to_review, params[:return_to_review]
 
-  .main-content
-    = simple_form_for resource, url: request.fullpath, multipart: true do |f|
-      = hidden_field_tag :return_to_review, params[:return_to_review]
+  = f.error_notification
+  .form-fields lang= "#{I18n.locale}"
+    fieldset
+      legend= t '.subheader'
 
-      = f.error_notification
-      .form-fields lang= "#{I18n.locale}"
-        fieldset
-          legend= t '.subheader'
+      = f.input :of_collection_type,
+        as: :radio_buttons,
+        readonly: nil,
+        item_wrapper_class: 'block-label',
+        wrapper_class: 'form-group-reveal reveal-publish-delegate',
+        input_html: { :class => 'reveal-publish-publisher ga-vpv'},
+        reveal: { true => 'sub1', false => 'sub1' }
 
-          = f.input :of_collection_type,
-            as: :radio_buttons,
-            readonly: nil,
-            item_wrapper_class: 'block-label',
-            wrapper_class: 'form-group-reveal reveal-publish-delegate',
-            input_html: { :class => 'reveal-publish-publisher ga-vpv'},
-            reveal: { true => 'sub1', false => 'sub1' }
+      .multiples.reveal-subscribe data-target="sub1" data-show-array="true"
 
-          .multiples.reveal-subscribe data-target="sub1" data-show-array="true"
+        #number_claimants_info.panel-indent
+          # = t ".number_claimants_info"
+          # = t(".csv_upload_text_html", path: claim_additional_claimants_upload_path)
 
-            #number_claimants_info.panel-indent
-              # = t ".number_claimants_info"
-              # = t(".csv_upload_text_html", path: claim_additional_claimants_upload_path)
+        = f.simple_fields_for :collection do |builder|
+          .multiple id=("resource_#{builder.index}")
+            fieldset
+              legend= t('.person', number: builder.index + 2)
 
-            = f.simple_fields_for :collection do |builder|
-              .multiple id=("resource_#{builder.index}")
-                fieldset
-                  legend= t('.person', number: builder.index + 2)
+              = link_to t('.remove_resource_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
 
-                  = link_to t('.remove_resource_link', number: builder.index + 2), 'javascript:void(0);', { class: 'remove-multiple' }
+              = render 'personal_details', f: builder
 
-                  = render 'personal_details', f: builder
+              = render 'address', f: builder
 
-                  = render 'address', f: builder
+              .js-enabled-hidden.destroy
+                = builder.input :_destroy,
+                  as: :gds_check_boxes,
+                  item_wrapper_class: 'block-label',
+                  wrapper_class: 'input manager',
+                  input_html: { class: 'destroy-checkbox' }
 
-                  .js-enabled-hidden.destroy
-                    = builder.input :_destroy,
-                      as: :gds_check_boxes,
-                      item_wrapper_class: 'block-label',
-                      wrapper_class: 'input manager',
-                      input_html: { class: 'destroy-checkbox' }
-
-            = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'
-      .form-actions
-        = f.button :submit
+        = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'
+  .form-actions
+    = f.button :submit

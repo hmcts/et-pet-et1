@@ -6,6 +6,8 @@ header.main-header role="banner"
     span.page-title
       = claim_header
 
-= render current_step
+.main-section
+  .main-content
+    = render current_step
 
   = render partial: 'shared/aside'
