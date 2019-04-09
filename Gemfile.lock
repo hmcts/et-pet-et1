@@ -291,6 +291,7 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.3)
     nenv (0.3.0)
+    net_http_ssl_fix (0.0.10)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -483,6 +484,11 @@ GEM
     unicorn (5.5.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    webdrivers (3.7.2)
+      net_http_ssl_fix
+      nokogiri (~> 1.6)
+      rubyzip (~> 1.0)
+      selenium-webdriver (~> 3.0)
     webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -565,6 +571,7 @@ DEPENDENCIES
   uglifier (~> 4.1)
   uk_postcode (~> 2.1)
   unicorn (~> 5.5)
+  webdrivers (~> 3.7)
   webmock (~> 3.5)
   zendesk_api (~> 1.5.1x)
 
