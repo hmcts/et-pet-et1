@@ -72,9 +72,12 @@ group :test do
   gem 'webdrivers', '~> 3.7'
 end
 
-group :production do
+group :production, :local do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '~> 4.1'
+end
+
+group :production do
   # Only use bootsnap in prod to prevent debugging issues
   gem 'bootsnap', '~> 1.4'
 end
