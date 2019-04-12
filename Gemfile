@@ -46,7 +46,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry-rails', '~> 0.3'
   gem 'rack-livereload', '~> 0.3'
-  gem 'rspec-its', '~> 1.2', require: 'rspec/its'
+  gem 'rspec-its', '~> 1.3', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.67', :require => false
   gem 'rubocop-rspec', '~> 1.32', :require => false
