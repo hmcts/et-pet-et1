@@ -307,7 +307,7 @@ GEM
       pry (>= 0.10.4)
     psych (3.1.0)
     public_suffix (3.0.3)
-    rack (2.0.6)
+    rack (2.0.7)
     rack-livereload (0.3.17)
       rack
     rack-protection (2.0.5)
@@ -419,7 +419,7 @@ GEM
     sidekiq_alive (0.1.1)
       sidekiq
       sinatra
-    simple_form (4.0.1)
+    simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     simplecov (0.16.1)
@@ -542,7 +542,7 @@ DEPENDENCIES
   sidekiq (~> 5.2)
   sidekiq-failures (~> 1.0)
   sidekiq_alive (~> 0.1)
-  simple_form (~> 4.0)
+  simple_form (~> 4.1)
   site_prism (~> 3.0)
   slim-rails (~> 3.2)
   spring (~> 2.0)
