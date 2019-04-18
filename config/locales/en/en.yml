@@ -868,7 +868,7 @@ en:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
   components:
-    additional_information:
+    upload_rtf_file:
       drag_text: "Drag and drop .rtf files here"
       or_text: "or"
       upload_button: "Click here to upload rtf file"

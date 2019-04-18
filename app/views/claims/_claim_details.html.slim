@@ -18,16 +18,7 @@ p= t('.claim_details_html', path: guide_path)
       = dropzone_form_helper(form_id: 'upload-additional-file',
           upload_key_id: 'claim_details_uploaded_file_key',
           file_name_id: 'claim_details_uploaded_file_name',
-          i18n_location: 'components.additional_information')
-      / .panel-indent#details-content-0
-      /   = f.input :claim_details_rtf do
-      /     = f.input_field :claim_details_rtf, as: :file do
-      /   - if resource.claim_form_details_rtf?
-      /     = f.input :remove_claim_details_rtf, as: :boolean,
-      /         inline_label: t('.remove_claim_details_rtf',
-      /           file: resource.attachment_filename),
-      /           label: false
-      /   = f.hidden_field :claim_details_rtf_cache
+          i18n_location: 'components.upload_rtf_file')
       = f.hidden_field :uploaded_file_key
       = f.hidden_field :uploaded_file_name
     = f.input :claim_details, label: false,
