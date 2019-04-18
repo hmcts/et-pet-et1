@@ -145,6 +145,12 @@ FactoryBot.define do
     trait :respondent_with_acas_number do
       association :primary_respondent, factory: [:respondent, :with_acas_number]
     end
+
+    trait :with_claim_details_rtf do
+      claim_details_rtf do
+        Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'
+      end
+    end
   end
 
   factory :claimant do
