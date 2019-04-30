@@ -414,7 +414,7 @@ GEM
       redis (>= 3.3.5, < 5)
     sidekiq-failures (1.0.0)
       sidekiq (>= 4.0.0)
-    sidekiq_alive (0.1.1)
+    sidekiq_alive (1.1.0)
       sidekiq
       sinatra
     simple_form (4.0.1)
@@ -539,7 +539,7 @@ DEPENDENCIES
   shoulda-matchers (~> 3.1)
   sidekiq (~> 5.2)
   sidekiq-failures (~> 1.0)
-  sidekiq_alive (~> 0.1)
+  sidekiq_alive (~> 1.1)
   simple_form (~> 4.0)
   site_prism (~> 3.0)
   slim-rails (~> 3.2)
