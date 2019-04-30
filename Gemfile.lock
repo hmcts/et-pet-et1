@@ -215,7 +215,7 @@ GEM
     has_scope (0.7.2)
       actionpack (>= 4.1)
       activesupport (>= 4.1)
-    hashdiff (0.3.8)
+    hashdiff (0.3.9)
     hashie (3.6.0)
     http_parser.rb (0.6.0)
     i18n (1.6.0)
