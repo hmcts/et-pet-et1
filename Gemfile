@@ -100,7 +100,7 @@ gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq_alive', '~> 1.1'
 gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
-gem 'zendesk_api', '~> 1.5.1x'
+gem 'zendesk_api', '~> 1.19'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.3', '>= 1.3.1'
 
