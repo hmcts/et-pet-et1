@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.8'
 gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.2.1'
+gem 'rails', '5.2.3'
 gem 'responders', '~> 2.4'
 
 # Azure deployment so we need this
@@ -53,16 +53,17 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 2.28'
+  gem 'parallel_tests', '~> 2.28'
 end
 
 group :test do
   gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
-  gem 'cucumber-rails', '~> 1.6', require: false
-  gem 'poltergeist', '1.18'
+  gem 'cucumber-rails', '~> 1.7', require: false
+  gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.0'
-  gem 'selenium-webdriver', '~> 3.141'
+  gem 'selenium-webdriver', '~> 3.142'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
 end
@@ -96,8 +97,8 @@ gem 'simple_form', '~> 4.0'
 gem 'slim-rails', '~> 3.2'
 gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-failures', '~> 1.0'
-gem 'sidekiq_alive', '~> 0.1'
-gem 'uk_postcode', '~> 1.0'
+gem 'sidekiq_alive', '~> 1.1'
+gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
 gem 'zendesk_api', '~> 1.5.1x'
 gem 'email_validator', '~> 1.6'
