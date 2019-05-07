@@ -1,5 +1,6 @@
 - content_for :head do
   = render "shared/google_tag_manager_head", account: Rails.application.config.google_tag_manager_account
+  = csrf_meta_tag
 
 - content_for :stylesheets do
 
