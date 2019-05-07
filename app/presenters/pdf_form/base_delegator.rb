@@ -8,7 +8,7 @@ module PdfForm
 
   class BaseDelegator < SimpleDelegator
     def format_postcode(postcode)
-      uk_postcode = UKPostcode.new(postcode ||= '')
+      uk_postcode = UKPostcode.parse(postcode ||= '')
 
       if uk_postcode.valid? && uk_postcode.outcode.present? && uk_postcode.incode.present?
         ("%-4s" % uk_postcode.outcode) + uk_postcode.incode

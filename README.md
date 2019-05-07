@@ -43,6 +43,30 @@ If you're using [Kitematic] on OSX, use the terminal from there, or in any termi
 ### Setup .env file
 From the project's root folder, copy the `.env.template` file to `.env` and change as necessary.
 
+### Running Locally (2019 Update)
+
+Please note the [build section](#build) may be outdated. The following steps work in 2019:
+
+1) After creating a `.env` file, add `DB_USERNAME=postgres`
+1) From the project's root folder, run `bundle`
+1) Run `docker-compose -f docker-compose-local-test.yml up`
+1) Run `rails db:create db:migrate`
+    1) If you get an error about `claim.rb`, open `app/models/claim.rb`
+    1) Comment out lines 44-46: 
+        ```ruby
+          # bitmask :discrimination_claims, as: DISCRIMINATION_COMPLAINTS
+          # bitmask :pay_claims,            as: PAY_COMPLAINTS
+          # bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
+        ```
+    1) Run `rails db:create db:migrate` again
+    1) Uncomment lines 44-46 to return them to their original state:
+        ```ruby
+          bitmask :discrimination_claims, as: DISCRIMINATION_COMPLAINTS
+          bitmask :pay_claims,            as: PAY_COMPLAINTS
+          bitmask :desired_outcomes,      as: DESIRED_OUTCOMES
+        ```
+1) Run `npm install`
+
 ### Build
 From the project's root folder, build (this will take several minutes - grab a coffee):
 

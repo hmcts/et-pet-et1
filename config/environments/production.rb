@@ -56,7 +56,7 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info').to_sym
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -97,9 +97,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Custom Logging
-  config.log_level = :info
-
   config.action_mailer.default_url_options = {
     host: ENV['SENDING_HOST'], protocol: 'https'
   }
@@ -116,7 +113,7 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
-  config.secure_session_cookie = true
+  config.secure_session_cookie = ENV.fetch('SECURE_SESSION_COOKIE', 'true').downcase == 'true'
 
   config.flatten_pdf = ENV.fetch('FLATTEN_PDF', 'true').downcase == 'true'
 

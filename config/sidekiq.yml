@@ -6,3 +6,4 @@
   - claim_submission
   - fee_group_reference
   - diversity_form
+  - sidekiq_alive
