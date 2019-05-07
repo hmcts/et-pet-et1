@@ -1,14 +1,127 @@
-# Docker image
-# Build a Docker image to deploy, run, or push to a container registry.
-# Add steps that use Docker Compose, tag images, push to a registry, run an image, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+# Ruby
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
-pool:
-  vmImage: 'Ubuntu 16.04'
+name: $(SourceBranchName)-$(Build.SourceVersion)$(rev:.r)
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - develop
+# pr:
+#   autoCancel: true
+#   branches:
+#     include:
+#       - develop
+#       - feature/*
 
 variables:
-  imageName: 'ATET:$(build.buildId)'
+  application.name: 'et1'
+  azure.subscription.endpoint: 'hmcts-pet'
 
-steps:
-- script: docker build -f Dockerfile -t $(imageName) .
-  displayName: 'docker build'
+jobs:
+  # - job: TestApplication
+  #   pool:
+  #     name: hmcts-pet  # name of the pool to run this job in
+  #   steps:
+
+  #   - script: |
+  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+  #     displayName: 'before script'
+
+  #   - script: |
+  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+  #     displayName: 'script'
+
+
+  - job: BuildAndPushImage
+    # dependsOn: TestApplication
+    pool:
+      name: hmcts-pet  # name of the pool to run this job in
+    steps:
+    - bash: |
+        repo_sha=$(git rev-parse --verify HEAD)
+        docker_image_tag_sha=${repo_sha:0:7}
+        echo "##vso[task.setvariable variable=DOCKER_TAG;isOutput=true]$(Build.SourceBranchName)-${docker_image_tag_sha}"
+      displayName: 'Get Docker Tag'
+      name: 'getDockerTag'
+
+    - task: Docker@1
+      displayName: login
+      inputs:
+        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
+        azureContainerRegistry: $(azure.container.registry)
+        command: login
+
+    - task: Docker@1
+      displayName: 'Build an image'
+      inputs:
+        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
+        arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
+
+    - task: Docker@1
+      displayName: 'Tag image'
+      inputs:
+        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
+        azureContainerRegistry: $(azure.container.registry)
+        command: 'Tag image'
+        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
+      
+    - task: Docker@1
+      displayName: 'Push an image'
+      inputs:
+        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
+        azureContainerRegistry: $(azure.container.registry)
+        command: 'Push an image'
+        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
+
+    - task: Docker@1
+      displayName: logout
+      inputs:
+        command: logout
+
+
+  - job: ExtractAssets
+    dependsOn: BuildAndPushImage
+    pool:
+      name: hmcts-pet
+    variables:
+      docker.tag: $[ dependencies.BuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
+    steps:
+
+      - task: Docker@1
+        displayName: 'Run an image'
+        inputs:
+          command: 'Run an image'
+          imageName: '$(application.name):$(docker.tag)'
+          containerName: 'ASSET_CONTAINER'
+
+      - bash: |
+          mkdir -p temp_assets
+          docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
+          docker stop ASSET_CONTAINER
+          cd temp_assets/assets
+          docker rm ASSET_CONTAINER
+        displayName: 'Get Assets'
+        name: 'getAssets'
+
+      - bash: |
+          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+          az storage blob delete-batch -s assets --account-name $(azure.storage.account)
+        displayName: 'Clean Up Blob'
+        name: 'cleanUpBlob'
+
+      - bash: |
+          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+          cd temp_assets/assets
+          az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
+        displayName: 'Copy Assets To Blob'
+        name: 'copyToBlob'
+
+
+
