@@ -11,12 +11,12 @@ trigger:
     include:
       - devops
       - develop
-# pr:
-#   autoCancel: true
-#   branches:
-#     include:
-#       - develop
-#       - feature/*
+pr:
+  autoCancel: true
+  branches:
+    include:
+      - develop
+      - feature/*
 
 variables:
   application.name: 'et1'
@@ -30,26 +30,25 @@ jobs:
 
     - script: |
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+          # docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+          # docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
       displayName: 'before script'
 
-    - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
-      displayName: 'script'
+    # - script: |
+    #       docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+    #       docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+    #   displayName: 'script'
 
 
   - job: BuildAndPushImage
     dependsOn: TestApplication
-    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       name: hmcts-pet  # name of the pool to run this job in
     steps:
     - bash: |
         repo_sha=$(git rev-parse --verify HEAD)
         docker_image_tag_sha=${repo_sha:0:7}
-        echo $(Build.Reason)
         echo "##vso[task.setvariable variable=DOCKER_TAG;isOutput=true]$(Build.SourceBranchName)-${docker_image_tag_sha}"
       displayName: 'Get Docker Tag'
       name: 'getDockerTag'
@@ -91,7 +90,7 @@ jobs:
 
   - job: ExtractAssets
     dependsOn: BuildAndPushImage
-    condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       name: hmcts-pet
     variables:
