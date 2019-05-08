@@ -293,7 +293,6 @@ feature 'Claim applications', type: :feature do
       scenario 'when the file is available', js: true do
         complete_a_claim seeking_remissions: true
         click_button 'Submit claim'
-        perform_active_jobs(FeeGroupReferenceJob)
         perform_active_jobs(ClaimSubmissionJob)
         page_pdf_link = URI.parse(page.find_link('Save a copy')['href']).path
         expect(page_pdf_link).to eq pdf_path(locale: :en)

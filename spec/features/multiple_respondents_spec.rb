@@ -22,14 +22,6 @@ feature 'Multiple respondents' do
       except('Acas number')
   end
 
-  before do
-    stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
-      with(body: "postcode=SW1A%201AA", headers: { 'Accept' => 'application/json' })
-
-    visit new_user_session_path
-    fill_in_return_form claim.reference, 'lollolol'
-  end
-
   describe 'adding respondents' do
     before do
       visit claim_additional_respondents_path
