@@ -22,6 +22,11 @@ feature 'Multiple respondents' do
       except('Acas number')
   end
 
+  before do
+    visit new_user_session_path
+    fill_in_return_form claim.reference, 'lollolol'
+  end
+
   describe 'adding respondents' do
     before do
       visit claim_additional_respondents_path
