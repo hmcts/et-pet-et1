@@ -9,6 +9,7 @@ trigger:
   batch: true
   branches:
     include:
+      - devops
       - develop
 # pr:
 #   autoCancel: true
@@ -22,25 +23,25 @@ variables:
   azure.subscription.endpoint: 'hmcts-pet'
 
 jobs:
-  # - job: TestApplication
-  #   pool:
-  #     name: hmcts-pet  # name of the pool to run this job in
-  #   steps:
+  - job: TestApplication
+    pool:
+      name: hmcts-pet  # name of the pool to run this job in
+    steps:
 
-  #   - script: |
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
-  #     displayName: 'before script'
+    - script: |
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+      displayName: 'before script'
 
-  #   - script: |
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
-  #     displayName: 'script'
+    - script: |
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+      displayName: 'script'
 
 
   - job: BuildAndPushImage
-    # dependsOn: TestApplication
+    dependsOn: TestApplication
     pool:
       name: hmcts-pet  # name of the pool to run this job in
     steps:
