@@ -1,3 +1,4 @@
+require 'carrierwave/storage/fog'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -45,6 +46,15 @@ Rails.application.configure do
   # Highlight code that triggered database queries in logs.
   config.active_record.verbose_query_logs = true
 
+
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
+  config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'debug').to_sym
+
   # This makes rails serve all the assets from under /apply as they are in prod.
   config.relative_url_root = ""
 
@@ -88,5 +98,5 @@ end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true
 CarrierWave.configure do |config|
-  config.storage :file
+  config.storage ENV.key?('S3_UPLOAD_BUCKET') ? :fog : :file
 end
