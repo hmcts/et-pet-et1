@@ -38,6 +38,8 @@
 - unless content_for?(:before_alerts)
   - content_for :before_alerts do
     = render partial: 'shared/feedback_link'
+    .column-full.maintenance-notice
+      p We're planning maintenance of this service. It will be unavailable from 9am to 2pm on 15 May 2019.
 
 - content_for :content_override do
   main#content(role="main")
