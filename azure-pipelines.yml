@@ -10,37 +10,39 @@ trigger:
   branches:
     include:
       - develop
-# pr:
-#   autoCancel: true
-#   branches:
-#     include:
-#       - develop
-#       - feature/*
+      
+pr:
+  autoCancel: true
+  branches:
+    include:
+      - develop
+      - feature/*
 
 variables:
   application.name: 'et1'
   azure.subscription.endpoint: 'hmcts-pet'
 
 jobs:
-  # - job: TestApplication
-  #   pool:
-  #     name: hmcts-pet  # name of the pool to run this job in
-  #   steps:
+  - job: TestApplication
+    pool:
+      name: hmcts-pet  # name of the pool to run this job in
+    steps:
 
-  #   - script: |
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
-  #     displayName: 'before script'
+    - script: |
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+      displayName: 'before script'
 
-  #   - script: |
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
-  #         docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
-  #     displayName: 'script'
+    - script: |
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+      displayName: 'script'
 
 
   - job: BuildAndPushImage
-    # dependsOn: TestApplication
+    dependsOn: TestApplication
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       name: hmcts-pet  # name of the pool to run this job in
     steps:
@@ -88,6 +90,7 @@ jobs:
 
   - job: ExtractAssets
     dependsOn: BuildAndPushImage
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
       name: hmcts-pet
     variables:
