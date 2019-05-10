@@ -38,6 +38,7 @@
 - unless content_for?(:before_alerts)
   - content_for :before_alerts do
     = render partial: 'shared/feedback_link'
+    = render "shared/maintenance_notice" if ENV['SHOW_DOWNTIME_BANNER'].present?
 
 - content_for :content_override do
   main#content(role="main")
