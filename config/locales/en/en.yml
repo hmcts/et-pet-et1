@@ -34,6 +34,9 @@ en:
     language: Cymraeg
     locale: cy
 
+  maintenance:
+    notice_string: We're planning maintenance of this service. It will be unavailable from %{start_time} to %{end_time} on %{day}.
+
   number:
     currency:
       format:
