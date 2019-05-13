@@ -24,6 +24,9 @@ cy:
     language: English
     locale: en
 
+  maintenance:
+    notice_string: Ni fydd y gwasanaeth hwn ar gael o %{start_time} tan %{end_time} ar %{day}.
+
   number:
     currency:
       format:
@@ -958,3 +961,5 @@ cy:
             address_post_code:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+  date:
+    month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
