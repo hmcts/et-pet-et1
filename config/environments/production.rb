@@ -127,4 +127,5 @@ end
 
 Raven.configure do |config|
   config.dsn = ENV['RAVEN_DSN'] || ""
+  config.ssl_verification = ENV.fetch('RAVEN_SSL_VERIFICATION', 'true').downcase == 'true'
 end
