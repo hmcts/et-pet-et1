@@ -1,16 +1,16 @@
 FROM ministryofjustice/ruby:2.5.1-webapp-onbuild
 
 # Adding argument support for ping.json
-# ARG APPVERSION=unknown
-# ARG APP_BUILD_DATE=unknown
-# ARG APP_GIT_COMMIT=unknown
-# ARG APP_BUILD_TAG=unknown
+ARG APPVERSION=unknown
+ARG APP_BUILD_DATE=unknown
+ARG APP_GIT_COMMIT=unknown
+ARG APP_BUILD_TAG=unknown
 
 # Setting up ping.json variables
-ENV APPVERSION ${APPVERSION:-unknown}
-ENV APP_BUILD_DATE ${APP_BUILD_DATE:-unknown}
-ENV APP_GIT_COMMIT ${APP_GIT_COMMIT:-unknown}
-ENV APP_BUILD_TAG ${APP_BUILD_TAG:-unknown}
+ENV APPVERSION ${APPVERSION}
+ENV APP_BUILD_DATE ${APP_BUILD_DATE}
+ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
+ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
 # Ensure the pdftk package is installed as a prereq for ruby PDF generation
 ENV DEBIAN_FRONTEND noninteractive
