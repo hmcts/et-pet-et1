@@ -40,7 +40,7 @@ jobs:
       displayName: 'script'
 
     - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down"
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down
       displayName: 'cleanup'
 
   - job: BuildAndPushImage
