@@ -15,16 +15,4 @@ RSpec.describe ClaimsHelper, type: :helper do
       it { expect(helper.language_specific_feedback_url).to include(default_link) }
     end
   end
-
-  describe 'group_claim_template_file_path' do
-    context 'when English' do
-      before { I18n.locale = :en }
-      it { expect(helper.group_claim_template_file_path).to eql("/assets/group-claims-template.csv") }
-    end
-
-    context 'when Welsh' do
-      before { I18n.locale = :cy }
-      it { expect(helper.group_claim_template_file_path).to eql("/assets/group-claims-template-cy.csv") }
-    end
-  end
 end

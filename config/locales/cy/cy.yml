@@ -600,7 +600,8 @@ cy:
       has_additional_claimants_html: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a href=\"%{path}\">â llaw</a>."
       step_one_header: Cam 1
       download_template_html: |
-        <a href="%{path}">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
+        <a href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
+      download_template_asset: 'group-claims-template-cy.csv'
       dob_info: "Ar gyfer dyddiadau geni, defnyddiwch rifau a/neu lythrennau wedi'u gwahanu gan flaen slaesau. Ee 23/04/1983 neu 23/Ebr/1983"
       step_two_header: Cam 2
       save_csv_format: Cadw ffeil mewn fformat CSV

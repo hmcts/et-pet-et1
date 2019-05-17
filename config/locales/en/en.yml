@@ -536,8 +536,8 @@ en:
       has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
       step_one_header: Step 1
       download_template_html: |
-        <a href="%{path}">Download spreadsheet template</a> or use your own if it follows the same format.
-
+        <a href="%{path}" download="group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
+      download_template_asset: 'group-claims-template.csv'
       dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
       step_two_header: Step 2
       save_csv_format: Save in CSV format.
