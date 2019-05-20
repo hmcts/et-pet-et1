@@ -27,12 +27,9 @@ jobs:
   - job: TestApplication
     pool:
       name: hmcts-pet  # name of the pool to run this job in
+    container: ubuntu:16.04
+
     steps:
-
-    - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down
-      displayName: 'cleanup'
-
     - script: |
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
@@ -43,10 +40,6 @@ jobs:
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
       displayName: 'script'
-
-    - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down
-      displayName: 'cleanup'
 
   - job: BuildAndPushImage
     dependsOn: TestApplication
