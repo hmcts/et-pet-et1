@@ -32,13 +32,4 @@ ADD ./run_sidekiq.sh /run_sidekiq.sh
 RUN chmod +x /run.sh /run_sidekiq.sh
 RUN bash -c "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=ijustdontcareyoureonlydoingaraketask"
 
-RUN curl https://s3.amazonaws.com/aws-cloudwatch/downloads/latest/awslogs-agent-setup.py -O
-RUN mkdir /etc/cron.d
-RUN touch /etc/cron.d/awslogs
-
-RUN mkdir -p /var/log/supervisor
-RUN mkdir -p /etc/supervisor/conf.d/
-COPY supervisor_awslogs.conf /etc/supervisor/conf.d/
-COPY supervisor.conf /etc/supervisor.conf
-
 CMD ["./run.sh"]
