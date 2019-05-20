@@ -26,9 +26,8 @@ variables:
 jobs:
   - job: TestApplication
     pool:
-      name: hmcts-pet  # name of the pool to run this job in
+      vmImage: 'Ubuntu-16.04'
     container: ubuntu:16.04
-
     steps:
     - script: |
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
