@@ -26,8 +26,7 @@ variables:
 jobs:
   - job: TestApplication
     pool:
-      vmImage: 'Ubuntu-16.04'
-    container: ubuntu:16.04
+      name: hmcts-pet  # name of the pool to run this job in
     steps:
     - script: |
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
@@ -39,6 +38,12 @@ jobs:
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
           docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
       displayName: 'script'
+
+    - script: |
+          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down
+      condition: always()
+      displayName: 'cleanup'
+
 
   - job: BuildAndPushImage
     dependsOn: TestApplication
