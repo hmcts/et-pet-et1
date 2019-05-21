@@ -1,3 +1,4 @@
+require_relative './base'
 module Et1
   module Test
     module JsonObjects
