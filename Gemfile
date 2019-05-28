@@ -32,7 +32,7 @@ gem 'unicorn', '~> 5.5'
 gem 'activerecord-nulldb-adapter', '~> 0.3'
 
 # Enables communication with API for direct upload
-gem 'et_dropzone_uploader', git: 'https://github.com/hmcts/et_dropzone_uploader.git', tag: 'v2.1.0'
+gem 'et_dropzone_uploader', git: 'https://github.com/hmcts/et_dropzone_uploader.git', tag: 'v2.2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
@@ -70,6 +70,8 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
   gem 'webdrivers', '~> 3.7'
+  gem 'aws-sdk-s3', '~> 1.36'
+  gem 'azure-storage', '~> 0.15.0.preview'
 end
 
 group :production, :local do
