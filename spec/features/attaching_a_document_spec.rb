@@ -24,8 +24,7 @@ feature 'Attaching a document', js: true do
       let(:claim_from_db) { Claim.find(claim.id) }
 
       before do
-        # TODO: Build a shared context and do the same but stub to Azure
-        stub_build_blob_to_s3
+        stub_build_blob_to_azure
         claim_details_page.load
         claim_details_page.rtf_file_upload.expand
         claim_details_page.rtf_file_upload.attach_additional_information_file(rtf_file_path)
