@@ -16,7 +16,6 @@ GIT
     azure_env_secrets (0.1.3)
 
 GEM
-  remote: https://rubygems.org/
   specs:
     actioncable (5.2.3)
       actionpack (= 5.2.3)
@@ -41,7 +40,7 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activeadmin (1.3.1)
+    activeadmin (1.4.2)
       arbre (>= 1.1.1)
       coffee-rails
       formtastic (~> 3.1)
@@ -80,22 +79,6 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     awesome_print (1.8.0)
-    aws-eventstream (1.0.3)
-    aws-partitions (1.156.0)
-    aws-sdk-core (3.49.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
-      aws-partitions (~> 1.0)
-      aws-sigv4 (~> 1.1)
-      jmespath (~> 1.0)
-    aws-sdk-kms (1.17.0)
-      aws-sdk-core (~> 3, >= 3.48.2)
-      aws-sigv4 (~> 1.1)
-    aws-sdk-s3 (1.36.1)
-      aws-sdk-core (~> 3, >= 3.48.2)
-      aws-sdk-kms (~> 1)
-      aws-sigv4 (~> 1.0)
-    aws-sigv4 (1.1.0)
-      aws-eventstream (~> 1.0, >= 1.0.2)
     azure-core (0.1.15)
       faraday (~> 0.9)
       faraday_middleware (~> 0.10)
@@ -145,9 +128,9 @@ GEM
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.2)
-    coffee-rails (4.2.2)
+    coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0)
+      railties (>= 5.2.0)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
@@ -270,7 +253,6 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
-    jmespath (1.4.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -319,7 +301,6 @@ GEM
     multipart-post (2.0.0)
     mustermann (1.0.3)
     nenv (0.3.0)
-    net_http_ssl_fix (0.0.10)
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
@@ -512,8 +493,7 @@ GEM
     unicorn (5.5.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
-    webdrivers (3.7.2)
-      net_http_ssl_fix
+    webdrivers (3.9.4)
       nokogiri (~> 1.6)
       rubyzip (~> 1.0)
       selenium-webdriver (~> 3.0)
@@ -541,7 +521,6 @@ DEPENDENCIES
   activeadmin (~> 1.3)
   activerecord-nulldb-adapter (~> 0.3)
   awesome_print (~> 1.8)
-  aws-sdk-s3 (~> 1.36)
   azure-storage (~> 0.15.0.preview)
   azure_env_secrets!
   base32_pure (~> 0.1)
@@ -606,4 +585,4 @@ DEPENDENCIES
   zendesk_api (~> 1.5.1x)
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
