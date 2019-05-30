@@ -53,7 +53,6 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 2.28'
-  gem 'parallel_tests', '~> 2.28'
 end
 
 group :test do

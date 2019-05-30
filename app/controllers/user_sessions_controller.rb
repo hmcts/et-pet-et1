@@ -35,7 +35,7 @@ class UserSessionsController < ApplicationController
   def logout
     claim.create_event Event::LOGOUT, actor: 'user'
     reset_session
-    redirect_to root_path, flash: { info: t('.logout') }
+    redirect_to apply_path(locale: I18n.locale), flash: { info: t('.logout') }
   end
 
   def send_access_details_and_logout
