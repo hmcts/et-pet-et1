@@ -62,7 +62,7 @@ group :test do
   gem 'cucumber-rails', '~> 1.7', require: false
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 3.0'
+  gem 'site_prism', '~> 3.2'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
