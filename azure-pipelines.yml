@@ -3,7 +3,7 @@
 # Add steps that install rails, analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
 
-name: $(SourceBranchName)-$(Build.SourceVersion)$(rev:.r)
+name: '$(SourceBranchName)-$(Build.SourceVersion) Build-$(Build.BuildId)'
 
 trigger:
   batch: true
@@ -28,19 +28,20 @@ jobs:
     pool:
       name: hmcts-pet  # name of the pool to run this job in
     steps:
+
     - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
       displayName: 'before script'
 
     - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_rspec spec"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
       displayName: 'script'
 
     - script: |
-          docker-compose -f docker-compose-test.yml -f docker-compose-test-ci.yml down
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml down
       condition: always()
       displayName: 'cleanup'
 
