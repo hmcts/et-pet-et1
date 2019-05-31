@@ -28,9 +28,6 @@ jobs:
     pool:
       name: hmcts-pet  # name of the pool to run this job in
     steps:
-    - script: |
-          printenv | sort
-      displayName: 'env'
 
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
