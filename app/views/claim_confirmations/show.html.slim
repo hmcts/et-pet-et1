@@ -21,7 +21,7 @@ header.main-header role="banner"
         caption = t('.submission_details.header')
         tr role="row"
           th = t '.download_application.header'
-          td = t '.download_application.link_html', href: pdf_path, target: "_blank"
+          td = t '.download_application.link_html', href: claim.stored_pdf_url, target: "_blank"
 
         - confirmation_presenter.each_item do |name, content|
           tr role="row"

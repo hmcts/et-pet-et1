@@ -5,7 +5,7 @@ class ClaimReviewsController < ApplicationController
 
   def update
     claim.update confirmation_email_recipients: email_addresses
-    claim.submit!
+    EtApi::Claim.call(claim, autosave: true)
     redirect_to claim_confirmation_path
   end
 
