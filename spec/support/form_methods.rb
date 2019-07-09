@@ -81,7 +81,7 @@ module FormMethods
     fill_in 'Month', with: '01'
     fill_in 'Year',  with: '1985'
 
-    fill_in_address
+    fill_in_address with_country: true
 
     fill_in 'Alternative phone',   with: '07956000000'
 
@@ -145,13 +145,14 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_address
+  def fill_in_address(with_country: false)
     fill_in 'Building number or name', with: '1'
     fill_in 'Street',                  with: 'High street'
     fill_in 'Town/city',               with: 'Anytown'
     fill_in 'County',                  with: 'Anyfordshire'
     fill_in 'Postcode',                with: 'AT1 4PQ'
     fill_in 'Phone',                   with: '01234567890'
+    select  'United Kingdom',          from: 'Country' if with_country
   end
 
   def fill_in_respondent_details

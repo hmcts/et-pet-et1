@@ -41,8 +41,8 @@ feature 'Claim applications', type: :feature do
     scenario 'Entering word and email for save and return' do
       start_claim
       fill_in_password_and_email('green',
-        FormMethods::SAVE_AND_RETURN_EMAIL,
-        "application_number_email_address")
+                                 FormMethods::SAVE_AND_RETURN_EMAIL,
+                                 "application_number_email_address")
 
       claim = Claim.last
       expect(claim.authenticate('green')).to eq(claim)
@@ -272,9 +272,44 @@ feature 'Claim applications', type: :feature do
       complete_a_claim
       click_button 'Submit claim'
 
-      expect(page).to have_text     "Claim submitted"
+      expect(page).to have_text "Claim submitted"
       expect(page).not_to have_signout_button
       expect(page).not_to have_session_prompt
+    end
+
+    scenario 'Validating the API calls claimant data' do
+      et_api_url = 'http://api.et.net:4000/api/v2'
+      build_claim_url = "#{et_api_url}/claims/build_claim"
+      ClimateControl.modify ET_API_URL: et_api_url do
+        stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
+
+        complete_a_claim
+        click_button 'Submit claim'
+        perform_active_jobs(ClaimSubmissionJob)
+        expect(a_request(:post, build_claim_url).
+          with do |request|
+            claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
+            expect(claimant).to include "title" => "Mr",
+                                        "first_name" => "Barrington",
+                                        "last_name" => "Wrigglesworth",
+                                        "address_attributes" => a_hash_including(
+                                          "building" => "1",
+                                          "street" => "High street",
+                                          "locality" => "Anytown",
+                                          "county" => "Anyfordshire",
+                                          "post_code" => "AT1 4PQ",
+                                          "country" => "United Kingdom"
+                                        ),
+                                        "address_telephone_number" => "01234567890",
+                                        "mobile_number" => "07956000000",
+                                        "email_address" => "barrington@example.com",
+                                        "contact_preference" => "Email",
+                                        "gender" => "Male",
+                                        "date_of_birth" => "1985-01-15",
+                                        "special_needs" => "I am blind."
+          end).to have_been_made
+      end
+
     end
 
     context 'Downloading the PDF' do
