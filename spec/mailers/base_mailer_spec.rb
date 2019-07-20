@@ -67,7 +67,7 @@ describe BaseMailer, type: :mailer do
 
       it 'has office' do
         expect(email).
-          to match_pattern 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
+          to match_pattern "Birmingham, email@example.com, 0121 600 7780"
       end
 
       it 'has an attachment' do
@@ -76,12 +76,12 @@ describe BaseMailer, type: :mailer do
 
       it "has what happen next step 1" do
         expect(email).
-          to match_pattern ['A copy of the claim will be sent to the respondent.', 'They’ll have 28 days to reply.']
+          to match_pattern ["contact you once we have sent your claim to the respondent and explain what happens next.",  "At present, this is taking us an of average of 25 days."]
       end
 
       it "has what happen next step 2" do
         expect(email).
-          to match_pattern ['We’ll contact you when we’ve sent your claim to the respondent', 'and explain the next steps.']
+          to match_pattern ['Once we have sent them your claim, the respondent has 28 days to reply.']
       end
 
       context 'when no office' do
@@ -127,7 +127,7 @@ describe BaseMailer, type: :mailer do
 
       it 'has office' do
         expect(email).
-          to match_pattern 'Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU'
+          to match_pattern "Birmingham, email@example.com, 0121 600 7780"
       end
 
       it 'has an attachment' do

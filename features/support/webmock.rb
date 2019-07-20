@@ -9,7 +9,7 @@ WebMock.disable_net_connect!(allow_localhost: true, allow: [selenium_url.host, a
 Around('@mock_et_api') do |_scenario, block|
   ClimateControl.modify ET_API_URL: et_api_url do
     stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
-    stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: { status: 'created', data: { reference: 'somereference' } }.to_json, status: 201, headers: { 'Content-Type': 'application/json' })
+    stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: { status: 'created', data: { reference: 'somereference', office: { code: 11, name: 'Puddletown', address: '1 Some road, Puddletown', telephone: '020 1234 5678', email: 'office@email.com' }} }.to_json, status: 201, headers: { 'Content-Type': 'application/json' })
     block.call
   end
 end

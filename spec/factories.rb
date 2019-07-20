@@ -206,6 +206,7 @@ FactoryBot.define do
     name      { "Birmingham" }
     address   { "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU" }
     telephone { "0121 600 7780" }
+    email     { "email@example.com" }
   end
 
   factory :employment do

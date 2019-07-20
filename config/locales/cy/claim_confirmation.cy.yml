@@ -26,10 +26,10 @@ cy:
       submission_details:
         header: Manylion cyflwyno
         submission_information: Hawliad wedi'i gyflwyno
+        office_information: Swyddfa tribiwnlys
         attachments: Atodiadau wedi'u cynnwys
-        submission_without_office: "Cyflwynwyd ar %{date}"
-        submission_with_office: "Cyflwynwyd ar %{date} i swyddfa tribiwnlys %{office}"
-        submission_with_office_wales: "Cyflwynwyd ar %{date} i swyddfa tribiwnlys Cymru, Tribiwnlys Cyflogaeth, 3ydd Llawr, Llys Ynadon Caerdydd a’r Fro, Plas Fitzalan, Caerdydd, CF24 0RA"
+        submission: "Cyflwynwyd ar %{date}"
+        office_address_wales: "swyddfa tribiwnlys Cymru, Tribiwnlys Cyflogaeth, 3ydd Llawr, Llys Ynadon Caerdydd a’r Fro, Plas Fitzalan, Caerdydd, CF24 0RA"
 
       print_link_html: |
         <a href="javascript:window.print(0);">Argraffwch y dudalen hon</a> ar gyfer eich

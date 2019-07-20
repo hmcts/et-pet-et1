@@ -11,11 +11,10 @@ en:
       what_happens_next:
         header: What happens next
         send_to_respondent: |
-          A copy of the claim will be sent to the respondent.
-          They’ll have 28 days to reply.
+          We'll contact you once we have sent your claim to the respondent and explain what happens next.
+          At present, this is taking us an of average of 25 days.
         next_steps: |
-          We’ll contact you when we’ve sent your claim to the respondent and
-          explain the next steps.
+          Once we have sent them your claim, the respondent has 28 days to reply.
         next_steps_final_step: |
           We’ll review your application for help with fees and let you know the outcome.
 
@@ -29,9 +28,9 @@ en:
       submission_details:
         header: Submission details
         submission_information: Claim submitted
+        office_information: Tribunal office
         attachments: Attachments included
-        submission_without_office: Submitted %{date}
-        submission_with_office: Submitted %{date} to tribunal office %{office}
+        submission: Submitted %{date}
 
       print_link_html: |
         <a href="javascript:window.print(0);">Print this page</a> for your
