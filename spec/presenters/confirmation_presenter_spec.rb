@@ -16,7 +16,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       context 'and no claimants seeking remission' do
         it 'has the submitted date, the name, and address of the fee centre' do
           expect(confirmation_presenter.submission_information).
-            to eq 'Submitted 01 January 2014 to tribunal office Brum, Brum lane, B1 1AA'
+            to eq 'Submitted 01 January 2014'
         end
 
         context 'Welsh locale' do
@@ -24,7 +24,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
           it 'has the submitted date, the name, and address of the fee centre' do
             expect(confirmation_presenter.submission_information).
-              to eq 'Cyflwynwyd ar 01 Ionawr 2014 i swyddfa tribiwnlys Brum, Brum lane, B1 1AA'
+              to eq 'Cyflwynwyd ar 01 Ionawr 2014'
           end
 
           context 'Welsh address' do
@@ -34,7 +34,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
             it 'has the submitted date, the name, and address of the fee centre' do
               expect(confirmation_presenter.submission_information).
-                to eq 'Cyflwynwyd ar 01 Ionawr 2014 i swyddfa tribiwnlys Cymru, Tribiwnlys Cyflogaeth, 3ydd Llawr, Llys Ynadon Caerdydd a’r Fro, Plas Fitzalan, Caerdydd, CF24 0RA'
+                to eq 'Cyflwynwyd ar 01 Ionawr 2014'
             end
           end
         end
@@ -67,7 +67,8 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
   describe '#each_item' do
     it 'yields the submission information' do
       expect { |b| confirmation_presenter.each_item(&b) }.
-        to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+        to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
+          [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
           [:attachments, "file.rtf<br />file.csv"]
     end
 
@@ -76,7 +77,8 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
       it 'yields text to state no attachments are present' do
         expect { |b| confirmation_presenter.each_item(&b) }.
-          to yield_successive_args [:submission_information, "Submitted 01 January 2014 to tribunal office Birmingham, Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU"],
+          to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
+            [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
             [:attachments, "None"]
       end
     end

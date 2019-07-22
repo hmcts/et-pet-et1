@@ -42,6 +42,7 @@ en:
         see_attached_pdf: See attached PDF
         attachments: 'Additional documents:'
         submission_information: 'Claim submitted:'
+        office_information: 'Tribunal office:'
         submitted_on: "on %{date} "
         submitted_to: to tribunal office %{office}
 

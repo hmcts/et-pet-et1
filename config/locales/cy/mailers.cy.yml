@@ -46,6 +46,7 @@ cy:
         see_attached_pdf: Gweler y PDF sydd ynghlwm
         attachments: 'Dogfennau ychwanegol:'
         submission_information: 'Hawliad wedi''i gyflwyno:'
+        office_information: 'Swyddfa tribiwnlys:'
         submitted_on: "ar %{date}"
         submitted_to: "i swyddfa tribiwnlys %{office}"
 

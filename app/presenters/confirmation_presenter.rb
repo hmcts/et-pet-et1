@@ -1,11 +1,15 @@
 class ConfirmationPresenter < Presenter
   def submission_information
-    if office.present? && remission_claimant_count.zero?
-      submission_with_office_message
-    else
-      I18n.t 'claim_confirmations.show.submission_details.submission_without_office',
-        date: date(submitted_at)
+    I18n.t 'claim_confirmations.show.submission_details.submission',
+      date: date(submitted_at)
+  end
+
+  def office_information
+    return '' if office.nil?
+    if display_wales_address_in_welsh?
+      return I18n.t 'claim_confirmations.show.submission_details.office_address_wales', date: date(submitted_at)
     end
+    [office.name, office.email, office.telephone].join(', ')
   end
 
   def attachments
@@ -28,21 +32,13 @@ class ConfirmationPresenter < Presenter
   end
 
   def items
-    [:submission_information, :attachments]
+    [:submission_information, :office_information, :attachments]
   end
 
   def attachment_filenames
     @attachment_filenames ||= \
       [claim_details_rtf, additional_claimants_csv].
       map { |attachment| CarrierwaveFilename.for attachment }.compact
-  end
-
-  def submission_with_office_message
-    if display_wales_address_in_welsh?
-     return I18n.t 'claim_confirmations.show.submission_details.submission_with_office_wales', date: date(submitted_at)
-    end
-    I18n.t 'claim_confirmations.show.submission_details.submission_with_office',
-      date: date(submitted_at), office: [office.name, office.address].join(', ')
   end
 
   def display_wales_address_in_welsh?

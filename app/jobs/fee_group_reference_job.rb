@@ -19,7 +19,8 @@ class FeeGroupReferenceJob < ActiveJob::Base
       code:      fee_group_reference.dig(:office, :code),
       name:      fee_group_reference.dig(:office, :name),
       address:   fee_group_reference.dig(:office, :address),
-      telephone: fee_group_reference.dig(:office, :telephone)
+      telephone: fee_group_reference.dig(:office, :telephone),
+      email:     fee_group_reference.dig(:office, :email)
     )
   end
 end
