@@ -9,12 +9,8 @@ cy:
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}" rel="external">holiadur monitro amrywiaeth</a>.
       what_happens_next:
         header: Beth sy'n digwydd nesaf
-        send_to_respondent: |
-          Fe anfonir copi o'r hawliad at yr atebydd.
-          Bydd ganddynt 28 diwrnod i ymateb.
-        next_steps: |
-          Byddwn yn cysylltu â chi pan fyddwn wedi anfon eich hawliad at yr atebydd i
-          esbonio beth yw'r camau nesaf.
+        send_to_respondent: Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebydd i egluro beth fydd yn digwydd nesaf. Ar hyn o bryd, mae’n cymryd oddeutu 25 diwrnod.
+        next_steps: Unwaith y byddwn wedi anfon eich hawliad atynt, mae gan yr atebydd 28 diwrnod i ymateb.
         next_steps_final_step: |
           Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad.
       download_application:
