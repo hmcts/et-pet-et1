@@ -76,7 +76,7 @@ describe BaseMailer, type: :mailer do
 
       it "has what happen next step 1" do
         expect(email).
-          to match_pattern ["contact you once we have sent your claim to the respondent and explain what happens next.",  "At present, this is taking us an of average of 25 days."]
+          to match_pattern ["contact you once we have sent your claim to the respondent and explain what happens next.",  "At present, this is taking us an average of 25 days."]
       end
 
       it "has what happen next step 2" do
