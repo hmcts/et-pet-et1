@@ -39,7 +39,6 @@ group :development, :test do
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
-  gem 'codeclimate-test-reporter', '~> 0.4', require: nil
   gem 'dotenv-rails', '~> 2.7'
   gem 'factory_bot_rails', '~> 5.0'
   gem 'guard-livereload', '~> 2.5'
@@ -48,7 +47,7 @@ group :development, :test do
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.70', :require => false
+  gem 'rubocop', '~> 0.74', :require => false
   gem 'rubocop-rspec', '~> 1.32', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
@@ -100,7 +99,7 @@ gem 'sidekiq_alive', '~> 1.1'
 gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
 gem 'zendesk_api', '~> 1.5.1x'
-gem 'email_validator', '~> 1.6'
+gem 'email_validator', '~> 2.0'
 gem 'typhoeus', '~> 1.3', '>= 1.3.1'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
