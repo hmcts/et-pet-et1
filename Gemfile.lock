@@ -152,7 +152,7 @@ GEM
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
-    email_validator (2.0.1)
+    email_validator (1.6.0)
       activemodel
     erubi (1.8.0)
     ethon (0.12.0)
@@ -498,7 +498,7 @@ DEPENDENCIES
   cucumber-rails (~> 1.7)
   database_cleaner (~> 1.7)
   dotenv-rails (~> 2.7)
-  email_validator (~> 2.0)
+  email_validator (~> 1.6)
   factory_bot_rails (~> 5.0)
   fog-aws (~> 3.0)
   govuk_frontend_toolkit (~> 4.0.0)

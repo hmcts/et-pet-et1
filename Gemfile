@@ -99,7 +99,7 @@ gem 'sidekiq_alive', '~> 1.1'
 gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
 gem 'zendesk_api', '~> 1.5.1x'
-gem 'email_validator', '~> 2.0'
+gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.3', '>= 1.3.1'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
