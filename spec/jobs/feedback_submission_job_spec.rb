@@ -2,51 +2,45 @@ require 'rails_helper'
 
 RSpec.describe FeedbackSubmissionJob, type: :job do
   describe '#perform' do
-    let(:token) { 'rofltoken' }
-    let(:url)   { 'https://rofldesk.lol.biz.info/api/v2' }
-    let(:user)  { 'lol@example.com' }
-    let(:id)    { 'L0L' }
     let(:feedback_submission_job) { FeedbackSubmissionJob.new }
+    let(:emails_sent) { ::Et1::Test::EmailsSent.new }
 
-    let(:map) do
-      { 'ZENDESK_GROUP_ID' => id, 'ZENDESK_URL' => url, 'ZENDESK_USER' => user, 'ZENDESK_TOKEN' => token }
-    end
-
-    let(:body) do
-      "{\"ticket\":{\"subject\":\"New ATET User Feedback\",\"comment\":{\"value" \
-        "\":\"Comments\\n\\nlél\\n\\nSuggestions\\n\\nlewl\"},\"requester\":{" \
-        "\"email\":\"hue@example.com\",\"name\":\"ET User\"},\"group_id\":\"L0L\"}}"
-    end
-
-    let(:headers) do
-      { 'Accept' => 'application/json',
-        'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-        'Content-Type' => 'application/json',
-        'User-Agent' => 'ZendeskAPI API 1.5.1' }
-    end
-
-    let(:the_request) do
-      stub_request(:post, "https://rofldesk.lol.biz.info/api/v2/tickets").with(basic_auth: ["#{user}/token", token])
-    end
-
-    before do
-      allow(ENV).to receive(:fetch) { |arg| map[arg] }
-      the_request
-    end
-
-    it 'creates a Zendesk ticket' do
+    it 'sends an HTML email to service now' do
       feedback_submission_job.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
 
-      expect(the_request.with(body: body, headers: headers)).to have_been_made.once
+      expect(emails_sent.feedback_html_email_for email_address: 'hue@example.com').to be_present
+    end
+
+    it 'sends a text email to service now' do
+      feedback_submission_job.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
+
+      expect(emails_sent.feedback_text_email_for email_address: 'hue@example.com').to be_present
+    end
+
+    it 'sends an text email to service now with the correct content' do
+      feedback_submission_job.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
+
+      expect(emails_sent.feedback_text_email_for email_address: 'hue@example.com').to have_correct_content_for(comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com')
+    end
+
+    it 'sends an html email to service now with the correct content' do
+      feedback_submission_job.perform comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com'
+
+      expect(emails_sent.feedback_html_email_for email_address: 'hue@example.com').to have_correct_content_for(comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com')
     end
 
     context 'without an email address' do
-      before { body.gsub! 'hue@example.com', 'anonymous@example.com' }
+      let(:placeholder_email_address) { "anonymous@example.com" }
 
-      it 'uses a placeholder email' do
+      it 'sends an HTML email to service now using a placeholder email' do
         feedback_submission_job.perform comments: 'lél', suggestions: 'lewl'
 
-        expect(the_request.with(body: body, headers: headers)).to have_been_made.once
+        expect(emails_sent.feedback_html_email_for email_address: placeholder_email_address).to be_present
+      end
+      it 'sends an HTML email to service now using a placeholder email' do
+        feedback_submission_job.perform comments: 'lél', suggestions: 'lewl'
+
+        expect(emails_sent.feedback_html_email_for email_address: placeholder_email_address).to be_present
       end
     end
   end
