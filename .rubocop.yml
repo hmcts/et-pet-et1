@@ -229,7 +229,6 @@ Rails/OutputSafety:
 
 RSpec/VerifiedDoubles:
   Exclude:
-    - 'spec/services/zendesk_sender_spec.rb'
     - 'spec/forms/refunds/**/*_spec.rb'
 
 RSpec/MessageSpies:
