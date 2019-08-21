@@ -24,11 +24,7 @@ services:
       S3_UPLOAD_BUCKET:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
-      ZENDESK_URL:
-      ZENDESK_USER:
-      ZENDESK_TOKEN:
-      ZENDESK_GROUP_ID:
-
+      SERVICE_NOW_EMAIL: fake@servicenow.fake.com
     volumes:
       - rubygems_cache:/rubygems
       - npm_cache:/app/node_modules

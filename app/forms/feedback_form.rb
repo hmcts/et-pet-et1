@@ -6,7 +6,7 @@ class FeedbackForm < Form
 
   def save
     run_callbacks :save do
-      FeedbackSubmissionJob.perform_later attributes.symbolize_keys
+      FeedbackSubmissionJob.perform_later attributes.symbolize_keys if Rails.application.config.service_now_inbox_email.present?
     end
   end
 

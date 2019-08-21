@@ -84,6 +84,8 @@ Rails.application.configure do
   config.flatten_pdf = false
   # The google tag manager account - set to false if you do not want google tag manager in this environment
   config.google_tag_manager_account = false
+
+  config.service_now_inbox_email = nil
 end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true
