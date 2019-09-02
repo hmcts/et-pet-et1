@@ -1,5 +1,5 @@
 class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
-  GENDERS             = [:male, :female, :prefer_not_to_say].freeze
+  GENDERS             = [:male, :female].freeze
   CONTACT_PREFERENCES = [:email, :post].freeze
 
   def name
@@ -10,7 +10,7 @@ class PdfForm::PrimaryClaimantPresenter < PdfForm::BaseDelegator
   # rubocop:disable Metrics/AbcSize
   def to_h
     {
-      "1.1 title tick boxes" => title,
+      "1.1 title tick boxes" => value_or_off(title),
       "1.2 first names" => first_name,
       "1.3 surname" => last_name,
       "1.4 DOB day" => date_of_birth && ("%02d" % date_of_birth.day),

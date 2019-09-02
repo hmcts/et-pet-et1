@@ -10,6 +10,8 @@
 = render 'answer', section_name: 'claimant', question: 'gender' do
   - if claimant.gender.present?
     = I18n.t "simple_form.options.claimant.gender.#{claimant.gender}"
+  - else
+    = nil
 = render 'answer', section_name: 'claimant', question: 'contact_preference' do
   - if claimant.contact_preference.present?
     = t "simple_form.options.claimant.contact_preference.#{claimant.contact_preference}"
