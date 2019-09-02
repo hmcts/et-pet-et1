@@ -29,11 +29,11 @@ class ClaimantForm < Form
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
 
-  validates :title, :gender, :first_name, :last_name, :address_country,
+  validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
 
-  validates :title, inclusion: { in: TITLES }
-  validates :gender, inclusion: { in: GENDERS }
+  validates :title, inclusion: { in: TITLES }, allow_blank: true
+  validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }

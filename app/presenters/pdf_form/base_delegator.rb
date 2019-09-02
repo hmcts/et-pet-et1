@@ -22,6 +22,10 @@ module PdfForm
       options.map(&:to_s).include?(field) ? field : 'Off'
     end
 
+    def value_or_off(value, off: 'Off')
+      value.blank? ? off : value
+    end
+
     def tri_state(value, yes: 'yes')
       { nil => 'Off', false => 'no', true => yes }[value]
     end
