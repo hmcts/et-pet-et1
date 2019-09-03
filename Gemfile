@@ -25,8 +25,8 @@ gem 'sass-rails', '~> 5.0'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 5.2'
 
-# Use unicorn as the app server
-gem 'unicorn', '~> 5.5'
+# Use iodine as the app server
+gem 'iodine', '~> 0.7.33'
 
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 0.3'
