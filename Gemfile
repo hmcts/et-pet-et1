@@ -11,7 +11,7 @@ gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.3'
-gem 'responders', '~> 2.4'
+gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
 gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_secrets.git', tag: 'v0.1.3'
