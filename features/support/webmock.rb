@@ -5,7 +5,7 @@ app_host_url = URI.parse Capybara.app_host
 et_api_url = 'http://api.et.net:4000/api/v2'
 build_claim_url = "#{et_api_url}/claims/build_claim"
 create_reference_url =  "#{et_api_url}/references/create_reference"
-WebMock.disable_net_connect!(allow_localhost: true, allow: [selenium_url.host, app_host_url.host])
+WebMock.disable_net_connect!(allow_localhost: true, allow: [selenium_url.host, app_host_url.host, "chromedriver.storage.googleapis.com"])
 Around('@mock_et_api') do |_scenario, block|
   ClimateControl.modify ET_API_URL: et_api_url do
     stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })

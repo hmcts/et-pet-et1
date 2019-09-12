@@ -555,7 +555,7 @@ cy:
       have_you_contacted_acas:
         legend: "Ydych chi wedi cysylltu ag Acas?"
         body_html: |
-          Cyn gwneud hawliad i dribiwnlys cyflogaeth, mae'n rhaid i chi gysylltu ag Acas i ddefnyddio eu gwasanaeth rhad ac am ddim <a href="%{path}" rel="external">Cymodi Cynnar</a>.
+          Cyn gwneud hawliad i dribiwnlys cyflogaeth, mae'n rhaid i chi gysylltu ag Acas i ddefnyddio eu gwasanaeth rhad ac am ddim <a href="%{path}" rel="external" target="_blank">Cymodi Cynnar</a>.
       what_you_need_to_know:
         legend: Beth fydd arnoch ei angen
         body_html: |
