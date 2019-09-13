@@ -18,6 +18,7 @@ gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_se
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
+gem 'coffee-rails', '~> 5.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby

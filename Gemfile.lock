@@ -125,6 +125,13 @@ GEM
     climate_control (0.2.0)
     cliver (0.3.2)
     coderay (1.1.2)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     crack (0.4.3)
@@ -514,6 +521,7 @@ DEPENDENCIES
   capybara-screenshot (~> 1.0)
   carrierwave (~> 1.2)
   climate_control (~> 0.2)
+  coffee-rails (~> 5.0)
   cucumber-rails (~> 1.7)
   database_cleaner (~> 1.7)
   dotenv-rails (~> 2.7)
