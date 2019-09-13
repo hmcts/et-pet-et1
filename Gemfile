@@ -10,14 +10,14 @@ gem 'jbuilder', '~> 2.8'
 gem 'jquery-rails', '4.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.3'
-gem 'responders', '~> 2.4'
+gem 'rails', '6.0.0'
+gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
 gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_secrets.git', tag: 'v0.1.3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 6.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -29,7 +29,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'unicorn', '~> 5.5'
 
 # Use null db adapter for the form objects
-gem 'activerecord-nulldb-adapter', '~> 0.3'
+gem 'activerecord-nulldb-adapter', '~> 0.4'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
@@ -78,7 +78,7 @@ group :production, :test do
   gem 'sentry-raven', '~> 2.9'
 end
 
-gem 'activeadmin', '~> 1.3'
+gem 'activeadmin', '~> 2.3'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
