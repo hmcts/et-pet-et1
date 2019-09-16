@@ -79,14 +79,14 @@ group :production, :test do
   gem 'sentry-raven', '~> 2.9'
 end
 
-gem 'activeadmin', '~> 2.3'
+gem 'activeadmin', '2.3.0'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
 
 
 gem 'browserify-rails', '~> 4.3'
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 2.0'
 gem 'fog-aws', '~> 3.0'
 gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'moj_template', '0.23.0'
