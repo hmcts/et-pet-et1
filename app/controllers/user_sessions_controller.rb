@@ -39,7 +39,7 @@ class UserSessionsController < ApplicationController
   end
 
   def send_access_details_and_logout
-    claim.update_attributes(email_address: user_session.email_address)
+    claim.update(email_address: user_session.email_address)
     deliver_access_details
     logout
   end

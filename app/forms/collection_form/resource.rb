@@ -14,7 +14,7 @@ class CollectionForm
       if _destroy?
         !target.destroy.nil?
       elsif valid?
-        !target.update_attributes(attributes).nil?
+        !target.update(attributes).nil?
       else
         false
       end
