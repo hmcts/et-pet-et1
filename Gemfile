@@ -77,7 +77,7 @@ group :production, :test do
   gem 'sentry-raven', '~> 2.9'
 end
 
-gem 'activeadmin', '2.3.0'
+gem 'activeadmin', '~> 2.3'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
