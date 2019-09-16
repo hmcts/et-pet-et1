@@ -71,8 +71,6 @@ end
 group :production do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '~> 4.1'
-  # Only use bootsnap in prod to prevent debugging issues
-  gem 'bootsnap', '~> 1.4'
 end
 
 group :production, :test do
