@@ -50,7 +50,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rubocop', '~> 0.74', :require => false
   gem 'rubocop-rspec', '~> 1.32', :require => false
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers', '~> 4.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 2.28'
   gem 'webdrivers', '~> 4.0'
