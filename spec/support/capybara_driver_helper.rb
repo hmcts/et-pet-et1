@@ -1,5 +1,4 @@
 require 'capybara/poltergeist'
-require 'webrick'
 Capybara.configure do |config|
   driver = ENV['DRIVER']&.to_sym || :poltergeist
   config.default_max_wait_time =20
@@ -49,4 +48,3 @@ end
 Capybara.always_include_port = true
 Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST') if ENV.key?('CAPYBARA_APP_HOST')
 Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST') if ENV.key?('CAPYBARA_SERVER_HOST')
-Capybara.server = :webrick
