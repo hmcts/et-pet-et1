@@ -13,4 +13,4 @@ create)
     ;;
 esac
 
-bundle exec unicorn -p ${PORT:-8080} -c ./config/unicorn.rb -E ${RAILS_ENV:-production}
+bundle exec iodine -port ${PORT:-8080}
