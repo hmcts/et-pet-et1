@@ -1,4 +1,5 @@
 require 'capybara/poltergeist'
+require 'webrick'
 Capybara.configure do |config|
   driver = ENV['DRIVER']&.to_sym || :poltergeist
   config.default_max_wait_time =20

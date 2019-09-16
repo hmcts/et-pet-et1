@@ -1,4 +1,4 @@
-require 'webrick/log'
+require 'webrick'
 Capybara.configure do |config|
   driver = ENV['DRIVER']&.to_sym || :chrome
   config.default_driver = driver
