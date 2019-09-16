@@ -89,7 +89,7 @@ class Form < ApplicationRecord
     if valid?
       run_callbacks :save do
         ActiveRecord::Base.transaction do
-          target.update_attributes attributes unless target.frozen?
+          target.update attributes unless target.frozen?
           resource.save
         end
       end

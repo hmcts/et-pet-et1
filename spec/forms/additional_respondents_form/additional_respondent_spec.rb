@@ -106,7 +106,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
         before { additional_respondent.assign_attributes attributes }
 
         it "saves the data" do
-          expect(target).to receive(:update_attributes).with additional_respondent.attributes
+          expect(target).to receive(:update).with additional_respondent.attributes
           additional_respondent.save
         end
 
@@ -119,7 +119,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
         before { allow(additional_respondent).to receive(:valid?).and_return false }
 
         it 'is not saved' do
-          expect(target).not_to receive(:update_attributes)
+          expect(target).not_to receive(:update)
           additional_respondent.save
         end
 

@@ -7,7 +7,7 @@ source 'https://rubygems.org'
 gem 'jbuilder', '~> 2.8'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '4.3.3'
+gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.0'
@@ -59,7 +59,7 @@ end
 group :test do
   gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
-  gem 'cucumber-rails', '~> 1.7', require: false
+  gem 'cucumber-rails', '~> 1.8', require: false
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.0'
