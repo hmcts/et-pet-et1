@@ -71,3 +71,7 @@ cy:
             name: seen_cookie_message
             purpose: Mae'n rhoi gwybod i'ch cyfrifiadur eich bod wedi gweld ein neges am gwcis
             expires: 1 mis
+      section_five:
+        title_one: ""
+        line_one: ""
+        cookie_link_text: Gov.uk
