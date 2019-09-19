@@ -112,6 +112,8 @@ en:
             one: Circumstances where we can pass on personal data without telling you, for example, to help with the prevention or detection of crime or to produce anonymised statistics;
             two: Our instructions to staff on how to collect, use or delete your personal data;
             three: How we check that the personal data we hold is accurate and up-to-date;
+          line_two: Refer here to %{link} Privacy policy
+          privacy_link_text: Gov.uk
         section_thirteen:
           title: How to make a complaint.
           line_one_html: "For more information about the above issues or for any other queries, please contact our Data Protection Officer by email: <a href='mailto:data.compliance@justice.gov.uk' title='Data Protection Officer&#39;s email'>data.compliance@justice.gov.uk</a>."
