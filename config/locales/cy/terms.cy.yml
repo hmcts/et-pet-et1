@@ -112,6 +112,8 @@ cy:
             one: "Amgylchiadau lle gallwn drosglwyddo'ch data personol heb roi gwybod i chi, er enghraifft, i'n helpu i atal a datrys troseddau neu gynhyrchu ystadegau dienw;"
             two: "Ein cyfarwyddiadau i staff ynghylch sut mae casglu, defnyddio neu ddileu eich data personol;"
             three: "Sut rydym yn gwirio bod y data personol sydd gennym yn gywir ac yn gyfredol;"
+          line_two: ""
+          privacy_link_text: Gov.uk
         section_thirteen:
           title: Sut i wneud cwyn.
           line_one_html: "I gael rhagor o wybodaeth am y materion uchod neu ar gyfer unrhyw ymholiadau eraill, cysylltwch â’n Swyddog Diogelu Data drwy e-bost yn: <a href='mailto:data.compliance@justice.gov.uk' title='Data Protection Officer&#39;s email'>data.compliance@justice.gov.uk</a>."
