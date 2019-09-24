@@ -1,4 +1,4 @@
-FROM employmenttribunal.azurecr.io/ruby26-nodejs-onbuild:0.2
+FROM employmenttribunal.azurecr.io/ruby26-java-onbuild:0.1
 
 # Adding argument support for ping.json
 ARG APPVERSION=unknown
@@ -15,16 +15,23 @@ ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 # fix to address http://tzinfo.github.io/datasourcenotfound - PET ONLY
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -q && \
-    apt-get install -qy tzdata --no-install-recommends && apt-get clean && \
+    apt-get install -qy tzdata unzip --no-install-recommends \
+    && curl --location -o artifacts.zip https://gitlab.com/pdftk-java/pdftk/-/jobs/artifacts/v3.0.7/download?job=gradle \
+    && unzip artifacts.zip \
+    && mv build/libs/pdftk-all.jar /var/lib/pdftk.jar \
+    && rm -rf build artifacts.zip \
+    && apt-get remove -y unzip \
+    && apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log
+# pdftk is a 2 line bash script to just call the jar file, put it in the path
+COPY pdftk /usr/local/bin
+RUN chmod +x /usr/local/bin/pdftk
 
 EXPOSE 8080
-
-RUN bash -c "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=ijustdontcareyoureonlydoingaraketask"
 
 # running app as a servive
 ENV PHUSION true
 RUN mkdir /etc/service/app
-COPY run.sh /etc/service/app/run
+COPY run_sidekiq.sh /etc/service/app/run
 RUN chmod +x /etc/service/app/run

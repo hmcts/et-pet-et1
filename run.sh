@@ -13,4 +13,15 @@ create)
     ;;
 esac
 
-bundle exec iodine -port ${PORT:-8080}
+PHUSION_SERVICE="${PHUSION:-false}"
+case ${PHUSION_SERVICE} in
+true)
+    echo "running as service"
+    cd /home/app/
+    bundle exec iodine -port ${PORT:-8080}
+    ;;
+*)
+    echo "normal startup"
+    bundle exec iodine -port ${PORT:-8080}
+    ;;
+esac

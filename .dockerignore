@@ -6,3 +6,8 @@ tmp/**/*
 /public/assets
 /public/apply
 /node_modules
+azure-pipelies.yaml
+Dockerfile
+Dockerfile.sidekiq
+Dockerfile.test
+/pipeline-teps
