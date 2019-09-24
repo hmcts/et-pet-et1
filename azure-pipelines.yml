@@ -10,6 +10,9 @@ trigger:
   branches:
     include:
       - develop
+  tags:
+    include:
+    - v*
       
 pr:
   autoCancel: true
@@ -26,196 +29,53 @@ variables:
 jobs:
   - job: TestApplication
     pool:
-      name: hmcts-pet  # name of the pool to run this job in
+      name: hmcts-pet
     steps:
 
-    - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
-      displayName: 'before script'
-
-    - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "DRIVER=poltergeist bundle exec parallel_rspec spec"
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
-      displayName: 'script'
-
-    - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml down -v
-      condition: always()
-      displayName: 'cleanup'
+    - template: ./pipeline-steps/test-application.yaml
 
 
-  - job: BuildAndPushImage
+  - job: BuildAndPushImageCI
+
     dependsOn: TestApplication
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
-    pool:
-      name: hmcts-pet  # name of the pool to run this job in
-    steps:
-    - bash: |
-        repo_sha=$(git rev-parse --verify HEAD)
-        docker_image_tag_sha=${repo_sha:0:7}
-        echo "##vso[task.setvariable variable=DOCKER_TAG;isOutput=true]$(Build.SourceBranchName)-${docker_image_tag_sha}"
-      displayName: 'Get Docker Tag'
-      name: 'getDockerTag'
-
-    - task: Docker@1
-      displayName: login
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: login
-
-    - task: Docker@1
-      displayName: 'Build an image'
-      inputs:
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-        arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
-
-    - task: Docker@1
-      displayName: 'Tag image'
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: 'Tag image'
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-      
-    - task: Docker@1
-      displayName: 'Push an image'
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: 'Push an image'
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-
-    - task: Docker@1
-      displayName: logout
-      inputs:
-        command: logout
-
-
-  - job: ExtractAssets
-    dependsOn: BuildAndPushImage
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'), not(startsWith(variables['Build.SourceBranch'], 'refs/tags/')), ne(variables['Build.Reason'], 'Manual'))
     pool:
       name: hmcts-pet
-    variables:
-      docker.tag: $[ dependencies.BuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
+
     steps:
-
-      - task: Docker@1
-        displayName: 'Run an image'
-        inputs:
-          command: 'Run an image'
-          imageName: '$(application.name):$(docker.tag)'
-          containerName: 'ASSET_CONTAINER'
-
-      - bash: |
-          mkdir -p temp_assets
-          docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
-          docker stop ASSET_CONTAINER
-          cd temp_assets/assets
-          docker rm ASSET_CONTAINER
-        displayName: 'Get Assets'
-        name: 'getAssets'
-
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          az storage blob delete-batch -s assets --account-name $(azure.storage.account)
-        displayName: 'Clean Up Blob'
-        name: 'cleanUpBlob'
-
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          cd temp_assets/assets
-          az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
-        displayName: 'Copy Assets To Blob'
-        name: 'copyToBlob'
+    - template: ./pipeline-steps/docker-build.yaml
+      parameters:
+        azureContainerRegistry: $(azure.container.registry)
+        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+        applicationName: $(application.name)
 
 
-  - job: ManualBuildAndPushImage
+  - job: BuildAndPushImageRelease
+
     dependsOn: TestApplication
-    condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.Reason'], 'Manual'))
-    pool:
-      name: hmcts-pet  # name of the pool to run this job in
-    steps:
-    - bash: |
-        repo_sha=$(git rev-parse --verify HEAD)
-        docker_image_tag_sha=${repo_sha:0:7}
-        echo "##vso[task.setvariable variable=DOCKER_TAG;isOutput=true]$(manual.branch.prefix)-$(Build.SourceBranchName)-${docker_image_tag_sha}"
-      displayName: 'Get Docker Tag'
-      name: 'getDockerTag'
-
-    - task: Docker@1
-      displayName: login
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: login
-
-    - task: Docker@1
-      displayName: 'Build an image'
-      inputs:
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-        arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
-
-    - task: Docker@1
-      displayName: 'Tag image'
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: 'Tag image'
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-      
-    - task: Docker@1
-      displayName: 'Push an image'
-      inputs:
-        azureSubscriptionEndpoint: '$(azure.subscription.endpoint)'
-        azureContainerRegistry: $(azure.container.registry)
-        command: 'Push an image'
-        imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-
-    - task: Docker@1
-      displayName: logout
-      inputs:
-        command: logout
-
-
-  - job: ManualExtractAssets
-    dependsOn: ManualBuildAndPushImage
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
     pool:
       name: hmcts-pet
-    variables:
-      docker.tag: $[ dependencies.ManualBuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
+
     steps:
-
-      - task: Docker@1
-        displayName: 'Run an image'
-        inputs:
-          command: 'Run an image'
-          imageName: '$(application.name):$(docker.tag)'
-          containerName: 'ASSET_CONTAINER'
-
-      - bash: |
-          mkdir -p temp_assets
-          docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
-          docker stop ASSET_CONTAINER
-          cd temp_assets/assets
-          docker rm ASSET_CONTAINER
-        displayName: 'Get Assets'
-        name: 'getAssets'
-
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          az storage blob delete-batch -s assets --account-name $(azure.storage.account)
-        displayName: 'Clean Up Blob'
-        name: 'cleanUpBlob'
-
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          cd temp_assets/assets
-          az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
-        displayName: 'Copy Assets To Blob'
-        name: 'copyToBlob'
+    - template: ./pipeline-steps/docker-build-release.yaml
+      parameters:
+        azureContainerRegistry: $(azure.container.registry)
+        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+        applicationName: $(application.name)
 
 
+  - job: BuildAndPushImageManual
+  
+    dependsOn: TestApplication
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
+    pool:
+      name: hmcts-pet
+
+    steps:
+    - template: ./pipeline-steps/docker-build-manual.yaml
+      parameters:
+        azureContainerRegistry: $(azure.container.registry)
+        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
+        manualBranchPrefix: $(manual.branch.prefix)
+        applicationName: $(application.name)

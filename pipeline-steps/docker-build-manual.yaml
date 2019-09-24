@@ -1,0 +1,46 @@
+parameters:
+  azureContainerRegistry: ''
+  azureSubscriptionEndpoint: ''
+  manualBranchPrefix: ''
+  applicationName: ''
+
+
+steps:
+- bash: |
+    repo_sha=$(git rev-parse --verify HEAD)
+    docker_image_tag_sha=${repo_sha:0:7}
+    echo "##vso[task.setvariable variable=DOCKER_TAG;isOutput=true]${{ parameters.manualBranchPrefix }}-$(Build.SourceBranchName)-${docker_image_tag_sha}"
+  displayName: 'Get Docker Tag'
+  name: 'getDockerTag'
+
+- bash: |
+    buildDate=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "##vso[task.setvariable variable=Build_DT;isOutput=true]${buildDate}"
+  displayName: 'Get Build Date and Time'
+  name: 'getBuildDateTime'
+
+- task: Docker@1
+  displayName: login
+  inputs:
+    azureSubscriptionEndpoint: ${{ parameters.azureSubscriptionEndpoint }}
+    azureContainerRegistry: ${{ parameters.azureContainerRegistry }}
+    command: login
+
+- task: Docker@1
+  displayName: 'Build an image'
+  inputs:
+    imageName: '${{ parameters.azureContainerRegistry }}/${{ parameters.applicationName }}:$(getDockerTag.DOCKER_TAG)'
+    arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg "APP_BUILD_DATE=$(getBuildDateTime.Build_DT)" --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
+      
+- task: Docker@1
+  displayName: 'Push an image'
+  inputs:
+    azureSubscriptionEndpoint: ${{ parameters.azureSubscriptionEndpoint }}
+    azureContainerRegistry: ${{ parameters.azureContainerRegistry }}
+    command: 'Push an image'
+    imageName: '${{ parameters.applicationName }}:$(getDockerTag.DOCKER_TAG)'
+
+- task: Docker@1
+  displayName: logout
+  inputs:
+    command: logout
