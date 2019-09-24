@@ -41,7 +41,7 @@ group :development, :test do
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
   gem 'dotenv-rails', '~> 2.7'
-  gem 'factory_bot_rails', '~> 5.0'
+  gem 'factory_bot_rails', '~> 5.1'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
   gem 'pry-rails', '~> 0.3'
