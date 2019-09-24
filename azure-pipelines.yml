@@ -25,7 +25,7 @@ variables:
   application.name: 'et1'
   azure.subscription.endpoint: 'hmcts-pet'
   manual.branch.prefix: 'develop'
-  dockerFileName: 'Dockerfile'
+  docker.file.name: 'Dockerfile'
 
 jobs:
   - job: TestApplication
@@ -80,6 +80,7 @@ jobs:
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
         manualBranchPrefix: $(manual.branch.prefix)
         applicationName: $(application.name)
+        dockerFileName: $(docker.file.name)
 
   - job: BuildAndPushImageManualSidekiq
   
@@ -93,5 +94,6 @@ jobs:
       parameters:
         azureContainerRegistry: $(azure.container.registry)
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: et1-sidekiq
+        manualBranchPrefix: $(manual.branch.prefix)
+        applicationName: $(application.name)-sidekiq
         dockerFileName: 'Dockerfile.sidekiq'

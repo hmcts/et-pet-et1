@@ -32,7 +32,7 @@ steps:
   inputs:
     imageName: '${{ parameters.azureContainerRegistry }}/${{ parameters.applicationName }}:$(getDockerTag.DOCKER_TAG)'
     arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg "APP_BUILD_DATE=$(getBuildDateTime.Build_DT)" --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
-    dockerFile: '${{ parameters.dockerFileName }}'
+    dockerFile: '**/${{ parameters.dockerFileName }}'
 
 - task: Docker@1
   displayName: 'Push an image'
