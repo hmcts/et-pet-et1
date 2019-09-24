@@ -1,3 +1,3 @@
-#!/bin/sh
+#!/bin/bash
 
 exec java -jar /var/lib/pdftk.jar "$@"

@@ -2,7 +2,7 @@ parameters:
   azureContainerRegistry: ''
   azureSubscriptionEndpoint: ''
   applicationName: ''
-
+  dockerFileName: ''
 
 steps:
 - bash: |
@@ -38,6 +38,7 @@ steps:
     azureContainerRegistry: ${{ parameters.azureContainerRegistry }}
     command: 'Push an image'
     imageName: '${{ parameters.applicationName }}:$(getDockerTag.DOCKER_TAG)'
+    dockerFile: '**/${{ parameters.dockerFileName }}'
 
 - task: Docker@1
   displayName: logout
