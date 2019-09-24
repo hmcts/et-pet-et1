@@ -93,5 +93,5 @@ jobs:
       parameters:
         azureContainerRegistry: $(azure.container.registry)
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)-sidekiq
+        applicationName: et1-sidekiq
         dockerFileName: 'Dockerfile.sidekiq'
