@@ -52,13 +52,6 @@ jobs:
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
         applicationName: $(application.name)
 
-    - template: ./pipeline-steps/docker-build.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)-sidekiq
-        dockerFileName: 'Dockerfile.sidekiq'
-
   - job: BuildAndPushImageRelease
 
     dependsOn: TestApplication
@@ -72,14 +65,6 @@ jobs:
         azureContainerRegistry: $(azure.container.registry)
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
         applicationName: $(application.name)
-
-    - template: ./pipeline-steps/docker-build.yaml
-      parameters:
-        azureContainerRegistry: $(azure.container.registry)
-        azureSubscriptionEndpoint: $(azure.subscription.endpoint)
-        applicationName: $(application.name)-sidekiq
-        dockerFileName: 'Dockerfile.sidekiq'
-
 
   - job: BuildAndPushImageManual
   
@@ -96,7 +81,15 @@ jobs:
         manualBranchPrefix: $(manual.branch.prefix)
         applicationName: $(application.name)
 
-    - template: ./pipeline-steps/docker-build.yaml
+  - job: BuildAndPushImageManualSidekiq
+  
+    dependsOn: TestApplication
+    condition: and(succeeded(), eq(variables['Build.Reason'], 'Manual'))
+    pool:
+      name: hmcts-pet
+    
+    steps:
+    - template: ./pipeline-steps/docker-manual.yaml
       parameters:
         azureContainerRegistry: $(azure.container.registry)
         azureSubscriptionEndpoint: $(azure.subscription.endpoint)
