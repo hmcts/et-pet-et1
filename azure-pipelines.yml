@@ -30,6 +30,11 @@ jobs:
     steps:
 
     - script: |
+          cat Gemfile
+          cat Gemfile.lock
+      displayName: 'before script'
+
+    - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
