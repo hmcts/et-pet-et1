@@ -32,7 +32,6 @@ jobs:
     - script: |
           cat Gemfile
           cat Gemfile.lock
-          cat /rubygems
       displayName: 'before script'
 
     - script: |
