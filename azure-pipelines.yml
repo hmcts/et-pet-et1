@@ -35,6 +35,11 @@ jobs:
       displayName: 'before script'
 
     - script: |
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run gem install bundler -v 1.17.3
+      displayName: 'bundler update'
+
+
+    - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
       displayName: 'bundle install'
 
