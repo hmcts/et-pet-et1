@@ -67,7 +67,7 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
-  gem 'puma', '~> 4.1', '>= 4.1.1'
+  gem 'puma', '~> 4.2'
 end
 
 group :production do
