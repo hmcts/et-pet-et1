@@ -26,7 +26,7 @@ services:
       AWS_SECRET_ACCESS_KEY:
       SERVICE_NOW_EMAIL: fake@servicenow.fake.com
     volumes:
-      - rubygems_cache:/rubygems
+      - rubygems_cache1:/rubygems
       - npm_cache:/app/node_modules
     command: /bin/bash -c "bundle && npm install && bundle exec rake db:create db:migrate assets:precompile cucumber"
   db:
@@ -36,6 +36,6 @@ services:
     volumes:
       - /dev/shm:/dev/shm
 volumes:
-  rubygems_cache:
+  rubygems_cache1:
   npm_cache:
 
