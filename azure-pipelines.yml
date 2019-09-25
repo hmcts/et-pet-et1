@@ -32,13 +32,20 @@ jobs:
     - script: |
           cat Gemfile
           cat Gemfile.lock
+          cat /rubygems
       displayName: 'before script'
 
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
+      displayName: 'bundle install'
+
+    - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
+      displayName: 'npm'
+
+    - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
-      displayName: 'before script'
+      displayName: 'rake'
 
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "DRIVER=poltergeist bundle exec parallel_rspec spec"
