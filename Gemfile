@@ -72,7 +72,7 @@ end
 
 group :production do
   # Use Uglifier as compressor for JavaScript assets
-  gem 'uglifier', '~> 4.1'
+  gem 'uglifier', '~> 4.2'
 end
 
 group :production, :test do
