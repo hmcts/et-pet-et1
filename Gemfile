@@ -27,7 +27,7 @@ gem 'coffee-rails', '~> 5.0'
 gem 'turbolinks', '~> 5.2'
 
 # Use iodine as the app server
-gem 'iodine', '~> 0.7.33'
+gem 'iodine', '~> 0.7.34'
 
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 0.4'
