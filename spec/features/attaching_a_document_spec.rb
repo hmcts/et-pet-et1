@@ -20,7 +20,7 @@ feature 'Attaching a document' do
     context 'Uploading a valid RTF file' do
       before do
         visit '/apply/claim-details'
-        attach_file "claim_details_claim_details_rtf", rtf_file_path
+        attach_file "claim_details_claim_details_rtf", rtf_file_path, visible: false
         fill_in_claim_details
       end
 
@@ -38,7 +38,7 @@ feature 'Attaching a document' do
 
       scenario 'Replacing the file' do
         visit '/apply/claim-details'
-        attach_file "claim_details_claim_details_rtf", alternative_rtf_file_path
+        attach_file "claim_details_claim_details_rtf", alternative_rtf_file_path, visible: false
         click_button 'Save and continue'
 
         expect(claim.reload.claim_details_rtf_file.read).to eq File.read(alternative_rtf_file_path)
@@ -47,7 +47,7 @@ feature 'Attaching a document' do
 
     scenario 'Uploading a non text file' do
       visit '/apply/claim-details'
-      attach_file "claim_details_claim_details_rtf", invalid_file_path
+      attach_file "claim_details_claim_details_rtf", invalid_file_path, visible: false
       click_button 'Save and continue'
 
       expect(page).to have_text('is not an RTF')
