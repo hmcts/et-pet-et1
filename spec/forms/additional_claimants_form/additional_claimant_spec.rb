@@ -50,7 +50,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
         before { additional_claimant.assign_attributes attributes }
 
         it "saves the data" do
-          expect(target).to receive(:update_attributes).with additional_claimant.attributes
+          expect(target).to receive(:update).with additional_claimant.attributes
           additional_claimant.save
         end
 
@@ -59,7 +59,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
         end
 
         context 'PG::NotNullViolation' do
-          before { allow(target).to receive(:update_attributes).and_raise(PG::NotNullViolation.new('test')) }
+          before { allow(target).to receive(:update).and_raise(PG::NotNullViolation.new('test')) }
 
           it "send a data to sentry" do
             expect(Raven).to receive(:extra_context).with(
@@ -87,7 +87,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
         before { allow(additional_claimant).to receive(:valid?).and_return false }
 
         it 'is not saved' do
-          expect(target).not_to receive(:update_attributes)
+          expect(target).not_to receive(:update)
           additional_claimant.save
         end
 

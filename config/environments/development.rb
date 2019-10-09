@@ -86,6 +86,8 @@ Rails.application.configure do
   config.google_tag_manager_account = false
 
   config.service_now_inbox_email = nil
+
+  config.hosts.clear
 end
 
 Slim::Engine.set_default_options pretty: true, sort_attrs: true
