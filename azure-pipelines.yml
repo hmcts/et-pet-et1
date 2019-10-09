@@ -41,7 +41,7 @@ jobs:
       displayName: 'script'
 
     - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml down
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml down -v
       condition: always()
       displayName: 'cleanup'
 
