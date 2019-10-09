@@ -24,8 +24,8 @@ Feature: Output Form
       | country                      | United Kingdom              |
       | telephone_number             | 01234 567890                |
       | alternative_telephone_number | 01234 098765                |
-      | email_address                | test@digital.justice.gov.uk |
       | correspondence               | Email                       |
+      | email_address                | test@digital.justice.gov.uk |
     And I save the claimant details
     And I answer Yes to the group claims question
     And I fill in the first group claimant details with:
