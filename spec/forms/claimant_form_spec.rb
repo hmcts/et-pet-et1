@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimantForm, type: :form do
-  let(:claimant) { Claimant.new }
+  let(:claimant) { Claimant.new contact_preference: 'email' }
   let(:resource) { Claim.new primary_claimant: claimant }
 
   let(:claimant_form) { described_class.new Claim.new primary_claimant: claimant }
@@ -49,18 +49,31 @@ RSpec.describe ClaimantForm, type: :form do
       it { expect(claimant_form).to validate_length_of(number).is_at_most(21) }
     end
 
-    ['email_address', 'fax_number'].each do |attribute|
-      name = attribute.split('_').first
+    describe "presence of fax" do
+      describe "when contact_preference != fax" do
+        before { claimant_form.contact_preference = 'email'}
 
-      describe "presence of #{name}" do
-        describe "when contact_preference != #{name}" do
-          it { expect(claimant_form).not_to validate_presence_of(attribute) }
-        end
+        it { expect(claimant_form).not_to validate_presence_of(:fax_number) }
+      end
 
-        describe "when contact_preference == #{name}" do
-          before { claimant_form.contact_preference = name }
-          it { expect(claimant_form).to validate_presence_of(attribute) }
-        end
+      describe "when contact_preference == fax" do
+        before { claimant_form.contact_preference = 'fax'}
+
+        it { expect(claimant_form).to validate_presence_of(:fax_number) }
+      end
+    end
+
+    describe "presence of email" do
+      describe "when contact_preference != email" do
+        before { claimant_form.contact_preference = 'fax'}
+
+        it { expect(claimant_form).not_to validate_presence_of(:email_address) }
+      end
+
+      describe "when contact_preference == email" do
+        before { claimant_form.contact_preference = 'email'}
+
+        it { expect(claimant_form).to validate_presence_of(:email_address) }
       end
     end
   end
@@ -73,6 +86,25 @@ RSpec.describe ClaimantForm, type: :form do
 
       expect(claimant_form.special_needs).to be nil
     end
+
+    it 'clears the email address if contact preference is post' do
+      claimant_form.email_address = 'test@example.com'
+      claimant_form.contact_preference = 'post'
+
+      claimant_form.valid?
+
+      expect(claimant_form.email_address).to be_nil
+    end
+
+    it 'does not clear the email address if contact preference is email' do
+      claimant_form.email_address = 'test@example.com'
+      claimant_form.contact_preference = 'email'
+
+      claimant_form.valid?
+
+      expect(claimant_form.email_address).to eql 'test@example.com'
+    end
+
   end
 
   describe 'overridden attribute setters' do
