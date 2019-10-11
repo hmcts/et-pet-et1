@@ -114,7 +114,7 @@ GEM
     capybara-screenshot (1.0.23)
       capybara (>= 1.0, < 4)
       launchy
-    carrierwave (2.0.1)
+    carrierwave (2.0.2)
       activemodel (>= 5.0.0)
       activesupport (>= 5.0.0)
       addressable (~> 2.6)
@@ -232,7 +232,7 @@ GEM
       activesupport (>= 4.1)
     hashdiff (1.0.0)
     http_parser.rb (0.6.0)
-    i18n (1.6.0)
+    i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.9.3)
       mini_magick (>= 4.9.5, < 5)
@@ -285,7 +285,7 @@ GEM
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.12.0)
+    minitest (5.12.2)
     moj_template (0.23.0)
       rails (>= 3.1)
     multi_json (1.13.1)
@@ -506,7 +506,7 @@ GEM
     websocket-extensions (0.1.4)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.1.10)
+    zeitwerk (2.2.0)
 
 PLATFORMS
   ruby
