@@ -32,12 +32,20 @@ fieldset
   = f.input :address_country, collection: ClaimantForm::COUNTRIES, include_blank: false
   = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
-  = f.input :email_address
 
-  fieldset
-    = f.input :contact_preference,
-      collection: ClaimantForm::CONTACT_PREFERENCES,
-      as: :radio_buttons,
-      readonly: nil,
-      include_hidden: false,
-      item_wrapper_class: 'block-label'
+  = f.input :contact_preference,
+    collection: ClaimantForm::CONTACT_PREFERENCES,
+    as: :radio_buttons,
+    readonly: nil,
+    include_hidden: false,
+    item_wrapper_class: 'block-label',
+    wrapper_class: 'form-group-reveal reveal-publish-delegate',
+    input_html: { :class => 'reveal-publish-publisher'},
+    reveal: { "email" => 'email_address', "post" => 'email_address'}
+
+  = f.input :email_address,
+  wrapper_class: 'panel-indent toggle-content',
+  wrapper_html: { id: :email_address,
+                  :class => 'reveal-subscribe',
+                  :'data-target' => 'email_address',
+                  :'data-show-array' => 'email' }

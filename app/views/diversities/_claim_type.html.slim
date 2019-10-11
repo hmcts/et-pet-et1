@@ -1,8 +1,7 @@
-fieldset
-  = f.input :claim_type,
-    as: :radio_buttons,
-    readonly: nil,
-    collection: Diversities::ClaimTypeForm::CLAIM_TYPES,
-    include_hidden: false,
-    item_wrapper_class: 'govuk-radios__item',
-    label: false, input_html: {class: 'govuk-radios__input'}
+= f.input :claim_type,
+  as: :radio_buttons,
+  readonly: nil,
+  collection: Diversities::ClaimTypeForm::CLAIM_TYPES,
+  include_hidden: false,
+  item_wrapper_class: 'govuk-radios__item',
+  label: false, input_html: {class: 'govuk-radios__input'}
