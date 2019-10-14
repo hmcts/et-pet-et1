@@ -21,14 +21,14 @@ RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
 
   describe '#save' do
     describe 'for valid attributes' do
-      before { allow(form.target).to receive(:update_attributes) }
+      before { allow(form.target).to receive(:update) }
 
       it "saves the data" do
         expect(form.resource).to receive(:save)
 
         form.save
 
-        expect(form.target).to have_received(:update_attributes).with form.attributes
+        expect(form.target).to have_received(:update).with form.attributes
       end
     end
 
@@ -48,7 +48,7 @@ RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
       end
 
       it 'does not attempt to update the target' do
-        expect(form.target).not_to receive(:update_attributes)
+        expect(form.target).not_to receive(:update)
         expect(form.resource).to receive(:save)
         form.save
       end
