@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   match "/422", :to => "errors#unprocessable", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
   match "/503", :to => "errors#service_unavailable", :via => :all
-  # @TODO RST-1897 Remove this once the GDS link is fixed
-  get "/employment-tribunal-response", to: redirect("https://tribunal-response.employmenttribunals.service.gov.uk")
-  get "/employment-tribunals", to: redirect("https://employmenttribunals.service.gov.uk")
-  # End of RST-1897 comment
   scope "(:locale)", locale: /en|cy/ do
     scope :apply do
       resource :guide,              only: :show
