@@ -94,43 +94,43 @@ jobs:
         command: logout
 
 
-  - job: ExtractAssets
-    dependsOn: BuildAndPushImage
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
-    pool:
-      name: hmcts-pet
-    variables:
-      docker.tag: $[ dependencies.BuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
-    steps:
+  # - job: ExtractAssets
+  #   dependsOn: BuildAndPushImage
+  #   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  #   pool:
+  #     name: hmcts-pet
+  #   variables:
+  #     docker.tag: $[ dependencies.BuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
+  #   steps:
 
-      - task: Docker@1
-        displayName: 'Run an image'
-        inputs:
-          command: 'Run an image'
-          imageName: '$(application.name):$(docker.tag)'
-          containerName: 'ASSET_CONTAINER'
+  #     - task: Docker@1
+  #       displayName: 'Run an image'
+  #       inputs:
+  #         command: 'Run an image'
+  #         imageName: '$(application.name):$(docker.tag)'
+  #         containerName: 'ASSET_CONTAINER'
 
-      - bash: |
-          mkdir -p temp_assets
-          docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
-          docker stop ASSET_CONTAINER
-          cd temp_assets/assets
-          docker rm ASSET_CONTAINER
-        displayName: 'Get Assets'
-        name: 'getAssets'
+  #     - bash: |
+  #         mkdir -p temp_assets
+  #         docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
+  #         docker stop ASSET_CONTAINER
+  #         cd temp_assets/assets
+  #         docker rm ASSET_CONTAINER
+  #       displayName: 'Get Assets'
+  #       name: 'getAssets'
 
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          az storage blob delete-batch -s assets --account-name $(azure.storage.account)
-        displayName: 'Clean Up Blob'
-        name: 'cleanUpBlob'
+  #     - bash: |
+  #         az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+  #         az storage blob delete-batch -s assets --account-name $(azure.storage.account)
+  #       displayName: 'Clean Up Blob'
+  #       name: 'cleanUpBlob'
 
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          cd temp_assets/assets
-          az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
-        displayName: 'Copy Assets To Blob'
-        name: 'copyToBlob'
+  #     - bash: |
+  #         az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+  #         cd temp_assets/assets
+  #         az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
+  #       displayName: 'Copy Assets To Blob'
+  #       name: 'copyToBlob'
 
 
   - job: ManualBuildAndPushImage
@@ -181,41 +181,41 @@ jobs:
         command: logout
 
 
-  - job: ManualExtractAssets
-    dependsOn: ManualBuildAndPushImage
-    pool:
-      name: hmcts-pet
-    variables:
-      docker.tag: $[ dependencies.ManualBuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
-    steps:
+  # - job: ManualExtractAssets
+  #   dependsOn: ManualBuildAndPushImage
+  #   pool:
+  #     name: hmcts-pet
+  #   variables:
+  #     docker.tag: $[ dependencies.ManualBuildAndPushImage.outputs['getDockerTag.DOCKER_TAG'] ]
+  #   steps:
 
-      - task: Docker@1
-        displayName: 'Run an image'
-        inputs:
-          command: 'Run an image'
-          imageName: '$(application.name):$(docker.tag)'
-          containerName: 'ASSET_CONTAINER'
+  #     - task: Docker@1
+  #       displayName: 'Run an image'
+  #       inputs:
+  #         command: 'Run an image'
+  #         imageName: '$(application.name):$(docker.tag)'
+  #         containerName: 'ASSET_CONTAINER'
 
-      - bash: |
-          mkdir -p temp_assets
-          docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
-          docker stop ASSET_CONTAINER
-          cd temp_assets/assets
-          docker rm ASSET_CONTAINER
-        displayName: 'Get Assets'
-        name: 'getAssets'
+  #     - bash: |
+  #         mkdir -p temp_assets
+  #         docker cp ASSET_CONTAINER:/usr/src/app/public/assets ./temp_assets
+  #         docker stop ASSET_CONTAINER
+  #         cd temp_assets/assets
+  #         docker rm ASSET_CONTAINER
+  #       displayName: 'Get Assets'
+  #       name: 'getAssets'
 
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          az storage blob delete-batch -s assets --account-name $(azure.storage.account)
-        displayName: 'Clean Up Blob'
-        name: 'cleanUpBlob'
+  #     - bash: |
+  #         az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+  #         az storage blob delete-batch -s assets --account-name $(azure.storage.account)
+  #       displayName: 'Clean Up Blob'
+  #       name: 'cleanUpBlob'
 
-      - bash: |
-          az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
-          cd temp_assets/assets
-          az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
-        displayName: 'Copy Assets To Blob'
-        name: 'copyToBlob'
+  #     - bash: |
+  #         az login --service-principal -u $(ARM_CLIENT_ID) -p $(ARM_CLIENT_SECRET) --tenant $(ARM_TENANT_ID)
+  #         cd temp_assets/assets
+  #         az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
+  #       displayName: 'Copy Assets To Blob'
+  #       name: 'copyToBlob'
 
 
