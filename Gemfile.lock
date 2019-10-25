@@ -241,7 +241,7 @@ GEM
       has_scope (~> 0.6)
       railties (>= 5.0, < 6.1)
       responders (>= 2, < 4)
-    iodine (0.7.34)
+    iodine (0.7.36)
     ipaddress (0.8.3)
     jaro_winkler (1.5.3)
     jbuilder (2.9.1)
@@ -532,7 +532,7 @@ DEPENDENCIES
   fog-aws (~> 3.0)
   govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
-  iodine (~> 0.7.34)
+  iodine (~> 0.7.36)
   jbuilder (~> 2.8)
   jquery-rails (~> 4.3)
   launchy
