@@ -4,6 +4,7 @@ module ET1
   module Test
     class BasePage < ::SitePrism::Page
       include ::ET1::Test::I18n
+      include ::RSpec::Matchers
       element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false
       element :google_tag_manager_body_noscript, :xpath, XPath.generate {|x| x.css('body noscript')[x.child(:iframe)[x.attr(:src).contains('googletagmanager')]]}
       def has_google_tag_manager_sections_for?(account)

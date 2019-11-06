@@ -109,6 +109,8 @@ en:
     about_the_claimant_group: About the claimant
     claimants_contact_details_group: Claimant’s contact details
     save_and_continue: Save and continue
+    errors:
+      invalid_phone_number: Invalid phone number
     title:
       label: Title (optional)
       options:

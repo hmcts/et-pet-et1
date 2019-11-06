@@ -12,11 +12,16 @@ module ET1
         end
       end
 
+      def assert_error_message(text)
+        error_message_element(text: text)
+      end
+
       private
 
       element :day_element, :field_translated, 'components.date.day'
       element :month_element, :field_translated, 'components.date.month'
       element :year_element, :field_translated, 'components.date.year'
+      element :error_message_element, :css, 'span.error'
     end
   end
 end

@@ -54,6 +54,21 @@ module ET1
         save_and_continue_element.click
       end
 
+
+      # @param [Hash] error_messages A list of error messages keyed by the question name (ignoring groups)
+      def assert_error_messages(error_messages)
+        aggregate_failures 'validating error messages' do
+          error_messages.each_pair do |question_prefix, expected_message|
+            question = :"#{question_prefix}_question"
+            [:about_the_claimant_group, :claimants_contact_details_group].any? do |group|
+              next unless send(group).respond_to?(question)
+              send(group).send(question).assert_error_message(t(expected_message))
+            end
+          end
+
+        end
+      end
+
       private
 
       section :about_the_claimant_group, :fieldset_translated, 'claimants_details.about_the_claimant_group' do
