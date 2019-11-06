@@ -99,4 +99,73 @@ en:
           name: 'Name'
           acas_number: 'Acas number'
           address: 'Address'
+  apply:
+    start_a_claim: Start a claim
+  saving_your_claim:
+    email_address: Enter your email address to receive your claim number (optional)
+    memorable_word: Create your memorable word
+    save_and_continue: Save and continue
+  claimants_details:
+    about_the_claimant_group: About the claimant
+    claimants_contact_details_group: Claimant’s contact details
+    save_and_continue: Save and continue
+    title:
+      label: Title (optional)
+      options:
+        unselected: Please select
+        mr: Mr
+        mrs: Mrs
+        ms: Ms
+        miss: Miss
+    first_name:
+      label: First name
+    last_name:
+      label: Last name
+    date_of_birth:
+      label: Date of birth
+    gender:
+      label: Gender (optional)
+      options:
+        prefer_not_to_say: Prefer not to say
+        male: Male
+        female: Female
+    has_special_needs:
+      label: Do you have a disability which means you require assistance at the tribunal hearing? (optional)
+      options:
+        "yes": "Yes"
+        "no": "No"
+    special_needs:
+      label: Describe the assistance you require (optional)
+    building:
+      label: Building number or name
+    street:
+      label: Street
+    town:
+      label: Town/city
+    county:
+      label: County
+    post_code:
+      label: Postcode
+    country:
+      label: Country
+      options:
+        united_kingdom: United Kingdom
+        outside_united_kingdom: Outside United Kingdom
+    phone_or_mobile_number:
+      label: Phone or mobile number (optional)
+    alternative_phone_or_mobile_number:
+      label: Alternative phone or mobile number (optional)
+    email_address:
+      label: Email address (optional)
+    best_correspondence_method:
+      label: Best way to send correspondence to you (the claimant)
+      options:
+        email: Email
+        post: Post
+
+  components:
+    date:
+      day: Day
+      month: Month
+      year: Year
 

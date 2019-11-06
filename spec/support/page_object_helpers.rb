@@ -1,15 +1,20 @@
+require_relative './page_objects'
 module ET1
   module Test
     module PageObjectHelpers
+
+      # @return [::ET1::Test::ApplyPage]
       def apply_page
         ::ET1::Test::ApplyPage.new
       end
 
+      # @return [ET1::Test::SavingYourClaimPage] The saving your claim page
       def saving_your_claim_page
         ::ET1::Test::SavingYourClaimPage.new
       end
 
-      # This one has phone numbers
+
+      # @return [ET1::Test::ClaimantsDetailsPage]
       def claimants_details_page
         ::ET1::Test::ClaimantsDetailsPage.new
       end
@@ -61,4 +66,8 @@ module ET1
       end
     end
   end
+end
+
+RSpec.configure do |c|
+  c.include ::ET1::Test::PageObjectHelpers
 end
