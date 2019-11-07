@@ -164,6 +164,57 @@ en:
       options:
         email: Email
         post: Post
+  group_claims:
+    save_and_continue: Save and continue
+    people_making_claim_with_you:
+      label: Are other people making a claim with you (against the same employer or organisation)? (optional)
+      options:
+        "yes": "Yes"
+        "no": "No"
+  representatives_details:
+    save_and_continue: Save and continue
+    about_your_representative_group: About your representative
+    representatives_contact_details_group: Representative’s contact details
+    do_you_have_representative:
+      label: Do you have someone who’s agreed to represent you (eg by handling correspondence)? (optional)
+      options:
+        "yes": "Yes"
+        "no": "No"
+    type:
+      label: Type of representative
+      options:
+        unselected: Please select
+        cab: Employment advisor, Citizens Advice Bureau
+        fru: Free Representation Unit
+        law_centre: Law Centre
+        trade_union: Trade union
+        solicitor: Solicitor
+        individual: Private individual
+        trade_association: Trade association
+        other: Other
+    name_of_organisation:
+      label: Name of the representative’s organisation (optional)
+    name:
+      label: Representative’s name
+    building:
+      label: Building number or name
+    street:
+      label: Street
+    town:
+      label: Town/city
+    county:
+      label: County
+    post_code:
+      label: Postcode
+    phone_or_mobile_number:
+      label: Phone or mobile number (optional)
+    alternative_phone_or_mobile_number:
+      label: Alternative phone or mobile number (optional)
+    email_address:
+      label: Email address (optional)
+    dx_number:
+      label: Document exchange (DX) number (optional)
+
 
   components:
     date:

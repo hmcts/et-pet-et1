@@ -19,15 +19,19 @@ module ET1
         ::ET1::Test::ClaimantsDetailsPage.new
       end
 
+      # @return [ET1::Test::GroupClaimsPage] The group claims page
       def group_claims_page
         ::ET1::Test::GroupClaimsPage.new
       end
 
+      # @return [ET1::Test::GroupClaimsUploadPage] The group claims upload page
       def group_claims_upload_page
         ::ET1::Test::GroupClaimsUploadPage.new
       end
 
-      # This one has phone numbers
+      # The representatives details page
+      #
+      # @return [ET1::Test::RepresentativesDetailsPage]
       def representatives_details_page
         ::ET1::Test::RepresentativesDetailsPage.new
       end

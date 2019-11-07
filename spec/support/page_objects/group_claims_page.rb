@@ -19,10 +19,23 @@ module ET1
 
       end
 
+      # Clicks on no to the primary question of 'People making a claim with you'
+      def no_secondary_claimants
+        people_making_claim_with_you_question.set(:'group_claims.people_making_claim_with_you.options.no')
+      end
+
       # Clicks the save and continue button
       def save_and_continue
-
+        save_and_continue_element.click
       end
+
+      private
+
+      section :people_making_claim_with_you_question,
+              ::ET1::Test::RadioButtonsQuestionSection,
+              :question_group_labelled_translated, 'group_claims.people_making_claim_with_you.label'
+
+      element :save_and_continue_element, :button_translated, 'group_claims.save_and_continue'
     end
   end
 end

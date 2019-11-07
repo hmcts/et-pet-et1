@@ -809,6 +809,10 @@ en:
             email_address:
               blank: Enter your representative’s email address
               invalid: You have entered an invalid email address
+            address_telephone_number:
+              invalid_phone_number_uk: Invalid phone number
+            mobile_number:
+              invalid_phone_number_uk: Invalid phone number
         respondent:
           attributes:
             name:
