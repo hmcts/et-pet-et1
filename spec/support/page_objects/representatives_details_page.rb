@@ -36,7 +36,7 @@ module ET1
 
       # Cancel the representative by clicking No in the primary question
       def no_representative
-
+        do_you_have_representative_question.set(:'representatives_details.do_you_have_representative.options.no')
       end
 
       # Clicks the save and continue button

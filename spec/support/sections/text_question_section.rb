@@ -11,7 +11,7 @@ module ET1
 
       private
 
-      element :input, :css, 'input'
+      element :input, :fillable_field
       element :error_message_element, :css, 'span.error'
     end
   end

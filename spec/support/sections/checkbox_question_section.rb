@@ -1,10 +1,8 @@
 module ET1
   module Test
-    class SelectQuestionSection < BaseSection
+    class CheckboxQuestionSection < BaseSection
       def set(value)
-        return if value.nil?
-
-        input.select(translate_if_needed value)
+        input.set value
       end
 
       def assert_error_message(text)
@@ -13,7 +11,7 @@ module ET1
 
       private
 
-      element :input, :css, 'select'
+      element :input, :css, 'input[type=checkbox]'
       element :error_message_element, :css, 'span.error'
     end
   end

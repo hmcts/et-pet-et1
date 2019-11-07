@@ -2,6 +2,8 @@ module ET1
   module Test
     class RadioButtonsQuestionSection < BaseSection
       def set(value)
+        return if value.nil?
+
         root_element.choose(translate_if_needed value)
       end
 

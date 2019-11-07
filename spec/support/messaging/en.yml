@@ -175,6 +175,8 @@ en:
     save_and_continue: Save and continue
     about_your_representative_group: About your representative
     representatives_contact_details_group: Representative’s contact details
+    errors:
+      invalid_phone_number: Invalid phone number
     do_you_have_representative:
       label: Do you have someone who’s agreed to represent you (eg by handling correspondence)? (optional)
       options:
@@ -214,6 +216,57 @@ en:
       label: Email address (optional)
     dx_number:
       label: Document exchange (DX) number (optional)
+  respondents_details:
+    save_and_continue: Save and continue
+    about_the_respondent_group: About the respondent
+    your_work_address_group: Your work address
+    errors:
+      invalid_phone_number: Invalid phone number
+    name:
+      label: Name of respondent
+    building:
+      label: Building number or name
+    street:
+      label: Street
+    town:
+      label: Town/city
+    county:
+      label: County
+    post_code:
+      label: Postcode
+    phone_number:
+      label: Phone number (optional)
+    worked_at_same_address:
+      label: Did you work at the same address to the one given above? (optional)
+      options:
+        "yes": "Yes"
+        "no": "No"
+    work_building:
+      label: Building number or name
+    work_street:
+      label: Street
+    work_town:
+      label: Town/city
+    work_county:
+      label: County
+    work_post_code:
+      label: Postcode
+    work_address_phone_number:
+      label: Phone number (optional)
+    acas_number:
+      label: Acas early conciliation certificate number
+    dont_have_acas_number:
+      label: I don’t have an Acas number
+    dont_have_acas_number_reason:
+      label: Why don’t you have an Acas number?
+      options:
+        joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
+        acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
+        employer_contacted_acas: My employer has already been in touch with Acas
+        interim_relief: "The claim consists only of a complaint of unfair dismissal which contains an application for interim relief."
+
+
+
 
 
   components:

@@ -36,7 +36,8 @@ module ET1
         ::ET1::Test::RepresentativesDetailsPage.new
       end
 
-      # This one has phone numbers
+
+      # @return [ET1::Test::RespondentsDetailsPage]
       def respondents_details_page
         ::ET1::Test::RespondentsDetailsPage.new
       end

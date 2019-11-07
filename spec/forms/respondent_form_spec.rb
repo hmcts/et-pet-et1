@@ -43,6 +43,39 @@ RSpec.describe RespondentForm, type: :form do
     it { expect(respondent_form).to validate_length_of(:work_address_post_code).is_at_most(8) }
     it { expect(respondent_form).to validate_length_of(:work_address_telephone_number).is_at_most(21) }
 
+    it 'disallows an invalid phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      respondent_form.address_telephone_number = "invalid"
+
+      # Act - call .valid?
+      respondent_form.valid?
+
+      # Assert - Check the errors
+      expect(respondent_form.errors).to include :address_telephone_number
+    end
+
+    it 'allows a blank phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      respondent_form.address_telephone_number = ""
+
+      # Act - call .valid?
+      respondent_form.valid?
+
+      # Assert - Check the errors
+      expect(respondent_form.errors).not_to include :address_telephone_number
+    end
+
+    it 'allows a nil phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      respondent_form.address_telephone_number = nil
+
+      # Act - call .valid?
+      respondent_form.valid?
+
+      # Assert - Check the errors
+      expect(respondent_form.errors).not_to include :address_telephone_number
+    end
+
     describe 'presence of work address' do
       describe "when respondent didn't work at a different address" do
         before { respondent_form.worked_at_same_address = 'true' }
