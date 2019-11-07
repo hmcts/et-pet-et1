@@ -9,8 +9,7 @@ fieldset
     include_hidden: false
 
   fieldset
-    legend.form-label
-      = "#{t('simple_form.labels.claimant.has_special_needs')} #{t('simple_form.optional.text')}"
+    legend.form-label = "#{t('simple_form.labels.claimant.has_special_needs')} #{t('simple_form.optional.text')}"
     = f.input :has_special_needs,
       as: :radio_buttons,
       readonly: nil,
@@ -39,12 +38,11 @@ fieldset
   = f.input :email_address
 
   fieldset
-    legend.form-label
-      = t('simple_form.labels.claimant.contact_preference')
-      = f.input :contact_preference,
-        label: false,
-        collection: ClaimantForm::CONTACT_PREFERENCES,
-        as: :radio_buttons,
-        readonly: nil,
-        include_hidden: false,
-        item_wrapper_class: 'block-label'
+    legend.form-label = t('simple_form.labels.claimant.contact_preference')
+    = f.input :contact_preference,
+      label: false,
+      collection: ClaimantForm::CONTACT_PREFERENCES,
+      as: :radio_buttons,
+      readonly: nil,
+      include_hidden: false,
+      item_wrapper_class: 'block-label'
