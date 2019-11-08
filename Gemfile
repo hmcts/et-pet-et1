@@ -10,7 +10,8 @@ gem 'jbuilder', '~> 2.8'
 gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.0'
+gem 'rails', '6.0.1'
+gem 'rails', '6.0.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -19,6 +20,7 @@ gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_se
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 6.0'
 gem 'coffee-rails', '~> 5.0'
+gem 'sprockets', '~> 3.7', '>= 3.7.2'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -79,7 +81,7 @@ group :production, :test do
   gem 'sentry-raven', '~> 2.9'
 end
 
-gem 'activeadmin', '~> 2.3'
+gem 'activeadmin', '~> 2.4'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
