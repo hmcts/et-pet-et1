@@ -36,7 +36,7 @@ module ET1
       #
       # @return [Symbol] The current locale
       def current_locale
-        Thread.current[:et3_test_current_locale] ||= ENV.fetch('TEST_LOCALE', 'en').to_sym
+        Thread.current[:et1_test_current_locale] ||= ENV.fetch('TEST_LOCALE', 'en').to_sym
       end
 
       alias t translate

@@ -11,15 +11,18 @@ fieldset
 
 fieldset
   legend= t '.workaddress_legend'
-  = f.input :worked_at_same_address,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: responses_collection,
-    wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
-    item_wrapper_class: 'block-label',
-    input_html: { :class => 'reveal-publish-publisher ga-vpv' },
-    reveal: { true => 'sub1', false => 'sub1' }
+  fieldset
+    legend.form-label="#{t('simple_form.labels.respondent.worked_at_same_address')} #{t('simple_form.optional.text')}"
+    = f.input :worked_at_same_address,
+      as: :radio_buttons,
+      label: false,
+      readonly: nil,
+      include_hidden: false,
+      collection: responses_collection,
+      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
+      item_wrapper_class: 'block-label',
+      input_html: { :class => 'reveal-publish-publisher ga-vpv' },
+      reveal: { true => 'sub1', false => 'sub1' }
 
   #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array="false"
     p.form-hint= t '.work_address'

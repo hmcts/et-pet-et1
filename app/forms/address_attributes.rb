@@ -34,7 +34,7 @@ module AddressAttributes
 
         validates :address_building, :address_street, length: { maximum: ADDRESS_LINE_LENGTH }
         validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }
-        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }
+        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, phone_number_uk: true, allow_blank: true
       end
     end
   end
