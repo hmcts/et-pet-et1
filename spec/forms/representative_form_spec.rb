@@ -63,6 +63,72 @@ RSpec.describe RepresentativeForm, type: :form do
       it { expect(representative_form).to validate_length_of(:mobile_number).is_at_most(21) }
       it { expect(representative_form).to validate_length_of(:dx_number).is_at_most(40) }
 
+      it 'disallows an invalid phone number in address_telephone_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.address_telephone_number = "invalid"
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).to include :address_telephone_number
+      end
+
+      it 'allows a blank phone number in address_telephone_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.address_telephone_number = ""
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).not_to include :address_telephone_number
+      end
+
+      it 'allows a nil phone number in address_telephone_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.address_telephone_number = nil
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).not_to include :address_telephone_number
+      end
+
+      it 'disallows an invalid phone number in mobile_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.mobile_number = "invalid"
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).to include :mobile_number
+      end
+
+      it 'allows a blank phone number in mobile_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.mobile_number = ""
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).not_to include :mobile_number
+      end
+
+      it 'allows a nil phone number in mobile_number' do
+        # Arrange - Give the form an invalid number
+        representative_form.mobile_number = nil
+
+        # Act - call .valid?
+        representative_form.valid?
+
+        # Assert - Check the errors
+        expect(representative_form.errors).not_to include :mobile_number
+      end
+
     end
 
     context 'when has_representative? == false' do

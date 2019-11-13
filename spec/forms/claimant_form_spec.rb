@@ -63,6 +63,73 @@ RSpec.describe ClaimantForm, type: :form do
         end
       end
     end
+
+    it 'disallows an invalid phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.address_telephone_number = "invalid"
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).to include :address_telephone_number
+    end
+
+    it 'allows a blank phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.address_telephone_number = ""
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).not_to include :address_telephone_number
+    end
+
+    it 'allows a nil phone number in address_telephone_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.address_telephone_number = nil
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).not_to include :address_telephone_number
+    end
+
+    it 'disallows an invalid phone number in mobile_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.mobile_number = "invalid"
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).to include :mobile_number
+    end
+
+    it 'allows a blank phone number in mobile_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.mobile_number = ""
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).not_to include :mobile_number
+    end
+
+    it 'allows a nil phone number in mobile_number' do
+      # Arrange - Give the form an invalid number
+      claimant_form.mobile_number = nil
+
+      # Act - call .valid?
+      claimant_form.valid?
+
+      # Assert - Check the errors
+      expect(claimant_form.errors).not_to include :mobile_number
+    end
+
   end
 
   describe 'callbacks' do

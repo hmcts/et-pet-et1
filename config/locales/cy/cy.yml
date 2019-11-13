@@ -846,9 +846,10 @@ cy:
             email_address:
               blank: Enter the claimant’s email address
               invalid: You have entered an invalid email address
-            email_address:
-              blank: Rhowch gyfeiriad e-bost yr hawlydd
-              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+            address_telephone_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
         employment:
           attributes:
             start_date:
@@ -903,6 +904,10 @@ cy:
             email_address:
               blank: Rhowch gyfeiriad e-bost eich cynrychiolydd
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+            address_telephone_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
         respondent:
           attributes:
             name:
@@ -939,6 +944,10 @@ cy:
             work_address_post_code:
               blank: Rhowch god post eich cyfeiriad gwaith
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+            address_telephone_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
         additional_respondents_form/additional_respondent:
           attributes:
             title:
