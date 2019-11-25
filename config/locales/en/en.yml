@@ -249,8 +249,6 @@ en:
         notice_pay_period_count: For how many weeks or months did you get paid?
         was_employed: Have you ever been employed by the person or organisation that you’re making this claim against?
         new_job_gross_pay: New job pay before tax
-        end_date_before_start: must be after the employment start date
-
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -778,6 +776,7 @@ en:
               invalid: The date you have provided is invalid
             end_date:
               invalid: The date you have provided is invalid
+              end_date_before_start_date: Must be after the employment start date
             notice_period_end_date:
               invalid: The date you have provided is invalid
             new_job_start_date:
