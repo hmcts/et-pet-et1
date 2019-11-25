@@ -113,6 +113,7 @@ en:
           weekly: Weekly
           monthly: Monthly
 
+
       claim:
         desired_outcomes:
           compensation_only: Compensation
@@ -248,6 +249,8 @@ en:
         notice_pay_period_count: For how many weeks or months did you get paid?
         was_employed: Have you ever been employed by the person or organisation that you’re making this claim against?
         new_job_gross_pay: New job pay before tax
+        end_date_before_start: must be after the employment start date
+
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
@@ -319,6 +322,7 @@ en:
         net_pay: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
         benefit_details: Details of benefit(s)
         end_date: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
+        end_date_before_start: must be after the employment start date
         new_job_start_date: For example, 22 04 2014
         notice_period_end_date: The date your employment ends. For example, 22 04 2014
       claim:
