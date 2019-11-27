@@ -36,6 +36,7 @@ fieldset
   = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
 
+fieldset
   = f.input :contact_preference,
     collection: ClaimantForm::CONTACT_PREFERENCES,
     as: :radio_buttons,
