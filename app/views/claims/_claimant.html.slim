@@ -49,10 +49,10 @@ fieldset
       input_html: { :class => 'reveal-publish-publisher'},
       reveal: { "email" => 'email_address', "post" => 'email_address'}
 
-= f.input :email_address,
-  required: true,
-  wrapper_class: 'panel-indent toggle-content',
-  wrapper_html: { id: :email_address,
-                  :class => 'reveal-subscribe',
-                  :'data-target' => 'email_address',
-                  :'data-show-array' => 'email' }
+  = f.input :email_address,
+    required: true,
+    wrapper_class: 'panel-indent toggle-content',
+    wrapper_html: { id: :email_address,
+                    :class => 'reveal-subscribe',
+                    :'data-target' => 'email_address',
+                    :'data-show-array' => 'email' }
