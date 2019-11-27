@@ -37,7 +37,9 @@ fieldset
   = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
 
   fieldset
+    legend.form-label = t('simple_form.labels.claimant.contact_preference')
     = f.input :contact_preference,
+      label: false,
       collection: ClaimantForm::CONTACT_PREFERENCES,
       as: :radio_buttons,
       readonly: nil,
