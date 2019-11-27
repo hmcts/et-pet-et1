@@ -856,6 +856,7 @@ cy:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
             end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+              end_date_before_start_date: Rhaid nodi dyddiad sydd ar ôl dyddiad cychwyn y gyflogaeth
             notice_period_end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
             notice_pay_period_type:

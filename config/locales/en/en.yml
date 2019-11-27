@@ -113,6 +113,7 @@ en:
           weekly: Weekly
           monthly: Monthly
 
+
       claim:
         desired_outcomes:
           compensation_only: Compensation
@@ -774,6 +775,7 @@ en:
               invalid: The date you have provided is invalid
             end_date:
               invalid: The date you have provided is invalid
+              end_date_before_start_date: Must be after the employment start date
             notice_period_end_date:
               invalid: The date you have provided is invalid
             new_job_start_date:
