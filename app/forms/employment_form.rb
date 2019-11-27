@@ -37,6 +37,7 @@ class EmploymentForm < Form
   validates :end_date, date: true
   validates :new_job_start_date, date: true
   validates :notice_period_end_date, date: true
+  validate :end_date_before_start_date?
 
   boolean :was_employed
 
@@ -93,5 +94,13 @@ class EmploymentForm < Form
 
   def target
     resource.employment || resource.build_employment
+  end
+
+  def end_date_before_start_date?
+    return if end_date.blank? || start_date.blank?
+
+    if end_date < start_date
+      errors.add(:end_date, :end_date_before_start_date)
+    end
   end
 end
