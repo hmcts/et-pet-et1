@@ -378,7 +378,6 @@ cy:
         net_pay: "Hwn yw eich tâl net neu dâl terfynol, ar ôl treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Dylech gynnwys unrhyw daliadau goramser, comisiwn a bonws"
         benefit_details: Manylion budd(ion)
         end_date: "Er enghraifft, 22 04 2014 (os nad ydych yn gwybod yr union ddyddiad, rhowch eich amcangyfrif gorau)"
-        end_date_before_start: Rhaid nodi dyddiad sydd ar ôl dyddiad cychwyn y gyflogaeth
         new_job_start_date: "Er enghraifft, 22 04 2014"
         notice_period_end_date: "Y dyddiad daw eich cyflogaeth i ben. Er enghraifft, 22 04 2014"
       claim:
