@@ -9,6 +9,7 @@ class ClaimantForm < Form
   include AddressAttributes.but_skip_postcode_validation
   include AgeValidator
 
+
   validates :address_post_code,
     post_code: true, length: { maximum: POSTCODE_LENGTH },
     unless: :international_address?
@@ -28,6 +29,7 @@ class ClaimantForm < Form
   boolean   :has_special_needs
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
+  before_validation :clear_email_address, unless: :contact_preference_email?
 
   validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
@@ -77,5 +79,9 @@ class ClaimantForm < Form
 
   def reset_special_needs!
     self.special_needs = nil
+  end
+
+  def clear_email_address
+    self.email_address = nil
   end
 end
