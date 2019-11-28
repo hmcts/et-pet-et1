@@ -44,8 +44,8 @@ module ET1
           s.country_question.set(claimant.address_country)
           s.phone_or_mobile_number_question.set(claimant.phone_or_mobile_number)
           s.alternative_phone_or_mobile_number_question.set(claimant.alternative_phone_or_mobile_number)
-          s.email_address_question.set(claimant.email_address)
           s.best_correspondence_method_question.set(claimant.best_correspondence_method)
+          s.email_address_question.set(claimant.email_address) if claimant.best_correspondence_method.to_s.split('.').last == 'email'
         end
       end
 
