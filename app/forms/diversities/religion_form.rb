@@ -7,5 +7,6 @@ module Diversities
 
     attribute :religion, :string
     attribute :religion_text, :string
+    validates :religion, presence: true
   end
 end
