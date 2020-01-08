@@ -12,6 +12,13 @@ RSpec.describe ClaimantForm, type: :form do
         before { claimant_form.address_country = 'united_kingdom' }
 
         it { expect(claimant_form).to validate_length_of(:address_post_code).is_at_most(8) }
+
+        it 'remove white space on postcode' do
+          claimant_form.address_post_code = " N111HE "
+          claimant_form.valid?
+
+          expect(claimant_form[:address_post_code]).to eq("N111HE")
+        end
       end
 
       context 'when address_country is not united_kingdom' do
