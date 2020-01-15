@@ -16,4 +16,3 @@ Feature: Refund form with no optional fields filled in
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"

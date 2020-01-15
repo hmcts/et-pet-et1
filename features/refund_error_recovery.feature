@@ -16,4 +16,3 @@ Feature: Refund form with error recovery
     And my session dissapears from a timeout
     And I fill in my refund applicant details
     Then I should see the profile selection page with a session reloaded message
-    And I take a screenshot named "Page 1 - Profile selection after session timeout"

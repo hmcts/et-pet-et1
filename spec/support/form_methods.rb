@@ -22,23 +22,6 @@ module FormMethods
         "status" => 'ok'
       }
     end
-
-    before do
-      stub_request(:post, "#{ENV.fetch('JADU_API')}new-claim").
-        to_return(body: submission_response.to_json, headers: { 'Content-Type' => 'application/json' })
-
-      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
-        with(body: "postcode=SW1%201AA", headers: { 'Accept' => 'application/json' }).
-        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
-
-      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
-        with(body: "postcode=AT1%204PQ", headers: { 'Accept' => 'application/json' }).
-        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
-
-      stub_request(:post, "#{ENV.fetch('JADU_API')}fgr-et-office").
-        with(body: "postcode=AT3%200AS", headers: { 'Accept' => 'application/json' }).
-        to_return(body: fgr_response.to_json, headers: { 'Content-Type' => 'application/json' })
-    end
   end
 
   def start_claim

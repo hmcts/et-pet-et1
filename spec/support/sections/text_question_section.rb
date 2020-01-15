@@ -1,3 +1,4 @@
+require_relative './base_section'
 module ET1
   module Test
     class TextQuestionSection < BaseSection
