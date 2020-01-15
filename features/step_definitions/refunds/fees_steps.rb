@@ -39,7 +39,6 @@ Then(/^all fee value fields in the fees page should be marked with an error for 
 end
 
 And(/^I fill in my refund fees and verify the total$/) do
-  step('I take a screenshot named "Page 4 - Fees 1"')
   test_user_fees = test_user.et_claim_to_refund.fees
   refund_fees_page.original_claim_fees.et_issue do |section|
     section.fee.set(test_user_fees.et_issue_fee) unless test_user_fees.et_issue_fee.nil?
@@ -52,7 +51,6 @@ And(/^I fill in my refund fees and verify the total$/) do
     section.payment_method.select(test_user_fees.et_hearing_payment_method) unless test_user_fees.et_hearing_payment_method.nil?
     section.payment_date.set(test_user_fees.et_hearing_payment_date) unless test_user_fees.et_hearing_payment_date.nil?
   end
-  step('I take a screenshot named "Page 4 - Fees 2"')
   refund_fees_page.original_claim_fees.et_reconsideration do |section|
     section.fee.set(test_user_fees.et_reconsideration_fee) unless test_user_fees.et_reconsideration_fee.nil?
     section.payment_method.select(test_user_fees.et_reconsideration_payment_method) unless test_user_fees.et_reconsideration_payment_method.nil?
@@ -76,7 +74,6 @@ And(/^I fill in my refund fees and verify the total$/) do
   total_value = refund_fees_page.original_claim_fees.total.fee.text.gsub(/£/, '').to_f
   expect(total_value).to eql expected_total
 
-  step('I take a screenshot named "Page 4 - Fees 3"')
   refund_fees_page.save_and_continue.click
 end
 
@@ -109,13 +106,10 @@ end
 
 And(/^I check all my refund fee unknown dates$/) do
   refund_fees_page.original_claim_fees.et_issue.payment_date.set(:unknown)
-  step('I take a screenshot named "Page 4 - Fees 3"')
   refund_fees_page.original_claim_fees.et_hearing.payment_date.set(:unknown)
   refund_fees_page.original_claim_fees.et_reconsideration.payment_date.set(:unknown)
-  step('I take a screenshot named "Page 4 - Fees 4"')
   refund_fees_page.original_claim_fees.eat_issue.payment_date.set(:unknown)
   refund_fees_page.original_claim_fees.eat_hearing.payment_date.set(:unknown)
-  step('I take a screenshot named "Page 4 - Fees 5"')
 end
 
 And(/^I fill in all my refund fee payment methods with "([^"]*)"$/) do |arg|

@@ -5,7 +5,7 @@ services:
       DB_HOST: 'db'
       DB_USERNAME: 'postgres'
       SELENIUM_URL: 'http://zalenium:4444/wd/hub'
-      DRIVER: 'chrome'
+      TEST_BROWSER: 'chrome'
     image: garytaylor/et_docker_workspace:0.1.4
     volumes:
       - rubygems_cache:/usr/local/bundle

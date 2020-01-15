@@ -10,7 +10,7 @@ trigger:
   branches:
     include:
       - develop
-      
+
 pr:
   autoCancel: true
   branches:
@@ -36,8 +36,8 @@ jobs:
       displayName: 'before script'
 
     - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "DRIVER=poltergeist bundle exec parallel_rspec spec"
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec parallel_cucumber features"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "TEST_BROWSER=poltergeist bundle exec parallel_rspec spec"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec cucumber features"
       displayName: 'script'
 
     - script: |
@@ -79,7 +79,7 @@ jobs:
         azureContainerRegistry: $(azure.container.registry)
         command: 'Tag image'
         imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-      
+
     - task: Docker@1
       displayName: 'Push an image'
       inputs:
@@ -166,7 +166,7 @@ jobs:
         azureContainerRegistry: $(azure.container.registry)
         command: 'Tag image'
         imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-      
+
     - task: Docker@1
       displayName: 'Push an image'
       inputs:

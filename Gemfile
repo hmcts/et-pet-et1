@@ -11,7 +11,6 @@ gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.0.1'
-gem 'rails', '6.0.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -34,6 +33,9 @@ gem 'iodine', '~> 0.7.34'
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 0.4'
 
+# Use dotenv for convenience in all environments
+gem 'dotenv-rails', '~> 2.7'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -42,7 +44,6 @@ group :development, :test do
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
-  gem 'dotenv-rails', '~> 2.7'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'

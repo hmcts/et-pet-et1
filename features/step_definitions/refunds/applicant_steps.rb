@@ -56,14 +56,12 @@ end
 
 And(/^I fill in my refund applicant details$/) do
   refund_applicant_page.has_name_changed.set(test_user.has_name_changed) unless test_user.has_name_changed.nil?
-  step("I take a screenshot named \"Page 2 - Applicant Details 1 \"")
   refund_applicant_page.about_the_claimant do |section|
     section.title.set(test_user.title)
     section.first_name.set(test_user.first_name)
     section.last_name.set(test_user.last_name)
     section.date_of_birth.set(test_user.date_of_birth)
   end
-  step("I take a screenshot named \"Page 2 - Applicant Details 2 \"")
   refund_applicant_page.claimants_contact_details do |section|
     section.building.set(test_user.address.building) unless test_user.address.building.nil?
     section.street.set(test_user.address.street) unless test_user.address.street.nil?
@@ -73,9 +71,7 @@ And(/^I fill in my refund applicant details$/) do
     section.telephone_number.set(test_user.telephone_number) unless test_user.telephone_number.nil?
     section.email_address.set(test_user.email_address) unless test_user.email_address.nil?
   end
-  step("I take a screenshot named \"Page 2 - Applicant Details 3 \"")
   step("I save the refund applicant details")
-
 end
 
 Then(/^the continue button should be disabled on the refund applicant page$/) do

@@ -6,6 +6,7 @@
 
 # May contain sensitive info
 /.env
+/.env.local
 
 # Ignore bundler config.
 /.bundle

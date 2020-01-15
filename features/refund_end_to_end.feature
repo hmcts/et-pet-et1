@@ -13,7 +13,6 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for a sole party who paid directly, used no representative, whos name or address has not changed and only has some fees
     And I have a bank account
@@ -26,7 +25,6 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for an individual claimant whos representative paid the fees and the indivual reimbursed them whos name or address has not changed (sunny path)
     And I have a bank account
@@ -38,7 +36,6 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for a sole party who paid directly, used a representative and whos name or address has not changed
     And I have a bank account
@@ -50,7 +47,6 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"
     # Dont forget printing
 
   Scenario: Refund for a sole party who paid directly and whos name has not changed but address has
@@ -63,7 +59,6 @@ Feature: Refund Form
     And I fill in the refund forms
     And I verify the review page and accept the declaration
     Then I should see a valid confirmation page for a claimant
-    And I take a screenshot named "Page 7 - Confirmation"
 
   Scenario: Refund for a sole party who paid directly and whos name or address has not changed but uses a building society account
     And I did not have a representative
