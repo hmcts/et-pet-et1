@@ -23,10 +23,9 @@ test: &test
   user: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
 
 production:
-  adapter: postgresql
+  <<: *default
   database: <%= ENV['DB_NAME'] || 'etdb' %>
-  encoding: unicode
-  host: <%= ENV['DB_HOST'] %>
+  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
   username: <%= ENV['DB_USERNAME']  || 'etuser' %>
   password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
   pool: 15

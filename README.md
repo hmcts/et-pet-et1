@@ -7,6 +7,12 @@
 [![Build Status](https://dev.azure.com/HMCTS-PET/pet-azure-infrastructure/_apis/build/status/et1?branchName=develop)](https://dev.azure.com/HMCTS-PET/pet-azure-infrastructure/_build/latest?definitionId=20&branchName=develop)
 ## Dependencies
 
+### Installing postgres client
+
+#### Linux
+
+sudo apt-get install libpq-dev
+
 ### Installing pdftk
 
 The application requires [pdftk](https://www.pdflabs.com/tools/pdftk-server/) to inject content into a template pdf file. This is the end result of completing a claim in the web application.
@@ -17,19 +23,17 @@ For versions of OS X 10.10 and lower [this](https://www.pdflabs.com/tools/pdftk-
 
 ### npm v2.x.x (not v3.x.x)
 
+#### Linux
+
+Use nvm - https://github.com/nvm-sh/nvm
+
+#### OSX
+
 To install npm v2 using brew:
 ```
 brew install homebrew/versions/node4-lts
 ```
 This should install node v4.4.3 and npm v2.15.1
-
-### Dependencies for deployment
-
-The application depends on 2 other repositories during deployment:
-
-* [Parliamentary Questions Deploy](https://github.com/ministryofjustice/parliamentary-questions-deploy) - rather than having its own deploy app, this product uses the deploy shared with Parliamentary Questions.
-* [ATET Smoketests](https://github.com/ministryofjustice/atet-smoketests) - these are run as part of the build process.
-
 
 
 ## Running the application locally
@@ -53,7 +57,7 @@ Please note the [build section](#build) may be outdated. The following steps wor
 1) Run `docker-compose -f docker-compose-local-test.yml up`
 1) Run `rails db:create db:migrate`
     1) If you get an error about `claim.rb`, open `app/models/claim.rb`
-    1) Comment out lines 44-46: 
+    1) Comment out lines 44-46:
         ```ruby
           # bitmask :discrimination_claims, as: DISCRIMINATION_COMPLAINTS
           # bitmask :pay_claims,            as: PAY_COMPLAINTS
