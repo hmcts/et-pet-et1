@@ -21,5 +21,6 @@ module Diversities
     }.freeze
     attribute :ethnicity, :string
     attribute :ethnicity_subgroup, :string
+    validates :ethnicity, presence: true
   end
 end

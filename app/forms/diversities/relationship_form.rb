@@ -9,5 +9,6 @@ module Diversities
                     "surviving-partner-from-a-same-sex-civil-partnership", "prefer-not-to-say"].freeze
 
     attribute :relationship, :string
+    validates :relationship, presence: true
   end
 end
