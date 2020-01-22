@@ -4,5 +4,5 @@ module Diversities
                    "other-payments-you-are-owed", "other-complaints"].freeze
     attribute :claim_type, :string
     validates :claim_type, presence: true
+    end
   end
-end

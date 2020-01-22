@@ -972,5 +972,29 @@ cy:
             address_post_code:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+        diversities/claim_type:
+          attributes:
+            claim_type:
+              blank: Mae angen i chi ddewis o leiaf un math o hawliad
+        diversities/relationship:
+          attributes:
+            relationship:
+              blank: Mae angen i chi ddarparu eich statws perthynas
+        diversities/religion:
+          attributes:
+            religion:
+              blank: Mae angen i chi nodi'ch crefydd
+        diversities/ethnicity:
+          attributes:
+            ethnicity:
+              blank: Mae angen i chi nodi'ch ethnigrwydd
+        diversities/disability:
+          attributes:
+            disability:
+              blank: Mae angen i chi nodi a oes gennych unrhyw anabledd
+        diversities/pregnancy:
+          attributes:
+            pregnancy:
+              blank: Mae angen i chi nodi a oeddech chi'n feichiog ai peidio
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]

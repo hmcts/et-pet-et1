@@ -878,3 +878,28 @@ en:
             address_post_code:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+        diversities/claim_type:
+          attributes:
+            claim_type:
+              blank: You need to select at least one claim type
+        diversities/relationship:
+          attributes:
+            relationship:
+              blank: You need to provide your relationship status
+        diversities/religion:
+          attributes:
+            religion:
+              blank: You need to indicate your religion
+        diversities/ethnicity:
+          attributes:
+            ethnicity:
+              blank: You need to specify your ethnicity
+        diversities/disability:
+          attributes:
+            disability:
+              blank: You need to specify if you have any disability
+        diversities/pregnancy:
+          attributes:
+            pregnancy:
+              blank: You need to specify if you were pregnant or not
+
