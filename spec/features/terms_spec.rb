@@ -9,7 +9,7 @@ feature 'Terms' do
   let(:privacy_policy_header)                          { '<h2 class="legend">HMCTS privacy notice</h2>' }
   let(:privacy_policy_purpose_header)                  { '<h3>Purpose</h3>' }
   let(:privacy_policy_about_data_header)               { '<h3>About personal data</h3>' }
-  let(:privacy_policy_personal_data_collection_header) { '<h3>Personal Data That We Collect</h3>' }
+  let(:privacy_policy_personal_data_collection_header) { '<h3>Personal data that we collect</h3>' }
   let(:privacy_policy_personal_information_header)     { '<h3>How we use your personal data</h3>' }
   let(:privacy_policy_non_personal_information_header) { '<h3>How we use non-personal data</h3>' }
   let(:privacy_policy_data_storage_header)             { '<h3>How your personal data is stored</h3>' }
