@@ -98,6 +98,7 @@ class EmploymentForm < Form
 
   def end_date_before_start_date?
     return if end_date.blank? || start_date.blank?
+    return unless end_date.is_a?(Date) && start_date.is_a?(Date)
 
     if end_date < start_date
       errors.add(:end_date, :end_date_before_start_date)

@@ -37,7 +37,6 @@ jobs:
 
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "TEST_BROWSER=poltergeist bundle exec parallel_rspec spec"
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec cucumber features"
       displayName: 'script'
 
     - script: |

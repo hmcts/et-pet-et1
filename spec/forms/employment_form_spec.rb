@@ -17,6 +17,25 @@ RSpec.describe EmploymentForm, type: :form do
         expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
 
       end
+
+      it 'rejects a missing year' do
+        employment_form.send(:"#{field}=", {day: '1', month: '1', year: ''})
+        employment_form.valid?
+        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+      end
+
+      it 'rejects a missing month' do
+        employment_form.send(:"#{field}=", {day: '1', month: '', year: '2010'})
+        employment_form.valid?
+        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+      end
+
+      it 'rejects a missing day' do
+        employment_form.send(:"#{field}=", {day: '', month: '1', year: '2010'})
+        employment_form.valid?
+        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+      end
+
     end
     [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
@@ -54,11 +73,14 @@ RSpec.describe EmploymentForm, type: :form do
       include_examples 'common date examples', field: :start_date
     end
 
-    it 'rejects when end_date is before start_date' do
-      employment_form.send(:"#{:start_date}=", {day: '1', month: '1', year: '2015'})
-      employment_form.send(:"#{:end_date}=", {day: '1', month: '1', year: '2014'})
-      employment_form.valid?
-      expect(employment_form.errors.details[:end_date]).to include(error: :end_date_before_start_date)
+    context 'end date before start date' do
+
+      it 'rejects when end_date is before start_date' do
+        employment_form.send(:"#{:start_date}=", {day: '1', month: '1', year: '2015'})
+        employment_form.send(:"#{:end_date}=", {day: '1', month: '1', year: '2014'})
+        employment_form.valid?
+        expect(employment_form.errors.details[:end_date]).to include(error: :end_date_before_start_date)
+      end
     end
   end
 
