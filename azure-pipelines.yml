@@ -74,6 +74,7 @@ jobs:
 
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml down -v
+          docker rmi $(Build.BuildId)_test:latest
       condition: always()
       displayName: 'cleanup'
 

@@ -2,7 +2,6 @@ version: "2"
 
 services:
   test:
-    image: moj_et_test
     build:
       context: .
       dockerfile: Dockerfile.test
