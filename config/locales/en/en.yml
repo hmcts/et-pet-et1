@@ -467,11 +467,11 @@ en:
   terms:
     show:
       header: Terms and conditions
-      general: General Terms and conditions
+      general: General terms and conditions
       applicable_law: Applicable law
       applicable_law_responsible_use: Responsible use of this service
       data_protection: General Data Protection Regulations (GDPR)
-      privacy_policy: HMCTS Privacy Notice
+      privacy_policy: HMCTS privacy notice
       disclaimer: Disclaimer
 
   claims:

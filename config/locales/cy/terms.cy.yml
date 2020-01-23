@@ -49,7 +49,7 @@ cy:
           line_two: "Nid yw’n cynnwys gwybodaeth sy’n ymwneud â phobl wedi marw, grwpiau neu gymunedau o bobl, sefydliadau neu fusnesau. Gall gynnwys eich enw, eich cyfeiriad neu’ch rhif ffôn. Gall hefyd gynnwys gwybodaeth am eich rhywedd, eich amgylchiadau ariannol, eich cefndir diwylliannol neu eich statws cymdeithasol."
           line_three: "Gwyddwn ei fod yn hynod bwysig i ddiogelu preifatrwydd bob unigolyn sy’n rhan o achos tribiwnlys a chydymffurfio â deddfau diogelu data. Byddwn yn diogelu eich data personol a byddwn ond yn ei ddatgelu pan fydd yn gyfreithlon i wneud hynny neu gyda’ch caniatâd chi."
         section_three:
-          title: Data Personol Rydym yn ei Gasglu
+          title: Data personol rydym yn ei gasglu
           line_one: "Rydym ni’n casglu’r data canlynol pan fyddwch yn defnyddio’r gwasanaeth hwn:"
           list_one:
             one: "eich enw a’ch cyfeiriad"

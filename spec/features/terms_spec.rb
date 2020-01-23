@@ -2,14 +2,14 @@ require 'rails_helper'
 
 feature 'Terms' do
 
-  let(:general_header)                                 { '<h2 class="legend">General Terms and Conditions</h2>' }
+  let(:general_header)                                 { '<h2 class="legend">General terms and conditions</h2>' }
   let(:applicable_law_header)                          { '<h2 class="legend">Applicable Law</h2>' }
   let(:applicable_law_responsible_use_header)          { '<h2 class="legend">Responsible use of this service</h2>' }
   let(:data_protection_header)                         { '<h2 class="legend">General Data Protection Regulations (GDPR)</h2>' }
-  let(:privacy_policy_header)                          { '<h2 class="legend">HMCTS Privacy Notice</h2>' }
+  let(:privacy_policy_header)                          { '<h2 class="legend">HMCTS privacy notice</h2>' }
   let(:privacy_policy_purpose_header)                  { '<h3>Purpose</h3>' }
   let(:privacy_policy_about_data_header)               { '<h3>About personal data</h3>' }
-  let(:privacy_policy_personal_data_collection_header) { '<h3>Personal Data That We Collect</h3>' }
+  let(:privacy_policy_personal_data_collection_header) { '<h3>Personal data that we collect</h3>' }
   let(:privacy_policy_personal_information_header)     { '<h3>How we use your personal data</h3>' }
   let(:privacy_policy_non_personal_information_header) { '<h3>How we use non-personal data</h3>' }
   let(:privacy_policy_data_storage_header)             { '<h3>How your personal data is stored</h3>' }
@@ -22,10 +22,10 @@ feature 'Terms' do
 
   let(:disclaimer_header)                              { '<h2 class="legend">Disclaimer</h2>' }
 
-  let(:general_link)                                  { "General Terms and conditions" }
+  let(:general_link)                                  { "General terms and conditions" }
   let(:applicable_law_link)                           { "Applicable law" }
   let(:applicable_law_responsible_use_link)           { "Responsible use of this service" }
-  let(:privacy_policy_link)                           { "HMCTS Privacy Notice" }
+  let(:privacy_policy_link)                           { "HMCTS privacy notice" }
   let(:data_protection_link)                          { "General Data Protection Regulations (GDPR)" }
   let(:disclaimer_link)                               { "Disclaimer" }
 
