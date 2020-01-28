@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   end
 
   scope :apply do
-    ActiveAdmin.routes(self)
+    ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
     mount Sidekiq::Web => '/sidekiq'
   end
 
