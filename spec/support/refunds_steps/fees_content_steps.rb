@@ -1,0 +1,3 @@
+def then_all_fee_help_content_should_be_correct_on_the_fees_page
+  expect(refund_fees_page).to have_valid_help_section
+end
