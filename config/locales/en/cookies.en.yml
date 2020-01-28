@@ -20,7 +20,7 @@ en:
           two: what you click on
           three: how long you spend on each page 
           four: how you got to the website, for example (from a search engine) 
-        line_two: "We don’t collect or store personal information in cookies, for example (your name or address), so the information can’t be used to identify you. We don’t allow Google to use or share our analytics data. Google Analytics uses the following cookies:"
+        line_two: "We don’t collect or store personal information in cookies, for example your name or address, so the information can’t be used to identify you. We don’t allow Google to use or share our analytics data. Google Analytics uses the following cookies:"
         table:
           labels:
             name: Name
