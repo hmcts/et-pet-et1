@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'rubocop', '~> 0.74', :require => false
-  gem 'rubocop-rspec', '~> 1.32', :require => false
+  gem 'rubocop-rspec', '~> 1.37', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 2.28'
