@@ -7,15 +7,13 @@ services:
       dockerfile: Dockerfile.test
     links:
       - db
-      - selenium
     environment:
       GEM_HOME: '/rubygems'
       BUNDLE_PATH: '/rubygems'
       DB_HOST: 'db'
       DB_USERNAME: 'postgres'
       RAILS_ENV: 'test'
-      SELENIUM_URL: 'http://selenium:4444/wd/hub'
-      TEST_BROWSER: 'chrome'
+      TEST_BROWSER: 'firefox_local'
       GOOGLE_ANALYTICS_ID: moj_et_test
       HTTP_OPEN_TIMEOUT_S: 100
       HTTP_READ_TIMEOUT_S: 100
@@ -27,13 +25,9 @@ services:
     volumes:
       - rubygems_cache:/rubygems
       - npm_cache:/app/node_modules
-    command: /bin/bash -c "bundle && npm install && bundle exec rake db:create db:migrate assets:precompile cucumber"
+    command: /bin/bash -c "bundle && npm install && bundle exec rake db:create db:migrate assets:precompile rspec"
   db:
     image: postgres:9.6
-  selenium:
-    image: selenium/standalone-chrome-debug
-    volumes:
-      - /dev/shm:/dev/shm
 volumes:
   rubygems_cache:
   npm_cache:

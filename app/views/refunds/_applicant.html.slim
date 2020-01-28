@@ -29,14 +29,14 @@ fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
   fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='false'
     legend= t '.legend_contact_details'
 
-  = f.input :applicant_address_building
-  = f.input :applicant_address_street
-  = f.input :applicant_address_locality
-  = f.input :applicant_address_county
-  = f.input :applicant_address_post_code, input_html: {class: 'short-input'}
+    = f.input :applicant_address_building
+    = f.input :applicant_address_street
+    = f.input :applicant_address_locality
+    = f.input :applicant_address_county
+    = f.input :applicant_address_post_code, input_html: {class: 'short-input'}
 
-  = f.input :applicant_address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
-  = f.input :applicant_email_address
+    = f.input :applicant_address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
+    = f.input :applicant_email_address
 
 fieldset.reveal-subscribe data-target='has_name_changed' data-show-array='true'
   legend= t '.sorry_name_changed.header'

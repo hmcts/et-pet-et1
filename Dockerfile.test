@@ -1,11 +1,16 @@
 FROM ruby:2.5.1-slim
 COPY . /app
-RUN apt-get update && apt-get install -y sudo curl wget git build-essential libpq-dev pdftk unzip
+RUN apt-get update \
+  && apt-get install -y sudo curl wget git build-essential libpq-dev pdftk unzip firefox-esr \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && \
-    apt-get install -y pdftk nodejs
+    apt-get install -y pdftk nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # PhantomJS
 # Install runtime dependencies

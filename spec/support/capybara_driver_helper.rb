@@ -1,4 +1,5 @@
 require 'capybara/poltergeist'
+require 'securerandom'
 Capybara.configure do |config|
   driver = ENV['TEST_BROWSER']&.to_sym || :firefox_local
   config.default_max_wait_time =20
@@ -32,13 +33,16 @@ Capybara.register_driver :chrome_local_visible do |app|
 end
 
 Capybara.register_driver :firefox_local do |app|
-  options = Selenium::WebDriver::Firefox::Options.new
+  profile = Selenium::WebDriver::Firefox::Profile.new(Dir.mktmpdir)
+  options = Selenium::WebDriver::Firefox::Options.new(profile: profile)
   options.headless!
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
 Capybara.register_driver :firefox_local_visible do |app|
-  Capybara::Selenium::Driver.new(app, browser: :firefox)
+  profile = Selenium::WebDriver::Firefox::Profile.new(Dir.mktmpdir)
+  options = Selenium::WebDriver::Firefox::Options.new(profile: profile)
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
 Capybara.register_driver :safari do |app|

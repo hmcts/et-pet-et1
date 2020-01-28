@@ -1,0 +1,19 @@
+def and_i_select_from_the_refund_type_page(arg)
+  refund_profile_selection_page.select_profile.set(arg)
+end
+
+def and_i_save_my_profile_selection_on_the_refund_type_page
+  refund_profile_selection_page.save_and_continue.click
+end
+
+def then_the_user_should_be_informed_that_there_are_errors_on_the_profile_selection_page
+  expect(refund_profile_selection_page.select_profile.error.text).to eql "Please confirm"
+end
+
+def then_the_continue_button_should_be_disabled_on_the_profile_selection_page
+  expect(refund_profile_selection_page.save_and_continue).to be_disabled
+end
+
+def then_i_should_see_the_profile_selection_page
+  expect(refund_profile_selection_page).to be_displayed
+end

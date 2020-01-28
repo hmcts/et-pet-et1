@@ -1,0 +1,14 @@
+def and_i_fill_in_the_refund_forms_and_accept_the_declaration
+  and_i_fill_in_my_refund_applicant_details
+  and_i_fill_in_my_refund_original_case_details
+  and_i_fill_in_my_refund_fees_and_verify_the_total
+  and_i_fill_in_my_refund_bank_details
+  and_i_accept_the_refund_final_declaration
+end
+
+def and_i_fill_in_the_refund_forms
+  and_i_fill_in_my_refund_applicant_details
+  and_i_fill_in_my_refund_original_case_details
+  and_i_fill_in_my_refund_fees_and_verify_the_total
+  and_i_fill_in_my_refund_bank_details
+end
