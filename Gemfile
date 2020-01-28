@@ -63,7 +63,6 @@ end
 group :test do
   gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
-  gem 'cucumber-rails', '~> 1.8', require: false
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.0'

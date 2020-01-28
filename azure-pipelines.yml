@@ -32,11 +32,11 @@ jobs:
     - script: |
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bundle install
           docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test npm install
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate parallel:create parallel:migrate assets:precompile"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "bundle exec rake db:create db:migrate assets:precompile"
       displayName: 'before script'
 
     - script: |
-          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "TEST_BROWSER=poltergeist bundle exec parallel_rspec spec"
+          docker-compose -p $(Build.BuildId) -f docker-compose-test.yml -f docker-compose-test-ci.yml run test bash -c "TEST_BROWSER=firefox_local bundle exec rspec"
       displayName: 'script'
 
     - script: |
