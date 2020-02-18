@@ -283,7 +283,7 @@ GEM
     pdf-forms (1.2.0)
       cliver (~> 0.3.2)
       safe_shell (>= 1.0.3, < 2.0)
-    pg (1.1.4)
+    pg (1.2.2)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
