@@ -417,7 +417,7 @@ GEM
     sidekiq_alive (2.0.1)
       sidekiq
       sinatra
-    simple_form (5.0.1)
+    simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
     sinatra (2.0.8.1)
