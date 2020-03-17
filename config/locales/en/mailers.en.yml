@@ -16,47 +16,6 @@ en:
       line_four: "COMPLETE CLAIM: %{url}"
       line_five: line_five You’ll receive a confirmation email once you’ve submitted your claim.
       line_six: "Contact us: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
-
-    confirmation_email:
-      claim_number: Claim number
-      footer: :base_mailer.footer
-      subject: 'Employment tribunal: claim submitted'
-      header: Claim submitted
-      intro: Thank you for submitting your claim to an employment tribunal.
-      what_happens_next: :claim_confirmations.show.what_happens_next.header
-      send_to_respondent: :claim_confirmations.show.what_happens_next.send_to_respondent
-      we_will_contact_you: :claim_confirmations.show.what_happens_next.next_steps
-
-       # SPECIFIC TO TEXT EMAIL
-      apply_for_fee_remission_text: 'COMPLETE AN APPLICATION FOR HELP WITH FEES: https://gov.uk/help-with-court-fees'
-      remission_we_will_contact_you_england_wales_text: |
-        If claiming in England or Wales, email your completed application for help with fees to eREMISSIONS@hmcts.gsi.gov.uk.
-      remission_we_will_contact_you_scotland_text: |
-        If you're in Scotland (or you would prefer to post your form), see the <a href="https://gov.uk/help-with-court-fees" rel="external">guide to applying for help with fees</a> for the address.
-
-        GUIDE TO APPLYING FOR HELP WITH FEES: https://gov.uk/help-with-court-fees
-
-      details:
-        header: Submission details
-        claim_completed: 'Claim completed:'
-        see_attached_pdf: See attached PDF
-        attachments: 'Additional documents:'
-        submission_information: 'Claim submitted:'
-        office_information: 'Tribunal office:'
-        submitted_on: "on %{date} "
-        submitted_to: to tribunal office %{office}
-
-      remisison_further_information_html: |
-        If you have any questions, contact the Public Enquiry Line:<br/>England & Wales: 0300 123 1024<br/>Scotland: 0141 354 8574
-      feedback_html: |
-        <a href="%{href}">Your feedback</a> helps us improve this service.
-      feedback_text: |
-        Your feedback helps us improve this service:
-      diversity_html: |
-        Help us keep track. Complete our <a href="%{href}">diversity monitoring questionnaire</a>.
-      diversity_text: |
-        Help us keep track. Complete our diversity monitoring questionnaire.
-
     shared:
       button_fee_remission:
         apply_for_fee_remission: Complete an application for help with fees
