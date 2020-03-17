@@ -3,6 +3,8 @@ json.command 'BuildClaim'
 json.data do
   json.reference claim.fee_group_reference
   json.submission_reference claim.reference
+  json.email_template_reference "et1-v1-#{I18n.locale}"
+  json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
   json.jurisdiction claim.attracts_higher_fee? ? 2 : 1
