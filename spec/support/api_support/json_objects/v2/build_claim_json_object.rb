@@ -33,22 +33,24 @@ module Et1
                                            eq({})
                                          end
             expect(json[:data]).to include case_type: claim.multiple_claimants? ? 'Multiple' : 'Single',
-                                    claim_details: claim.claim_details,
-                                    date_of_receipt: claim.submitted_at.strftime('%FT%T.%L%:z'),
-                                    desired_outcomes: claim.desired_outcomes.map(&:to_s),
-                                    discrimination_claims: claim.discrimination_claims.map(&:to_s),
-                                    employment_details: employment_details_matcher,
-                                    is_unfair_dismissal: claim.is_unfair_dismissal,
-                                    jurisdiction: claim.attracts_higher_fee? ? 2 : 1,
-                                    office_code: claim.office.code,
-                                    other_claim_details: claim.other_claim_details,
-                                    other_known_claimant_names: claim.other_known_claimant_names,
-                                    other_outcome: claim.other_outcome,
-                                    pay_claims: claim.pay_claims.map(&:to_s),
-                                    reference: claim.fee_group_reference,
-                                    send_claim_to_whistleblowing_entity: claim.send_claim_to_whistleblowing_entity,
-                                    submission_channel: "Web",
-                                    submission_reference: claim.reference
+                                           claim_details: claim.claim_details,
+                                           date_of_receipt: claim.submitted_at.strftime('%FT%T.%L%:z'),
+                                           desired_outcomes: claim.desired_outcomes.map(&:to_s),
+                                           discrimination_claims: claim.discrimination_claims.map(&:to_s),
+                                           employment_details: employment_details_matcher,
+                                           is_unfair_dismissal: claim.is_unfair_dismissal,
+                                           jurisdiction: claim.attracts_higher_fee? ? 2 : 1,
+                                           office_code: claim.office.code,
+                                           other_claim_details: claim.other_claim_details,
+                                           other_known_claimant_names: claim.other_known_claimant_names,
+                                           other_outcome: claim.other_outcome,
+                                           pay_claims: claim.pay_claims.map(&:to_s),
+                                           reference: claim.fee_group_reference,
+                                           send_claim_to_whistleblowing_entity: claim.send_claim_to_whistleblowing_entity,
+                                           submission_channel: "Web",
+                                           submission_reference: claim.reference,
+                                           email_template_reference: 'et1-v1-en',
+                                           confirmation_email_recipients: claim.confirmation_email_recipients
 
           rescue RSpec::Expectations::ExpectationNotMetError => err
             errors << "Missing or invalid BuildPrimaryClaimant command json"
