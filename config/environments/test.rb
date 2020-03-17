@@ -65,6 +65,8 @@ Rails.application.configure do
   config.google_tag_manager_account = false
 
   config.service_now_inbox_email = "fake@servicenow.fake.com"
+
+  config.azure_insights.enable = false
 end
 
 CarrierWave.configure do |config|
