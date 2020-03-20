@@ -18,14 +18,6 @@ class EtApi
     send_request(json, path: '/claims/build_claim', subject: 'claim')
   end
 
-  def create_reference(postcode:, uuid: SecureRandom.uuid)
-    json = ApplicationController.render 'api/reference/create_reference.json.jbuilder', locals: {
-      post_code: postcode, uuid: uuid
-    }
-    response = send_request(json, path: '/references/create_reference', subject: 'reference')
-    JSON.parse(response.body)['data'].deep_symbolize_keys
-  end
-
   def build_diversity_response(diversity_response, uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/diversity/build_diversity_response.json.jbuilder', locals: {
       response: diversity_response, uuid: uuid
