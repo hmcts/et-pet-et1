@@ -9,6 +9,13 @@ cy:
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}" rel="external">holiadur monitro amrywiaeth</a>.
       what_happens_next:
         header: Beth sy'n digwydd nesaf
+        covid_19: |
+         Yng ngoleuni’r sefyllfa bresennol gyda COVID-19, gallwch weld cyfarwyddyd diweddaraf GLlTEM yma:
+        covid_19_html: |
+          COVID-19 Canllawiau
+        covid_19_link: https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation
+        covid_19_confirmation: |
+          Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebydd i egluro beth fydd yn digwydd nesaf. Ar hyn o bryd nid yw’n bosib pennu amserlen benodol
         send_to_respondent: Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebydd i egluro beth fydd yn digwydd nesaf. Ar hyn o bryd, mae’n cymryd oddeutu 25 diwrnod.
         next_steps: Unwaith y byddwn wedi anfon eich hawliad atynt, mae gan yr atebydd 28 diwrnod i ymateb.
         next_steps_final_step: |
