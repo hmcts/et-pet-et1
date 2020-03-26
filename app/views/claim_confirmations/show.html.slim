@@ -13,9 +13,15 @@
       h2 = t('.what_happens_next.header')
       ol.numerical-list
         li
-          p= t('.what_happens_next.send_to_respondent')
-        li
-          p= t('.what_happens_next.next_steps')
+          p = t('.what_happens_next.covid_19')
+          p = link_to t('.what_happens_next.covid_19_html'), t('.what_happens_next.covid_19_link')
+          li
+            p = t('.what_happens_next.covid_19_confirmation')
+
+        / li
+        /   p= t('.what_happens_next.send_to_respondent')
+        / li
+        /   p= t('.what_happens_next.next_steps')
 
       table.confirmation-table
         caption = t('.submission_details.header')

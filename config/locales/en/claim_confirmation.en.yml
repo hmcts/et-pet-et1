@@ -10,6 +10,12 @@ en:
 
       what_happens_next:
         header: What happens next
+        covid_19: |
+          In view of the current situation with COVID-19, updated guidance from HMCTS is available here:
+        covid_19_html: |
+          COVID-19 Guidance
+        covid_19_link: https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation
+        covid_19_confirmation: We will contact you once we have sent your claim to the respondent and explain what happens next. At present, it is not possible to predict an exact timescale.
         send_to_respondent: |
           We'll contact you once we have sent your claim to the respondent and explain what happens next.
           At present, this is taking us an average of 25 days.
