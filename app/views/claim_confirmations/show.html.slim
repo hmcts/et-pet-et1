@@ -12,11 +12,9 @@
     section.content-section
       h2 = t('.what_happens_next.header')
       ol.numerical-list
-        li
-          p = t('.what_happens_next.covid_19')
-          p = link_to t('.what_happens_next.covid_19_html'), t('.what_happens_next.covid_19_link')
-          li
-            p = t('.what_happens_next.covid_19_confirmation')
+        p = t('.what_happens_next.covid_19')
+        p = link_to ('https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation'), t('.what_happens_next.covid_19_link')
+        p = t('.what_happens_next.covid_19_confirmation')
 
         / li
         /   p= t('.what_happens_next.send_to_respondent')
