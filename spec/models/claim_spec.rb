@@ -15,15 +15,8 @@ RSpec.describe Claim, type: [:claim, :model] do
   it { is_expected.to have_one(:primary_claimant).conditions primary_claimant: true }
   it { is_expected.to have_one(:primary_respondent).conditions primary_respondent: true }
 
-  before do
-    allow(ClaimSubmissionJob).to receive :perform_later
-  end
-
-  include_context 'block pdf generation'
-
   let(:claim) { described_class.create }
   let(:claim_enqueued) { create :claim }
-  let(:pdf) { Tempfile.new 'such' }
 
   describe 'callbacks' do
     describe 'after_create' do
@@ -248,28 +241,18 @@ RSpec.describe Claim, type: [:claim, :model] do
   end
 
   describe "#attachments" do
-    let(:claim) { create :claim, :with_pdf }
+    let(:claim) { create :claim }
 
     it "returns a list of attachment uplaoders on the claim" do
       expect(claim.attachments).to all(be_kind_of CarrierWave::Uploader::Base)
     end
 
-    specify { expect(claim.attachments.size).to eq 3 }
+    specify { expect(claim.attachments.size).to eq 2 }
 
     it "only returns attachments that exist" do
       expect { claim.remove_claim_details_rtf! }.
         to change { claim.attachments.size }.
-        from(3).to(2)
-    end
-  end
-
-  describe '#remove_pdf!' do
-    before { claim.pdf = pdf }
-
-    it 'removes the pdf' do
-      expect { claim.remove_pdf! }.
-        to change { claim.pdf_present? }.
-        from(true).to(false)
+        from(2).to(1)
     end
   end
 
@@ -280,78 +263,6 @@ RSpec.describe Claim, type: [:claim, :model] do
       expect { claim.remove_claim_details_rtf! }.
         to change { claim.claim_details_rtf.present? }.
         from(true).to(false)
-    end
-  end
-
-  describe "#generate_pdf!" do
-    before { allow(claim_enqueued).to receive(:create_event) }
-
-    context 'claim without a pdf assigned' do
-
-      it "assigns a pdf to the model" do
-        claim_enqueued.generate_pdf!
-        expect(claim_enqueued[:pdf]).to eq "et1_barrington_wrigglesworth.pdf"
-      end
-
-      it "pdf file is present" do
-        claim_enqueued.generate_pdf!
-        expect(claim_enqueued.pdf.file).not_to be_nil
-      end
-
-      it 'generates a log event' do
-        expect(claim_enqueued).to receive(:create_event).with 'pdf_generated'
-        claim_enqueued.generate_pdf!
-      end
-    end
-
-    context 'claim with a pdf already assigned' do
-      before { claim.pdf = pdf }
-
-      it 'removes the existing pdf before creating another' do
-        expect(claim).to receive(:remove_pdf!)
-        claim.generate_pdf!
-      end
-
-      it 'builds new pdf' do
-        expect(PdfFormBuilder).to receive(:build)
-        claim.generate_pdf!
-      end
-    end
-  end
-
-  describe '#submit!' do
-    context 'transitioning state from "created"' do
-      context 'when the claim is in a submittable state' do
-        before { allow(claim).to receive_messages submittable?: true, save!: true }
-
-        it 'transitions state to "enqueued_for_submission"' do
-          claim.submit!
-          expect(claim.state).to eq('enqueued_for_submission')
-        end
-
-        it 'creates a claim submission job' do
-          expect(ClaimSubmissionJob).to receive(:perform_later).with(claim, instance_of(String))
-          claim.submit!
-        end
-
-        it 'saves the claim' do
-          expect(claim).to receive(:save!)
-          claim.submit!
-        end
-
-        it 'creates a log event' do
-          expect(claim).to receive(:create_event).with 'enqueued'
-          claim.submit!
-        end
-      end
-
-      context 'when the claim is not in a submittable state' do
-        before { allow(claim).to receive(:submittable?).and_return false }
-
-        it 'raises a runtime error' do
-          expect { claim.submit! }.to raise_error RuntimeError, 'Invalid state - cannot submit'
-        end
-      end
     end
   end
 

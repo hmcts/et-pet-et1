@@ -5,25 +5,6 @@ module FormMethods
 
   extend ActiveSupport::Concern
 
-  included do
-    let(:fgr_response) do
-      {
-        "fgr"               => 511234567800,
-        "ETOfficeCode"      => 22,
-        "ETOfficeName"      => "Birmingham",
-        "ETOfficeAddress"   => "Centre City Tower, 5­7 Hill Street, Birmingham B5 4UU",
-        "ETOfficeTelephone" => "0121 600 7780"
-      }
-    end
-
-    let(:submission_response) do
-      {
-        "feeGroupReference" => 511234567800,
-        "status" => 'ok'
-      }
-    end
-  end
-
   def start_claim
     visit '/'
     click_button 'Start a claim'
@@ -271,12 +252,5 @@ module FormMethods
 
   def deselect_representative_email
     uncheck REPRESENTATIVE_EMAIL
-  end
-
-  def remove_pdf_from_claim
-    Claim.last.tap do |c|
-      c.remove_pdf = true
-      c.save!
-    end
   end
 end

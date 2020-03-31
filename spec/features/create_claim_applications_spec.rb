@@ -1,14 +1,34 @@
 require 'rails_helper'
 
-feature 'Claim applications', type: :feature do
+feature 'Claim applications', type: :feature, js: true do
   include FormMethods
   include Messages
-  include PdfMethods
   include MailMatchers
   include ActiveJob::TestHelper
   include ActiveJobPerformHelper
 
   around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
+  let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
+  let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
+  let(:example_pdf_url) { test_valid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
+  around do |example|
+    ClimateControl.modify ET_API_URL: et_api_url do
+      example.run
+    end
+  end
+  before do
+    essential_response_data = {
+      meta: {
+        BuildClaim: {
+          pdf_url: example_pdf_url
+        }
+      }
+    }
+    stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
+      { body: essential_response_data.to_json, headers: { 'Content-Type': 'application/json' } }
+    end
+  end
+
 
   context 'along the happy path' do
     scenario 'Hitting the start page' do
@@ -278,80 +298,47 @@ feature 'Claim applications', type: :feature do
     end
 
     scenario 'Validating the API calls claimant data' do
-      et_api_url = 'http://api.et.net:4000/api/v2'
-      build_claim_url = "#{et_api_url}/claims/build_claim"
-      ClimateControl.modify ET_API_URL: et_api_url do
-        stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
-
-        complete_a_claim
-        click_button 'Submit claim'
-        perform_active_jobs(ClaimSubmissionJob)
-        expect(a_request(:post, build_claim_url).
-          with do |request|
-            claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
-            expect(claimant).to include "title" => "Mr",
-                                        "first_name" => "Barrington",
-                                        "last_name" => "Wrigglesworth",
-                                        "address_attributes" => a_hash_including(
-                                          "building" => "1",
-                                          "street" => "High street",
-                                          "locality" => "Anytown",
-                                          "county" => "Anyfordshire",
-                                          "post_code" => "AT1 4PQ",
-                                          "country" => "United Kingdom"
-                                        ),
-                                        "address_telephone_number" => "01234567890",
-                                        "mobile_number" => "07956000000",
-                                        "email_address" => "barrington@example.com",
-                                        "contact_preference" => "Email",
-                                        "gender" => "Male",
-                                        "date_of_birth" => "1985-01-15",
-                                        "special_needs" => "I am blind."
-          end).to have_been_made
-      end
-
+      complete_a_claim
+      click_button 'Submit claim'
+      expect(a_request(:post, build_claim_url).
+        with do |request|
+        claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
+        expect(claimant).to include "title" => "Mr",
+                                    "first_name" => "Barrington",
+                                    "last_name" => "Wrigglesworth",
+                                    "address_attributes" => a_hash_including(
+                                      "building" => "1",
+                                      "street" => "High street",
+                                      "locality" => "Anytown",
+                                      "county" => "Anyfordshire",
+                                      "post_code" => "AT1 4PQ",
+                                      "country" => "United Kingdom"
+                                    ),
+                                    "address_telephone_number" => "01234567890",
+                                    "mobile_number" => "07956000000",
+                                    "email_address" => "barrington@example.com",
+                                    "contact_preference" => "Email",
+                                    "gender" => "Male",
+                                    "date_of_birth" => "1985-01-15",
+                                    "special_needs" => "I am blind."
+      end).to have_been_made
     end
 
-    context 'Downloading the PDF' do
-      let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
-      let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
-      let(:create_reference_url) { "#{et_api_url}/references/create_reference" }
+    context 'Downloading the PDF', js: true do
+      scenario 'when the file is available' do
+        complete_a_claim seeking_remissions: true
+        click_button 'Submit claim'
+        expect(claim_submitted_page).to have_save_a_copy_link
+      end
 
-      around do |example|
-        ClimateControl.modify ET_API_URL: et_api_url do
-          stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: '{}', status: 202, headers: { 'Content-Type': 'application/json' })
-          stub_request(:post, create_reference_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return(body: { status: 'created', data: { reference: 'somereference', office: { code: '44', name: 'Birmingham', address: { building: '1', street: 'Street', locality: 'Birmingham', county: 'Warwickshire', post_code: 'B1 3AG' } } } }.to_json, status: 201, headers: { 'Content-Type': 'application/json' })
-          example.run
+      context 'with pdf not ready yet' do
+        let(:example_pdf_url) { test_invalid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
+
+        scenario 'when the file is unavailable' do
+          complete_a_claim seeking_remissions: true
+          click_button 'Submit claim'
+          expect(claim_submitted_page).to have_invalid_save_a_copy_link
         end
-      end
-
-      scenario 'when the file is available', js: true do
-        complete_a_claim seeking_remissions: true
-        click_button 'Submit claim'
-        perform_active_jobs(ClaimSubmissionJob)
-        page_pdf_link = URI.parse(page.find_link('Save a copy')['href']).path
-        expect(page_pdf_link).to eq pdf_path(locale: :en)
-
-        pdf_file_data = Claim.last.pdf.read
-        pdf_data = pdf_to_hash(pdf_file_data)
-        expected_pdf_data = YAML.safe_load(File.read('spec/support/et1_pdf_example.yml'))
-        expect(pdf_data).to eq expected_pdf_data
-      end
-
-      scenario 'when the file is unavailable' do
-        complete_a_claim seeking_remissions: true
-        click_button 'Submit claim'
-
-        # spoof file not being present yet by removing it -
-        # in production this may happen as the jobs are ran
-        # asynchronously.
-        remove_pdf_from_claim
-        click_link 'Save a copy'
-
-        expect(current_path).to eq pdf_path(locale: :en)
-        expect(page).to have_text "Processing a copy of your claim"
-        expect(page).not_to have_signout_button
-        expect(page).not_to have_session_prompt
       end
     end
 

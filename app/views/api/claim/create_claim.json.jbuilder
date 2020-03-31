@@ -37,7 +37,4 @@ json.data do
       json.partial! 'api/claim/build_claim_details_file', file: claim.claim_details_rtf
     end
   end
-  json.child! do
-    json.partial! 'api/claim/build_pdf_file', file: claim.pdf
-  end
 end

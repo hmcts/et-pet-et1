@@ -25,6 +25,7 @@ json.data do
   json.claim_details claim.claim_details
   json.other_outcome claim.other_outcome
   json.send_claim_to_whistleblowing_entity claim.send_claim_to_whistleblowing_entity
+  json.miscellaneous_information claim.miscellaneous_information
 
   if employment.nil?
     json.employment_details({})

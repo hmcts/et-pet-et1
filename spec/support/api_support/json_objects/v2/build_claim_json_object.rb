@@ -50,7 +50,8 @@ module Et1
                                            submission_channel: "Web",
                                            submission_reference: claim.reference,
                                            email_template_reference: 'et1-v1-en',
-                                           confirmation_email_recipients: claim.confirmation_email_recipients
+                                           confirmation_email_recipients: claim.confirmation_email_recipients,
+                                           miscellaneous_information: claim.miscellaneous_information
 
           rescue RSpec::Expectations::ExpectationNotMetError => err
             errors << "Missing or invalid BuildPrimaryClaimant command json"

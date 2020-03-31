@@ -22,8 +22,9 @@ cy:
           Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad.
       download_application:
         header: Lawrlwytho eich hawliad
-        link_html: |
-          <a href="%{href}" target="%{target}">Cadwch gopi</a> ar gyfer eich cofnodion
+        link_text: Cadwch gopi
+        invalid_link_text: Ddim yn barod eto - bydd fersiwn PDF o'ch ffurflen wedi'i llenwi ar gael i'w lawrlwytho maes o law
+        link_suffix: ar gyfer eich cofnodion
       no_attachments: Dim
 
       submission_details:

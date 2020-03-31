@@ -30,18 +30,15 @@ ActiveAdmin.register Claim do
     column(:state) { |claim| claim.state.humanize }
   end
 
-  member_action :generate_pdf, method: :post do
-    PdfGenerationJob.perform_later resource
-    redirect_back notice: 'Generating a new PDF', fallback_location: admin_claim_url(resource)
-  end
-
   member_action :submit_claim, method: :post do
-    if resource.enqueued_for_submission?
-      ClaimSubmissionJob.perform_later resource, SecureRandom.uuid
-      resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
+    response = EtApi.create_claim(resource)
+    unless response.valid?
+      resource.update state: 'submission_failed'
+      raise "An error occured in the API - #{response.errors.full_messages}"
     end
-
-    redirect_back notice: 'Claim submitted to Jadu', fallback_location: admin_claim_url(resource)
+    resource.update state: 'submitted', pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url')
+    resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
+    redirect_back notice: 'Claim submitted to API', fallback_location: admin_claim_url(resource)
   end
 
   member_action :mark_submitted, method: :post do
@@ -71,15 +68,6 @@ ActiveAdmin.register Claim do
   end
 
   sidebar :actions, only: :show do
-    div { button_to 'Generate PDF', action: :generate_pdf }
-
-    if resource.pdf_present?
-      br
-      div do
-        link_to 'Download PDF', resource.pdf_url, class: :button
-      end
-    end
-
     if resource.claim_details_rtf?
       br
       div do

@@ -26,8 +26,9 @@ en:
 
       download_application:
         header: Download your claim
-        link_html: |
-          <a href="%{href}" target="%{target}">Save a copy</a> for your records
+        link_text: Save a copy
+        invalid_link_text: Not quite ready yet - a PDF version of your completed form will be available for download shortly
+        link_suffix: for your records
 
       no_attachments: None
 

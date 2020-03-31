@@ -121,8 +121,6 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
-  config.flatten_pdf = false
-
   # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
   # var can also be used to disable.
   config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)

@@ -1,12 +1,12 @@
-{  
+{
    "uuid": "{{$guid}}",
    "command": "SerialSequence",
-   "data":    [  
-      {  
+   "data":    [
+      {
          "uuid": "{{$guid}}",
          "command": "BuildClaim",
          "data":
-         {  
+         {
             "reference": "332000027200",
             "submission_reference": "XY91-MYWP",
             "submission_channel": "Web",
@@ -17,7 +17,7 @@
             "other_known_claimant_names": "James Blunt, Punky Brewsters, Shirly Temple",
             "is_unfair_dismissal": true,
             "discrimination_claims":
-            [  
+            [
                "sex_including_equal_pay",
                "disability",
                "race",
@@ -29,7 +29,7 @@
                "gender_reassignment"
             ],
             "pay_claims":
-            [  
+            [
                "redundancy",
                "notice",
                "holiday",
@@ -37,7 +37,7 @@
                "other"
             ],
             "desired_outcomes":
-            [  
+            [
                "compensation_only",
                "tribunal_recommendation",
                "reinstated_employment_and_compensation",
@@ -48,7 +48,7 @@
             "other_outcome": "I would like 50,000 GBP due to the stress this caused me",
             "send_claim_to_whistleblowing_entity": true,
             "employment_details":
-            {  
+            {
                "start_date": "2009-11-18",
                "end_date": "",
                "notice_period_end_date": "",
@@ -69,16 +69,16 @@
             }
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryClaimant",
          "data":
-         {  
+         {
             "title": "Ms",
             "first_name": "CCD SIVVOY TESTING",
             "last_name": "SIVVOY",
             "address_attributes":
-            {  
+            {
                "building": "52030",
                "street": "Stacey Port",
                "locality": "London",
@@ -96,15 +96,15 @@
             "special_needs": "My special needs are as follows"
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryRespondent",
          "data":
-         {  
+         {
             "name": "Batz, Dietrich and Morar",
             "contact": "",
             "address_attributes":
-            {  
+            {
                "building": "8722",
                "street": "Mei Valleys",
                "locality": "London",
@@ -112,7 +112,7 @@
                "post_code": "SW1H 9QR"
             },
             "work_address_attributes":
-            {  
+            {
                "building": "101",
                "street": "Petty France",
                "locality": "London",
@@ -135,15 +135,15 @@
             "disability_information": ""
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryRepresentative",
          "data":
-         {  
+         {
             "name": "Rosalba Goldner",
             "organisation_name": "envisioneer mission-critical metrics",
             "address_attributes":
-            {  
+            {
                "building": "106",
                "street": "Mayfair",
                "locality": "London",
@@ -158,17 +158,6 @@
             "contact_preference": "",
             "email_address": "sivvoy.taing@hmcts.net",
             "fax_number": ""
-         }
-      },
-      {  
-         "uuid": "{{$guid}}",
-         "command": "BuildPdfFile",
-         "data":
-         {  
-            "filename": "et1_josiah_franecki.pdf",
-            "checksum": "",
-            "data_url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-            "data_from_key": null
          }
       }
    ]
