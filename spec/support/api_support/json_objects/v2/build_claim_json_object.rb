@@ -40,7 +40,6 @@ module Et1
                                            employment_details: employment_details_matcher,
                                            is_unfair_dismissal: claim.is_unfair_dismissal,
                                            jurisdiction: claim.attracts_higher_fee? ? 2 : 1,
-                                           office_code: claim.office.code,
                                            other_claim_details: claim.other_claim_details,
                                            other_known_claimant_names: claim.other_known_claimant_names,
                                            other_outcome: claim.other_outcome,

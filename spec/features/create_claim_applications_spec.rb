@@ -20,7 +20,15 @@ feature 'Claim applications', type: :feature, js: true do
     essential_response_data = {
       meta: {
         BuildClaim: {
-          pdf_url: example_pdf_url
+          pdf_url: example_pdf_url,
+          reference: "332000121100",
+          office: {
+            name: "Watford",
+            code: 33,
+            telephone: "01923 281 750",
+            address: "3rd Floor, Radius House, 51 Clarendon Rd, Watford, WD17 1HP",
+            email: "watfordet@justice.gov.uk"
+          }
         }
       }
     }
@@ -293,6 +301,7 @@ feature 'Claim applications', type: :feature, js: true do
       click_button 'Submit claim'
 
       expect(page).to have_text "Claim submitted"
+      expect(page).to have_text "Watford, watfordet@justice.gov.uk, 01923 281 750"
       expect(page).not_to have_signout_button
       expect(page).not_to have_session_prompt
     end

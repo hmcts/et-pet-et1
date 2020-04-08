@@ -6,7 +6,7 @@ class SubmitClaimToApiService < ApiService
   def call(claim, uuid: SecureRandom.uuid)
     claim.update submitted_at: Time.now.utc, state: 'submitted'
     json = ApplicationController.render 'api/claim/create_claim.json.jbuilder', locals: {
-      claim: claim, office: claim.office, employment: claim.employment, uuid: uuid
+      claim: claim, employment: claim.employment, uuid: uuid
     }
     send_request(json, path: '/claims/build_claim', subject: 'claim')
     self
