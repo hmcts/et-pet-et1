@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = true
-  
+
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
   end
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    apt-get install -y pdftk git gnupg nodejs
+    apt-get install -y git gnupg nodejs
     apt-get install -y postgresql postgresql-server-dev-9.3 postgresql-contrib
     gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
     curl -sSL https://get.rvm.io | bash -s stable --ruby

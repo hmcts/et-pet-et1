@@ -5,8 +5,15 @@ class ClaimReviewsController < ApplicationController
 
   def update
     claim.update confirmation_email_recipients: email_addresses
-    claim.submit!
-    redirect_to claim_confirmation_path
+    response = EtApi.create_claim(claim)
+    if response.valid?
+      claim.update state: 'submitted', pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url')
+      claim.create_office! response.response_data.dig('meta', 'BuildClaim', 'office').slice('code', 'name', 'address', 'telephone', 'email')
+      redirect_to claim_confirmation_path
+    else
+      claim.update state: 'submission_failed'
+      raise "An error occured in the API - #{response.errors.full_messages}"
+    end
   end
 
   def show

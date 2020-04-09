@@ -11,7 +11,6 @@ Rails.application.routes.draw do
       resource :terms,              only: :show
       resource :cookies,            only: :show
       resource :claim_review,       only: %i<show update>, path: :review
-      resource :pdf,                only: :show
       resource :claim_confirmation, only: :show, path: :confirmation
 
       resource :claim, only: :create, path: "/" do
@@ -69,6 +68,11 @@ Rails.application.routes.draw do
   scope :apply do
     ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
     mount Sidekiq::Web => '/sidekiq'
+  end
+
+  if Rails.env.test?
+    match '/test/valid_pdf', to: -> (_env) { [200, {'Content-Type' => 'application/pdf'}, ['anything']] }, as: :test_valid_pdf, via: :all
+    match '/test/invalid_pdf', to: -> (_env) { [404, {'Content-Type' => 'application/pdf'}, ['Not Found']] }, as: :test_invalid_pdf, via: :all
   end
 
 end

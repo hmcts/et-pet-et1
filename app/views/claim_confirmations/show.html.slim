@@ -25,7 +25,9 @@
         caption = t('.submission_details.header')
         tr role="row"
           th = t '.download_application.header'
-          td = t '.download_application.link_html', href: pdf_path, target: "_blank"
+          td
+            = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success'
+            = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden'
 
         - confirmation_presenter.each_item do |name, content|
           tr role="row"
@@ -38,3 +40,8 @@
 
       p = t('.feedback_html', href: language_specific_feedback_url)
       p = t('.diversity_html', href: diversity_landing_path)
+- content_for(:javascripts)
+  javascript:
+    $(document).ready(function () {
+      claimConfirmationPage.init()
+    });

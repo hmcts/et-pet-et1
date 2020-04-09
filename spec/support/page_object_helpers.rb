@@ -36,7 +36,6 @@ module ET1
         ::ET1::Test::RepresentativesDetailsPage.new
       end
 
-
       # @return [ET1::Test::RespondentsDetailsPage]
       def respondents_details_page
         ::ET1::Test::RespondentsDetailsPage.new

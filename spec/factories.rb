@@ -110,7 +110,7 @@ FactoryBot.define do
     end
 
     trait :with_pdf do
-      after(:create, &:generate_pdf!)
+      pdf_url { 'http://example.com/my-pdf.pdf' }
     end
 
     trait :with_secondary_claimants do

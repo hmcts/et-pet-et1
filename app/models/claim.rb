@@ -5,7 +5,6 @@ class Claim < ApplicationRecord
   has_secure_password validations: false
   mount_uploader :claim_details_rtf,          AttachmentUploader
   mount_uploader :additional_claimants_csv,   AttachmentUploader
-  mount_uploader :pdf,                        ClaimPdfUploader
 
   after_create { create_event Event::CREATED }
 
@@ -31,7 +30,6 @@ class Claim < ApplicationRecord
 
   delegate :file, to: :claim_details_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
-  delegate :file, :url, :present?, :blank?, to: :pdf, prefix: true
 
   validates :secondary_respondents, respondents_count: {
     maximum: Rails.application.config.additional_respondents_limit,
@@ -87,16 +85,6 @@ class Claim < ApplicationRecord
     self.class.uploaders.keys.map(&method(:send)).delete_if { |a| a.file.nil? }
   end
 
-  def generate_pdf!
-    remove_pdf! if pdf_present?
-    PdfFormBuilder.build(self) { |file| update pdf: file }
-    create_event Event::PDF_GENERATED
-  end
-
-  def remove_pdf!
-    super.tap { update_column(:pdf, nil) }
-  end
-
   def remove_claim_details_rtf!
     super.tap { update_column(:claim_details_rtf, nil) }
   end
@@ -104,14 +92,6 @@ class Claim < ApplicationRecord
   # @TODO Rename this as it is only to determine the jurisdiction - maybe it should be in a helper as its presentational
   def attracts_higher_fee?
     discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing? || is_protective_award?
-  end
-
-  def submit!
-    raise "Invalid state - cannot submit" unless state == "created" && submittable?
-    self.state = "enqueued_for_submission"
-    save!
-
-    perform_submission!
   end
 
   def finalize!
@@ -134,14 +114,5 @@ class Claim < ApplicationRecord
 
   def immutable?
     submitted? || enqueued_for_submission?
-  end
-
-
-  private
-
-  def perform_submission!
-    touch(:submitted_at)
-    create_event Event::ENQUEUED
-    ClaimSubmissionJob.perform_later self, SecureRandom.uuid
   end
 end

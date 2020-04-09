@@ -4,11 +4,11 @@ json.data do
   json.reference claim.fee_group_reference
   json.submission_reference claim.reference
   json.email_template_reference "et1-v1-#{I18n.locale}"
+  json.pdf_template_reference "et1-v1-#{I18n.locale}"
   json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
   json.jurisdiction claim.attracts_higher_fee? ? 2 : 1
-  json.office_code office.try(:code)
   json.date_of_receipt claim.submitted_at
   json.other_known_claimant_names claim.other_known_claimant_names
   json.is_unfair_dismissal claim.is_unfair_dismissal
@@ -25,6 +25,7 @@ json.data do
   json.claim_details claim.claim_details
   json.other_outcome claim.other_outcome
   json.send_claim_to_whistleblowing_entity claim.send_claim_to_whistleblowing_entity
+  json.miscellaneous_information claim.miscellaneous_information
 
   if employment.nil?
     json.employment_details({})

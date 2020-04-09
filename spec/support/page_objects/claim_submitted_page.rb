@@ -4,6 +4,7 @@ module ET1
     class ClaimSubmittedPage < BasePage
       set_url "/en/apply/confirmation"
       element :save_a_copy_link, :link, 'Save a copy'
+      element :invalid_save_a_copy_link, :link, 'Not quite ready yet - a PDF version of your completed form will be available for download shortly'
       def save_a_copy
         self.popup_window = window_opened_by { save_a_copy_link.click }
       end

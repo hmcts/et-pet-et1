@@ -13,14 +13,6 @@
 
 sudo apt-get install libpq-dev
 
-### Installing pdftk
-
-The application requires [pdftk](https://www.pdflabs.com/tools/pdftk-server/) to inject content into a template pdf file. This is the end result of completing a claim in the web application.
-
-If you are running OS X 10.11(El Capitan) you can install pdftk with [this](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-mac_osx-10.11-setup.pkg) package.
-
-For versions of OS X 10.10 and lower [this](https://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/pdftk_server-2.02-mac_osx-10.6-setup.pkg) package should be suitable.
-
 ### npm v2.x.x (not v3.x.x)
 
 #### Linux
