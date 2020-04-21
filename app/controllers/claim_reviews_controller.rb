@@ -7,7 +7,9 @@ class ClaimReviewsController < ApplicationController
     claim.update confirmation_email_recipients: email_addresses
     response = EtApi.create_claim(claim)
     if response.valid?
-      claim.update state: 'submitted', pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url')
+      claim.update state: 'submitted',
+                   pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url'),
+                   fee_group_reference: response.response_data.dig('meta', 'BuildClaim', 'reference')
       claim.create_office! response.response_data.dig('meta', 'BuildClaim', 'office').slice('code', 'name', 'address', 'telephone', 'email')
       redirect_to claim_confirmation_path
     else
