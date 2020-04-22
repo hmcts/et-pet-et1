@@ -2,7 +2,7 @@ cy:
   claim_confirmations:
     show:
       header: Hawliad wedi'i gyflwyno
-      callout_detail: "Eich rhif hawliad"
+      callout_detail: Eich cyfeirnod cyflwyno
       feedback_html: |
         <a href="%{href}" rel="external">Mae eich adborth</a> yn ein helpu i wella'r gwasanaeth hwn.
       diversity_html: |
