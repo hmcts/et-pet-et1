@@ -44,7 +44,7 @@ gem 'dotenv-rails', '~> 2.7'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
-  gem 'better_errors', '~> 2.5'
+  gem 'better_errors', '~> 2.7'
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
   gem 'factory_bot_rails', '~> 5.1'
