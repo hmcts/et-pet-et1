@@ -7,6 +7,7 @@
   .main-content
     = simple_form_for(resource, url: feedback_path) do |f|
       .form-fields
+        = f.invisible_captcha :subtitle
         = f.input :comments,
           as: :text,
           input_html: { rows: 5 }
