@@ -12,11 +12,10 @@ ENV APP_BUILD_DATE ${APP_BUILD_DATE}
 ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
 ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
-# Ensure the pdftk package is installed as a prereq for ruby PDF generation
 ENV DEBIAN_FRONTEND noninteractive
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get update && \
-    apt-get install -y pdftk nodejs supervisor && \
+    apt-get install -y nodejs supervisor && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && rm -fr *Release* *Sources* *Packages* && \
     truncate -s 0 /var/log/*log

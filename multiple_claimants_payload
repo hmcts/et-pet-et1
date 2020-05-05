@@ -1,23 +1,22 @@
-{  
+{
    "uuid": "{{$guid}}",
    "command": "SerialSequence",
    "data":
-   [  
-      {  
+   [
+      {
          "uuid": "{{$guid}}",
          "command": "BuildClaim",
          "data":
-         {  
+         {
             "reference": "332000027 300",
             "submission_reference": "BE6B-A98Y",
             "submission_channel": "Web",
             "case_type": "Multiple",
             "jurisdiction": 2,
-            "office_code": 33,
             "date_of_receipt": "2019-08-12T16:41:52.484+01:00",
             "other_known_claimant_names": "James Blunt, Punky Brewsters, Shirly Temple",
             "is_unfair_dismissal": true,
-            "discrimination_claims":[  
+            "discrimination_claims":[
                "sex_including_equal_pay",
                "disability",
                "race",
@@ -28,14 +27,14 @@
                "marriage_or_civil_partnership",
                "gender_reassignment"
             ],
-            "pay_claims":[  
+            "pay_claims":[
                "redundancy",
                "notice",
                "holiday",
                "arrears",
                "other"
             ],
-            "desired_outcomes":[  
+            "desired_outcomes":[
                "compensation_only",
                "tribunal_recommendation",
                "reinstated_employment_and_compensation",
@@ -45,7 +44,7 @@
             "claim_details": "Full text version of claim",
             "other_outcome": "I would like 50,000 GBP due to the stress this caused me",
             "send_claim_to_whistleblowing_entity": true,
-            "employment_details":{  
+            "employment_details":{
                "start_date": "2009-11-18",
                "end_date": "",
                "notice_period_end_date": "",
@@ -66,14 +65,14 @@
             }
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryClaimant",
-         "data":{  
+         "data":{
             "title": "Ms",
             "first_name": "Young",
             "last_name": "Quitzon",
-            "address_attributes":{  
+            "address_attributes":{
                "building": "13838",
                "street": "Janis Heights",
                "locality": "London",
@@ -91,20 +90,20 @@
             "special_needs": "My special needs are as follows"
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryRespondent",
-         "data":{  
+         "data":{
             "name": "Schmitt, Senger and Lang",
             "contact": "",
-            "address_attributes":{  
+            "address_attributes":{
                "building": "5176",
                "street": "Rolfson Row",
                "locality": "London",
                "county": "Greater London",
                "post_code": "SW1H 9QR"
             },
-            "work_address_attributes":{  
+            "work_address_attributes":{
                "building": "101",
                "street": "Petty France",
                "locality": "London",
@@ -127,13 +126,13 @@
             "disability_information": ""
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildPrimaryRepresentative",
-         "data":{  
+         "data":{
             "name": "Kraig Lindgren DDS",
             "organisation_name": "embrace scalable models",
-            "address_attributes":{  
+            "address_attributes":{
                "building": "106",
                "street": "Mayfair",
                "locality": "London",
@@ -150,15 +149,15 @@
             "fax_number": ""
          }
       },
-      {  
+      {
          "uuid": "{{$guid}}",
          "command": "BuildSecondaryClaimants",
-         "data":[  
-            {  
+         "data":[
+            {
                "title": "Ms",
                "first_name": "Eliseo",
                "last_name": "Ullrich",
-               "address_attributes":{  
+               "address_attributes":{
                   "building": "76967",
                   "street": "Mueller Fork",
                   "locality": "London",
@@ -174,11 +173,11 @@
                "date_of_birth": "1982-11-21",
                "special_needs": ""
             },
-            {  
+            {
                "title": "Ms",
                "first_name": "Lon",
                "last_name": "Schulist",
-               "address_attributes":{  
+               "address_attributes":{
                   "building": "54635",
                   "street": "Randa Street",
                   "locality": "London",
@@ -195,16 +194,6 @@
                "special_needs": ""
             }
          ]
-      },
-      {  
-         "uuid": "{{$guid}}",
-         "command": "BuildPdfFile",
-         "data":{  
-            "filename": "et1_young_quitzon.pdf",
-            "checksum": "",
-            "data_url": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-            "data_from_key": null
-         }
       }
    ]
 }

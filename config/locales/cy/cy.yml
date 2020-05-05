@@ -844,8 +844,8 @@ cy:
               blank: Rhowch god post yr hawlydd
               invalid: "Rhowch god post DU dilys. Os yw'r hawlydd yn byw dramor, rhowch SW55 9QT"
             email_address:
-              blank: Enter the claimant’s email address
-              invalid: You have entered an invalid email address
+              blank: Rhowch gyfeiriad e-bost yr hawlydd
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
             address_telephone_number:
               invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:

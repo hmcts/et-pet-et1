@@ -6,9 +6,7 @@ describe BaseMailer, type: :mailer do
   include Messages
   include MailMatchers
 
-  include_context 'block pdf generation'
-
-  let(:claim) { create(:claim, :with_pdf, email_address: email_address) }
+  let(:claim) { create(:claim, email_address: email_address) }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
 

@@ -4,7 +4,7 @@ json.uuid uuid
 json.command 'SerialSequence'
 json.data do
   json.child! do
-    json.partial! 'api/claim/build_claim', claim: claim, office: office, employment: employment
+    json.partial! 'api/claim/build_claim', claim: claim, employment: employment
   end
   json.child! do
     json.partial! 'api/claim/build_primary_claimant', claimant: claim.primary_claimant
@@ -36,8 +36,5 @@ json.data do
     json.child! do
       json.partial! 'api/claim/build_claim_details_file', file: claim.claim_details_rtf
     end
-  end
-  json.child! do
-    json.partial! 'api/claim/build_pdf_file', file: claim.pdf
   end
 end

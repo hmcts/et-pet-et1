@@ -88,8 +88,6 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
   context 'with target' do
     let(:additional_respondent) { AdditionalRespondentsForm::AdditionalRespondent.new(target) }
 
-    before { allow(additional_respondent.target).to receive :enqueue_fee_group_reference_request }
-
     describe '.model_name_i18n_key' do
       specify do
         expect(described_class.model_name_i18n_key).
