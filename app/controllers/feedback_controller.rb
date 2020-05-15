@@ -1,4 +1,5 @@
 class FeedbackController < ApplicationController
+  invisible_captcha only: [:create], honeypot: :subtitle
   def create
     resource.assign_attributes params.require(:feedback)
     resource.save
