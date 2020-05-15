@@ -14,7 +14,7 @@
           as: :text,
           input_html: { rows: 5 }
         = f.input :email_address
-
+        = f.invisible_captcha :subtitle
       .form-actions
         = f.button :submit
 
