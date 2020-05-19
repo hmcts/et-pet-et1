@@ -5,13 +5,16 @@ RSpec.describe FeedbackController, type: :controller do
     let(:form) { instance_double(FeedbackForm, save: true, assign_attributes: {}) }
 
     let(:params) do
-      { comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com' }
+      { subtitle: "", comments: 'lél', suggestions: 'lewl', email_address: 'hue@example.com' }
     end
 
-    before { allow(FeedbackForm).to receive(:new).and_return form }
+    before do
+      allow(FeedbackForm).to receive(:new).and_return form
+      session[:invisible_captcha_timestamp] = 60.seconds.ago.iso8601
+    end
 
     it 'saves the form' do
-      expect(form).to receive(:assign_attributes).with(an_object_having_attributes(to_unsafe_hash: params.stringify_keys))
+      expect(form).to receive(:assign_attributes).with(an_object_having_attributes(to_unsafe_hash: params.except(:subtitle).stringify_keys))
       post :create, params: { feedback: params }
     end
 
