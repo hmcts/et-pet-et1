@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Feedback form' do
-  before { stub_request(:post, /.+/) }
+RSpec.feature 'Feedback form', js: true do
 
   scenario 'filling in the feedback form' do
     visit feedback_path
