@@ -7,6 +7,25 @@ GIT
       application_insights (~> 0.5.7)
 
 GIT
+  remote: https://github.com/hmcts/et_gds_design_system.git
+  revision: 5eb6886d31f0fc24356cc67885c74c1f269094c4
+  specs:
+    et_gds_design_system (0.1.0)
+      govuk_design_system_formbuilder (~> 1.1, >= 1.1.10)
+      rails (~> 6.0.2, >= 6.0.2.2)
+      webpacker (~> 4.0)
+
+GIT
+  remote: https://github.com/hmcts/et_test_helpers.git
+  revision: 294d96d4938a24f7a88332e11aea1662b575ae0d
+  specs:
+    et_test_helpers (0.1.0)
+      activesupport (~> 6.0)
+      capybara (~> 3.32)
+      i18n (~> 1.8)
+      site_prism (~> 3.4)
+
+GIT
   remote: https://github.com/microsoft/ApplicationInsights-Ruby.git
   revision: 5db6b4ad65262d23f26b678143a4a1fd7939e5c2
   ref: 5db6b4
@@ -107,10 +126,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
-    browserify-rails (4.4.0)
-      addressable (>= 2.4.0)
-      railties (>= 4.0.0)
-      sprockets (>= 3.6.0)
     builder (3.2.4)
     capybara (3.32.2)
       addressable
@@ -134,13 +149,6 @@ GEM
     climate_control (0.2.0)
     cliver (0.3.2)
     coderay (1.1.2)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     crack (0.4.3)
@@ -194,9 +202,10 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_frontend_toolkit (4.0.1)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
+    govuk_design_system_formbuilder (1.1.10)
+      actionview (>= 5.2)
+      activemodel (>= 5.2)
+      activesupport (>= 5.2)
     guard (2.16.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -271,8 +280,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
-    moj_template (0.23.0)
-      rails (>= 3.1)
     multi_json (1.14.1)
     multipart-post (2.1.1)
     mustermann (1.1.1)
@@ -281,8 +288,6 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    non-stupid-digest-assets (1.0.9)
-      sprockets (>= 2.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -310,6 +315,8 @@ GEM
     rack-livereload (0.3.17)
       rack
     rack-protection (2.0.8.1)
+      rack
+    rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -395,9 +402,6 @@ GEM
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
-    sass (3.4.25)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -452,8 +456,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    susy (2.2.14)
-      sass (>= 3.3.0, < 3.5)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -477,6 +479,10 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
+    webpacker (4.2.2)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     webrick (1.6.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
@@ -499,27 +505,24 @@ DEPENDENCIES
   better_errors (~> 2.5)
   binding_of_caller (~> 0.8)
   bitmask_attributes (~> 1.0)
-  browserify-rails (~> 4.3)
   capybara (~> 3.22)
   capybara-screenshot (~> 1.0)
   carrierwave (~> 2.0)
   climate_control (~> 0.2)
-  coffee-rails (~> 5.0)
   database_cleaner (~> 1.7)
   dotenv-rails (~> 2.7)
   email_validator (~> 1.6)
   et_azure_insights (= 0.2.12)!
+  et_gds_design_system!
+  et_test_helpers!
   factory_bot_rails (~> 5.1)
   fog-aws (~> 3.0)
-  govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
   invisible_captcha
   iodine (~> 0.7.34)
   jbuilder (~> 2.8)
   jquery-rails (~> 4.3)
   launchy
-  moj_template (= 0.23.0)
-  non-stupid-digest-assets (~> 1.0)
   parallel_tests (~> 2.28)
   pg (~> 1.1)
   poltergeist (~> 1.18)
@@ -534,7 +537,6 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   rubocop (~> 0.80)
   rubocop-rspec (~> 1.32)
-  sass-rails (~> 6.0)
   selenium-webdriver (~> 3.142)
   sentry-raven (~> 3.0)
   shoulda-matchers (~> 3.1)
@@ -545,8 +547,6 @@ DEPENDENCIES
   site_prism (~> 3.0)
   slim-rails (~> 3.2)
   spring (~> 2.0)
-  sprockets (~> 3.7, >= 3.7.2)
-  susy (~> 2.2)
   turbolinks (~> 5.2)
   typhoeus (~> 1.4)
   uglifier (~> 4.1)

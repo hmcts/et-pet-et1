@@ -20,9 +20,6 @@ gem 'et_azure_insights', '0.2.12', git: 'https://github.com/hmcts/et-azure-insig
 gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsights-Ruby.git', ref: '5db6b4'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0'
-gem 'coffee-rails', '~> 5.0'
-gem 'sprockets', '~> 3.7', '>= 3.7.2'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -73,6 +70,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
   gem 'puma', '~> 4.2'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git'
 end
 
 group :production do
@@ -90,11 +88,8 @@ gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
 
 
-gem 'browserify-rails', '~> 4.3'
 gem 'carrierwave', '~> 2.0'
 gem 'fog-aws', '~> 3.0'
-gem 'govuk_frontend_toolkit', '~> 4.0.0'
-gem 'moj_template', '0.23.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '3.5'
 gem 'simple_form', '~> 5.0'
@@ -103,11 +98,8 @@ gem 'sidekiq', '~> 6.0'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq_alive', '~> 2.0'
 gem 'uk_postcode', '~> 2.1'
-gem 'susy', '~> 2.2'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git'
 
-# This gem ensures rails 4 also builds a non-digest version of the assets
-# so that static pages can refer to them.
-gem "non-stupid-digest-assets", '~> 1.0'
