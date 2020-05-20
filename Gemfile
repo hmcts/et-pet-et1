@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.8'
 gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.2.1'
+gem 'rails', '6.0.3.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -53,7 +53,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
-  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'rspec-rails', '~> 4.0'
   gem 'rubocop', '~> 0.80', :require => false
   gem 'rubocop-rspec', '~> 1.32', :require => false
   gem 'shoulda-matchers', '~> 3.1'
@@ -81,7 +81,7 @@ group :production do
 end
 
 group :production, :test do
-  gem 'sentry-raven', '~> 2.9'
+  gem 'sentry-raven', '~> 3.0'
 end
 
 gem 'activeadmin', '~> 2.4'
@@ -105,7 +105,7 @@ gem 'sidekiq_alive', '~> 2.0'
 gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
 gem 'email_validator', '~> 1.6'
-gem 'typhoeus', '~> 1.3', '>= 1.3.1'
+gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
