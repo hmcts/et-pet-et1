@@ -105,7 +105,7 @@ gem 'sidekiq_alive', '~> 2.0'
 gem 'uk_postcode', '~> 2.1'
 gem 'susy', '~> 2.2'
 gem 'email_validator', '~> 1.6'
-gem 'typhoeus', '~> 1.3', '>= 1.3.1'
+gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha'
 
 # This gem ensures rails 4 also builds a non-digest version of the assets
