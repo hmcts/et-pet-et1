@@ -28,7 +28,7 @@
 - content_for :after_header do
   = render "shared/google_tag_manager_body", account: Rails.application.config.google_tag_manager_account
 
-- content_for :body_classes, "#{config_item(:phase).to_s.downcase} #{config_item(:product_type).to_s.downcase} #{controller.controller_name} #{controller.action_name}"
+- content_for :body_classes, "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase} #{controller.controller_name} #{controller.action_name}"
 
 - content_for :footer_support_links do
   li= link_to "Guide", guide_path
