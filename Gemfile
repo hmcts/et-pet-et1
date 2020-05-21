@@ -102,6 +102,7 @@ gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha'
 gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git'
+gem 'sprockets', '~> 3.7'
 
 
 gem "webpacker", "~> 4.2"
