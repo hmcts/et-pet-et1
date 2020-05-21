@@ -41,7 +41,7 @@
     = render "shared/maintenance_notice" if ENV['SHOW_DOWNTIME_BANNER'].present?
 
 - content_for :content_override do
-  main#content(role="main")
+  main#main-content(role="main")
     = render partial: 'shared/mobile_nav'
     .container
       = content_for(:before_alerts)
