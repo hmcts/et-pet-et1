@@ -553,6 +553,7 @@ DEPENDENCIES
   uk_postcode (~> 2.1)
   webdrivers (~> 4.0)
   webmock (~> 3.5)
+  webpacker (~> 4.2)
   webrick (~> 1.4, >= 1.4.2)
 
 BUNDLED WITH
