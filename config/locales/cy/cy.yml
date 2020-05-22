@@ -306,6 +306,7 @@ cy:
 
 
     hints:
+      address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         has_representative: |
           Rhywun sydd wedi cytuno i'ch cynrychioli (er enghraifft, i baratoi eich achos a/neu gweithredu ar eich rhan os bydd gwrandawiad).

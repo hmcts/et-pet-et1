@@ -248,6 +248,7 @@ en:
 
 
     hints:
+      address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
