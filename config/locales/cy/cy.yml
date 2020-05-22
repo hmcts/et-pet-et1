@@ -156,9 +156,6 @@ cy:
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
 
     labels:
-      application_number:
-        email_address: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
-        password: Creu eich gair cofiadwy
       user_session:
         new:
           reference: Rhif yr hawliad
@@ -347,8 +344,6 @@ cy:
 
 
     hints:
-      application_number:
-        password: "Er enghraifft eich cyfenw"
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -428,7 +423,6 @@ cy:
 
   helpers:
     submit:
-      update: Cadw a pharhau
       return: Cwblhau wedyn
       claim:
         create: Cychwyn hawliad
@@ -443,6 +437,7 @@ cy:
         return: Dychwelyd i hawliad
 
   shared:
+    continue_button: Cadw a pharhau
     reference: Eich rhif hawliad yw
     aside:
       skip_link: Neidio i'r cynnwys
@@ -974,3 +969,11 @@ cy:
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
+  claim:
+    application_number:
+      email_address:
+        label: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
+      password:
+        label: Creu eich gair cofiadwy
+        hint: "Er enghraifft eich cyfenw"
+
