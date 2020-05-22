@@ -7,6 +7,25 @@ GIT
       application_insights (~> 0.5.7)
 
 GIT
+  remote: https://github.com/hmcts/et_gds_design_system.git
+  revision: 2caed15b77214b9aac5e121cc9715e2767efc8f3
+  specs:
+    et_gds_design_system (0.1.0)
+      govuk_design_system_formbuilder (~> 1.1, >= 1.1.10)
+      rails (~> 6.0.2, >= 6.0.2.2)
+      webpacker (~> 4.0)
+
+GIT
+  remote: https://github.com/hmcts/et_test_helpers.git
+  revision: 294d96d4938a24f7a88332e11aea1662b575ae0d
+  specs:
+    et_test_helpers (0.1.0)
+      activesupport (~> 6.0)
+      capybara (~> 3.32)
+      i18n (~> 1.8)
+      site_prism (~> 3.4)
+
+GIT
   remote: https://github.com/hmcts/nulldb.git
   revision: 61af6221df8cbd20441a03425a8962993c024a53
   ref: 61af6221df8cbd20441a03425a8962993c024a53
@@ -116,10 +135,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
-    browserify-rails (4.4.0)
-      addressable (>= 2.4.0)
-      railties (>= 4.0.0)
-      sprockets (>= 3.6.0)
     builder (3.2.4)
     capybara (3.35.3)
       addressable
@@ -218,9 +233,10 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_frontend_toolkit (4.0.1)
-      rails (>= 3.1.0)
-      sass (>= 3.2.0)
+    govuk_design_system_formbuilder (1.1.11)
+      actionview (>= 5.2)
+      activemodel (>= 5.2)
+      activesupport (>= 5.2)
     guard (2.16.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -297,8 +313,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
-    moj_template (0.23.0)
-      rails (>= 3.1)
     multi_json (1.15.0)
     multipart-post (2.1.1)
     nenv (0.3.0)
@@ -306,8 +320,6 @@ GEM
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
-    non-stupid-digest-assets (1.0.9)
-      sprockets (>= 2.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -333,6 +345,10 @@ GEM
     racc (1.5.2)
     rack (2.2.3)
     rack-livereload (0.3.17)
+      rack
+    rack-protection (2.0.8.1)
+      rack
+    rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -421,9 +437,7 @@ GEM
       ffi (~> 1.9)
     ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
-    sass (3.4.25)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
+    safe_yaml (1.0.5)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -472,8 +486,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
-    susy (2.2.14)
-      sass (>= 3.3.0, < 3.5)
     temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
@@ -498,8 +510,13 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    webrick (1.7.0)
     websocket-driver (0.7.3)
+    webpacker (4.2.2)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
+    webrick (1.7.0)
+    websocket-driver (0.7.2)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -520,28 +537,25 @@ DEPENDENCIES
   better_errors (~> 2.9)
   binding_of_caller (~> 1.0)
   bitmask_attributes (~> 1.0)
-  browserify-rails (~> 4.3)
   capybara (~> 3.34)
   capybara-screenshot (~> 1.0)
   carrierwave (~> 2.0)
   climate_control (~> 0.2)
-  coffee-rails (~> 5.0)
   database_cleaner (~> 2.0)
   devise (~> 4.7)
   dotenv-rails (~> 2.7)
   email_validator (~> 1.6)
   et_azure_insights (= 0.2.14)!
+  et_gds_design_system!
+  et_test_helpers!
   factory_bot_rails (~> 6.1)
   fog-aws (~> 3.0)
-  govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
   invisible_captcha (~> 1.1)
   iodine (~> 0.7)
   jbuilder (~> 2.10)
   jquery-rails (~> 4.3)
   launchy
-  moj_template (= 0.23.0)
-  non-stupid-digest-assets (~> 1.0)
   parallel_tests (~> 3.4)
   pg (~> 1.1)
   poltergeist (~> 1.18)
@@ -556,7 +570,6 @@ DEPENDENCIES
   rspec-rails (~> 4.0)
   rubocop (~> 1.8)
   rubocop-rspec (~> 2.1)
-  sass-rails (~> 6.0)
   selenium-webdriver (~> 3.142)
   sentry-raven (~> 3.1)
   shoulda-matchers (~> 3.1)
@@ -568,13 +581,13 @@ DEPENDENCIES
   slim-rails (~> 3.2)
   spring (~> 2.1)
   sprockets (~> 3.7, >= 3.7.2)
-  susy (~> 2.2)
   turbolinks (~> 5.2)
   typhoeus (~> 1.4)
   uglifier (~> 4.1)
   uk_postcode (~> 2.1)
   webdrivers (~> 4.4)
   webmock (~> 3.11)
+  webpacker (~> 4.2)
   webrick (~> 1.4, >= 1.4.2)
 
 BUNDLED WITH

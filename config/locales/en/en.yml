@@ -170,10 +170,6 @@ en:
           new:
             reference: Save and return number
             password: Memorable word
-        user:
-          new:
-            email: Enter your email address to receive your claim number
-            password: Create your memorable word
         password:
           new:
             email: Enter your email address
@@ -307,12 +303,6 @@ en:
 
     hints:
       save_and_return:
-        user:
-          new:
-            password: If you have entered your email address above, you will be able to reset your memorable word if you forget it
-        session:
-          new:
-            reference: This was emailed to you (if you entered your email address)
         password:
           new:
             reference: "This was emailed to you (if you entered an email address)."
@@ -395,7 +385,6 @@ en:
 
   helpers:
     submit:
-      update: Save and continue
       return: Complete later
       claim:
         create: Start a claim
@@ -417,6 +406,7 @@ en:
         return: Return to a claim
 
   shared:
+    continue_button: Save and continue
     reference: Your claim number is
     aside:
       skip_link: Skip to content
@@ -966,3 +956,11 @@ en:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+  claim:
+    application_number:
+      email_address:
+        label: "Enter your email address to receive your claim number"
+      password:
+        label: Create your memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+
