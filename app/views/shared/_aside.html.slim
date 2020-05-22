@@ -1,8 +1,8 @@
 aside role="complementary"
-  h3= t '.gethelp_header'
-  ul
-    li= link_to t('.read_guide'), guide_path
-    li= link_to t('.contact_us'), t('.contact_us_link'), { rel: 'external', target: '_blank'}
+  h3.govuk-heading-m= t '.gethelp_header'
+  ul.govuk-list
+    li= link_to t('.read_guide'), guide_path, class: 'govuk-link'
+    li= link_to t('.contact_us'), t('.contact_us_link'), { rel: 'external', target: '_blank', class: 'govuk-link'}
   - if show_signout?
     h3= t '.actions_header'
     ul
