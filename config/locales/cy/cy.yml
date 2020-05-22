@@ -171,10 +171,6 @@ cy:
           new:
             reference: "Rhif cadw a dychwelyd"
             password: Gair cofiadwy
-        user:
-          new:
-            email: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
-            password: Crëwch eich gair cofiadwy
         password:
           new:
             email: "Nodwch eich cyfeiriad e-bost"
@@ -365,9 +361,6 @@ cy:
 
     hints:
       save_and_return:
-        user:
-          new:
-            password: "Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio"
         session:
           new:
             reference: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
@@ -452,7 +445,6 @@ cy:
 
   helpers:
     submit:
-      update: Cadw a pharhau
       return: Cwblhau wedyn
       claim:
         create: Cychwyn hawliad
@@ -470,6 +462,7 @@ cy:
         return: Dychwelyd i hawliad
 
   shared:
+    continue_button: Cadw a pharhau
     reference: Eich rhif hawliad yw
     aside:
       skip_link: Neidio i'r cynnwys
@@ -637,6 +630,14 @@ cy:
            <li>eich <a href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
            <li>manylion eich hawliad gan gynnwys y cefndir, y dyddiadau a'r unigolion sy'n gysylltiedig â'r hawliad </li>
           </ul>
+    application_number:
+      header: "Cadw eich hawliad"
+      application_number: Eich rhif hawliad
+      intro_text: "Gallwch gadw eich hawliad a dychwelyd iddo unrhyw bryd. Byddwch angen eich rhif hawliad (uchod), a gair cofiadwy y byddwch yn ei greu isod."
+      email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
+      print_link: Argraffu'r dudalen hon
+      print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
+
     claimant:
       header: Manylion yr hawlydd
       gender: Rhywedd
@@ -833,6 +834,12 @@ cy:
             reference:
               blank: "Rhowch eich rhif hawliad"
               invalid: Rydych wedi rhoi rhif hawliad annilys
+        application_number:
+          attributes:
+            password:
+              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
+            email_address:
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
         additional_claimants_form/additional_claimant:
           attributes:
             title:
@@ -1058,3 +1065,11 @@ cy:
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
+  claim:
+    application_number:
+      email_address:
+        label: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
+      password:
+        label: Crëwch eich gair cofiadwy
+        hint: "Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio"
+
