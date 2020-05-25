@@ -31,7 +31,7 @@ gem 'sprockets', '~> 3.7', '>= 3.7.2'
 gem 'turbolinks', '~> 5.2'
 
 # Use iodine as the app server
-gem 'iodine', '~> 0.7.34'
+gem 'iodine', '~> 0.7.40'
 
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 0.4'

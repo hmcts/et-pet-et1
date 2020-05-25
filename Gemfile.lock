@@ -229,7 +229,7 @@ GEM
       responders (>= 2, < 4)
     invisible_captcha (1.0.1)
       rails (>= 4.2)
-    iodine (0.7.39)
+    iodine (0.7.40)
     ipaddress (0.8.3)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
@@ -514,7 +514,7 @@ DEPENDENCIES
   govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
   invisible_captcha
-  iodine (~> 0.7.34)
+  iodine (~> 0.7.40)
   jbuilder (~> 2.8)
   jquery-rails (~> 4.3)
   launchy
