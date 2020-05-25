@@ -172,7 +172,7 @@ GEM
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.2)
-    fog-aws (3.6.4)
+    fog-aws (3.6.5)
       fog-core (~> 2.1)
       fog-json (~> 1.1)
       fog-xml (~> 0.1)
@@ -510,7 +510,7 @@ DEPENDENCIES
   email_validator (~> 1.6)
   et_azure_insights (= 0.2.12)!
   factory_bot_rails (~> 5.1)
-  fog-aws (~> 3.0)
+  fog-aws (~> 3.6)
   govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
   invisible_captcha
