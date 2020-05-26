@@ -3,56 +3,24 @@ fieldset
   p= t '.personal_details_description'
   = render partial: 'personal_details', locals: { f: f }
 
-  = f.input :gender, collection: ClaimantForm::GENDERS, as: :radio_buttons,
-    readonly: nil,
-    item_wrapper_class: 'block-label',
-    include_hidden: false
+  = f.govuk_collection_radio_buttons :gender, ClaimantForm::GENDERS.map {|gender| [gender, t(".gender.options.#{gender}")]}, :first, :last, label: { text: t('.gender.label') }
 
   fieldset
-    legend.form-label = "#{t('simple_form.labels.claimant.has_special_needs')} #{t('simple_form.optional.text')}"
-    = f.input :has_special_needs,
-      as: :radio_buttons,
-      readonly: nil,
-      include_hidden: false,
-      label: false,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'form-group-reveal reveal-publish-delegate',
-      input_html: { :class => 'reveal-publish-publisher ga-vpv'},
-      reveal: { true => 'main', false => 'main' }
-
-    = f.input :special_needs, as: :text,
-      wrapper_class: 'panel-indent toggle-content',
-      wrapper_html: { id: :special_needs_wrapper,
-                      :class => 'reveal-subscribe',
-                      :'data-target' => 'main',
-                      :'data-show-array' => 'true' }
+    legend.form-label =
+    = f.govuk_boolean_field :has_special_needs, label: { text: "#{t('.has_special_needs.label')} #{t('simple_form.optional.text')}" }, hint_text: t('.has_special_needs.hint')
+    = f.govuk_text_area :special_needs, label: { text: '.special_needs.label' }
 
 fieldset
   legend= t '.legend_contact_details'
 
   = render partial: 'address', locals: { f: f }
 
-  = f.input :address_country, collection: ClaimantForm::COUNTRIES, include_blank: false
-  = f.input :address_telephone_number, as: :tel, input_html: { class: 'medium-input' }
-  = f.input :mobile_number, as: :tel, input_html: { class: 'medium-input' }
+  = f.govuk_collection_select :address_country, ClaimantForm::COUNTRIES.map {|c| [c, t(".address_country.options.#{c}")]}, :first, :last
+  = f.govuk_phone_field :address_telephone_number, label: { text: t('.address_telephone_number.label') }
+  = f.govuk_phone_field :mobile_number, label: { text: t('.mobile_number.label') }
 
-  fieldset
-    legend.form-label = t('simple_form.labels.claimant.contact_preference')
-    = f.input :contact_preference,
-      label: false,
-      collection: ClaimantForm::CONTACT_PREFERENCES,
-      as: :radio_buttons,
-      readonly: nil,
-      include_hidden: false,
-      item_wrapper_class: 'block-label',
-      wrapper_class: 'form-group-reveal reveal-publish-delegate',
-      input_html: { :class => 'reveal-publish-publisher'},
-      reveal: { "email" => 'email_address', "post" => 'email_address'}
+  = f.govuk_radio_buttons :contact_preference, ClaimantForm::CONTACT_PREFERENCES.map {|p| [p, t(".contact_preference.options.#{p}")]}, :first, :last, label: { text: t('.contact_preference.label') }
 
-    = f.input :email_address,
-      required: true,
-      wrapper_class: 'panel-indent toggle-content',
-      wrapper_html: { id: :email_address,
-                      :class => 'reveal-subscribe',
-                      :'data-target' => 'email_address',
-                      :'data-show-array' => 'email' }
+
+  = f.govuk_email_field :email_address, label: { text: t('.email_address.label') }
+
