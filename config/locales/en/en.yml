@@ -60,11 +60,6 @@ en:
         contact_preference:
           email: Email
           post: Post
-        title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
@@ -163,13 +158,6 @@ en:
           email_address: Enter your email address to get your claim number emailed to you.
 
       claimant:
-        first_name: First name
-        last_name: Last name
-        title: Title
-        date_of_birth:
-          day: Day
-          month: Month
-          year: Year
 
 
         mobile_number: Alternative phone or mobile number
@@ -288,7 +276,6 @@ en:
     hints:
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
-        date_of_birth: For example, 23 04 1981
         has_special_needs: |
           Eg documents in Braille, or a sign language interpreter
         has_representative: |
@@ -471,7 +458,23 @@ en:
 
   claims:
     personal_details:
-      date_of_birth: Date of birth
+      date_of_birth:
+        label: Date of birth
+        hint: For example, 23 04 1981
+        day: Day
+        month: Month
+        year: Year
+      title:
+        label: Title
+        options:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+      first_name: First name
+      last_name: Last name
+
+
 
     show:
       page_number: Page %{current_page} of %{total_pages}

@@ -51,11 +51,6 @@ cy:
         contact_preference:
           email: E-bost
           post: Post
-        title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
         address_country:
           united_kingdom: Deyrnas Unedig
           other: Tu allan i'r Deyrnas Unedig
@@ -164,14 +159,6 @@ cy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
 
       claimant:
-        first_name: Enw cyntaf
-        last_name: Enw olaf
-        title: Teitl
-        date_of_birth:
-          day: "Diwrnod"
-          month: "Mis"
-          year: "Blwyddyn"
-
         mobile_number: Rhif ffôn neu rif ffôn symudol arall
         fax_number: Ffacs
         has_special_needs: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
@@ -346,7 +333,6 @@ cy:
     hints:
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
-        date_of_birth: "Er enghraifft, 23 04 1981"
         has_special_needs: |
           Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
         has_representative: |
@@ -534,7 +520,22 @@ cy:
 
   claims:
     personal_details:
-      date_of_birth: Dyddiad geni
+      date_of_birth:
+        label: Dyddiad geni
+        hint: "Er enghraifft, 23 04 1981"
+        day: "Diwrnod"
+        month: "Mis"
+        year: "Blwyddyn"
+      title:
+        label: Teitl
+        options:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+      first_name: Enw cyntaf
+      last_name: Enw olaf
+
 
     show:
       page_number: "Tudalen %{current_page} o %{total_pages}"
