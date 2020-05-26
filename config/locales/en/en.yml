@@ -52,25 +52,6 @@ en:
         claimants: :"simple_form.include_blanks.claimant"
 
     options:
-      claimant:
-        gender:
-          male: Male
-          female: Female
-          prefer_not_to_say: Prefer not to say
-        contact_preference:
-          email: Email
-          post: Post
-        title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
-        address_country:
-          united_kingdom: United Kingdom
-          other: Outside United Kingdom
-        allow_video_attendance:
-          "true": 'Yes'
-          "false": 'No'
       additional_claimants:
         collection: :"simple_form.options.claimant"
 
@@ -174,28 +155,8 @@ en:
 
 
       claimant:
-        first_name: First name
-        last_name: Last name
-        title: Title
-        date_of_birth:
-          day: Day
-          month: Month
-          year: Year
-
-
-        mobile_number: Alternative phone or mobile number
         fax_number: Fax
-        has_special_needs: Do you have a disability which means you require assistance at the tribunal hearing?
-        special_needs: Describe the assistance you require
-        address_telephone_number: Phone or mobile number
-        address_building: Building number or name
-        address_locality: Town/city
-        address_street: Street
-        address_county: County
-        address_post_code: Postcode
-        address_country: Country
         applying_for_remission: Do you want to get help paying your fee (known as ‘help with fees’)?
-        contact_preference: Best way to send correspondence to you (the claimant)
         _destroy: 'Remove this claimant'
         allow_video_attendance: "Would you be able to take part in a hearing by video? (Requires internet access)."
 
@@ -303,9 +264,6 @@ en:
             email: "If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim."
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
-        date_of_birth: For example, 23 04 1981
-        has_special_needs: |
-          Eg documents in Braille, or a sign language interpreter
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
@@ -524,8 +482,33 @@ en:
         paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."
   claims:
     personal_details:
-      date_of_birth: Date of birth
-
+      date_of_birth:
+        label: Date of birth
+        hint: For example, 23 04 1981
+        day: Day
+        month: Month
+        year: Year
+      title:
+        label: Title
+        options:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+      first_name: First name
+      last_name: Last name
+    address:
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_post_code:
+        label: Postcode
     show:
       page_number: Page %{current_page} of %{total_pages}
 
@@ -550,7 +533,33 @@ en:
           </ul>
     claimant:
       header: Claimant’s details
-      gender: Gender
+      gender:
+        label: Gender
+        options:
+          male: Male
+          female: Female
+          prefer_not_to_say: Prefer not to say
+      has_special_needs:
+        label: Do you have a disability which means you require assistance at the tribunal hearing?
+        hint: Eg documents in Braille, or a sign language interpreter
+      special_needs:
+        label: Describe the assistance you require
+      address_country:
+        label: Country
+        options:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
+      address_telephone_number:
+        label: Phone or mobile number
+      mobile_number:
+        label: Alternative phone or mobile number
+      contact_preference:
+        label: Best way to send correspondence to you (the claimant)
+        options:
+          email: Email
+          post: Post
+      email_address:
+        label: Email address
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details

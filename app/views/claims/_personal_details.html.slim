@@ -1,6 +1,4 @@
-= f.input :title, collection: ClaimantForm::TITLES, include_blank: :translate
-= f.input :first_name, input_html: { class: 'medium-input' }
-= f.input :last_name, input_html: { class: 'medium-input' }
-fieldset
-    legend.form-label = t '.date_of_birth'
-    = f.input :date_of_birth, label: false, hint: t('simple_form.hints.claimant.date_of_birth')
+= f.govuk_collection_select :title, ClaimantForm::TITLES.map {|title| [title, t(".title.options.#{title}")]}, :first, :last, label: { text: t('.title.label') }
+= f.govuk_text_field :first_name, required: true, label: { text: t('.first_name') }
+= f.govuk_text_field :last_name, required: true, label: { text: t('.last_name') }
+= f.govuk_date_field :date_of_birth, hint_text: t('.date_of_birth.hint'), label: { text: t('.date_of_birth.label') }
