@@ -43,22 +43,6 @@ cy:
           title: Dewiswch
 
     options:
-      claimant:
-        gender:
-          male: Gwryw
-          female: Benyw
-          prefer_not_to_say: Mae'n well gen i beidio dweud
-        contact_preference:
-          email: E-bost
-          post: Post
-        title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
-        address_country:
-          united_kingdom: Deyrnas Unedig
-          other: Tu allan i'r Deyrnas Unedig
       additional_claimants:
         collection:
           title:
@@ -164,29 +148,9 @@ cy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
 
       claimant:
-        first_name: Enw cyntaf
-        last_name: Enw olaf
-        title: Teitl
-        date_of_birth:
-          day: "Diwrnod"
-          month: "Mis"
-          year: "Blwyddyn"
-
-        mobile_number: Rhif ffôn neu rif ffôn symudol arall
         fax_number: Ffacs
-        has_special_needs: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
-        special_needs: Disgrifiwch y cymorth sydd ei angen arnoch
-        address_telephone_number: "Rhif ffôn neu rif ffôn symudol"
-        address_building: Rhif neu enw'r adeilad
-        address_locality: Tref/dinas
-        address_street: Stryd
-        address_county: Sir
-        address_post_code: Cod post
-        address_country: Gwlad
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu eich ffi (a elwir yn \"help i dalu ffioedd\")?"
-        contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
         _destroy: 'Dileu''r hawlydd yma'
-        email_address: Cyfeiriad e-bost
         gender: Rhywedd
 
       additional_claimants:
@@ -344,11 +308,7 @@ cy:
 
 
     hints:
-      address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
-        date_of_birth: "Er enghraifft, 23 04 1981"
-        has_special_needs: |
-          Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
         has_representative: |
           Rhywun sydd wedi cytuno i'ch cynrychioli (er enghraifft, i baratoi eich achos a/neu gweithredu ar eich rhan os bydd gwrandawiad).
         applying_for_remission: |
@@ -534,8 +494,33 @@ cy:
 
   claims:
     personal_details:
-      date_of_birth: Dyddiad geni
-
+      date_of_birth:
+        label: Dyddiad geni
+        hint: "Er enghraifft, 23 04 1981"
+        day: "Diwrnod"
+        month: "Mis"
+        year: "Blwyddyn"
+      title:
+        label: Teitl
+        options:
+          mr: Mr
+          mrs: Mrs
+          miss: Miss
+          ms: Ms
+      first_name: Enw cyntaf
+      last_name: Enw olaf
+    address:
+      address_building:
+        label: Rhif neu enw'r adeilad
+      address_locality:
+        label: Tref/dinas
+      address_street:
+        label: Stryd
+      address_county:
+        label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
+      address_post_code:
+        label: Cod post
     show:
       page_number: "Tudalen %{current_page} o %{total_pages}"
 
@@ -568,7 +553,34 @@ cy:
 
     claimant:
       header: Manylion yr hawlydd
-      gender: Rhywedd
+      gender:
+        label: Rhywedd
+        options:
+          male: Gwryw
+          female: Benyw
+          prefer_not_to_say: Mae'n well gen i beidio dweud
+      has_special_needs:
+        label: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
+        hint: Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
+      special_needs:
+        label: Disgrifiwch y cymorth sydd ei angen arnoch
+      address_country:
+        label: Gwlad
+        options:
+          united_kingdom: Deyrnas Unedig
+          other: Tu allan i'r Deyrnas Unedig
+      address_telephone_number:
+        label: "Rhif ffôn neu rif ffôn symudol"
+      mobile_number:
+        label: Rhif ffôn neu rif ffôn symudol arall
+      contact_preference:
+        label: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
+        options:
+          email: E-bost
+          post: Post
+      email_address:
+        label: Cyfeiriad e-bost
+
       legend_disability: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
       legend_personal_details: Ynglŷn â’r hawlydd
       legend_contact_details: "Manylion cyswllt yr hawlydd"
