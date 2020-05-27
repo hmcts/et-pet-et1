@@ -633,6 +633,9 @@ cy:
       has_special_needs:
         label: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
         hint: Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
       special_needs:
         label: Disgrifiwch y cymorth sydd ei angen arnoch
       address_country:

@@ -562,6 +562,9 @@ en:
       has_special_needs:
         label: Do you have a disability which means you require assistance at the tribunal hearing?
         hint: Eg documents in Braille, or a sign language interpreter
+        options:
+          'true': 'Yes'
+          'false': 'No'
       special_needs:
         label: Describe the assistance you require
       address_country:
