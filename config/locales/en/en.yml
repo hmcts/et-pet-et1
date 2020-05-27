@@ -152,8 +152,6 @@ en:
         _destroy: 'Remove this claimant'
 
       additional_claimants:
-        of_collection_type: |
-          Are other people making a claim with you (against the same employer or organisation)?
         collection: :"simple_form.labels.claimant"
 
       additional_claimants_upload:
@@ -534,6 +532,11 @@ en:
       remove_resource_link: Remove this claimant
       number_claimants_info: For 5 or fewer claimants, enter their details below.
       csv_upload_text_html: For 6 or more claimants, you can <a href="%{path}">upload their details in a separate spreadsheet</a>.
+      of_collection_type:
+        label: Are other people making a claim with you (against the same employer or organisation)?
+        options:
+          'true': 'Yes'
+          'false': 'No'
 
     additional_claimants_upload:
       header: :"claims.additional_claimants.header"
