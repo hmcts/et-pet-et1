@@ -154,6 +154,8 @@ cy:
         gender: Rhywedd
 
       additional_claimants:
+        of_collection_type: |
+          A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
         collection:
           first_name: Enw cyntaf
           last_name: Enw olaf
@@ -562,8 +564,8 @@ cy:
         label: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
         hint: Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
         options:
-          'true': 'Oes'
-          'false': 'Nac oes'
+          'true': 'Ydw'
+          'false': 'Nac ydw'
       special_needs:
         label: Disgrifiwch y cymorth sydd ei angen arnoch
       address_country:
