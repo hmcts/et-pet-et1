@@ -154,8 +154,6 @@ cy:
         gender: Rhywedd
 
       additional_claimants:
-        of_collection_type: |
-          A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
         collection:
           first_name: Enw cyntaf
           last_name: Enw olaf
@@ -563,8 +561,8 @@ cy:
         label: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
         hint: Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
         options:
-          'true': 'Ydw'
-          'false': 'Nac ydw'
+          'true': 'Oes'
+          'false': 'Nac oes'
       special_needs:
         label: Disgrifiwch y cymorth sydd ei angen arnoch
       address_country:
@@ -598,7 +596,11 @@ cy:
       remove_resource_link: Dileu'r hawlydd yma
       number_claimants_info: "Ar gyfer 5 hawlydd neu lai, rhowch eu manylion isod."
       csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a href=\"%{path}\" >uwchlwytho eu manylion mewn taenlen ar wahân</a>."
-
+      of_collection_type:
+        label: A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
     additional_claimants_upload:
       header: "Hawliadau grŵp"
       subheader: Unigolion sy'n gwneud hawliad gyda chi
