@@ -92,6 +92,7 @@ gem 'bitmask_attributes', '~> 1.0'
 
 gem 'browserify-rails', '~> 4.3'
 gem 'carrierwave', '~> 2.0'
+gem "devise", "~> 4.7"
 gem 'fog-aws', '~> 3.0'
 gem 'govuk_frontend_toolkit', '~> 4.0.0'
 gem 'moj_template', '0.23.0'
@@ -111,3 +112,4 @@ gem 'invisible_captcha'
 # This gem ensures rails 4 also builds a non-digest version of the assets
 # so that static pages can refer to them.
 gem "non-stupid-digest-assets", '~> 1.0'
+

@@ -2,7 +2,8 @@ class Claim < ApplicationRecord
   include Reference
   include ClaimLists
 
-  has_secure_password validations: false
+  devise :database_authenticatable, :registerable, :recoverable
+
   mount_uploader :claim_details_rtf,          AttachmentUploader
   mount_uploader :additional_claimants_csv,   AttachmentUploader
 

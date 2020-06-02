@@ -22,7 +22,7 @@ feature 'Claimant page' do
   end
 
   before do
-    visit new_user_session_path
+    visit new_claim_session_path
     fill_in_return_form claim.reference, 'lollolol'
   end
 

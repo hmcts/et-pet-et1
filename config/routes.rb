@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  devise_for :claims, only: []
   match "/404", :to => "errors#not_found", :via => :all
   match "/422", :to => "errors#unprocessable", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
@@ -21,10 +22,22 @@ Rails.application.routes.draw do
             path: "additional-#{page}"
         end
 
-        ClaimPagesManager.page_names.each do |page|
-          resource page.underscore, only: %i<show update>, controller: :claims,
-            page: page, path: page
+        devise_scope :claim do
+          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "save_and_return/registrations", page: 'application-number', path: "application-number"
+          resource :session, only: [:new, :create, :destroy], controller: "save_and_return/sessions"
         end
+        resource :claimant, only: [:show, :update], controller: :claims, page: 'claimant', path: "claimant"
+        resource :additional_claimants, only: [:show, :update], controller: :claims, page: 'additional-claimants', path: "additional-claimants"
+        resource :additional_claimants_upload, only: [:show, :update], controller: :claims, page: 'additional-claimants-upload', path: "additional-claimants-upload"
+        resource :representative, only: [:show, :update], controller: :claims, page: 'representative', path: "representative"
+        resource :respondent, only: [:show, :update], controller: :claims, page: 'respondent', path: "respondent"
+        resource :additional_respondents, only: [:show, :update], controller: :claims, page: 'additional-respondents', path: "additional-respondents"
+        resource :employment, only: [:show, :update], controller: :claims, page: 'employment', path: "employment"
+        resource :claim_type, only: [:show, :update], controller: :claims, page: 'claim-type', path: "claim-type"
+        resource :claim_details, only: [:show, :update], controller: :claims, page: 'claim-details', path: "claim-details"
+        resource :claim_outcome, only: [:show, :update], controller: :claims, page: 'claim-outcome', path: "claim-outcome"
+        resource :additional_information, only: [:show, :update], controller: :claims, page: 'additional-information', path: "additional-information"
+        resource :review, only: [:show, :update], controller: :claims, page: 'review', path: "review"
       end
 
       resource :refund, only: [:create, :new], path: "/refund" do
@@ -44,12 +57,12 @@ Rails.application.routes.draw do
 
       get 'ping' => 'ping#index'
 
-      resource :user_session, only: %i<create destroy new>, path: :session do
-        member do
-          get :touch
-          get :expired
-        end
-      end
+      # resource :user_session, only: %i<create destroy new>, path: :session do
+      #   member do
+      #     get :touch
+      #     get :expired
+      #   end
+      # end
 
       get  '/feedback' => 'feedback#new'
       post '/feedback' => 'feedback#create'
