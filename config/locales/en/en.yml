@@ -479,6 +479,16 @@ en:
       privacy_policy: HMCTS privacy notice
       disclaimer: Disclaimer
 
+  save_and_return:
+    registrations:
+      new:
+        header: Saving your claim
+        application_number: Your claim number
+        intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
+        email_hint: Enter your email address to get the claim number emailed to you.
+        print_link: Print this page
+        print_copy: to have a copy of your claim number for reference
+
   claims:
     personal_details:
       date_of_birth: Date of birth
@@ -505,14 +515,6 @@ en:
             <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
-    application_number:
-      header: Saving your claim
-      application_number: Your claim number
-      intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
-      email_hint: Enter your email address to get the claim number emailed to you.
-      print_link: Print this page
-      print_copy: to have a copy of your claim number for reference
-
     claimant:
       header: Claimant’s details
       gender: Gender
