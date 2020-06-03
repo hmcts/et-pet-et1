@@ -5,6 +5,11 @@ module SaveAndReturn
 
     end
 
+    def create
+      super
+      deliver_access_details
+    end
+
     def page_manager
       @page_manager ||= ClaimPagesManager.new(resource: form_object)
     end
@@ -23,6 +28,14 @@ module SaveAndReturn
     end
 
     helper_method :page_manager, :form_object, :current_step
+
+    private
+
+    def deliver_access_details
+      return unless current_claim && current_claim.email_address.present?
+
+      AccessDetailsMailer.deliver_later(current_claim)
+    end
 
     protected
 
