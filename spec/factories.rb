@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :user do
+    
+  end
+
   factory :claim do
     association :primary_claimant,   factory: :claimant, primary_claimant: true
     association :primary_respondent, factory: :respondent
