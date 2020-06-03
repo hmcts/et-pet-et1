@@ -161,9 +161,9 @@ en:
       application_number:
         email_address: Enter your email address to receive your claim number
         password: Create your memorable word
-      claim_session:
+      user_session:
         new:
-          application_reference: Claim number
+          reference: Claim number
           password: Memorable word
         destroy:
           email_address: Enter your email address to get your claim number emailed to you.
@@ -367,7 +367,7 @@ en:
       additional_information:
         miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters.
 
-      claim_session:
+      user_session:
         new:
           reference: This was emailed to you (if you entered your email address)
           password: You created this at the beginning of the claim
@@ -382,7 +382,7 @@ en:
         create: Start a claim
       claim_review:
         update: Submit the form
-      claim_session:
+      user_session:
         create: Find my claim
         destroy: Sign out now
         update: Save and continue
@@ -434,6 +434,10 @@ en:
       immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
+    new:
+      header: Return to your claim
+      subheader: Enter your details below
+      hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
     create:
       header: Return to your claim
     reminder:
@@ -446,7 +450,7 @@ en:
 
     expired:
       header: Session expired
-      content_html: Your session has expired due to inactivity. <a href="%{new_claim_session_path}">Return to your claim</a>.
+      content_html: Your session has expired due to inactivity. <a href="%{new_user_session_path}">Return to your claim</a>.
     destroy:
       logout: You have been logged out
 
@@ -474,21 +478,6 @@ en:
       data_protection: General Data Protection Regulations (GDPR)
       privacy_policy: HMCTS privacy notice
       disclaimer: Disclaimer
-  save_and_return:
-    registrations:
-      new:
-        header: Saving your claim
-        application_number: Your claim number
-        intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
-        email_hint: Enter your email address to get the claim number emailed to you.
-        print_link: Print this page
-        print_copy: to have a copy of your claim number for reference
-    sessions:
-      new:
-        header: Return to your claim
-        subheader: Enter your details below
-        hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
-
 
   claims:
     personal_details:
@@ -516,6 +505,14 @@ en:
             <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
+    application_number:
+      header: Saving your claim
+      application_number: Your claim number
+      intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
+      email_hint: Enter your email address to get the claim number emailed to you.
+      print_link: Print this page
+      print_copy: to have a copy of your claim number for reference
+
     claimant:
       header: Claimant’s details
       gender: Gender

@@ -162,9 +162,9 @@ cy:
       application_number:
         email_address: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
         password: Creu eich gair cofiadwy
-      claim_session:
+      user_session:
         new:
-          application_reference: Rhif yr hawliad
+          reference: Rhif yr hawliad
           password: Gair cofiadwy
         destroy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
@@ -424,7 +424,7 @@ cy:
       additional_information:
         miscellaneous_information: "Rhowch fwy o fanylion am eich hawliad. Cewch ddefnyddio hyd at 2500 o nodau."
 
-      claim_session:
+      user_session:
         new:
           reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
           password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
@@ -439,7 +439,7 @@ cy:
         create: Cychwyn hawliad
       claim_review:
         update: Cyflwyno'r ffurflen
-      claim_session:
+      user_session:
         create: Cael hyd i fy hawliad
         destroy: Allgofnodi nawr
         update: Cadw a pharhau
@@ -492,6 +492,10 @@ cy:
       immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
 
   user_sessions:
+    new:
+      header: Dychwelyd i'ch hawliad
+      subheader: Rhowch eich manylion isod
+      hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
     create:
       header: Dychwelyd i'ch hawliad
     reminder:
@@ -504,7 +508,7 @@ cy:
 
     expired:
       header: Mae'r sesiwn wedi dod i ben
-      content_html: "Mae eich sesiwn wedi dod i ben oherwydd anactifedd. <a href=\"%{new_claim_session_path}\">Dychwelwch i'ch hawliad</a>."
+      content_html: "Mae eich sesiwn wedi dod i ben oherwydd anactifedd. <a href=\"%{new_user_session_path}\">Dychwelwch i'ch hawliad</a>."
     destroy:
       logout: Rydych wedi cael eich allgofnodi
 
@@ -537,20 +541,7 @@ cy:
       data_protection: Deddf Diogelu Data 1998
       disclaimer: Ymwrthodiad
       cookies: Cwcis
-  save_and_return:
-    registrations:
-      new:
-        header: "Cadw eich hawliad"
-        application_number: Eich rhif hawliad
-        intro_text: "Gallwch gadw eich hawliad a dychwelyd iddo unrhyw bryd. Byddwch angen eich rhif hawliad (uchod), a gair cofiadwy y byddwch yn ei greu isod."
-        email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
-        print_link: Argraffu'r dudalen hon
-        print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
-    sessions:
-      new:
-        header: Dychwelyd i'ch hawliad
-        subheader: Rhowch eich manylion isod
-        hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+
   claims:
     personal_details:
       date_of_birth: Dyddiad geni
@@ -577,6 +568,14 @@ cy:
            <li>eich <a href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
            <li>manylion eich hawliad gan gynnwys y cefndir, y dyddiadau a'r unigolion sy'n gysylltiedig â'r hawliad </li>
           </ul>
+    application_number:
+      header: "Cadw eich hawliad"
+      application_number: Eich rhif hawliad
+      intro_text: "Gallwch gadw eich hawliad a dychwelyd iddo unrhyw bryd. Byddwch angen eich rhif hawliad (uchod), a gair cofiadwy y byddwch yn ei greu isod."
+      email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
+      print_link: Argraffu'r dudalen hon
+      print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
+
     claimant:
       header: Manylion yr hawlydd
       gender: Rhywedd

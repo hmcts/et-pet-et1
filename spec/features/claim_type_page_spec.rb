@@ -6,7 +6,7 @@ feature 'Claim type page' do
   let(:claim) { Claim.create password: 'lollolol' }
 
   before do
-    visit new_claim_session_path
+    visit new_user_session_path
     fill_in_return_form claim.reference, 'lollolol'
   end
 

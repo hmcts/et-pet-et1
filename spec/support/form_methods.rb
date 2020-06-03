@@ -12,12 +12,11 @@ module FormMethods
 
   def end_session
     click_button 'Save and complete later'
-      # @TODO Add this back in - the save and complete later button isnt working as before yet
-      #click_button 'Sign out now'
+    click_button 'Sign out now'
   end
 
   def fill_in_return_form(reference, word)
-    visit new_claim_session_path
+    visit new_user_session_path
     fill_in 'Claim number', with: reference
     fill_in 'Memorable word', with: word
     click_button 'Find my claim'
@@ -29,7 +28,7 @@ module FormMethods
 
   def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'email_address')
     fill_in 'Create your memorable word', with: word
-    fill_in 'Enter your email address to receive your claim number', with: email_address if email_address.present?
+    fill_in email_address_element, with: email_address if email_address.present?
 
     click_button 'Save and continue'
   end
