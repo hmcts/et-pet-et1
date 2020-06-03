@@ -16,7 +16,7 @@ RSpec.feature 'Switching language', type: :feature do
     expect(page).to have_link("Cymraeg", href: '/cy/apply')
   end
 
-  scenario 'langauge should persist after submitting the form' do
+  scenario 'langauge should persist after submitting the form', js: true do
     visit root_path
     click_button 'Start a claim'
 
