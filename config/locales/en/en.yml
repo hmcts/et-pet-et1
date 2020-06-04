@@ -158,10 +158,6 @@ en:
           new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
-      user:
-        new:
-          email: Enter your email address to receive your claim number
-          password: Create your memorable word
       user_session:
         destroy:
           email_address: Enter your email address to get your claim number emailed to you.
@@ -170,6 +166,10 @@ en:
           new:
             reference: Claim number
             password: Memorable word
+        user:
+          new:
+            email: Enter your email address to receive your claim number
+            password: Create your memorable word
 
 
       claimant:
@@ -297,9 +297,14 @@ en:
 
 
     hints:
-      user:
-        new:
-          password: For example your surname
+      save_and_return:
+        user:
+          new:
+            password: For example your surname
+        session:
+          new:
+            reference: This was emailed to you (if you entered your email address)
+            password: You created this at the beginning of the claim
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
         date_of_birth: For example, 23 04 1981
@@ -373,16 +378,11 @@ en:
         miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters.
 
       user_session:
-        new:
-          reference: This was emailed to you (if you entered your email address)
-          password: You created this at the beginning of the claim
         destroy:
           email_address: Get your claim number in an email
 
   helpers:
     submit:
-      user:
-        create: Save and continue
       update: Save and continue
       return: Complete later
       claim:
@@ -392,8 +392,10 @@ en:
       user_session:
         destroy: Sign out now
         update: Save and continue
-      save_and_return/session:
+      save_and_return[session]:
         create: Find my claim
+      save_and_return[user]:
+        create: Save and continue
 
     link:
       claim:

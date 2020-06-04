@@ -159,10 +159,6 @@ cy:
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
 
     labels:
-      user:
-        new:
-          email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
-          password: Creu eich gair cofiadwy
       user_session:
         destroy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
@@ -171,6 +167,10 @@ cy:
           new:
             reference: Rhif yr hawliad
             password: Gair cofiadwy
+        user:
+          new:
+            email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
+            password: Creu eich gair cofiadwy
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
@@ -353,9 +353,14 @@ cy:
 
 
     hints:
-      user:
-        new:
-          password: "Er enghraifft eich cyfenw"
+      save_and_return:
+        user:
+          new:
+            password: "Er enghraifft eich cyfenw"
+        session:
+          new:
+            reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
+            password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -428,16 +433,11 @@ cy:
         miscellaneous_information: "Rhowch fwy o fanylion am eich hawliad. Cewch ddefnyddio hyd at 2500 o nodau."
 
       user_session:
-        new:
-          reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
-          password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
         destroy:
           email_address: Cael eich rhif hawliad drwy neges e-bost
 
   helpers:
     submit:
-      user:
-        create: Cadw a pharhau
       update: Cadw a pharhau
       return: Cwblhau wedyn
       claim:
@@ -447,9 +447,10 @@ cy:
       user_session:
         destroy: Allgofnodi nawr
         update: Cadw a pharhau
-      save_and_return/session:
+      save_and_return[session]:
         create: Cael hyd i fy hawliad
-
+      save_and_return[user]:
+        create: Cadw a pharhau
     link:
       claim:
         return: Dychwelyd i hawliad
