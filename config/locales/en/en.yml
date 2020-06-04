@@ -390,9 +390,11 @@ en:
       claim_review:
         update: Submit the form
       user_session:
-        create: Find my claim
         destroy: Sign out now
         update: Save and continue
+      save_and_return/session:
+        create: Find my claim
+
     link:
       claim:
         return: Return to a claim

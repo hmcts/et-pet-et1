@@ -445,9 +445,11 @@ cy:
       claim_review:
         update: Cyflwyno'r ffurflen
       user_session:
-        create: Cael hyd i fy hawliad
         destroy: Allgofnodi nawr
         update: Cadw a pharhau
+      save_and_return/session:
+        create: Cael hyd i fy hawliad
+
     link:
       claim:
         return: Dychwelyd i hawliad
