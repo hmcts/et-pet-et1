@@ -6,17 +6,17 @@
 .main-section
 
   .main-content
-    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+    = simple_form_for resource, as: :'save_and_return[session]', url: session_path(resource_name) do |f|
       = f.error_notification
 
       fieldset
         legend = t('.subheader')
 
-        = f.input :application_reference, label: t('simple_form.labels.claim_session.new.application_reference')
+        = f.input :reference
 
-        = f.input :password, as: :string, label: t('simple_form.labels.claim_session.new.password')
+        = f.input :password, as: :string
 
-        = f.button :submit, t('helpers.submit.claim_session.create')
+        = f.button :submit
 
         p.form-hint= t('.hint_html', path: root_path)
 

@@ -44,7 +44,7 @@ module SaveAndReturn
     end
 
     def sign_up_params
-      params.require(:user).permit(:email, :password, :reference).to_h.with_indifferent_access
+      params.require(:save_and_return).require(:user).permit(:email, :password, :reference).to_h.with_indifferent_access
     end
 
     def build_resource(*)
