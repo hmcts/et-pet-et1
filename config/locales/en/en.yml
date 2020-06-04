@@ -438,10 +438,6 @@ en:
       immutable: This claim has been submitted and can no longer be edited online
 
   user_sessions:
-    new:
-      header: Return to your claim
-      subheader: Enter your details below
-      hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
     create:
       header: Return to your claim
     reminder:
@@ -492,7 +488,11 @@ en:
         email_hint: Enter your email address to get the claim number emailed to you.
         print_link: Print this page
         print_copy: to have a copy of your claim number for reference
-
+    sessions:
+      new:
+        header: Return to your claim
+        subheader: Enter your details below
+        hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
   claims:
     personal_details:
       date_of_birth: Date of birth
