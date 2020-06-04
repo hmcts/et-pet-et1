@@ -9,7 +9,7 @@
 .main-section
 
   .main-content
-    = simple_form_for resource, url: request.fullpath, as: :application_number, method: :post do |f|
+    = simple_form_for resource, as: resource_name, url: claim_application_number_path, method: :post do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.error_notification
@@ -23,13 +23,14 @@
           p = t('.intro_text')
 
           fieldset
-            = f.input :email_address
+            = f.input :email
             = f.input :password, as: :string
 
         p.print
           = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
           = '&nbsp;'.html_safe
           = t('.print_copy')
+        = f.hidden_field :reference
       .form-actions
         = f.button :submit
 

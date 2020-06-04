@@ -159,9 +159,10 @@ cy:
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
 
     labels:
-      application_number:
-        email_address: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
-        password: Creu eich gair cofiadwy
+      user:
+        new:
+          email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
+          password: Creu eich gair cofiadwy
       user_session:
         new:
           reference: Rhif yr hawliad
@@ -351,8 +352,9 @@ cy:
 
 
     hints:
-      application_number:
-        password: "Er enghraifft eich cyfenw"
+      user:
+        new:
+          password: "Er enghraifft eich cyfenw"
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -433,6 +435,8 @@ cy:
 
   helpers:
     submit:
+      user:
+        create: Cadw a pharhau
       update: Cadw a pharhau
       return: Cwblhau wedyn
       claim:
@@ -749,6 +753,16 @@ cy:
         Ar sail y wybodaeth yr ydych wedi'i rhoi i ni, mae'n rhaid i chi dalu <strong>£%{fee}</strong> gyda cherdyn debyd neu gredyd.
       hearing_fee: |
         Os bydd eich achos yn mynd i dribiwnlys, bydd rhaid i chi dalu ffi gwrandawiad o <strong>£%{fee}</strong>.
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
+            email_address:
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
@@ -765,12 +779,6 @@ cy:
             reference:
               blank: "Rhowch eich rhif hawliad"
               invalid: Rydych wedi rhoi rhif hawliad annilys
-        application_number:
-          attributes:
-            password:
-              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
-            email_address:
-              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
         additional_claimants_form/additional_claimant:
           attributes:
             title:

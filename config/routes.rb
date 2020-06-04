@@ -1,13 +1,20 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  devise_for :users
   match "/404", :to => "errors#not_found", :via => :all
   match "/422", :to => "errors#unprocessable", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
   match "/503", :to => "errors#service_unavailable", :via => :all
   scope "(:locale)", locale: /en|cy/ do
     scope :apply do
+      devise_for :users, module: 'save_and_return', only: []
+      devise_scope :user do
+        scope path: '', as: :claim do
+          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "save_and_return/registrations", page: 'application-number', path: "application-number"
+          resource :session, only: [:new, :create], controller: "save_and_return/sessions"
+        end
+      end
+
       resource :guide,              only: :show
       resource :terms,              only: :show
       resource :cookies,            only: :show
@@ -22,10 +29,6 @@ Rails.application.routes.draw do
             path: "additional-#{page}"
         end
 
-        devise_scope :user do
-          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "save_and_return/registrations", page: 'application-number', path: "application-number"
-          resource :session, only: [:new, :create, :destroy], controller: "save_and_return/sessions"
-        end
         resource :claimant, only: [:show, :update], controller: :claims, page: 'claimant', path: "claimant"
         resource :additional_claimants, only: [:show, :update], controller: :claims, page: 'additional-claimants', path: "additional-claimants"
         resource :additional_claimants_upload, only: [:show, :update], controller: :claims, page: 'additional-claimants-upload', path: "additional-claimants-upload"

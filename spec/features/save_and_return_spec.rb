@@ -75,7 +75,7 @@ feature 'Save and Return' do
     expect(page).not_to have_signout_button
   end
 
-  scenario 'returning to existing application' do
+  scenario 'returning to existing application', js: true do
     start_claim
     fill_in_password 'green'
     fill_in_personal_details

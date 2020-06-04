@@ -32,21 +32,24 @@ module SaveAndReturn
     private
 
     def deliver_access_details
-      return unless current_claim && current_claim.email_address.present?
+      return unless claim && claim.email_address.present?
 
-      AccessDetailsMailer.deliver_later(current_claim)
+      AccessDetailsMailer.deliver_later(claim)
     end
 
     protected
 
-    def build_resource(hash = {})
-      self.resource = claim
-      resource.attributes= hash
-      resource
+    def after_sign_up_path_for(resource)
+      claim_path_for page_manager.forward
     end
 
     def sign_up_params
-      params.require(:application_number).permit(:email_address, :password).to_h.with_indifferent_access
+      params.require(:user).permit(:email, :password, :reference).to_h.with_indifferent_access
+    end
+
+    def build_resource(*)
+      super
+      resource.claim = claim
     end
   end
 end
