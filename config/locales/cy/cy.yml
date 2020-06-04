@@ -164,12 +164,13 @@ cy:
           email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
           password: Creu eich gair cofiadwy
       user_session:
-        new:
-          reference: Rhif yr hawliad
-          password: Gair cofiadwy
         destroy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
-
+      save_and_return:
+        session:
+          new:
+            reference: Rhif yr hawliad
+            password: Gair cofiadwy
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
