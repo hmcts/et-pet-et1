@@ -26,7 +26,7 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'email_address')
+  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'save_and_return_user_email')
     fill_in 'Create your memorable word', with: word
     fill_in email_address_element, with: email_address if email_address.present?
 

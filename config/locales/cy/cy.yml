@@ -171,6 +171,10 @@ cy:
           new:
             email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
             password: Creu eich gair cofiadwy
+        password:
+          new:
+            email: "*WELSH Enter your email address"
+            reference: "*WELSH Claim number"
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
@@ -361,6 +365,10 @@ cy:
           new:
             reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
             password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
+        password:
+          new:
+            reference: "*WELSH This was emailed to you (if you entered an email address)"
+            email: "*WELSH Instructions on how to reset your password will be sent here. This must match the email address that you used when you saved your claim"
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -559,6 +567,13 @@ cy:
         header: Dychwelyd i'ch hawliad
         subheader: Rhowch eich manylion isod
         hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+        forgot_password: "*WELSH Forgot your memorable word? "
+        reset_password: "*WELSH Click here to reset"
+    passwords:
+      new:
+        enter_your_details: "*WELSH Enter your details below"
+        header: "*WELSH Reset memorable word"
+        submit_button: "*WELSH Reset memorable word"
   claims:
     personal_details:
       date_of_birth: Dyddiad geni

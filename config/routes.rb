@@ -7,11 +7,10 @@ Rails.application.routes.draw do
   match "/503", :to => "errors#service_unavailable", :via => :all
   scope "(:locale)", locale: /en|cy/ do
     scope :apply do
-      devise_for :users, module: 'save_and_return', only: []
+      devise_for :users, module: 'save_and_return', only: [:password, :session]
       devise_scope :user do
-        scope path: '', as: :claim do
-          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "save_and_return/registrations", page: 'application-number', path: "application-number"
-          resource :session, only: [:new, :create], controller: "save_and_return/sessions"
+        scope path: '', module: 'save_and_return', as: :claim do
+          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "registrations", page: 'application-number', path: "application-number"
         end
       end
 
@@ -60,7 +59,7 @@ Rails.application.routes.draw do
 
       get 'ping' => 'ping#index'
 
-      resource :user_session, only: %i<create destroy new>, path: :session do
+      resource :user_session, only: %i<destroy>, path: :session do
         member do
           get :touch
           get :expired

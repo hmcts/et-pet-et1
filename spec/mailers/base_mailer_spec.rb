@@ -6,7 +6,7 @@ describe BaseMailer, type: :mailer do
   include Messages
   include MailMatchers
 
-  let(:claim) { create(:claim, email_address: email_address) }
+  let(:claim) { create(:claim, user: build(:user, email: email_address)) }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
 

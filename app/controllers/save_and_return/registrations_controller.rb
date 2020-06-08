@@ -1,5 +1,6 @@
 module SaveAndReturn
   class RegistrationsController < ::Devise::RegistrationsController
+    before_action :check_session_expiry, only: [:new, :create]
 
     def new
       super
@@ -32,7 +33,7 @@ module SaveAndReturn
     private
 
     def deliver_access_details
-      return unless claim && claim.email_address.present?
+      return unless claim && claim&.user&.email.present?
 
       AccessDetailsMailer.deliver_later(claim)
     end

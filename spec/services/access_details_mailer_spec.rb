@@ -7,7 +7,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
   describe '.deliver_later' do
     context 'when the claim has an email address' do
 
-      let(:claim) { Claim.create email_address: "funky@emailaddress.com" }
+      let(:claim) { Claim.create user: User.new(email: "funky@emailaddress.com", password: 'lollol') }
 
       it 'delivers access details via email' do
         described_class.deliver_later(claim)

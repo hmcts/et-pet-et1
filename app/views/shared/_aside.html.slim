@@ -6,5 +6,5 @@ aside role="complementary"
   - if show_signout?
     h3= t '.actions_header'
     ul
-      li= button_to({ controller: :user_sessions, action: :destroy },
+      li= button_to({ controller: '/user_sessions', action: :destroy },
       { method: :delete, class: 'button-hyperlink' }) { t(".signout") }

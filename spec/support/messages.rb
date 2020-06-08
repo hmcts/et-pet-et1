@@ -6,7 +6,7 @@ module Messages
   end
 
   def before_you_start_message
-    I18n.t('claims.application_number.header')
+    'Saving your claim'
   end
 
   def claim_heading_for(page)

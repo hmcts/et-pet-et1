@@ -3,7 +3,7 @@ class UserSessionsController < ApplicationController
   redispatch_request unless: :present?, except: [:new, :create]
 
   def destroy
-    if claim.email_address.present?
+    if claim.user&.email.present?
       logout
     elsif params[:user_session].present?
       send_access_details_and_logout
@@ -39,14 +39,15 @@ class UserSessionsController < ApplicationController
   end
 
   def send_access_details_and_logout
-    claim.update(email_address: user_session.email_address)
+    return unless claim.user.present?
+    claim.user.update(email: user_session.email_address)
     deliver_access_details
     logout
   end
 
   def deliver_access_details
     AccessDetailsMailer.deliver_later claim
-    claim.create_event Event::DELIVER_ACCESS_DETAILS, message: "Sent to #{claim.email_address}"
+    claim.create_event Event::DELIVER_ACCESS_DETAILS, message: "Sent to #{claim.user.email}"
   end
 
   def user_session

@@ -23,6 +23,9 @@
 
         = f.button :submit, t('helpers.submit.save_and_return[session].create')
 
+        p.form-hint
+          = t(".forgot_password")
+          = link_to t(".reset_password"), new_password_path(resource_name)
         p.form-hint= t('.hint_html', path: root_path)
 
   = render partial: 'shared/aside'

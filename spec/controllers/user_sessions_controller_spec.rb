@@ -8,29 +8,9 @@ RSpec.describe UserSessionsController, type: :controller do
 
   let(:user_session) { instance_double(UserSession, claim: claim) }
   let(:email)        { 'sg@example.com' }
-  let(:claim)        { create(:claim, email_address: email) }
+  let(:claim)        { create(:claim, user: build(:user, email: email)) }
 
   describe 'creating events' do
-    describe 'for login' do
-      context 'for a valid login' do
-        before { allow(user_session).to receive_messages(valid?: true, reference: claim.reference) }
-
-        it 'creates a login event' do
-          expect(claim).to receive(:create_event)
-          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
-        end
-      end
-
-      context 'for an invalid login' do
-        before { allow(user_session).to receive(:valid?).and_return false }
-
-        it 'does not creates a login event' do
-          expect(claim).not_to receive(:create_event)
-          post :create, params: { user_session: { reference: 'lel', password: 'lewl' } }
-        end
-      end
-    end
-
     describe 'for logout' do
 
       before do
