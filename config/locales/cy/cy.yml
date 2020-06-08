@@ -551,7 +551,7 @@ cy:
       are_you_in_time:
         legend: "Ydych chi o fewn y terfyn amser?"
         body_html: |
-          Fel arfer mae'n rhaid i chi wneud eich hawliad o fewn 3 mis i'ch cyflogaeth ddod i ben neu i'r broblem ddigwydd. <a href="%{path}#time_limits">Dysgu mwy am pryd allwch wneud cais</a>.
+          Fel arfer, mae'n rhaid i chi wneud hawliad i'r tribiwnlys o fewn 3 mis o'ch cyflogaeth yn dod i ben neu o’r dyddiad y bu i’r broblem ddigwydd. Gall y tribiwnlys, o dan amgylchiadau eithriadol, dderbyn eich hawliad os bydd yn cyrraedd yn hwyr. Os bydd eich hawliad yn cyrraedd yn hwyr, rhaid i chi egluro pam a’r tribiwnlys fydd yn penderfynu os oes modd i’r gwrandawiad fynd yn ei flaen. <a href="%{path}#time_limits">Dysgu mwy am pryd allwch wneud cais</a>.
       have_you_contacted_acas:
         legend: "Ydych chi wedi cysylltu ag Acas?"
         body_html: |

@@ -488,7 +488,7 @@ en:
       are_you_in_time:
         legend: Are you in time?
         body_html: |
-          You usually have to make your claim within 3 months of your employment ending or the problem happening. <a href="%{path}#time_limits">Learn about when you can apply</a>.
+          You usually have to make a claim to the tribunal within 3 months of your employment ending or the problem happening. In exceptional circumstances the tribunal can accept your claim late. If your claim is late, you must explain why - the tribunal will decide if it can still hear your claim. <a href="%{path}#time_limits">Learn about when you can apply</a>.
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
