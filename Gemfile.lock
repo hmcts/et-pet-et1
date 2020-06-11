@@ -287,7 +287,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     parallel (1.19.1)
-    parallel_tests (2.32.0)
+    parallel_tests (3.0.0)
       parallel
     parser (2.7.1.2)
       ast (~> 2.4.0)
@@ -520,7 +520,7 @@ DEPENDENCIES
   launchy
   moj_template (= 0.23.0)
   non-stupid-digest-assets (~> 1.0)
-  parallel_tests (~> 2.28)
+  parallel_tests (~> 3.0)
   pg (~> 1.1)
   poltergeist (~> 1.18)
   pry-rails (~> 0.3)
