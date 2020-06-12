@@ -109,36 +109,91 @@ feature 'Save and Return' do
   end
 
   context 'forgotten memorable word', js:true do
-    it 'recovers correctly' do
+    let(:email_address) { 'doesntmatter@example.com' }
+    it 'recovers correctly when the email is not used at the beginning but when saved' do
 
-      start_claim
-      fill_in_password
-      fill_in_personal_details(submit_form: false)
+      apply_page.load.start_a_claim
+        .register(email_address: nil, password: 'green')
+      claimants_details_page
+        .fill_in_all(claimant: build(:ui_claimant, :mandatory))
+        .save_and_complete_later
+        .with(email_address: email_address)
+      apply_page.return_to_a_claim
+        .reset_memorable_word
+        .using(email_address: email_address, claim_number: Claim.last.application_reference)
+        .assert_memorable_word_email_sent
 
-      within 'aside' do
-        click_button 'Save and complete later'
-      end
-
-      ActionMailer::Base.deliveries.clear
-      fill_in 'Enter your email address to get your claim number emailed to you.',
-              with: FormMethods::SAVE_AND_RETURN_EMAIL
-      click_button 'Sign out now'
-
-      click_link 'Return to a claim'
-      within :xpath, XPath.generate {|x| x.descendant[x.string.n.starts_with('Forgot your memorable word?')]} do
-        click_link 'Click here to reset'
-      end
-
-      within :xpath, XPath.generate { |x| x.descendant(:fieldset)[x.child(:legend)[x.string.n.is('Enter your details below')]] } do
-        fill_in 'Enter your email address', with: FormMethods::SAVE_AND_RETURN_EMAIL
-        fill_in 'Claim number', with: Claim.last.application_reference
-        click_button 'Reset memorable word'
-      end
       perform_active_jobs(ActionMailer::DeliveryJob)
-      mail = ActionMailer::Base.deliveries.last
-      expect(mail).to match_pattern Claim.last.reference
 
-      expect(page).to have_text(claim_heading_for(:new))
+      reset_memorable_word_page.from_email_for(email_address)
+        .set_memorable_word('newmemorableword')
+        .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
+      expect(claimants_details_page).to be_displayed
+    end
+
+    it 'recovers correctly when the email used at the beginning' do
+
+      apply_page.load.start_a_claim
+        .register(email_address: email_address, password: 'green')
+      claimants_details_page
+        .fill_in_all(claimant: build(:ui_claimant, :mandatory))
+        .save_and_complete_later
+      apply_page.return_to_a_claim
+        .reset_memorable_word
+        .using(email_address: email_address, claim_number: Claim.last.application_reference)
+        .assert_memorable_word_email_sent
+
+      perform_active_jobs(ActionMailer::DeliveryJob)
+
+      reset_memorable_word_page.from_email_for(email_address)
+        .set_memorable_word('newmemorableword')
+        .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
+      expect(claimants_details_page).to be_displayed
+    end
+
+    it 'recovers correctly when the email used at the beginning but the claim number is not used in reset' do
+
+      apply_page.load.start_a_claim
+        .register(email_address: email_address, password: 'green')
+      claimants_details_page
+        .fill_in_all(claimant: build(:ui_claimant, :mandatory))
+        .save_and_complete_later
+      apply_page.return_to_a_claim
+        .reset_memorable_word
+        .using(email_address: email_address)
+        .assert_memorable_word_email_sent
+
+      perform_active_jobs(ActionMailer::DeliveryJob)
+
+      reset_memorable_word_page.from_email_for(email_address)
+        .set_memorable_word('newmemorableword')
+        .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
+      expect(claimants_details_page).to be_displayed
+    end
+
+    it 'allows a second claim to be used against the same email' do
+      apply_page.load.start_a_claim
+        .register(email_address: email_address, password: 'green')
+      claimants_details_page
+        .fill_in_all(claimant: build(:ui_claimant, :mandatory, first_name: 'old', last_name: 'claim'))
+        .save_and_complete_later
+      apply_page.start_a_claim
+        .register(email_address: email_address, password: 'green')
+      claimants_details_page
+        .fill_in_all(claimant: build(:ui_claimant, :mandatory))
+        .save_and_complete_later
+      apply_page.return_to_a_claim
+        .reset_memorable_word
+        .using(email_address: email_address)
+        .assert_memorable_word_email_sent
+
+      perform_active_jobs(ActionMailer::DeliveryJob)
+
+      reset_memorable_word_page.from_email_for(email_address)
+        .set_memorable_word('newmemorableword')
+        .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
+      expect(claimants_details_page).to be_displayed
+
     end
 
   end

@@ -13,6 +13,15 @@ module ET1
         ::ET1::Test::SavingYourClaimPage.new
       end
 
+      # @return [ET1::Test::ReturnToYourClaimPage] The return to your claim page
+      def return_to_your_claim_page(&block)
+        ET1::Test::ReturnToYourClaimPage.new(&block)
+      end
+
+      # @return [ET1::Test::ResetMemorableWordPage] The reset memorable word page
+      def reset_memorable_word_page
+        ET1::Test::ResetMemorableWordPage.new
+      end
 
       # @return [ET1::Test::ClaimantsDetailsPage]
       def claimants_details_page
@@ -155,6 +164,12 @@ module ET1
 
       def refund_confirmation_page
         @refund_confirmation_page ||= Refunds::ConfirmationPage.new
+      end
+
+      # @param [String] email_address
+      # @return [Et1::Test::EmailObjects::ResetPasswordEmailHtml, Nil] The found email object or nil
+      def reset_password_email_for(email_address)
+        Et1::Test::EmailObjects::ResetPasswordEmailHtml.find(email_address: email_address)
       end
     end
   end

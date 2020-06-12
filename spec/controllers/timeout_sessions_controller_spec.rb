@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe UserSessionsController, type: :controller do
+RSpec.describe TimeoutSessionsController, type: :controller do
   before do
     allow(UserSession).to receive(:new).and_return user_session
     allow(Claim).to receive(:find_by).with(application_reference: claim.reference).and_return claim

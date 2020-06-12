@@ -9,8 +9,23 @@ Rails.application.routes.draw do
     scope :apply do
       devise_for :users, module: 'save_and_return', only: [:password, :session]
       devise_scope :user do
-        scope path: '', module: 'save_and_return', as: :claim do
-          resource :application_number, only: [:new, :create], path_names: {new: ''}, controller: "registrations", page: 'application-number', path: "application-number"
+        get "application-number", to: 'save_and_return/registrations#new', page: 'application-number', as: :claim_application_number
+        scope :users, as: :user do
+          options = {
+            only: [:create],
+            path: '',
+            path_names: {
+              new: 'sign_up',
+              edit: 'edit',
+              cancel: 'cancel'
+            },
+            controller: 'save_and_return/registrations',
+            page: "application-number"
+          }
+
+          resource :registration, options do
+            get :cancel
+          end
         end
       end
 
@@ -59,7 +74,7 @@ Rails.application.routes.draw do
 
       get 'ping' => 'ping#index'
 
-      resource :user_session, only: %i<destroy>, path: :session do
+      resource :timeout_session, only: %i<destroy>, path: :session do
         member do
           get :touch
           get :expired

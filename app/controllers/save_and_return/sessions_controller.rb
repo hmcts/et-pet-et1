@@ -20,6 +20,11 @@ module SaveAndReturn
     end
 
     protected
+
+    def translation_scope
+      "save_and_return.#{controller_name}"
+    end
+
     private
 
     def store_claim_in_session

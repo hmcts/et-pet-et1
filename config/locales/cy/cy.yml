@@ -175,6 +175,9 @@ cy:
           new:
             email: "*WELSH Enter your email address"
             reference: "*WELSH Claim number"
+          edit:
+            password: "*WELSH Memorable word"
+            password_confirmation: "*WELSH Confirm memorable word"
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
@@ -507,7 +510,7 @@ cy:
       invalid: "Nid yw'r gair cofiadwy yr ydych wedi'i roi wedi cael ei adnabod"
       immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
 
-  user_sessions:
+  timeout_sessions:
     create:
       header: Dychwelyd i'ch hawliad
     reminder:
@@ -555,6 +558,8 @@ cy:
       cookies: Cwcis
   save_and_return:
     registrations:
+      user:
+        signed_up: ""
       new:
         header: "Cadw eich hawliad"
         application_number: Eich rhif hawliad
@@ -563,6 +568,8 @@ cy:
         print_link: Argraffu'r dudalen hon
         print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
     sessions:
+      user:
+        signed_in: "*WELSH Your claim has been retrieved.  You can now continue where you left off"
       new:
         header: Dychwelyd i'ch hawliad
         subheader: Rhowch eich manylion isod
@@ -570,10 +577,16 @@ cy:
         forgot_password: "*WELSH Forgot your memorable word? "
         reset_password: "*WELSH Click here to reset"
     passwords:
+      user:
+        send_instructions: "*WELSH You will receive an email with instructions on how to reset your memorable word in a few minutes."
+        updated_not_active: "*WELSH Your memorable word has been updated. You can now use it by clicking 'Return to a claim' below"
       new:
         enter_your_details: "*WELSH Enter your details below"
         header: "*WELSH Reset memorable word"
         submit_button: "*WELSH Reset memorable word"
+      edit:
+        submit_button: "*WELSH Reset memorable word"
+        header: "*WELSH Reset memorable word"
   claims:
     personal_details:
       date_of_birth: Dyddiad geni

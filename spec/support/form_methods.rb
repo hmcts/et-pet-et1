@@ -6,8 +6,7 @@ module FormMethods
   extend ActiveSupport::Concern
 
   def start_claim
-    visit '/'
-    click_button 'Start a claim'
+    ET1::Test::ApplyPage.new.load.start_a_claim
   end
 
   def end_session

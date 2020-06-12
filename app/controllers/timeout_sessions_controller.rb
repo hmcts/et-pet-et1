@@ -1,4 +1,4 @@
-class UserSessionsController < ApplicationController
+class TimeoutSessionsController < ApplicationController
   skip_after_action :set_session_expiry, only: :expired
   redispatch_request unless: :present?, except: [:new, :create]
 

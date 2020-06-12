@@ -40,6 +40,10 @@ module SaveAndReturn
 
     protected
 
+    def translation_scope
+      "save_and_return.#{controller_name}"
+    end
+
     def after_sign_up_path_for(resource)
       claim_path_for page_manager.forward
     end

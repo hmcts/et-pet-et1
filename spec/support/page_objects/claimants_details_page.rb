@@ -9,6 +9,7 @@ module ET1
         fill_in_personal_info(claimant: claimant)
         fill_in_special_needs(claimant: claimant)
         fill_in_contact_details(claimant: claimant)
+        self
       end
       # Fills in the claimant's personal info
       # @param [Claimant] claimant The claimant
@@ -55,6 +56,11 @@ module ET1
         save_and_continue_element.click
       end
 
+      def save_and_complete_later
+        save_and_complete_later_element.click
+        SaveAndCompleteLaterPage.new
+      end
+
 
       # @param [Hash] error_messages A list of error messages keyed by the question name (ignoring groups)
       def assert_error_messages(error_messages)
@@ -98,6 +104,7 @@ module ET1
       end
 
       element :save_and_continue_element, :button_translated, 'claimants_details.save_and_continue'
+      element :save_and_complete_later_element, :button_translated, 'claimants_details.save_and_complete_later'
 
     end
   end

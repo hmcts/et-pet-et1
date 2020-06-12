@@ -47,3 +47,20 @@ en:
         If you have any questions, contact the Public Enquiry Line:
         England & Wales 0300 123 1024
         Scotland 0141 354 8574
+
+  simple_form:
+    labels:
+      save_and_return:
+        password:
+          edit:
+            password: "Memorable word"
+            password_confirmation: "Confirm memorable word"
+    hints:
+      save_and_return:
+        password:
+          edit:
+            password: "Your new memorable word"
+  save_and_return:
+    passwords:
+      edit:
+        enter_your_details: "Enter your new details below"
