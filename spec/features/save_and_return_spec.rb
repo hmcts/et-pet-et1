@@ -193,7 +193,12 @@ feature 'Save and Return' do
         .set_memorable_word('newmemorableword')
         .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
       expect(claimants_details_page).to be_displayed
+    end
 
+    it 'provides valid feedback if claim number not given' do
+      apply_page.load.return_to_a_claim
+        .return_to_your_claim claim_number: nil, memorable_word: 'test'
+      return_to_your_claim_page.assert_missing_claim_number
     end
 
   end
