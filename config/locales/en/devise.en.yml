@@ -20,7 +20,7 @@ en:
       confirmation_instructions:
         subject: "Confirmation instructions"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Employment Tribunal: Reset your memorable word"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:

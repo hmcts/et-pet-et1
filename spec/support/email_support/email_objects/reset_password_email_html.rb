@@ -31,7 +31,7 @@ module Et1
         end
 
         def has_correct_subject? # rubocop:disable Naming/PredicateName
-          mail.subject == "Reset password instructions"
+          mail.subject == "Employment Tribunal: Reset your memorable word"
         end
 
         def has_correct_to_address?(email_address) # rubocop:disable Naming/PredicateName
@@ -48,7 +48,7 @@ module Et1
 
         private
 
-        element :reset_memorable_word_link, :link, 'Change my password'
+        element :reset_memorable_word_link, :link, 'Reset my memorable word'
 
         attr_accessor :mail
       end

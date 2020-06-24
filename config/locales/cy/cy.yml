@@ -165,7 +165,7 @@ cy:
       save_and_return:
         session:
           new:
-            reference: Rhif yr hawliad
+            reference: "*Welsh Save and return number"
             password: Gair cofiadwy
         user:
           new:
@@ -174,7 +174,7 @@ cy:
         password:
           new:
             email: "*WELSH Enter your email address"
-            reference: "*WELSH Claim number"
+            reference: "*WELSH Save and return number"
           edit:
             password: "*WELSH Memorable word"
             password_confirmation: "*WELSH Confirm memorable word"
@@ -367,11 +367,10 @@ cy:
         session:
           new:
             reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
-            password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
         password:
           new:
             reference: "*WELSH This was emailed to you (if you entered an email address)"
-            email: "*WELSH Instructions on how to reset your password will be sent here. This must match the email address that you used when you saved your claim"
+            email: "*WELSH If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim."
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -579,7 +578,7 @@ cy:
     passwords:
       user:
         send_instructions: "*WELSH You will receive an email with instructions on how to reset your memorable word in a few minutes."
-        updated_not_active: "*WELSH Your memorable word has been updated. You can now use it by clicking 'Return to a claim' below"
+        updated_not_active: "*WELSH Your memorable word has been updated. You can use it below and return to your claim."
       new:
         enter_your_details: "*WELSH Enter your details below"
         header: "*WELSH Reset memorable word"
@@ -587,6 +586,13 @@ cy:
       edit:
         submit_button: "*WELSH Reset memorable word"
         header: "*WELSH Reset memorable word"
+    mailer:
+      reset_password_instructions:
+        someone_requested: "*WELSH Someone has requested a link to reset your memorable word which you can do using the link below."
+        not_be_changed: "*WELSH Your memorable word will not be changed until you reset it using the link below."
+        reset: "*WELSH Reset my memorable word"
+        didnt_request: "*WELSH If you didn't request this, please ignore this email"
+        paste_in_browser: "*WELSH You may not be able to click on the link. If not, please copy the url and paste it into your browser."
   claims:
     personal_details:
       date_of_birth: Dyddiad geni

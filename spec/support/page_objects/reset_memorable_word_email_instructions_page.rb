@@ -14,7 +14,7 @@ module ET1
 
       section :fieldset, :xpath, XPath.generate { |x| x.descendant(:fieldset)[x.child(:legend)[x.string.n.is('Enter your details below')]] } do
         element :email_address_element, :fillable_field, "Enter your email address"
-        element :claim_number_element, :fillable_field, "Claim number"
+        element :claim_number_element, :fillable_field, "Save and return number"
         element :submit_button, :button, 'Reset memorable word'
       end
     end

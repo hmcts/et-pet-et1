@@ -18,7 +18,8 @@
           required: true
         = f.input :reference,
           label: t('simple_form.labels.save_and_return.password.new.reference'),
-          hint: t('simple_form.hints.save_and_return.password.new.reference')
+          hint: t('simple_form.hints.save_and_return.password.new.reference'),
+          required: true
         = f.button :submit, t('.submit_button')
 
   = render partial: 'shared/aside'

@@ -20,7 +20,7 @@ cy:
       confirmation_instructions:
         subject: "*WELSH Confirmation instructions"
       reset_password_instructions:
-        subject: "*WELSH Reset password instructions"
+        subject: "*WELSH Employment Tribunal: Reset your memorable word"
       unlock_instructions:
         subject: "*WELSH Unlock instructions"
       email_changed:

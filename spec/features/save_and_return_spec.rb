@@ -151,26 +151,6 @@ feature 'Save and Return' do
       expect(claimants_details_page).to be_displayed
     end
 
-    it 'recovers correctly when the email used at the beginning but the claim number is not used in reset' do
-
-      apply_page.load.start_a_claim
-        .register(email_address: email_address, password: 'green')
-      claimants_details_page
-        .fill_in_all(claimant: build(:ui_claimant, :mandatory))
-        .save_and_complete_later
-      apply_page.return_to_a_claim
-        .reset_memorable_word
-        .using(email_address: email_address)
-        .assert_memorable_word_email_sent
-
-      perform_active_jobs(ActionMailer::DeliveryJob)
-
-      reset_memorable_word_page.from_email_for(email_address)
-        .set_memorable_word('newmemorableword')
-        .return_to_your_claim(claim_number: Claim.last.application_reference, memorable_word: 'newmemorableword')
-      expect(claimants_details_page).to be_displayed
-    end
-
     it 'allows a second claim to be used against the same email' do
       apply_page.load.start_a_claim
         .register(email_address: email_address, password: 'green')

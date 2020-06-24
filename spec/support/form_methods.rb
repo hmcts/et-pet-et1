@@ -16,7 +16,7 @@ module FormMethods
 
   def fill_in_return_form(reference, word)
     visit new_user_session_path
-    fill_in 'Claim number', with: reference
+    fill_in 'Save and return number', with: reference
     fill_in 'Memorable word', with: word
     click_button 'Find my claim'
   end

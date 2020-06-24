@@ -25,7 +25,7 @@ module ET1
       private
 
       element :memorable_word_element, :fillable_field, "Memorable word"
-      element :claim_number_element, :fillable_field, "Claim number"
+      element :claim_number_element, :fillable_field, "Save and return number"
       element :reset_memorable_word_element, :link, 'Click here to reset'
       element :submit_button, :button, 'Find my claim'
       element :memorable_word_email_sent_flash_element, '#flash-summary *', text: 'You will receive an email with instructions on how to reset your memorable word in a few minutes'
