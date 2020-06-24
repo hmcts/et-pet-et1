@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.8'
 gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.3.1'
+gem 'rails', '6.0.3.2'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -47,7 +47,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
-  gem 'factory_bot_rails', '~> 5.1'
+  gem 'factory_bot_rails', '~> 6.0'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
   gem 'pry-rails', '~> 0.3'
@@ -58,7 +58,7 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 1.32', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
-  gem 'parallel_tests', '~> 2.28'
+  gem 'parallel_tests', '~> 3.0'
   gem 'webdrivers', '~> 4.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
@@ -68,7 +68,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 3.0'
+  gem 'site_prism', '~> 3.5'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
