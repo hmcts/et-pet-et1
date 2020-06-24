@@ -47,7 +47,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
-  gem 'factory_bot_rails', '~> 5.1'
+  gem 'factory_bot_rails', '~> 6.0'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
   gem 'pry-rails', '~> 0.3'
