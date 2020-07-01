@@ -5,9 +5,15 @@ module ET1
 
       def set_memorable_word(value)
         memorable_word_element.set(value)
-        confirm_memorable_word_element.set(value)
         submit_button.click
         ReturnToYourClaimPage.new
+      end
+
+      def set_memorable_word_with(value, confirm_value:)
+        memorable_word_element.set(value)
+        submit_button.click
+        expect(memorable_word_question).to have_error(text: 'dfdfd')
+        self
       end
 
       # @param [String] email_address

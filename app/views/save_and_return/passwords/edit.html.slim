@@ -18,10 +18,6 @@
           hint: t('simple_form.hints.save_and_return.password.edit.password'),
           required: true,
           as: :string
-        = f.input :password_confirmation,
-          label: t('simple_form.labels.save_and_return.password.edit.password_confirmation'),
-          required: true,
-          as: :string
 
         = f.button :submit, t('.submit_button')
 

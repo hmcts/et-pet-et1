@@ -180,6 +180,5 @@ feature 'Save and Return' do
         .return_to_your_claim claim_number: nil, memorable_word: 'test'
       return_to_your_claim_page.assert_missing_claim_number
     end
-
   end
 end
