@@ -104,7 +104,7 @@ en:
           line_two: "Each time you sign out (‘save and complete later’), including automatic sign-out after a session expires, the service stores any information you’ve previously saved in a secure database, should you continue your claim at a later date. We do not store any personal data in cookies. However, your browser may store cookies while you're using the service. You can manage cookie settings on your computer. See our cookies policy for further information."
         section_eleven:
           title: Access to personal information
-          line_one_html: "You can find out if we hold any personal data about you by making a ‘subject access request’. You can make a subject access request by emailing: <a href='mailto:data.access@justice.gsi.gov.uk' title='Access to personal information email'>data.access@justice.gsi.gov.uk</a>."
+          line_one_html: "You can find out if we hold any personal data about you by making a ‘subject access request’. You can make a subject access request by emailing: <a href='mailto:data.access@Justice.gov.uk' title='Access to personal information email'>data.access@Justice.gov.uk</a>."
         section_twelve:
           title: "You can get more details on:"
           line_one: "Agreements we have with other organisations for sharing personal data, including:"
@@ -116,7 +116,7 @@ en:
           privacy_link_text: Gov.uk
         section_thirteen:
           title: How to make a complaint.
-          line_one_html: "For more information about the above issues or for any other queries, please contact our Data Protection Officer by email: <a href='mailto:data.compliance@justice.gov.uk' title='Data Protection Officer&#39;s email'>data.compliance@justice.gov.uk</a>."
+          line_one_html: "For more information about the above issues or for any other queries, please contact our Data Protection Officer by email: <a href='mailto:DPO@justice.gov.uk' title='Data Protection Officer&#39;s email'>DPO@justice.gov.uk</a>."
         section_fourteen:
           title: Complaints
           line_one: "When we ask you for information, we will keep to the law. If you consider that your information has been handled incorrectly by MoJ or HMCTS, you can contact the Information Commissioner for independent advice about data protection. You can contact the Information Commissioner here:"

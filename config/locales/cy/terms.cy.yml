@@ -104,7 +104,7 @@ cy:
           line_two: "Bob tro y byddwch yn allgofnodi (‘cadw a chwblhau wedyn’), gan gynnwys achlysuron lle byddwch yn cael eich allgofnodi yn awtomatig oherwydd bod y sesiwn wedi dirwyn i ben, bydd y gwasanaeth yn cadw unrhyw wybodaeth rydych eisoes wedi’i chadw mewn cronfa ddata ddiogel, er mwyn eich galluogi i barhau gyda’ch hawliad hwyrach ymlaen. Nid ydym yn cadw unrhyw ddata personol mewn cwcis. Fodd bynnag, efallai y bydd eich porwr gwe yn cadw cwcis tra byddwch yn defnyddio’r gwasanaeth. Gallwch reoli gosodiadau cwcis eich cyfrifiadur. Gweler ein polisi cwcis am ragor o wybodaeth."
         section_eleven:
           title: Mynediad at wybodaeth bersonol
-          line_one_html: "Gallwch ganfod os oes gennym unrhyw ddata personol amdanoch drwy wneud ‘cais gwrthrych am wybodaeth’. Gallwch wneud cais gwrthrych am wybodaeth trwy anfon e-bost i: <a href='mailto:data.access@justice.gsi.gov.uk' title='Access to personal information email'>data.access@justice.gsi.gov.uk</a>."
+          line_one_html: "Gallwch ganfod os oes gennym unrhyw ddata personol amdanoch drwy wneud ‘cais gwrthrych am wybodaeth’. Gallwch wneud cais gwrthrych am wybodaeth trwy anfon e-bost i: <a href='mailto:data.access@Justice.gov.uk' title='Access to personal information email'>data.access@Justice.gov.uk</a>."
         section_twelve:
           title: "Gallwch gael rhagor o fanylion ynghylch:"
           line_one: "Cytundebau sydd gennym gyda sefydliadau eraill ar gyfer rhannu data personol;"
@@ -116,7 +116,7 @@ cy:
           privacy_link_text: Gov.uk
         section_thirteen:
           title: Sut i wneud cwyn.
-          line_one_html: "I gael rhagor o wybodaeth am y materion uchod neu ar gyfer unrhyw ymholiadau eraill, cysylltwch â’n Swyddog Diogelu Data drwy e-bost yn: <a href='mailto:data.compliance@justice.gov.uk' title='Data Protection Officer&#39;s email'>data.compliance@justice.gov.uk</a>."
+          line_one_html: "I gael rhagor o wybodaeth am y materion uchod neu ar gyfer unrhyw ymholiadau eraill, cysylltwch â’n Swyddog Diogelu Data drwy e-bost yn: <a href='mailto:DPO@justice.gov.uk' title='Data Protection Officer&#39;s email'>DPO@justice.gov.uk</a>."
         section_fourteen:
           title: Cwynion
           line_one: "Pan ofynnwn i chi am wybodaeth, byddwn yn cadw at y gyfraith. Os ydych yn credu bod eich gwybodaeth wedi cael ei thrin yn anghywir gan yr MoJ neu GLlTEM, gallwch gysylltu â’r Comisiynydd Gwybodaeth am gyngor annibynnol ar ddiogelu data. Manylion cyswllt y Comisiynydd Gwybodaeth yw:"
