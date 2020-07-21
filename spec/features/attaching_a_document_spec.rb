@@ -99,7 +99,7 @@ feature 'Attaching a document' do
         expect(claim.additional_claimants_csv).not_to be_present
       end
 
-      scenario 'Uploading a file not of a CSV type' do
+      scenario 'Uploading a file not of a CSV type', js:true do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(invalid_file_path).save_and_continue
 

@@ -8,6 +8,7 @@ module ET1
       # Uploads the secondary claimants csv file
       # @param [String] csv_file The full path to the csv file to upload
       def upload_secondary_claimants_csv(csv_file)
+        people_making_claim_with_you_question.set(:'group_claims_upload.people_making_claim_with_you.options.yes')
         upload_file_question.set(csv_file)
         self
       end
