@@ -1,4 +1,5 @@
 class AdditionalClaimantsForm < BaseForm
+  REJECT_ALL_BLANK_PROC = proc { |attributes| attributes.all? { |key, value| key.to_s == "_destroy" || key.to_s == "id" || value.blank? } }
   include ValidateNested
   attribute :has_multiple_claimants, :boolean
   attribute :secondary_claimants
@@ -9,6 +10,7 @@ class AdditionalClaimantsForm < BaseForm
     @_resource = claim
     super(*args)
     self.secondary_claimants = [ClaimantForm.new]
+    self.secondary_claimants_to_delete = []
   end
 
   def form_name
@@ -24,9 +26,14 @@ class AdditionalClaimantsForm < BaseForm
   end
 
   def secondary_claimants_attributes=(value)
-    self.secondary_claimants = value.values.map do |attrs|
+    to_delete_values, claimant_values = value.values.partition do |attrs|
+      attrs = attrs.with_indifferent_access
+      attrs['_destroy'].present? && ActiveModel::Type::Boolean.new.cast(attrs['_destroy'])
+    end
+    self.secondary_claimants = claimant_values.map do |attrs|
       ClaimantForm.new(attrs)
     end
+    self.secondary_claimants_to_delete = to_delete_values
   end
 
   # This is to force everything in to thinking we are doing an update all the time ( needed for I18n labels etc.. )
@@ -53,14 +60,14 @@ class AdditionalClaimantsForm < BaseForm
   end
 
   def persisted_attributes
-    attributes.except('secondary_claimants').merge('secondary_claimants_attributes' => secondary_claimants.map(&:persisted_attributes))
+    attributes.except('secondary_claimants', 'secondary_claimants_to_delete')
+      .merge 'secondary_claimants_attributes' => secondary_claimants.map(&:persisted_attributes) + secondary_claimants_to_delete
   end
-
-
 
   private
 
   attr_accessor :_resource
+  attribute :secondary_claimants_to_delete
 
   def validate_associated_records_for_secondary_claimants
     validate_collection_association(:secondary_claimants)
@@ -77,8 +84,7 @@ class AdditionalClaimantsForm < BaseForm
     include AddressAttributes
     include AgeValidator
 
-    delegate :id, :id=, to: :resource
-
+    attribute :id
     attribute :first_name,    :string
     attribute :last_name,     :string
     attribute :date_of_birth, :date
@@ -94,7 +100,7 @@ class AdditionalClaimantsForm < BaseForm
     validate :older_then_16
 
     def persisted_attributes
-      attributes.except('has_special_needs', 'has_representative')
+      attributes.except('has_special_needs', 'has_representative', 'id')
     end
   end
 end

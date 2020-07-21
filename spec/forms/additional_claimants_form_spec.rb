@@ -62,7 +62,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
     let(:form)     { additional_claimants_form.secondary_claimants.last }
 
     describe 'decorates any secondary claimants in an AdditionalClaimants' do
-      it { expect(additional_claimants_form.secondary_claimants.length).to be 3 }
+      it { expect(additional_claimants_form.secondary_claimants.length).to be 1 }
       it { expect(form).to be_a AdditionalClaimantsForm::ClaimantForm }
     end
   end
