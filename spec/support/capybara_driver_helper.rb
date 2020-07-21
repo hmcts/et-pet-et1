@@ -2,7 +2,7 @@ require 'capybara/poltergeist'
 require 'securerandom'
 Capybara.configure do |config|
   driver = ENV['TEST_BROWSER']&.to_sym || :firefox_local
-  config.default_max_wait_time =20
+  config.default_max_wait_time =5
   config.javascript_driver = driver
 end
 

@@ -1,16 +1,17 @@
 require 'rails_helper'
 
-feature 'Save and Return' do
+feature 'Save and Return', js: true do
   include FormMethods
   include Messages
   include MailMatchers
   include ActiveJob::TestHelper
   include ActiveJobPerformHelper
+  let(:ui_claimant) { build(:ui_claimant, :default) }
 
   scenario 'ending the session actually ends the session' do
     start_claim
     fill_in_password
-    fill_in_personal_details(submit_form: false)
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
       click_button 'Save and complete later'
@@ -26,7 +27,7 @@ feature 'Save and Return' do
   scenario 'ending the session with email address' do
     start_claim
     fill_in_password
-    fill_in_personal_details(submit_form: false)
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
       click_button 'Save and complete later'
@@ -50,11 +51,8 @@ feature 'Save and Return' do
 
   scenario 'ending the session when email address previously entered' do
     start_claim
-    fill_in_password_and_email('green',
-      FormMethods::SAVE_AND_RETURN_EMAIL,
-      "application_number_email_address")
-
-    fill_in_personal_details(submit_form: false)
+    saving_your_claim_page.register(email_address: FormMethods::SAVE_AND_RETURN_EMAIL, password: 'green')
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
       click_button 'Save and complete later'
@@ -78,23 +76,25 @@ feature 'Save and Return' do
   scenario 'returning to existing application' do
     start_claim
     fill_in_password 'green'
-    fill_in_personal_details
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
+    claimants_details_page.save_and_continue
     end_session
     fill_in_return_form Claim.last.reference, 'green'
 
     expect(page).to have_text(claim_heading_for(:claimant))
-    expect(page).to have_field('Last name', with: 'Wrigglesworth')
+    claimants_details_page.about_the_claimant_group.last_name_question.assert_value(ui_claimant.last_name)
   end
 
   scenario 'returning to an existing application after session expiration' do
     start_claim
     fill_in_password 'green'
-    fill_in_personal_details
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
+    claimants_details_page.save_and_continue
 
     travel_to TimeHelper.session_expiry_time do
       fill_in_return_form Claim.last.reference, 'green'
       expect(page).to have_text(claim_heading_for(:claimant))
-      expect(page).to have_field('Last name', with: 'Wrigglesworth')
+      claimants_details_page.about_the_claimant_group.last_name_question.assert_value(ui_claimant.last_name)
     end
   end
 

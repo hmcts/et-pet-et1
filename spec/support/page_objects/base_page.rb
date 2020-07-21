@@ -3,6 +3,7 @@ require_relative '../messaging'
 module ET1
   module Test
     class BasePage < ::SitePrism::Page
+      include EtTestHelpers::Page
       include ::ET1::Test::I18n
       include ::RSpec::Matchers
       element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false

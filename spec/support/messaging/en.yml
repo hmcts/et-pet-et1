@@ -171,6 +171,20 @@ en:
       options:
         "yes": "Yes"
         "no": "No"
+    add_more_claimants:
+      label: 'Add more claimants'
+    claimant_section:
+      label: 'Claimant %{number}'
+  group_claims_upload:
+    people_making_claim_with_you:
+      label: Do you want to upload details of 6 claimants or more? (optional)
+      options:
+        "yes": "Yes"
+        "no": "No"
+    upload_spreadsheet:
+      label: Upload spreadsheet (optional)
+    switch_to_manual: manually
+    save_and_continue: Save and continue
   representatives_details:
     save_and_continue: Save and continue
     about_your_representative_group: About your representative

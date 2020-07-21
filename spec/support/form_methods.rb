@@ -166,9 +166,11 @@ module FormMethods
 
   def fill_in_pre_claim_pages
     start_claim
-    fill_in_password
-    fill_in_personal_details
-    fill_in_additional_claimant_details
+    saving_your_claim_page.register(email_address: nil, password: 'green')
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
+    claimants_details_page.save_and_continue
+    group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+    group_claims_page.save_and_continue
     fill_in_representative_details
     fill_in_respondent_details
     fill_in_additional_respondent_details
@@ -226,11 +228,13 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def complete_a_claim(options = {})
+  def complete_a_claim
     start_claim
-    fill_in_password
-    fill_in_personal_details(options)
-    fill_in_additional_claimant_details(options)
+    saving_your_claim_page.register(email_address: nil, password: 'green')
+    claimants_details_page.fill_in_all(claimant: ui_claimant)
+    claimants_details_page.save_and_continue
+    group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+    group_claims_page.save_and_continue
     fill_in_representative_details
     fill_in_respondent_details
     fill_in_additional_respondent_details

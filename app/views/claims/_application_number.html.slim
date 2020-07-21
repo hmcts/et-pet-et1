@@ -6,7 +6,7 @@
   p = t('.intro_text')
 
   fieldset
-    = f.govuk_text_field :email_address, label: { text: t('claim.application_number.email_address.label')}
+    = f.govuk_text_field :email_address, label: { text: "#{t('claim.application_number.email_address.label')} #{t('simple_form.optional.text')}"}
     = f.govuk_text_field :password,
       label: { text: t('claim.application_number.password.label')},
       hint_text: t('claim.application_number.password.hint')

@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: aac952e47ab2690fa7137da61cf7f441a8e0e261
+  revision: 94e18b037be63efaeb66fe96b326c5e43061390b
   specs:
     et_gds_design_system (0.1.0)
       govuk_design_system_formbuilder (~> 1.1, >= 1.1.10)
@@ -17,13 +17,13 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 674729dd73c1d358e64a894368018a1a76c3d901
+  revision: 8e7e632f77a784bbf3104cbde76bd1418e25c481
   specs:
     et_test_helpers (0.1.0)
       activesupport (~> 6.0)
-      capybara (~> 3.32)
+      capybara (~> 3)
       i18n (~> 1.8)
-      site_prism (~> 3.4)
+      site_prism (~> 3.5)
 
 GIT
   remote: https://github.com/microsoft/ApplicationInsights-Ruby.git
@@ -118,12 +118,6 @@ GEM
     awesome_print (1.8.0)
     base32_pure (0.1.0)
     bcrypt (3.1.13)
-    better_errors (2.7.1)
-      coderay (>= 1.0.0)
-      erubi (>= 1.0.0)
-      rack (>= 0.9.0)
-    binding_of_caller (0.8.0)
-      debug_inspector (>= 0.0.1)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
     builder (3.2.4)
@@ -155,7 +149,6 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
     database_cleaner (1.8.5)
-    debug_inspector (0.0.3)
     diff-lcs (1.4.2)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
@@ -202,7 +195,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (1.1.11)
+    govuk_design_system_formbuilder (1.2.5)
       actionview (>= 5.2)
       activemodel (>= 5.2)
       activesupport (>= 5.2)
@@ -226,7 +219,7 @@ GEM
       activesupport (>= 4.1)
     hashdiff (1.0.1)
     http_parser.rb (0.6.0)
-    i18n (1.8.3)
+    i18n (1.8.4)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
@@ -286,7 +279,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nenv (0.3.0)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -306,8 +299,6 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-rails (0.3.9)
-      pry (>= 0.10.4)
     public_suffix (4.0.5)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -315,8 +306,6 @@ GEM
     rack-livereload (0.3.17)
       rack
     rack-protection (2.0.8.1)
-      rack
-    rack-proxy (0.6.5)
       rack
     rack-proxy (0.6.5)
       rack
@@ -490,12 +479,12 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
     webrick (1.6.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.3.0)
+    zeitwerk (2.4.0)
 
 PLATFORMS
   ruby
@@ -508,8 +497,6 @@ DEPENDENCIES
   azure_env_secrets!
   base32_pure (~> 0.1)
   bcrypt (~> 3.1)
-  better_errors (~> 2.5)
-  binding_of_caller (~> 0.8)
   bitmask_attributes (~> 1.0)
   capybara (~> 3.22)
   capybara-screenshot (~> 1.0)
@@ -532,7 +519,6 @@ DEPENDENCIES
   parallel_tests (~> 3.0)
   pg (~> 1.1)
   poltergeist (~> 1.18)
-  pry-rails (~> 0.3)
   puma (~> 4.2)
   rack-livereload (~> 0.3)
   rails (= 6.0.3.2)
