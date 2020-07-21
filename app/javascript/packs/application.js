@@ -17,4 +17,5 @@
 
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
+import "./stylesheets/application.scss"
 EtGdsDesignSystem.initAll();
