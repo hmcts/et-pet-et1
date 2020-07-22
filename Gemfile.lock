@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: aac952e47ab2690fa7137da61cf7f441a8e0e261
+  revision: 94e18b037be63efaeb66fe96b326c5e43061390b
   specs:
     et_gds_design_system (0.1.0)
       govuk_design_system_formbuilder (~> 1.1, >= 1.1.10)
@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 674729dd73c1d358e64a894368018a1a76c3d901
+  revision: 8e7e632f77a784bbf3104cbde76bd1418e25c481
   specs:
     et_test_helpers (0.1.0)
       activesupport (~> 6.0)
@@ -171,6 +171,9 @@ GEM
     crack (0.4.5)
       rexml
     crass (1.0.6)
+    cuprite (0.10)
+      capybara (>= 2.1, < 4)
+      ferrum (~> 0.8.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-active_record (2.0.0)
@@ -178,6 +181,8 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     debug_inspector (1.0.0)
+    database_cleaner (1.8.5)
+    debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -185,6 +190,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.4.4)
+    docile (1.3.2)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -210,6 +216,11 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
+    ferrum (0.8)
+      addressable (~> 2.6)
+      cliver (~> 0.3)
+      concurrent-ruby (~> 1.1)
+      websocket-driver (>= 0.6, < 0.8)
     ffi (1.14.2)
     fog-aws (3.8.0)
       fog-core (~> 2.1)
@@ -233,7 +244,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (1.1.11)
+    govuk_design_system_formbuilder (1.2.5)
       actionview (>= 5.2)
       activemodel (>= 5.2)
       activesupport (>= 5.2)
@@ -469,6 +480,10 @@ GEM
       addressable (~> 2.5)
       capybara (~> 3.8)
       site_prism-all_there (>= 0.3.1, < 1.0)
+    simplecov (0.18.5)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+    simplecov-html (0.12.2)
     site_prism-all_there (0.3.2)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
@@ -541,6 +556,7 @@ DEPENDENCIES
   capybara-screenshot (~> 1.0)
   carrierwave (~> 2.0)
   climate_control (~> 0.2)
+  cuprite (~> 0.10)
   database_cleaner (~> 2.0)
   devise (~> 4.7)
   dotenv-rails (~> 2.7)
@@ -578,6 +594,7 @@ DEPENDENCIES
   sidekiq_alive (~> 2.0)
   simple_form (~> 5.0)
   site_prism (~> 3.7)
+  simplecov (~> 0.18.5)
   slim-rails (~> 3.2)
   spring (~> 2.1)
   sprockets (~> 3.7, >= 3.7.2)
