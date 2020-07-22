@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_120824) do
     t.string "pdf"
     t.string "confirmation_email_recipients", default: [], array: true
     t.string "pdf_url"
+    t.boolean "has_multiple_claimants"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 

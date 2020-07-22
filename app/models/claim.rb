@@ -29,6 +29,8 @@ class Claim < ApplicationRecord
   has_one  :employment, dependent: :destroy
   has_one  :office, dependent: :destroy
 
+  accepts_nested_attributes_for :secondary_claimants, allow_destroy: true
+
   delegate :file, to: :claim_details_rtf, prefix: true
   delegate :file, to: :additional_claimants_csv, prefix: true
 
