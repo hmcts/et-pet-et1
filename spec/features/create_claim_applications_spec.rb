@@ -7,10 +7,12 @@ feature 'Claim applications', type: :feature, js: true do
   include ActiveJob::TestHelper
   include ActiveJobPerformHelper
 
-  around { |example| travel_to(Date.new(2014, 9, 29)) { example.run } }
+  around { |example| travel_to(Date.new(2018, 9, 29)) { example.run } }
   let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
   let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
   let(:example_pdf_url) { test_valid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
+  let(:ui_claimant) { build(:ui_claimant, :default) }
+  let(:ui_secondary_claimants) { build_list(:ui_secondary_claimant, 1, :default) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -55,7 +57,7 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering word for save and return' do
       start_claim
-      fill_in_password 'green'
+      saving_your_claim_page.register(email_address: nil, password: 'green')
 
       claim = Claim.last
       expect(claim.user.valid_password?('green')).to be true
@@ -68,9 +70,7 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering word and email for save and return', js: true do
       start_claim
-      fill_in_password_and_email('green',
-                                 FormMethods::SAVE_AND_RETURN_EMAIL,
-                                 "save_and_return_user_email")
+      saving_your_claim_page.register(email_address: FormMethods::SAVE_AND_RETURN_EMAIL, password: 'green')
 
       claim = Claim.last
       expect(claim.user.valid_password?('green')).to be true
@@ -86,8 +86,9 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering personal details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
@@ -97,9 +98,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering additional claimant details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
 
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
@@ -109,15 +112,16 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario "Navigating between manual and CSV upload for additional claimants" do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_jump_to_csv_upload
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.provide_spreadsheet
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants_upload)
       expect(page).to have_signout_button
 
-      click_link "manually"
+      group_claims_upload_page.switch_to_manual_input
 
       expect(page).to have_text page_number(3)
       expect(page).to have_text claim_heading_for(:additional_claimants)
@@ -127,10 +131,10 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering additional claimant upload details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_jump_to_csv_upload
-      fill_in_additional_claimants_upload_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.provide_spreadsheet.no_secondary_claimants.save_and_continue
 
       expect(page).to have_text page_number(4)
       expect(page).to have_text claim_heading_for(:representative)
@@ -140,9 +144,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering representative details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
       fill_in_representative_details
 
       expect(page).to have_text page_number(5)
@@ -153,9 +159,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Display ACAS hints', js: true do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
       fill_in_representative_details
 
       check "I don’t have an Acas number"
@@ -172,9 +180,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering respondent details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
       fill_in_representative_details
       fill_in_respondent_details
 
@@ -186,9 +196,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering additional respondent details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
       fill_in_representative_details
       fill_in_respondent_details
       fill_in_additional_respondent_details
@@ -201,9 +213,11 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering employment details' do
       start_claim
-      fill_in_password
-      fill_in_personal_details
-      fill_in_additional_claimant_details
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.save_and_continue
       fill_in_representative_details
       fill_in_respondent_details
       fill_in_additional_respondent_details
@@ -216,7 +230,10 @@ feature 'Claim applications', type: :feature, js: true do
     end
 
     scenario 'Entering claim type details' do
+      start_claim
+
       fill_in_pre_claim_pages
+
       fill_in_claim_type_details
 
       expect(page).to have_text page_number(9)
@@ -288,7 +305,7 @@ feature 'Claim applications', type: :feature, js: true do
     end
 
     scenario 'Deselecting email confirmation recipients before submission' do
-      complete_a_claim seeking_remissions: true
+      complete_a_claim
       deselect_claimant_email
       deselect_representative_email
       click_button 'Submit claim'
@@ -345,7 +362,7 @@ feature 'Claim applications', type: :feature, js: true do
 
     context 'Downloading the PDF', js: true do
       scenario 'when the file is available' do
-        complete_a_claim seeking_remissions: true
+        complete_a_claim
         click_button 'Submit claim'
         expect(claim_submitted_page).to have_save_a_copy_link
       end
@@ -354,7 +371,7 @@ feature 'Claim applications', type: :feature, js: true do
         let(:example_pdf_url) { test_invalid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
 
         scenario 'when the file is unavailable' do
-          complete_a_claim seeking_remissions: true
+          complete_a_claim
           click_button 'Submit claim'
           expect(claim_submitted_page).to have_invalid_save_a_copy_link
         end

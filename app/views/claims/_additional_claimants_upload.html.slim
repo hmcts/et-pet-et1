@@ -10,15 +10,7 @@
 fieldset
   legend= t '.subheader'
 
-  = f.input :has_additional_claimants,
-    hint: t('.has_additional_claimants_html', path: claim_additional_claimants_path),
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    item_wrapper_class: 'block-label',
-    wrapper_class: 'form-group-reveal reveal-publish-delegate',
-    input_html: { :class => 'reveal-publish-publisher'},
-    reveal: { true => 'sub1', false => 'sub1' }
+  = f.govuk_collection_radio_buttons :has_additional_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}"}, hint_text: t('.has_additional_claimants_html', path: claim_additional_claimants_path)
 
   fieldset.multiples.reveal-subscribe data-target="sub1" data-show-array="true"
     legend= t '.steps_header'
@@ -37,14 +29,8 @@ fieldset
     #step_three.clearfix
       b = t ".step_three_header"
 
-      = f.input :additional_claimants_csv, error: false do
-        - if resource.has_additional_claimants_csv?
-            = f.input :remove_additional_claimants_csv, as: :boolean,
-              inline_label: t('.remove_additional_claimants_csv',
-                file: resource.attachment_filename),
-              label: false
+      = f.govuk_file_field :additional_claimants_csv, label: {text: "#{t('claims.additional_claimants_upload.additional_claimants_csv.label')} #{t('shared.optional')}"}
 
-        = f.input_field :additional_claimants_csv, as: :file
 
       = f.hidden_field :additional_claimants_csv_cache
       p.form-hint = t('.upload_limit')
