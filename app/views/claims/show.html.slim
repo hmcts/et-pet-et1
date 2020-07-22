@@ -10,7 +10,7 @@ h1.govuk-heading-xl
     = form_for resource, url: request.fullpath, multipart: true, builder: EtGdsDesignSystem.form_builder_class do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
-      = f.govuk_error_summary
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
       .form-fields lang= "#{I18n.locale}"
         = render current_step, f: f
       .form-actions

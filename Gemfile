@@ -41,13 +41,13 @@ gem 'dotenv-rails', '~> 2.7'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
-  gem 'better_errors', '~> 2.5'
-  gem 'binding_of_caller', '~> 0.8'
+  #gem 'better_errors', '~> 2.5'
+  #gem 'binding_of_caller', '~> 0.8'
   gem 'capybara', '~> 3.22'
   gem 'factory_bot_rails', '~> 6.0'
   gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
-  gem 'pry-rails', '~> 0.3'
+  #gem 'pry-rails', '~> 0.3'
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 4.0'
@@ -56,11 +56,13 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 3.0'
+  gem 'simplecov', '~> 0.18.5'
   gem 'webdrivers', '~> 4.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
 
 group :test do
+  gem 'cuprite', '~> 0.10'
   gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
   gem 'poltergeist', '~> 1.18'

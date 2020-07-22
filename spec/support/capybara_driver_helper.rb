@@ -1,9 +1,18 @@
 require 'capybara/poltergeist'
+require "capybara/cuprite"
 require 'securerandom'
 Capybara.configure do |config|
   driver = ENV['TEST_BROWSER']&.to_sym || :firefox_local
-  config.default_max_wait_time =20
+  config.default_max_wait_time =5
   config.javascript_driver = driver
+end
+
+Capybara.register_driver(:cuprite) do |app|
+  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000])
+end
+
+Capybara.register_driver(:cuprite_visible) do |app|
+  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000], headless: false)
 end
 
 Capybara.register_driver :poltergeist do |app|
