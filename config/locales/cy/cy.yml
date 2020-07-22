@@ -36,8 +36,6 @@ cy:
     include_blanks:
       claimant:
         title: Dewiswch
-      representative:
-        type: Dewiswch
       additional_claimants:
         collection:
           title: Dewiswch
@@ -52,15 +50,6 @@ cy:
             ms: Ms
 
       representative:
-        type:
-          citizen_advice_bureau: "Cynghorydd Cyflogaeth, Cyngor ar Bopeth"
-          free_representation_unit: Uned Cynrychiolaeth am Ddim
-          law_centre: Canolfan y Gyfraith
-          trade_union: Undeb llafur
-          solicitor: Cyfreithiwr
-          private_individual: Unigolyn preifat
-          trade_association: Cymdeithas llafur
-          other: Arall
         contact_preference:
           email: E-bost
           post: Post
@@ -177,20 +166,8 @@ cy:
         claimants: ""
 
       representative:
-        has_representative: "Oes gennych chi rywun sydd wedi cytuno i'ch cynrychioli (e.e. trwy ddelio â gohebiaeth)?"
-        address_telephone_number: "Rhif ffôn neu rif ffôn symudol"
-        address_building: Rhif neu enw'r adeilad
-        address_locality: Tref/dinas
-        address_street: Stryd
-        address_county: Sir
-        address_post_code: Cod post
         type: Math o gynrychiolydd
-        organisation_name: Enw sefydliad y cynrychiolydd
-        name: Enw'r cynrychiolydd
-        mobile_number: Rhif ffôn neu rif ffôn symudol arall
-        dx_number: Rhif cyfnewid dogfennau (DX)
         contact_preference: Y ffordd orau i anfon gohebiaeth at eich cynrychiolydd
-        email_address: Cyfeiriad e-bost
 
       respondent:
         name: Enw'r atebydd
@@ -635,7 +612,46 @@ cy:
     representative:
       header: "Manylion y cynrychiolydd"
       form_legend: "Yr unigolyn sy'n eich cynrychioli"
-      representative_type_legend: Math o gynrychiolydd
+      has_representative:
+        label: "Oes gennych chi rywun sydd wedi cytuno i'ch cynrychioli (e.e. trwy ddelio â gohebiaeth)?"
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
+      type:
+        label: Math o gynrychiolydd
+        options:
+          '': Dewiswch
+          citizen_advice_bureau: "Cynghorydd Cyflogaeth, Cyngor ar Bopeth"
+          free_representation_unit: Uned Cynrychiolaeth am Ddim
+          law_centre: Canolfan y Gyfraith
+          trade_union: Undeb llafur
+          solicitor: Cyfreithiwr
+          private_individual: Unigolyn preifat
+          trade_association: Cymdeithas llafur
+          other: Arall
+      organisation_name:
+        label: Enw sefydliad y cynrychiolydd
+      name:
+        label: Enw'r cynrychiolydd
+      address_telephone_number:
+        label: "Rhif ffôn neu rif ffôn symudol"
+      address_building:
+        label: Rhif neu enw'r adeilad
+      address_locality:
+        label: Tref/dinas
+      address_street:
+        label: Stryd
+      address_county:
+        label: Sir
+      address_post_code:
+        label: Cod post
+      mobile_number:
+        label: Rhif ffôn neu rif ffôn symudol arall
+      email_address:
+        label: Cyfeiriad e-bost
+      dx_number:
+        label: Rhif cyfnewid dogfennau (DX)
+
       representative_legend: Ynglŷn â’ch cynrychiolydd
       contact_legend: "Manylion cyswllt y cynrychiolydd"
       contact_info: |
