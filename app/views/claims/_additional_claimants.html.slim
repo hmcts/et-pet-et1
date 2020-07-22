@@ -1,13 +1,13 @@
 fieldset
   legend= t '.subheader'
-  = f.govuk_collection_radio_buttons :of_collection_type, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('simple_form.optional.text')}"}
-  .multiples.reveal-subscribe data-target="sub1" data-show-array="true"
+  = f.govuk_collection_radio_buttons :has_multiple_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}"}
+  .multiples.expandable
 
     #number_claimants_info.panel-indent
       # = t ".number_claimants_info"
       # = t(".csv_upload_text_html", path: claim_additional_claimants_upload_path)
 
-    = f.fields_for :collection do |builder|
+    = f.fields_for :secondary_claimants do |builder|
       .multiple id=("resource_#{builder.index}")
         fieldset
           legend= t('.person', number: builder.index + 2)
@@ -18,4 +18,4 @@ fieldset
 
           = render 'address', f: builder
 
-    = f.submit value: t('.add_fields'), class: 'hyperlink', id: 'button_add_resource'
+    = f.submit value: t('.add_fields'), class: 'hyperlink govuk-button', id: 'button_add_resource'
