@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_10_05_105200) do
     t.string "confirmation_email_recipients", default: [], array: true
     t.boolean "is_protective_award", default: false
     t.string "pdf_url"
+    t.boolean "has_multiple_claimants"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 

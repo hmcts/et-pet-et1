@@ -163,8 +163,6 @@ en:
         collection: :"simple_form.labels.claimant"
 
       additional_claimants_upload:
-        has_additional_claimants: Do you want to upload details of 6 claimants or more?
-        additional_claimants_csv: Upload spreadsheet
         claimants: :"simple_form.labels.claimant"
 
       representative:
@@ -256,6 +254,7 @@ en:
 
 
     hints:
+      address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       save_and_return:
         password:
           new:
@@ -270,8 +269,6 @@ en:
         contact_preference: |
           Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
         allow_video_attendance: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
-      claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         date_of_birth: For example, 23 04 1981
       representative:
@@ -356,6 +353,9 @@ en:
         return: Return to a claim
 
   shared:
+    optional: '(optional)'
+    error_notification:
+      default_message: Provide information in the highlighted fields.
     continue_button: Save and continue
     reference: Your claim number is
     aside:
@@ -583,6 +583,11 @@ en:
           'false': 'No'
 
     additional_claimants_upload:
+      of_collection_type:
+        label: Do you want to upload details of 6 claimants or more?
+        options:
+          'true': 'Yes'
+          'false': 'No'
       header: :"claims.additional_claimants.header"
       subheader: :"claims.additional_claimants.subheader"
       steps_header: Spreadsheet for group claim
@@ -602,7 +607,8 @@ en:
       no_spaces: Don’t include spaces in the file name.
       step_three_header: Step 3
       upload_limit: Maximum file size is 5MB.
-
+      additional_claimants_csv:
+        label: Upload spreadsheet
     representative:
       header: Representative’s details
       form_legend: The person representing you

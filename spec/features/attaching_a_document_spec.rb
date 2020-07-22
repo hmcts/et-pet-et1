@@ -62,10 +62,8 @@ feature 'Attaching a document' do
 
     context 'A valid CSV file' do
       before do
-        visit '/apply/additional-claimants-upload'
-        choose "Yes"
-        attach_file "additional_claimants_upload_additional_claimants_csv", csv_file_path
-        click_button 'Save and continue'
+        group_claims_upload_page.load
+        group_claims_upload_page.upload_secondary_claimants_csv(csv_file_path).save_and_continue
       end
 
       scenario 'Attaching the file' do
@@ -81,9 +79,8 @@ feature 'Attaching a document' do
       end
 
       scenario 'Replacing the file' do
-        visit '/apply/additional-claimants-upload'
-        attach_file "additional_claimants_upload_additional_claimants_csv", alternative_csv_file_path
-        click_button 'Save and continue'
+        group_claims_upload_page.load
+        group_claims_upload_page.upload_secondary_claimants_csv(alternative_csv_file_path).save_and_continue
 
         expect(claim.reload.additional_claimants_csv_file.read).to eq File.read(alternative_csv_file_path)
       end
@@ -93,11 +90,8 @@ feature 'Attaching a document' do
       let(:invalid_csv_path) { file_path + './invalid_file.csv' }
 
       scenario 'Uploading a CSV file with errors' do
-        visit '/apply/additional-claimants-upload'
-        choose "Yes"
-        attach_file "additional_claimants_upload_additional_claimants_csv", invalid_csv_path
-
-        click_button 'Save and continue'
+        group_claims_upload_page.load
+        group_claims_upload_page.upload_secondary_claimants_csv(invalid_csv_path).save_and_continue
 
         expect(page).to have_text('An error has been found on line 4 of the uploaded file.')
         expect(page).to have_text('Postcode - Enter a valid UK postcode. If you live abroad, enter SW55 9QT')
@@ -105,11 +99,9 @@ feature 'Attaching a document' do
         expect(claim.additional_claimants_csv).not_to be_present
       end
 
-      scenario 'Uploading a file not of a CSV type' do
-        visit '/apply/additional-claimants-upload'
-        choose "Yes"
-        attach_file "additional_claimants_upload_additional_claimants_csv", invalid_file_path
-        click_button 'Save and continue'
+      scenario 'Uploading a file not of a CSV type', js:true do
+        group_claims_upload_page.load
+        group_claims_upload_page.upload_secondary_claimants_csv(invalid_file_path).save_and_continue
 
         expect(page).to have_text('is not a CSV')
         expect(claim.additional_claimants_csv).not_to be_present
