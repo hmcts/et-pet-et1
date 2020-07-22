@@ -168,6 +168,8 @@ cy:
         gender: Rhywedd
 
       additional_claimants:
+        of_collection_type: |
+          A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
         collection:
           first_name: Enw cyntaf
           last_name: Enw olaf
@@ -188,8 +190,6 @@ cy:
 
 
       additional_claimants_upload:
-        has_additional_claimants: "Ydych chi eisiau uwchlwytho manylion 6 hawlydd neu fwy?"
-        additional_claimants_csv: Uwchlwytho taenlen
         claimants: ""
 
       representative:
@@ -338,8 +338,6 @@ cy:
           Noder, os oes gennych gynrychiolydd (ee cyfreithiwr), yna fe anfonir pob gohebiaeth atynt
         allow_video_attendance: "Ceir rhagor o fanylion am wrandawiadau fideo drwy ddilyn y ddolen a ganlyn: https://www.gov.uk/guidance/hmcts-telephone-and-video-hearings-during-coronavirus-outbreak"
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
-      claimants:
-        address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
         date_of_birth: "Er enghraifft, 23 04 1981"
       representative:
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
@@ -419,6 +417,9 @@ cy:
         return: Dychwelyd i hawliad
 
   shared:
+    optional: '(dewisol)'
+    error_notification:
+      default_message: "Rhowch wybodaeth yn y blychau testun sydd wedi'u hamlygu."
     continue_button: Cadw a pharhau
     reference: Eich rhif hawliad yw
     aside:
@@ -632,8 +633,8 @@ cy:
         label: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
         hint: Ee dogfennau Braille, neu ddehonglydd iaith arwyddion
         options:
-          'true': 'Oes'
-          'false': 'Nac oes'
+          'true': 'Ydw'
+          'false': 'Nac ydw'
       special_needs:
         label: Disgrifiwch y cymorth sydd ei angen arnoch
       address_country:
@@ -673,6 +674,11 @@ cy:
           "true": 'Oes'
           "false": 'Nac oes'
     additional_claimants_upload:
+      of_collection_type:
+        label: "Ydych chi eisiau uwchlwytho manylion 6 hawlydd neu fwy?"
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
       header: "Hawliadau grŵp"
       subheader: Unigolion sy'n gwneud hawliad gyda chi
       steps_header: Taenlen ar gyfer hawliad grŵp
@@ -692,6 +698,9 @@ cy:
       no_spaces: Peidiwch â chynnwys bylchau yn enw'r ffeil.
       step_three_header: Cam 3
       upload_limit: "Uchafswm maint ffeil: 5MB"
+      additional_claimants_csv:
+        label: Uwchlwytho taenlen
+
 
     representative:
       header: "Manylion y cynrychiolydd"

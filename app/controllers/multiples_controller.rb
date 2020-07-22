@@ -3,7 +3,7 @@ class MultiplesController < ClaimsController
     resource.assign_attributes params[current_step]
 
     if params[:commit] == t("claims.#{current_step}.add_fields")
-      resource.build_child
+      resource.secondary_claimants << AdditionalClaimantsForm::ClaimantForm.new
 
       render :show
     else
