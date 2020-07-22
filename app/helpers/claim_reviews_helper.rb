@@ -54,7 +54,7 @@ module ClaimReviewsHelper
   end
 
   def review_claimant_full_name(claimant)
-    salutation = t("simple_form.options.claimant.title.#{claimant.title}") unless claimant.title.blank?
+    salutation = t("claims.personal_details.title.options.#{claimant.title}") unless claimant.title.blank?
     [salutation, claimant.first_name, claimant.last_name].compact.join' '
   end
 
