@@ -10,7 +10,7 @@
 fieldset
   legend= t '.subheader'
 
-  = f.govuk_collection_radio_buttons :has_additional_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('simple_form.optional.text')}"}, hint_text: t('.has_additional_claimants_html', path: claim_additional_claimants_path)
+  = f.govuk_collection_radio_buttons :has_additional_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}"}, hint_text: t('.has_additional_claimants_html', path: claim_additional_claimants_path)
 
   fieldset.multiples.reveal-subscribe data-target="sub1" data-show-array="true"
     legend= t '.steps_header'
@@ -29,7 +29,7 @@ fieldset
     #step_three.clearfix
       b = t ".step_three_header"
 
-      = f.govuk_file_field :additional_claimants_csv, label: {text: "#{t('claims.additional_claimants_upload.additional_claimants_csv.label')} #{t('simple_form.optional.text')}"}
+      = f.govuk_file_field :additional_claimants_csv, label: {text: "#{t('claims.additional_claimants_upload.additional_claimants_csv.label')} #{t('shared.optional')}"}
 
 
       = f.hidden_field :additional_claimants_csv_cache

@@ -1,5 +1,4 @@
 class AdditionalClaimantsForm < BaseForm
-  REJECT_ALL_BLANK_PROC = proc { |attributes| attributes.all? { |key, value| key.to_s == "_destroy" || key.to_s == "id" || value.blank? } }
   include ValidateNested
   attribute :has_multiple_claimants, :boolean
   attribute :secondary_claimants

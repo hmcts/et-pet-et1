@@ -395,6 +395,8 @@ cy:
 
   shared:
     optional: '(dewisol)'
+    error_notification:
+      default_message: "Rhowch wybodaeth yn y blychau testun sydd wedi'u hamlygu."
     continue_button: Cadw a pharhau
     reference: Eich rhif hawliad yw
     aside:

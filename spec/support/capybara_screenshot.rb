@@ -30,6 +30,11 @@ Capybara::Screenshot.register_driver(:firefox) do |driver, path|
     driver.browser.save_screenshot(path)
   end
 end
+Capybara::Screenshot.register_driver(:cuprite) do |driver, path|
+  ::ET1::Test::FullScreenshot.with_resizing do
+    driver.browser.save_screenshot(path)
+  end
+end
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
   ::ET1::Test::FullScreenshot.with_resizing do
     driver.browser.save_screenshot(path)

@@ -6,6 +6,10 @@ Capybara.configure do |config|
   config.javascript_driver = driver
 end
 
+Capybara.register_driver(:cuprite) do |app|
+  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000])
+end
+
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, js_errors: false, timeout: 60)
 end

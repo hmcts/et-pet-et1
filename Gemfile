@@ -56,11 +56,13 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.0'
   gem 'parallel_tests', '~> 3.0'
+  gem 'simplecov', '~> 0.18.5'
   gem 'webdrivers', '~> 4.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
 
 group :test do
+  gem 'cuprite', '~> 0.10'
   gem 'webmock', '~> 3.5'
   gem 'database_cleaner', '~> 1.7'
   gem 'poltergeist', '~> 1.18'

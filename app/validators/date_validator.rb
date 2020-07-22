@@ -35,7 +35,7 @@ class DateValidator < ActiveModel::EachValidator
     elsif value.is_a?(Date) || value.is_a?(Time)
       value.year < 1000
     else
-      value[].present? && value[:year].present? && value[:year].to_i < 1000
+      value[:year].present? && value[:year].to_i < 1000
     end
   rescue ArgumentError
     false

@@ -1,6 +1,6 @@
 fieldset
   legend= t '.subheader'
-  = f.govuk_collection_radio_buttons :has_multiple_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('simple_form.optional.text')}"}
+  = f.govuk_collection_radio_buttons :has_multiple_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}"}
   .multiples.expandable
 
     #number_claimants_info.panel-indent
