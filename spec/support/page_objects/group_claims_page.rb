@@ -127,7 +127,7 @@ module ET1
 
       # @!method add_more_claimants_action
       #   A govuk submit button component...
-      #   @return [EtTestHelpers::Components::ErrorSummary] The site prism section
+      #   @return [EtTestHelpers::Components::GovUKErrorSummary] The site prism section
       section :add_more_claimants_action, govuk_component(:submit), :govuk_submit, :'group_claims.add_more_claimants.label'
 
       sections :secondary_claimant_sections, ClaimantSection, :xpath, XPath.generate {|x| x.descendant(:div)[x.attr(:class).contains_word('multiple')]}
