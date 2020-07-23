@@ -1,10 +1,6 @@
 module ET1
   module Test
-    class RepresentativeUi
-      attr_accessor :type, :name_of_organisation, :name
-      attr_accessor :address_building, :address_street, :address_town, :address_county, :address_post_code
-      attr_accessor :phone_or_mobile_number, :alternative_phone_or_mobile_number
-      attr_accessor :email_address, :dx_number, :best_correspondence_method
+    class RepresentativeUi < ActiveSupport::OrderedOptions
 
     end
   end
@@ -19,7 +15,6 @@ FactoryBot.define do
       address_town { 'London' }
       address_county { 'Greater London' }
       address_post_code { 'NE1 6WW' }
-      best_correspondence_method { :'representatives_details.best_correspondence_method.options.post' }
     end
     trait :default do
       mandatory
