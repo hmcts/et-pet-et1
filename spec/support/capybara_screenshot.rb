@@ -16,8 +16,8 @@ module ET1
       end
 
       def self.page_size
-        width  = Capybara.page.execute_script("return Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);")
-        height = Capybara.page.execute_script("return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);")
+        width  = Capybara.page.evaluate_script("Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);")
+        height = Capybara.page.evaluate_script("Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);")
         [width, height]
       end
     end
@@ -32,7 +32,12 @@ Capybara::Screenshot.register_driver(:firefox) do |driver, path|
 end
 Capybara::Screenshot.register_driver(:cuprite) do |driver, path|
   ::ET1::Test::FullScreenshot.with_resizing do
-    driver.browser.save_screenshot(path)
+    driver.save_screenshot(path)
+  end
+end
+Capybara::Screenshot.register_driver(:cuprite_visible) do |driver, path|
+  ::ET1::Test::FullScreenshot.with_resizing do
+    driver.save_screenshot(path)
   end
 end
 Capybara::Screenshot.register_driver(:chrome) do |driver, path|
