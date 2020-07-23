@@ -53,11 +53,6 @@ en:
       additional_claimants:
         collection: :"simple_form.options.claimant"
 
-      representative:
-        contact_preference:
-          email: Email
-          post: Post
-
       respondent:
         no_acas_number_reason:
           joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
@@ -145,10 +140,6 @@ en:
 
       additional_claimants_upload:
         claimants: :"simple_form.labels.claimant"
-
-      representative:
-        type: Type of representative
-        contact_preference: Best way to send correspondence to your representative
 
       respondent:
         name: Name of respondent
@@ -585,6 +576,10 @@ en:
         label: Email address
       dx_number:
         label: Document exchange (DX) number
+      contact_preference:
+        options:
+          email: Email
+          post: Post
       representative_legend: About your representative
       contact_legend: Representative’s contact details
       contact_info: |

@@ -49,11 +49,6 @@ cy:
             miss: Miss
             ms: Ms
 
-      representative:
-        contact_preference:
-          email: E-bost
-          post: Post
-
       respondent:
         no_acas_number_reason:
           joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
@@ -651,7 +646,11 @@ cy:
         label: Cyfeiriad e-bost
       dx_number:
         label: Rhif cyfnewid dogfennau (DX)
-
+      contact_preference:
+        options:
+          contact_preference:
+            email: E-bost
+            post: Post
       representative_legend: Ynglŷn â’ch cynrychiolydd
       contact_legend: "Manylion cyswllt y cynrychiolydd"
       contact_info: |
