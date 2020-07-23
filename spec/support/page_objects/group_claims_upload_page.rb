@@ -37,7 +37,7 @@ module ET1
 
       # @!method upload_file_question
       #   A govuk file field component wrapping the input, label, hint etc.. for the upload file question
-      #   @return [EtTestHelpers::Components::FileField] The site prism section
+      #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
       section :upload_file_question, govuk_component(:file_field), :govuk_file_field, :'group_claims_upload.upload_spreadsheet.label'
 
       # @!method save_and_continue_button

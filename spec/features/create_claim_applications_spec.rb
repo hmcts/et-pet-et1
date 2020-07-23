@@ -13,6 +13,7 @@ feature 'Claim applications', type: :feature, js: true do
   let(:example_pdf_url) { test_valid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
   let(:ui_claimant) { build(:ui_claimant, :default) }
   let(:ui_secondary_claimants) { build_list(:ui_secondary_claimant, 1, :default) }
+  let(:ui_representative) { build(:ui_representative, :default) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -149,7 +150,8 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.save_and_continue
       group_claims_page.add_secondary_claimants(ui_secondary_claimants)
       group_claims_page.save_and_continue
-      fill_in_representative_details
+      representatives_details_page.fill_in_all(representative: ui_representative)
+      representatives_details_page.save_and_continue
 
       expect(page).to have_text page_number(5)
       expect(page).to have_text claim_heading_for(:respondent)
@@ -164,7 +166,8 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.save_and_continue
       group_claims_page.add_secondary_claimants(ui_secondary_claimants)
       group_claims_page.save_and_continue
-      fill_in_representative_details
+      representatives_details_page.fill_in_all(representative: ui_representative)
+      representatives_details_page.save_and_continue
 
       check "I don’t have an Acas number"
 
@@ -185,7 +188,8 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.save_and_continue
       group_claims_page.add_secondary_claimants(ui_secondary_claimants)
       group_claims_page.save_and_continue
-      fill_in_representative_details
+      representatives_details_page.fill_in_all(representative: ui_representative)
+      representatives_details_page.save_and_continue
       fill_in_respondent_details
 
       expect(page).to have_text page_number(6)
@@ -201,7 +205,9 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.save_and_continue
       group_claims_page.add_secondary_claimants(ui_secondary_claimants)
       group_claims_page.save_and_continue
-      fill_in_representative_details
+      representatives_details_page.fill_in_all(representative: ui_representative)
+      representatives_details_page.save_and_continue
+      #fill_in_representative_details
       fill_in_respondent_details
       fill_in_additional_respondent_details
 
@@ -218,7 +224,8 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.save_and_continue
       group_claims_page.add_secondary_claimants(ui_secondary_claimants)
       group_claims_page.save_and_continue
-      fill_in_representative_details
+      representatives_details_page.fill_in_all(representative: ui_representative)
+      representatives_details_page.save_and_continue
       fill_in_respondent_details
       fill_in_additional_respondent_details
       fill_in_employment_details

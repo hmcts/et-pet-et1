@@ -85,11 +85,11 @@ module ET1
         section :first_name_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'claimants_details.first_name.label'
         # @!method govuk_text_field
         #   A govuk text field component wrapping the input, label, hint etc..
-        #   @return [EtTestHelpers::Components::TextField] The site prism section
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
         section :last_name_question, govuk_component(:text_field), :govuk_text_field, :'claimants_details.last_name.label'
         # @!method date_of_birth_question
         #   A govuk date field component wrapping the input, label, hint etc.. for the date of birth question
-        #   @return [EtTestHelpers::Components::DateField] The site prism section
+        #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
         section :date_of_birth_question, govuk_component(:date_field), :govuk_date_field, :'claimants_details.date_of_birth.label'
 
         # @!method gender_question
@@ -115,11 +115,11 @@ module ET1
         section :country_question, ::ET1::Test::SelectQuestionSection, :question_labelled_translated, 'claimants_details.country.label'
         # @!method phone_or_mobile_number_question
         #   A govuk phone field component representing the phone or mobile question
-        #   @return [EtTestHelpers::Components::PhoneField] The site prism section
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
         section :phone_or_mobile_number_question, govuk_component(:phone_field), :govuk_phone_field, :'claimants_details.phone_or_mobile_number.label'
         # @!method alternative_phone_or_mobile_number_question
         #   A govuk phone field component representing the alternative phone or mobile question
-        #   @return [EtTestHelpers::Components::PhoneField] The site prism section
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
         section :alternative_phone_or_mobile_number_question, govuk_component(:phone_field), :govuk_phone_field, :'claimants_details.alternative_phone_or_mobile_number.label'
         section :email_address_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'claimants_details.email_address.label'
         # @!method best_correspondence_method_question
