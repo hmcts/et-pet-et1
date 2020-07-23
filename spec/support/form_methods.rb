@@ -172,7 +172,8 @@ module FormMethods
     claimants_details_page.save_and_continue
     group_claims_page.add_secondary_claimants(ui_secondary_claimants)
     group_claims_page.save_and_continue
-    fill_in_representative_details
+    representatives_details_page.fill_in_all(representative: ui_representative)
+    representatives_details_page.save_and_continue
     fill_in_respondent_details
     fill_in_additional_respondent_details
     fill_in_employment_details
@@ -236,7 +237,8 @@ module FormMethods
     claimants_details_page.save_and_continue
     group_claims_page.add_secondary_claimants(ui_secondary_claimants)
     group_claims_page.save_and_continue
-    fill_in_representative_details
+    representatives_details_page.fill_in_all(representative: ui_representative)
+    representatives_details_page.save_and_continue
     fill_in_respondent_details
     fill_in_additional_respondent_details
     fill_in_employment_details
