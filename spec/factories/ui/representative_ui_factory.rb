@@ -1,10 +1,6 @@
 module ET1
   module Test
-    class RepresentativeUi
-      attr_accessor :type, :name_of_organisation, :name
-      attr_accessor :address_building, :address_street, :address_town, :address_county, :address_post_code
-      attr_accessor :phone_or_mobile_number, :alternative_phone_or_mobile_number
-      attr_accessor :email_address, :dx_number
+    class RepresentativeUi < ActiveSupport::OrderedOptions
 
     end
   end

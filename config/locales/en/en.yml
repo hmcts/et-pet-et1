@@ -46,28 +46,12 @@ en:
     include_blanks:
       claimant:
         title: Please select
-      representative:
-        type: Please select
       additional_claimants:
         claimants: :"simple_form.include_blanks.claimant"
 
     options:
       additional_claimants:
         collection: :"simple_form.options.claimant"
-
-      representative:
-        type:
-          citizen_advice_bureau: Employment advisor, Citizens Advice Bureau
-          free_representation_unit: Free Representation Unit
-          law_centre: Law centre
-          trade_union: Trade union
-          solicitor: Solicitor
-          private_individual: Private individual
-          trade_association: Trade association
-          other: Other
-        contact_preference:
-          email: Email
-          post: Post
 
       respondent:
         no_acas_number_reason:
@@ -156,21 +140,6 @@ en:
 
       additional_claimants_upload:
         claimants: :"simple_form.labels.claimant"
-
-      representative:
-        has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
-        address_telephone_number: Phone or mobile number
-        address_building: Building number or name
-        address_locality: Town/city
-        address_street: Street
-        address_county: County
-        address_post_code: Postcode
-        type: Type of representative
-        organisation_name: Name of the representative’s organisation
-        name: Representative’s name
-        mobile_number: Alternative phone or mobile number
-        dx_number: Document exchange (DX) number
-        contact_preference: Best way to send correspondence to your representative
 
       respondent:
         name: Name of respondent
@@ -568,7 +537,49 @@ en:
     representative:
       header: Representative’s details
       form_legend: The person representing you
-      representative_type_legend: Type of representative
+      has_representative:
+        label: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      type:
+        label: Type of representative
+        options:
+          '': Please select
+          citizen_advice_bureau: Employment advisor, Citizens Advice Bureau
+          free_representation_unit: Free Representation Unit
+          law_centre: Law centre
+          trade_union: Trade union
+          solicitor: Solicitor
+          private_individual: Private individual
+          trade_association: Trade association
+          other: Other
+      organisation_name:
+        label: Name of the representative’s organisation
+      name:
+        label: Representative’s name
+      address_telephone_number:
+        label: Phone or mobile number
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+      address_post_code:
+        label: Postcode
+      mobile_number:
+        label: Alternative phone or mobile number
+      email_address:
+        label: Email address
+      dx_number:
+        label: Document exchange (DX) number
+      contact_preference:
+        options:
+          email: Email
+          post: Post
       representative_legend: About your representative
       contact_legend: Representative’s contact details
       contact_info: |
@@ -576,7 +587,6 @@ en:
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)
-
     respondent:
       header: Respondent’s details
       no_acas_number_reason: Why don’t you have an Acas number?
