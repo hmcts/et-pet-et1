@@ -121,26 +121,6 @@ module FormMethods
     select  'United Kingdom',          from: 'Country' if with_country
   end
 
-  def fill_in_respondent_details
-    fill_in 'Name', with: 'Crappy Co, LTD'
-
-    fill_in :respondent_address_building,         with: '2'
-    fill_in :respondent_address_street,           with: 'Main street'
-    fill_in :respondent_address_locality,         with: 'Anytown'
-    fill_in :respondent_address_county,           with: 'Anyfordshire'
-    fill_in :respondent_address_post_code,        with: 'AT3 0AS'
-    fill_in :respondent_address_telephone_number, with: '01234567890'
-
-    choose 'respondent_worked_at_same_address_false'
-
-    within('.work-address') { fill_in_address }
-
-    check  "I don’t have an Acas number"
-    choose 'respondent_no_acas_number_reason_acas_has_no_jurisdiction'
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_additional_respondent_details
     choose "No"
     click_button 'Save and continue'
@@ -175,7 +155,8 @@ module FormMethods
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
     representatives_details_page.save_and_continue
-    fill_in_respondent_details
+    respondents_details_page.fill_in_all(respondent: ui_respondent)
+    respondents_details_page.save_and_continue
     fill_in_additional_respondent_details
     fill_in_employment_details
   end
@@ -240,7 +221,8 @@ module FormMethods
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
     representatives_details_page.save_and_continue
-    fill_in_respondent_details
+    respondents_details_page.fill_in_all(respondent: ui_respondent)
+    respondents_details_page.save_and_continue
     fill_in_additional_respondent_details
     fill_in_employment_details
     fill_in_claim_type_details
