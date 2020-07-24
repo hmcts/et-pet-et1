@@ -19,12 +19,17 @@ FactoryBot.define do
       address_county { 'Greater London' }
       address_post_code { 'NE1 6WW' }
       worked_at_same_address { :'respondents_details.worked_at_same_address.options.yes' }
-      acas_number { '1234567890' }
+      acas_number { 'AB123456/12/34' }
     end
 
     trait :default do
       mandatory
       phone_number { '01332 111222' }
+    end
+
+    trait :dont_have_acas do
+      dont_have_acas_number { true }
+      dont_have_acas_number_reason { :'respondents_details.dont_have_acas_number_reason.options.joint_claimant_has_acas_number' }
     end
   end
 end
