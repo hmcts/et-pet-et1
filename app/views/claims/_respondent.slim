@@ -1,60 +1,30 @@
-fieldset
-  legend= t '.respondent_legend'
+= f.govuk_fieldset label: {text: t('.respondent_legend')}
   p = t('.form_hint')
-  = f.input :name
-  = f.input :address_building
-  = f.input :address_street
-  = f.input :address_locality
-  = f.input :address_county
-  = f.input :address_post_code, input_html: { class: 'short-input' }
-  = f.input :address_telephone_number, input_html: { class: 'medium-input' }
+  = f.govuk_text_field :name, label: {text: t('claims.respondent.name.label')}
+  = f.govuk_text_field :address_building, label: {text: t('claims.respondent.address_building.label')}
+  = f.govuk_text_field :address_street, label: {text: t('claims.respondent.address_street.label')}
+  = f.govuk_text_field :address_locality, label: {text: t('claims.respondent.address_locality.label')}
+  = f.govuk_text_field :address_county, label: {text: t('claims.respondent.address_county.label')}, hint_text: t('claims.respondent.address_county.hint')
+  = f.govuk_text_field :address_post_code, label: {text: t('claims.respondent.address_post_code.label')}
+  = f.govuk_phone_field :address_telephone_number, label: {text: "#{t('claims.respondent.address_telephone_number.label')} #{t('shared.optional')}"}
 
-fieldset
-  legend= t '.workaddress_legend'
-  fieldset
-    legend.form-label="#{t('simple_form.labels.respondent.worked_at_same_address')} #{t('shared.optional')}"
-    = f.input :worked_at_same_address,
-      as: :radio_buttons,
-      label: false,
-      readonly: nil,
-      include_hidden: false,
-      collection: responses_collection,
-      wrapper_html: { :class => 'form-group-reveal reveal-publish-delegate'},
-      item_wrapper_class: 'block-label',
-      input_html: { :class => 'reveal-publish-publisher ga-vpv' },
-      reveal: { true => 'sub1', false => 'sub1' }
-
-  #work_address_wrapper.panel-indent.toggle-content.work-address.reveal-subscribe data-target="sub1" data-show-array="false"
-    p.form-hint= t '.work_address'
-    = f.input :work_address_building
-    = f.input :work_address_street
-    = f.input :work_address_locality
-    = f.input :work_address_county
-    = f.input :work_address_post_code, input_html: { class: 'short-input' }
-    = f.input :work_address_telephone_number, input_html: { class: 'medium-input' }
-
+= f.govuk_fieldset label: {text: t('.workaddress_legend')}
+  = f.govuk_collection_radio_buttons :worked_at_same_address, [[true, t('claims.respondent.worked_at_same_address.options.true')], [false, t('claims.respondent.worked_at_same_address.options.false')]], :first, :last, label: {text: "#{t('claims.respondent.worked_at_same_address.label')} #{t('shared.optional')}"}
+  #work_address_wrapper.panel-indent
+  p.form-hint= t '.work_address'
+  = f.govuk_text_field :work_address_building, label: {text: "#{t('claims.respondent.work_address_building.label')} #{t('shared.optional')}"}
+  = f.govuk_text_field :work_address_street, label: {text: "#{t('claims.respondent.work_address_street.label')} #{t('shared.optional')}"}
+  = f.govuk_text_field :work_address_locality, label: {text: "#{t('claims.respondent.work_address_locality.label')} #{t('shared.optional')}"}
+  = f.govuk_text_field :work_address_county, label: {text: "#{t('claims.respondent.work_address_county.label')} #{t('shared.optional')}"}, hint_text: t('claims.respondent.address_county.hint')
+  = f.govuk_text_field :work_address_post_code, label: {text: "#{t('claims.respondent.work_address_post_code.label')} #{t('shared.optional')}"}
+  = f.govuk_phone_field :work_address_telephone_number, label: {text: "#{t('claims.respondent.work_address_telephone_number.label')} #{t('shared.optional')}"}
 fieldset.acas
-  legend= t '.acas_legend'
-  = f.input :acas_early_conciliation_certificate_number, hint: t('.acas_early_conciliation_certificate_number_html', path:guide_path), required: true, label: false
-  = f.input :no_acas_number,
-    as: :gds_check_boxes,
-    required: true,
-    wrapper_class: 'reveal-publish-delegate clearfix options',
-    input_html: { :class => 'reveal-publish-publisher ga-vpv',
-                  :'data-target' => 'main' }
+  = f.govuk_text_field :acas_early_conciliation_certificate_number, label: {text: t('claims.respondent.acas_early_conciliation_certificate_number.label')}, hint_text: t('claims.respondent.acas_early_conciliation_certificate_number.hint', path:guide_path)
+  = f.govuk_collection_radio_buttons :no_acas_number, [[true, t('claims.respondent.no_acas_number.options.true')], [false, t('claims.respondent.no_acas_number.options.false')]], :first, :last, label: {text: t('claims.respondent.no_acas_number.label')}
 
-
-  .clearfix.toggle-content.reveal-subscribe data-target="main" data-show-array="true"
+  .clearfix
     fieldset.panel-indent
-      legend.form-label = t '.no_acas_number_reason'
-      span.form-hint = t '.no_acas_number_note_one'
-      = f.input :no_acas_number_reason, label: false,
-        collection: RespondentForm::NO_ACAS_REASON,
-        as: :radio_buttons,
-        readonly: nil,
-        include_hidden: false,
-        required: true,
-        item_wrapper_class: 'block-label large-label'
+      = f.govuk_collection_radio_buttons :no_acas_number_reason, t('claims.respondent.no_acas_number_reason.options').to_a, :first, :last, label: {text: t('claims.respondent.no_acas_number_reason.label')}, hint_text: t('claims.respondent.no_acas_number_reason.hint')
       span.form-hint.toggle-content.reveal-acas-hint = t '.no_acas_number_note_two'
 
 
