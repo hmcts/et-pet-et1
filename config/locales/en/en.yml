@@ -53,13 +53,6 @@ en:
       additional_claimants:
         collection: :"simple_form.options.claimant"
 
-      respondent:
-        no_acas_number_reason:
-          joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
-          acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
-          employer_contacted_acas: My employer has already been in touch with Acas
-          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief.
-
       additional_respondents:
         collection: :"simple_form.options.respondent"
 
@@ -142,23 +135,6 @@ en:
         claimants: :"simple_form.labels.claimant"
 
       respondent:
-        name: Name of respondent
-        address_telephone_number: Phone number
-        address_building: Building number or name
-        address_locality: Town/city
-        address_street: Street
-        address_county: County
-        address_post_code: Postcode
-        work_address_telephone_number: Phone number
-        work_address_building: Building number or name
-        work_address_locality: Town/city
-        work_address_street: Street
-        work_address_county: County
-        work_address_post_code: Postcode
-        worked_at_same_address: Did you work at the same address to the one given above?
-        acas_early_conciliation_certificate_number: Acas number
-        no_acas_number: I don’t have an Acas number
-        no_acas_number_reason: Why don’t you have an Acas number?
         _destroy: 'Remove this respondent'
 
       additional_respondents:
@@ -253,7 +229,6 @@ en:
         miscellaneous_information: |
           Eg you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
       respondent:
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       additional_respondents:
         has_additional_respondents: You can claim against more than one respondent. Eg if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
@@ -589,20 +564,66 @@ en:
         summary: DX is a private mail system used by organisations (eg legal firms)
     respondent:
       header: Respondent’s details
-      no_acas_number_reason: Why don’t you have an Acas number?
       respondent_legend: About the respondent
-      no_acas_number_note_one: "Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS."
       no_acas_number_note_two: "Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief."
 
-      acas_legend: Acas early conciliation certificate number
       workaddress_legend: Your work address
       form_hint: |
         The contact details of the person or organisation you're making a claim against (known as the 'respondent'). The address will be used for correspondence about the case.
       work_address: Give details of your work address.
-      acas_early_conciliation_certificate_number_html: |
-          Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
       'true': 'Yes'
       'false': 'No'
+      name:
+        label: Name of respondent
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_telephone_number:
+        label: Phone number
+      address_post_code:
+        label: Postcode
+      worked_at_same_address:
+        label: Did you work at the same address to the one given above?
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      work_address_telephone_number:
+        label: Phone number
+      work_address_building:
+        label: Building number or name
+      work_address_locality:
+        label: Town/city
+      work_address_street:
+        label: Street
+      work_address_county:
+        label: County
+      work_address_post_code:
+        label: Postcode
+      acas_early_conciliation_certificate_number:
+        label: Acas early conciliation certificate number
+        hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
+      no_acas_number:
+        label: I don’t have an Acas number
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      no_acas_number_reason:
+        label: Why don’t you have an Acas number?
+        hint: "Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS."
+        options:
+          joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
+          acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
+          employer_contacted_acas: My employer has already been in touch with Acas
+          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief.
+
+
+
 
     additional_respondents:
       no_acas_number_reason: Why don’t you have an Acas number?

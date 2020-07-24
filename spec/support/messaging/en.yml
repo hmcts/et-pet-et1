@@ -271,6 +271,9 @@ en:
       label: Acas early conciliation certificate number
     dont_have_acas_number:
       label: I don’t have an Acas number
+      options:
+        "yes": "Yes"
+        "no": "No"
     dont_have_acas_number_reason:
       label: Why don’t you have an Acas number?
       options:
