@@ -44,8 +44,6 @@ en:
 
   simple_form:
     include_blanks:
-      claimant:
-        title: Please select
       additional_claimants:
         claimants: :"simple_form.include_blanks.claimant"
 
@@ -197,8 +195,6 @@ en:
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
         applying_for_remission: |
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
-        contact_preference: |
-          Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         date_of_birth: For example, 23 04 1981
       representative:
@@ -382,6 +378,7 @@ en:
       title:
         label: Title
         options:
+          '': Please select
           mr: Mr
           mrs: Mrs
           miss: Miss
@@ -457,6 +454,7 @@ en:
         label: Alternative phone or mobile number
       contact_preference:
         label: Best way to send correspondence to you (the claimant)
+        hint: Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
         options:
           email: Email
           post: Post
