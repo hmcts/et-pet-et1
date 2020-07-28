@@ -163,7 +163,7 @@ en:
     alternative_phone_or_mobile_number:
       label: Alternative phone or mobile number (optional)
     email_address:
-      label: Email address (optional)
+      label: Email address
     best_correspondence_method:
       label: Best way to send correspondence to you (the claimant)
       options:
