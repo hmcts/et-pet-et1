@@ -8,6 +8,7 @@ end
 FactoryBot.define do
   factory :ui_claimant, class: ::ET1::Test::ClaimantUi do
     trait :mandatory do
+      title { :'claimants_details.title.options.unselected' }
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }
       date_of_birth { '29/11/1998' }

@@ -44,8 +44,6 @@ en:
 
   simple_form:
     include_blanks:
-      claimant:
-        title: Please select
       additional_claimants:
         claimants: :"simple_form.include_blanks.claimant"
 
@@ -451,6 +449,7 @@ en:
       title:
         label: Title
         options:
+          '': Please select
           mr: Mr
           mrs: Mrs
           miss: Miss
@@ -518,6 +517,7 @@ en:
         label: Alternative phone or mobile number
       contact_preference:
         label: Best way to send correspondence to you (the claimant)
+        hint: Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
         options:
           email: Email
           post: Post
