@@ -1,4 +1,4 @@
-= f.govuk_collection_select :title, ClaimantForm::TITLES.map {|title| [title, t(".title.options.#{title}")]}, :first, :last, label: { text: "#{t('.title.label')} #{t('shared.optional')}" }
+= f.govuk_collection_select :title, t('.title.options').to_a, :first, :last, label: { text: "#{t('.title.label')} #{t('shared.optional')}" }
 = f.govuk_text_field :first_name, required: true, label: { text: t('.first_name') }
 = f.govuk_text_field :last_name, required: true, label: { text: t('.last_name') }
 = f.govuk_date_field :date_of_birth, hint_text: t('.date_of_birth.hint'), label: { text: t('.date_of_birth.label') }
