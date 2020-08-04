@@ -151,13 +151,14 @@ module FormMethods
     saving_your_claim_page.register(email_address: nil, password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
-    group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+    group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
     representatives_details_page.save_and_continue
     respondents_details_page.fill_in_all(respondent: ui_respondent)
     respondents_details_page.save_and_continue
-    fill_in_additional_respondent_details
+    additional_respondents_page.fill_in_all(secondary_respondents: ui_secondary_respondents)
+    additional_respondents_page.save_and_continue
     fill_in_employment_details
   end
 
@@ -217,13 +218,14 @@ module FormMethods
     saving_your_claim_page.register(email_address: nil, password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
-    group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+    group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
     representatives_details_page.save_and_continue
     respondents_details_page.fill_in_all(respondent: ui_respondent)
     respondents_details_page.save_and_continue
-    fill_in_additional_respondent_details
+    additional_respondents_page.no_secondary_respondents
+    additional_respondents_page.save_and_continue
     fill_in_employment_details
     fill_in_claim_type_details
     fill_in_claim_details
