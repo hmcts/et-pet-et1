@@ -15,6 +15,7 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_secondary_claimants) { build_list(:ui_secondary_claimant, 1, :default) }
   let(:ui_representative) { build(:ui_representative, :default) }
   let(:ui_respondent) { build(:ui_respondent, :default) }
+  let(:ui_secondary_respondents) { [] }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -103,7 +104,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
 
       expect(page).to have_text page_number(4)
@@ -149,7 +150,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
@@ -165,7 +166,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
@@ -186,7 +187,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
@@ -204,14 +205,15 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
       #fill_in_representative_details
       respondents_details_page.fill_in_all(respondent: ui_respondent)
       respondents_details_page.save_and_continue
-      fill_in_additional_respondent_details
+      additional_respondents_page.no_secondary_respondents
+      additional_respondents_page.save_and_continue
 
       expect(page).to have_text page_number(7)
       expect(page).to have_text claim_heading_for(:employment)
@@ -224,14 +226,14 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
-      group_claims_page.add_secondary_claimants(ui_secondary_claimants)
+      group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
       respondents_details_page.fill_in_all(respondent: ui_respondent)
       respondents_details_page.save_and_continue
-      fill_in_additional_respondent_details
-      fill_in_employment_details
+      additional_respondents_page.fill_in_all(secondary_respondents: ui_secondary_respondents)
+      additional_respondents_page.save_and_continue
 
       expect(page).to have_text page_number(8)
       expect(page).to have_text claim_heading_for(:claim_type)
