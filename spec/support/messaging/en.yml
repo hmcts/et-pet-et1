@@ -109,6 +109,7 @@ en:
     about_the_claimant_group: About the claimant
     claimants_contact_details_group: Claimant’s contact details
     save_and_continue: Save and continue
+    remove_this_claimant: Remove this claimant
     errors:
       invalid_phone_number: Invalid phone number
     title:
@@ -281,6 +282,37 @@ en:
         acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
         employer_contacted_acas: My employer has already been in touch with Acas
         interim_relief: "The claim consists only of a complaint of unfair dismissal which contains an application for interim relief."
+  additional_respondents:
+    save_and_continue: Save and continue
+    remove_this_respondent: Remove this respondent
+    claim_against_other_person:
+      label: Claims against more than one employer
+      options:
+        "yes": "Yes"
+        "no": "No"
+    add_more_respondents:
+      label: 'Add another respondent'
+    respondent_section:
+      label: 'Respondent %{number}'
+    name:
+      label: Name of respondent
+    building:
+      label: Building number or name
+    street:
+      label: Street
+    town:
+      label: Town/city
+    county:
+      label: County
+    post_code:
+      label: Postcode
+    acas_number:
+      label: Acas early conciliation certificate number
+    dont_have_acas_number:
+      label: I don’t have an Acas number
+    dont_have_acas_number_reason:
+      label: Why don’t you have an Acas number?
+
 
 
 

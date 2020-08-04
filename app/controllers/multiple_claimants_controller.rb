@@ -1,4 +1,4 @@
-class MultiplesController < ClaimsController
+class MultipleClaimantsController < ClaimsController
   def update
     resource.assign_attributes params[current_step]
 

@@ -4,20 +4,28 @@ module ET1
     class GroupClaimsPage < BasePage
       set_url "/en/apply/additional-claimants"
 
-      # Adds a list of secondary claimants using the user interface - it clicks "Yes" to the 'People making a claim with you'
+      # Adds a list of secondary claimants using the user interface
+      # If the list is not empty - it clicks "Yes" to the 'People making a claim with you'
       # question, then fills in the sections below it.
       # This is limited to  a max of 5 secondary claimants.
       # Any more than that, the user will need to call provide_spreadsheet and then use
       # the GroupClaimsUploadPage page object to upload the spreadsheet
-      # @param [Array<Claimant>] claimants An array of claimants to add
-      def add_secondary_claimants(claimants)
-        return if claimants.nil? || claimants.empty?
-
-        people_making_claim_with_you_question.set(:'group_claims.people_making_claim_with_you.options.yes')
-        claimants.each_with_index do |claimant, index|
-          add_claimant_section unless index.zero?
-          claimant_section(index: index).set(claimant)
+      # If the list is empty - it clicks "No" to the 'People making a claim with you'
+      # @param [Array<Claimant>] secondary_claimants An array of claimants to add
+      def fill_in_all(secondary_claimants:)
+        if secondary_claimants.nil? || secondary_claimants.empty?
+          no_secondary_claimants
+        else
+          add_secondary_claimants(secondary_claimants)
         end
+        self
+      end
+
+      # Remove a secondary claimant already present
+      # @param [Integer] index Zero based position of secondary claimant to remove
+      def remove_claimant(index:)
+        claimant_section(index: index).remove
+        self
       end
 
       def append_secondary_claimants(claimants)
@@ -28,6 +36,7 @@ module ET1
           add_claimant_section
           claimant_section(index: index + starting_index + 1).set(claimant)
         end
+        self
       end
 
       def secondary_claimants
@@ -56,6 +65,7 @@ module ET1
       # Clicks on no to the primary question of 'People making a claim with you'
       def no_secondary_claimants
         people_making_claim_with_you_question.set(:'group_claims.people_making_claim_with_you.options.no')
+        self
       end
 
       # Clicks the save and continue button
@@ -64,6 +74,19 @@ module ET1
       end
 
       private
+
+      def add_secondary_claimants(claimants)
+        if claimants.nil? || claimants.empty?
+          people_making_claim_with_you_question.set(:'group_claims.people_making_claim_with_you.options.no')
+          return
+        end
+
+        people_making_claim_with_you_question.set(:'group_claims.people_making_claim_with_you.options.yes')
+        claimants.each_with_index do |claimant, index|
+          add_claimant_section unless index.zero?
+          claimant_section(index: index).set(claimant)
+        end
+      end
 
       class ClaimantSection < BaseSection
         def set(claimant)
@@ -82,6 +105,10 @@ module ET1
           fieldset.claimant_number.text.match(/(\d*)\z/)[0].to_i - 2
         end
 
+        def remove
+          remove_this_claimant_element.click
+        end
+
         private
 
         section :fieldset, :xpath, XPath.generate {| x| x.child(:fieldset) } do
@@ -96,6 +123,7 @@ module ET1
         section :town, govuk_component(:text_field), :govuk_text_field, :'claimants_details.town.label'
         section :county, govuk_component(:text_field), :govuk_text_field, :'claimants_details.county.label'
         section :post_code, govuk_component(:text_field), :govuk_text_field, :'claimants_details.post_code.label'
+        element :remove_this_claimant_element, :link, t('claimants_details.remove_this_claimant')
       end
 
       def date_to_user(date)

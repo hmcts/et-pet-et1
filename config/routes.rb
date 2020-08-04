@@ -14,13 +14,12 @@ Rails.application.routes.draw do
       resource :claim_confirmation, only: :show, path: :confirmation
 
       resource :claim, only: :create, path: "/" do
-
-        %w<claimants respondents>.each do |page|
-          resource :"additional_#{page}", only: %i<show update>,
-            controller: :multiples, page: "additional-#{page}",
-            path: "additional-#{page}"
-        end
-
+        resource :"additional_claimants", only: %i<show update>,
+                 controller: :multiple_claimants, page: "additional-claimants",
+                 path: "additional-claimants"
+        resource :"additional_respondents", only: %i<show update>,
+                 controller: :multiple_respondents, page: "additional-respondents",
+                 path: "additional-respondents"
         ClaimPagesManager.page_names.each do |page|
           resource page.underscore, only: %i<show update>, controller: :claims,
             page: page, path: page

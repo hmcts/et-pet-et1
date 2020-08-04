@@ -41,6 +41,11 @@ module ET1
         ::ET1::Test::RespondentsDetailsPage.new
       end
 
+      # @return [ET1::Test::AdditionalRespondentsPage]
+      def additional_respondents_page
+        ::ET1::Test::AdditionalRespondentsPage.new
+      end
+
       def employment_details_page
         ::ET1::Test::EmploymentDetailsPage.new
       end

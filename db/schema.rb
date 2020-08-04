@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_18_060830) do
+ActiveRecord::Schema.define(version: 2020_08_04_051338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_060830) do
     t.boolean "is_protective_award", default: false
     t.string "pdf_url"
     t.boolean "has_multiple_claimants"
+    t.boolean "has_multiple_respondents"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 
@@ -261,6 +262,7 @@ ActiveRecord::Schema.define(version: 2020_06_18_060830) do
     t.datetime "updated_at"
     t.boolean "worked_at_same_address", default: true
     t.boolean "primary_respondent", default: false
+    t.boolean "no_acas_number"
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|
