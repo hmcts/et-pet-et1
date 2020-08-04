@@ -36,7 +36,7 @@ feature 'Multiple claimants', js: true do
   describe 'adding claimants' do
     before do
       group_claims_page.load
-      group_claims_page.add_secondary_claimants([claimant_factory])
+      group_claims_page.fill_in_all(secondary_claimants: [claimant_factory])
     end
 
     scenario "filling in a claimant and clicking 'Add more claimants' does not lose the entered details" do
@@ -48,20 +48,13 @@ feature 'Multiple claimants', js: true do
       expect(group_claims_page.secondary_claimants).to contain_exactly(claimant_factory, second_claimant)
     end
 
-    scenario 'adding more than one additional claimant', js: false do
-      click_button "Add more claimants"
-
-      within '#resource_1' do
-        select 'Mr', from: 'Title'
-
-        secondary_attributes.each do |field, value|
-          fill_in field, with: value
-        end
-      end
-
-      click_button 'Save and continue'
+    scenario 'adding more than one additional claimant' do
+      extra_claimant = build(:ui_secondary_claimant, :default)
+      group_claims_page
+        .append_secondary_claimants([extra_claimant])
+        .save_and_continue
       expect(page).not_to have_content("Group claims")
-      expect(claim.secondary_claimants.pluck(:first_name)).to match_array ['Persephone', 'Pegasus']
+      expect(claim.secondary_claimants.pluck(:first_name)).to contain_exactly(claimant_factory.first_name, extra_claimant.first_name)
     end
 
     scenario 'a user can still save & complete later' do
@@ -164,14 +157,12 @@ feature 'Multiple claimants', js: true do
     end
 
     scenario 'deleting arbitrary claimants' do
-      visit claim_additional_claimants_path
+      group_claims_page.load
+      group_claims_page.remove_claimant(index: 1)
 
-      within '#resource_1' do
-        click_on 'Remove this claimant'
-      end
       expect(page).not_to have_css('#resource_1')
 
-      click_button 'Save and continue'
+      group_claims_page.save_and_continue
       expect(page).not_to have_content("Group claims")
       expect(claim.secondary_claimants.size).to eq 1
     end
@@ -202,7 +193,7 @@ feature 'Multiple claimants', js: true do
   def add_some_additional_claimants
     second_claimant = build(:ui_secondary_claimant, :default)
     group_claims_page.load
-    group_claims_page.add_secondary_claimants([claimant_factory, second_claimant])
+    group_claims_page.fill_in_all(secondary_claimants: [claimant_factory, second_claimant])
     group_claims_page.save_and_continue
     expect(page).not_to have_content('Group claims')
   end
