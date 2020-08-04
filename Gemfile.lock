@@ -17,7 +17,7 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 8e7e632f77a784bbf3104cbde76bd1418e25c481
+  revision: 428b33a9275e22898fff8d18c45b062e333b125a
   specs:
     et_test_helpers (0.1.0)
       activesupport (~> 6.0)
@@ -235,7 +235,7 @@ GEM
       activesupport (>= 4.1)
     hashdiff (1.0.1)
     http_parser.rb (0.6.0)
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)

@@ -686,6 +686,7 @@ cy:
     respondent:
       header: Manylion yr atebydd
       respondent_legend: Ynglŷn â’r atebydd
+      no_acas_number_note_one: "Noder: Mae’n bosib y bydd eich hawliad yn cael ei wrthod os byddwch yn hawlio esemptiad yn anghywir. Os oes gennych amheuaeth, cysylltwch ag ACAS."
       no_acas_number_note_two: "Noder: Mae hwn yn fath anghyffredin o hawliad. Nid yw'r ffaith eich bod yn gwneud hawliad am ddiswyddo annheg yn golygu eich bod o reidrwydd yn gwneud hawliad am gymorth interim."
 
       workaddress_legend: Eich cyfeiriad gwaith
@@ -747,17 +748,16 @@ cy:
     additional_respondents:
       no_acas_number_reason: "Pam nad oes gennych rif Acas?"
       header: Atebwyr ychwanegol
-      additional_repsondents_legend: Hawliadau yn erbyn mwy nag un cyflogwr
-      additional_respondents_intro: "Ydych chi'n gwneud hawliad yn erbyn unigolyn neu sefydliad arall?"
       person: "Atebydd %{number}"
       add_fields: Ychwanegu atebydd arall
       remove_resource_link: "Dileu'r atebydd yma"
       additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na %{max} atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
-      no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
-      no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
-      'true': 'Ydw'
-      'false': 'Nac ydw'
-
+      has_additional_respondents:
+        label: Hawliadau yn erbyn mwy nag un cyflogwr
+        hint: "Ydych chi'n gwneud hawliad yn erbyn unigolyn neu sefydliad arall?"
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
     employment:
       header: Manylion cyflogaeth
       situation_legend: "Eich manylion cyflogaeth"

@@ -1,12 +1,6 @@
 module ET1
   module Test
-    class RespondentUi
-      attr_accessor :name
-      attr_accessor :address_building, :address_street, :address_town, :address_county, :address_post_code
-      attr_accessor :worked_at_same_address
-      attr_accessor :work_address_building, :work_address_street, :work_address_town, :work_address_county, :work_address_post_code
-      attr_accessor :phone_number, :work_address_phone_number, :acas_number, :dont_have_acas_number, :dont_have_acas_number_reason
-    end
+    RespondentUi = Struct.new('RespondentUi', :name, :address_building, :address_street, :address_town, :address_county, :address_post_code, :worked_at_same_address, :work_address_building, :work_address_street, :work_address_town, :work_address_county, :work_address_post_code, :phone_number, :work_address_phone_number, :acas_number, :dont_have_acas_number, :dont_have_acas_number_reason, keyword_init: true)
   end
 end
 FactoryBot.define do
