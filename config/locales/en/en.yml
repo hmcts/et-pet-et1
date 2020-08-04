@@ -627,6 +627,7 @@ en:
     respondent:
       header: Respondent’s details
       respondent_legend: About the respondent
+      no_acas_number_note_one: "Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS."
       no_acas_number_note_two: "Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief."
 
       workaddress_legend: Your work address
@@ -690,17 +691,16 @@ en:
     additional_respondents:
       no_acas_number_reason: Why don’t you have an Acas number?
       header: Additional respondents
-      additional_repsondents_legend: Claims against more than one employer
-      additional_respondents_intro: Are you making a claim against another person or organisation?
       person: Respondent %{number}
       add_fields: Add another respondent
       remove_resource_link: Remove this respondent
       additional_respondents_limit: If you are making a claim against more than %{max} additional respondents, enter their details in the ‘more about the claim’ section later in the form.
-      no_acas_number_note_one: :claims.respondent.no_acas_number_note_one
-      no_acas_number_note_two: :claims.respondent.no_acas_number_note_two
-      'true': 'Yes'
-      'false': 'No'
-
+      has_multiple_respondents:
+        label: Claims against more than one employer
+        hint: Are you making a claim against another person or organisation?
+        options:
+          'true': 'Yes'
+          'false': 'No'
     employment:
       header: Employment details
       situation_legend: Your employment details
