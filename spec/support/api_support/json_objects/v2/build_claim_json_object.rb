@@ -49,7 +49,7 @@ module Et1
                                            submission_channel: "Web",
                                            submission_reference: claim.reference,
                                            email_template_reference: 'et1-v1-en',
-                                           pdf_template_reference: 'et1-v1-en',
+                                           pdf_template_reference: 'et1-v2-en',
                                            confirmation_email_recipients: claim.confirmation_email_recipients,
                                            miscellaneous_information: claim.miscellaneous_information
 

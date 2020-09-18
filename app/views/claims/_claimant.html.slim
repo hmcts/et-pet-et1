@@ -56,3 +56,14 @@ fieldset
                       :class => 'reveal-subscribe',
                       :'data-target' => 'email_address',
                       :'data-show-array' => 'email' }
+
+  fieldset
+    legend.form-label = t('simple_form.labels.claimant.allow_video_attendance')
+    = f.input :allow_video_attendance,
+      label: false,
+      as: :radio_buttons,
+      collection: t('simple_form.options.claimant.allow_video_attendance').to_a.map(&:reverse),
+      readonly: nil,
+      include_hidden: false,
+      item_wrapper_class: 'block-label'
+

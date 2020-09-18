@@ -131,6 +131,9 @@ module ET1
         section :preferred_contact, :et1_review_question_labelled, 'review.claimant.questions.preferred_contact' do
           element :answer, :css, 'td'
         end
+        section :allow_video_attendance, :et1_review_question_labelled, 'review.claimant.questions.allow_video_attendance' do
+          element :answer, :css, 'td'
+        end
         section :address, :et1_review_question_labelled, 'review.claimant.questions.address' do
           element :answer, :css, 'td'
         end

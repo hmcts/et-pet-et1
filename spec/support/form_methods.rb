@@ -56,6 +56,8 @@ module FormMethods
       fill_in 'Email address', with: CLAIMANT_EMAIL
     end
 
+    choose 'claimant_allow_video_attendance_true'
+
     choose  'claimant_has_special_needs_true'
     fill_in 'Describe the assistance you require', with: 'I am blind.'
 

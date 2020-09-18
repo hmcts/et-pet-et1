@@ -44,6 +44,7 @@ en:
         mobile_number: Mobile
         email_address: Email
         contact_preference: Preferred contact
+        allow_video_attendance: Would you be able to take part in a hearing by video?
         is_disabled: Assistance required at the tribunal?
         has_representative: Representative
 
