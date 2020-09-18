@@ -18,6 +18,7 @@ json.fax_number claimant.fax_number
 json.email_address claimant.email_address
 # @TODO Maybe send as simple value and transform at presentation layer ?
 json.contact_preference claimant.contact_preference.try(:humanize)
+json.allow_video_attendance claimant.allow_video_attendance
 # @TODO Maybe send as simple value and transform at presentation layer ?
 json.gender({ 'male' => 'Male', 'female' => 'Female', 'prefer_not_to_say' => 'N/K' }[claimant.gender])
 json.date_of_birth claimant.date_of_birth

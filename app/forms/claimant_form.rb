@@ -25,6 +25,7 @@ class ClaimantForm < Form
   attribute :title,              :string
   attribute :gender,             :string
   attribute :contact_preference, :string
+  attribute :allow_video_attendance, :boolean
 
   boolean   :has_special_needs
 
@@ -39,6 +40,7 @@ class ClaimantForm < Form
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
+  validates :allow_video_attendance, presence: true
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, phone_number_uk: true, allow_blank: true
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }

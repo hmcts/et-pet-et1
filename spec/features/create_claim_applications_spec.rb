@@ -327,6 +327,7 @@ feature 'Claim applications', type: :feature, js: true do
                                     "mobile_number" => "07956000000",
                                     "email_address" => "barrington@example.com",
                                     "contact_preference" => "Email",
+                                    "allow_video_attendance" => true,
                                     "gender" => "Male",
                                     "date_of_birth" => "1985-01-15",
                                     "special_needs" => "I am blind."

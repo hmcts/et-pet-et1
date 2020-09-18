@@ -59,6 +59,9 @@ cy:
         address_country:
           united_kingdom: Deyrnas Unedig
           other: Tu allan i'r Deyrnas Unedig
+        allow_video_attendance:
+          'true': 'Gallaf'
+          'false': 'Na allaf'
       additional_claimants:
         collection:
           title:
@@ -188,6 +191,7 @@ cy:
         address_country: Gwlad
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu eich ffi (a elwir yn \"help i dalu ffioedd\")?"
         contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
+        allow_video_attendance: "A allech chi gymryd rhan mewn gwrandawiad drwy fideo? (angen mynediad i'r rhyngrwyd)."
         _destroy: 'Dileu''r hawlydd yma'
         email_address: Cyfeiriad e-bost
         gender: Rhywedd
@@ -360,6 +364,7 @@ cy:
           Efallai na fydd rhaid i chi dalu ffi os nad oes gennych lawer o gynilion a'ch bod yn cael budd-daliadau neu ar incwm isel. Ydw i'n gymwys i gael help?
         contact_preference: |
           Noder, os oes gennych gynrychiolydd (ee cyfreithiwr), yna fe anfonir pob gohebiaeth atynt
+        allow_video_attendance: "Ceir rhagor o fanylion am wrandawiadau fideo drwy ddilyn y ddolen a ganlyn: https://www.gov.uk/guidance/hmcts-telephone-and-video-hearings-during-coronavirus-outbreak"
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimants:
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
@@ -832,6 +837,8 @@ cy:
               blank: Dywedwch p'un a ydych angen cymorth yn y gwrandawiad tribiwnlys
             contact_preference:
               blank: Dywedwch p'un a hoffech i ohebiaeth gael ei hanfon at yr hawlydd drwy'r post neu e-bost
+            allow_video_attendance:
+              blank: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
             address_building:
               blank: Rhowch rif neu enw adeilad cyfeiriad yr hawlydd
             address_street:

@@ -42,6 +42,7 @@ RSpec.describe ClaimantForm, type: :form do
     it { expect(claimant_form).to validate_inclusion_of(:title).in_array ['mr', 'mrs', 'miss', 'ms'] }
     it { expect(claimant_form).to validate_inclusion_of(:gender).in_array ['male', 'female', 'prefer_not_to_say'] }
     it { expect(claimant_form).to validate_inclusion_of(:contact_preference).in_array ['email', 'post'] }
+    it { expect(claimant_form).to validate_presence_of(:allow_video_attendance) }
 
     it { expect(claimant_form).to validate_length_of(:first_name).is_at_most(100) }
     it { expect(claimant_form).to validate_length_of(:last_name).is_at_most(100) }
@@ -58,13 +59,13 @@ RSpec.describe ClaimantForm, type: :form do
 
     describe "presence of fax" do
       describe "when contact_preference != fax" do
-        before { claimant_form.contact_preference = 'email'}
+        before { claimant_form.contact_preference = 'email' }
 
         it { expect(claimant_form).not_to validate_presence_of(:fax_number) }
       end
 
       describe "when contact_preference == fax" do
-        before { claimant_form.contact_preference = 'fax'}
+        before { claimant_form.contact_preference = 'fax' }
 
         it { expect(claimant_form).to validate_presence_of(:fax_number) }
       end
@@ -72,13 +73,13 @@ RSpec.describe ClaimantForm, type: :form do
 
     describe "presence of email" do
       describe "when contact_preference != email" do
-        before { claimant_form.contact_preference = 'fax'}
+        before { claimant_form.contact_preference = 'fax' }
 
         it { expect(claimant_form).not_to validate_presence_of(:email_address) }
       end
 
       describe "when contact_preference == email" do
-        before { claimant_form.contact_preference = 'email'}
+        before { claimant_form.contact_preference = 'email' }
 
         it { expect(claimant_form).to validate_presence_of(:email_address) }
       end
@@ -194,25 +195,26 @@ RSpec.describe ClaimantForm, type: :form do
     subject { claimant_form }
 
     it_behaves_like "a Form",
-      title: 'mr',
-      gender: 'male',
-      contact_preference: 'email',
-      first_name: 'Barrington', last_name: 'Wrigglesworth',
-      address_building: '1', address_street: 'High Street',
-      address_locality: 'Anytown', address_county: 'Anyfordshire',
-      address_country: 'united_kingdom',
-      address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
-      special_needs: '', date_of_birth: '01/01/1990'
+                    title: 'mr',
+                    gender: 'male',
+                    contact_preference: 'email',
+                    allow_video_attendance: true,
+                    first_name: 'Barrington', last_name: 'Wrigglesworth',
+                    address_building: '1', address_street: 'High Street',
+                    address_locality: 'Anytown', address_county: 'Anyfordshire',
+                    address_country: 'united_kingdom',
+                    address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
+                    special_needs: '', date_of_birth: '01/01/1990'
 
     describe 'postcode' do
       before { claimant_form.address_country = 'united_kingdom' }
 
       include_examples "Postcode validation",
-        attribute_prefix: 'address',
-        error_message: 'Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT'
+                       attribute_prefix: 'address',
+                       error_message: 'Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT'
     end
 
     include_examples 'Email validation',
-      error_message: 'You have entered an invalid email address'
+                     error_message: 'You have entered an invalid email address'
   end
 end

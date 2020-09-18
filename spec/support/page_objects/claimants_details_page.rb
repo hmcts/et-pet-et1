@@ -46,6 +46,7 @@ module ET1
           s.alternative_phone_or_mobile_number_question.set(claimant.alternative_phone_or_mobile_number)
           s.best_correspondence_method_question.set(claimant.best_correspondence_method)
           s.email_address_question.set(claimant.email_address) if claimant.best_correspondence_method.to_s.split('.').last == 'email'
+          s.allow_video_attendance_question.set(claimant.allow_video_attendance)
         end
       end
 
@@ -93,6 +94,7 @@ module ET1
         section :alternative_phone_or_mobile_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'claimants_details.alternative_phone_or_mobile_number.label'
         section :email_address_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'claimants_details.email_address.label'
         section :best_correspondence_method_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'claimants_details.best_correspondence_method.label'
+        section :allow_video_attendance_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'claimants_details.allow_video_attendance.label'
       end
 
       element :save_and_continue_element, :button_translated, 'claimants_details.save_and_continue'

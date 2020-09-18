@@ -4,7 +4,7 @@ module ET1
       attr_accessor :title, :first_name, :last_name, :date_of_birth, :gender, :has_special_needs, :special_needs
       attr_accessor :address_building, :address_street, :address_town, :address_county, :address_post_code, :address_country
       attr_accessor :phone_or_mobile_number, :alternative_phone_or_mobile_number, :email_address
-      attr_accessor :best_correspondence_method
+      attr_accessor :best_correspondence_method, :allow_video_attendance
 
     end
   end
@@ -23,6 +23,7 @@ FactoryBot.define do
       address_post_code { 'NE1 6WW' }
       address_country { :'claimants_details.country.options.united_kingdom' }
       best_correspondence_method { :'claimants_details.best_correspondence_method.options.post' }
+      allow_video_attendance { :'claimants_details.allow_video_attendance.options.yes' }
     end
 
     trait :default do
@@ -35,6 +36,7 @@ FactoryBot.define do
       alternative_phone_or_mobile_number { '01332 222333' }
       email_address { 'email@address.com' }
       best_correspondence_method { :'claimants_details.best_correspondence_method.options.email' }
+      allow_video_attendance { :'claimants_details.allow_video_attendance.options.yes' }
     end
   end
 end

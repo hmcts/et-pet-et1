@@ -68,6 +68,9 @@ en:
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
+        allow_video_attendance:
+          "true": 'Yes'
+          "false": 'No'
       additional_claimants:
         collection: :"simple_form.options.claimant"
 
@@ -189,6 +192,7 @@ en:
         applying_for_remission: Do you want to get help paying your fee (known as ‘help with fees’)?
         contact_preference: Best way to send correspondence to you (the claimant)
         _destroy: 'Remove this claimant'
+        allow_video_attendance: "Would you be able to take part in a hearing by video? (Requires internet access)."
 
       additional_claimants:
         of_collection_type: |
@@ -302,6 +306,7 @@ en:
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
           Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
+        allow_video_attendance: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimants:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
@@ -751,6 +756,8 @@ en:
               blank: Say whether you require assistance at the tribunal hearing
             contact_preference:
               blank: Say whether you’d like correspondence to be sent to the claimant by post or email
+            allow_video_attendance:
+              blank: "Please say whether you would be able to attend a hearing by video"
             address_building:
               blank: Enter the building number or name from the claimant’s address
             address_street:

@@ -83,5 +83,10 @@ feature 'Claimant page' do
         expect(page).to have_text("Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)")
       end
     end
+
+    it "displays validation if no allow video attendance is present" do
+      click_button "Save and continue"
+      expect(page).to have_text("Please say whether you would be able to attend a hearing by video")
+    end
   end
 end

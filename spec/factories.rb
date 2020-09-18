@@ -162,6 +162,7 @@ FactoryBot.define do
 
     mobile_number      { '07956273434' }
     contact_preference { 'email' }
+    allow_video_attendance { true }
     email_address      { "#{first_name}.#{last_name}@example.com" }
   end
 
