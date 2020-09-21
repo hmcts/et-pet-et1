@@ -838,7 +838,7 @@ cy:
             contact_preference:
               blank: Dywedwch p'un a hoffech i ohebiaeth gael ei hanfon at yr hawlydd drwy'r post neu e-bost
             allow_video_attendance:
-              blank: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
+              inclusion: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
             address_building:
               blank: Rhowch rif neu enw adeilad cyfeiriad yr hawlydd
             address_street:
