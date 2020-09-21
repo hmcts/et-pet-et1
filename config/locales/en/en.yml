@@ -757,7 +757,7 @@ en:
             contact_preference:
               blank: Say whether you’d like correspondence to be sent to the claimant by post or email
             allow_video_attendance:
-              blank: "Please say whether you would be able to attend a hearing by video"
+              inclusion: "Please say whether you would be able to attend a hearing by video"
             address_building:
               blank: Enter the building number or name from the claimant’s address
             address_street:
