@@ -165,19 +165,19 @@ cy:
       save_and_return:
         session:
           new:
-            reference: "*Welsh Save and return number"
+            reference: "Rhif cadw a dychwelyd"
             password: Gair cofiadwy
         user:
           new:
-            email: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
-            password: Creu eich gair cofiadwy
+            email: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad (dewisol)
+            password: Crëwch eich gair cofiadwy
         password:
           new:
-            email: "*WELSH Enter your email address"
-            reference: "*WELSH Save and return number"
+            email: "Nodwch eich cyfeiriad e-bost"
+            reference: "Rhif cadw a dychwelyd"
           edit:
-            password: "*WELSH Memorable word"
-            password_confirmation: "*WELSH Confirm memorable word"
+            password: "Gair cofiadwy"
+            password_confirmation: "Cadarnhau gair cofiadwy"
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
@@ -363,14 +363,14 @@ cy:
       save_and_return:
         user:
           new:
-            password: "Er enghraifft eich cyfenw"
+            password: "Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio"
         session:
           new:
-            reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
+            reference: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
         password:
           new:
-            reference: "*WELSH This was emailed to you (if you entered an email address)"
-            email: "*WELSH If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim."
+            reference: "Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)."
+            email: "Os bu ichi nodi cyfeiriad e-bost dilys pan wnaethoch ddechrau eich hawliad, byddwn yn anfon neges e-bost atoch gyda chyfarwyddiadau ar sut i ailosod eich gair cofiadwy. Os nad yw eich cyfeiriad e-bost yn cyfateb i unrhyw gais presennol, neu os nad ydych wedi nodi cyfeiriad e-bost dilys, bydd rhaid ichi ddechrau cais o’r newydd."
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -561,38 +561,38 @@ cy:
         signed_up: ""
       new:
         header: "Cadw eich hawliad"
-        application_number: Eich rhif hawliad
-        intro_text: "Gallwch gadw eich hawliad a dychwelyd iddo unrhyw bryd. Byddwch angen eich rhif hawliad (uchod), a gair cofiadwy y byddwch yn ei greu isod."
+        application_number: Eich rhif cadw a dychwelyd
+        intro_text: 'Gallwch gadw eich hawliad a dychwelyd iddo unrhyw dro. Byddwch angen eich rhif cadw a dychwelyd (uchod), a’ch gair cofiadwy, y byddwch yn ei greu isod. Os byddwch yn nodi eich cyfeiriad e-bost, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio.'
         email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
         print_link: Argraffu'r dudalen hon
         print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
     sessions:
       user:
-        signed_in: "*WELSH Your claim has been retrieved.  You can now continue where you left off"
+        signed_in: "Mae eich hawliad wedi cael ei adfer. Gallwch nawr barhau o’r pwynt wnaethoch chi ei gyrraedd y tro diwethaf."
       new:
         header: Dychwelyd i'ch hawliad
         subheader: Rhowch eich manylion isod
         hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
-        forgot_password: "*WELSH Forgot your memorable word? "
-        reset_password: "*WELSH Click here to reset"
+        forgot_password: "Wedi anghofio eich gair cofiadwy?"
+        reset_password: "Cliciwch yma i ailosod"
     passwords:
       user:
-        send_instructions: "*WELSH You will receive an email with instructions on how to reset your memorable word in a few minutes."
-        updated_not_active: "*WELSH Your memorable word has been updated. You can use it below and return to your claim."
+        send_instructions: "Byddwch yn cael neges e-bost gyda chyfarwyddiadau ar sut i ailosod eich gair cofiadwy mewn ychydig funudau."
+        updated_not_active: "Mae eich gair cofiadwy wedi'i ddiweddaru. Gallwch ei ddefnyddio isod a dychwelyd i'ch cais."
       new:
-        enter_your_details: "*WELSH Enter your details below"
-        header: "*WELSH Reset memorable word"
-        submit_button: "*WELSH Reset memorable word"
+        enter_your_details: "Nodwch eich manylion isod"
+        header: "Ailosod y gair cofiadwy"
+        submit_button: "Ailosod y gair cofiadwy"
       edit:
-        submit_button: "*WELSH Reset memorable word"
-        header: "*WELSH Reset memorable word"
+        submit_button: "Ailosod y gair cofiadwy"
+        header: "Ailosod y gair cofiadwy"
     mailer:
       reset_password_instructions:
-        someone_requested: "*WELSH Someone has requested a link to reset your memorable word which you can do using the link below."
-        not_be_changed: "*WELSH Your memorable word will not be changed until you reset it using the link below."
-        reset: "*WELSH Reset my memorable word"
-        didnt_request: "*WELSH If you didn't request this, please ignore this email"
-        paste_in_browser: "*WELSH You may not be able to click on the link. If not, please copy the url and paste it into your browser."
+        someone_requested: "Mae rhywun wedi gwneud cais am ddolen i ailosod eich gair cofiadwy. Gallwch wneud hyn drwy glicio ar y ddolen isod."
+        not_be_changed: "Ni fydd eich gair cofiadwy yn cael ei newid hyd nes y byddwch yn ei ailosod trwy glicio ar y ddolen isod."
+        reset: "Ailosod fy ngair cofiadwy"
+        didnt_request: "Os na wnaethoch ofyn am wneud hyn, anwybyddwch y neges e-bost hon"
+        paste_in_browser: "Efallai na fyddwch yn gallu clicio ar y ddolen. Os na, copïwch yr url a'i gludo i'ch porwr."
   claims:
     personal_details:
       date_of_birth: Dyddiad geni
