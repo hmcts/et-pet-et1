@@ -90,11 +90,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.string "confirmation_email_recipients", default: [], array: true
     t.boolean "is_protective_award", default: false
     t.string "pdf_url"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
-    t.index ["reset_password_token"], name: "index_claims_on_reset_password_token", unique: true
   end
 
   create_table "diversities", id: :serial, force: :cascade do |t|
