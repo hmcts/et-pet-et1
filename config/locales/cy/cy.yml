@@ -169,7 +169,7 @@ cy:
             password: Gair cofiadwy
         user:
           new:
-            email: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad (dewisol)
+            email: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
             password: Crëwch eich gair cofiadwy
         password:
           new:
@@ -574,7 +574,7 @@ cy:
         subheader: Rhowch eich manylion isod
         hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
         forgot_password: "Wedi anghofio eich gair cofiadwy?"
-        reset_password: "Cliciwch yma i ailosod"
+        reset_password: "Cliciwch yma i'w ailosod"
     passwords:
       user:
         send_instructions: "Byddwch yn cael neges e-bost gyda chyfarwyddiadau ar sut i ailosod eich gair cofiadwy mewn ychydig funudau."
