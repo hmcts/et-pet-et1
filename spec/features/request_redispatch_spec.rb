@@ -27,10 +27,9 @@ feature 'Request redispatch' do
   end
 
   context 'when the user is signed in' do
-    let(:claim) { Claim.create password: 'lollolol' }
+    let(:claim) { Claim.create user: User.new(password: 'lollolol') }
 
     before do
-      visit new_user_session_path
       fill_in_return_form claim.reference, 'lollolol'
     end
 

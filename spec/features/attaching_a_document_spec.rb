@@ -4,7 +4,7 @@ feature 'Attaching a document' do
   include FormMethods
   include Messages
 
-  let(:claim) { Claim.create password: 'lollolol' }
+  let(:claim) { Claim.create user: User.new(password: 'lollolol') }
   let(:file_path) { Rails.root + 'spec/support/files/' }
   let(:invalid_file_path) { file_path + './phil.jpg' }
 

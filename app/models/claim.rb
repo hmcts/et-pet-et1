@@ -2,6 +2,7 @@ class Claim < ApplicationRecord
   include Reference
   include ClaimLists
 
+  has_one :user, foreign_key: :reference, primary_key: :application_reference, inverse_of: :claim, required: false
   has_secure_password validations: false
   mount_uploader :claim_details_rtf,          AttachmentUploader
   mount_uploader :additional_claimants_csv,   AttachmentUploader

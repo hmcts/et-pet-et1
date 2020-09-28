@@ -102,6 +102,7 @@ en:
           address: 'Address'
   apply:
     start_a_claim: Start a claim
+    return_to_a_claim: Return to a claim
   saving_your_claim:
     email_address: Enter your email address to receive your claim number (optional)
     memorable_word: Create your memorable word
@@ -110,6 +111,7 @@ en:
     about_the_claimant_group: About the claimant
     claimants_contact_details_group: Claimant’s contact details
     save_and_continue: Save and continue
+    save_and_complete_later: Save and complete later
     errors:
       invalid_phone_number: Invalid phone number
       allow_video_attendance:

@@ -11,9 +11,9 @@ feature 'Session Expiry', type: :feature do
       ClaimPagesManager.page_names.each do |page_name|
         scenario "a user is directed to a session expiry page for page: #{page_name}" do
           travel_to TimeHelper.session_expiry_time do
-            visit(page_name.to_s)
+            visit(Rails.application.routes.url_helpers.send :"claim_#{page_name.underscore}_path")
             expect(page).to have_text 'Session expired'
-            expect(current_path).to eq expired_user_session_path(locale: :en)
+            expect(current_path).to eq expired_timeout_session_path(locale: :en)
           end
         end
       end
@@ -21,7 +21,7 @@ feature 'Session Expiry', type: :feature do
       scenario 'a user is unable to re-enter the form from the expiry page' do
         travel_to TimeHelper.session_expiry_time do
           visit claim_claimant_path
-          expect(current_path).to eq expired_user_session_path(locale: :en)
+          expect(current_path).to eq expired_timeout_session_path(locale: :en)
           visit claim_claimant_path
           expect(current_path).to eq apply_path
         end

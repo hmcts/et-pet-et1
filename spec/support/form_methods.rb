@@ -6,8 +6,7 @@ module FormMethods
   extend ActiveSupport::Concern
 
   def start_claim
-    visit '/'
-    click_button 'Start a claim'
+    ET1::Test::ApplyPage.new.load.start_a_claim
   end
 
   def end_session
@@ -17,7 +16,7 @@ module FormMethods
 
   def fill_in_return_form(reference, word)
     visit new_user_session_path
-    fill_in 'Claim number', with: reference
+    fill_in 'Save and return number', with: reference
     fill_in 'Memorable word', with: word
     click_button 'Find my claim'
   end
@@ -26,7 +25,7 @@ module FormMethods
     fill_in_password_and_email(word, nil)
   end
 
-  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'email_address')
+  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'save_and_return_user_email')
     fill_in 'Create your memorable word', with: word
     fill_in email_address_element, with: email_address if email_address.present?
 

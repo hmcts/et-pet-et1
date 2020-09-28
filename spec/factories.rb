@@ -33,7 +33,7 @@ FactoryBot.define do
     pay_claims             { [:redundancy, :notice, :holiday, :arrears, :other] }
     desired_outcomes       { [:compensation_only, :tribunal_recommendation] }
 
-    password { 'lollolol' }
+    user { build(:user, password: 'lollolol') }
 
     submitted_at { Time.current }
 
@@ -287,5 +287,9 @@ FactoryBot.define do
     pregnancy              { "No" }
     relationship           { "Married" }
     religion               { "Jewish" }
+  end
+
+  factory :user do
+    password { 'lollolol' }
   end
 end

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Multiple claimants CSV' do
   include FormMethods
 
-  let(:claim) { Claim.create password: 'lollolol' }
+  let(:claim) { Claim.create user: User.new(password: 'lollolol') }
 
   before do
     visit new_user_session_path

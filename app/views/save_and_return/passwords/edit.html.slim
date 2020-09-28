@@ -1,0 +1,24 @@
+- content_for(:page_title, page_title)
+
+.main-header role="banner"
+  h1= t('.header')
+
+.main-section
+
+  .main-content
+    = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+      = f.error_notification
+      = f.hidden_field :reset_password_token
+
+      fieldset
+        legend = t('.enter_your_details')
+
+        = f.input :password,
+          label: t('simple_form.labels.save_and_return.password.edit.password'),
+          hint: t('simple_form.hints.save_and_return.password.edit.password'),
+          required: true,
+          as: :string
+
+        = f.button :submit, t('.submit_button')
+
+  = render partial: 'shared/aside'

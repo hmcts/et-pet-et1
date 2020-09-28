@@ -4,11 +4,10 @@ feature 'Login after submission', type: :feature do
   include FormMethods
 
   let(:claim) do
-    Claim.create(password: 'lololol') { |c| c.state = 'submitted' }
+    Claim.create(user: User.new(password: 'lololol')) { |c| c.state = 'submitted' }
   end
 
   scenario 'User attepts login after claim has been submitted' do
-    visit new_user_session_path
     fill_in_return_form claim.reference, 'lololol'
 
     expect(page.current_path).to eq user_session_path(locale: :en)

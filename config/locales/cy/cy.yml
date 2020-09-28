@@ -159,16 +159,25 @@ cy:
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
 
     labels:
-      application_number:
-        email_address: Rhowch eich cyfeiriad e-bost i gael gopi o rif eich hawliad
-        password: Creu eich gair cofiadwy
       user_session:
-        new:
-          reference: Rhif yr hawliad
-          password: Gair cofiadwy
         destroy:
           email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
-
+      save_and_return:
+        session:
+          new:
+            reference: "Rhif cadw a dychwelyd"
+            password: Gair cofiadwy
+        user:
+          new:
+            email: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
+            password: Crëwch eich gair cofiadwy
+        password:
+          new:
+            email: "Nodwch eich cyfeiriad e-bost"
+            reference: "Rhif cadw a dychwelyd"
+          edit:
+            password: "Gair cofiadwy"
+            password_confirmation: "Cadarnhau gair cofiadwy"
       claimant:
         first_name: Enw cyntaf
         last_name: Enw olaf
@@ -351,8 +360,17 @@ cy:
 
 
     hints:
-      application_number:
-        password: "Er enghraifft eich cyfenw"
+      save_and_return:
+        user:
+          new:
+            password: "Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio"
+        session:
+          new:
+            reference: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
+        password:
+          new:
+            reference: "Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)."
+            email: "Os bu ichi nodi cyfeiriad e-bost dilys pan wnaethoch ddechrau eich hawliad, byddwn yn anfon neges e-bost atoch gyda chyfarwyddiadau ar sut i ailosod eich gair cofiadwy. Os nad yw eich cyfeiriad e-bost yn cyfateb i unrhyw gais presennol, neu os nad ydych wedi nodi cyfeiriad e-bost dilys, bydd rhaid ichi ddechrau cais o’r newydd."
       address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       claimant:
         date_of_birth: "Er enghraifft, 23 04 1981"
@@ -425,9 +443,6 @@ cy:
         miscellaneous_information: "Rhowch fwy o fanylion am eich hawliad. Cewch ddefnyddio hyd at 2500 o nodau."
 
       user_session:
-        new:
-          reference: Cafodd hwn ein anfon atoch drwy e-bost (os gwnaethoch roi eich cyfeiriad e-bost)
-          password: Mi wnaethoch greu hwn ar ddechrau'r hawliad
         destroy:
           email_address: Cael eich rhif hawliad drwy neges e-bost
 
@@ -440,9 +455,12 @@ cy:
       claim_review:
         update: Cyflwyno'r ffurflen
       user_session:
-        create: Cael hyd i fy hawliad
         destroy: Allgofnodi nawr
         update: Cadw a pharhau
+      save_and_return[session]:
+        create: Cael hyd i fy hawliad
+      save_and_return[user]:
+        create: Cadw a pharhau
     link:
       claim:
         return: Dychwelyd i hawliad
@@ -491,11 +509,7 @@ cy:
       invalid: "Nid yw'r gair cofiadwy yr ydych wedi'i roi wedi cael ei adnabod"
       immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
 
-  user_sessions:
-    new:
-      header: Dychwelyd i'ch hawliad
-      subheader: Rhowch eich manylion isod
-      hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+  timeout_sessions:
     create:
       header: Dychwelyd i'ch hawliad
     reminder:
@@ -541,7 +555,44 @@ cy:
       data_protection: Deddf Diogelu Data 1998
       disclaimer: Ymwrthodiad
       cookies: Cwcis
-
+  save_and_return:
+    registrations:
+      user:
+        signed_up: ""
+      new:
+        header: "Cadw eich hawliad"
+        application_number: Eich rhif cadw a dychwelyd
+        intro_text: 'Gallwch gadw eich hawliad a dychwelyd iddo unrhyw dro. Byddwch angen eich rhif cadw a dychwelyd (uchod), a’ch gair cofiadwy, y byddwch yn ei greu isod. Os byddwch yn nodi eich cyfeiriad e-bost, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio.'
+        email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
+        print_link: Argraffu'r dudalen hon
+        print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
+    sessions:
+      user:
+        signed_in: "Mae eich hawliad wedi cael ei adfer. Gallwch nawr barhau o’r pwynt wnaethoch chi ei gyrraedd y tro diwethaf."
+      new:
+        header: Dychwelyd i'ch hawliad
+        subheader: Rhowch eich manylion isod
+        hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+        forgot_password: "Wedi anghofio eich gair cofiadwy?"
+        reset_password: "Cliciwch yma i'w ailosod"
+    passwords:
+      user:
+        send_instructions: "Byddwch yn cael neges e-bost gyda chyfarwyddiadau ar sut i ailosod eich gair cofiadwy mewn ychydig funudau."
+        updated_not_active: "Mae eich gair cofiadwy wedi'i ddiweddaru. Gallwch ei ddefnyddio isod a dychwelyd i'ch cais."
+      new:
+        enter_your_details: "Nodwch eich manylion isod"
+        header: "Ailosod y gair cofiadwy"
+        submit_button: "Ailosod y gair cofiadwy"
+      edit:
+        submit_button: "Ailosod y gair cofiadwy"
+        header: "Ailosod y gair cofiadwy"
+    mailer:
+      reset_password_instructions:
+        someone_requested: "Mae rhywun wedi gwneud cais am ddolen i ailosod eich gair cofiadwy. Gallwch wneud hyn drwy glicio ar y ddolen isod."
+        not_be_changed: "Ni fydd eich gair cofiadwy yn cael ei newid hyd nes y byddwch yn ei ailosod trwy glicio ar y ddolen isod."
+        reset: "Ailosod fy ngair cofiadwy"
+        didnt_request: "Os na wnaethoch ofyn am wneud hyn, anwybyddwch y neges e-bost hon"
+        paste_in_browser: "Efallai na fyddwch yn gallu clicio ar y ddolen. Os na, copïwch yr url a'i gludo i'ch porwr."
   claims:
     personal_details:
       date_of_birth: Dyddiad geni
@@ -568,14 +619,6 @@ cy:
            <li>eich <a href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
            <li>manylion eich hawliad gan gynnwys y cefndir, y dyddiadau a'r unigolion sy'n gysylltiedig â'r hawliad </li>
           </ul>
-    application_number:
-      header: "Cadw eich hawliad"
-      application_number: Eich rhif hawliad
-      intro_text: "Gallwch gadw eich hawliad a dychwelyd iddo unrhyw bryd. Byddwch angen eich rhif hawliad (uchod), a gair cofiadwy y byddwch yn ei greu isod."
-      email_hint: Rhowch eich cyfeiriad e-bost i gael y rhif hawliad drwy neges e-bost.
-      print_link: Argraffu'r dudalen hon
-      print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
-
     claimant:
       header: Manylion yr hawlydd
       gender: Rhywedd
@@ -748,6 +791,16 @@ cy:
         Ar sail y wybodaeth yr ydych wedi'i rhoi i ni, mae'n rhaid i chi dalu <strong>£%{fee}</strong> gyda cherdyn debyd neu gredyd.
       hearing_fee: |
         Os bydd eich achos yn mynd i dribiwnlys, bydd rhaid i chi dalu ffi gwrandawiad o <strong>£%{fee}</strong>.
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
+            email_address:
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
@@ -764,12 +817,6 @@ cy:
             reference:
               blank: "Rhowch eich rhif hawliad"
               invalid: Rydych wedi rhoi rhif hawliad annilys
-        application_number:
-          attributes:
-            password:
-              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
-            email_address:
-              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
         additional_claimants_form/additional_claimant:
           attributes:
             title:

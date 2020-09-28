@@ -14,6 +14,10 @@ class PageManager
       @pages.first.name
     end
 
+    def second_page
+      @pages.second.name
+    end
+
     def page_names
       @pages.map(&:name)
     end

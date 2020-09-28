@@ -158,15 +158,23 @@ en:
           new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
-      application_number:
-        email_address: Enter your email address to receive your claim number
-        password: Create your memorable word
       user_session:
-        new:
-          reference: Claim number
-          password: Memorable word
         destroy:
           email_address: Enter your email address to get your claim number emailed to you.
+      save_and_return:
+        session:
+          new:
+            reference: Save and return number
+            password: Memorable word
+        user:
+          new:
+            email: Enter your email address to receive your claim number
+            password: Create your memorable word
+        password:
+          new:
+            email: Enter your email address
+            reference: "Save and return number"
+
 
       claimant:
         first_name: First name
@@ -293,8 +301,17 @@ en:
 
 
     hints:
-      application_number:
-        password: For example your surname
+      save_and_return:
+        user:
+          new:
+            password: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+        session:
+          new:
+            reference: This was emailed to you (if you entered your email address)
+        password:
+          new:
+            reference: "This was emailed to you (if you entered an email address)."
+            email: "If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim."
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
         date_of_birth: For example, 23 04 1981
@@ -368,9 +385,6 @@ en:
         miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters.
 
       user_session:
-        new:
-          reference: This was emailed to you (if you entered your email address)
-          password: You created this at the beginning of the claim
         destroy:
           email_address: Get your claim number in an email
 
@@ -383,9 +397,15 @@ en:
       claim_review:
         update: Submit the form
       user_session:
-        create: Find my claim
         destroy: Sign out now
         update: Save and continue
+      save_and_return[session]:
+        create: Find my claim
+      save_and_return[user]:
+        create: Save and continue
+      save_and_return[password]:
+        create: Reset memorable word
+
     link:
       claim:
         return: Return to a claim
@@ -433,11 +453,7 @@ en:
       invalid: " The memorable word you have entered has not been recognised"
       immutable: This claim has been submitted and can no longer be edited online
 
-  user_sessions:
-    new:
-      header: Return to your claim
-      subheader: Enter your details below
-      hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
+  timeout_sessions:
     create:
       header: Return to your claim
     reminder:
@@ -479,6 +495,44 @@ en:
       privacy_policy: HMCTS privacy notice
       disclaimer: Disclaimer
 
+  save_and_return:
+    registrations:
+      user:
+        signed_up: ""
+      new:
+        header: Saving your claim
+        application_number: Your save and return number
+        intro_text: You can save your claim and return to it at any time. You will need your save and return number (above), and memorable word, which you create below.  If you enter your email address you will be able to reset your memorable word if you forget it.
+        email_hint: Enter your email address to get the claim number emailed to you.
+        print_link: Print this page
+        print_copy: to have a copy of your claim number for reference
+    sessions:
+      user:
+        signed_in: "Your claim has been retrieved.  You can now continue where you left off"
+      new:
+        header: Return to your claim
+        subheader: Enter your details below
+        hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
+        forgot_password: "Forgot your memorable word? "
+        reset_password: "Click here to reset"
+    passwords:
+      user:
+        send_instructions: "You will receive an email with instructions on how to reset your memorable word in a few minutes."
+        updated_not_active: "Your memorable word has been updated. You can use it below and return to your claim."
+      new:
+        header: "Reset memorable word"
+        enter_your_details: "Enter your details below"
+        submit_button: "Reset memorable word"
+      edit:
+        submit_button: "Reset memorable word"
+        header: "Reset memorable word"
+    mailer:
+      reset_password_instructions:
+        someone_requested: "Someone has requested a link to reset your memorable word which you can do using the link below."
+        not_be_changed: "Your memorable word will not be changed until you reset it using the link below."
+        reset: "Reset my memorable word"
+        didnt_request: "If you didn't request this, please ignore this email"
+        paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."
   claims:
     personal_details:
       date_of_birth: Date of birth
@@ -505,14 +559,6 @@ en:
             <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
-    application_number:
-      header: Saving your claim
-      application_number: Your claim number
-      intro_text: You can save your claim and return to it at any time. You will need your claim number (above), and memorable word, which you create below.
-      email_hint: Enter your email address to get the claim number emailed to you.
-      print_link: Print this page
-      print_copy: to have a copy of your claim number for reference
-
     claimant:
       header: Claimant’s details
       gender: Gender
@@ -666,7 +712,15 @@ en:
       has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
       additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
 
-
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: Create a memorable word so you can return to your claim
+            email_address:
+              invalid: You have entered an invalid email address
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
@@ -683,12 +737,6 @@ en:
             reference:
               blank: Enter your claim number
               invalid: You have entered an invalid claim number
-        application_number:
-          attributes:
-            password:
-              blank: Create a memorable word so you can return to your claim
-            email_address:
-              invalid: You have entered an invalid email address
         additional_claimants_form/additional_claimant:
           attributes:
             title:

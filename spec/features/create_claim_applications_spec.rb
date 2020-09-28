@@ -45,7 +45,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(page).not_to have_session_prompt
     end
 
-    scenario 'Create a new application' do
+    scenario 'Create a new application', js: true do
       start_claim
       expect(page).to have_text page_number(1)
       expect(page).to have_text before_you_start_message
@@ -58,7 +58,7 @@ feature 'Claim applications', type: :feature, js: true do
       fill_in_password 'green'
 
       claim = Claim.last
-      expect(claim.authenticate('green')).to eq(claim)
+      expect(claim.user.valid_password?('green')).to be true
 
       expect(page).to have_text page_number(2)
       expect(page).to have_text claim_heading_for(:claimant)
@@ -66,14 +66,14 @@ feature 'Claim applications', type: :feature, js: true do
       expect(page).to have_session_prompt
     end
 
-    scenario 'Entering word and email for save and return' do
+    scenario 'Entering word and email for save and return', js: true do
       start_claim
       fill_in_password_and_email('green',
                                  FormMethods::SAVE_AND_RETURN_EMAIL,
-                                 "application_number_email_address")
+                                 "save_and_return_user_email")
 
       claim = Claim.last
-      expect(claim.authenticate('green')).to eq(claim)
+      expect(claim.user.valid_password?('green')).to be true
 
       # Run the active job job
       perform_active_jobs(ActionMailer::DeliveryJob)

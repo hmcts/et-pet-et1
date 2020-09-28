@@ -1,4 +1,4 @@
-- content_for(:page_title, page_title)
+- content_for(:page_title, t('.header'))
 
 .main-header role="banner"
   h1= t('.header')
@@ -11,7 +11,7 @@
         p.detail= t('shared.reference')
         span.number= claim.reference
 
-    = simple_form_for user_session, url: user_session_path, method: :delete do |f|
+    = simple_form_for user_session, url: timeout_session_path, method: :delete do |f|
       = f.error_notification
 
       .fieldset

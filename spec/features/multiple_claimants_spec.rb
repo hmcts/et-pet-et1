@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Multiple claimants', js: true do
   include FormMethods
 
-  let(:claim) { Claim.create password: 'lollolol' }
+  let(:claim) { Claim.create user: User.new(password: 'lollolol') }
 
   let(:attributes) do
     {

@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.string "representative_address_post_code", null: false
     t.string "claimant_name", null: false
     t.text "additional_information", null: false
+    t.string "claimant_address_post_code", null: false
     t.decimal "et_issue_fee", precision: 10, scale: 2
     t.string "et_issue_fee_currency", default: "GBP"
     t.string "et_issue_fee_payment_method"
@@ -224,7 +225,6 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.string "claimant_address_street", null: false
     t.string "claimant_address_locality", null: false
     t.string "claimant_address_county", null: false
-    t.string "claimant_address_post_code", null: false
     t.date "et_issue_fee_payment_date"
     t.boolean "et_issue_fee_payment_date_unknown"
     t.date "et_hearing_fee_payment_date"
@@ -267,6 +267,18 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.json "data", default: {}
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string "reference", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

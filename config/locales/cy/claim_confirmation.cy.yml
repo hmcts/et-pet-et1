@@ -43,3 +43,14 @@ cy:
         Os oes gennych unrhyw gwestiynau, cysylltwch â'r Llinell Ymholiadau Cyhoeddus:
         Cymru a Lloegr 0300 123 1024
         Yr Alban 0141 354 8574
+
+  simple_form:
+    hints:
+      save_and_return:
+        password:
+          edit:
+            password: "Eich gair cofiadwy newydd"
+  save_and_return:
+    passwords:
+      edit:
+        enter_your_details: "Rhowch eich manylion newydd isod"
