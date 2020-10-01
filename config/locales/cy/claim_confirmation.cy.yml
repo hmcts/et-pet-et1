@@ -9,6 +9,8 @@ cy:
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a href="%{href}" rel="external">holiadur monitro amrywiaeth</a>.
       what_happens_next:
         header: Beth sy'n digwydd nesaf
+        issue_experiencing: Rydym ar hyn o bryd yn cael problemau gyda'r gwasanaeth cadarnhau drwy e-bost.
+        issue_spam: Gwiriwch eich ffolder spam/junk am y neges cadarnhad.
         covid_19: |
          Yng ngoleuni’r sefyllfa bresennol gyda COVID-19, gallwch weld cyfarwyddyd diweddaraf GLlTEM yma:
         covid_19_html: |
