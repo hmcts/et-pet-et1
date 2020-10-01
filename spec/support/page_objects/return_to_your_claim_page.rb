@@ -29,7 +29,7 @@ module ET1
       element :reset_memorable_word_element, :link, 'Click here to reset'
       element :submit_button, :button, 'Find my claim'
       element :memorable_word_email_sent_flash_element, '#flash-summary *', text: 'You will receive an email with instructions on how to reset your memorable word in a few minutes'
-      element :invalid_word_or_number_flash_element, '#flash-summary *', text: 'Invalid memorable word or claim number.'
+      element :invalid_word_or_number_flash_element, '#flash-summary *', text: "Invalid memorable word or save and return number, please check and try again."
     end
   end
 end
