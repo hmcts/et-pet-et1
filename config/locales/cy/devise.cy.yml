@@ -9,7 +9,7 @@ cy:
     failure:
       already_authenticated: ""
       inactive: "*WELSH Your account is not activated yet."
-      invalid: "*WELSH Invalid %{authentication_keys} or password."
+      invalid: "Gair cofiadwy annilys neu rif arbed a dychwelyd annilys, rhowch gynnig arall arni."
       locked: "*WELSH Your account is locked."
       last_attempt: "*WELSH You have one more attempt before your account is locked."
       not_found_in_database: "*WELSH Invalid %{authentication_keys} or password."
@@ -55,7 +55,7 @@ cy:
       already_confirmed: "*WELSH was already confirmed, please try signing in"
       confirmation_period_expired: "*WELSH needs to be confirmed within %{period}, please request a new one"
       expired: "*WELSH has expired, please request a new one"
-      not_found: "*WELSH not found"
+      not_found: "Ni ddaethpwyd o hyd i’ch cyfeiriad e-bost."
       not_locked: "*WELSH was not locked"
       not_saved:
         one: "*WELSH 1 error prohibited this %{resource} from being saved:"
