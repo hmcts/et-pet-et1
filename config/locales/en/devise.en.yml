@@ -12,7 +12,7 @@ en:
       invalid: "Invalid memorable word or save and return number, please check and try again."
       locked: "Your account is locked."
       last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
+      not_found_in_database: "Invalid memorable word or save and return number, please check and try again."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "You need to sign in or sign up before continuing."
       unconfirmed: "You have to confirm your email address before continuing."
@@ -56,6 +56,7 @@ en:
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "Email address not found"
+      blank: "Please enter your email address"
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"

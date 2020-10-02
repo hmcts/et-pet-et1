@@ -12,7 +12,7 @@ cy:
       invalid: "Gair cofiadwy annilys neu rif arbed a dychwelyd annilys, rhowch gynnig arall arni."
       locked: "*WELSH Your account is locked."
       last_attempt: "*WELSH You have one more attempt before your account is locked."
-      not_found_in_database: "*WELSH Invalid %{authentication_keys} or password."
+      not_found_in_database: "Gair cofiadwy annilys neu rif arbed a dychwelyd annilys, rhowch gynnig arall arni."
       timeout: "*WELSH Your session expired. Please sign in again to continue."
       unauthenticated: "*WELSH You need to sign in or sign up before continuing."
       unconfirmed: "*WELSH You have to confirm your email address before continuing."
@@ -20,7 +20,7 @@ cy:
       confirmation_instructions:
         subject: "*WELSH Confirmation instructions"
       reset_password_instructions:
-        subject: "*WELSH Employment Tribunal: Reset your memorable word"
+        subject: "Tribiwnlys Cyflogaeth: Ailosodwch eich gair cofiadwy"
       unlock_instructions:
         subject: "*WELSH Unlock instructions"
       email_changed:
@@ -56,6 +56,7 @@ cy:
       confirmation_period_expired: "*WELSH needs to be confirmed within %{period}, please request a new one"
       expired: "*WELSH has expired, please request a new one"
       not_found: "Ni ddaethpwyd o hyd i’ch cyfeiriad e-bost."
+      blank: "Rhowch eich cyfeiriad e-bost"
       not_locked: "*WELSH was not locked"
       not_saved:
         one: "*WELSH 1 error prohibited this %{resource} from being saved:"
