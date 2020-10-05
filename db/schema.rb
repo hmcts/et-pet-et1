@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_062633) do
+ActiveRecord::Schema.define(version: 2020_10_05_105200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -184,7 +184,6 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.string "representative_address_post_code", null: false
     t.string "claimant_name", null: false
     t.text "additional_information", null: false
-    t.string "claimant_address_post_code", null: false
     t.decimal "et_issue_fee", precision: 10, scale: 2
     t.string "et_issue_fee_currency", default: "GBP"
     t.string "et_issue_fee_payment_method"
@@ -225,6 +224,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_062633) do
     t.string "claimant_address_street", null: false
     t.string "claimant_address_locality", null: false
     t.string "claimant_address_county", null: false
+    t.string "claimant_address_post_code", null: false
     t.date "et_issue_fee_payment_date"
     t.boolean "et_issue_fee_payment_date_unknown"
     t.date "et_hearing_fee_payment_date"
