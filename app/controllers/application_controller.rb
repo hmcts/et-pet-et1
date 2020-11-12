@@ -45,6 +45,8 @@ class ApplicationController < ActionController::Base
   end
 
   def check_session_expiry
+    return unless session[:expires_in]
+
     if Time.current > session[:expires_in]
       redirect_to expired_timeout_session_path
     end

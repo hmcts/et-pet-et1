@@ -40,7 +40,7 @@ module SaveAndReturn
     end
 
     def logout_application
-      claim.create_event Event::LOGOUT, actor: 'user'
+      claim&.create_event Event::LOGOUT, actor: 'user'
       reset_session
     end
   end
