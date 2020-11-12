@@ -91,7 +91,7 @@ ActiveAdmin.register Claim do
       end
     end
 
-    if resource.enqueued_for_submission?
+    if resource.enqueued_for_submission? || resource.submitted?
       { mark_submitted: "Mark as submitted",
         submit_claim: "Submit claim" }.each do |action, text|
         br
