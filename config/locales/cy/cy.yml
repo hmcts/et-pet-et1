@@ -656,7 +656,7 @@ cy:
       how_to_save: "Gwnewch hyn drwy ddewis File > Save as / Export To > Format: Comma Separated Values (.csv)"
       no_spaces: Peidiwch â chynnwys bylchau yn enw'r ffeil.
       step_three_header: Cam 3
-      upload_limit: "Uchafswm maint ffeil: 2MB"
+      upload_limit: "Uchafswm maint ffeil: 5MB"
 
     representative:
       header: "Manylion y cynrychiolydd"
