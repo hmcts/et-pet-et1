@@ -18,6 +18,7 @@ module ET1
 
       element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false
       element :google_tag_manager_body_noscript, :xpath, XPath.generate {|x| x.css('body noscript')[x.child(:iframe)[x.attr(:src).contains('googletagmanager')]]}
+      section :sidebar, ET1::Test::SidebarSection, :css, 'aside[role=complementary]'
       def has_google_tag_manager_sections_for?(account)
         google_tag_manager_head_script.native.inner_html.include?(account) &&
           google_tag_manager_body_noscript.native.inner_html.include?(account)
@@ -31,6 +32,10 @@ module ET1
         return sym_or_str if sym_or_str.nil? || !sym_or_str.is_a?(Symbol)
 
         t(sym_or_str.to_s)
+      end
+
+      def save_and_complete_later
+        sidebar.save_and_complete_later
       end
     end
   end
