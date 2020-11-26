@@ -134,7 +134,6 @@ cy:
         fax_number: Ffacs
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu eich ffi (a elwir yn \"help i dalu ffioedd\")?"
         contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
-        allow_video_attendance: "A allech chi gymryd rhan mewn gwrandawiad drwy fideo? (angen mynediad i'r rhyngrwyd)."
         _destroy: 'Dileu''r hawlydd yma'
 
       additional_claimants:
@@ -275,7 +274,6 @@ cy:
           Rhywun sydd wedi cytuno i'ch cynrychioli (er enghraifft, i baratoi eich achos a/neu gweithredu ar eich rhan os bydd gwrandawiad).
         applying_for_remission: |
           Efallai na fydd rhaid i chi dalu ffi os nad oes gennych lawer o gynilion a'ch bod yn cael budd-daliadau neu ar incwm isel. Ydw i'n gymwys i gael help?
-        allow_video_attendance: "Ceir rhagor o fanylion am wrandawiadau fideo drwy ddilyn y ddolen a ganlyn: https://www.gov.uk/guidance/hmcts-telephone-and-video-hearings-during-coronavirus-outbreak"
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
         date_of_birth: "Er enghraifft, 23 04 1981"
       representative:
