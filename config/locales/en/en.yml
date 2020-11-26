@@ -197,11 +197,13 @@ en:
     hints:
       address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       save_and_return:
+        session:
+          new:
+            reference: This was emailed to you (if you entered your email address)
         password:
           new:
             reference: "This was emailed to you (if you entered an email address)."
             email: "If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim."
-      address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       claimant:
         has_representative: |
           Someone who has agreed to represent you (for example, to prepare your case and/or act on your behalf if there is a hearing).
@@ -504,6 +506,12 @@ en:
           post: Post
       email_address:
         label: Email address
+      allow_video_attendance:
+        label: "Would you be able to take part in a hearing by video? (Requires internet access)."
+        hint: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
+        options:
+          "true": 'Yes'
+          "false": 'No'
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details
