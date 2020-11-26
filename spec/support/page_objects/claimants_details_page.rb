@@ -167,7 +167,10 @@ module ET1
         #   A govuk radio button component for the gender question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
         section :best_correspondence_method_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claimants_details.best_correspondence_method.label'
-        section :allow_video_attendance_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, 'claimants_details.allow_video_attendance.label'
+        # @!method allow_video_attendance_question
+        #   A govuk radio button component for the video question
+        #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+        section :allow_video_attendance_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claimants_details.allow_video_attendance.label'
       end
 
       # @!method save_and_continue_button
