@@ -1,12 +1,5 @@
 fieldset
   legend= t '.claim_outcome'
 
-  = f.input :desired_outcomes,
-    collection: Claim::DESIRED_OUTCOMES,
-    as: :check_boxes,
-    include_hidden: false,
-    item_wrapper_class: 'block-label'
-
-  = f.input :other_outcome,
-    as: :text,
-    input_html: { rows: 10 }
+  = f.govuk_collection_radio_buttons :desired_outcomes, t('.desired_outcomes.options').to_a, :first, :last, label: { text: "#{t('.desired_outcomes.label')} #{t('shared.optional')}" }
+  = f.govuk_text_area :other_outcome, label: { text: "#{t('.other_outcome.label')} #{t('shared.optional')}" }, rows: 10, hint_text: t('.other_outcome.hint')
