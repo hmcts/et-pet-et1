@@ -2,4 +2,4 @@ fieldset
   legend= t '.claim_outcome'
 
   = f.govuk_collection_radio_buttons :desired_outcomes, t('.desired_outcomes.options').to_a, :first, :last, label: { text: "#{t('.desired_outcomes.label')} #{t('shared.optional')}" }
-  = f.govuk_text_area :other_outcome, label: { text: "#{t('.other_outcome.label')} #{t('shared.optional')}" }, rows: 10, hint_text: t('.other_outcome.hint')
+  = f.govuk_text_area :other_outcome, label: { text: "#{t('.other_outcome.label')} #{t('shared.optional')}" }, rows: 10, hint: { text: t('.other_outcome.hint') }

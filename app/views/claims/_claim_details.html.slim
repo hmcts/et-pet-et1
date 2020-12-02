@@ -9,16 +9,16 @@ details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors
     span.govuk-details__summary-text= t('.claim_details_upload')
 
   .panel-indent#details-content-0
-    = f.govuk_file_field :claim_details_rtf, label: { text: t('.claim_details_rtf.label')}, hint_text: t('.claim_details_rtf.hint')
+    = f.govuk_file_field :claim_details_rtf, label: { text: t('.claim_details_rtf.label')}, hint: { text: t('.claim_details_rtf.hint') }
     - if resource.claim_form_details_rtf?
       = f.govuk_check_box :remove_claim_details_rtf, true, label: { text: t('.remove_claim_details_rtf.label', file: resource.attachment_filename) }
     = f.hidden_field :claim_details_rtf_cache
 
-= f.govuk_text_area :claim_details, label: { text: t('.claim_details.label') }, hint_text: t('.claim_details.hint'), max_chars: 2500, rows: 15
+= f.govuk_text_area :claim_details, label: { text: t('.claim_details.label') }, hint: { text: t('.claim_details.hint') }, max_chars: 2500, rows: 15
 
 fieldset
   legend= t '.similar_claims'
-  = f.govuk_collection_radio_buttons :other_known_claimants, [[true, t('.other_known_claimants.options.true')], [false, t('.other_known_claimants.options.false')]], :first, :last, label: { text: t('.other_known_claimants.label') }, hint_text: t('.other_known_claimants.hint')
+  = f.govuk_collection_radio_buttons :other_known_claimants, [[true, t('.other_known_claimants.options.true')], [false, t('.other_known_claimants.options.false')]], :first, :last, label: { text: t('.other_known_claimants.label') }, hint: { text: t('.other_known_claimants.hint') }
 
-  = f.govuk_text_area :other_known_claimant_names, label: { text: "#{t('.other_known_claimant_names.label')} #{t('shared.optional')}" }, hint_text: t('.other_known_claimant_names.hint'), rows: 5, max_chars: 350
+  = f.govuk_text_area :other_known_claimant_names, label: { text: "#{t('.other_known_claimant_names.label')} #{t('shared.optional')}" }, hint: { text: t('.other_known_claimant_names.hint') }, rows: 5, max_chars: 350
 
