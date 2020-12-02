@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 94e18b037be63efaeb66fe96b326c5e43061390b
+  revision: 3504c97401b44626916cdc512d2569f368c8aa2f
   specs:
     et_gds_design_system (0.1.0)
-      govuk_design_system_formbuilder (~> 1.1, >= 1.1.10)
+      govuk_design_system_formbuilder (~> 2.1)
       rails (~> 6.0.2, >= 6.0.2.2)
       webpacker (~> 4.0)
 
@@ -159,14 +159,7 @@ GEM
     climate_control (0.2.0)
     cliver (0.3.2)
     coderay (1.1.3)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.7)
     connection_pool (2.2.3)
     crack (0.4.5)
       rexml
@@ -244,7 +237,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (1.2.5)
+    govuk_design_system_formbuilder (2.1.5)
       actionview (>= 5.2)
       activemodel (>= 5.2)
       activesupport (>= 5.2)
@@ -526,7 +519,7 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     websocket-driver (0.7.3)
-    webpacker (4.2.2)
+    webpacker (4.3.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
