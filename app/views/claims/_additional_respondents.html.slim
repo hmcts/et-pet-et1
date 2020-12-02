@@ -1,4 +1,4 @@
-= f.govuk_collection_radio_buttons :has_multiple_respondents, [[true, t('.has_multiple_respondents.options.true')], [false, t('.has_multiple_respondents.options.false')]], :first, :last, label: {text: t('.has_multiple_respondents.label')}, hint_text: t('.has_multiple_respondents.hint')
+= f.govuk_collection_radio_buttons :has_multiple_respondents, [[true, t('.has_multiple_respondents.options.true')], [false, t('.has_multiple_respondents.options.false')]], :first, :last, label: {text: t('.has_multiple_respondents.label')}, hint: { text: t('.has_multiple_respondents.hint') }
 
 .multiples
   = f.fields_for :secondary_respondents do |builder|
@@ -13,13 +13,13 @@
         = builder.govuk_text_field :address_building, label: {text: t('claims.respondent.address_building.label')}
         = builder.govuk_text_field :address_street, label: {text: t('claims.respondent.address_street.label')}
         = builder.govuk_text_field :address_locality, label: {text: t('claims.respondent.address_locality.label')}
-        = builder.govuk_text_field :address_county, label: {text: t('claims.respondent.address_county.label')}, hint_text: t('claims.respondent.address_county.hint')
+        = builder.govuk_text_field :address_county, label: {text: t('claims.respondent.address_county.label')}, hint: { text: t('claims.respondent.address_county.hint') }
         = builder.govuk_text_field :address_post_code, label: {text: t('claims.respondent.address_post_code.label')}
         = builder.govuk_text_field :acas_early_conciliation_certificate_number, label: {text: t('claims.respondent.acas_early_conciliation_certificate_number.label')}
         = builder.govuk_collection_radio_buttons :no_acas_number, [[true, t('claims.respondent.no_acas_number.options.true')], [false, t('claims.respondent.no_acas_number.options.false')]], :first, :last, label: {text: t('claims.respondent.no_acas_number.label')}
 
         .clearfix.panel-indent
-          = builder.govuk_collection_radio_buttons :no_acas_number_reason, t('claims.respondent.no_acas_number_reason.options').to_a, :first, :last, label: {text: t('claims.respondent.no_acas_number_reason.label')}, hint_text: t('claims.respondent.no_acas_number_reason.hint')
+          = builder.govuk_collection_radio_buttons :no_acas_number_reason, t('claims.respondent.no_acas_number_reason.options').to_a, :first, :last, label: {text: t('claims.respondent.no_acas_number_reason.label')}, hint: { text: t('claims.respondent.no_acas_number_reason.hint') }
           span.form-hint.toggle-content.reveal-acas-hint = t 'claims.respondent.no_acas_number_note_two'
 
   - if resource.secondary_respondents.length >= Rails.application.config.additional_respondents_limit
