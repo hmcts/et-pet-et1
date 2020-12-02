@@ -26,7 +26,7 @@
             = f.govuk_text_field :email, label: {text: "#{t('claim.application_number.email_address.label')} #{t('shared.optional')}"}
             = f.govuk_text_field :password,
               label: {text: t('claim.application_number.password.label')},
-              hint_text: t('claim.application_number.password.hint')
+              hint: { text: t('claim.application_number.password.hint') }
 
         p.print
           = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}

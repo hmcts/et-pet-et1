@@ -11,10 +11,10 @@
       = f.govuk_fieldset label: {text: t('.enter_your_details')}
         = f.govuk_text_field :email,
                              label: {text: t('simple_form.labels.save_and_return.password.new.email')},
-                             hint_text: t('simple_form.hints.save_and_return.password.new.email')
+                             hint: { text: t('simple_form.hints.save_and_return.password.new.email') }
 
         = f.govuk_text_field :reference,
                              label: {text: t('simple_form.labels.save_and_return.password.new.reference')},
-                             hint_text: t('simple_form.hints.save_and_return.password.new.reference')
+                             hint: { text: t('simple_form.hints.save_and_return.password.new.reference') }
         = f.govuk_submit t('.submit_button')
   = render partial: 'shared/aside'

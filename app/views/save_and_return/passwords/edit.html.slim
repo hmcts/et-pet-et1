@@ -15,7 +15,7 @@
 
         = f.govuk_text_field :password,
                              label: {text: t('simple_form.labels.save_and_return.password.edit.password')},
-                             hint_text: t('simple_form.hints.save_and_return.password.edit.password')
+                             hint: { text: t('simple_form.hints.save_and_return.password.edit.password') }
 
         = f.govuk_submit t('.submit_button')
 

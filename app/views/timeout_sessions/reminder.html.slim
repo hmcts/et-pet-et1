@@ -19,7 +19,7 @@
 
         p
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button button-return'}
-          = f.govuk_text_field :email_address, label: { text: "#{t('simple_form.labels.user_session.destroy.email_address')} #{t('shared.optional')}"}, hint_text: t('simple_form.hints.user_session.destroy.email_address')
+          = f.govuk_text_field :email_address, label: { text: "#{t('simple_form.labels.user_session.destroy.email_address')} #{t('shared.optional')}"}, hint: { text: t('simple_form.hints.user_session.destroy.email_address') }
 
 
         p.print
