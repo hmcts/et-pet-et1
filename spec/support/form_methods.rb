@@ -21,17 +21,6 @@ module FormMethods
     click_button 'Find my claim'
   end
 
-  def fill_in_password(word = 'green')
-    fill_in_password_and_email(word, nil)
-  end
-
-  def fill_in_password_and_email(word = 'green', email_address = SAVE_AND_RETURN_EMAIL, email_address_element = 'save_and_return_user_email')
-    fill_in 'Create your memorable word', with: word
-    fill_in email_address_element, with: email_address if email_address.present?
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_personal_details(options = {})
     select 'Mr', from: 'Title'
 
