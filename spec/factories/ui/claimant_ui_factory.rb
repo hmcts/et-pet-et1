@@ -47,5 +47,9 @@ FactoryBot.define do
     trait :date_of_birth_two_digit do
       date_of_birth { '1/1/12' }
     end
+
+    trait :no_allow_video_attendance do
+      allow_video_attendance { nil }
+    end
   end
 end
