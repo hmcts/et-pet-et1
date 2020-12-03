@@ -17,13 +17,13 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 428b33a9275e22898fff8d18c45b062e333b125a
+  revision: 21b0fdbee14f72a32bc0955e6ee2111831463e50
   specs:
     et_test_helpers (0.1.0)
       activesupport (~> 6.0)
-      capybara (~> 3.32)
+      capybara (~> 3)
       i18n (~> 1.8)
-      site_prism (~> 3.4)
+      site_prism (~> 3.5)
 
 GIT
   remote: https://github.com/hmcts/nulldb.git
