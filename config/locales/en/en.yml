@@ -132,7 +132,6 @@ en:
         fax_number: Fax
         applying_for_remission: Do you want to get help paying your fee (known as ‘help with fees’)?
         _destroy: 'Remove this claimant'
-        allow_video_attendance: "Would you be able to take part in a hearing by video? (Requires internet access)."
 
       additional_claimants:
         collection: :"simple_form.labels.claimant"
@@ -211,7 +210,6 @@ en:
           You may not have to pay a fee if you have limited savings and you’re on benefits or a low income. Do I qualify for help?
         contact_preference: |
           Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
-        allow_video_attendance: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         date_of_birth: For example, 23 04 1981
       representative:
