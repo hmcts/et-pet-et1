@@ -10,7 +10,7 @@ feature 'Save and Return', js: true do
 
   scenario 'ending the session actually ends the session' do
     start_claim
-    fill_in_password
+    saving_your_claim_page.register(password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
@@ -26,7 +26,7 @@ feature 'Save and Return', js: true do
 
   scenario 'ending the session with email address' do
     start_claim
-    fill_in_password
+    saving_your_claim_page.register(password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
@@ -51,7 +51,7 @@ feature 'Save and Return', js: true do
 
   scenario 'ending the session when email address previously entered', js: true do
     start_claim
-    saving_your_claim_page.register(email_address: FormMethods::SAVE_AND_RETURN_EMAIL, password: 'green')
+    saving_your_claim_page.register(email_address: 'mail@example.com', password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
@@ -63,7 +63,7 @@ feature 'Save and Return', js: true do
 
   scenario 'ending the session when current page invalid' do
     start_claim
-    fill_in_password
+    saving_your_claim_page.register(password: 'green')
 
     within 'aside' do
       click_button 'Save and complete later'
@@ -75,11 +75,16 @@ feature 'Save and Return', js: true do
 
   scenario 'returning to existing application', js: true do
     start_claim
-    fill_in_password 'green'
+    saving_your_claim_page.register(password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
-    end_session
-    fill_in_return_form Claim.last.reference, 'green'
+    group_claims_page
+      .save_and_complete_later
+      .sign_out_now
+    apply_page
+      .load
+      .return_to_a_claim
+      .return_to_your_claim claim_number: Claim.last.reference, memorable_word: 'green'
 
     expect(page).to have_text(claim_heading_for(:claimant))
     claimants_details_page.about_the_claimant_group.last_name_question.assert_value(ui_claimant.last_name)
@@ -87,7 +92,7 @@ feature 'Save and Return', js: true do
 
   scenario 'returning to an existing application after session expiration' do
     start_claim
-    fill_in_password 'green'
+    saving_your_claim_page.register(password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
 
@@ -108,7 +113,7 @@ feature 'Save and Return', js: true do
     end
   end
 
-  context 'forgotten memorable word', js:true do
+  context 'forgotten memorable word', js: true do
     let(:email_address) { 'doesntmatter@example.com' }
     it 'recovers correctly when the email is not used at the beginning but when saved' do
 
