@@ -72,9 +72,14 @@ feature 'Claimant page', js: true do
       end
     end
 
-    it "displays validation if no allow video attendance is present" do
-      click_button "Save and continue"
-      expect(page).to have_text("Please say whether you would be able to attend a hearing by video")
+    context 'with no video question present' do
+      let(:ui_claimant) { build(:ui_claimant, :default, :no_allow_video_attendance) }
+
+      it "displays validation if no allow video attendance is present" do
+        click_button "Save and continue"
+        expect(page).to have_text("Please say whether you would be able to attend a hearing by video")
+      end
     end
+
   end
 end
