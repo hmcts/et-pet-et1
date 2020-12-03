@@ -81,16 +81,6 @@ cy:
           reinstated_employment_and_compensation: I gael fy hen swydd yn ôl
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
       claim_type:
-        discrimination_claims:
-          sex_including_equal_pay: Rhyw (gan gynnwys tâl cyfartal)
-          disability: Anabledd
-          race: Hil
-          age: Oedran
-          pregnancy_or_maternity: "Beichiogrwydd neu famolaeth"
-          religion_or_belief: Crefydd neu gred
-          sexual_orientation: Cyfeiriadedd rhywiol
-          marriage_or_civil_partnership: Priodas neu bartneriaeth sifil
-          gender_reassignment: Ailbennu rhywedd
         discrimination_claims_for_review:
           sex_including_equal_pay: Gwahaniaethu ar sail rhyw (gan gynnwys tâl cyfartal)
           disability: Gwahaniaethu ar sail anabledd
@@ -107,6 +97,12 @@ cy:
           holiday: Tâl gwyliau
           arrears: Tâl dyledus
           other: Taliadau eraill
+      claim_outcome:
+        desired_outcomes:
+          compensation_only: Iawndal
+          tribunal_recommendation: "Argymhelliad gan dribiwnlys (bod y cyflogwr yn cymryd camau gweithredu fel nad yw'r broblem yn y gwaith yn digwydd eto)"
+          reinstated_employment_and_compensation: I gael eich hen swydd yn ôl
+          new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
 
     labels:
       user_session:
@@ -128,6 +124,7 @@ cy:
         fax_number: Ffacs
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu eich ffi (a elwir yn \"help i dalu ffioedd\")?"
         contact_preference: Y ffordd orau i anfon gohebiaeth atoch (yr hawlydd)
+        allow_video_attendance: "A allech chi gymryd rhan mewn gwrandawiad drwy fideo? (angen mynediad i'r rhyngrwyd)."
         _destroy: 'Dileu''r hawlydd yma'
 
       additional_claimants:
@@ -234,13 +231,18 @@ cy:
         email_addresses: Dewiswch neu rhowch fanylion yr unigolion yr hoffech anfon copi atynt
 
       claim_type:
-        is_unfair_dismissal: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
-        is_protective_award: "Dyfarniad Gwarchodol"
         is_other_type_of_claim: Math arall o hawliad
         other_claim_details: Nodwch y math arall o hawliad(au) ydych yn gwneud
         is_whistleblowing: "Ydych chi'n riportio'r posibilrwydd o gamymddwyn yn y gwaith?"
         send_claim_to_whistleblowing_entity: |
           Ydych chi eisiau i ni anfon copi o'ch hawliad at yr unigolyn neu gorff perthnasol sy'n delio â chwythu'r chwiban?
+      claim_details:
+        other_known_claimants: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
+        other_known_claimant_names: "Gallwch ychwanegu enwau unigolion eraill yma."
+        claim_details_rtf: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
+      claim_outcome:
+        desired_outcomes: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
+        other_outcome: "Pa fath o iawndal neu ganlyniad arall ydych chi eisiau?"
       your_fee:
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu ffioedd?"
         remission_claimant_count: "Faint yn eich grŵp chi sydd eisiau gwneud cais am help i dalu ffioedd?"
@@ -261,6 +263,7 @@ cy:
           Rhywun sydd wedi cytuno i'ch cynrychioli (er enghraifft, i baratoi eich achos a/neu gweithredu ar eich rhan os bydd gwrandawiad).
         applying_for_remission: |
           Efallai na fydd rhaid i chi dalu ffi os nad oes gennych lawer o gynilion a'ch bod yn cael budd-daliadau neu ar incwm isel. Ydw i'n gymwys i gael help?
+        allow_video_attendance: "Ceir rhagor o fanylion am wrandawiadau fideo drwy ddilyn y ddolen a ganlyn: https://www.gov.uk/guidance/hmcts-telephone-and-video-hearings-during-coronavirus-outbreak"
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
         date_of_birth: "Er enghraifft, 23 04 1981"
       representative:
@@ -304,6 +307,16 @@ cy:
           Rhowch ddisgrifiad byr iawn o'ch hawliad; cewch gyfle i ychwanegu mwy o fanylion ar y dudalen nesaf
         is_whistleblowing: |
           Gallwch riportio pethau yn y gwaith sydd ddim yn iawn, sy'n anghyfreithlon neu os yw rhywun yn esgeuluso eu dyletswyddau (a elwir hefyd yn 'datgelu er lles y cyhoedd').<br />
+      claim_details:
+        other_known_claimants: |
+          Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
+        other_known_claimant_names: "Cewch ddefnyddio hyd at 350 o nodau."
+        claim_details_rtf: |
+          Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format
+      claim_outcome:
+        desired_outcomes: Gallwch ddewis mwy nag un
+        other_outcome: |
+          Os ydych chi'n hawlio iawndal ariannol, gallwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Gallwch newid y manylion hyn hwyrach ymlaen, neu adael yr adran hon yn wag os nad ydych yn gwybod.
       additional_information:
         miscellaneous_information: "Rhowch fwy o fanylion am eich hawliad. Cewch ddefnyddio hyd at 2500 o nodau."
 
@@ -764,14 +777,31 @@ cy:
       header: Ynglŷn â'r hawliad
       claim_type: Ynglŷn â beth mae eich hawliad
       claim_type_label: "Dewiswch o leiaf un o'r mathau isod o hawliad."
-      unfair_dismissal: Diswyddo annheg
-      protective_award: "Dyfarniad Gwarchodol"
+      unfair_dismissal:
+        label: Diswyddo annheg
+        options:
+          is_unfair_dismissal: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
+      protective_award:
+        label: "Dyfarniad Gwarchodol"
+        options:
+          is_protective_award: "Dyfarniad Gwarchodol"
       summary:  "Beth yw hyn?"
       unfair_dismissal_summary_detail: |
         Fe all eich diswyddiad fod yn annheg os nad oes gan eich cyflogwr reswm da dros eich diswyddo neu os nad yw wedi dilyn proses ddisgyblu ffurfiol neu broses ddiswyddo'r cwmni. Diswyddo deongliadol yw pan fyddwch yn cael eich gorfodi i adael eich swydd yn erbyn eich ewyllys oherwydd ymddygiad eich cyflogwr.
       protective_award_summary_detail: |
         Dyfarniad gwarchodol yw taliad a gaiff bob unigolyn a gafodd ei ddiswyddo mewn ymarfer dileu swydd pan fydd y cyflogwr wedi methu â hysbysu ac ymgynghori'n briodol ynghylch 20 neu fwy o ddiswyddiadau mewn cyfnod o 90 diwrnod
-      discrimination: Gwahaniaethu
+      discrimination:
+        label: Gwahaniaethu
+        options:
+          sex_including_equal_pay: Rhyw (gan gynnwys tâl cyfartal)
+          disability: Anabledd
+          race: Hil
+          age: Oedran
+          pregnancy_or_maternity: "Beichiogrwydd neu famolaeth"
+          religion_or_belief: Crefydd neu gred
+          sexual_orientation: Cyfeiriadedd rhywiol
+          marriage_or_civil_partnership: Priodas neu bartneriaeth sifil
+          gender_reassignment: Ailbennu rhywedd
       pay: Tâl
       other_type: Math arall o hawliad (na ddangosir uchod)
       whistleblowing: Hawliad chwythu'r chwiban
@@ -781,43 +811,23 @@ cy:
 
     claim_details:
       header: Manylion yr hawliad
-      describe: Disgrifiwch eich hawliad
+      claim_details: Disgrifiwch eich hawliad
       claim_details_upload: neu uwchlwytho'r manylion fel dogfen ar wahân
       claim_details_html: |
         Ysgrifennwch ddatganiad i gefnogi eich hawliad isod.
         Dylech gyfeirio at y cefndir, y dyddiadau a'r unigolion a oedd yn gysylltiedig â'r broblem.
         <a href="%{path}#writing_your_claim_statement">Mwy am ysgrifennu datganiad i gefnogi eich hawliad</a>.
+      claim_details_hint_html: "Cewch ddefnyddio hyd at 2500 o nodau."
+      remove_claim_details_rtf: |
+        Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}
       similar_claims: Hawliadau tebyg
       'true': 'Ydw'
       'false': 'Nac ydw'
-      other_known_claimants:
-        label: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
-        hint: Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
-      other_known_claimant_names:
-        label: "Gallwch ychwanegu enwau unigolion eraill yma."
-        hint: "Cewch ddefnyddio hyd at 350 o nodau."
-      claim_details_rtf:
-        label: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
-        hint: "Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format"
-      remove_claim_details_rtf:
-        label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
-      claim_details:
-        label: Disgrifiwch eich hawliad
-        hint: "Cewch ddefnyddio hyd at 2500 o nodau."
+
+
     claim_outcome:
       header: Canlyniad yr hawliad
       claim_outcome: Dewiswch y canlyniad(au) a fyddai orau gennych
-      desired_outcomes:
-        label: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
-        hint: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
-        options:
-          compensation_only: Iawndal
-          tribunal_recommendation: "Argymhelliad gan dribiwnlys (bod y cyflogwr yn cymryd camau gweithredu fel nad yw'r broblem yn y gwaith yn digwydd eto)"
-          reinstated_employment_and_compensation: I gael eich hen swydd yn ôl
-          new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
-      other_outcome:
-        label: "Pa fath o iawndal neu ganlyniad arall ydych chi eisiau?"
-        hint: Os ydych chi'n hawlio iawndal ariannol, gallwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Gallwch newid y manylion hyn hwyrach ymlaen, neu adael yr adran hon yn wag os nad ydych yn gwybod.
 
     additional_information:
       header: Mwy am yr hawliad
