@@ -105,8 +105,8 @@ module ET1
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
         section :gender_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claimants_details.gender.label'
 
-        # @!method gender_question
-        #   A govuk radio button component for the gender question
+        # @!method has_special_needs_question
+        #   A govuk radio button component for the has special needs question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
         section :has_special_needs_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claimants_details.has_special_needs.label'
 

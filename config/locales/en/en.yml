@@ -90,12 +90,6 @@ en:
           sexual_orientation: Sexual orientation discrimination
           marriage_or_civil_partnership: Marriage or civil partnership discrimination
           gender_reassignment: Gender reassignment discrimination
-        pay_claims:
-          redundancy: Redundancy pay
-          notice: Notice pay
-          holiday: Holiday pay
-          arrears: Arrears of pay
-          other: Other payments
       claim_outcome:
         desired_outcomes:
           compensation_only: Compensation
@@ -166,12 +160,6 @@ en:
       confirmation_email:
         email_addresses: Select or enter the recipients you’d like to send a copy to
 
-      claim_type:
-        is_other_type_of_claim: Other type of claim
-        other_claim_details: State the other type of claim(s) that you’re making
-        is_whistleblowing: Are you reporting suspected wrongdoing at work?
-        send_claim_to_whistleblowing_entity: |
-          Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
       claim_details:
         other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         other_known_claimant_names: You can add the names of other people here.
@@ -237,14 +225,6 @@ en:
         has_additional_respondents: You can claim against more than one respondent. Eg if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
           address_county: Eg if London, Greater London; if Manchester, Greater Manchester
-      claim_type:
-        is_discrimination: Discrimination
-        is_other_type_of_claim: |
-          If you can’t see a good match for your claim or want to add a claim that doesn’t appear in the options above.
-        other_claim_details: |
-          Give a very short description of your claim; you will have the opportunity to add more detail on the next page
-        is_whistleblowing: |
-          You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).<br />
       claim_details:
         other_known_claimants: |
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
@@ -705,20 +685,18 @@ en:
       header: About the claim
       claim_type: What your claim is about
       claim_type_label: Select at least one of the claim types below.
-      unfair_dismissal:
+      is_unfair_dismissal:
         label: Unfair dismissal
+        hint: Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
         options:
-          is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
-      protective_award:
+          1: Unfair dismissal (including constructive dismissal)
+      is_protective_award:
         label: Protective award
+        hint: A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
         options:
-          is_protective_award: Protective Award
+          1: Protective Award
       summary:  What is this?
-      unfair_dismissal_summary_detail: |
-        Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
-      protective_award_summary_detail: |
-        A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
-      discrimination:
+      discrimination_claims:
         label: Discrimination
         options:
           sex_including_equal_pay: Sex (including equal pay)
@@ -730,11 +708,34 @@ en:
           sexual_orientation: Sexual orientation
           marriage_or_civil_partnership: Marriage or civil partnership
           gender_reassignment: Gender reassignment
-      pay: Pay
-      other_type: Other type of claim (not shown above)
-      whistleblowing: Whistleblowing claim
-      'true': 'Yes'
-      'false': 'No'
+      pay_claims:
+        label: Pay
+        options:
+          redundancy: Redundancy pay
+          notice: Notice pay
+          holiday: Holiday pay
+          arrears: Arrears of pay
+          other: Other payments
+      is_other_type_of_claim:
+        label: Other type of claim (not shown above)
+        hint: If you can’t see a good match for your claim or want to add a claim that doesn’t appear in the options above.
+        options:
+          1: Other type of claim
+      other_claim_details:
+        label: State the other type of claim(s) that you’re making
+        hint: Give a very short description of your claim; you will have the opportunity to add more detail on the next page
+      is_whistleblowing:
+        heading: Whistleblowing claim
+        label: Are you reporting suspected wrongdoing at work?
+        hint: You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      send_claim_to_whistleblowing_entity:
+        label: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
+        options:
+          'true': 'Yes'
+          'false': 'No'
 
     claim_details:
       header: Claim details
