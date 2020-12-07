@@ -39,6 +39,10 @@ module ET1
         sidebar.save_and_complete_later
       end
 
+      def assert_claim_retrieved_success
+        assert_selector :css, '#flash-summary', text: t('return_to_your_claim.success_message')
+      end
+
       def home
         home_link_element.click
       end
