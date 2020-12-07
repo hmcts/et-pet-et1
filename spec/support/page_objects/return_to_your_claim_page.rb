@@ -2,6 +2,7 @@ require_relative './base_page'
 module ET1
   module Test
     class ReturnToYourClaimPage < BasePage
+      set_url '/en/apply/users/sign_in'
 
       def assert_missing_claim_number
         invalid_word_or_number_flash_element
