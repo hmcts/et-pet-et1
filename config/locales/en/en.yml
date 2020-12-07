@@ -109,12 +109,6 @@ en:
           holiday: Holiday pay
           arrears: Arrears of pay
           other: Other payments
-      claim_outcome:
-        desired_outcomes:
-          compensation_only: Compensation
-          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get your old job back
-          new_employment_and_compensation: To get another job with the same employer or associated employer
 
     labels:
       user_session:
@@ -187,13 +181,6 @@ en:
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
         send_claim_to_whistleblowing_entity: |
           Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
-      claim_details:
-        other_known_claimants: Do you know of any other claimants (not already listed) making similar claims against the same employer?
-        other_known_claimant_names: You can add the names of other people here.
-        claim_details_rtf: The document needs to be in Rich Text Format(RTF)
-      claim_outcome:
-        desired_outcomes: What do you want if your claim is successful?
-        other_outcome: What compensation or other outcome do you want?
       your_fee:
         applying_for_remission: Do you want to apply for help with fees?
         remission_claimant_count: How many in your group want to apply for help with fees?
@@ -259,17 +246,6 @@ en:
           Give a very short description of your claim; you will have the opportunity to add more detail on the next page
         is_whistleblowing: |
           You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).<br />
-      claim_details:
-        other_known_claimants: |
-          A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
-        other_known_claimant_names: Limit is 350 characters.
-        claim_details_rtf: |
-          You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format
-
-      claim_outcome:
-        desired_outcomes: You can select more than one
-        other_outcome: |
-           If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
       additional_information:
         miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters.
 
@@ -746,23 +722,47 @@ en:
 
     claim_details:
       header: Claim details
-      claim_details: Describe your claim
+      describe: Describe your claim
       claim_details_upload: Or upload it as a separate document
       claim_details_html: |
         Write your claim statement below.
         Include the background, dates and people involved.
         <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
-      claim_details_hint_html: Limit is 2500 characters.
-      remove_claim_details_rtf: |
-        Remove previously uploaded document: %{file}
       similar_claims: Similar claims
       'true': 'Yes'
       'false': 'No'
-
+      other_known_claimants:
+        label: Do you know of any other claimants (not already listed) making similar claims against the same employer?
+        hint: A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      other_known_claimant_names:
+        label: You can add the names of other people here.
+        hint: Limit is 350 characters.
+      claim_details_rtf:
+        label: The document needs to be in Rich Text Format(RTF)
+        hint: "You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format"
+      remove_claim_details_rtf:
+        label: "Remove previously uploaded document: %{file}"
+      claim_details:
+        label: 'Describe your claim'
+        hint: Limit is 2500 characters.
 
     claim_outcome:
       header: Claim outcome
       claim_outcome: Choose your preferred outcome(s)
+      desired_outcomes:
+        label: What do you want if your claim is successful?
+        hint: You can select more than one
+        options:
+          compensation_only: Compensation
+          tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
+          reinstated_employment_and_compensation: To get your old job back
+          new_employment_and_compensation: To get another job with the same employer or associated employer
+      other_outcome:
+        label: What compensation or other outcome do you want?
+        hint: If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
 
     additional_information:
       header: More about the claim
