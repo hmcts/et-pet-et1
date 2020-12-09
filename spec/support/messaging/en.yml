@@ -372,12 +372,20 @@ en:
     save_and_continue: Save and continue
     upload_separate_document_section:
       label: Or upload it as a separate document
-
-
-
-
-
-
+  claim_type:
+    is_whistleblowing:
+      heading: Whistleblowing claim
+      label: Are you reporting suspected wrongdoing at work?
+      hint: You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).
+      options:
+        'true': 'Yes'
+        'false': 'No'
+    send_claim_to_whistleblowing_entity:
+      label: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
+      options:
+        'true': 'Yes'
+        'false': 'No'
+    save_and_continue: Save and continue
   components:
     date:
       day: Day
