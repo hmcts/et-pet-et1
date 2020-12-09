@@ -8,7 +8,7 @@ feature 'Claim type page', js: true do
   before do
     return_to_your_claim_page.load
       .return_to_your_claim(claim_number: claim.reference, memorable_word: 'lollolol')
-    claimants_details_page.assert_claim_retrieved
+    claimants_details_page.assert_claim_retrieved_success
   end
 
   describe 'Claim type' do
