@@ -299,8 +299,6 @@ cy:
         desired_outcomes: Gallwch ddewis mwy nag un
         other_outcome: |
           Os ydych chi'n hawlio iawndal ariannol, gallwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Gallwch newid y manylion hyn hwyrach ymlaen, neu adael yr adran hon yn wag os nad ydych yn gwybod.
-      additional_information:
-        miscellaneous_information: "Rhowch fwy o fanylion am eich hawliad. Cewch ddefnyddio hyd at 2500 o nodau."
 
       user_session:
         destroy:
@@ -869,13 +867,15 @@ cy:
     additional_information:
       header: Mwy am yr hawliad
       legend: "Manylion pwysig eraill"
-      has_miscellaneous_information: "Ydych chi eisiau darparu gwybodaeth ychwanegol am eich hawliad? (dewisol)"
-      has_miscellaneous_information_hint: |
-        Include anything that will help the tribunal come to a decision about whether your case can be heard.
-        What you write may be seen by the respondent. If you are making a claim against more than 3 additional respondents,
-        enter their details below.
-      has_miscellaneous_information_hint: "Dylech gynnwys unrhyw beth fyddai'n helpu'r tribiwnlys i ddod i benderfyniad ynghylch p'un a ellir gwrando eich achos. Efallai y bydd yr atebydd yn gweld beth ydych yn ysgrifennu."
-      additional_respondents_callout: "Os ydych chi'n gwneud hawliad yn erbyn mwy na 3 atebydd ychwanegol, rhowch eu manylion isod."
+      has_miscellaneous_information:
+        label: "Ydych chi eisiau darparu gwybodaeth ychwanegol am eich hawliad?"
+        hint: "Dylech gynnwys unrhyw beth fyddai'n helpu'r tribiwnlys i ddod i benderfyniad ynghylch p'un a ellir gwrando eich achos. Efallai y bydd yr atebydd yn gweld beth ydych yn ysgrifennu."
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
+      miscellaneous_information:
+        label: "Rhowch fwy o fanylion am eich hawliad."
+        hint: "Cewch ddefnyddio hyd at 2500 o nodau."
 
     your_fee:
       header: Ffi

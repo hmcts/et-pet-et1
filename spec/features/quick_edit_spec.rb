@@ -82,7 +82,7 @@ feature 'Quick edit' do
     expect(page.current_path).to eq "/en/apply/review"
   end
 
-  scenario "editing 'Additional information'" do
+  scenario "editing 'Additional information'", js: true do
     within(".additional-information") do
       click_link 'Edit'
     end
