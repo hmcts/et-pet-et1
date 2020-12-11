@@ -239,8 +239,6 @@ en:
         desired_outcomes: You can select more than one
         other_outcome: |
            If you’re claiming financial compensation, you can say how much you want and how you worked out the sum. You can change these details later, or leave this section blank if you don’t know.
-      additional_information:
-        miscellaneous_information: Enter more detail about your claim. Limit is 2500 characters.
 
       user_session:
         destroy:
@@ -800,13 +798,15 @@ en:
     additional_information:
       header: More about the claim
       legend: Other important details
-      has_miscellaneous_information: Do you want to provide additional information about your claim? (optional)
-      has_miscellaneous_information_hint: |
-        Include anything that will help the tribunal come to a decision about whether your case can be heard.
-        What you write may be seen by the respondent. If you are making a claim against more than 3 additional respondents,
-        enter their details below.
-      has_miscellaneous_information_hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
-      additional_respondents_callout: If you are making a claim against more than 3 additional respondents, enter their details below.
+      has_miscellaneous_information:
+        label: Do you want to provide additional information about your claim?
+        hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
+        options:
+          "true": 'Yes'
+          "false": 'No'
+      miscellaneous_information:
+        label: Enter more detail about your claim.
+        hint: Limit is 2500 characters.
 
   activerecord:
     errors:
