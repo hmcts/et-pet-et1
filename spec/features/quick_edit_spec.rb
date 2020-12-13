@@ -73,7 +73,7 @@ feature 'Quick edit' do
     expect(page.current_path).to eq "/en/apply/review"
   end
 
-  scenario "editing 'Claim outcome'" do
+  scenario "editing 'Claim outcome'", js: true do
     within(".claim-outcome") do
       click_link 'Edit'
     end
