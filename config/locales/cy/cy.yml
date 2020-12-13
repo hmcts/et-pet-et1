@@ -91,13 +91,6 @@ cy:
           sexual_orientation: Gwahaniaethu ar sail cyfeiriadedd rhywiol
           marriage_or_civil_partnership: Gwahaniaethu ar sail priodas neu bartneriaeth sifil
           gender_reassignment: Gwahaniaethu ar sail ailbennu rhywedd
-      claim_outcome:
-        desired_outcomes:
-          compensation_only: Iawndal
-          tribunal_recommendation: "Argymhelliad gan dribiwnlys (bod y cyflogwr yn cymryd camau gweithredu fel nad yw'r broblem yn y gwaith yn digwydd eto)"
-          reinstated_employment_and_compensation: I gael eich hen swydd yn ôl
-          new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
-
     labels:
       user_session:
         destroy:
@@ -226,9 +219,6 @@ cy:
         other_known_claimants: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
         other_known_claimant_names: "Gallwch ychwanegu enwau unigolion eraill yma."
         claim_details_rtf: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
-      claim_outcome:
-        desired_outcomes: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
-        other_outcome: "Pa fath o iawndal neu ganlyniad arall ydych chi eisiau?"
       your_fee:
         applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu ffioedd?"
         remission_claimant_count: "Faint yn eich grŵp chi sydd eisiau gwneud cais am help i dalu ffioedd?"
@@ -290,11 +280,6 @@ cy:
         other_known_claimant_names: "Cewch ddefnyddio hyd at 350 o nodau."
         claim_details_rtf: |
           Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format
-      claim_outcome:
-        desired_outcomes: Gallwch ddewis mwy nag un
-        other_outcome: |
-          Os ydych chi'n hawlio iawndal ariannol, gallwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Gallwch newid y manylion hyn hwyrach ymlaen, neu adael yr adran hon yn wag os nad ydych yn gwybod.
-
       user_session:
         destroy:
           email_address: Cael eich rhif hawliad drwy neges e-bost
