@@ -538,7 +538,7 @@ DEPENDENCIES
   invisible_captcha
   iodine (~> 0.7.34)
   jbuilder (~> 2.8)
-  jquery-rails (~> 4.3)
+  jquery-rails (~> 4.4)
   launchy
   parallel_tests (~> 3.0)
   pg (~> 1.1)

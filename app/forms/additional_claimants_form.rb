@@ -1,38 +1,31 @@
-class AdditionalClaimantsForm < BaseForm
+class AdditionalClaimantsForm < Form
   include ValidateNested
   attribute :has_multiple_claimants, :boolean
   attribute :secondary_claimants
   validate :validate_associated_records_for_secondary_claimants
   before_validation :remove_secondaries, unless: :has_multiple_claimants
-
-  def initialize(claim, *args)
-    @_resource = claim
-    super(*args)
-    self.secondary_claimants = [ClaimantForm.new]
-    self.secondary_claimants_to_delete = []
-  end
-
-
-  def secondary_claimants_attributes=(value)
-    to_delete_values, claimant_values = value.values.partition do |attrs|
-      attrs = attrs.with_indifferent_access
-      attrs['_destroy'].present? && ActiveModel::Type::Boolean.new.cast(attrs['_destroy'])
-    end
-    self.secondary_claimants = claimant_values.map do |attrs|
-      ClaimantForm.new(attrs)
-    end
-    self.secondary_claimants_to_delete = to_delete_values
-  end
+  has_many_forms :secondary_claimants, class_name: '::AdditionalClaimantsForm::ClaimantForm'
 
   def persisted_attributes
-    attributes.except('secondary_claimants', 'secondary_claimants_to_delete')
-      .merge 'secondary_claimants_attributes' => secondary_claimants.map(&:persisted_attributes) + secondary_claimants_to_delete
+    attributes.except('secondary_claimants')
+  end
+
+  def save
+    if valid?
+      run_callbacks :save do
+        ActiveRecord::Base.transaction do
+          target.update persisted_attributes unless target.frozen?
+          resource.save
+        end
+      end
+    else
+      false
+    end
   end
 
   private
 
   attr_accessor :_resource
-  attribute :secondary_claimants_to_delete
 
   def validate_associated_records_for_secondary_claimants
     validate_collection_association(:secondary_claimants)
@@ -42,7 +35,7 @@ class AdditionalClaimantsForm < BaseForm
     secondary_claimants.clear
   end
 
-  class ClaimantForm < BaseForm
+  class ClaimantForm < Form
     TITLES      = ['mr', 'mrs', 'miss', 'ms'].freeze
     NAME_LENGTH = 100
 

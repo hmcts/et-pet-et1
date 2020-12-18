@@ -20,7 +20,7 @@ FactoryBot.define do
     end
 
     trait :dont_have_acas do
-      dont_have_acas_number { true }
+      dont_have_acas_number { :'respondents_details.dont_have_acas_number.options.yes' }
       dont_have_acas_number_reason { :'respondents_details.dont_have_acas_number_reason.options.joint_claimant_has_acas_number' }
     end
   end
