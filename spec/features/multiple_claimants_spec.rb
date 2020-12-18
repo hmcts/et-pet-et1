@@ -54,7 +54,7 @@ feature 'Multiple claimants', js: true do
         .append_secondary_claimants([extra_claimant])
         .save_and_continue
       expect(page).not_to have_content("Group claims")
-      expect(claim.secondary_claimants.pluck(:first_name)).to contain_exactly(claimant_factory.first_name, extra_claimant.first_name)
+      expect(claim.secondary_claimants.pluck(:last_name)).to contain_exactly(claimant_factory.last_name, extra_claimant.last_name)
     end
 
     scenario 'a user can still save & complete later' do
