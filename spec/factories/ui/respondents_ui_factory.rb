@@ -25,5 +25,9 @@ FactoryBot.define do
       dont_have_acas_number { true }
       dont_have_acas_number_reason { :'respondents_details.dont_have_acas_number_reason.options.joint_claimant_has_acas_number' }
     end
+
+    trait :interim_relief do
+      dont_have_acas_number_reason { :'respondents_details.dont_have_acas_number_reason.options.interim_relief' }
+    end
   end
 end

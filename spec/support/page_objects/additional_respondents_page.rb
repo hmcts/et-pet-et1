@@ -48,7 +48,9 @@ module ET1
             obj.address_post_code = s.post_code.value
             obj.acas_number = s.acas_number.value
             obj.dont_have_acas_number = s.dont_have_acas_number.value
-            obj.dont_have_acas_number_reason = s.dont_have_acas_number_reason.value
+            if(obj.dont_have_acas_number.to_s.split('.').last == 'yes')
+              obj.dont_have_acas_number_reason = s.dont_have_acas_number_reason.value
+            end
           end
         end
       end
@@ -87,7 +89,9 @@ module ET1
           post_code.set(respondent.address_post_code)
           acas_number.set(respondent.acas_number)
           dont_have_acas_number.set(respondent.dont_have_acas_number)
-          dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
+          if respondent.dont_have_acas_number.to_s.split.last == 'true'
+            dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
+          end
         end
 
         def index
