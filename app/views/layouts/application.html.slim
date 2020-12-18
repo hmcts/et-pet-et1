@@ -6,12 +6,8 @@
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present? && cookie_settings['usage']
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
-  javascript:
-    revealPubSub.init();
 
-  - if start_session_timer?
-    javascript:
-      sessionPrompt.init();
+// @TODO Check on removed content here
 - content_for :after_header do
   = render "shared/google_tag_manager_body", account: Rails.application.config.google_tag_manager_account
 

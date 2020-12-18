@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalRespondentsForm, type: :form do
-  let(:additional_respondents_form) { described_class.new(claim) }
+  subject(:additional_respondents_form) { described_class.new(claim) }
 
   let(:attributes) do
     {
@@ -53,8 +53,16 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
         additional_respondents_form.attributes = attributes
       end
 
-      it { expect(additional_respondents_form.secondary_respondents.length).to be 2 }
+      it { expect(additional_respondents_form.secondary_respondents.length).to be 4 }
       it { expect(additional_respondents_form.secondary_respondents).to all(be_an_instance_of(AdditionalRespondentsForm::RespondentForm)) }
+    end
+  end
+
+  describe '#has_multiple_respondents=' do
+    it 'empties the collection when set to false' do
+      subject.has_multiple_respondents = false
+      subject.save
+      expect(claim.reload.secondary_respondents.count).to be_zero
     end
   end
 
@@ -104,8 +112,32 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
     end
 
     context 'when some respondents are not valid' do
-      before { additional_respondents_form.has_multiple_respondents = 'true' }
-
+      let(:attributes) do
+        {
+          has_multiple_respondents: 'true',
+          secondary_respondents_attributes: {
+            "0" => {
+              name: 'Butch McTaggert',
+              no_acas_number: 'false',
+              acas_early_conciliation_certificate_number: 'invalid',
+              address_building: '1', address_street: 'High Street',
+              address_locality: 'Anytown', address_county: 'Anyfordshire',
+              address_post_code: 'W2 3ED'
+            },
+            "1" => {
+              name: 'Pablo Noncer',
+              no_acas_number: 'false',
+              acas_early_conciliation_certificate_number: 'XX123456/12/12',
+              address_building: '2', address_street: 'Main Street',
+              address_locality: 'Anycity', address_county: 'Anyford',
+              address_post_code: 'W2 3ED'
+            }
+          }
+        }
+      end
+      before do
+        additional_respondents_form.attributes = attributes
+      end
       it 'returns false' do
         expect(additional_respondents_form.save).to be false
       end
