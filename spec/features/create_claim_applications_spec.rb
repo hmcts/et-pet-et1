@@ -170,16 +170,13 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
-      respondents_details_page.fill_in_all(respondent: build(:ui_respondent, :dont_have_acas))
-
-      within('form#edit_respondent') do
-        within('.acas .panel-indent') do
-          expect(page).to have_text 'Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS.'
-          expect(page).not_to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
-          choose 'respondent_no_acas_number_reason_interim_relief'
-          expect(page).to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
-        end
-      end
+      dont_have_acas_respondent = build(:ui_respondent, :default, :dont_have_acas)
+      dont_have_acas_respondent_interim_relief = build(:ui_respondent, :dont_have_acas, :interim_relief)
+      respondents_details_page
+        .fill_in_all(respondent: dont_have_acas_respondent)
+        .assert_correct_hints(dont_have_acas_respondent)
+        .fill_in_dont_have_acas_number(dont_have_acas_respondent_interim_relief)
+        .assert_correct_hints(dont_have_acas_respondent_interim_relief)
     end
 
     scenario 'Entering respondent details' do

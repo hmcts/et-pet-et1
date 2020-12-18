@@ -6,11 +6,12 @@ module ET1
 
       # Fills in the respondent's details
       # @param [ET1::Test::RespondentUi] respondent The respondent
-      def fill_in_all(respondent: respondent)
+      def fill_in_all(respondent:)
         fill_in_about_the_respondent_group(respondent)
         fill_in_your_work_address_group(respondent)
         fill_in_acas_number(respondent)
         fill_in_dont_have_acas_number(respondent)
+        self
       end
 
       # Fills in the acas number
@@ -33,6 +34,7 @@ module ET1
 
         dont_have_acas_number_question.set(:"respondents_details.dont_have_acas_number.options.yes")
         dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
+        self
       end
 
       # @param [ET1::Test::RespondentUi] respondent
@@ -63,6 +65,15 @@ module ET1
         end
       end
 
+      def assert_correct_hints(respondent)
+        expect(page).to have_text 'Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS.'
+        if respondent.dont_have_acas_number_reason.to_s.split('.').last == 'interim_relief'
+          expect(self).to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        else
+          expect(self).to have_no_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        end
+        self
+      end
       # Clicks the save and continue button
       def save_and_continue
         save_and_continue_button.submit
@@ -87,7 +98,7 @@ module ET1
         # @!method about_the_respondent_group
           #   A govuk fieldset component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKFieldset] The site prism section
-      section :about_the_respondent_group, govuk_component(:fieldset), :govuk_fieldset, :'respondents_details.about_the_respondent_group' do
+      section :about_the_respondent_group, :govuk_fieldset, :'respondents_details.about_the_respondent_group' do
         include EtTestHelpers::Section
         # @!method name_question
         #   A govuk text field component wrapping the input, label, hint etc..
@@ -118,7 +129,7 @@ module ET1
         #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
         section :phone_number_question, govuk_component(:phone_field), :govuk_phone_field, :'respondents_details.phone_number.label'
       end
-      section :your_work_address_group, :fieldset_translated, 'respondents_details.your_work_address_group' do
+      section :your_work_address_group, :govuk_fieldset, :'respondents_details.your_work_address_group' do
         include EtTestHelpers::Section
         # @!method worked_at_same_address_question
         #   A govuk radio button component wrapping the input, label, hint etc..
