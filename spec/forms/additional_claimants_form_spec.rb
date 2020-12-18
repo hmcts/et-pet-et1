@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsForm, type: :form do
-  let(:additional_claimants_form) { described_class.new(claim) }
+  subject(:additional_claimants_form) { described_class.new(claim) }
 
   let(:attributes) do
     {
@@ -56,14 +56,19 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
   end
 
   describe '#claimants' do
-    before { claimant }
-
-    let(:claimant) { claim.secondary_claimants.build }
     let(:form)     { additional_claimants_form.secondary_claimants.last }
 
     describe 'decorates any secondary claimants in an AdditionalClaimants' do
-      it { expect(additional_claimants_form.secondary_claimants.length).to be 1 }
+      it { expect(additional_claimants_form.secondary_claimants.length).to be 2 }
       it { expect(form).to be_a AdditionalClaimantsForm::ClaimantForm }
+    end
+  end
+
+  describe '#has_multiple_claimants=' do
+    it 'empties the collection when set to false' do
+      subject.has_multiple_claimants = false
+      subject.save
+      expect(claim.reload.secondary_claimants.count).to be_zero
     end
   end
 
