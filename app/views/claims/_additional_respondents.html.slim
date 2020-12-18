@@ -1,12 +1,12 @@
 = f.govuk_collection_radio_buttons :has_multiple_respondents, [[true, t('.has_multiple_respondents.options.true')], [false, t('.has_multiple_respondents.options.false')]], :first, :last, label: {text: t('.has_multiple_respondents.label')}, hint: { text: t('.has_multiple_respondents.hint') }
 
-.multiples
+div data-reveal-on-selector='input[name="additional_respondents[has_multiple_respondents]"]' data-reveal-on-value="true"
   = f.fields_for :secondary_respondents do |builder|
     .multiple id=("resource_#{builder.index}")
       fieldset
         legend= t('.person', number: builder.index + 2)
 
-        = link_to t('.remove_resource_link'), 'javascript:void(0);', { class: 'remove-multiple' }
+        = link_to t('.remove_resource_link'), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }
 
         = builder.govuk_text_field :name, label: {text: t('claims.respondent.name.label')}
 
@@ -17,12 +17,16 @@
         = builder.govuk_text_field :address_post_code, label: {text: t('claims.respondent.address_post_code.label')}
         = builder.govuk_text_field :acas_early_conciliation_certificate_number, label: {text: t('claims.respondent.acas_early_conciliation_certificate_number.label')}
         = builder.govuk_collection_radio_buttons :no_acas_number, [[true, t('claims.respondent.no_acas_number.options.true')], [false, t('claims.respondent.no_acas_number.options.false')]], :first, :last, label: {text: t('claims.respondent.no_acas_number.label')}
-
-        .clearfix.panel-indent
-          = builder.govuk_collection_radio_buttons :no_acas_number_reason, t('claims.respondent.no_acas_number_reason.options').to_a, :first, :last, label: {text: t('claims.respondent.no_acas_number_reason.label')}, hint: { text: t('claims.respondent.no_acas_number_reason.hint') }
-          span.form-hint.toggle-content.reveal-acas-hint = t 'claims.respondent.no_acas_number_note_two'
-
+        div data-reveal-on-selector="input[name='additional_respondents[secondary_respondents_attributes][#{builder.index}][no_acas_number]']" data-reveal-on-value="true"
+          .clearfix.panel-indent
+            = builder.govuk_collection_radio_buttons :no_acas_number_reason, t('claims.respondent.no_acas_number_reason.options').to_a, :first, :last, label: {text: t('claims.respondent.no_acas_number_reason.label')}, hint: { text: t('claims.respondent.no_acas_number_reason.hint') }
+            span.form-hint data-reveal-on-selector="input[name='additional_respondents[secondary_respondents_attributes][#{builder.index}][no_acas_number_reason]']" data-reveal-on-value="interim_relief"
+              = t 'claims.respondent.no_acas_number_note_two'
+        = builder.hidden_field :_destroy, data: { 'multiple-mark-for-destroy': true }
   - if resource.secondary_respondents.length >= Rails.application.config.additional_respondents_limit
       p= t '.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit
   - else
       = f.submit value: t('.add_fields'), class: 'hyperlink govuk-button', id: 'button_add_resource'
+- content_for(:javascripts)
+  javascript:
+    Et.pages.claims.AdditionalRespondentsPage()
