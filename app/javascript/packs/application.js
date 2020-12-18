@@ -18,4 +18,20 @@
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
 import "./stylesheets/application.scss"
+import ClaimantPage from "./pages/claims/ClaimantPage";
+import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
+import RepresentativePage from "./pages/claims/RepresentativePage";
+import RespondentPage from "./pages/claims/RespondentPage";
+import AdditionalRespondentsPage from "./pages/claims/AdditionalRespondentsPage";
 EtGdsDesignSystem.initAll();
+window.Et = {
+  pages:{
+    claims: {
+      ClaimantPage: ClaimantPage,
+      AdditionalClaimantsPage: AdditionalClaimantsPage,
+      RepresentativePage: RepresentativePage,
+      RespondentPage: RespondentPage,
+      AdditionalRespondentsPage: AdditionalRespondentsPage
+    }
+  }
+};

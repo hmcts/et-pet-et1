@@ -21,7 +21,7 @@ feature 'Claim type page', js: true do
       .whistle_blowing_fieldset.whistle_blowing_question.set(:'claim_type.is_whistleblowing.options.true')
       expect(about_the_claim_page.whistle_blowing_fieldset).to have_whistle_blowing_body_question
       about_the_claim_page.save_and_continue
-      expect(claim_details_page).to be_visible
+      expect(claim_details_page).to be_displayed
     end
 
   end

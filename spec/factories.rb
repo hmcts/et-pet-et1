@@ -189,10 +189,12 @@ FactoryBot.define do
     primary_respondent      { true }
     name                    { "Ministry of Justice" }
     no_acas_number_reason   { "employer_contacted_acas" }
+    no_acas_number          { true }
     worked_at_same_address  { false }
     addresses               { [build(:address, primary: true), build(:address, primary: false)] }
 
     trait :with_acas_number do
+      no_acas_number { false }
       no_acas_number_reason { nil }
       acas_early_conciliation_certificate_number { "SOMEACASNUMBER" }
     end
