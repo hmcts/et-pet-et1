@@ -15,18 +15,6 @@ fieldset
     required: true
 
 fieldset
-  legend.medium= t '.protective_award'
-  details
-    summary role="button" aria={controls: 'details-content-1', expanded: 'true'}
-      span.summary= t '.summary'
-    .panel-indent#details-content-1
-      p= t '.protective_award_summary_detail'
-  = f.input :is_protective_award,
-    as: :gds_check_boxes,
-    wrapper_class: 'options',
-    required: true
-
-fieldset
   legend.medium= t '.discrimination'
   = f.input :discrimination_claims, label: false,
     collection: Claim::DISCRIMINATION_COMPLAINTS,

@@ -5,7 +5,6 @@ RSpec.describe ClaimTypeForm, type: :form do
   it_behaves_like 'a Form',
     is_other_type_of_claim: true,
     is_unfair_dismissal: true,
-    is_protective_award: false,
     discrimination_claims: ['disability'],
     pay_claims: ['holiday'],
     is_whistleblowing: 'true',
@@ -58,7 +57,6 @@ RSpec.describe ClaimTypeForm, type: :form do
   describe "claim validation" do
     before do
       claim_type_form.is_unfair_dismissal = false
-      claim_type_form.is_protective_award = false
       claim_type_form.discrimination_claims = [""]
       claim_type_form.pay_claims = [""]
       claim_type_form.is_whistleblowing = false
