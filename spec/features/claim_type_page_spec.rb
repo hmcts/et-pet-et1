@@ -19,9 +19,6 @@ feature 'Claim type page' do
       expect(page).not_to have_text("Unfair dismissal (including constructive dismissal) (optional)")
       expect(page).to have_text("Unfair dismissal (including constructive dismissal)")
 
-      expect(page).not_to have_text("Protective Award (optional)")
-      expect(page).to have_text("Protective Award")
-
       expect(page).not_to have_text("Other type of claim (optional)")
       expect(page).to have_text("Other type of claim")
 
