@@ -41,7 +41,7 @@ feature 'Save and Return' do
       with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_button 'Sign out now'
 
-    perform_active_jobs(ActionMailer::DeliveryJob)
+    perform_active_jobs(ActionMailer::MailDeliveryJob)
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to match_pattern Claim.last.reference
 
@@ -123,7 +123,7 @@ feature 'Save and Return' do
         .using(email_address: email_address, claim_number: Claim.last.application_reference)
         .assert_memorable_word_email_sent
 
-      perform_active_jobs(ActionMailer::DeliveryJob)
+      perform_active_jobs(ActionMailer::MailDeliveryJob)
 
       reset_memorable_word_page.from_email_for(email_address)
         .set_memorable_word('newmemorableword')
@@ -143,7 +143,7 @@ feature 'Save and Return' do
         .using(email_address: email_address, claim_number: Claim.last.application_reference)
         .assert_memorable_word_email_sent
 
-      perform_active_jobs(ActionMailer::DeliveryJob)
+      perform_active_jobs(ActionMailer::MailDeliveryJob)
 
       reset_memorable_word_page.from_email_for(email_address)
         .set_memorable_word('newmemorableword')
@@ -167,7 +167,7 @@ feature 'Save and Return' do
         .using(email_address: email_address)
         .assert_memorable_word_email_sent
 
-      perform_active_jobs(ActionMailer::DeliveryJob)
+      perform_active_jobs(ActionMailer::MailDeliveryJob)
 
       reset_memorable_word_page.from_email_for(email_address)
         .set_memorable_word('newmemorableword')
