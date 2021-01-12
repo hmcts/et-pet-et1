@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0.3.4'
+gem 'rails', '6.1.0'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -34,7 +34,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'iodine', '~> 0.7'
 
 # Use null db adapter for the form objects
-gem 'activerecord-nulldb-adapter', '~> 0.6'
+gem 'activerecord-nulldb-adapter', git: 'https://github.com/hmcts/nulldb.git', ref: '61af6221df8cbd20441a03425a8962993c024a53'
 
 # Use dotenv for convenience in all environments
 gem 'dotenv-rails', '~> 2.7'
