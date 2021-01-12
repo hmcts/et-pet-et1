@@ -81,7 +81,7 @@ group :production do
 end
 
 group :production, :test do
-  gem 'sentry-raven', '~> 3.0'
+  gem 'sentry-raven', '~> 3.1'
 end
 
 gem 'activeadmin', '~> 2.9'
