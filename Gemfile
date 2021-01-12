@@ -45,7 +45,7 @@ gem 'dotenv-rails', '~> 2.7'
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
   gem 'better_errors', '~> 2.9'
-  gem 'binding_of_caller', '~> 0.8'
+  gem 'binding_of_caller', '~> 1.0'
   gem 'capybara', '~> 3.22'
   gem 'factory_bot_rails', '~> 6.0'
   gem 'guard-livereload', '~> 2.5'
