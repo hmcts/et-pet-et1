@@ -9,6 +9,11 @@ describe "claim_reviews/show.html.slim" do
 
     let(:null_object) { NullObject.new }
     before do
+      view.singleton_class.class_eval do
+        def claim_path_for(*)
+          '/anything'
+        end
+      end
       render template: "claim_reviews/show", locals: {
         claim: claim,
         primary_claimant: claim.primary_claimant || null_object,

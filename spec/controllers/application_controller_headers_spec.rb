@@ -16,7 +16,7 @@ RSpec.describe ApplicationController do
   describe "response headers before action" do
     it "sets Cache-Control" do
       expect(header["Cache-Control"]).
-        to include "no-cache, no-store"
+        to include "no-store"
     end
 
     it "sets Pragma" do
