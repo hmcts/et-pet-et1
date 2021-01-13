@@ -36,7 +36,7 @@ class AdditionalClaimantsCsv::Validator < AdditionalClaimantsCsv::BaseCsv
   end
 
   def validate_headers(headers)
-    raise CSV::MalformedCSVError unless headers == CSV_HEADERS
+    raise CSV::MalformedCSVError.new "invalid csv", __LINE__  unless headers == CSV_HEADERS
   end
 
   def humanized_errors(row_headers, row_errors)
