@@ -23,14 +23,11 @@ services:
       AWS_SECRET_ACCESS_KEY: anything
       SERVICE_NOW_EMAIL: fake@servicenow.fake.com
     volumes:
-      - rubygems_cache:/rubygems
-      - npm_cache:/app/node_modules
-    command: /bin/bash -c "bundle && npm install && bundle exec rake db:create db:migrate assets:precompile rspec"
+      - rvm_cache:/home/app/.rvm
   db:
     image: postgres:9.6
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
 volumes:
-  rubygems_cache:
-  npm_cache:
+  rvm_cache:
 
