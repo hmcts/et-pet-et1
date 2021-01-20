@@ -643,15 +643,71 @@ en:
     employment:
       header: Employment details
       situation_legend: Your employment details
-      current_situation: What is your current work situation in relation to the employer you're making a claim against?
-      start_date: Employment start date
-      end_date: Employment end date
-      worked_notice_period_or_paid_in_lieu: Did you work (or get paid for) a period of notice?
-      new_job_start_date: New job start date
-      notice_period_end_date: Notice period end date
+      current_situation:
+        label: What is your current work situation in relation to the employer you're making a claim against?
+        options:
+          still_employed: Still working for this employer
+          notice_period: Working a notice period for this employer
+          employment_terminated: No longer working for this employer
+      job_title:
+        label: Job title
+        hint: The job you were doing at the time of the problem at work
+      start_date:
+        label: Employment start date
+        hint: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
+      end_date:
+        label: Employment end date
+        hint: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
+      worked_notice_period_or_paid_in_lieu:
+        label: Did you work (or get paid for) a period of notice?
+      new_job_start_date:
+        label: New job start date
+        hint: For example, 22 04 2014
+      notice_period_end_date:
+        label: Notice period end date
+        hint: The date your employment ends. For example, 22 04 2014
+      notice_pay_period_count:
+        label: For how many weeks or months did you get paid?
+      notice_pay_period_type:
+        options:
+          weeks: Weeks
+          months: Months
+      average_hours_worked_per_week:
+        label: Average hours worked per week
+        hint: Don’t include overtime
+      gross_pay:
+        label: Pay before tax
+        hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
+      gross_pay_period_type:
+        options:
+          weekly: Weekly
+          monthly: Monthly
+      net_pay:
+        label: Pay after tax
+        hint: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
+      net_pay_period_type:
+        options:
+          weekly: Weekly
+          monthly: Monthly
+      enrolled_in_pension_scheme:
+        label: Are – or were – you a member of your employer’s pension scheme?
+      benefit_details:
+        label: Do – or did – you have any benefits, like a company car?
+        hint: Details of benefit(s)
+      found_new_job:
+        label: Have you got a new job?
+      new_job_gross_pay:
+        label: New job pay before tax
+        hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
+      new_job_pay_frequency:
+        options:
+          weekly: Weekly
+          monthly: Monthly
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job
+      was_employed:
+        label: Have you ever been employed by the person or organisation that you’re making this claim against?
       'true': 'Yes'
       'false': 'No'
       'true_v2': 'Yes'
