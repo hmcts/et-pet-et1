@@ -53,26 +53,6 @@ en:
 
       additional_respondents:
         collection: :"simple_form.options.respondent"
-
-      employment:
-        current_situation:
-          still_employed: Still working for this employer
-          notice_period: Working a notice period for this employer
-          employment_terminated: No longer working for this employer
-        notice_pay_period_type:
-          weeks: Weeks
-          months: Months
-        gross_pay_period_type:
-          weekly: Weekly
-          monthly: Monthly
-        net_pay_period_type:
-          weekly: Weekly
-          monthly: Monthly
-        new_job_gross_pay_frequency:
-          weekly: Weekly
-          monthly: Monthly
-
-
       claim:
         desired_outcomes:
           compensation_only: Compensation
