@@ -46,7 +46,7 @@ module ClaimReviewsHelper
       claims << I18n.t("simple_form.labels.claim.is_unfair_dismissal")
     end
 
-    claims.push(*claim.pay_claims.map { |c| I18n.t "simple_form.options.claim_type.pay_claims.#{c}" })
+    claims.push(*claim.pay_claims.map { |c| I18n.t "claims.claim_type.pay_claims.options.#{c}" })
 
     claims.push(*claim.discrimination_claims.map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}" })
 
