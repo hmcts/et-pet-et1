@@ -20,6 +20,7 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_claim_type) { build(:ui_claim_type, :default) }
   let(:ui_claim_details) { build(:ui_claim_details, :test) }
   let(:ui_claim_outcome) { build(:ui_claim_outcome, :default) }
+  let(:ui_more_about_the_claim) { build(:ui_more_about_the_claim, :default) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -291,7 +292,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_details_page.fill_in_all(claim_details: ui_claim_details)
       claim_details_page.save_and_continue
       claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
-      fill_in_addtional_information
+      more_about_the_claim_page.fill_in_all(more_about_the_claim: ui_more_about_the_claim).save_and_continue
 
       expect(page).not_to have_text claim_heading_for(:your_fee)
       expect(page).to have_signout_button
@@ -305,7 +306,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_details_page.fill_in_all(claim_details: ui_claim_details)
       claim_details_page.save_and_continue
       claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
-      fill_in_addtional_information
+      more_about_the_claim_page.fill_in_all(more_about_the_claim: ui_more_about_the_claim).save_and_continue
 
       expect(page).to have_text review_heading_for(:show)
       expect(page).to have_signout_button

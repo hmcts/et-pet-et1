@@ -480,7 +480,15 @@ en:
     notes:
       label: What compensation or other outcome do you want? (optional)
     save_and_continue: Save and continue
-
+  more_about_the_claim:
+    provide_more_information:
+      label: Do you want to provide additional information about your claim? (optional)
+      options:
+        'true': 'Yes'
+        'false': 'No'
+    more_information:
+      label: Enter more detail about your claim.
+    save_and_continue: Save and continue
   components:
     date:
       day: Day

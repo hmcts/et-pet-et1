@@ -141,14 +141,6 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_addtional_information
-    choose 'additional_information_has_miscellaneous_information_true'
-    fill_in 'additional_information_miscellaneous_information',
-      with: 'better late than never'
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_your_fee(options = {})
     if options[:additional_claimants]
       fill_in 'How many in your group want to apply for help with fees?',
@@ -180,7 +172,7 @@ module FormMethods
     claim_details_page.fill_in_all(claim_details: ui_claim_details)
     claim_details_page.save_and_continue
     claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
-    fill_in_addtional_information
+    more_about_the_claim_page.fill_in_all(more_about_the_claim: ui_more_about_the_claim).save_and_continue
   end
 
   def complete_and_submit_claim
