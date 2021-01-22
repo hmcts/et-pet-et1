@@ -25,7 +25,7 @@ describe "claim_reviews/show.html.slim" do
 
     let(:claim) do
       create :claim,
-        is_unfair_dismissal: true, is_protective_award: false,
+        is_unfair_dismissal: true,
         discrimination_claims: [:sex_including_equal_pay, :race, :sexual_orientation],
         pay_claims: [:redundancy, :other], other_claim_details: "yo\r\nyo",
         is_whistleblowing: true, send_claim_to_whistleblowing_entity: false

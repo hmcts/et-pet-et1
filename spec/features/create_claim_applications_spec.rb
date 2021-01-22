@@ -332,6 +332,15 @@ feature 'Claim applications', type: :feature, js: true do
       expect(page).not_to have_session_prompt
     end
 
+    scenario 'attempting a new claim after submission' do
+      complete_a_claim
+      click_button 'Submit claim'
+
+      expect(page).to have_text "Claim submitted"
+      claim_submitted_page.home
+      apply_page.start_a_claim
+      expect(saving_your_claim_page).to be_displayed
+    end
     scenario 'Validating the API calls claimant data' do
       complete_a_claim
       click_button 'Submit claim'

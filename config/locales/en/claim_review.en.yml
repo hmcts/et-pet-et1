@@ -108,7 +108,6 @@ en:
       claim_type:
         types: Type(s)
         is_whistleblowing: Whistleblowing
-        is_protective_award: Protective Award
         send_claim_to_whistleblowing_entity: Send to whistleblowing body
 
       claim_details:

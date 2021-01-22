@@ -95,7 +95,7 @@ class Claim < ApplicationRecord
 
   # @TODO Rename this as it is only to determine the jurisdiction - maybe it should be in a helper as its presentational
   def attracts_higher_fee?
-    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing? || is_protective_award?
+    discrimination_claims.any? || is_unfair_dismissal? || is_whistleblowing?
   end
 
   def finalize!

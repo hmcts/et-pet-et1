@@ -15,19 +15,6 @@ p= t '.claim_type_label'
         p= t '.is_unfair_dismissal.hint'
 
 
-
-= f.govuk_collection_check_boxes :is_protective_award,
-  t('.is_protective_award.options').to_a,
-  :first,
-  :last,
-  label: { text: t('.is_protective_award.label') },
-  hint: ->
-    details
-      summary role="button" aria={ controls: 'details-content-1', expanded: 'true' }
-        span.summary= t '.summary'
-      .panel-indent#details-content-1
-        p= t '.is_protective_award.hint'
-
 = f.govuk_collection_check_boxes :discrimination_claims, t('.discrimination_claims.options').to_a, :first, :last, label: { text: t('.discrimination_claims.label') }
 
 = f.govuk_collection_check_boxes :pay_claims, t('.pay_claims.options').to_a, :first, :last, label: { text: t('.pay_claims.label') }
