@@ -592,6 +592,7 @@ DEPENDENCIES
   simple_form (~> 5.0)
   site_prism (~> 3.7)
   simplecov (~> 0.18.5)
+  site_prism (~> 3.7)
   slim-rails (~> 3.2)
   spring (~> 2.1)
   sprockets (~> 3.7, >= 3.7.2)
