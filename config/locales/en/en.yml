@@ -726,11 +726,6 @@ en:
         hint: Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
         options:
           1: Unfair dismissal (including constructive dismissal)
-      is_protective_award:
-        label: Protective award
-        hint: A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
-        options:
-          1: Protective Award
       summary:  What is this?
       discrimination_claims:
         label: Discrimination
