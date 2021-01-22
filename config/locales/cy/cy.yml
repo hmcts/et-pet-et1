@@ -813,12 +813,6 @@ cy:
         hint: Fe all eich diswyddiad fod yn annheg os nad oes gan eich cyflogwr reswm da dros eich diswyddo neu os nad yw wedi dilyn proses ddisgyblu ffurfiol neu broses ddiswyddo'r cwmni. Diswyddo deongliadol yw pan fyddwch yn cael eich gorfodi i adael eich swydd yn erbyn eich ewyllys oherwydd ymddygiad eich cyflogwr.
         options:
           1: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
-      is_protective_award:
-        label: "Dyfarniad Gwarchodol"
-        hint: Dyfarniad gwarchodol yw taliad a gaiff bob unigolyn a gafodd ei ddiswyddo mewn ymarfer dileu swydd pan fydd y cyflogwr wedi methu â hysbysu ac ymgynghori'n briodol ynghylch 20 neu fwy o ddiswyddiadau mewn cyfnod o 90 diwrnod
-        options:
-          1: "Dyfarniad Gwarchodol"
-      unfair_dismissal: Diswyddo annheg
       summary:  "Beth yw hyn?"
       discrimination_claims:
         label: Gwahaniaethu
