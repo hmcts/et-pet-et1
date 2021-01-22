@@ -76,8 +76,9 @@ RSpec.describe EmploymentForm, type: :form do
     context 'end date before start date' do
 
       it 'rejects when end_date is before start_date' do
-        employment_form.send(:"#{:start_date}=", {day: '1', month: '1', year: '2015'})
-        employment_form.send(:"#{:end_date}=", {day: '1', month: '1', year: '2014'})
+        employment_form.start_date = '1/1/2015'
+        employment_form.end_date = '1/1/2014'
+
         employment_form.valid?
         expect(employment_form.errors.details[:end_date]).to include(error: :end_date_before_start_date)
       end
