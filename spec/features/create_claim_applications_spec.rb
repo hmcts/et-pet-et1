@@ -16,6 +16,7 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_representative) { build(:ui_representative, :default) }
   let(:ui_respondent) { build(:ui_respondent, :default) }
   let(:ui_secondary_respondents) { [] }
+  let(:ui_employment) { build(:ui_employment, :default) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run

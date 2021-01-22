@@ -379,6 +379,69 @@ en:
         'true': 'Yes'
         'false': 'No'
     save_and_continue: Save and continue
+  employment:
+    was_employed:
+      label: Have you ever been employed by the person or organisation that you’re making this claim against? (optional)
+      options:
+        'true': 'Yes'
+        'false': 'No'
+    current_situation:
+      label: What is your current work situation in relation to the employer you're making a claim against?
+      options:
+        still_employed: Still working for this employer
+        notice_period: Working a notice period for this employer
+        employment_terminated: No longer working for this employer
+    job_title:
+      label: Job title (optional)
+    start_date:
+      label: Employment start date
+    notice_period_end_date:
+      label: Notice period end date
+    end_date:
+      label: Employment end date
+    worked_notice_period:
+      label: Did you work (or get paid for) a period of notice?
+      options:
+        'true': 'Yes'
+        'false': 'No'
+    notice_pay_period_count:
+      label: For how many weeks or months did you get paid?
+    notice_pay_period_type:
+      options:
+        weeks: Weeks
+        months: Months
+    average_hours_worked_per_week:
+      label: Average hours worked per week
+    gross_pay:
+      label: Pay before tax
+    gross_pay_period_type:
+      options:
+        weekly: Weekly
+        monthly: Monthly
+    net_pay:
+      label: Pay after tax
+    net_pay_period_type:
+      options:
+        weekly: Weekly
+        monthly: Monthly
+    enrolled_in_pension_scheme:
+      label: Are – or were – you a member of your employer’s pension scheme? (optional)
+    benefit_details:
+      label: Do – or did – you have any benefits, like a company car?
+    found_new_job:
+      label: Have you got a new job? (optional)
+    new_job_start_date:
+      label: New job start date
+    new_job_gross_pay:
+      label: New job pay before tax
+    new_job_gross_pay_period_type:
+      options:
+        weekly: Weekly
+        monthly: Monthly
+    save_and_continue:
+      label: Save and continue
+
+
   components:
     date:
       day: Day

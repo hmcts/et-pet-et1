@@ -114,26 +114,6 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_employment_details
-    choose  'employment_was_employed_true'
-    choose 'employment_current_situation_employment_terminated'
-    fill_in 'Job title', with: 'Super High Powered Exec'
-
-    within '.employment_start_date' do
-      fill_in 'Day',   with: '01'
-      fill_in 'Month', with: '07'
-      fill_in 'Year',  with: '2000'
-    end
-
-    fill_in :employment_average_hours_worked_per_week, with: 37.5
-    fill_in 'Pay before tax', with: 10000
-    choose  'employment_gross_pay_period_type_weekly'
-    fill_in 'Pay after tax', with: 6000
-    choose  'employment_net_pay_period_type_weekly'
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_pre_claim_pages
     start_claim
     saving_your_claim_page.register(email_address: nil, password: 'green')
@@ -147,7 +127,8 @@ module FormMethods
     respondents_details_page.save_and_continue
     additional_respondents_page.fill_in_all(secondary_respondents: ui_secondary_respondents)
     additional_respondents_page.save_and_continue
-    fill_in_employment_details
+    employment_details_page.fill_in_all(employment: ui_employment)
+    employment_details_page.save_and_continue
   end
 
   def fill_in_claim_type_details
@@ -214,7 +195,8 @@ module FormMethods
     respondents_details_page.save_and_continue
     additional_respondents_page.no_secondary_respondents
     additional_respondents_page.save_and_continue
-    fill_in_employment_details
+    employment_details_page.fill_in_all(employment: ui_employment)
+    employment_details_page.save_and_continue
     fill_in_claim_type_details
     fill_in_claim_details
     fill_in_claim_outcome_details
