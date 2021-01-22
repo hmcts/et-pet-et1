@@ -9,7 +9,6 @@ FactoryBot.define do
     state { 'enqueued_for_submission' }
 
     is_unfair_dismissal { true }
-    is_protective_award { false }
 
     claim_details_rtf do
       Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'

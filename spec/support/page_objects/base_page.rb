@@ -19,6 +19,7 @@ module ET1
       element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false
       element :google_tag_manager_body_noscript, :xpath, XPath.generate {|x| x.css('body noscript')[x.child(:iframe)[x.attr(:src).contains('googletagmanager')]]}
       section :sidebar, ET1::Test::SidebarSection, :css, 'aside[role=complementary]'
+      element :home_link_element, :link, 'Employment Tribunals'
       def has_google_tag_manager_sections_for?(account)
         google_tag_manager_head_script.native.inner_html.include?(account) &&
           google_tag_manager_body_noscript.native.inner_html.include?(account)
@@ -40,6 +41,10 @@ module ET1
 
       def assert_claim_retrieved_success
         assert_selector :css, '#flash-summary', text: t('return_to_your_claim.success_message')
+      end
+
+      def home
+        home_link_element.click
       end
     end
   end

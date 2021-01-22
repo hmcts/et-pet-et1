@@ -106,7 +106,6 @@ cy:
       claim_type:
         types: Math(au)
         is_whistleblowing: Chwythu'r chwiban
-        is_protective_award: "Dyfarniad Gwarchodol"
         send_claim_to_whistleblowing_entity: Anfon i gorff chwythu'r chwiban
 
       claim_details:

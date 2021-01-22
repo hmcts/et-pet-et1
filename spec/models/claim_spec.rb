@@ -156,11 +156,6 @@ RSpec.describe Claim, type: [:claim, :model] do
       it { expect(claim.attracts_higher_fee?).to be true }
     end
 
-    context 'when there is a protective award claim' do
-      before { claim_enqueued.is_protective_award = true }
-      it { expect(claim_enqueued.attracts_higher_fee?).to be true }
-    end
-
     context 'when claim is whistleblowing' do
       before { claim.is_whistleblowing = true }
       it { expect(claim.attracts_higher_fee?).to be true }
@@ -188,15 +183,6 @@ RSpec.describe Claim, type: [:claim, :model] do
       before do
         claim.is_unfair_dismissal = true
         claim.is_whistleblowing = true
-      end
-
-      it { expect(claim.attracts_higher_fee?).to be true }
-    end
-
-    context 'when there are claims of both unfair dismissal and protective award' do
-      before do
-        claim.is_unfair_dismissal = true
-        claim.is_protective_award = true
       end
 
       it { expect(claim.attracts_higher_fee?).to be true }

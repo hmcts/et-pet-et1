@@ -2,6 +2,7 @@ class ClaimsController < ApplicationController
   redispatch_request unless: :created?, only: [:show, :update]
 
   before_action :check_session_expiry, only: [:show, :update]
+  before_action :sign_out_user, only: [:new]
 
   def new
     @claim = Claim.new
@@ -43,6 +44,10 @@ class ClaimsController < ApplicationController
 
   def current_step
     params[:page].underscore
+  end
+
+  def sign_out_user
+    sign_out(:user)
   end
 
   helper_method :page_manager, :resource, :current_step
