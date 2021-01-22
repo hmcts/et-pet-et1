@@ -14,9 +14,6 @@ module ET1
         expect(page).not_to have_text("Unfair dismissal (including constructive dismissal) (optional)", wait: false)
         expect(page).to have_text("Unfair dismissal (including constructive dismissal)")
 
-        expect(page).not_to have_text("Protective Award (optional)", wait: false)
-        expect(page).to have_text("Protective Award")
-
         expect(page).not_to have_text("Other type of claim (optional)", wait: false)
         expect(page).to have_text("Other type of claim")
 
