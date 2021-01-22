@@ -186,7 +186,8 @@ module FormMethods
     employment_details_page.save_and_continue
     about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
     about_the_claim_page.save_and_continue
-    fill_in_claim_details
+    claim_details_page.fill_in_all(claim_details: ui_claim_details)
+    claim_details_page.save_and_continue
     fill_in_claim_outcome_details
     fill_in_addtional_information
   end
