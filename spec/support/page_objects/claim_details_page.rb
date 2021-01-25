@@ -9,7 +9,7 @@ module ET1
       def fill_in_all(claim_details:)
         claim_details_question.set(claim_details.text)
         ensure_file_question_is_visible unless claim_details.rtf_file_path.nil?
-        claim_details_file_question.set(claim_details.rtf_file_path)
+        claim_details_file_question.set(claim_details.rtf_file_path) unless claim_details.rtf_file_path.nil?
         other_known_claimants_question.set(claim_details.other_known_claimants)
         other_known_claimant_names_question.set(claim_details.other_known_claimant_names)
         self
