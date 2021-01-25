@@ -378,6 +378,35 @@ en:
       options:
         'true': 'Yes'
         'false': 'No'
+    unfair_dismissal:
+      label: Unfair dismissal
+      options:
+        is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
+    discrimination:
+      label: Discrimination
+      options:
+        sex_including_equal_pay: Sex (including equal pay)
+        disability: Disability
+        race: Race
+        age: Age
+        pregnancy_or_maternity: Pregnancy or maternity
+        religion_or_belief: Religion or belief
+        marriage_or_civil_partnership: Marriage or civil partnership
+        gender_reassignment: Gender reassignment
+    pay:
+      label: Pay
+      options:
+        redundancy: Redundancy pay
+        notice: Notice pay
+        holiday: Holiday pay
+        arrears: Arrears of pay
+        other: Other payments
+    other:
+      label: Other type of claim (not shown above)
+      options:
+        other_type_of_claim: Other type of claim
+    claim_type_other_details:
+      label: State the other type of claim(s) that you’re making
     save_and_continue: Save and continue
   employment:
     was_employed:

@@ -17,6 +17,8 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_respondent) { build(:ui_respondent, :default) }
   let(:ui_secondary_respondents) { [] }
   let(:ui_employment) { build(:ui_employment, :default) }
+  let(:ui_claim_type) { build(:ui_claim_type, :default) }
+  let(:ui_claim_details) { build(:ui_claim_details, :test) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -244,7 +246,9 @@ feature 'Claim applications', type: :feature, js: true do
 
       fill_in_pre_claim_pages
 
-      fill_in_claim_type_details
+      about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+      about_the_claim_page.save_and_continue
+
 
       expect(page).to have_text page_number(9)
       expect(page).to have_text claim_heading_for(:claim_details)
@@ -254,8 +258,10 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering claim details' do
       fill_in_pre_claim_pages
-      fill_in_claim_type_details
-      fill_in_claim_details
+      about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+      about_the_claim_page.save_and_continue
+      claim_details_page.fill_in_all(claim_details: ui_claim_details)
+      claim_details_page.save_and_continue
 
       expect(page).to have_text page_number(10)
       expect(page).to have_text claim_heading_for(:claim_outcome)
@@ -265,8 +271,10 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering claim outcome details' do
       fill_in_pre_claim_pages
-      fill_in_claim_type_details
-      fill_in_claim_details
+      about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+      about_the_claim_page.save_and_continue
+      claim_details_page.fill_in_all(claim_details: ui_claim_details)
+      claim_details_page.save_and_continue
       fill_in_claim_outcome_details
 
       expect(page).to have_text page_number(11)
@@ -277,8 +285,10 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering additonal information' do
       fill_in_pre_claim_pages
-      fill_in_claim_type_details
-      fill_in_claim_details
+      about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+      about_the_claim_page.save_and_continue
+      claim_details_page.fill_in_all(claim_details: ui_claim_details)
+      claim_details_page.save_and_continue
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
@@ -289,8 +299,10 @@ feature 'Claim applications', type: :feature, js: true do
 
     scenario 'Entering your fee details' do
       fill_in_pre_claim_pages
-      fill_in_claim_type_details
-      fill_in_claim_details
+      about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+      about_the_claim_page.save_and_continue
+      claim_details_page.fill_in_all(claim_details: ui_claim_details)
+      claim_details_page.save_and_continue
       fill_in_claim_outcome_details
       fill_in_addtional_information
 
