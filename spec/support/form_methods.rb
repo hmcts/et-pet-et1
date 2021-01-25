@@ -132,19 +132,6 @@ module FormMethods
     employment_details_page.save_and_continue
   end
 
-  def fill_in_claim_type_details
-    check "Unfair dismissal (including constructive dismissal)"
-    label = find('label', text: "Sex (including equal pay)")
-    find("##{label['for']}").set true
-    check 'Other type of claim'
-    fill_in :claim_type_other_claim_details,
-      with: 'Boss was a bit of a douchenozzle TBH'
-    choose 'claim_type_is_whistleblowing_true'
-    choose 'claim_type_send_claim_to_whistleblowing_entity_true'
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_claim_details
     fill_in 'claim_details_claim_details',
       with: "Everybody hates me"
@@ -198,8 +185,10 @@ module FormMethods
     additional_respondents_page.save_and_continue
     employment_details_page.fill_in_all(employment: ui_employment)
     employment_details_page.save_and_continue
-    fill_in_claim_type_details
-    fill_in_claim_details
+    about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
+    about_the_claim_page.save_and_continue
+    claim_details_page.fill_in_all(claim_details: ui_claim_details)
+    claim_details_page.save_and_continue
     fill_in_claim_outcome_details
     fill_in_addtional_information
   end

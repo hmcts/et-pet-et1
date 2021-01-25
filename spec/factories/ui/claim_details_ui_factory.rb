@@ -15,5 +15,11 @@ FactoryBot.define do
     trait :default do
       mandatory
     end
+
+    trait :test do
+      text { 'Everybody hates me' }
+      other_known_claimants { :'claim_details.other_known_claimants.options.yes' }
+      other_known_claimant_names { 'Charles, Faz & Stevie' }
+    end
   end
 end

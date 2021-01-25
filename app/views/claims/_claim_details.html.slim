@@ -16,8 +16,7 @@ details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors
 
 = f.govuk_text_area :claim_details, label: { text: t('.claim_details.label') }, hint: { text: t('.claim_details.hint') }, max_chars: 2500, rows: 15
 
-fieldset
-  legend= t '.similar_claims'
+= f.govuk_fieldset label: { text: t('.similar_claims') } do
   = f.govuk_collection_radio_buttons :other_known_claimants, [[true, t('.other_known_claimants.options.true')], [false, t('.other_known_claimants.options.false')]], :first, :last, label: { text: t('.other_known_claimants.label') }, hint: { text: t('.other_known_claimants.hint') }
 
   = f.govuk_text_area :other_known_claimant_names, label: { text: "#{t('.other_known_claimant_names.label')} #{t('shared.optional')}" }, hint: { text: t('.other_known_claimant_names.hint') }, rows: 5, max_chars: 350
