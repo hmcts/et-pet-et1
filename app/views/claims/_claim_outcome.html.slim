@@ -1,4 +1,3 @@
 = f.govuk_fieldset label: { text: t('.claim_outcome') } do
-
   = f.govuk_collection_check_boxes :desired_outcomes, t('.desired_outcomes.options').to_a, :first, :last, label: { text: "#{t('.desired_outcomes.label')} #{t('shared.optional')}" }, hint: { text: t('.desired_outcomes.hint') }
   = f.govuk_text_area :other_outcome, label: { text: "#{t('.other_outcome.label')} #{t('shared.optional')}" }, rows: 10, hint: { text: t('.other_outcome.hint') }
