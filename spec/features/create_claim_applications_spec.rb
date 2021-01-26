@@ -19,6 +19,7 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_employment) { build(:ui_employment, :default) }
   let(:ui_claim_type) { build(:ui_claim_type, :default) }
   let(:ui_claim_details) { build(:ui_claim_details, :test) }
+  let(:ui_claim_outcome) { build(:ui_claim_outcome, :default) }
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
@@ -275,7 +276,7 @@ feature 'Claim applications', type: :feature, js: true do
       about_the_claim_page.save_and_continue
       claim_details_page.fill_in_all(claim_details: ui_claim_details)
       claim_details_page.save_and_continue
-      fill_in_claim_outcome_details
+      claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
 
       expect(page).to have_text page_number(11)
       expect(page).to have_text claim_heading_for(:additional_information)
@@ -289,7 +290,7 @@ feature 'Claim applications', type: :feature, js: true do
       about_the_claim_page.save_and_continue
       claim_details_page.fill_in_all(claim_details: ui_claim_details)
       claim_details_page.save_and_continue
-      fill_in_claim_outcome_details
+      claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
       fill_in_addtional_information
 
       expect(page).not_to have_text claim_heading_for(:your_fee)
@@ -303,7 +304,7 @@ feature 'Claim applications', type: :feature, js: true do
       about_the_claim_page.save_and_continue
       claim_details_page.fill_in_all(claim_details: ui_claim_details)
       claim_details_page.save_and_continue
-      fill_in_claim_outcome_details
+      claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
       fill_in_addtional_information
 
       expect(page).to have_text review_heading_for(:show)

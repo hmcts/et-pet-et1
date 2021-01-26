@@ -141,15 +141,6 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_claim_outcome_details
-    label = find('label', text: "Compensation")
-    find("##{label['for']}").set true
-    fill_in 'What compensation or other outcome do you want? (optional)',
-      with: 'i would like a gold chain'
-
-    click_button 'Save and continue'
-  end
-
   def fill_in_addtional_information
     choose 'additional_information_has_miscellaneous_information_true'
     fill_in 'additional_information_miscellaneous_information',
@@ -188,7 +179,7 @@ module FormMethods
     about_the_claim_page.save_and_continue
     claim_details_page.fill_in_all(claim_details: ui_claim_details)
     claim_details_page.save_and_continue
-    fill_in_claim_outcome_details
+    claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
     fill_in_addtional_information
   end
 

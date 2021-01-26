@@ -469,7 +469,17 @@ en:
         monthly: Monthly
     save_and_continue:
       label: Save and continue
-
+  claim_outcome:
+    what_do_you_want:
+      label: What do you want if your claim is successful? (optional)
+      options:
+        compensation: Compensation
+        recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
+        get_old_job_back: To get your old job back
+        get_another_job: To get another job with the same employer or associated employer
+    notes:
+      label: What compensation or other outcome do you want? (optional)
+    save_and_continue: Save and continue
 
   components:
     date:
