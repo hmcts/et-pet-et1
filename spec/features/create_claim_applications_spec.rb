@@ -52,7 +52,7 @@ feature 'Claim applications', type: :feature, js: true do
     scenario 'Hitting the start page' do
       visit '/'
       expect(apply_page).to be_displayed
-      expect(apply_page).not_to have_signout_button
+      expect(apply_page).not_to have_sign_out_button
       apply_page.assert_no_session_prompt
     end
 
@@ -60,7 +60,7 @@ feature 'Claim applications', type: :feature, js: true do
       start_claim
       expect(saving_your_claim_page).to be_displayed
       expect(page).to have_text before_you_start_message
-      expect(saving_your_claim_page).not_to have_signout_button
+      expect(saving_your_claim_page).not_to have_sign_out_button
       saving_your_claim_page.assert_session_prompt
     end
 
@@ -72,7 +72,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(claim.user.valid_password?('green')).to be true
 
       expect(claimants_details_page).to be_displayed
-      expect(claimants_details_page).to have_signout_button
+      expect(claimants_details_page).to have_sign_out_button
       claimants_details_page.assert_session_prompt
     end
 
@@ -98,7 +98,7 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
       expect(group_claims_page).to be_displayed
-      expect(group_claims_page).to have_signout_button
+      expect(group_claims_page).to have_sign_out_button
       group_claims_page.assert_session_prompt
     end
 
@@ -110,7 +110,7 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       expect(representatives_details_page).to be_displayed
-      expect(representatives_details_page).to have_signout_button
+      expect(representatives_details_page).to have_sign_out_button
       representatives_details_page.assert_session_prompt
     end
 
@@ -122,12 +122,12 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.provide_spreadsheet
 
       expect(group_claims_upload_page).to be_displayed
-      expect(group_claims_upload_page).to have_signout_button
+      expect(group_claims_upload_page).to have_sign_out_button
 
       group_claims_upload_page.switch_to_manual_input
 
       expect(group_claims_page).to be_displayed
-      expect(group_claims_page).to have_signout_button
+      expect(group_claims_page).to have_sign_out_button
       group_claims_page.assert_session_prompt
     end
 
@@ -139,7 +139,7 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.provide_spreadsheet.no_secondary_claimants.save_and_continue
 
       expect(representatives_details_page).to be_displayed
-      expect(representatives_details_page).to have_signout_button
+      expect(representatives_details_page).to have_sign_out_button
       representatives_details_page.assert_session_prompt
     end
 
@@ -154,7 +154,7 @@ feature 'Claim applications', type: :feature, js: true do
       representatives_details_page.save_and_continue
 
       expect(respondents_details_page).to be_displayed
-      expect(respondents_details_page).to have_signout_button
+      expect(respondents_details_page).to have_sign_out_button
       respondents_details_page.assert_session_prompt
     end
 
@@ -189,7 +189,7 @@ feature 'Claim applications', type: :feature, js: true do
       respondents_details_page.save_and_continue
 
       expect(additional_respondents_page).to be_displayed
-      expect(additional_respondents_page).to have_signout_button
+      expect(additional_respondents_page).to have_sign_out_button
       additional_respondents_page.assert_session_prompt
     end
 
@@ -209,7 +209,7 @@ feature 'Claim applications', type: :feature, js: true do
       additional_respondents_page.save_and_continue
 
       expect(employment_details_page).to be_displayed
-      expect(employment_details_page).to have_signout_button
+      expect(employment_details_page).to have_sign_out_button
       employment_details_page.assert_session_prompt
     end
 
@@ -228,7 +228,7 @@ feature 'Claim applications', type: :feature, js: true do
       additional_respondents_page.save_and_continue
 
       expect(employment_details_page).to be_displayed
-      expect(employment_details_page).to have_signout_button
+      expect(employment_details_page).to have_sign_out_button
       employment_details_page.assert_session_prompt
     end
 
@@ -241,7 +241,7 @@ feature 'Claim applications', type: :feature, js: true do
       about_the_claim_page.save_and_continue
 
       expect(claim_details_page).to be_displayed
-      expect(claim_details_page).to have_signout_button
+      expect(claim_details_page).to have_sign_out_button
       claim_details_page.assert_session_prompt
     end
 
@@ -253,7 +253,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_details_page.save_and_continue
 
       expect(claim_outcome_page).to be_displayed
-      expect(claim_outcome_page).to have_signout_button
+      expect(claim_outcome_page).to have_sign_out_button
       claim_outcome_page.assert_session_prompt
     end
 
@@ -266,7 +266,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
 
       expect(more_about_the_claim_page).to be_displayed
-      expect(more_about_the_claim_page).to have_signout_button
+      expect(more_about_the_claim_page).to have_sign_out_button
       more_about_the_claim_page.assert_session_prompt
     end
 
@@ -279,7 +279,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
       more_about_the_claim_page.fill_in_all(more_about_the_claim: ui_more_about_the_claim).save_and_continue
 
-      expect(check_your_claim_page).to have_signout_button
+      expect(check_your_claim_page).to have_sign_out_button
       check_your_claim_page.assert_session_prompt
     end
 
@@ -292,7 +292,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_outcome_page.fill_in_all(claim_outcome: ui_claim_outcome).save_and_continue
       more_about_the_claim_page.fill_in_all(more_about_the_claim: ui_more_about_the_claim).save_and_continue
       expect(check_your_claim_page).to be_displayed
-      expect(check_your_claim_page).to have_signout_button
+      expect(check_your_claim_page).to have_sign_out_button
       check_your_claim_page.assert_session_prompt
     end
 
@@ -300,7 +300,7 @@ feature 'Claim applications', type: :feature, js: true do
       complete_a_claim
 
       expect(check_your_claim_page).to be_displayed
-      expect(check_your_claim_page).to have_signout_button
+      expect(check_your_claim_page).to have_sign_out_button
       check_your_claim_page.assert_session_prompt
     end
 
@@ -327,7 +327,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(claim_submitted_page).to be_displayed
       expect(page).to have_text "Claim submitted"
       expect(page).to have_text "Watford, watfordet@justice.gov.uk, 01923 281 750"
-      expect(claim_submitted_page).not_to have_signout_button
+      expect(claim_submitted_page).not_to have_sign_out_button
       claim_submitted_page.assert_no_session_prompt
     end
 

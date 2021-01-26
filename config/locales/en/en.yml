@@ -240,7 +240,7 @@ en:
       contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       signout: Save and complete later
     feedback_link:
-      feedback_statement_html: <a href="%{path}">Your feedback</a> helps us to improve this service.
+      feedback_statement_html: <a class="govuk-link" href="%{path}">Your feedback</a> helps us to improve this service.
     mobile_nav:
       save_and_complete: Save and complete later
       support: Support
@@ -284,7 +284,7 @@ en:
 
     expired:
       header: Session expired
-      content_html: Your session has expired due to inactivity. <a href="%{new_user_session_path}">Return to your claim</a>.
+      content_html: Your session has expired due to inactivity. <a class="govuk-link" href="%{new_user_session_path}">Return to your claim</a>.
     destroy:
       logout: You have been logged out
 
@@ -330,7 +330,7 @@ en:
       new:
         header: Return to your claim
         subheader: Enter your details below
-        hint_html: Don’t have these details? <a href="%{path}">Start a new claim</a>.
+        hint_html: Don’t have these details? <a class="govuk-link" href="%{path}">Start a new claim</a>.
         forgot_password: "Forgot your memorable word? "
         reset_password: "Click here to reset"
     passwords:
@@ -391,16 +391,16 @@ en:
       are_you_in_time:
         legend: Are you in time?
         body_html: |
-          You usually have to make a claim to the tribunal within 3 months of your employment ending or the problem happening. In exceptional circumstances the tribunal can accept your claim late. If your claim is late, you must explain why - the tribunal will decide if it can still hear your claim. <a href="%{path}#time_limits">Learn about when you can apply</a>.
+          You usually have to make a claim to the tribunal within 3 months of your employment ending or the problem happening. In exceptional circumstances the tribunal can accept your claim late. If your claim is late, you must explain why - the tribunal will decide if it can still hear your claim. <a class="govuk-link" href="%{path}#time_limits">Learn about when you can apply</a>.
       have_you_contacted_acas:
         legend: Have you contacted Acas?
         body_html: |
-          Before making a claim to an employment tribunal you have to contact Acas to use their free <a href="%{path}" rel="external" target="_blank">Early Conciliation service</a>.
+          Before making a claim to an employment tribunal you have to contact Acas to use their free <a class="govuk-link" href="%{path}" rel="external" target="_blank">Early Conciliation service</a>.
       what_you_need_to_know:
         legend: What you’ll need
         body_html: |
           <ul class="govuk-list govuk-list--bullet">
-            <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
+            <li>your <a class="govuk-link" href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
       continue: Start a claim
@@ -456,7 +456,7 @@ en:
       add_fields: Add more claimants
       remove_resource_link: Remove this claimant
       number_claimants_info: For 5 or fewer claimants, enter their details below.
-      csv_upload_text_html: For 6 or more claimants, you can <a href="%{path}">upload their details in a separate spreadsheet</a>.
+      csv_upload_text_html: For 6 or more claimants, you can <a class="govuk-link" href="%{path}">upload their details in a separate spreadsheet</a>.
       of_collection_type:
         label: Are other people making a claim with you (against the same employer or organisation)?
         options:
@@ -476,10 +476,10 @@ en:
       malformatted_csv: The CSV doesn’t appear to be formatted correctly.
       remove_additional_claimants_csv: :"claims.claim_details.remove_claim_details_rtf"
       number_claimants_info: For 6 or more claimants, enter their details below.
-      has_additional_claimants_html: For up to 5 other claimants you can enter their details <a href="%{path}">manually</a>.
+      has_additional_claimants_html: For up to 5 other claimants you can enter their details <a class="govuk-link" href="%{path}">manually</a>.
       step_one_header: Step 1
       download_template_html: |
-        <a href="%{path}" download="group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
+        <a class="govuk-link" href="%{path}" download="group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
       download_template_asset: 'group-claims-template.csv'
       dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
       step_two_header: Step 2
@@ -589,7 +589,7 @@ en:
         label: Postcode
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
-        hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
+        hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a class="govuk-link" href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
       no_acas_number:
         label: I don’t have an Acas number
         options:
@@ -756,7 +756,7 @@ en:
       claim_details_html: |
         Write your claim statement below.
         Include the background, dates and people involved.
-        <a href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
+        <a class="govuk-link" href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
       similar_claims: Similar claims
       'true': 'Yes'
       'false': 'No'

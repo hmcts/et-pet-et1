@@ -177,7 +177,7 @@ module ET1
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
       section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'claimants_details.save_and_continue'
-      element :save_and_complete_later_element, :button_translated, 'claimants_details.save_and_complete_later'
+      element :save_and_complete_later_element, :link_or_button_translated, 'claimants_details.save_and_complete_later'
 
     end
   end

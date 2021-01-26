@@ -318,7 +318,7 @@ cy:
       contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
       signout: Cadw a chwblhau wedyn
     feedback_link:
-      feedback_statement_html: "<a href=\"%{path}\">Bydd eich adborth</a>  yn ein helpu i wella’r gwasanaeth."
+      feedback_statement_html: "<a class='govuk-link' href=\"%{path}\">Bydd eich adborth</a>  yn ein helpu i wella’r gwasanaeth."
     mobile_nav:
       save_and_complete: Cadw a chwblhau wedyn
       support: Cymorth
@@ -363,7 +363,7 @@ cy:
 
     expired:
       header: Mae'r sesiwn wedi dod i ben
-      content_html: "Mae eich sesiwn wedi dod i ben oherwydd anactifedd. <a href=\"%{new_user_session_path}\">Dychwelwch i'ch hawliad</a>."
+      content_html: "Mae eich sesiwn wedi dod i ben oherwydd anactifedd. <a class=\"govuk-link\" href=\"%{new_user_session_path}\">Dychwelwch i'ch hawliad</a>."
     destroy:
       logout: Rydych wedi cael eich allgofnodi
 
@@ -413,7 +413,7 @@ cy:
       new:
         header: Dychwelyd i'ch hawliad
         subheader: Rhowch eich manylion isod
-        hint_html: "Nid yw'r manylion hyn gennych? <a href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+        hint_html: "Nid yw'r manylion hyn gennych? <a class=\"govuk-link\" href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
         forgot_password: "Wedi anghofio eich gair cofiadwy?"
         reset_password: "Cliciwch yma i'w ailosod"
     passwords:
@@ -474,16 +474,16 @@ cy:
       are_you_in_time:
         legend: "Ydych chi o fewn y terfyn amser?"
         body_html: |
-          Fel arfer, mae'n rhaid i chi wneud hawliad i'r tribiwnlys o fewn 3 mis o'ch cyflogaeth yn dod i ben neu o’r dyddiad y bu i’r broblem ddigwydd. Gall y tribiwnlys, o dan amgylchiadau eithriadol, dderbyn eich hawliad os bydd yn cyrraedd yn hwyr. Os bydd eich hawliad yn cyrraedd yn hwyr, rhaid i chi egluro pam a’r tribiwnlys fydd yn penderfynu os oes modd i’r gwrandawiad fynd yn ei flaen. <a href="%{path}#time_limits">Dysgu mwy am pryd allwch wneud cais</a>.
+          Fel arfer, mae'n rhaid i chi wneud hawliad i'r tribiwnlys o fewn 3 mis o'ch cyflogaeth yn dod i ben neu o’r dyddiad y bu i’r broblem ddigwydd. Gall y tribiwnlys, o dan amgylchiadau eithriadol, dderbyn eich hawliad os bydd yn cyrraedd yn hwyr. Os bydd eich hawliad yn cyrraedd yn hwyr, rhaid i chi egluro pam a’r tribiwnlys fydd yn penderfynu os oes modd i’r gwrandawiad fynd yn ei flaen. <a class="govuk-link" href="%{path}#time_limits">Dysgu mwy am pryd allwch wneud cais</a>.
       have_you_contacted_acas:
         legend: "Ydych chi wedi cysylltu ag Acas?"
         body_html: |
-          Cyn gwneud hawliad i dribiwnlys cyflogaeth, mae'n rhaid i chi gysylltu ag Acas i ddefnyddio eu gwasanaeth rhad ac am ddim <a href="%{path}" rel="external" target="_blank">Cymodi Cynnar</a>.
+          Cyn gwneud hawliad i dribiwnlys cyflogaeth, mae'n rhaid i chi gysylltu ag Acas i ddefnyddio eu gwasanaeth rhad ac am ddim <a class="govuk-link" href="%{path}" rel="external" target="_blank">Cymodi Cynnar</a>.
       what_you_need_to_know:
         legend: Beth fydd arnoch ei angen
         body_html: |
           <ul class="govuk-list govuk-list--bullet">
-           <li>eich <a href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
+           <li>eich <a class="govuk-link" href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
            <li>manylion eich hawliad gan gynnwys y cefndir, y dyddiadau a'r unigolion sy'n gysylltiedig â'r hawliad </li>
           </ul>
       continue: Cychwyn hawliad
@@ -547,7 +547,7 @@ cy:
       add_fields: "Ychwanegu mwy o hawlwyr"
       remove_resource_link: Dileu'r hawlydd yma
       number_claimants_info: "Ar gyfer 5 hawlydd neu lai, rhowch eu manylion isod."
-      csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a href=\"%{path}\" >uwchlwytho eu manylion mewn taenlen ar wahân</a>."
+      csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a class=\"govuk-link\" href=\"%{path}\" >uwchlwytho eu manylion mewn taenlen ar wahân</a>."
       of_collection_type:
         label: A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
         options:
@@ -566,10 +566,10 @@ cy:
       malformatted_csv: "Nid yw'r CSV wedi cael ei fformatio'n gywir."
       remove_additional_claimants_csv: ""
       number_claimants_info: "Ar gyfer 6 hawlydd neu fwy, rhowch eu manylion isod."
-      has_additional_claimants_html: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a href=\"%{path}\">â llaw</a>."
+      has_additional_claimants_html: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a class=\"govuk-link\" href=\"%{path}\">â llaw</a>."
       step_one_header: Cam 1
       download_template_html: |
-        <a href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
+        <a class="govuk-link" href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
       download_template_asset: 'group-claims-template-cy.csv'
       dob_info: "Ar gyfer dyddiadau geni, defnyddiwch rifau a/neu lythrennau wedi'u gwahanu gan flaen slaesau. Ee 23/04/1983 neu 23/Ebr/1983"
       step_two_header: Cam 2
@@ -683,7 +683,7 @@ cy:
         label: Cod post
       acas_early_conciliation_certificate_number:
         label: Rhif tystysgrif cymodi cynnar Acas
-        hint: Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
+        hint: Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a class="govuk-link" href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
       no_acas_number:
         label: Nid oes gen i rif Acas
         options:
@@ -843,7 +843,7 @@ cy:
       claim_details_html: |
         Ysgrifennwch ddatganiad i gefnogi eich hawliad isod.
         Dylech gyfeirio at y cefndir, y dyddiadau a'r unigolion a oedd yn gysylltiedig â'r broblem.
-        <a href="%{path}#writing_your_claim_statement">Mwy am ysgrifennu datganiad i gefnogi eich hawliad</a>.
+        <a class="govuk-link" href="%{path}#writing_your_claim_statement">Mwy am ysgrifennu datganiad i gefnogi eich hawliad</a>.
       similar_claims: Hawliadau tebyg
       'true': 'Ydw'
       'false': 'Nac ydw'
@@ -896,9 +896,9 @@ cy:
       application_fee: Ffi
       reduce_fee: "Esemptiad rhag talu ffioedd"
       applying_for_remission_single_html:
-        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
+        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a class=\"govuk-link\" href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
       applying_for_remission_multiple_html:
-        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
+        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a class=\"govuk-link\" href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
       applying_for_remission_multiple_note_html: "Byddwch yn gallu gwneud cais am help i dalu ffioedd pan fyddwch wedi cyflwyno'r hawliad hwn. Bydd angen i bob hawlydd cymwys wneud cais ar wahân o fewn 7 diwrnod iddynt gyflwyno'r hawliad hwn (neu bydd yr hawliad yn cael ei wrthod)."
       remission_applied_info_html:
         "<p>Rydych chi'n gwneud cais am help i dalu ffioedd.</p>\n<p>Mae'n rhaid i chi lenwi a chyflwyno eich cais am help i dalu ffioedd o fewn 7 diwrnod i chi gyflwyno eich hawliad, neu bydd eich cais am help i dalu ffioedd yn cael ei wrthod.</p>\n<p>Ni fydd angen i chi dalu'r ffi cyflwyno pan fyddwch chi'n cyflwyno'r hawliad hwn.</p>"

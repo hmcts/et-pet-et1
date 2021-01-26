@@ -18,6 +18,7 @@
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
 import "./stylesheets/application.scss"
+require("@rails/ujs").start();
 import ClaimantPage from "./pages/claims/ClaimantPage";
 import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
 import RepresentativePage from "./pages/claims/RepresentativePage";

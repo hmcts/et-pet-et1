@@ -1,7 +1,7 @@
 - content_for(:page_title, claim_title)
 
-span.govuk-caption-xl= t('.page_number', current_page: current_page, total_pages: total_pages)
-h1.govuk-heading-xl
+span class="govuk-caption-l govuk-!-margin-top-5"= t('.page_number', current_page: current_page, total_pages: total_pages)
+h1 class="govuk-heading-xl govuk-!-margin-top-3"
   = claim_header
 
 .govuk-grid-row
@@ -11,7 +11,7 @@ h1.govuk-heading-xl
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.govuk_error_summary(t 'shared.error_notification.default_message')
-      .form-fields lang= "#{I18n.locale}"
+      .form-fields
         = render current_step, f: f
       .form-actions
         = f.govuk_submit t('shared.continue_button')

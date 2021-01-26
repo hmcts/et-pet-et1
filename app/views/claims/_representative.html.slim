@@ -1,31 +1,32 @@
 = f.govuk_fieldset label: { text: t('.form_legend') }
-  = f.govuk_collection_radio_buttons :has_representative, [[true, t('.has_representative.options.true')], [false, t('.has_representative.options.false')]], :first, :last, label: {text: "#{t('.has_representative.label')} #{t('shared.optional')}"}
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+  = f.govuk_collection_radio_buttons :has_representative, [[true, t('.has_representative.options.true')], [false, t('.has_representative.options.false')]], :first, :last, label: {text: "#{t('.has_representative.label')} #{t('shared.optional')}", size: 's'}, inline: true
   div data-reveal-on-selector='input[name="representative[has_representative]"]' data-reveal-on-value="true"
-    .clearfix
-      .callout.callout-reference
-        p = t '.contact_info'
+    p.govuk-inset-text = t '.contact_info'
 
     = f.govuk_fieldset label: {text: t('.representative_legend')}
-      = f.govuk_collection_select :type, t('.type.options').to_a, :first, :last, label: {text: t('.type.label')}
-      = f.govuk_text_field :organisation_name, label: {text: "#{t('.organisation_name.label')} #{t('shared.optional')}"}
-      = f.govuk_text_field :name, label: {text: t('.name.label')}
+      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+      = f.govuk_collection_select :type, t('.type.options').to_a, :first, :last, label: {text: t('.type.label'), size: 's'}, html_options: { class: 'govuk-!-width-two-thirds' }
+      = f.govuk_text_field :organisation_name, label: {text: "#{t('.organisation_name.label')} #{t('shared.optional')}", size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :name, label: {text: t('.name.label'), size: 's'}, width: 'two-thirds'
 
 
     = f.govuk_fieldset label: {text: t('.contact_legend')}
-      = f.govuk_text_field :address_building, label: {text: t('.address_building.label')}
-      = f.govuk_text_field :address_street, label: {text: t('.address_street.label')}
-      = f.govuk_text_field :address_locality, label: {text: t('.address_locality.label')}
-      = f.govuk_text_field :address_county, label: {text: t('.address_county.label')}
-      = f.govuk_text_field :address_post_code, label: {text: t('.address_post_code.label')}
-      = f.govuk_phone_field :address_telephone_number, label: {text: "#{t('.address_telephone_number.label')} #{t('shared.optional')}"}
-      = f.govuk_phone_field :mobile_number, label: {text: "#{t('.mobile_number.label')} #{t('shared.optional')}"}
-      = f.govuk_email_field :email_address, label: {text: "#{t('.email_address.label')} #{t('shared.optional')}"}
-      = f.govuk_text_field :dx_number, label: {text: "#{t('.dx_number.label')} #{t('shared.optional')}"}
+      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+      = f.govuk_text_field :address_building, label: {text: t('.address_building.label'), size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :address_street, label: {text: t('.address_street.label'), size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :address_locality, label: {text: t('.address_locality.label'), size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :address_county, label: {text: t('.address_county.label'), size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :address_post_code, label: {text: t('.address_post_code.label'), size: 's'}, width: 'two-thirds'
+      = f.govuk_phone_field :address_telephone_number, label: {text: "#{t('.address_telephone_number.label')} #{t('shared.optional')}", size: 's'}, width: 'two-thirds'
+      = f.govuk_phone_field :mobile_number, label: {text: "#{t('.mobile_number.label')} #{t('shared.optional')}", size: 's'}, width: 'two-thirds'
+      = f.govuk_email_field :email_address, label: {text: "#{t('.email_address.label')} #{t('shared.optional')}", size: 's'}, width: 'two-thirds'
+      = f.govuk_text_field :dx_number, label: {text: "#{t('.dx_number.label')} #{t('shared.optional')}", size: 's'}, width: 'two-thirds'
 
-      details
-        summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
-          span.summary= t '.what_is_dx.detail'
-        .panel-indent#details-content-0
+      details class="govuk-details govuk-!-margin-bottom-9"
+        summary.govuk-details__summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
+          span.govuk-details__summary-text = t '.what_is_dx.detail'
+        .govuk-details__text#details-content-0
           p = t '.what_is_dx.summary'
 - content_for(:javascripts)
   javascript:
