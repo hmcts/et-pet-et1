@@ -20,6 +20,15 @@
           h2 = t '.what_you_need_to_know.legend'
           p = t('.what_you_need_to_know.body_html', path: guide_path)
 
+          h2
+            = "Important Notice"
+          p style="color: red;"
+            = "We are experiencing a technical issue which means no documents can currently be uploaded with your claim."
+            = "If you were planning to submit additional documents with your claim could you please add these comments "
+            strong
+              = "“Unable to attach additional documentation due to technical issue” "
+            = "to the section on page 9 titled Claim details."
+            = "This will make the tribunal aware that there are additional documents for this claim. We apologise for the inconvenience caused."
         .clearfix
           = f.button :submit, { class: 'button' }
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button-return'}
