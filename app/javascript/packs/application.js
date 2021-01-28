@@ -24,6 +24,7 @@ import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
 import RepresentativePage from "./pages/claims/RepresentativePage";
 import RespondentPage from "./pages/claims/RespondentPage";
 import AdditionalRespondentsPage from "./pages/claims/AdditionalRespondentsPage";
+import EmploymentPage from "./pages/claims/EmploymentPage";
 EtGdsDesignSystem.initAll();
 window.Et = {
   pages:{
@@ -32,7 +33,8 @@ window.Et = {
       AdditionalClaimantsPage: AdditionalClaimantsPage,
       RepresentativePage: RepresentativePage,
       RespondentPage: RespondentPage,
-      AdditionalRespondentsPage: AdditionalRespondentsPage
+      AdditionalRespondentsPage: AdditionalRespondentsPage,
+      EmploymentPage: EmploymentPage
     }
   }
 };

@@ -1,39 +1,45 @@
-= f.govuk_fieldset label: {text: t('claims.employment.situation_legend')} do
+= f.govuk_fieldset label: {text: t('claims.employment.situation_legend')}
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   /! Radios: main yes / no
-  = f.govuk_collection_radio_buttons :was_employed, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.was_employed.label')} #{t('shared.optional')}" }
-  /! reveal_current_situation
-  = f.govuk_collection_radio_buttons :current_situation, EmploymentForm::CURRENT_SITUATION.map { |current_situation| [current_situation, t(".current_situation.options.#{current_situation}")]}, :first, :last, label: {text: t('claims.employment.current_situation.label')}
-  /! Employment details
-  = f.govuk_fieldset label: {text: t('claims.employment.employment_details_legend')} do
-    = f.govuk_text_field :job_title, label: {text: "#{t('claims.employment.job_title.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.job_title.hint')}
-    = f.govuk_date_field :start_date, label: {text: t('claims.employment.start_date.label')}, hint: {text: t('claims.employment.start_date.hint')}
-    = f.govuk_date_field :notice_period_end_date, label: {text: t('claims.employment.notice_period_end_date.label')}, hint: {text: t('claims.employment.notice_period_end_date.hint')}
-    = f.govuk_date_field :end_date, label: {text: t('claims.employment.end_date.label')}, hint: {text: t('claims.employment.end_date.hint')}
-    /! Did you work - or get paid for - a period of notice? (optional)
-    /! reveal on option 3
-    = f.govuk_collection_radio_buttons :worked_notice_period_or_paid_in_lieu, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: {text: t('claims.employment.worked_notice_period_or_paid_in_lieu.label')}
-    /! reveal on option yes of the above
-    = f.govuk_text_field :notice_pay_period_count, label: { text: "#{t('claims.employment.notice_pay_period_count.label')} #{t('shared.optional')}"}
-    = f.govuk_collection_radio_buttons :notice_pay_period_type, EmploymentForm::NOTICE_PAY_PERIODS.map { |notice_type| [notice_type, t(".notice_pay_period_type.options.#{notice_type}")]}, :first, :last, label: {text: false}
-    = f.govuk_text_field :average_hours_worked_per_week, label: {text: "#{t('claims.employment.average_hours_worked_per_week.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.average_hours_worked_per_week.hint')}
-    /! Pay, pension and benefits
-    = f.govuk_fieldset label: {text: t('claims.employment.pay_legend')}
-      = f.govuk_text_field :gross_pay, label: {text: "#{t('claims.employment.gross_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.gross_pay.hint')}, prefix_text: "£"
-      = f.govuk_collection_radio_buttons :gross_pay_period_type, EmploymentForm::PAY_PERIODS.map { |pay_type| [pay_type, t(".gross_pay_period_type.options.#{pay_type}")]}, :first, :last, label: {text: false}
+  = f.govuk_collection_radio_buttons :was_employed, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.was_employed.label')} #{t('shared.optional')}", size: 's' }, inline: true
+  div data-reveal-on-selector='input[name="employment[was_employed]"]' data-reveal-on-value='true'
+    /! reveal_current_situation
+    = f.govuk_collection_radio_buttons :current_situation, EmploymentForm::CURRENT_SITUATION.map { |current_situation| [current_situation, t(".current_situation.options.#{current_situation}")]}, :first, :last, label: {text: t('claims.employment.current_situation.label'), size: 's'}
+    /! Employment details
+    = f.revealed_content :current_situation, reveal_on: :still_employed
+      = f.govuk_fieldset label: {text: t('claims.employment.employment_details_legend')} do
+        = f.govuk_text_field :job_title, label: {text: "#{t('claims.employment.job_title.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.job_title.hint')}
+        = f.govuk_date_field :start_date, label: {text: t('claims.employment.start_date.label')}, hint: {text: t('claims.employment.start_date.hint')}
+        = f.govuk_date_field :notice_period_end_date, label: {text: t('claims.employment.notice_period_end_date.label')}, hint: {text: t('claims.employment.notice_period_end_date.hint')}
+        = f.govuk_date_field :end_date, label: {text: t('claims.employment.end_date.label')}, hint: {text: t('claims.employment.end_date.hint')}
+        /! Did you work - or get paid for - a period of notice? (optional)
+        /! reveal on option 3
+        = f.govuk_collection_radio_buttons :worked_notice_period_or_paid_in_lieu, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: {text: t('claims.employment.worked_notice_period_or_paid_in_lieu.label')}
+        /! reveal on option yes of the above
+        = f.govuk_text_field :notice_pay_period_count, label: { text: "#{t('claims.employment.notice_pay_period_count.label')} #{t('shared.optional')}"}
+        = f.govuk_collection_radio_buttons :notice_pay_period_type, EmploymentForm::NOTICE_PAY_PERIODS.map { |notice_type| [notice_type, t(".notice_pay_period_type.options.#{notice_type}")]}, :first, :last, label: {text: false}
+        = f.govuk_text_field :average_hours_worked_per_week, label: {text: "#{t('claims.employment.average_hours_worked_per_week.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.average_hours_worked_per_week.hint')}
+        /! Pay, pension and benefits
+        = f.govuk_fieldset label: {text: t('claims.employment.pay_legend')}
+          = f.govuk_text_field :gross_pay, label: {text: "#{t('claims.employment.gross_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.gross_pay.hint')}, prefix_text: "£"
+          = f.govuk_collection_radio_buttons :gross_pay_period_type, EmploymentForm::PAY_PERIODS.map { |pay_type| [pay_type, t(".gross_pay_period_type.options.#{pay_type}")]}, :first, :last, label: {text: false}
 
-      = f.govuk_text_field :net_pay, label: {text: "#{t('claims.employment.net_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.net_pay.hint')}, prefix_text: "£"
-      = f.govuk_collection_radio_buttons :net_pay_period_type, EmploymentForm::PAY_PERIODS.map { |pay_type| [pay_type, t(".net_pay_period_type.options.#{pay_type}")]}, :first, :last, label: {text: false}
+          = f.govuk_text_field :net_pay, label: {text: "#{t('claims.employment.net_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.net_pay.hint')}, prefix_text: "£"
+          = f.govuk_collection_radio_buttons :net_pay_period_type, EmploymentForm::PAY_PERIODS.map { |pay_type| [pay_type, t(".net_pay_period_type.options.#{pay_type}")]}, :first, :last, label: {text: false}
 
-      = f.govuk_collection_radio_buttons :enrolled_in_pension_scheme, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.enrolled_in_pension_scheme.label')} #{t('shared.optional')}" }
-      = f.govuk_text_area :benefit_details, label: {text: "#{t('claims.employment.benefit_details.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.benefit_details.hint')}
+          = f.govuk_collection_radio_buttons :enrolled_in_pension_scheme, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.enrolled_in_pension_scheme.label')} #{t('shared.optional')}" }
+          = f.govuk_text_area :benefit_details, label: {text: "#{t('claims.employment.benefit_details.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.benefit_details.hint')}
 
-    /! New job fieldset
-    /! reveal on option 3
-    = f.govuk_fieldset label: {text: t('claims.employment.new_job_legend')}
-      = f.govuk_collection_radio_buttons :found_new_job, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.found_new_job.label')} #{t('shared.optional')}" }
+        /! New job fieldset
+        /! reveal on option 3
+        = f.govuk_fieldset label: {text: t('claims.employment.new_job_legend')}
+          = f.govuk_collection_radio_buttons :found_new_job, [[true, t('claims.employment.true')],[false, t('claims.employment.false')]], :first, :last, label: { text: "#{t('claims.employment.found_new_job.label')} #{t('shared.optional')}" }
 
-    /! reveal on option yes of the above
-    =f.govuk_date_field :new_job_start_date, label: {text: t('claims.employment.new_job_start_date.label')}, hint: {text: t('claims.employment.new_job_start_date.hint')}
+        /! reveal on option yes of the above
+        =f.govuk_date_field :new_job_start_date, label: {text: t('claims.employment.new_job_start_date.label')}, hint: {text: t('claims.employment.new_job_start_date.hint')}
 
-    = f.govuk_text_field :new_job_gross_pay, label: {text: "#{t('claims.employment.new_job_gross_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.new_job_gross_pay.hint')}, prefix_text: "£"
-    = f.govuk_collection_radio_buttons :new_job_gross_pay_frequency, EmploymentForm::PAY_PERIODS.map { |pay_period| [pay_period, t(".new_job_pay_frequency.options.#{pay_period}")]}, :first, :last ,label: {text: false}
+        = f.govuk_text_field :new_job_gross_pay, label: {text: "#{t('claims.employment.new_job_gross_pay.label')} #{t('shared.optional')}"}, hint: {text: t('claims.employment.new_job_gross_pay.hint')}, prefix_text: "£"
+        = f.govuk_collection_radio_buttons :new_job_gross_pay_frequency, EmploymentForm::PAY_PERIODS.map { |pay_period| [pay_period, t(".new_job_pay_frequency.options.#{pay_period}")]}, :first, :last ,label: {text: false}
+- content_for(:javascripts)
+javascript:
+  Et.pages.claims.EmploymentPage()
