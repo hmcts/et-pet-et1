@@ -1,5 +1,5 @@
 = f.govuk_fieldset label: { text: t('.subheader') }
-  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   = f.govuk_collection_radio_buttons :has_multiple_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}", size: 's'}, inline: true
   div data-reveal-on-selector='input[name="additional_claimants[has_multiple_claimants]"]' data-reveal-on-value="true"
 
