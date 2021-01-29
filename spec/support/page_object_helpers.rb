@@ -135,6 +135,10 @@ module ET1
         @submission_page ||= SubmissionPage.new
       end
 
+      def review_page
+        @review_page ||= ReviewPage.new
+      end
+
       def claim_submitted_page
         @claim_submitted_page ||= ClaimSubmittedPage.new
       end
