@@ -100,6 +100,10 @@ en:
           name: 'Name'
           acas_number: 'Acas number'
           address: 'Address'
+    email_confirmation:
+      title: 'Email confirmation'
+      email_recipients:
+        label: 'A copy of the completed claim will be sent to:'
   apply:
     start_a_claim: Start a claim
     return_to_a_claim: Return to a claim
