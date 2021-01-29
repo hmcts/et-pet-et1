@@ -309,13 +309,12 @@ feature 'Claim applications', type: :feature, js: true do
       click_button 'Submit claim'
 
       expect(Claim.last.confirmation_email_recipients).
-        to eq [FormMethods::CLAIMANT_EMAIL, FormMethods::REPRESENTATIVE_EMAIL]
+        to eq [FormMethods::REPRESENTATIVE_EMAIL]
     end
 
     scenario 'Deselecting email confirmation recipients before submission' do
       complete_a_claim
-      deselect_claimant_email
-      deselect_representative_email
+      review_page.email_confirmation_section.email_recipients.set([])
       click_button 'Submit claim'
 
       expect(Claim.last.confirmation_email_recipients).to be_empty
