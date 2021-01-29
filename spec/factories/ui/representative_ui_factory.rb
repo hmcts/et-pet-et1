@@ -21,7 +21,7 @@ FactoryBot.define do
       name_of_organisation { "Dodgy Co" }
       phone_or_mobile_number { '01332 111222' }
       alternative_phone_or_mobile_number { '01332 222333' }
-      email_address { 'email@address.com' }
+      email_address { 'rep@example.com' }
       dx_number { '1234567' }
     end
   end

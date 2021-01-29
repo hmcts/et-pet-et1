@@ -31,7 +31,7 @@ FactoryBot.define do
       special_needs { "I need all the documents in braille" }
       phone_or_mobile_number { '01332 111222' }
       alternative_phone_or_mobile_number { '01332 222333' }
-      email_address { 'email@address.com' }
+      email_address { 'barrington@example.com' }
       best_correspondence_method { :'claimants_details.best_correspondence_method.options.email' }
       allow_video_attendance { :'claimants_details.allow_video_attendance.options.yes' }
     end
