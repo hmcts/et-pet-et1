@@ -1,29 +1,27 @@
-h2.legend = t '.claim_type'
+h2.govuk-heading-m = t '.claim_type'
+hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
 
-p= t '.claim_type_label'
+p.govuk-body = t '.claim_type_label'
 
-= f.govuk_collection_check_boxes :is_unfair_dismissal,
-  t('.is_unfair_dismissal.options').to_a,
-  :first,
-  :last,
-  label: { text: t('.is_unfair_dismissal.label') },
+= f.collection_check_boxes :is_unfair_dismissal,
   hint: ->
-    details
-      summary role="button" aria={ controls: 'details-content-0', expanded: 'true' }
-        span.summary= t '.summary'
-      .panel-indent#details-content-0
+    details.govuk-details data-module="govuk-details"
+      summary.govuk-details__summary
+        span.govuk-details__summary-text = t '.summary'
+      .govuk-details__text.panel-indent
         p= t '.is_unfair_dismissal.hint'
 
-
-= f.govuk_collection_check_boxes :discrimination_claims, t('.discrimination_claims.options').to_a, :first, :last, label: { text: t('.discrimination_claims.label') }
-
-= f.govuk_collection_check_boxes :pay_claims, t('.pay_claims.options').to_a, :first, :last, label: { text: t('.pay_claims.label') }
-
-
-= f.govuk_collection_check_boxes :is_other_type_of_claim, t('.is_other_type_of_claim.options').to_a, :first, :last, label: { text: t('.is_other_type_of_claim.label') }, hint: { text: t('.is_other_type_of_claim.hint') }
-
-= f.govuk_text_area :other_claim_details, label: { text: t('.other_claim_details.label') }, hint: { text: t('.other_claim_details.hint') }, rows: 2
+= f.collection_check_boxes :discrimination_claims
+= f.collection_check_boxes :pay_claims
+= f.collection_check_boxes :is_other_type_of_claim
+= f.revealed_content :is_other_type_of_claim, values: [:true], multiple: true, classes: ['govuk-inset-text']
+  = f.text_area :other_claim_details, rows: 2
 
 = f.govuk_fieldset label: { text: t('.is_whistleblowing.heading') }
-  = f.govuk_collection_radio_buttons :is_whistleblowing, t('.is_whistleblowing.options').to_a, :first, :last, label: { text: t('.is_whistleblowing.label') }, hint: { text: t('.is_whistleblowing.hint') }
-  = f.govuk_collection_radio_buttons :send_claim_to_whistleblowing_entity, t('.send_claim_to_whistleblowing_entity.options').to_a, :first, :last, label: { text: t('.send_claim_to_whistleblowing_entity.label') }
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
+  = f.collection_radio_buttons :is_whistleblowing
+  = f.revealed_content :is_whistleblowing, values: [:true], classes: ['govuk-inset-text']
+    = f.collection_radio_buttons :send_claim_to_whistleblowing_entity
+- content_for(:javascripts)
+javascript:
+  Et.pages.claims.ClaimTypePage()

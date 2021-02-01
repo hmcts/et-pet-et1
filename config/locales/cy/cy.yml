@@ -836,7 +836,7 @@ cy:
         label: Math arall o hawliad (na ddangosir uchod)
         hint: Os na allwch weld opsiwn sy'n addas ar gyfer eich hawliad chi neu eich bod eisiau ychwanegu hawliad sydd ddim yn ymddangos yn yr opsiynau uchod.
         options:
-          1: Math arall o hawliad
+          'true': Math arall o hawliad
       other_claim_details:
         label: Nodwch y math arall o hawliad(au) ydych yn gwneud
         hint: Rhowch ddisgrifiad byr iawn o'ch hawliad; cewch gyfle i ychwanegu mwy o fanylion ar y dudalen nesaf

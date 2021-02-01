@@ -748,7 +748,7 @@ en:
         label: Other type of claim (not shown above)
         hint: If you can’t see a good match for your claim or want to add a claim that doesn’t appear in the options above.
         options:
-          1: Other type of claim
+          'true': Other type of claim
       other_claim_details:
         label: State the other type of claim(s) that you’re making
         hint: Give a very short description of your claim; you will have the opportunity to add more detail on the next page
