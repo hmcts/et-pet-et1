@@ -522,7 +522,7 @@ DEPENDENCIES
   dotenv-rails (~> 2.7)
   email_validator (~> 1.6)
   et_azure_insights (= 0.2.14)!
-  factory_bot_rails (~> 6.0)
+  factory_bot_rails (~> 6.1)
   fog-aws (~> 3.0)
   govuk_frontend_toolkit (~> 4.0.0)
   guard-livereload (~> 2.5)
