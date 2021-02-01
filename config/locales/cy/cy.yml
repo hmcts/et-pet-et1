@@ -57,10 +57,6 @@ cy:
 
 
       employment:
-        current_situation:
-          still_employed: "Dal i weithio i'r cyflogwr hwn"
-          notice_period: "Gweithio cyfnod rhybudd i'r cyflogwr hwn"
-          employment_terminated: Dim yn gweithio i'r cyflogwr hwn mwyach
         notice_pay_period_type:
           weeks: Wythnosau
           months: Misoedd
@@ -717,6 +713,10 @@ cy:
       situation_legend: "Eich manylion cyflogaeth"
       current_situation:
         label: "Beth yw eich sefyllfa bresennol yn y gwaith o ran y cyflogwr yr ydych chi'n gwneud hawliad yn ei erbyn?"
+        options:
+          still_employed: "Dal i weithio i'r cyflogwr hwn"
+          notice_period: "Gweithio cyfnod rhybudd i'r cyflogwr hwn"
+          employment_terminated: Dim yn gweithio i'r cyflogwr hwn mwyach
       job_title:
         label: Teitl swydd
         hint: Y swydd yr oeddech yn ei gwneud adeg y broblem yn y gwaith
@@ -728,6 +728,9 @@ cy:
         hint: Er enghraifft, 22 04 2014 (os nad ydych yn gwybod yr union ddyddiad, rhowch eich amcangyfrif gorau)
       worked_notice_period_or_paid_in_lieu:
         label: "A wnaethoch weithio cyfnod rhybudd (neu gael tâl amdano)?"
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
       notice_pay_period_count:
         label: Am faint o wythnosau neu fisoedd gawsoch chi dâl?
       new_job_start_date:
@@ -759,15 +762,25 @@ cy:
           monthly: Misoedd
       enrolled_in_pension_scheme:
         label: Ydych chi - neu oeddech chi - yn aelod o gynllun pensiwn eich cyflogwr?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
       benefit_details:
         label: A oes - neu a oedd - gennych chi unrhyw fuddion, fel car cwmni?
         hint: Manylion budd(ion)
       found_new_job:
         label: Oes gennych chi swydd newydd?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
       new_job_gross_pay:
         label: Tâl y swydd newydd cyn treth
         hint: Hwn yw eich tâl gros, cyn treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Peidiwch â chynnwys unrhyw daliadau goramser
       new_job_pay_frequency:
+        options:
+          weekly: Wythnosau
+          monthly: Misoedd
+      new_job_gross_pay_frequency:
         options:
           weekly: Wythnosau
           monthly: Misoedd
@@ -776,6 +789,9 @@ cy:
       new_job_legend: Swydd newydd
       was_employed:
         label: Ydych chi erioed wedi cael eich cyflogi gan yr unigolyn neu'r sefydliad yr ydych chi'n gwneud yr hawliad hwn yn ei erbyn?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
       'true': 'Do'
       'false': 'Naddo'
       'true_v2': 'Ydw'

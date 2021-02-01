@@ -640,6 +640,9 @@ en:
         hint: For example, 22 04 2014 (if you don’t know the exact date then put your best estimate)
       worked_notice_period_or_paid_in_lieu:
         label: Did you work (or get paid for) a period of notice?
+        options:
+          'true': 'Yes'
+          'false': 'No'
       new_job_start_date:
         label: New job start date
         hint: For example, 22 04 2014
@@ -671,15 +674,25 @@ en:
           monthly: Monthly
       enrolled_in_pension_scheme:
         label: Are – or were – you a member of your employer’s pension scheme?
+        options:
+          'true': 'Yes'
+          'false': 'No'
       benefit_details:
         label: Do – or did – you have any benefits, like a company car?
         hint: Details of benefit(s)
       found_new_job:
         label: Have you got a new job?
+        options:
+          'true': 'Yes'
+          'false': 'No'
       new_job_gross_pay:
         label: New job pay before tax
         hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
       new_job_pay_frequency:
+        options:
+          weekly: Weekly
+          monthly: Monthly
+      new_job_gross_pay_frequency:
         options:
           weekly: Weekly
           monthly: Monthly
@@ -688,6 +701,9 @@ en:
       new_job_legend: New Job
       was_employed:
         label: Have you ever been employed by the person or organisation that you’re making this claim against?
+        options:
+          'true': 'Yes'
+          'false': 'No'
       'true': 'Yes'
       'false': 'No'
       'true_v2': 'Yes'
