@@ -501,10 +501,11 @@ cy:
       what_you_need_to_know:
         legend: Beth fydd arnoch ei angen
         body_html: |
-          <ul>
+          <ul class="govuk-list govuk-list--bullet">
            <li>eich <a href="%{path}#acas_early_conciliation">rhif tystysgrif cymodi cynnar Acas</a></li>
            <li>manylion eich hawliad gan gynnwys y cefndir, y dyddiadau a'r unigolion sy'n gysylltiedig â'r hawliad </li>
           </ul>
+      continue: Cychwyn hawliad
     application_number:
       header: "Cadw eich hawliad"
       application_number: Eich rhif hawliad
