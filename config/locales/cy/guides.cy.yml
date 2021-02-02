@@ -24,8 +24,7 @@ cy:
       address:
         phone: 'Ffôn: 0300 123 1100'
         textphone: 'Ffôn testun: 18001 030 0123 1100'
-        week: 'Dydd Llun i ddydd Gwener, 8am i 8pm'
-        weekend: 'Dydd Sadwrn, 9am i 1pm'
+        week: 'Dydd Llun i ddydd Gwener, 8am i 6pm'
       title_two: Rhif tystysgrif cymodi cynnar
       line_four_html: "Os na all Acas eich helpu i ddod i gytundeb gyda'ch cyflogwr, byddant yn anfon tystysgrif atoch."
       line_five_html: "Bydd y dystysgrif yn cynnwys rhif tystysgrif cymodi cynnar Acas. Bydd arnoch angen y rhif hwn pan fyddwch yn gwneud eich hawliad ar-lein i dribiwnlys cyflogaeth."
