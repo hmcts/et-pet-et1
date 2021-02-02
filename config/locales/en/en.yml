@@ -418,10 +418,11 @@ en:
       what_you_need_to_know:
         legend: What you’ll need
         body_html: |
-          <ul>
+          <ul class="govuk-list govuk-list--bullet">
             <li>your <a href="%{path}#acas_early_conciliation">Acas early conciliation certificate number</a></li>
             <li>details of your claim including the background, dates and people involved</li>
           </ul>
+      continue: Start a claim
     claimant:
       header: Claimant’s details
       gender:
