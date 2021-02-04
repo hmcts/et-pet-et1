@@ -226,6 +226,13 @@ en:
       label: Email address (optional)
     dx_number:
       label: Document exchange (DX) number (optional)
+    best_correspondence_method:
+      label: Best way to send correspondence to your representative
+      options:
+        email: Email
+        post: Post
+        dx_number: DX number
+
   respondents_details:
     save_and_continue: Save and continue
     about_the_respondent_group: About the respondent

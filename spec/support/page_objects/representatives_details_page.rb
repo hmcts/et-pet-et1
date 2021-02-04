@@ -31,6 +31,7 @@ module ET1
           s.alternative_phone_or_mobile_number_question.set(representative.alternative_phone_or_mobile_number)
           s.email_address_question.set(representative.email_address)
           s.dx_number_question.set(representative.dx_number)
+          s.best_correspondence_method_question.set(representative.best_correspondence_method)
         end
       end
 
@@ -78,6 +79,7 @@ module ET1
         section :alternative_phone_or_mobile_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.alternative_phone_or_mobile_number.label'
         section :email_address_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.email_address.label'
         section :dx_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.dx_number.label'
+        section :best_correspondence_method_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'representatives_details.best_correspondence_method.label'
       end
 
       element :save_and_continue_element, :button_translated, "representatives_details.save_and_continue"

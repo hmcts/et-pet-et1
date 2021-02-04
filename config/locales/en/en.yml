@@ -87,6 +87,7 @@ en:
         contact_preference:
           email: Email
           post: Post
+          dx_number: DX number
 
       respondent:
         no_acas_number_reason:
@@ -846,7 +847,7 @@ en:
             address_country:
               blank: You must provide information for this field
             contact_preference:
-              blank: You must provide information for this field
+              blank: Say whether you’d like correspondence to be sent to the representative by post or email
             address_building:
               blank: Enter the building name or number from your representative’s address
             address_street:

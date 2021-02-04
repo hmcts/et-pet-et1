@@ -83,6 +83,7 @@ cy:
         contact_preference:
           email: E-bost
           post: Post
+          dx_number: Rhif cyfnewid dogfennau
 
       respondent:
         no_acas_number_reason:
@@ -939,7 +940,7 @@ cy:
             address_country:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             contact_preference:
-              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+              blank: Nodwch a hoffech i ohebiaeth gael ei hanfon at yr hawlydd trwy'r post, e-bost neu rif DX
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad eich cynrychiolydd
             address_street:
