@@ -37,6 +37,17 @@ fieldset
     = f.input :address_post_code, input_html: { class: 'short-input' }
     = f.input :address_telephone_number, input_html: { class: 'medium-input' }
     = f.input :mobile_number, input_html: { class: 'medium-input' }
+
+    fieldset
+      legend.form-label = t('simple_form.labels.representative.contact_preference')
+      = f.input :contact_preference,
+        label: false,
+        collection: RepresentativeForm::CONTACT_PREFERENCES,
+        as: :radio_buttons,
+        readonly: nil,
+        include_hidden: false,
+        item_wrapper_class: 'block-label'
+
     = f.input :email_address, input_html: { class: 'medium-input' }
     = f.input :dx_number, input_html: { class: 'medium-input' }
 
