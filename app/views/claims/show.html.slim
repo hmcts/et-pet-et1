@@ -14,6 +14,6 @@ h1 class="govuk-heading-xl govuk-!-margin-top-3"
       .form-fields
         = render current_step, f: f
       .form-actions
-        = f.govuk_submit t('shared.continue_button')
+        = f.submit t('shared.continue_button')
 
   = render partial: 'shared/aside'

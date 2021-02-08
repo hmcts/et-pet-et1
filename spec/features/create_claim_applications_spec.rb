@@ -189,7 +189,7 @@ feature 'Claim applications', type: :feature, js: true do
       respondents_details_page.save_and_continue
 
       expect(additional_respondents_page).to be_displayed
-      expect(additional_respondents_page).to have_sign_out_button
+      expect(additional_respondents_page).to have_signout_button
       additional_respondents_page.assert_session_prompt
     end
 
@@ -346,25 +346,25 @@ feature 'Claim applications', type: :feature, js: true do
       expect(a_request(:post, build_claim_url).
         with do |request|
         claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
-        expect(claimant).to include "title" => "Mr",
-                                    "first_name" => "Barrington",
-                                    "last_name" => "Wrigglesworth",
+        expect(claimant).to include "title" => ET1::Test::I18n.t(ui_claimant.title),
+                                    "first_name" => ui_claimant.first_name,
+                                    "last_name" => ui_claimant.last_name,
                                     "address_attributes" => a_hash_including(
-                                      "building" => "1",
-                                      "street" => "High street",
-                                      "locality" => "Anytown",
-                                      "county" => "Anyfordshire",
-                                      "post_code" => "AT1 4PQ",
-                                      "country" => "United Kingdom"
+                                      "building" => ui_claimant.address_building,
+                                      "street" => ui_claimant.address_street,
+                                      "locality" => ui_claimant.address_town,
+                                      "county" => ui_claimant.address_county,
+                                      "post_code" => ui_claimant.address_post_code,
+                                      "country" => ET1::Test::I18n.t(ui_claimant.address_country)
                                     ),
-                                    "address_telephone_number" => "01234567890",
-                                    "mobile_number" => "07956000000",
-                                    "email_address" => "barrington@example.com",
-                                    "contact_preference" => "Email",
-                                    "allow_video_attendance" => true,
-                                    "gender" => "Male",
-                                    "date_of_birth" => "1985-01-15",
-                                    "special_needs" => "I am blind."
+                                    "address_telephone_number" => ui_claimant.phone_or_mobile_number,
+                                    "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
+                                    "email_address" => ui_claimant.email_address,
+                                    "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
+                                    "allow_video_attendance" => ui_claimant.allow_video_attendance.to_s.split('.').last == 'yes',
+                                    "gender" => ET1::Test::I18n.t(ui_claimant.gender),
+                                    "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
+                                    "special_needs" => ui_claimant.special_needs
       end).to have_been_made
     end
 

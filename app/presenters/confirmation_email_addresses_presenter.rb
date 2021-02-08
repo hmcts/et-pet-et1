@@ -13,17 +13,17 @@ class ConfirmationEmailAddressesPresenter
 
   def filter_email_addresses
     [primary_claimant_email, representative_email].
-      reject { |email| email.first.blank? }
+      reject { |email| email.last.blank? }
   end
 
   private
 
   def primary_claimant_email
-    [primary_claimant.email_address, checked: tick_primary_claimant?]
+    [tick_primary_claimant?, primary_claimant.email_address]
   end
 
   def representative_email
-    [representative.try(:email_address), checked: true]
+    [true, representative.try(:email_address)]
   end
 
   def tick_primary_claimant?

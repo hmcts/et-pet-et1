@@ -116,7 +116,7 @@ module ET1
         section :acas_number, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.acas_number.label'
         section :dont_have_acas_number, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.dont_have_acas_number.label'
         section :dont_have_acas_number_reason, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.dont_have_acas_number_reason.label'
-        element :remove_this_claimant_element, :link, t('additional_respondents.remove_this_respondent')
+        element :remove_this_respondent_element, :link, t('additional_respondents.remove_this_respondent')
       end
 
       def add_respondent_section

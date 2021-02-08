@@ -17,7 +17,7 @@ p.govuk-body = t '.claim_type_label'
 = f.revealed_content :is_other_type_of_claim, values: [:true], multiple: true, classes: ['govuk-inset-text']
   = f.text_area :other_claim_details, rows: 2
 
-= f.govuk_fieldset label: { text: t('.is_whistleblowing.heading') }
+= f.fieldset label: t('.is_whistleblowing.heading')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   = f.collection_radio_buttons :is_whistleblowing
   = f.revealed_content :is_whistleblowing, values: [:true], classes: ['govuk-inset-text']

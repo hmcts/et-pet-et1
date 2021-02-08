@@ -1,4 +1,4 @@
-= f.govuk_fieldset label: {text: t('.situation_legend')}
+= f.fieldset label: t('.situation_legend')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   /! Radios: main yes / no
   = f.collection_radio_buttons :was_employed, optional: true, inline: true
@@ -7,7 +7,7 @@
     = f.collection_radio_buttons :current_situation
     /! Employment details
     = f.revealed_content :current_situation, values: [:still_employed, :notice_period, :employment_terminated]
-      = f.govuk_fieldset label: {text: t('.employment_details_legend')} do
+      = f.fieldset label: t('.employment_details_legend') do
         = f.text_field :job_title, optional: true
         = f.date_field :start_date
         = f.revealed_content :current_situation, values: [:notice_period]
@@ -20,19 +20,19 @@
           = f.collection_radio_buttons :notice_pay_period_type, label: false, inline: true
         = f.text_field :average_hours_worked_per_week, required: true
         /! Pay, pension and benefits
-        = f.govuk_fieldset label: {text: t('.pay_legend')}
+        = f.fieldset label: t('.pay_legend')
           = f.text_field :gross_pay, prefix_text: "£", optional: true
           = f.collection_radio_buttons :gross_pay_period_type, label: false, inline: true
 
           = f.text_field :net_pay, prefix_text: "£", optional: true
           = f.collection_radio_buttons :net_pay_period_type, label: false, inline: true
 
-          = f.collection_radio_buttons :enrolled_in_pension_scheme, inline: true
+          = f.collection_radio_buttons :enrolled_in_pension_scheme, inline: true, optional: true
           = f.text_area :benefit_details, optional: true
 
         /! New job fieldset
         /! reveal on option 3
-        = f.govuk_fieldset label: {text: t('.new_job_legend')}
+        = f.fieldset label: t('.new_job_legend')
           = f.collection_radio_buttons :found_new_job, optional: true, inline: true
 
         = f.revealed_content :found_new_job, values: [:true], classes: ['govuk-inset-text']

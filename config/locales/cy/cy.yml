@@ -273,7 +273,6 @@ cy:
       claim_details:
         other_known_claimants: |
           Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
-        other_known_claimant_names: "Cewch ddefnyddio hyd at 350 o nodau."
         claim_details_rtf: |
           Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format
       user_session:
@@ -446,8 +445,10 @@ cy:
           mrs: Mrs
           miss: Miss
           ms: Ms
-      first_name: Enw cyntaf
-      last_name: Enw olaf
+      first_name:
+        label: Enw cyntaf
+      last_name:
+        label: Enw olaf
     address:
       address_building:
         label: Rhif neu enw'r adeilad
@@ -544,14 +545,15 @@ cy:
       remove_resource_link: Dileu'r hawlydd yma
       number_claimants_info: "Ar gyfer 5 hawlydd neu lai, rhowch eu manylion isod."
       csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a class=\"govuk-link\" href=\"%{path}\" >uwchlwytho eu manylion mewn taenlen ar wahân</a>."
-      of_collection_type:
+      has_multiple_claimants:
         label: A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
         options:
           "true": 'Oes'
           "false": 'Nac oes'
     additional_claimants_upload:
-      of_collection_type:
+      has_additional_claimants:
         label: "Ydych chi eisiau uwchlwytho manylion 6 hawlydd neu fwy?"
+        hint: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a class=\"govuk-link\" href=\"%{path}\">â llaw</a>."
         options:
           "true": 'Oes'
           "false": 'Nac oes'
@@ -562,7 +564,6 @@ cy:
       malformatted_csv: "Nid yw'r CSV wedi cael ei fformatio'n gywir."
       remove_additional_claimants_csv: ""
       number_claimants_info: "Ar gyfer 6 hawlydd neu fwy, rhowch eu manylion isod."
-      has_additional_claimants_html: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a class=\"govuk-link\" href=\"%{path}\">â llaw</a>."
       step_one_header: Cam 1
       download_template_html: |
         <a class="govuk-link" href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
@@ -696,7 +697,6 @@ cy:
 
 
     additional_respondents:
-      no_acas_number_reason: "Pam nad oes gennych rif Acas?"
       header: Atebwyr ychwanegol
       person: "Atebydd %{number}"
       add_fields: Ychwanegu atebydd arall
@@ -708,6 +708,36 @@ cy:
         options:
           'true': 'Ydw'
           'false': 'Nac ydw'
+      name:
+        label: Enw'r atebydd
+      address_building:
+        label: Rhif neu enw'r adeilad
+      address_locality:
+        label: Tref/dinas
+      address_street:
+        label: Stryd
+      address_county:
+        label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
+      address_telephone_number:
+        label: Rhif ffôn
+      address_post_code:
+        label: Cod post
+      acas_early_conciliation_certificate_number:
+        label: Rhif tystysgrif cymodi cynnar Acas
+      no_acas_number:
+        label: Nid oes gen i rif Acas
+        options:
+          'true': 'Oeddwn'
+          'false': 'Nac oeddwn'
+      no_acas_number_reason:
+        label: "Pam nad oes gennych rif Acas?"
+        hint: "Noder: Mae’n bosib y bydd eich hawliad yn cael ei wrthod os byddwch yn hawlio esemptiad yn anghywir. Os oes gennych amheuaeth, cysylltwch ag ACAS."
+        options:
+          joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
+          acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan"
+          employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas"
+          interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim."
     employment:
       header: Manylion cyflogaeth
       situation_legend: "Eich manylion cyflogaeth"
@@ -868,7 +898,6 @@ cy:
         hint: Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
       other_known_claimant_names:
         label: "Gallwch ychwanegu enwau unigolion eraill yma."
-        hint: "Cewch ddefnyddio hyd at 350 o nodau."
       claim_details_rtf:
         label: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
         hint: "Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format"
@@ -876,7 +905,6 @@ cy:
         label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
       claim_details:
         label: Disgrifiwch eich hawliad
-        hint: "Cewch ddefnyddio hyd at 2500 o nodau."
     claim_outcome:
       header: Canlyniad yr hawliad
       claim_outcome: Dewiswch y canlyniad(au) a fyddai orau gennych
@@ -903,7 +931,6 @@ cy:
           "false": 'Nac oes'
       miscellaneous_information:
         label: "Rhowch fwy o fanylion am eich hawliad."
-        hint: "Cewch ddefnyddio hyd at 2500 o nodau."
 
     your_fee:
       header: Ffi

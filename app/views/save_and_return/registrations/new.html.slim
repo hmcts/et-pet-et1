@@ -10,8 +10,8 @@ h1.govuk-heading-xl= t("claims.registration.header")
 
     = f.govuk_fieldset label: {text: false} do
       p= t('claims.registration.intro_text')
-      = f.govuk_text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
-      = f.govuk_text_field :password,
+      = f.text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
+      = f.text_field :password,
                 label: {text: t('claims.registration.password.label')},
                 hint: { text: t('claims.registration.password.hint') }
 
@@ -21,5 +21,5 @@ h1.govuk-heading-xl= t("claims.registration.header")
       = t('.print_copy')
     = f.hidden_field :reference
     .form-actions
-      = f.govuk_submit t('shared.continue_button')
+      = f.submit t('shared.continue_button')
   = render partial: 'shared/aside'
