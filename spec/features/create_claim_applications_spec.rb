@@ -189,7 +189,7 @@ feature 'Claim applications', type: :feature, js: true do
       respondents_details_page.save_and_continue
 
       expect(additional_respondents_page).to be_displayed
-      expect(additional_respondents_page).to have_sign_out_button
+      expect(additional_respondents_page).to have_signout_button
       additional_respondents_page.assert_session_prompt
     end
 
