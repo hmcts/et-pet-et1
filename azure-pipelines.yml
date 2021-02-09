@@ -26,7 +26,7 @@ variables:
 jobs:
   - job: TestApplication
     pool:
-      name: hmcts-pet  # name of the pool to run this job in
+      vmImage: 'Ubuntu-16.04'
     steps:
 
     - script: |
@@ -50,7 +50,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
-      name: hmcts-pet  # name of the pool to run this job in
+      vmImage: 'Ubuntu-16.04'
     steps:
     - bash: |
         repo_sha=$(git rev-parse --verify HEAD)
@@ -137,7 +137,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.Reason'], 'Manual'))
     pool:
-      name: hmcts-pet  # name of the pool to run this job in
+      vmImage: 'Ubuntu-16.04'
     steps:
     - bash: |
         repo_sha=$(git rev-parse --verify HEAD)

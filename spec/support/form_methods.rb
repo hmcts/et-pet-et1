@@ -106,6 +106,7 @@ module FormMethods
     fill_in 'Alternative phone',   with: '07956000000'
     fill_in 'Email address', with: REPRESENTATIVE_EMAIL
     fill_in 'Document exchange (DX) number', with: '1'
+    choose 'representative_contact_preference_post'
 
     click_button 'Save and continue'
   end

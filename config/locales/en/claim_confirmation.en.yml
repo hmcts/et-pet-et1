@@ -10,8 +10,6 @@ en:
 
       what_happens_next:
         header: What happens next
-        issue_experiencing: We are currently experiencing issues with the email confirmation service.
-        issue_spam: Please check your spam/junk folder for submission confirmation.
         covid_19: |
           In view of the current situation with COVID-19, updated guidance from HMCTS is available here:
         covid_19_html: |

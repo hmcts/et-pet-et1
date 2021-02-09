@@ -87,6 +87,7 @@ en:
         contact_preference:
           email: Email
           post: Post
+          dx_number: DX number
 
       respondent:
         no_acas_number_reason:
@@ -264,7 +265,6 @@ en:
 
       claim:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
-        is_protective_award: Protective Award
         is_discrimination: Discrimination
         is_pay_related: Pay
         is_other_type_of_claim: Another type of claim
@@ -282,7 +282,6 @@ en:
 
       claim_type:
         is_unfair_dismissal: Unfair dismissal (including constructive dismissal)
-        is_protective_award: Protective Award
         is_other_type_of_claim: Other type of claim
         other_claim_details: State the other type of claim(s) that you’re making
         is_whistleblowing: Are you reporting suspected wrongdoing at work?
@@ -596,7 +595,7 @@ en:
       how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
       no_spaces: Don’t include spaces in the file name.
       step_three_header: Step 3
-      upload_limit: Maximum file size is 2MB.
+      upload_limit: Maximum file size is 5MB.
 
     representative:
       header: Representative’s details
@@ -668,12 +667,9 @@ en:
       claim_type: What your claim is about
       claim_type_label: Select at least one of the claim types below.
       unfair_dismissal: Unfair dismissal
-      protective_award: Protective award
       summary:  What is this?
       unfair_dismissal_summary_detail: |
         Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
-      protective_award_summary_detail: |
-        A protective award is an award of payment to each person dismissed in a redundancy exercise where the employer has failed to inform and consult appropriately about 20 or more dismissals in a 90 day period.
       discrimination: Discrimination
       pay: Pay
       other_type: Other type of claim (not shown above)
@@ -851,7 +847,7 @@ en:
             address_country:
               blank: You must provide information for this field
             contact_preference:
-              blank: You must provide information for this field
+              blank: Say whether you’d like correspondence to be sent to the representative by post or email
             address_building:
               blank: Enter the building name or number from your representative’s address
             address_street:

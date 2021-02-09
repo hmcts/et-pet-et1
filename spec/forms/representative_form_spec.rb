@@ -129,6 +129,34 @@ RSpec.describe RepresentativeForm, type: :form do
         expect(representative_form.errors).not_to include :mobile_number
       end
 
+      describe "presence of email" do
+        describe "when contact_preference != email" do
+          before { representative_form.contact_preference = 'post' }
+
+          it { expect(representative_form).not_to validate_presence_of(:email_address) }
+        end
+
+        describe "when contact_preference == email" do
+          before { representative_form.contact_preference = 'email' }
+
+          it { expect(representative_form).to validate_presence_of(:email_address) }
+        end
+      end
+
+      describe "presence of dx_number" do
+        describe "when contact_preference != dx_number" do
+          before { representative_form.contact_preference = 'post' }
+
+          it { expect(representative_form).not_to validate_presence_of(:dx_number) }
+        end
+
+        describe "when contact_preference == dx_number" do
+          before { representative_form.contact_preference = 'dx_number' }
+
+          it { expect(representative_form).to validate_presence_of(:dx_number) }
+        end
+      end
+
     end
 
     context 'when has_representative? == false' do
@@ -144,13 +172,14 @@ RSpec.describe RepresentativeForm, type: :form do
     subject { representative_form }
 
     it_behaves_like "a Form",
-      name: 'Saul Goodman',
-      organisation_name: 'Better Call Saul',
-      type: 'citizen_advice_bureau', dx_number: '1',
-      address_building: '1', address_street: 'High Street',
-      address_locality: 'Anytown', address_county: 'Anyfordshire',
-      address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
-      has_representative: true
+                    name:               'Saul Goodman',
+                    organisation_name:  'Better Call Saul',
+                    type:               'citizen_advice_bureau', dx_number: '1',
+                    address_building:   '1', address_street: 'High Street',
+                    address_locality:   'Anytown', address_county: 'Anyfordshire',
+                    address_post_code:  'AT1 0AA', email_address: 'lol@example.com',
+                    has_representative: true,
+                    contact_preference: 'email'
 
     describe 'postcode validation' do
       before { representative_form.has_representative = 'true' }
