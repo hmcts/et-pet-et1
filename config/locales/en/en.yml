@@ -825,6 +825,41 @@ en:
         label: Enter more detail about your claim.
         hint: Limit is 2500 characters.
 
+    registration:
+      header: Saving your claim
+      application_number: Your save and return number
+      intro_text: You can save your claim and return to it at any time. You will need your save and return number (above), and memorable word, which you create below.  If you enter your email address you will be able to reset your memorable word if you forget it.
+      email_address:
+        label: Enter your email address to receive your claim number
+      password:
+        label: Create your memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+    session:
+      header: Return to your claim
+      subheader: Enter your details below
+      reference:
+        label: Save and return number
+        hint: This was emailed to you (if you entered your email address)
+      password:
+        label: Memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+    password:
+      new:
+        header: Reset memorable word
+        enter_your_details: Enter your details below
+        email:
+          label: Enter your email address
+          hint: If you entered a valid email address when you started your claim, we will email you with instructions on how to reset your memorable word. If we cannot match your email address or you did not enter a valid email address you will need to start a new claim.
+        reference:
+          label: Save and return number
+          hint: This was emailed to you (if you entered an email address).
+      edit:
+        header: Reset memorable word
+        enter_your_details: Enter your new details below
+        password:
+          label: Memorable word
+          hint: Your new memorable word
+
   activerecord:
     errors:
       models:
