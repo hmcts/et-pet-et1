@@ -86,7 +86,7 @@ cy:
         section_six:
           title: "Sut mae eich data personol yn cael ei storio"
           line_one: "Mae MoJ yn cymryd diogelu data o ddifrif ac yn cymryd pob cam posib i sicrhau bod eich data yn aros yn breifat ac yn ddiogel. Mae’r holl ddata a gesglir gan y gwasanaeth hwn ac sy'n cael ei storio ar ein cronfa ddata diogel yn cael ei gadw o fewn yr Ardal Economaidd Ewropeaidd (EEA)."
-          line_two_html: "Mae'r MoJ yn defnyddio Amazon Web Services (AWS) i storio eich data. Trwy gyflwyno eich data, rydych yn cytuno i <a href='http://aws.amazon.com/service-terms/' title='Delerau ac Amodau AWS' target='_blank'>Delerau ac Amodau AWS</a>."
+          line_two_html: "Mae’r Weinyddiaeth Gyfiawnder (MOJ) yn defnyddio platfform cwmwl Microsoft Azure i storio eich data. Drwy gyflwyno eich gwybodaeth, rydych yn cydsynio i <a href='https://azure.microsoft.com/en-gb/support/legal/' title='Delerau ac Amodau Microsoft Azure' target='_blank'>Delerau ac Amodau Microsoft Azure</a>."
           line_three_html: "Mae'r gwasanaeth hwn yn defnyddio Sendgrid i lwybro negeseuon e-bost. Oherwydd natur fyd-eang isadeiledd y rhyngrwyd, ni allwn warantu y bydd yr wybodaeth sy'n cael ei chynnwys mewn negeseuon e-bost a anfonir o'r gwasanaeth hwn yn cael eu llwybro o fewn yr EEA. Trwy gyflwyno eich gwybodaeth, rydych yn cytuno i <a href='https://sendgrid.com/tos' title='delerau ac amodau Sendgrid' target='_blank'>delerau ac amodau Sendgrid</a>."
           line_four: "Ni fyddwn byth yn rhannu eich data ag unrhyw sefydliad arall at ddibenion marchnata, ymchwil i’r farchnad na masnachol, ac nid ydym yn anfon eich data personol ymlaen i wefannau eraill."
         section_seven:

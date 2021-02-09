@@ -86,7 +86,7 @@ en:
         section_six:
           title: How your personal data is stored
           line_one: MoJ takes data security very seriously and we take every step to ensure that your data remains private and secure. All data collected by this service and stored in our secure database is kept entirely within the European Economic Area (EEA).
-          line_two_html: "MOJ use the Amazon Web Services (AWS) to store your data. By submitting your data, you consent to the <a href='http://aws.amazon.com/service-terms/' title='AWS Terms and Conditions' target='_blank'>AWS Terms and Conditions</a>."
+          line_two_html: "MOJ use the Microsoft Azure cloud platform to store your data. By submitting your information, you consent to the <a href='https://azure.microsoft.com/en-gb/support/legal/' title='Microsoft Azure Terms and Conditions' target='_blank'>Microsoft Azure Terms and Conditions</a>."
           line_three_html: "This service uses Sendgrid to route emails. Because of the global nature of internet infrastructure, we can't guarantee that information contained in emails sent from this service will be routed within the EEA. By submitting your information, you consent to the <a href='https://sendgrid.com/tos' title='Sendgrid terms and conditions' target='_blank'>Sendgrid terms and conditions</a>."
           line_four: "We’ll never share your data with other organisations for their marketing, market research or commercial purposes, and we don’t pass on your personal data to any other websites."
         section_seven:
