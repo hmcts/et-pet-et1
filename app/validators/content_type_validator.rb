@@ -6,7 +6,7 @@ class ContentTypeValidator < ActiveModel::EachValidator
 
     if attachment.present? && options[:in].exclude?(ContentType.of(attachment))
       message = options[:message] || I18n.t('errors.messages.invalid')
-      record.errors[attribute] << message
+      record.errors.add(attribute, message)
     end
   end
 

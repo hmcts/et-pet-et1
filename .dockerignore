@@ -6,3 +6,5 @@ tmp/**/*
 /public/assets
 /public/apply
 /node_modules
+/coverage
+/.bundle

@@ -62,7 +62,7 @@ class CollectionForm < Form
   # @TODO Fix this - every time this gets called, the errors will get duplicated
   def errors
     collection.each_with_object(super) do |resource, errors|
-      errors.add(:collection, resource.errors)
+      errors.add(:collection, resource.errors) unless resource.errors.empty?
     end
   end
 

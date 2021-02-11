@@ -12,7 +12,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
       it 'delivers access details via email' do
         described_class.deliver_later(claim)
 
-        expect { perform_active_jobs(ActionMailer::DeliveryJob) }.
+        expect { perform_active_jobs(ActionMailer::MailDeliveryJob) }.
           to change(ActionMailer::Base.deliveries, :count).by(1)
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
 
       it 'doesnt deliver access details via email' do
         described_class.deliver_later(claim)
-        expect(ActionMailer::DeliveryJob).not_to have_been_enqueued
+        expect(ActionMailer::MailDeliveryJob).not_to have_been_enqueued
       end
     end
   end

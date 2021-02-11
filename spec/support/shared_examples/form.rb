@@ -44,7 +44,7 @@ RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
     context 'when target frozen (destroyed)' do
       before do
         allow(form).to receive(:valid?).and_return true
-        form.target.freeze
+        allow(form.target).to receive(:frozen?).and_return true
       end
 
       it 'does not attempt to update the target' do

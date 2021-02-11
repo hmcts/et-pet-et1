@@ -76,7 +76,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(claim.user.valid_password?('green')).to be true
 
       # Run the active job job
-      perform_active_jobs(ActionMailer::DeliveryJob)
+      perform_active_jobs(ActionMailer::MailDeliveryJob)
 
       mail = ActionMailer::Base.deliveries.last
       expect(mail).to match_pattern claim.reference
