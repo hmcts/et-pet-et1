@@ -7,30 +7,34 @@
         - resource.csv_errors.each do |error|
           p = error
 
-fieldset
-  legend= t '.subheader'
+= f.fieldset label: t('.subheader')
+  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
+  = f.collection_radio_buttons :has_additional_claimants, optional: true, hint: t('.has_additional_claimants.hint', path: claim_additional_claimants_path).html_safe
+  = f.revealed_content :has_additional_claimants, values: [:true]
+    = f.fieldset label: t('.steps_header')
+      hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
 
-  = f.govuk_collection_radio_buttons :has_additional_claimants, [[true, t('.of_collection_type.options.true')], [false, t('.of_collection_type.options.false')]], :first, :last, label: {text: "#{t('.of_collection_type.label')} #{t('shared.optional')}"}, hint: { text: t('.has_additional_claimants_html', path: claim_additional_claimants_path) }
+      .govuk-grid-row
+        .govuk-grid-column-one-quarter
+          p class="govuk-body govuk-!-font-weight-bold" = t ".step_one_header"
+        .govuk-grid-column-three-quarters
+          p.govuk-body = t(".download_template_html", path: asset_url(t('.download_template_asset')))
+          p.govuk-body = t ".dob_info"
 
-  fieldset.multiples.reveal-subscribe data-target="sub1" data-show-array="true"
-    legend= t '.steps_header'
+      .govuk-grid-row
+        .govuk-grid-column-one-quarter
+          p class="govuk-body govuk-!-font-weight-bold" = t ".step_two_header"
+        .govuk-grid-column-three-quarters
+          p.govuk-body = t ".save_csv_format"
+          p.govuk-body = t ".how_to_save"
+          p.govuk-body = t ".no_spaces"
 
-    #step_one.clearfix
-      b = t ".step_one_header"
-      p = t(".download_template_html", path: asset_url(t('.download_template_asset')))
-      p = t ".dob_info"
-
-    #step_two.clearfix
-      b = t ".step_two_header"
-      p = t ".save_csv_format"
-      p = t ".how_to_save"
-      p = t ".no_spaces"
-
-    #step_three.clearfix
-      b = t ".step_three_header"
-
-      = f.govuk_file_field :additional_claimants_csv, label: {text: "#{t('claims.additional_claimants_upload.additional_claimants_csv.label')} #{t('shared.optional')}"}
+      .govuk-grid-row
+        .govuk-grid-column-one-quarter
+          p class="govuk-body govuk-!-font-weight-bold"  = t ".step_three_header"
+        .govuk-grid-column-three-quarters
+          = f.file_field :additional_claimants_csv, optional: true
 
 
-      = f.hidden_field :additional_claimants_csv_cache
-      p.form-hint = t('.upload_limit')
+          = f.hidden_field :additional_claimants_csv_cache
+          p.form-hint = t('.upload_limit')
