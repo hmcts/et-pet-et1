@@ -11,7 +11,7 @@ module ET1
         ensure_file_question_is_visible unless claim_details.rtf_file_path.nil?
         claim_details_file_question.set(claim_details.rtf_file_path) unless claim_details.rtf_file_path.nil?
         other_known_claimants_question.set(claim_details.other_known_claimants)
-        other_known_claimant_names_question.set(claim_details.other_known_claimant_names)
+        other_known_claimant_names_question.set(claim_details.other_known_claimant_names) unless claim_details.other_known_claimants.to_s.split('.').last == 'no'
         self
       end
 

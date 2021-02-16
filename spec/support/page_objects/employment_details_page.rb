@@ -11,11 +11,13 @@ module ET1
         current_situation_question.set(employment.current_situation)
         job_title_question.set(employment.job_title)
         start_date_question.set(employment.start_date)
-        notice_period_end_date_question.set(employment.notice_period_end_date)
-        end_date_question.set(employment.end_date)
+        notice_period_end_date_question.set(employment.notice_period_end_date) if employment.current_situation.to_s.split('.').last == 'notice_period'
+        end_date_question.set(employment.end_date) if employment.current_situation.to_s.split('.').last == 'employment_terminated'
         worked_notice_period_question.set(employment.worked_notice_period)
-        notice_pay_period_count_question.set(employment.notice_pay_period_count)
-        notice_pay_period_type_question.set(employment.notice_pay_period_type)
+        if employment.worked_notice_period.to_s.split('.').last == 'true'
+          notice_pay_period_count_question.set(employment.notice_pay_period_count)
+          notice_pay_period_type_question.set(employment.notice_pay_period_type)
+        end
         hours_worked_per_week_question.set(employment.hours_worked_per_week)
         gross_pay_question.set(employment.gross_pay)
         gross_pay_period_type_question.set(employment.gross_pay_period_type)
@@ -24,9 +26,11 @@ module ET1
         in_pension_scheme_question.set(employment.in_pension_scheme)
         benefits_question.set(employment.benefits)
         found_new_job_question.set(employment.found_new_job)
-        new_job_start_date_question.set(employment.new_job_start_date)
-        new_job_gross_pay_question.set(employment.new_job_gross_pay)
-        new_job_gross_pay_period_type_question.set(employment.new_job_gross_pay_period_type)
+        if employment.found_new_job.to_s.split('.').last == 'true'
+          new_job_start_date_question.set(employment.new_job_start_date)
+          new_job_gross_pay_question.set(employment.new_job_gross_pay)
+          new_job_gross_pay_period_type_question.set(employment.new_job_gross_pay_period_type)
+        end
       end
       # Clicks the save and continue button
       def save_and_continue

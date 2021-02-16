@@ -14,7 +14,7 @@ feature 'Save and Return', js: true do
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_button 'Save and complete later'
+      click_link 'Save and complete later'
     end
 
     click_button 'Sign out now'
@@ -30,7 +30,7 @@ feature 'Save and Return', js: true do
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_button 'Save and complete later'
+      click_link 'Save and complete later'
     end
 
     expect(page).to have_text('Claim saved')
@@ -55,7 +55,7 @@ feature 'Save and Return', js: true do
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_button 'Save and complete later'
+      click_link 'Save and complete later'
     end
 
     expect(page).to have_text(claim_heading_for(:new))
@@ -66,7 +66,7 @@ feature 'Save and Return', js: true do
     saving_your_claim_page.register(password: 'green')
 
     within 'aside' do
-      click_button 'Save and complete later'
+      click_link 'Save and complete later'
     end
 
     expect(page).to have_text('Claim saved')
