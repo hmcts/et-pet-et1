@@ -146,7 +146,7 @@ module ET1
         # @!method country_question
         #   A govukselect component wrapping the select, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKCollectionSelect] The site prism section
-        section :country_question, govuk_component(:collection_select), :govuk_collection_select, :'claimants_details.country.label'
+        section :country_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claimants_details.country.label'
 
         # @!method phone_or_mobile_number_question
         #   A govuk phone field component representing the phone or mobile question
@@ -177,7 +177,7 @@ module ET1
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
       section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'claimants_details.save_and_continue'
-      element :save_and_complete_later_element, :button_translated, 'claimants_details.save_and_complete_later'
+      element :save_and_complete_later_element, :link_or_button_translated, 'claimants_details.save_and_complete_later'
 
     end
   end

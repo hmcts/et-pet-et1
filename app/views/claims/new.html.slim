@@ -2,7 +2,8 @@
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     h1 class="govuk-heading-xl govuk-!-margin-top-9" = t('.header')
-
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     = form_for claim, url: claim_path, builder: EtGdsDesignSystem.form_builder_class do |f|
       = f.govuk_error_summary(t 'shared.error_notification.default_message')
 

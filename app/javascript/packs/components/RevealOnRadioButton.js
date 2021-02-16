@@ -11,7 +11,8 @@ export default function RevealOnRadioButton(node, selector, value) {
       return;
     }
 
-    if(e.target.value === value && e.target.checked) {
+
+    if((e.target.value === value || (Array.isArray(value) && value.indexOf(e.target.value) >= 0)) && e.target.checked) {
       showNode(node);
     } else {
       hideNode(node);

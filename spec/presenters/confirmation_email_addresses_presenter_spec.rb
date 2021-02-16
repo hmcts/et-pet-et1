@@ -16,7 +16,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns one email with the check property set' do
-        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [[true, 'such@lol.biz']]
       end
     end
 
@@ -27,7 +27,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns one email with the check property set' do
-        expect(confirmation_email_address_presenter).to eq [['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [[true, 'edgar@lol.biz']]
       end
     end
 
@@ -38,7 +38,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns two emails with checked properties set' do
-        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: true }], ['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [[true, 'such@lol.biz'], [true, 'edgar@lol.biz']]
       end
     end
 
@@ -49,7 +49,7 @@ RSpec.describe ConfirmationEmailAddressesPresenter, type: :presenter do
       end
 
       it 'returns two emails with only the representative checked property set' do
-        expect(confirmation_email_address_presenter).to eq [['such@lol.biz', { checked: false }], ['edgar@lol.biz', { checked: true }]]
+        expect(confirmation_email_address_presenter).to eq [[false, 'such@lol.biz'], [true, 'edgar@lol.biz']]
       end
     end
 

@@ -1,10 +1,10 @@
 - if claim.submittable?
   = form_for confirmation_email, url: request.url, method: :put, builder: EtGdsDesignSystem.form_builder_class do |f|
-    = f.govuk_fieldset label: { text:  t('.confirmation') }
-      p.form-hint = t '.hint'
-      = f.govuk_collection_check_boxes :email_addresses, email_addresses(claim), :first, :first, label: { text: t('.hint') }
+    = f.fieldset label: t('.confirmation')
+      = f.collection_check_boxes :email_addresses, email_addresses(claim), :first, :last
 
-    = f.govuk_fieldset label: { text:  t('.submit_warning_header') }
-      .panel-indent = t('.submit_warning')
+    = f.fieldset label: t('.submit_warning_header')
+      hr class="govuk-section-break.govuk-section-break--visible"
+      .govuk-inset-text = t('.submit_warning')
 
-      = f.govuk_submit submit_button_text(claim)
+      = f.submit submit_button_text(claim)
