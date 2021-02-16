@@ -8,19 +8,20 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 3504c97401b44626916cdc512d2569f368c8aa2f
+  revision: e1d2396ecd2eb335b00fab1276e31d54f3947d4f
+  tag: v1.0.0
   specs:
-    et_gds_design_system (0.1.0)
+    et_gds_design_system (1.0.0)
       govuk_design_system_formbuilder (~> 2.1)
-      rails (~> 6.0.2, >= 6.0.2.2)
+      rails (>= 6.0)
       webpacker (~> 4.0)
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 8c4a56f8587a3652eeb63e3596bbaa1ded5a5b81
-  tag: v0.1.1
+  revision: 8bd03f71b91d57e8aa113fd2299eb7d79e4675ab
+  tag: v0.1.2
   specs:
-    et_test_helpers (0.1.1)
+    et_test_helpers (0.1.2)
       activesupport (~> 6.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -160,14 +161,14 @@ GEM
     climate_control (0.2.0)
     cliver (0.3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.1.7)
+    concurrent-ruby (1.1.8)
     connection_pool (2.2.3)
     crack (0.4.5)
       rexml
     crass (1.0.6)
-    cuprite (0.10)
+    cuprite (0.11)
       capybara (>= 2.1, < 4)
-      ferrum (~> 0.8.0)
+      ferrum (~> 0.9.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
     database_cleaner-active_record (2.0.0)
@@ -175,8 +176,6 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     debug_inspector (1.0.0)
-    database_cleaner (1.8.5)
-    debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -210,8 +209,8 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    ferrum (0.8)
-      addressable (~> 2.6)
+    ferrum (0.9)
+      addressable (~> 2.5)
       cliver (~> 0.3)
       concurrent-ruby (~> 1.1)
       websocket-driver (>= 0.6, < 0.8)
@@ -238,7 +237,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (2.1.5)
+    govuk_design_system_formbuilder (2.1.8)
       actionview (>= 5.2)
       activemodel (>= 5.2)
       activesupport (>= 5.2)
@@ -351,8 +350,6 @@ GEM
     rack (2.2.3)
     rack-livereload (0.3.17)
       rack
-    rack-protection (2.0.8.1)
-      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -442,15 +439,6 @@ GEM
       ffi (~> 1.9)
     ruby2_keywords (0.0.4)
     rubyzip (2.3.0)
-    safe_yaml (1.0.5)
-    sassc (2.4.0)
-      ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -470,10 +458,6 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
-    site_prism (3.7)
-      addressable (~> 2.5)
-      capybara (~> 3.8)
-      site_prism-all_there (>= 0.3.1, < 1.0)
     simplecov (0.18.5)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -523,13 +507,12 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
-    websocket-driver (0.7.3)
     webpacker (4.3.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
     webrick (1.7.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -568,7 +551,7 @@ DEPENDENCIES
   invisible_captcha (~> 1.1)
   iodine (~> 0.7)
   jbuilder (~> 2.10)
-  jquery-rails (~> 4.3)
+  jquery-rails (~> 4.4)
   launchy
   parallel_tests (~> 3.4)
   pg (~> 1.1)
@@ -591,12 +574,11 @@ DEPENDENCIES
   sidekiq-failures (~> 1.0)
   sidekiq_alive (~> 2.0)
   simple_form (~> 5.0)
-  site_prism (~> 3.7)
   simplecov (~> 0.18.5)
   site_prism (~> 3.7)
   slim-rails (~> 3.2)
   spring (~> 2.1)
-  sprockets (~> 3.7, >= 3.7.2)
+  sprockets (~> 3.7)
   turbolinks (~> 5.2)
   typhoeus (~> 1.4)
   uglifier (~> 4.1)
