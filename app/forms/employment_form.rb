@@ -1,7 +1,5 @@
 class EmploymentForm < Form
   CURRENT_SITUATION  = [:still_employed, :notice_period, :employment_terminated].freeze
-  PAY_PERIODS        = [:weekly, :monthly].freeze
-  NOTICE_PAY_PERIODS = [:weeks, :months].freeze
 
   attribute :average_hours_worked_per_week,        :float
   attribute :benefit_details,                      :string

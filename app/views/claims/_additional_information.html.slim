@@ -1,4 +1,5 @@
-= f.govuk_fieldset label: { text: t('.legend') } do
-
-  = f.govuk_collection_radio_buttons :has_miscellaneous_information, t('.has_miscellaneous_information.options').to_a, :first, :last, label: { text: "#{t('.has_miscellaneous_information.label')} #{t('shared.optional')}" }, hint: { text: t('.has_miscellaneous_information.hint') }
-  = f.govuk_text_area :miscellaneous_information, label: { text: t('.miscellaneous_information.label')}, hint: { text: t('.miscellaneous_information.hint') }, max_chars: 2500, rows: 15
+= f.fieldset label: { text: t('.legend') } do
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
+  = f.collection_radio_buttons :has_miscellaneous_information, optional: true
+  = f.revealed_content :has_miscellaneous_information, values: [:true]
+    = f.text_area :miscellaneous_information, max_chars: 2500, rows: 15
