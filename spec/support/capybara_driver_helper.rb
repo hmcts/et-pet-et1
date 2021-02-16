@@ -1,4 +1,3 @@
-require 'capybara/poltergeist'
 require "capybara/cuprite"
 require 'securerandom'
 Capybara.configure do |config|
