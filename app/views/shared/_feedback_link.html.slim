@@ -1,10 +1,12 @@
 .govuk-phase-banner
-  p.govuk-phase-banner__content
-    strong.govuk-tag.govuk-phase-banner__content__tag beta
-    span
-      = link_to t('.feedback_your'), 'https://www.smartsurvey.co.uk/s/ETFBS20/', class: 'govuk-link', target: '_blank'
-      = " "
-      = t('.feedback_helps_us')
-    span.language-picker
-      =link_to t('switch.language'), locale: t('switch.locale')
-
+  .govuk-grid-row
+    .govuk-grid-column-two-thirds
+      p.govuk-phase-banner__content
+        strong.govuk-tag.govuk-phase-banner__content__tag beta
+        span
+          = link_to t('.feedback_your'), 'https://www.smartsurvey.co.uk/s/ETFBS20/', class: 'govuk-link', target: '_blank'
+          = " "
+          = t('.feedback_helps_us')
+    .govuk-grid-column-one-third
+      span.language-picker
+        =link_to t('switch.language'), { locale: t('switch.locale') }, class: 'govuk-link'

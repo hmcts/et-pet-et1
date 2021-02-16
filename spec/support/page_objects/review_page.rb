@@ -261,7 +261,7 @@ module ET1
         section :email_recipients, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'review.email_confirmation.email_recipients.label'
       end
       def edit_section(section_name)
-        query = XPath.generate { |x| x.descendant(:a)[x.string.n.equals('Edit') & x.parent(:h2)[x.string.n.starts_with(section_name)]] }
+        query = XPath.generate { |x| x.descendant(:a)[x.string.n.equals('Edit') & x.ancestor(:h2)[x.string.n.starts_with(section_name)]] }
         find(:xpath, query).click
       end
     end

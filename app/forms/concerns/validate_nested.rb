@@ -15,7 +15,7 @@ module ValidateNested
     unless valid = record.valid?
       record.errors.each do |attribute, message|
         attribute = normalize_collection_attribute(collection_method, index, attribute)
-        errors[attribute] << message
+        errors.add(attribute, message)
         errors[attribute].uniq!
       end
 

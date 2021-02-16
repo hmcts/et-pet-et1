@@ -1,23 +1,22 @@
-h2.legend= t '.describe'
+h2.govuk-heading-m= t '.describe'
+hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
 
-p= t('.claim_details_html', path: guide_path)
+p.govuk-body = t('.claim_details_html', path: guide_path)
 
-details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
-  summary.govuk-details__summary role='button' aria={ \
-    expanded: "#{resource.claim_form_details_rtf?}",
-    controls: 'details-content-0'}
+details.govuk-details data-module="govuk-details" open=(resource.claim_form_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
+  summary.govuk-details__summary
     span.govuk-details__summary-text= t('.claim_details_upload')
 
-  .panel-indent#details-content-0
-    = f.govuk_file_field :claim_details_rtf, label: { text: t('.claim_details_rtf.label')}, hint: { text: t('.claim_details_rtf.hint') }
+  .govuk-inset-text.govuk-details__text
+    = f.file_field :claim_details_rtf
     - if resource.claim_form_details_rtf?
-      = f.govuk_check_box :remove_claim_details_rtf, true, label: { text: t('.remove_claim_details_rtf.label', file: resource.attachment_filename) }
+      = f.check_box :remove_claim_details_rtf, true, label: { text: t('.remove_claim_details_rtf.label', file: resource.attachment_filename) }
     = f.hidden_field :claim_details_rtf_cache
 
-= f.govuk_text_area :claim_details, label: { text: t('.claim_details.label') }, hint: { text: t('.claim_details.hint') }, max_chars: 2500, rows: 15
+= f.text_area :claim_details, max_chars: 2500, rows: 15
 
-= f.govuk_fieldset label: { text: t('.similar_claims') } do
-  = f.govuk_collection_radio_buttons :other_known_claimants, [[true, t('.other_known_claimants.options.true')], [false, t('.other_known_claimants.options.false')]], :first, :last, label: { text: t('.other_known_claimants.label') }, hint: { text: t('.other_known_claimants.hint') }
-
-  = f.govuk_text_area :other_known_claimant_names, label: { text: "#{t('.other_known_claimant_names.label')} #{t('shared.optional')}" }, hint: { text: t('.other_known_claimant_names.hint') }, rows: 5, max_chars: 350
+= f.fieldset label: t('.similar_claims') do
+  = f.collection_radio_buttons :other_known_claimants, inline: true
+  = f.revealed_content :other_known_claimants, values: [:true]
+    = f.text_area :other_known_claimant_names, optional: true, rows: 5, max_chars: 350
 
