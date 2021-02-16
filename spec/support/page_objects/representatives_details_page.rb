@@ -6,7 +6,7 @@ module ET1
 
       # Fills in the representative's details by answering Yes to the question then filling in the details
       # @param [::ET1::Test::RepresentativeUi] representative The representative
-      def fill_in_all(representative: representative)
+      def fill_in_all(representative:)
         do_you_have_representative_question.set(:'representatives_details.do_you_have_representative.options.yes')
         fill_in_about_your_representative(representative)
         fill_in_representatives_contact_details(representative)
