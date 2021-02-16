@@ -1,8 +1,4 @@
-import RevealOnRadioButton from '../../components/RevealOnRadioButton'
+import { Components } from 'et_gds_design_system';
 export default function ClaimantPage() {
-  document.querySelectorAll('*[data-reveal-on-selector]').forEach(function(node) {
-    const selector = node.attributes['data-reveal-on-selector'].value;
-    const value = node.attributes['data-reveal-on-value'].value;
-    RevealOnRadioButton(node, selector, value);
-  });
+
 };
