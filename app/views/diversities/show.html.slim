@@ -13,6 +13,7 @@
     = form_for resource, url: request.path, multipart: true, builder: EtGdsDesignSystem.form_builder_class do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
+      = f.error_notification
       .form-fields
         = render current_step, f: f
       .form-actions
