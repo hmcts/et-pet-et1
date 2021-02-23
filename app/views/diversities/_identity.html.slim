@@ -1,39 +1,5 @@
-fieldset
-  = f.input :sex,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::SEX,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.sex.hint'), input_html: {class: 'govuk-radios__input'}
+= f.govuk_collection_radio_buttons :sex, Diversities::IdentityForm::SEX.map { |gender_type| [gender_type, t("diversities.diversities_identity.sex.options.#{gender_type}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sex.label')}
+= f.govuk_collection_radio_buttons :gender, Diversities::IdentityForm::GENDER.map { |gender_type| [gender_type, t("diversities.diversities_identity.gender.options.#{gender_type}")]}, :first, :last, label: {text: t('diversities.diversities_identity.gender.label')}
+= f.govuk_collection_radio_buttons :gender_at_birth, Diversities::IdentityForm::GENDER_AT_BIRTH.map { |gender_type| [gender_type, t("diversities.diversities_identity.gender_at_birth.options.#{gender_type}")]}, :first, :last, label: {text: t('diversities.diversities_identity.gender_at_birth.label')}
+= f.govuk_collection_radio_buttons :sexual_identity, Diversities::IdentityForm::SEXUAL_IDENTITY.map { |sexual_identity| [sexual_identity, t("diversities.diversities_identity.sexual_identity.options.#{sexual_identity}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sexual_identity.label')}
 
-fieldset
-  = f.input :gender,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::GENDER,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.gender.hint'), input_html: {class: 'govuk-radios__input'}
-
-fieldset
-  = f.input :gender_at_birth,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::GENDER_AT_BIRTH,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.gender_at_birth.hint'), input_html: {class: 'govuk-radios__input'}
-
-fieldset
-  = f.input :sexual_identity,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::SEXUAL_IDENTITY,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.sexual_identity.hint'), input_html: {class: 'govuk-radios__input'}
