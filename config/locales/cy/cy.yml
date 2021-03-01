@@ -817,6 +817,7 @@ cy:
           attributes:
             title:
               inclusion: "Rhowch deitl yr hawlydd ychwanegol"
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: Rhowch enw cyntaf yr hawlydd ychwanegol
             last_name:

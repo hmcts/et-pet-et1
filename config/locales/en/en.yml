@@ -737,6 +737,7 @@ en:
           attributes:
             title:
               inclusion: Enter the title of the additional claimant
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: Enter the first name of the additional claimant
             last_name:

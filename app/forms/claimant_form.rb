@@ -36,7 +36,7 @@ class ClaimantForm < Form
   validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
 
-  validates :title, inclusion: { in: TITLES }, allow_blank: true
+  validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }

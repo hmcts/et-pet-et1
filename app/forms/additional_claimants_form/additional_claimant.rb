@@ -16,7 +16,7 @@ class AdditionalClaimantsForm
     booleans   :has_special_needs, :has_representative
     validates  :date_of_birth, date: true
 
-    validates :title, inclusion: { in: TITLES }, allow_blank: true
+    validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
     validate :older_then_16
