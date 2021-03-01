@@ -989,8 +989,6 @@ cy:
     claim_type:
       diversities_claim_type:
         claim_type:
-          label: Beth yw natur eich hawliad?
-          hint: Bydd hyn yn ein helpu i ddadansoddi gwybodaeth arall a ddarparwyd ar y ffurflen hon
           options:
             unfair-dismissal-or-constructive-dismissal: "Diswyddo annheg neu ddiswyddo deongliadol"
             discrimination: "Gwahaniaethu"

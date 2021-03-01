@@ -888,8 +888,6 @@ en:
     claim_type:
       diversities_claim_type:
         claim_type:
-          label: What is the type of your claim?
-          hint: This will help us analyse other information provided in this form
           options:
             unfair-dismissal-or-constructive-dismissal: "Unfair dismissal or constructive dismissal"
             discrimination: "Discrimination"
