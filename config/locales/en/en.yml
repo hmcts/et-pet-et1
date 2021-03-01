@@ -884,6 +884,129 @@ en:
         password:
           label: Memorable word
           hint: Your new memorable word
+  diversities:
+    claim_type:
+      diversities_claim_type:
+        claim_type:
+          options:
+            unfair-dismissal-or-constructive-dismissal: "Unfair dismissal or constructive dismissal"
+            discrimination: "Discrimination"
+            redundancy-payment: "Redundancy payment"
+            other-payments-you-are-owed: "Other payments you are owed"
+            other-complaints: "Other complaints"
+    diversities_identity:
+      sex:
+        label: What is your sex?
+        options:
+          male: Male
+          female: Female
+          prefer-not-to-say: Prefer not to say
+      gender:
+        label: What is your gender identity?
+        options:
+          male-including-female-to-male-trans-men: Male (including female-to-male trans men)
+          female-including-male-to-female-trans-women: Female (including male-to-female trans women)
+          prefer-not-to-say: Prefer not to say
+      gender_at_birth:
+        label: Is your gender identity different to the sex you were assumed to be at birth?
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+      sexual_identity:
+        label: Which of the options below best describes your sexual identity?
+        options:
+          heterosexual-straight: Heterosexual / Straight
+          gay-lesbian: Gay / Lesbian
+          bisexual: Bisexual
+          other: Other
+          prefer-not-to-say: Prefer not to say
+    diversities_relationship:
+      relationship:
+        options:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Single, that is, never married and never registered in a same-sex civil partnership
+          married: Married
+          separated-but-still-legally-married: Separated, but still legally married
+          divorced: Divorced
+          widowed: Widowed
+          in-a-registered-same-sex-civil-partnership: In a registered same-sex civil partnership
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Separated, but still legally in a same-sex civil partnership
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Formerly in a same-sex civil partnership which is now legally dissolved
+          surviving-partner-from-a-same-sex-civil-partnership: Surviving partner from a same-sex civil partnership
+          prefer-not-to-say: Prefer not to say
+    diversities_age_caring:
+      age_group:
+        label: Which age group are you in?
+        options:
+          under-25: Under 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 and over
+          prefer-not-to-say: Prefer not to say
+      caring_responsibility:
+        label: Do you have any caring responsibilities?
+        hint: For example, children, elderly relatives or partners
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+    diversities_religion:
+      religion:
+        options:
+          no-religion: No religion
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
+          buddhist: Buddhist
+          hindu: Hindu
+          jewish: Jewish
+          muslim: Muslim
+          sikh: Sikh
+          prefer-not-to-say: Prefer not to say
+          any-other-religion: Any other religion
+      religion_text:
+        hint: Please describe
+    diversities_disability:
+      disability:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+    diversities_pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+    diversities_ethnicity:
+      ethnicity:
+        options:
+          white: White
+          mixed-multiple-ethnic-groups: Mixed / multiple ethnic groups
+          asian-asian-british: Asian / Asian British
+          black-african-caribbean-black-british: Black / African / Caribbean / Black British
+          other-ethnic-group: Other ethnic group
+          prefer-not-to-say: Prefer not to say
+      ethnicity_subgroup:
+          english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
+          irish: Irish
+          gypsy-or-irish-traveller: Gypsy or Irish Traveller
+          any-other-white-background: Any other White background
+          white-and-black-caribbean: White and Black Caribbean
+          white-and-black-african: White and Black African
+          white-and-asian: White and Asian
+          any-other-mixed-multiple-ethnic-background: Any other Mixed / multiple ethnic background
+          none-of-the-above: None of the above
+          indian: Indian
+          pakistani: Pakistani
+          bangladeshi: Bangladeshi
+          chinese: Chinese
+          any-other-asian-background: Any other Asian background
+          african: African
+          caribbean: Caribbean
+          any-other-black-african-caribbean-background: Any other Black / African / Caribbean background
+          arab: Arab
+          any-other-ethnic-group: Any other ethnic group
 
   activerecord:
     errors:
