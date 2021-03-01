@@ -1004,6 +1004,130 @@ cy:
         password:
           label: Gair cofiadwy
           hint: Eich gair cofiadwy newydd
+  diversities:
+    claim_type:
+      diversities_claim_type:
+        claim_type:
+          options:
+            unfair-dismissal-or-constructive-dismissal: "Diswyddo annheg neu ddiswyddo deongliadol"
+            discrimination: "Gwahaniaethu"
+            redundancy-payment: "Taliad dileu swydd"
+            other-payments-you-are-owed: "Taliadau eraill sy'n ddyledus ichi"
+            other-complaints: "Cwynion eraill"
+    diversities_identity:
+      sex:
+        label: Beth yw eich rhyw?
+        options:
+          male: Gwryw
+          female: Benyw
+          prefer_not_to_say: Mae'n well gen i beidio dweud
+      gender:
+        label: Beth yw eich hunaniaeth ryweddol?
+        options:
+          male-including-female-to-male-trans-men: Gwryw (yn cynnwys dynion trawsrywiol benyw i wryw)
+          female-including-male-to-female-trans-women: Benyw (yn cynnwys menywod trawsrywiol gwryw i fenyw)
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      gender_at_birth:
+        label: A yw eich hunaniaeth ryweddol yn wahanol i'ch rhyw tybiedig pan gawsoch eich geni?
+        options:
+          yes_answer: Ydi
+          no_answer: Nac ydi
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      sexual_identity:
+        label: Which of the options below best describes your sexual identity?
+        options:
+          heterosexual-straight: Heterorywiol
+          gay-lesbian: Hoyw / Lesbiaidd
+          bisexual: Deurywiol
+          other: Arall
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+    diversities_relationship:
+      relationship:
+        label:
+        options:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Sengl, hynny yw, heb briodi erioed a heb gofrestru erioed mewn partneriaeth sifil gyfunrywiol
+          married: Priod
+          separated-but-still-legally-married: Wedi gwahanu ond yn parhau i fod yn briod yn ôl y gyfraith
+          divorced: Wedi ysgaru
+          widowed: Gweddw
+          in-a-registered-same-sex-civil-partnership: Mewn partneriaeth sifil gyfunrywiol gofrestredig
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Wedi gwahanu ond yn parhau i fod mewn partneriaeth sifil gyfunrywiol yn ôl y gyfraith
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Yn flaenorol mewn partneriaeth sifil gyfunrywiol sydd yn awr wedi ei diddymu'n gyfreithiol
+          surviving-partner-from-a-same-sex-civil-partnership: Wedi colli partner sifil o’r un rhyw trwy farwolaeth
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+    diversities_age_caring:
+      age_group:
+        label: Ym mha grŵp oedran ydych chi?
+        options:
+          under-25: Dan 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 a throsodd
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      caring_responsibility:
+        label: A oes gennych chi unrhyw gyfrifoldebau gofalu?
+        hint: Er enghraifft, plant, perthnasau neu bartneriaid oedrannus
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+    diversities_religion:
+      religion:
+        options:
+          no-religion: Dim crefydd
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Cristion (yn cynnwys Eglwys Loegr, yr Eglwys Gatholig, Protestannaidd a phob enwad Cristnogol arall)
+          buddhist: Bwdhydd
+          hindu: Hindŵ
+          jewish: Iddew
+          muslim: Mwslim
+          sikh: Sikh
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+          any-other-religion: Unrhyw grefydd arall
+      religion_text:
+        hint: Rhowch ddisgrifiad os gwelwch yn dda
+    diversities_disability:
+      disability:
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+    diversities_pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+    diversities_ethnicity:
+      ethnicity:
+        options:
+          white: Gwyn
+          mixed-multiple-ethnic-groups: Cymysg / grwpiau aml-ethnig
+          asian-asian-british: Asiaidd / Asiaidd Prydeinig
+          black-african-caribbean-black-british: Du / Affricanaidd / Caribïaidd / Du Prydeinig
+          other-ethnic-group: Grŵp ethnig arall
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      ethnicity_subgroup:
+          english-welsh-scottish-northern-irish-british: Seisnig / Cymreig / Albanaidd / Gwyddelig o Ogledd Iwerddon / Prydeinig
+          irish: Gwyddelig
+          gypsy-or-irish-traveller: Sipsiwn neu Deithiwr Gwyddelig
+          any-other-white-background: Unrhyw gefndir Gwyn arall
+          white-and-black-caribbean: Gwyn a Du Caribïaidd
+          white-and-black-african: Gwyn a Du Affricanaidd
+          white-and-asian: Gwyn ac Asiaidd
+          any-other-mixed-multiple-ethnic-background: Unrhyw gefndir ethnig cymysg / aml-ethnig arall
+          none-of-the-above: Dim un o'r uchod
+          indian: Indiaidd
+          pakistani: Pacistanaidd
+          bangladeshi: Bangladesiaidd
+          chinese: Tsieniaidd
+          any-other-asian-background: Unrhyw gefndir Asiaidd arall
+          african: Affricanaidd
+          caribbean: Caribïaidd
+          any-other-black-african-caribbean-background: Unrhyw gefndir Du / Affricanaidd / Caribïaidd arall
+          arab: Arabaidd
+          any-other-ethnic-group: Unrhyw grŵp ethnig arall
 
   activerecord:
     errors:
