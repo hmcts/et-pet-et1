@@ -1,5 +1,5 @@
 class ClaimantForm < Form
-  TITLES               = ['mr', 'mrs', 'miss', 'ms'].freeze
+  TITLES               = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
   GENDERS              = ['male', 'female', 'prefer_not_to_say'].freeze
   CONTACT_PREFERENCES  = ['email', 'post'].freeze
   COUNTRIES            = ['united_kingdom', 'other'].freeze
@@ -32,11 +32,12 @@ class ClaimantForm < Form
   before_validation :reset_special_needs!, unless: :has_special_needs?
   before_validation :clear_email_address, unless: :contact_preference_email?
   before_validation :remove_white_space
+  before_validation :clean_empty_title
 
   validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
 
-  validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true
+  validates :title, ccd_personal_title: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
@@ -78,6 +79,10 @@ class ClaimantForm < Form
 
   def international_address?
     address_country != 'united_kingdom'
+  end
+
+  def clean_empty_title
+    self.title = nil if title == ''
   end
 
   def reset_special_needs!

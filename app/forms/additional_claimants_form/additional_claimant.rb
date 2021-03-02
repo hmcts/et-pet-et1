@@ -1,6 +1,6 @@
 class AdditionalClaimantsForm
   class AdditionalClaimant < CollectionForm::Resource
-    TITLES      = ['mr', 'mrs', 'miss', 'ms'].freeze
+    TITLES      = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
     NAME_LENGTH = 100
 
     include AddressAttributes
@@ -20,5 +20,13 @@ class AdditionalClaimantsForm
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
     validate :older_then_16
+
+    before_validation :clean_empty_title
+
+    private
+
+    def clean_empty_title
+      self.title = nil if title == ''
+    end
   end
 end

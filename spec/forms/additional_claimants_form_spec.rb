@@ -8,13 +8,13 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
       of_collection_type: 'true',
       collection_attributes: {
         "0" => {
-          title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
+          title: 'Mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
           address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
         },
         "1" => {
-          title: 'mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
+          title: 'Mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
           address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)

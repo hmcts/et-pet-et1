@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe CcdPersonalTitleValidator do
-  let(:allow_list) { %w(Mr, Mrs, Miss, Ms, Mx, Dr, Prof, Sir, Lord, Lady, Dame, Capt, Rev, Other, N/K) }
+  let(:allow_list) { %w(Mr Mrs Miss Ms Mx Dr Prof Sir Lord Lady Dame Capt Rev Other N/K) }
   let(:example_deny_list) { %w(Doctor Professor Captain Reverend badtitle) }
   let(:model_class) do
     Class.new do
@@ -27,16 +27,19 @@ RSpec.describe CcdPersonalTitleValidator do
     end
   end
 
-  it 'is valid for nil or empty string' do
-    aggregate_failures 'validating nil and empty string' do
-      [nil, ''].each do |value|
-        model = model_class.new(title: value)
+  it 'is valid for nil' do
+    model = model_class.new(title: nil)
 
-        model.valid?
+    model.valid?
 
-        expect(model.errors).to be_empty
-      end
-    end
+    expect(model.errors).to be_empty
+  end
+
+  it 'is not valid for an empty string' do
+    model = model_class.new(title: '')
+
+    model.valid?
+    expect(model.errors.details[:title]).to include a_hash_including(error: :invalid_ccd_personal_title)
   end
 
   it 'does not validate for all lowercase variations of the allow list' do

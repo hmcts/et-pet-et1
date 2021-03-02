@@ -28,7 +28,7 @@ FactoryBot.define do
 
     trait :default do
       mandatory
-      title { :'claimants_details.title.options.mr' }
+      title { :'claimants_details.title.options.Mr' }
       gender { :'claimants_details.gender.options.male' }
       has_special_needs { :'claimants_details.has_special_needs.options.yes' }
       special_needs { "I need all the documents in braille" }

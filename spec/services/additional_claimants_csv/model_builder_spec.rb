@@ -7,15 +7,15 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
   let(:model_class) { AdditionalClaimantsForm::AdditionalClaimant }
   let(:expected_attributes) {
     {
-      title: "mr",
-      first_name: "timothy",
-      last_name: "crotchet",
+      title: "Mr",
+      first_name: "Timothy",
+      last_name: "Crotchet",
       date_of_birth: Date.parse("18/09/1937"),
       address_building: "69",
-      address_street: "somestreet",
-      address_locality: "motown",
-      address_county: "county",
-      address_post_code: "se17nx"
+      address_street: "SomeStreet",
+      address_locality: "Motown",
+      address_county: "County",
+      address_post_code: "SE17NX"
     }.stringify_keys
   }
 

@@ -9,10 +9,10 @@ en:
         number_of_additional_claimants: 'Number Of Additional Claimants'
       claimant:
         person_title:
-          mr: 'Mr'
-          mrs: 'Mrs'
-          miss: 'Miss'
-          ms: 'Ms'
+          Mr: 'Mr'
+          Mrs: 'Mrs'
+          Miss: 'Miss'
+          Ms: 'Ms'
         questions:
           full_name: 'Full name'
           date_of_birth: 'Date of birth'
@@ -120,10 +120,10 @@ en:
       label: Title (optional)
       options:
         unselected: Please select
-        mr: Mr
-        mrs: Mrs
-        ms: Ms
-        miss: Miss
+        Mr: Mr
+        Mrs: Mrs
+        Ms: Ms
+        Miss: Miss
     first_name:
       label: First name
     last_name:

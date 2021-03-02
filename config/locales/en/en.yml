@@ -61,10 +61,10 @@ en:
           email: Email
           post: Post
         title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
@@ -791,6 +791,7 @@ en:
               too_young: Claimant must be 16 years of age or over
             title:
               blank: Select a title from the list
+              invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
             gender:
               blank: Select the claimant’s gender, or select ‘prefer not to say’
             first_name:

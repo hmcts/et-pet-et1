@@ -8,7 +8,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
       it { expect(additional_claimant).to validate_presence_of(attr) }
     end
 
-    it { expect(additional_claimant).to validate_inclusion_of(:title).in_array ['mr', 'mrs', 'miss', 'ms'] }
+    it { expect(additional_claimant).to validate_inclusion_of(:title).in_array ['Mr', 'Mrs', 'Miss', 'Ms'] }
 
     it { expect(additional_claimant).to validate_length_of(:first_name).is_at_most(100) }
     it { expect(additional_claimant).to validate_length_of(:last_name).is_at_most(100) }
@@ -25,7 +25,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
 
     let(:attributes) do
       {
-        title: 'mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
+        title: 'Mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
         address_building: '1', address_street: 'High Street',
         address_locality: 'Anytown', address_county: 'Anyfordshire',
         address_post_code: 'AT1 0AA', date_of_birth: '01/01/1990'

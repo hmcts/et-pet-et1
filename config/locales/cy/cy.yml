@@ -52,10 +52,10 @@ cy:
           email: E-bost
           post: Post
         title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
         address_country:
           united_kingdom: Deyrnas Unedig
           other: Tu allan i'r Deyrnas Unedig
@@ -871,6 +871,7 @@ cy:
               too_young: Rhaid i hawlydd fod yn 16 oed neu drosodd
             title:
               blank: Dewiswch deitl o'r rhestr
+              invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
             gender:
               blank: "Dewiswch rywedd yr hawlydd, neu dewiswch 'mae'n well gen i beidio dweud'"
             first_name:
