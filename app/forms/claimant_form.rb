@@ -11,7 +11,7 @@ class ClaimantForm < Form
 
 
   validates :address_post_code,
-    post_code: true, length: { maximum: POSTCODE_LENGTH },
+    post_code: true, ccd_post_code: true, length: { maximum: POSTCODE_LENGTH },
     unless: :international_address?
 
   attribute :first_name,         :string

@@ -833,6 +833,7 @@ cy:
             address_post_code:
               blank: "Rhowch god post yr hawlydd ychwanegol"
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
               invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
         additional_claimant:
@@ -895,6 +896,7 @@ cy:
             address_post_code:
               blank: Rhowch god post yr hawlydd
               invalid: "Rhowch god post DU dilys. Os yw'r hawlydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.claimant.attributes.address_post_code.invalid'
             email_address:
               blank: Rhowch gyfeiriad e-bost yr hawlydd
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
@@ -954,6 +956,7 @@ cy:
             address_post_code:
               blank: Rhowch god post eich cynrychiolydd
               invalid: "Rhowch god post dilys. Os yw eich cynrychiolydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.representative.attributes.address_post_code.invalid'
             email_address:
               blank: Rhowch gyfeiriad e-bost eich cynrychiolydd
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
@@ -986,6 +989,7 @@ cy:
             address_post_code:
               blank: Rhowch god post yr atebydd
               invalid: "Rhowch god post DU dilys. Os yw'r atebydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
             work_address_building:
               blank: Rhowch enw neu rif adeilad eich cyfeiriad gwaith
             work_address_street:
@@ -997,6 +1001,7 @@ cy:
             work_address_post_code:
               blank: Rhowch god post eich cyfeiriad gwaith
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.work_address_post_code.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:
@@ -1024,5 +1029,6 @@ cy:
             address_post_code:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
