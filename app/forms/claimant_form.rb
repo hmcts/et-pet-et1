@@ -41,7 +41,7 @@ class ClaimantForm < Form
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
   validates :allow_video_attendance, inclusion: [true, false]
-  validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, phone_number_uk: true, allow_blank: true
+  validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
