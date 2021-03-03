@@ -1,11 +1,12 @@
 require 'rails_helper'
 RSpec.describe CcdPostCodeValidator do
   let(:valid_values) do
-    %w[SL44QG PL253SG OX266AY LL145DN WA101HE BN998AR OL129HE LE29LE GL15AW TN57PL GIR0AA]
+    ['SL4 4QG,' 'PL253SG', 'OX266AY', 'LL14 5DN', 'WA101HE', 'BN998AR', 'OL129HE', 'LE29LE', 'GL15AW', 'TN57PL', 'GIR0AA']
   end
   let(:invalid_values) do
-    ['QE21AA', 'BI43QQ', 'DE 21 7QQ', 'SL4 4QG']
+    ['QE21AA', 'BI43QQ', 'XC12 1BB', 'VX21 6DD', 'CJ12 1AA', 'CZ12 1AA', 'DE21 6CC', 'DE21 6II', 'DE21 6KK', 'DE21 6MM', 'DE21 6VV']
   end
+
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
