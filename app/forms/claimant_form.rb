@@ -31,7 +31,6 @@ class ClaimantForm < Form
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
   before_validation :clear_email_address, unless: :contact_preference_email?
-  before_validation :remove_white_space
   before_validation :clean_empty_title
 
   validates :first_name, :last_name, :address_country,
@@ -91,9 +90,5 @@ class ClaimantForm < Form
 
   def clear_email_address
     self.email_address = nil
-  end
-
-  def remove_white_space
-    address_post_code&.strip!
   end
 end

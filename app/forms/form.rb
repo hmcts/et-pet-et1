@@ -3,6 +3,7 @@ class Form < ApplicationRecord
   establish_connection adapter: :nulldb,
                        schema: 'config/nulldb_schema.rb'
   attr_reader :resource
+  before_validation :clean_strings
 
   def initialize(resource, **attrs)
     self.resource = resource
@@ -108,5 +109,16 @@ class Form < ApplicationRecord
   private
 
   attr_writer :resource
+
+  def clean_strings
+    @attributes.each_value do |attr|
+      next unless attr.type.is_a?(ActiveModel::Type::String) && attr.value.is_a?(String)
+      if attr.value.frozen?
+        attr.value = attr.value.strip!
+      else
+        attr.value.strip!
+      end
+    end
+  end
 
 end
