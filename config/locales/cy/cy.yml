@@ -900,6 +900,7 @@ cy:
             email_address:
               blank: Rhowch gyfeiriad e-bost yr hawlydd
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+              invalid_ccd_email: :'activemodel.errors.models.claimant.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:
@@ -960,6 +961,7 @@ cy:
             email_address:
               blank: Rhowch gyfeiriad e-bost eich cynrychiolydd
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+              invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:

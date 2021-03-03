@@ -19,10 +19,9 @@ class RepresentativeForm < Form
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 40 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
-  validates :email_address, email: true, allow_blank: true
+  validates :email_address, email: true, ccd_email: true, presence: true, if: ->(form) { form.contact_preference == 'email' }
   validates :contact_preference, presence: true, inclusion: CONTACT_PREFERENCES
   validates :dx_number, presence: true, if: ->(form) { form.contact_preference == 'dx_number' }
-  validates :email_address, presence: true, if: ->(form) { form.contact_preference == 'email' }
 
   def valid?
     if has_representative?

@@ -46,6 +46,7 @@ class ClaimantForm < Form
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
                             email: { if: :email_address? },
+                            ccd_email: { if: :email_address? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   validate :older_then_16

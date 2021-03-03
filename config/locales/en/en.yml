@@ -717,6 +717,7 @@ en:
               blank: Create a memorable word so you can return to your claim
             email_address:
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activerecord.errors.models.user.attributes.email_address.invalid'
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
@@ -820,6 +821,7 @@ en:
             email_address:
               blank: Enter the claimant’s email address
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.claimant.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Invalid phone number
             mobile_number:
@@ -867,6 +869,7 @@ en:
             email_address:
               blank: Enter your representative’s email address
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Invalid phone number
             mobile_number:
