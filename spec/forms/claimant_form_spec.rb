@@ -39,7 +39,7 @@ RSpec.describe ClaimantForm, type: :form do
       it { expect(claimant_form).to validate_presence_of(attr) }
     end
 
-    it { expect(claimant_form).to validate_inclusion_of(:title).in_array ['mr', 'mrs', 'miss', 'ms'] }
+    it { expect(claimant_form).to validate_inclusion_of(:title).in_array ['Mr', 'Mrs', 'Miss', 'Ms'] }
     it { expect(claimant_form).to validate_inclusion_of(:gender).in_array ['male', 'female', 'prefer_not_to_say'] }
     it { expect(claimant_form).to validate_inclusion_of(:contact_preference).in_array ['email', 'post'] }
     it { expect(claimant_form).to validate_inclusion_of(:allow_video_attendance).in_array [true, false] }
@@ -195,7 +195,7 @@ RSpec.describe ClaimantForm, type: :form do
     subject { claimant_form }
 
     it_behaves_like "a Form",
-                    title: 'mr',
+                    title: 'Mr',
                     gender: 'male',
                     contact_preference: 'email',
                     allow_video_attendance: true,

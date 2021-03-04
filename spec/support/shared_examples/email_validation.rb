@@ -9,8 +9,8 @@ RSpec.shared_examples 'Email validation' do |options|
         subject.valid?
       end
 
-      it 'does not add any errors' do
-        expect(errors).not_to include error_message
+      it 'does add an error' do
+        expect(errors).to include error_message
       end
     end
 

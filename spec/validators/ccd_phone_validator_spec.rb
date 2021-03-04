@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe PhoneNumberUkValidator do
+RSpec.describe CcdPhoneValidator do
 
   let(:model_class) do
     Class.new do
@@ -10,7 +10,7 @@ RSpec.describe PhoneNumberUkValidator do
         'MyModel'
       end
 
-      validates :number, phone_number_uk: true
+      validates :number, ccd_phone: true
     end
   end
 
@@ -78,6 +78,4 @@ RSpec.describe PhoneNumberUkValidator do
 
     expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_phone_number_uk)
   end
-
-
 end

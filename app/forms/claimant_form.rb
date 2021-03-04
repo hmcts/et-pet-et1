@@ -1,5 +1,5 @@
 class ClaimantForm < Form
-  TITLES               = ['mr', 'mrs', 'miss', 'ms'].freeze
+  TITLES               = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
   GENDERS              = ['male', 'female', 'prefer_not_to_say'].freeze
   CONTACT_PREFERENCES  = ['email', 'post'].freeze
   COUNTRIES            = ['united_kingdom', 'other'].freeze
@@ -11,7 +11,7 @@ class ClaimantForm < Form
 
 
   validates :address_post_code,
-    post_code: true, length: { maximum: POSTCODE_LENGTH },
+    post_code: true, ccd_post_code: true, length: { maximum: POSTCODE_LENGTH },
     unless: :international_address?
 
   attribute :first_name,         :string
@@ -31,21 +31,22 @@ class ClaimantForm < Form
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
   before_validation :clear_email_address, unless: :contact_preference_email?
-  before_validation :remove_white_space
+  before_validation :clean_empty_title
 
   validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
 
-  validates :title, inclusion: { in: TITLES }, allow_blank: true
+  validates :title, ccd_personal_title: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
   validates :allow_video_attendance, inclusion: [true, false]
-  validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, phone_number_uk: true, allow_blank: true
+  validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
-                            email: { if: :email_address? },
+                            email: { if: :contact_preference_email? },
+                            ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   validate :older_then_16
@@ -80,15 +81,15 @@ class ClaimantForm < Form
     address_country != 'united_kingdom'
   end
 
+  def clean_empty_title
+    self.title = nil if title == ''
+  end
+
   def reset_special_needs!
     self.special_needs = nil
   end
 
   def clear_email_address
     self.email_address = nil
-  end
-
-  def remove_white_space
-    address_post_code&.strip!
   end
 end

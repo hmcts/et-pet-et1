@@ -61,10 +61,10 @@ en:
           email: Email
           post: Post
         title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
         address_country:
           united_kingdom: United Kingdom
           other: Outside United Kingdom
@@ -717,6 +717,7 @@ en:
               blank: Create a memorable word so you can return to your claim
             email_address:
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activerecord.errors.models.user.attributes.email_address.invalid'
   # Form Errors - Handled by ActiveModel
   activemodel:
     errors:
@@ -737,6 +738,7 @@ en:
           attributes:
             title:
               inclusion: Enter the title of the additional claimant
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: Enter the first name of the additional claimant
             last_name:
@@ -752,6 +754,7 @@ en:
             address_post_code:
               blank: Enter the additional claimant’s postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
               invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
         additional_claimant:
@@ -790,6 +793,7 @@ en:
               too_young: Claimant must be 16 years of age or over
             title:
               blank: Select a title from the list
+              invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
             gender:
               blank: Select the claimant’s gender, or select ‘prefer not to say’
             first_name:
@@ -813,9 +817,11 @@ en:
             address_post_code:
               blank: Enter the claimant’s postcode
               invalid: Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.claimant.attributes.address_post_code.invalid'
             email_address:
               blank: Enter the claimant’s email address
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.claimant.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Invalid phone number
             mobile_number:
@@ -859,9 +865,11 @@ en:
             address_post_code:
               blank: Enter your representative’s postcode
               invalid: Enter a valid postcode. If your representative lives abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.representative.attributes.address_post_code.invalid'
             email_address:
               blank: Enter your representative’s email address
               invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Invalid phone number
             mobile_number:
@@ -891,6 +899,7 @@ en:
             address_post_code:
               blank: Enter the respondent’s postcode
               invalid: Enter a valid UK postcode. If the respondent lives abroad, enter a SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
             work_address_building:
               blank: Enter the building name or number of your work address
             work_address_street:
@@ -902,6 +911,7 @@ en:
             work_address_post_code:
               blank: Enter the postcode of your work address
               invalid: Enter a valid UK postcode. If you live abroad enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.work_address_post_code.invalid'
             address_telephone_number:
               invalid_phone_number_uk: Invalid phone number
             mobile_number:
@@ -929,3 +939,4 @@ en:
             address_post_code:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'

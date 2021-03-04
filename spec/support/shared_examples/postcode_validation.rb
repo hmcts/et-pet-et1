@@ -10,8 +10,8 @@ RSpec.shared_examples 'Postcode validation' do |options|
         subject.valid?
       end
 
-      it 'does not add any errors' do
-        expect(errors).not_to include error_message
+      it 'should expect an error' do
+        expect(errors).to include error_message
       end
     end
 

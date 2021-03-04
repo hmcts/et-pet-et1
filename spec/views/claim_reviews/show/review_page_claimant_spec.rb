@@ -29,7 +29,7 @@ describe "claim_reviews/show.html.slim" do
     let(:claimant_section) { review_page.claimant_section }
     let(:claimant) do
       build :claimant,
-        title: 'mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
+        title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
         date_of_birth: Date.civil(1985, 1, 15), address_building: '1',
         address_street: 'Lol street', address_locality: 'Lolzville',
         address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
@@ -65,7 +65,7 @@ describe "claim_reviews/show.html.slim" do
       context 'when the claimant is disabled' do
         let(:claimant) do
           build :claimant,
-            title: 'mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
+            title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
             date_of_birth: Date.civil(1985, 1, 15), address_building: '1',
             address_street: 'Lol street', address_locality: 'Lolzville',
             address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
