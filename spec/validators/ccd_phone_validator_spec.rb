@@ -19,7 +19,7 @@ RSpec.describe CcdPhoneValidator do
 
     model.valid?
 
-    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_phone_number_uk)
+    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_ccd_phone)
   end
 
   it 'will validate a string that starts with an international call code with spaces' do
@@ -67,7 +67,7 @@ RSpec.describe CcdPhoneValidator do
 
     model.valid?
 
-    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_phone_number_uk)
+    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_ccd_phone)
   end
 
 
@@ -76,6 +76,6 @@ RSpec.describe CcdPhoneValidator do
 
     model.valid?
 
-    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_phone_number_uk)
+    expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_ccd_phone)
   end
 end
