@@ -83,6 +83,12 @@ RSpec.describe RespondentForm, type: :form do
          :work_address_telephone_number, :work_address_post_code].each do |attr|
           it { expect(respondent_form).not_to validate_presence_of(attr) }
         end
+
+        it 'should accept a nil value for work address telephone number' do
+          respondent_form.work_address_telephone_number = nil
+          respondent_form.valid?
+          expect(respondent_form.errors[:work_address_telephone_number]).to be_empty
+        end
       end
 
       describe "when respondent worked at a different address" do
