@@ -182,7 +182,11 @@ RSpec.describe RepresentativeForm, type: :form do
                     contact_preference: 'email'
 
     describe 'postcode validation' do
-      before { representative_form.has_representative = 'true' }
+      before do
+        representative_form.has_representative = 'true'
+        representative_form.contact_preference = 'email'
+      end
+
 
       include_examples "Postcode validation",
         attribute_prefix: 'address',

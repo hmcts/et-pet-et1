@@ -45,8 +45,8 @@ class ClaimantForm < Form
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
-                            email: { if: :email_address? },
-                            ccd_email: { if: :email_address? },
+                            email: { if: :contact_preference_email? },
+                            ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   validate :older_then_16

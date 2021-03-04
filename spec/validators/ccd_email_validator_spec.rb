@@ -4,7 +4,7 @@ RSpec.describe CcdEmailValidator do
     %w(test@example.com fred@bloggs.com test@example.sub.com test@example.sub.sub.com test@example.abcom)
   end
   let(:invalid_values) do
-    ['a space@example.com', 'test*@email.com', 'test@toolongdomain.com']
+    ['a space@example.com', 'test*@email.com', 'test@example.toolongdomain']
   end
 
   let(:model_class) do
@@ -35,7 +35,7 @@ RSpec.describe CcdEmailValidator do
   it 'is valid for all upcased values in the valid list' do
     aggregate_failures 'validating all in valid list' do
       valid_values.each do |value|
-        model = model_class.new(post_code: value.upcase)
+        model = model_class.new(email: value.upcase)
 
         model.valid?
 
