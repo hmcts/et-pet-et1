@@ -21,7 +21,7 @@ FactoryBot.define do
 
     trait :default do
       mandatory
-      title { :'claimants_details.title.options.mr' }
+      title { :'claimants_details.title.options.Mr' }
     end
   end
 end
