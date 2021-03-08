@@ -460,10 +460,10 @@ cy:
         label: Teitl
         options:
           '': Dewiswch
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
       first_name:
         label: Enw cyntaf
       last_name:
