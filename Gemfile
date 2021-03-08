@@ -20,7 +20,7 @@ gem 'et_azure_insights', '0.2.14', git: 'https://github.com/hmcts/et-azure-insig
 gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsights-Ruby.git', ref: '5db6b4'
 
 # Use SCSS for stylesheets
-
+gem 'sass', '~> 3.7', '>= 3.7.4'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
