@@ -382,10 +382,10 @@ en:
         label: Title
         options:
           '': Please select
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
       first_name:
         label: First name
       last_name:
