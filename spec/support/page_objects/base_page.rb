@@ -45,11 +45,11 @@ module ET1
       end
 
       def assert_session_prompt
-        puts "!!!! WARNING !!!! assert_session_prompt NOT YET DOING ANYTHING - see #{__FILE__} #{__LINE__}"
+        expect(page.body).to match(Regexp.escape('Et.components.SessionPrompt.init();'))
       end
 
       def assert_no_session_prompt
-        puts "!!!! WARNING !!!! assert_no_session_prompt NOT YET DOING ANYTHING - see #{__FILE__} #{__LINE__}"
+        expect(page.body).not_to match(Regexp.escape('Et.components.SessionPrompt.init();'))
       end
 
       def home
