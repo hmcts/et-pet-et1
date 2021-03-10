@@ -6,6 +6,10 @@
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present?
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
+  - if start_session_timer?
+    javascript:
+      Et.components.SessionPrompt.init();
+
 
 // @TODO Check on removed content here
 - content_for :after_header do
@@ -31,6 +35,7 @@
         - %w<info notice alert>.each do |type|
           - next unless flash[type].present?
           = render partial: 'shared/flash_message', locals: { type: type }
+        = render partial: 'shared/session_prompt'
         = yield
 
 = render template: "layouts/moj_template"
