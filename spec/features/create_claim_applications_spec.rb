@@ -391,8 +391,8 @@ feature 'Claim applications', type: :feature, js: true do
         complete_a_claim
         expect(page).to have_text 'Check your claim'
 
-        within(:xpath, './/div[@class="main-content"]') do
-          expect(page).not_to have_text 'Your fee'
+        within('#main-content') do
+          expect(page).not_to have_text 'Your fee '
           expect(page).not_to have_text 'Help with fees'
         end
 
