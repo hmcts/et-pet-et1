@@ -1,10 +1,9 @@
 fieldset.fees_copy data-behavior="help"
-  p = t('.fees_help')
-  p = t('.fees_help_type_a')
-  p = t('.fees_help_type_b')
-  p = t('.fees_help_type_appeal')
-fieldset
-  legend = t('.fee_details')
+  p.govuk-body = t('.fees_help')
+  p.govuk-body = t('.fees_help_type_a')
+  p.govuk-body = t('.fees_help_type_b')
+  p.govuk-body = t('.fees_help_type_appeal')
+= f.fieldset label: t('.fee_details')
   table.fees
     tr
       th.fee_type = "Fee type"
@@ -15,47 +14,52 @@ fieldset
       td.fee_type
         = "ET Issue"
       td.fee
-        = f.input :et_issue_fee,  label: false, input_html: {class: 'short-input', data: { behavior: 'fee_field' }}
+        = f.text_field :et_issue_fee,  label: false
       td.fee_payment_date
-        = f.input :et_issue_fee_payment_date, as: :date_with_unknown, except: :day, date_range: Refunds::FeesForm::VALID_PAYMENT_DATE_RANGE, label: false, input_html: {class: 'short-input'}
+        = f.date_field :et_issue_fee_payment_date, omit_day: true, label: false
+        = f.check_box :et_issue_fee_payment_date_unknown, true
       td.fee_payment_method
-        = f.input :et_issue_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+        = f.collection_select :et_issue_fee_payment_method, label: false
     tr
       td.fee_type
         = "ET Hearing"
       td.fee
-        = f.input :et_hearing_fee, label: false, input_html: { class: 'short-input', data: { behavior: 'fee_field' } }
+        = f.text_field :et_hearing_fee, label: false
       td.fee_payment_date
-        = f.input :et_hearing_fee_payment_date, as: :date_with_unknown, except: :day, date_range: Refunds::FeesForm::VALID_PAYMENT_DATE_RANGE, label: false, input_html: { class: 'short-input' }
+        = f.date_field :et_hearing_fee_payment_date, omit_day: true, label: false
+        = f.check_box :et_hearing_fee_payment_date_unknown, true
       td.fee_payment_method
-        = f.input :et_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+        = f.collection_select :et_hearing_fee_payment_method, label: false
     tr
       td.fee_type
         = "ET Reconsideration"
       td.fee
-        = f.input :et_reconsideration_fee, label: false, input_html: { class: 'short-input', data: { behavior: 'fee_field' } }
+        = f.text_field :et_reconsideration_fee, label: false
       td.fee_payment_date
-        = f.input :et_reconsideration_fee_payment_date, as: :date_with_unknown, except: :day, date_range: Refunds::FeesForm::VALID_PAYMENT_DATE_RANGE, label: false, input_html: { class: 'short-input' }
+        = f.date_field :et_reconsideration_fee_payment_date, omit_day: true, label: false
+        = f.check_box :et_reconsideration_fee_payment_date_unknown, true
       td.fee_payment_method
-        = f.input :et_reconsideration_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+        = f.collection_select :et_reconsideration_fee_payment_method, label: false
     tr
       td.fee_type
         = "EAT Issue"
       td.fee
-        = f.input :eat_issue_fee, label: false, input_html: { class: 'short-input', data: { behavior: 'fee_field' } }
+        = f.text_field :eat_issue_fee, label: false
       td.fee_payment_date
-        = f.input :eat_issue_fee_payment_date, as: :date_with_unknown, except: :day, date_range: Refunds::FeesForm::VALID_PAYMENT_DATE_RANGE, label: false, input_html: { class: 'short-input' }
+        = f.date_field :eat_issue_fee_payment_date, omit_day: true, label: false
+        = f.check_box :eat_issue_fee_payment_date_unknown, true
       td.fee_payment_method
-        = f.input :eat_issue_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+        = f.collection_select :eat_issue_fee_payment_method, label: false
     tr
       td.fee_type
         = "EAT Hearing"
       td.fee
-        = f.input :eat_hearing_fee, label: false, input_html: { class: 'short-input', data: { behavior: 'fee_field' } }
+        = f.text_field :eat_hearing_fee, label: false
       td.fee_payment_date
-        = f.input :eat_hearing_fee_payment_date, as: :date_with_unknown, except: :day, date_range: Refunds::FeesForm::VALID_PAYMENT_DATE_RANGE, label: false, input_html: { class: 'short-input' }
+        = f.date_field :eat_hearing_fee_payment_date, omit_day: true, label: false
+        = f.check_box :eat_hearing_fee_payment_date_unknown, true
       td.fee_payment_method
-        = f.input :eat_hearing_fee_payment_method, label: false, collection: Refunds::OriginalCaseDetailsForm::PAYMENT_METHODS, include_blank: :translate
+        = f.collection_select :eat_hearing_fee_payment_method, label: false
   fieldset
     legend = t('.total_fees')
     div

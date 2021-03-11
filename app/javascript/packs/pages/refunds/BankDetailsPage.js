@@ -1,22 +1,22 @@
 function publishCurrentAccountType() {
-  let val = $('.main-content.refunds_bank_details [name=\'refunds_bank_details[payment_account_type]\']').val();
-  $.publish('payment_account_type', val);
+  let val = $('.refunds_bank_details [name=\'refunds_bank_details[payment_account_type]\']').val();
+  setContinueButtonDisabled(val);
 }
 
-function publishCurrentValues() {
-  publishCurrentAccountType();
+function setContinueButtonDisabled(val) {
+  $('.refunds_bank_details [data-behavior=\'continue_button\']').prop('disabled', val === '');
 }
-
 
 function enableContinueWhenAllowed() {
-  $.subscribe('payment_account_type', function (event, val) {
-    $('.main-content.refunds_bank_details [data-behavior=\'continue_button\']').prop('disabled', val === '');
+  $(".refunds_bank_details [name='refunds_bank_details[payment_account_type]']").on('change', function(event, val) {
+    setContinueButtonDisabled(val);
+
   });
 }
 
 function RefundBankDetailsPage() {
   enableContinueWhenAllowed();
-  publishCurrentValues();
+  publishCurrentAccountType();
 }
 
 export default RefundBankDetailsPage;

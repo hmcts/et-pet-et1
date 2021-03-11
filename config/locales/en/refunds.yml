@@ -48,11 +48,6 @@ en:
       fees_help_type_a: "A type A claim had an issue fee of £160 and a hearing fee of £230."
       fees_help_type_b: "A type B claim had an issue fee of £250 and a hearing fee of £950."
       fees_help_type_appeal: "An Employment Appeal Tribunal fee had a lodgement fee of £400 and a hearing fee of £1200."
-    bank_details:
-      your_bank_details: "Your Bank Details"
-      your_building_society_details: "Your Building Society Details"
-      header: "Repayment Details"
-      account_help: "This is the account, which must be held in your name, where any valid refund payments will be made."
     review:
       header: "Review your application"
       sections:
@@ -272,83 +267,8 @@ en:
     include_blanks:
       refunds_applicant:
         applicant_title: Please select
-      refunds_bank_details:
-        payment_account_type: Please select
       refunds_fees:
-        et_issue_fee_payment_method: Please select
-        et_issue_fee_payment_date:
-          month: month
-          year: year
-        et_hearing_fee_payment_method: Please select
-        et_hearing_fee_payment_date:
-          month: month
-          year: year
-        et_reconsideration_fee_payment_method: Please select
-        et_reconsideration_fee_payment_date:
-          month: month
-          year: year
-        eat_issue_fee_payment_method: Please select
-        eat_issue_fee_payment_date:
-          month: month
-          year: year
-        eat_hearing_fee_payment_method: Please select
-        eat_hearing_fee_payment_date:
-          month: month
-          year: year
-    hints:
-      refunds_bank_details:
-        payment_bank_account_number: Please enter your 8 digit bank account number. This should be a current account held in your name, not a savings account
-        payment_bank_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
-        payment_building_society_account_number: Please enter your 8 digit building society account number. This should be a current account held in your name, not a savings account
-        payment_building_society_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
     labels:
-      refunds_bank_details:
-        payment_account_type: Account type
-        payment_bank_account_name: Bank account holder name
-        payment_bank_name: Bank name
-        payment_bank_account_number: Bank account number
-        payment_bank_sort_code: Bank sort code
-        payment_building_society_account_name: Building Society account holder name
-        payment_building_society_name: Building Society name
-        payment_building_society_account_number: Building Society account number
-        payment_building_society_sort_code: Building Society sort code
-      refunds_fees:
-        et_issue_fee_payment_date_unknown: Don't know
-        et_hearing_fee_payment_date_unknown: Don't know
-        et_reconsideration_fee_payment_date_unknown: Don't know
-        eat_issue_fee_payment_date_unknown: Don't know
-        eat_hearing_fee_payment_date_unknown: Don't know
       refunds_review:
         accept_declaration: Tick to confirm
-    options:
-      refunds_fees:
-        et_issue_fee_payment_method:
-          unknown: Don't know
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        et_hearing_fee_payment_method:
-          unknown: Don't know
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        eat_issue_fee_payment_method:
-          unknown: Don't know
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        eat_hearing_fee_payment_method:
-          unknown: Don't know
-          cheque: Cheque
-          card: Card
-          cash: Cash
-        et_reconsideration_fee_payment_method:
-          unknown: Don't know
-          cheque: Cheque
-          card: Card
-          cash: Cash
-      refunds_bank_details:
-        payment_account_type:
-          bank: Bank
-          building_society: Building Society
 
