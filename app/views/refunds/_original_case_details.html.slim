@@ -55,3 +55,6 @@ fieldset
           hint: t('.additional_information_hint_html', path: guide_path),
           as: :text,
           input_html: {rows: 10, maxlength: '500'}
+- content_for(:javascripts)
+javascript:
+  $(document).ready(function() { Et.pages.refunds.OriginalCaseDetailsPage() });

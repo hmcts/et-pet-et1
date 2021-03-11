@@ -17,22 +17,22 @@ div class=("review-list-entry applicant")
       span = t ".sections.applicant_contact_details"
     table.review-table
       tr
-        th = t('simple_form.labels.claimant.address_building')
+        th = t('claims.address.address_building.label')
         td = f.object.applicant_address_building
       tr
-        th = t('simple_form.labels.claimant.address_street')
+        th = t('claims.address.address_street.label')
         td = f.object.applicant_address_street
       tr
-        th = t('simple_form.labels.claimant.address_locality')
+        th = t('claims.address.address_locality.label')
         td = f.object.applicant_address_locality
       tr
-        th = t('simple_form.labels.claimant.address_county')
+        th = t('claims.address.address_county.label')
         td = f.object.applicant_address_county
       tr
-        th = t('simple_form.labels.claimant.address_post_code')
+        th = t('claims.address.address_post_code.label')
         td = f.object.applicant_address_post_code
       tr
-        th = t('simple_form.labels.claimant.address_telephone_number')
+        th = t('claims.claimant.address_telephone_number.label')
         td = f.object.applicant_address_telephone_number
       tr
         th = t('.applicant_email_address')
@@ -208,5 +208,5 @@ fieldset
 - content_for(:javascripts)
   javascript:
       $(document).ready(function () {
-          refundReviewPage.init()
+          Et.pages.refunds.ReviewPage()
       });

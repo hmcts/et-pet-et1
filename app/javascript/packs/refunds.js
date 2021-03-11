@@ -18,34 +18,28 @@
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
 import "./stylesheets/application.scss"
+require('jquery');
 require("@rails/ujs").start();
-import ClaimantPage from "./pages/claims/ClaimantPage";
-import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
-import RepresentativePage from "./pages/claims/RepresentativePage";
-import RespondentPage from "./pages/claims/RespondentPage";
-import AdditionalRespondentsPage from "./pages/claims/AdditionalRespondentsPage";
-import EmploymentPage from "./pages/claims/EmploymentPage";
-import ClaimTypePage from "./pages/claims/ClaimTypePage";
-import ClaimConfirmationPage from "./pages/claims/ClaimConfirmationPage";
 import SessionPrompt from "./components/SessionPrompt";
 import RefundApplicantPage from "./pages/refunds/ApplicantPage";
 import RefundFeesPage from "./pages/refunds/FeesPage";
+import OriginalCaseDetailsPage from "./pages/refunds/OriginalCaseDetailsPage";
+import BankDetailsPage from "./pages/refunds/BankDetailsPage";
+import ProfileSelectionPage from "./pages/refunds/ProfileSelectionPage";
+import ReviewPage from "./pages/refunds/ReviewPage";
+import jQuery from "jquery";
+window.$ = jQuery;
+window.jQuery = jQuery;
 EtGdsDesignSystem.initAll();
 window.Et = {
   pages:{
-    claims: {
-      ClaimantPage: ClaimantPage,
-      AdditionalClaimantsPage: AdditionalClaimantsPage,
-      RepresentativePage: RepresentativePage,
-      RespondentPage: RespondentPage,
-      AdditionalRespondentsPage: AdditionalRespondentsPage,
-      EmploymentPage: EmploymentPage,
-      ClaimTypePage: ClaimTypePage,
-      ClaimConfirmationPage: ClaimConfirmationPage
-    },
     refunds: {
       ApplicantPage: RefundApplicantPage,
-      FeesPage: RefundFeesPage
+      FeesPage: RefundFeesPage,
+      OriginalCaseDetailsPage: OriginalCaseDetailsPage,
+      BankDetailsPage: BankDetailsPage,
+      ProfileSelectionPage: ProfileSelectionPage,
+      ReviewPage: ReviewPage
     }
   },
   components: {
