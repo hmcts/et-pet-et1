@@ -34,7 +34,6 @@ en:
     profile_selection:
       header: "Introduction Page"
       please_select_profile: "Introduction Page"
-      profile_type: "You can apply for a refund of Employment Tribunal or Employment Appeal Tribunal Fees (or both) by confirming you are one of the following:"
     original_case_details:
       original_case_details: "Your case details"
       header: "Details about your original case"
@@ -399,10 +398,6 @@ en:
       refunds_review:
         accept_declaration: Tick to confirm
     options:
-      refunds_profile_selection:
-        profile_type:
-          'claimant_direct_not_reimbursed': "I was an individual claimant who made the payments set out in this application and have not been reimbursed by anyone pursuant to an order of the Tribunal"
-          'claimant_via_rep': "I was an individual claimant whose representative paid the fee and I then reimbursed them"
       refunds_applicant:
         applicant_title:
           mr: Mr

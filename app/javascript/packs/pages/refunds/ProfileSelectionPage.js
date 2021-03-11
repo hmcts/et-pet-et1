@@ -1,14 +1,14 @@
 function setCurrentState() {
   let disabled = !selectedProfileTypeEl().val();
-  $('.main-content.refunds_profile_selection [data-behavior=\'continue_button\']').prop('disabled', disabled);
+  $('.refunds_profile_selection .behavior-continue-button').prop('disabled', disabled);
 }
 
 function selectedProfileTypeEl() {
-  return $('.main-content.refunds_profile_selection [data-behavior=\'profile_type\']:checked');
+  return $('input[type=radio][name="refunds_profile_selection[profile_type]"]:checked');
 }
 
 function profileTypeEl() {
-  return $('.main-content.refunds_profile_selection [data-behavior=\'profile_type\']');
+  return $('input[type=radio][name="refunds_profile_selection[profile_type]"]');
 }
 
 function updateStateWhenRequired() {
