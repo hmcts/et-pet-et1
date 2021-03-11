@@ -139,7 +139,6 @@ cy:
 
       representative:
         type: Math o gynrychiolydd
-        contact_preference: Y ffordd orau i anfon gohebiaeth at eich cynrychiolydd
 
       respondent:
         _destroy: 'Dileu''r atebydd yma '
@@ -642,10 +641,12 @@ cy:
       dx_number:
         label: Rhif cyfnewid dogfennau (DX)
       contact_preference:
+        label: Y ffordd orau i anfon gohebiaeth at eich cynrychiolydd
         options:
           contact_preference:
             email: E-bost
             post: Post
+            dx_number: Rhif cyfnewid dogfennau
       representative_legend: Ynglŷn â’ch cynrychiolydd
       contact_legend: "Manylion cyswllt y cynrychiolydd"
       contact_info: |
@@ -1295,7 +1296,7 @@ cy:
             address_country:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             contact_preference:
-              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+              blank: Nodwch a hoffech i ohebiaeth gael ei hanfon at yr hawlydd trwy'r post, e-bost neu rif DX
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad eich cynrychiolydd
             address_street:

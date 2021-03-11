@@ -58,6 +58,7 @@ module ET1
           s.alternative_phone_or_mobile_number_question.set(representative.alternative_phone_or_mobile_number)
           s.email_address_question.set(representative.email_address)
           s.dx_number_question.set(representative.dx_number)
+          s.best_correspondence_method_question.set(representative.best_correspondence_method)
         end
       end
 
@@ -126,6 +127,10 @@ module ET1
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
         section :dx_number_question, govuk_component(:text_field), :govuk_text_field, :'representatives_details.dx_number.label'
+        # @!method best_correspondence_method_question
+        #   A govuk collection radio buttons component
+        #   @return [EtTestHelpers::Components::GovUKCollectionRadioButton] The site prism section
+        section :best_correspondence_method_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'representatives_details.best_correspondence_method.label'
       end
 
       # @!method save_and_continue_element
