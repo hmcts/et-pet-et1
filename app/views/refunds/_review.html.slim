@@ -204,7 +204,7 @@ fieldset
       li=line
 
 
-  = f.input :accept_declaration, required: true, input_html: { data: { behavior: 'accept_declaration'} }
+  = f.check_box :accept_declaration, true
 - content_for(:javascripts)
   javascript:
       $(document).ready(function () {
