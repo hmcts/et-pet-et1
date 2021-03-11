@@ -31,9 +31,6 @@ en:
       print_copy: to have a copy of your refund number for reference
     personal_details:
       date_of_birth: Date of birth
-    profile_selection:
-      header: "Introduction Page"
-      please_select_profile: "Introduction Page"
     original_case_details:
       original_case_details: "Your case details"
       header: "Details about your original case"
@@ -149,23 +146,6 @@ en:
         header: "Claim submitted"
       print_link_html: |
                <a href="javascript:window.print(0);">Print this page</a> for your records
-    applicant:
-      header: Claimant details
-      legend_personal_details: About you
-      legend_contact_details: Your contact details
-      has_name_changed_legend: "Has your name changed since you made your employment tribunal claim ?"
-      sorry_name_changed:
-        header: "Sorry, you cannot continue"
-      date_of_birth: "Date of birth"
-      applicant_personal_information_usage_html: |
-        For fraud prevention
-        To validate your entitlement to claim a fee refund
-        For audit
-      applicant_personal_information_usage_header: "Using your personal information:"
-      applicant_personal_information_usage_sub_header: "Personal information which you supply to us may be used in a number of ways, for example:"
-      name_changed_cannot_continue_html: 'If your name has changed since you submitted your original Employment Tribunal claim you will need to complete a paper form which can be downloaded <a target="_blank" href="https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?original_id=2033">here</a>. You will be asked to provide evidence of your name change.'
-      applicant_personal_information_usage_footer: "HMCTS will verify some of the information you have provided as part of this application using a credit reference agency. This check will appear in your credit history, it will not be visible to lenders and it will not affect your credit rating."
-
 
   activemodel:
     errors:
@@ -346,19 +326,6 @@ en:
         payment_building_society_account_number: Please enter your 8 digit building society account number. This should be a current account held in your name, not a savings account
         payment_building_society_sort_code: Please enter the sort code as a six digit number, eg. 112233, please do not include any spaces or dashes
     labels:
-      refunds_applicant:
-        applicant_address_building: Building number or name
-        applicant_address_locality: Town/city
-        applicant_address_street: Street
-        applicant_address_county: County
-        applicant_address_post_code: UK Postcode
-        applicant_address_telephone_number: Phone or mobile number
-        applicant_title: Title
-        applicant_first_name: First name
-        applicant_last_name: Last name
-        applicant_date_of_birth: Date of birth
-        applicant_email_address: Email address
-
       refunds_original_case_details:
         claimant_address_building: Building number or name
         claimant_address_street: Street
@@ -398,12 +365,6 @@ en:
       refunds_review:
         accept_declaration: Tick to confirm
     options:
-      refunds_applicant:
-        applicant_title:
-          mr: Mr
-          mrs: Mrs
-          miss: Miss
-          ms: Ms
       refunds_original_case_details:
         et_country_of_claim:
           england_and_wales: England & Wales

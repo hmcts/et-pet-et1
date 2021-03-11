@@ -1,6 +1,8 @@
 en:
   refunds:
     profile_selection:
+      header: "Introduction Page"
+      please_select_profile: "Introduction Page"
       profile_type:
         label: "You can apply for a refund of Employment Tribunal or Employment Appeal Tribunal Fees (or both) by confirming you are one of the following:"
         options:
