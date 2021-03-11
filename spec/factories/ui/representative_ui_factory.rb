@@ -15,6 +15,7 @@ FactoryBot.define do
       address_town { 'London' }
       address_county { 'Greater London' }
       address_post_code { 'NE1 6WW' }
+      best_correspondence_method { :'representatives_details.best_correspondence_method.options.post' }
     end
     trait :default do
       mandatory
