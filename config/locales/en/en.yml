@@ -553,9 +553,11 @@ en:
       dx_number:
         label: Document exchange (DX) number
       contact_preference:
+        label: Best way to send correspondence to your representative
         options:
           email: Email
           post: Post
+          dx_number: DX number
       representative_legend: About your representative
       contact_legend: Representative’s contact details
       contact_info: |
@@ -1174,7 +1176,7 @@ en:
             address_country:
               blank: You must provide information for this field
             contact_preference:
-              blank: You must provide information for this field
+              blank: Say whether you’d like correspondence to be sent to the representative by post or email
             address_building:
               blank: Enter the building name or number from your representative’s address
             address_street:
