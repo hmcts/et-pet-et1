@@ -42,10 +42,10 @@ cy:
       additional_claimants:
         collection:
           title:
-            mr: Mr
-            mrs: Mrs
-            miss: Miss
-            ms: Ms
+            Mr: Mr
+            Mrs: Mrs
+            Miss: Miss
+            Ms: Ms
       allow_analytics:
         true: 'Ydw'
         false: 'Nac ydw'

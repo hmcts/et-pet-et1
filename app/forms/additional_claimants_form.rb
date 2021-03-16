@@ -36,7 +36,7 @@ class AdditionalClaimantsForm < Form
   end
 
   class ClaimantForm < Form
-    TITLES      = ['mr', 'mrs', 'miss', 'ms'].freeze
+    TITLES      = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
     NAME_LENGTH = 100
 
     include AddressAttributes
