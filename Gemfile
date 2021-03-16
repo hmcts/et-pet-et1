@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.1.2.1'
+gem 'rails', '6.1.3'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -71,7 +71,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 0.2'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v0.1.3'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v0.1.9'
 end
 
 group :production do
@@ -102,7 +102,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 1.1'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v1.0.0'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v1.0.1'
 
 gem "webpacker", "~> 4.2"
 gem "devise", "~> 4.7"
