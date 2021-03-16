@@ -804,6 +804,7 @@ en:
               blank: Say whether you require assistance at the tribunal hearing
             contact_preference:
               blank: Say whether you’d like correspondence to be sent to the claimant by post or email
+              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
             allow_video_attendance:
               inclusion: "Please say whether you would be able to attend a hearing by video"
             address_building:
