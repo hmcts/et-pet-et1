@@ -39,7 +39,7 @@ gem 'dotenv-rails', '~> 2.7'
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
-  gem 'awesome_print', '~> 1.8'
+  gem 'awesome_print', '~> 1.9'
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
   gem 'capybara', '~> 3.34'
@@ -49,13 +49,13 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rspec', '~> 2.1', :require => false
   gem 'shoulda-matchers', '~> 3.1'
   gem 'spring', '~> 2.1'
   gem 'parallel_tests', '~> 3.4'
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 4.4'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
@@ -69,7 +69,7 @@ group :test do
   gem 'site_prism', '~> 3.7'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'climate_control', '~> 0.2'
+  gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v0.1.9'
 end
@@ -95,14 +95,14 @@ gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
 gem 'simple_form', '~> 5.0'
 gem 'slim-rails', '~> 3.2'
-gem 'sidekiq', '~> 6.1'
+gem 'sidekiq', '~> 6.2'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq_alive', '~> 2.0'
 gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
-gem 'invisible_captcha', '~> 1.1'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v1.0.1'
+gem 'invisible_captcha', '~> 2.0'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.0'
 
-gem "webpacker", "~> 4.2"
+gem "webpacker", "~> 5.2"
 gem "devise", "~> 4.7"
