@@ -13,10 +13,9 @@ module ValidateNested
   # the parent, <tt>self</tt>, if it wasn't.
   def collection_valid?(collection_method, record, index = nil)
     unless valid = record.valid?
-      record.errors.each do |attribute, message|
-        attribute = normalize_collection_attribute(collection_method, index, attribute)
-        errors.add(attribute, message)
-        errors[attribute].uniq!
+      record.errors.each do |error|
+        attribute = normalize_collection_attribute(collection_method, index, error.attribute)
+        errors.add(attribute, error.message)
       end
 
       record.errors.details.each_key do |attribute|
