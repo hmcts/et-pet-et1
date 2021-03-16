@@ -40,7 +40,7 @@ module App
     # Controlls how many additional respondents are allowed
     config.additional_respondents_limit = 4
 
-    config.assets.enabled = true
+    config.assets.enabled = false
 
     config.assets.precompile += [
       'application-ie.css',

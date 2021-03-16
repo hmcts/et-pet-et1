@@ -17,7 +17,11 @@ function updateTotalFees() {
 }
 
 function enableOtherFieldsWhenAllowed() {
-  $('.refunds_fees form input.behavior-fee_field').on('change keyup keypress', updateOtherFields);
+  privateFields.etIssueFeeEl().on('change keyup keypress', updateOtherFields);
+  privateFields.etHearingFeeEl().on('change keyup keypress', updateOtherFields);
+  privateFields.etReconsiderationFeeEl().on('change keyup keypress', updateOtherFields);
+  privateFields.eatIssueFeeEl().on('change keyup keypress', updateOtherFields);
+  privateFields.eatHearingFeeEl().on('change keyup keypress', updateOtherFields);
 }
 
 function updateTotalFeesOnChange() {
@@ -32,10 +36,10 @@ privateFields.etIssueFeeEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_issue_fee]\']');
 };
 privateFields.etIssueFeePaymentDateYearEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_issue_fee_payment_date][year]\']');
+  return $(".refunds_fees [name='refunds_fees[et_issue_fee_payment_date(1i)]']");
 };
 privateFields.etIssueFeePaymentDateMonthEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_issue_fee_payment_date][month]\']');
+  return $(".refunds_fees [name='refunds_fees[et_issue_fee_payment_date(2i)]']");
 };
 privateFields.etIssueFeePaymentDateUnknownEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_issue_fee_payment_date_unknown]\']');
@@ -47,10 +51,10 @@ privateFields.etHearingFeeEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee]\']');
 };
 privateFields.etHearingFeePaymentDateYearEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee_payment_date][year]\']');
+  return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee_payment_date(1i)]\']');
 };
 privateFields.etHearingFeePaymentDateMonthEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee_payment_date][month]\']');
+  return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee_payment_date(2i)]\']');
 };
 privateFields.etHearingFeePaymentDateUnknownEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_hearing_fee_payment_date_unknown]\']');
@@ -62,10 +66,10 @@ privateFields.etReconsiderationFeeEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee]\']');
 };
 privateFields.etReconsiderationFeePaymentDateYearEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee_payment_date][year]\']');
+  return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee_payment_date(1i)]\']');
 };
 privateFields.etReconsiderationFeePaymentDateMonthEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee_payment_date][month]\']');
+  return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee_payment_date(2i)]\']');
 };
 privateFields.etReconsiderationFeePaymentDateUnknownEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[et_reconsideration_fee_payment_date_unknown]\']');
@@ -78,10 +82,10 @@ privateFields.eatIssueFeeEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee]\']')
 };
 privateFields.eatIssueFeePaymentDateYearEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee_payment_date][year]\']');
+  return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee_payment_date(1i)]\']');
 };
 privateFields.eatIssueFeePaymentDateMonthEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee_payment_date][month]\']');
+  return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee_payment_date(2i)]\']');
 };
 privateFields.eatIssueFeePaymentDateUnknownEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[eat_issue_fee_payment_date_unknown]\']');
@@ -93,10 +97,10 @@ privateFields.eatHearingFeeEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee]\']');
 };
 privateFields.eatHearingFeePaymentDateYearEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee_payment_date][year]\']');
+  return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee_payment_date(1i)]\']');
 };
 privateFields.eatHearingFeePaymentDateMonthEl = function () {
-  return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee_payment_date][month]\']');
+  return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee_payment_date(2i)]\']');
 };
 privateFields.eatHearingFeePaymentDateUnknownEl = function () {
   return $('.refunds_fees [name=\'refunds_fees[eat_hearing_fee_payment_date_unknown]\']');

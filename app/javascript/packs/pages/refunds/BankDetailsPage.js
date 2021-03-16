@@ -4,7 +4,7 @@ function publishCurrentAccountType() {
 }
 
 function setContinueButtonDisabled(val) {
-  $('.refunds_bank_details [data-behavior=\'continue_button\']').prop('disabled', val === '');
+  $('.refunds_bank_details .behavior-continue-button').prop('disabled', val === '');
 }
 
 function enableContinueWhenAllowed() {

@@ -4,7 +4,7 @@ class EmploymentForm < Form
   attribute :average_hours_worked_per_week,        :float
   attribute :benefit_details,                      :string
   attribute :current_situation,                    :string
-  attribute :end_date,                             :date
+  attribute :end_date,                             :et_date
   attribute :enrolled_in_pension_scheme,           :boolean
   attribute :found_new_job,                        :boolean
   attribute :gross_pay,                            :integer
@@ -14,11 +14,11 @@ class EmploymentForm < Form
   attribute :net_pay_period_type,                  :string
   attribute :new_job_gross_pay,                    :integer
   attribute :new_job_gross_pay_frequency,          :string
-  attribute :new_job_start_date,                   :date
+  attribute :new_job_start_date,                   :et_date
   attribute :notice_pay_period_count,              :float
   attribute :notice_pay_period_type,               :string
-  attribute :notice_period_end_date,               :date
-  attribute :start_date,                           :date
+  attribute :notice_period_end_date,               :et_date
+  attribute :start_date,                           :et_date
   attribute :worked_notice_period_or_paid_in_lieu, :boolean
 
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|

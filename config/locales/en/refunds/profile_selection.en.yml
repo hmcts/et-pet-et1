@@ -9,3 +9,10 @@ en:
           'claimant_direct_not_reimbursed': "I was an individual claimant who made the payments set out in this application and have not been reimbursed by anyone pursuant to an order of the Tribunal"
           'claimant_via_rep': "I was an individual claimant whose representative paid the fee and I then reimbursed them"
 
+  activemodel:
+    errors:
+      models:
+        refunds/profile_selection:
+          attributes:
+            profile_type:
+              blank: Please confirm

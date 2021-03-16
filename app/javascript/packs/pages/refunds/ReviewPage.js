@@ -1,6 +1,6 @@
 function updateContinueButton() {
-  var disabled = !acceptDeclarationEl().is(':checked');
-  $('.refunds_review [data-behavior=\'continue_button\']').prop('disabled', disabled);
+  let disabled = !acceptDeclarationEl().is(':checked');
+  $('.refunds_review .behavior-continue-button').prop('disabled', disabled);
 }
 
 function enableContinueWhenAllowed() {
@@ -8,7 +8,7 @@ function enableContinueWhenAllowed() {
 }
 
 function acceptDeclarationEl() {
-  return $(".refunds_review [name='refund_review[accept_declaration]']");
+  return $(".refunds_review [name='refunds_review[accept_declaration]']");
 }
 
 function RefundReviewPage() {

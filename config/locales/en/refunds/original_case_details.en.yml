@@ -97,7 +97,43 @@ en:
           Your Employment Appeal Tribunal case number can be found on the letters you received from HMCTS in relation to your case.
           Your EAT case cumber will start UKEAT/xxxx/YY/xxx.
           If you cannot find this number, please use the other information box below to give us any information or reference numbers you think would be helpful in identifying your case
-
+  activemodel:
+    errors:
+      models:
+        refunds/original_case_details:
+          attributes:
+            claimant_address_building:
+              blank: Enter the building number or name from your address at the time of the original claim
+            claimant_address_street:
+              blank: Enter the street from your address at the time of the original claim
+            claimant_address_post_code:
+              blank: Enter your post code at the time of the original claim
+            respondent_name:
+              blank: Enter the respondent's name
+            respondent_address_building:
+              blank: Enter the building number or name from the respondent's address
+            respondent_address_street:
+              blank: Enter the street from the respondent's address
+            respondent_address_post_code:
+              blank: Enter the respondent's post code
+            representative_name:
+              blank: Enter the representative's name
+            representative_address_building:
+              blank: Enter the building number or name from the representative's address
+            representative_address_street:
+              blank: Enter the street from the representative's address
+            representative_address_post_code:
+              blank: Enter the representative's post code
+            claim_had_representative:
+              nil_or_empty: Please select Yes or No
+            et_country_of_claim:
+              blank: Please select the country where your case was heard
+            et_case_number:
+              invalid: Must be in the format nnnnnnn/nnnn
+            eat_case_number:
+              invalid: Must be in the format UKEAT/nnnn/nn/nnn
+            address_changed:
+              nil_or_empty: Please select Yes or No
 
 
 
