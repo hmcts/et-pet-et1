@@ -21,6 +21,6 @@ class EtDateType < ActiveRecord::Type::Date
     defaults[3] = 1 if omit_day
     super defaults.merge(value)
   rescue ArgumentError
-    nil
+    value
   end
 end
