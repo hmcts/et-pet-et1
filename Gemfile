@@ -20,7 +20,6 @@ gem 'et_azure_insights', '0.2.14', git: 'https://github.com/hmcts/et-azure-insig
 gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsights-Ruby.git', ref: '5db6b4'
 
 # Use SCSS for stylesheets
-gem 'sass', '~> 3.7', '>= 3.7.4'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
@@ -104,7 +103,6 @@ gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 1.1'
 gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v1.0.0'
-gem 'sprockets', '~> 3.7'
 
 gem "webpacker", "~> 4.2"
 gem "devise", "~> 4.7"
