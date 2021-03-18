@@ -48,7 +48,6 @@ class RespondentForm < Form
             unless: :worked_at_same_address?
   validates :work_address_post_code,
             post_code: true,
-            ccd_post_code: true,
             length: { maximum: POSTCODE_LENGTH },
             unless: :worked_at_same_address?
   validates :work_address_telephone_number,
