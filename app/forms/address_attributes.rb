@@ -8,7 +8,7 @@ module AddressAttributes
 
   included do
     include AddressAttributes.but_skip_postcode_validation
-    validates :address_post_code, post_code: true, ccd_post_code: true, length: { maximum: POSTCODE_LENGTH }
+    validates :address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   end
 
   # rubocop:disable MethodLength
