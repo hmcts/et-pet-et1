@@ -44,12 +44,12 @@ RSpec.describe CcdAcasExemptionReasonValidator do
     end
   end
 
-  it 'is not valid for nil' do
+  it 'is valid for nil' do
     model = model_class.new(no_acas_number_reason: nil)
 
     model.valid?
 
-    expect(model.errors.details[:no_acas_number_reason]).to include a_hash_including(error: :invalid_cdd_acas_exemption_reason)
+    expect(model.errors).to be_empty
   end
 
   it 'is not valid for an empty string' do
