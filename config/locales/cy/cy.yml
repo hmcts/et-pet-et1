@@ -974,7 +974,7 @@ cy:
             no_acas_number_reason:
               blank: "Dewiswch reswm o'r rhestr."
               inclusion: ""
-            invalid_cdd_acas_exemption_reason: 'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
               blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
               invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.
