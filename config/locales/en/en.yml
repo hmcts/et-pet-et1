@@ -882,6 +882,7 @@ en:
             no_acas_number_reason:
               blank: Select a reason from the list.
               inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
+            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
               blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.

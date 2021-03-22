@@ -57,6 +57,7 @@ class RespondentForm < Form
 
   validates :no_acas_number_reason,
     inclusion: { in: NO_ACAS_REASON, allow_blank: true },
+            ccd_acas_exemption_reason: { if: :no_acas_number? },
     presence: { if: -> { no_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
