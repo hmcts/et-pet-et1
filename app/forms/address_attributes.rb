@@ -32,8 +32,8 @@ module AddressAttributes
         validates :address_building, :address_street, :address_locality,
           :address_county, :address_post_code, presence: true
 
-        validates :address_building, :address_street, length: { maximum: ADDRESS_LINE_LENGTH }
-        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }
+        validates :address_building, :address_street, ccd_address: true
+        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }, ccd_address: true
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
       end
     end
