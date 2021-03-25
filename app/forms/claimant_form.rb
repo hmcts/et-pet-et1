@@ -16,7 +16,7 @@ class ClaimantForm < Form
 
   attribute :first_name,         :string
   attribute :last_name,          :string
-  attribute :date_of_birth,      :date
+  attribute :date_of_birth,      :et_date
   attribute :address_country,    :string
   attribute :mobile_number,      :string
   attribute :fax_number,         :string

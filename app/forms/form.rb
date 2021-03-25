@@ -92,7 +92,7 @@ class Form < ApplicationRecord
   # bypassing strong parameters
   # @TODO Work out how to remove this
   def assign_attributes(attrs)
-    attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
+    #attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
     super(attrs)
   end
 
