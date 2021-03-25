@@ -739,17 +739,14 @@ en:
       gross_pay:
         label: Pay before tax
         hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
-      gross_pay_period_type:
+      pay_period_type:
+        label: How often were you paid
         options:
           weekly: Weekly
           monthly: Monthly
       net_pay:
         label: Pay after tax
         hint: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
-      net_pay_period_type:
-        options:
-          weekly: Weekly
-          monthly: Monthly
       enrolled_in_pension_scheme:
         label: Are – or were – you a member of your employer’s pension scheme?
         options:
@@ -766,11 +763,8 @@ en:
       new_job_gross_pay:
         label: New job pay before tax
         hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
-      new_job_pay_frequency:
-        options:
-          weekly: Weekly
-          monthly: Monthly
       new_job_gross_pay_frequency:
+        label: How often are you paid
         options:
           weekly: Weekly
           monthly: Monthly

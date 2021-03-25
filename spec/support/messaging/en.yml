@@ -456,16 +456,13 @@ en:
       label: Average hours worked per week
     gross_pay:
       label: Pay before tax
-    gross_pay_period_type:
+    pay_period_type:
+      label: How often were you paid (optional)
       options:
         weekly: Weekly
         monthly: Monthly
     net_pay:
       label: Pay after tax
-    net_pay_period_type:
-      options:
-        weekly: Weekly
-        monthly: Monthly
     enrolled_in_pension_scheme:
       label: Are – or were – you a member of your employer’s pension scheme? (optional)
     benefit_details:
@@ -476,7 +473,8 @@ en:
       label: New job start date
     new_job_gross_pay:
       label: New job pay before tax
-    new_job_gross_pay_period_type:
+    new_job_pay_period_type:
+      label: How often are you paid (optional)
       options:
         weekly: Weekly
         monthly: Monthly

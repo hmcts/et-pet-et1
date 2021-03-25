@@ -8,7 +8,7 @@ details.govuk-details data-module="govuk-details" open=(resource.claim_form_deta
     span.govuk-details__summary-text= t('.claim_details_upload')
 
   .govuk-inset-text.govuk-details__text
-    = f.file_field :claim_details_rtf
+    = f.file_field :claim_details_rtf, optional: true
     - if resource.claim_form_details_rtf?
       = f.check_box :remove_claim_details_rtf, true, label: { text: t('.remove_claim_details_rtf.label', file: resource.attachment_filename) }
     = f.hidden_field :claim_details_rtf_cache
