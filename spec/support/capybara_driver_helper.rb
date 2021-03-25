@@ -7,11 +7,11 @@ Capybara.configure do |config|
 end
 
 Capybara.register_driver(:cuprite) do |app|
-  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000])
+  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000], timeout: 10)
 end
 
 Capybara.register_driver(:cuprite_visible) do |app|
-  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000], headless: false)
+  Capybara::Cuprite::Driver.new(app, window_size: [1600, 1000], headless: false, timeout: 10)
 end
 
 Capybara.register_driver :poltergeist do |app|
