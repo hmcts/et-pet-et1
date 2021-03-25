@@ -10,7 +10,7 @@ class AdditionalClaimantsForm
 
     attribute :first_name,    :string
     attribute :last_name,     :string
-    attribute :date_of_birth, :date
+    attribute :date_of_birth, :et_date
     attribute :title,         :string
 
     booleans   :has_special_needs, :has_representative
