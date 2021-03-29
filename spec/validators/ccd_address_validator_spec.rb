@@ -44,7 +44,7 @@ RSpec.describe CcdAddressValidator do
     end
   end
 
-  it 'is not valid for nil' do
+  it 'is valid for nil' do
     model = model_class.new(example_address_street: nil)
 
     model.valid?
@@ -52,7 +52,7 @@ RSpec.describe CcdAddressValidator do
     expect(model.errors.details[:example_address_street]).to be_empty
   end
 
-  it 'is not valid for an empty string' do
+  it 'is valid for an empty string' do
     model = model_class.new(example_address_street: '')
 
     model.valid?
