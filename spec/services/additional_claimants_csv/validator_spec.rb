@@ -68,7 +68,7 @@ RSpec.describe AdditionalClaimantsCsv::Validator, type: :service do
         let(:result) { setup_csv_validator(invalid_char_count_row) }
 
         it { expect(result.success).to eq false }
-        it { expect(result.errors).to eq ["Street - The information you have provided for this field must not exceed 75 characters"] }
+        it { expect(result.errors).to eq ["Street - The information you have provided for this field must not exceed 50 characters"] }
       end
 
       it "yields the line number of the invalid record" do

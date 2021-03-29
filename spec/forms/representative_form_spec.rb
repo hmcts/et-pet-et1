@@ -53,8 +53,8 @@ RSpec.describe RepresentativeForm, type: :form do
       it { expect(representative_form).to validate_length_of(:name).is_at_most(100) }
       it { expect(representative_form).to validate_length_of(:organisation_name).is_at_most(100) }
 
-      it { expect(representative_form).to validate_length_of(:address_building).is_at_most(75) }
-      it { expect(representative_form).to validate_length_of(:address_street).is_at_most(75) }
+      it { expect(representative_form).to validate_length_of(:address_building).is_at_most(50) }
+      it { expect(representative_form).to validate_length_of(:address_street).is_at_most(50) }
       it { expect(representative_form).to validate_length_of(:address_locality).is_at_most(25) }
       it { expect(representative_form).to validate_length_of(:address_county).is_at_most(25) }
       it { expect(representative_form).to validate_length_of(:address_post_code).is_at_most(8) }
