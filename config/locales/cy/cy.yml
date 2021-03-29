@@ -985,7 +985,6 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad yr atebydd
-            blank_ccd_address: :'activemodel.errors.models.respondent.attributes.address_building.blank'
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd
             address_locality:
