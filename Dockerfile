@@ -37,7 +37,7 @@ RUN /pd_build/ruby-2.7.*.sh
 RUN /pd_build/nodejs.sh
 
 # ...put your own build instructions here...
-
+RUN apt-get install -y shared-mime-info
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
