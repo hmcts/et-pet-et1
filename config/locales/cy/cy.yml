@@ -345,6 +345,31 @@ cy:
       immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
 
   timeout_sessions:
+    new:
+      header: Dychwelyd i'ch hawliad
+      forgot_password: "Wedi anghofio eich gair cofiadwy?"
+      reset_password: "Cliciwch yma i'w ailosod"
+      hint_html: "Nid yw'r manylion hyn gennych? <a class=\"govuk-link\" href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+    edit:
+      header: "Cadw eich hawliad"
+      print_link: Argraffu'r dudalen hon
+      print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
+    session:
+      subheader: Rhowch eich manylion isod
+    registration:
+      application_number: Eich rhif cadw a dychwelyd
+      intro_text: Gallwch gadw eich hawliad a dychwelyd iddo unrhyw dro. Byddwch angen eich rhif cadw a dychwelyd (uchod), a’ch gair cofiadwy, y byddwch yn ei greu isod. Os byddwch yn nodi eich cyfeiriad e-bost, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio.
+      email_address:
+        label: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
+      password:
+        label: Crëwch eich gair cofiadwy
+        hint: Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio
+    reference:
+      label: Rhif cadw a dychwelyd
+      hint: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
+    password:
+      label: Gair cofiadwy
+      hint: Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio
     create:
       header: Dychwelyd i'ch hawliad
     reminder:

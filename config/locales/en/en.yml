@@ -271,6 +271,31 @@ en:
       immutable: This claim has been submitted and can no longer be edited online
 
   timeout_sessions:
+    new:
+      header: Return to your claim
+      forgot_password: Forgot your memorable word?
+      reset_password: Click here to reset
+      hint_html: Don’t have these details? <a class="govuk-link" href="%{path}">Start a new claim</a>.
+    edit:
+      header: Saving your claim
+      print_link: Print this page
+      print_copy: to have a copy of your claim number for reference
+    session:
+      subheader: Enter your details below
+    registration:
+      application_number: Your save and return number
+      intro_text: You can save your claim and return to it at any time. You will need your save and return number (above), and memorable word, which you create below.  If you enter your email address you will be able to reset your memorable word if you forget it.
+      email_address:
+        label: Enter your email address to receive your claim number
+      password:
+        label: Create your memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+    reference:
+      label: Save and return number
+      hint: This was emailed to you (if you entered your email address)
+    password:
+      label: Memorable word
+      hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
     create:
       header: Return to your claim
     reminder:
