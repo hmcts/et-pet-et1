@@ -1,5 +1,5 @@
 p= t('claims.show.page_number', current_page: current_page, total_pages: total_pages)
-h1.govuk-heading-xl= t("claims.registration.header")
+h1.govuk-heading-xl= t(".header")
 
 = form_for resource, as: user_session, url: user_session_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
   = hidden_field_tag :return_to_review, params[:return_to_review]
