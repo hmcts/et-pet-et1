@@ -2,14 +2,14 @@ h1.govuk-heading-xl= t('.header')
 = form_for resource, as: user_session, url: user_session_path, builder: EtGdsDesignSystem.form_builder_class do |f|
   = f.govuk_error_summary(t 'shared.error_notification.default_message')
 
-  = f.govuk_fieldset label: {text: t('timeout_sessions.session.subheader')} do
+  = f.fieldset label: t('timeout_sessions.session.subheader') do
     = f.text_field :reference,
-      label: {text: t('timeout_sessions.reference.label')},
-      hint: {text: t('timeout_sessions.reference.hint')}
+      label: t('timeout_sessions.reference.label'),
+      hint: t('timeout_sessions.reference.hint')
 
     = f.text_field :password,
-      label: {text: t('claims.session.password.label')},
-      hint: {text: t('claims.session.password.hint')}
+      label: t('claims.session.password.label'),
+      hint: t('claims.session.password.hint')
 
     = f.submit t('helpers.submit.save_and_return[session].create')
 

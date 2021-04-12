@@ -5,15 +5,14 @@ h1.govuk-heading-xl= t("claims.registration.header")
 = form_for resource, as: :'save_and_return[user]', url: user_registration_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
   = hidden_field_tag :return_to_review, params[:return_to_review]
   = f.govuk_error_summary(t 'shared.error_notification.default_message')
-  = f.govuk_fieldset label: {text: t('claims.registration.application_number')} do
+  = f.fieldset label: t('claims.registration.application_number') do
     span.number= claim.reference
 
-    = f.govuk_fieldset label: {text: false} do
-      p= t('claims.registration.intro_text')
-      = f.text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
-      = f.text_field :password,
-                label: {text: t('claims.registration.password.label')},
-                hint: { text: t('claims.registration.password.hint') }
+    p= t('claims.registration.intro_text')
+    = f.text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
+    = f.text_field :password,
+      label: {text: t('claims.registration.password.label')},
+      hint: { text: t('claims.registration.password.hint') }
 
     p.print
       = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
