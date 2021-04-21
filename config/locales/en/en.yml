@@ -73,6 +73,9 @@ en:
           "false": 'No'
       additional_claimants:
         collection: :"simple_form.options.claimant"
+      allow_analytics:
+        "true": 'Yes'
+        "false": 'No'
 
       representative:
         type:
@@ -212,6 +215,9 @@ en:
         has_additional_claimants: Do you want to upload details of 6 claimants or more?
         additional_claimants_csv: Upload spreadsheet
         claimants: :"simple_form.labels.claimant"
+
+      cookies:
+        allow_analytics: Do you want to accept analytics cookies?
 
       representative:
         has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
@@ -404,6 +410,7 @@ en:
         create: Save and continue
       save_and_return[password]:
         create: Reset memorable word
+
 
     link:
       claim:

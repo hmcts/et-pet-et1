@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "claim_reviews/show.html.slim" do
+describe "claim_reviews/edit.html.slim" do
   context "employment" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do

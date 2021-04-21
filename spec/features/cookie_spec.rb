@@ -7,7 +7,7 @@ feature 'Cookies' do
   let(:intro_message)                      { '<h3>Our introductory message</h3>' }
 
   before do
-    visit cookies_path
+    visit edit_cookies_path
   end
 
   scenario "User visits the cookies page" do

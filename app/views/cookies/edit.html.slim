@@ -20,9 +20,40 @@
         p = t '.section_one.line_two_html'
 
         h2.legend = t '.section_two.title_one'
-        h3 = t '.section_two.title_two'
+        h3 = t '.section_two.title_three'
 
-        p = t '.section_two.line_one'
+        p = t '.section_two.line_three'
+
+        h3 = t '.section_three.title_one'
+        p = t '.section_three.line_one'
+
+        table
+          tr
+            th = t '.section_three.table.labels.name'
+            th = t '.section_three.table.labels.purpose'
+            th = t '.section_three.table.labels.expires'
+          tr
+            td = t '.section_three.table.one.name'
+            td = t '.section_three.table.one.purpose'
+            td = t '.section_three.table.one.expires'
+
+        h3 = t '.section_two.title_four'
+        p = t '.section_two.line_four'
+
+        table
+          tr
+            th = t '.section_two.table_two.labels.name'
+            th = t '.section_two.table_two.labels.purpose'
+            th = t '.section_two.table_two.labels.expires'
+          tr
+            td = t '.section_two.table_two.one.name'
+            td = t '.section_two.table_two.one.purpose'
+            td = t '.section_two.table_two.one.expires'
+
+
+        h2.legend = t'.section_four.title_one'
+        h3 = t'.section_four.title_two'
+        p = t'.section_four.line_one'
 
         ul
           li = t '.section_two.list.one'
@@ -58,32 +89,19 @@
             td = t '.section_two.table.five.purpose'
             td = t '.section_two.table.five.expires'
 
-        p = t '.section_two.line_three_html'
+        = simple_form_for(@cookie, as: :cookie, url: cookies_path, method: :patch) do |f|
+          fieldset
+            legend.form-label = t('simple_form.labels.cookies.allow_analytics')
+            = f.input :usage,
+              label: false,
+              as: :radio_buttons,
+              collection: t('simple_form.options.allow_analytics').to_a.map(&:reverse),
+              readonly: nil,
+              include_hidden: false,
+              item_wrapper_class: 'block-label'
 
-        h3 = t '.section_three.title_one'
-        p = t '.section_three.line_one'
+            = f.button :submit
 
-        table
-          tr
-            th = t '.section_three.table.labels.name'
-            th = t '.section_three.table.labels.purpose'
-            th = t '.section_three.table.labels.expires'
-          tr
-            td = t '.section_three.table.one.name'
-            td = t '.section_three.table.one.purpose'
-            td = t '.section_three.table.one.expires'
 
-        h3 = t '.section_four.title_one'
-        p = t '.section_four.line_one'
 
-        table
-          tr
-            th = t '.section_four.table.labels.name'
-            th = t '.section_four.table.labels.purpose'
-            th = t '.section_four.table.labels.expires'
-          tr
-            td = t '.section_four.table.one.name'
-            td = t '.section_four.table.one.purpose'
-            td = t '.section_four.table.one.expires'
-        h3 = t ".section_five.title_one"
-        p = raw t(".section_five.line_one", link: link_to(t(".section_five.cookie_link_text"), "https://www.gov.uk/help/cookies", rel: "external", target: "_blank"))
+

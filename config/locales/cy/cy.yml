@@ -69,6 +69,9 @@ cy:
             mrs: Mrs
             miss: Miss
             ms: Ms
+      allow_analytics:
+        true: 'Ydw'
+        false: 'Nac ydw'
 
       representative:
         type:
@@ -224,6 +227,8 @@ cy:
           address_post_code: Cod post
           address_country: Gwlad
           email_address: Cyfeiriad e-bost
+      cookies:
+        allow_analytics: A ydych eisiau derbyn cwcis dadansoddol?
 
 
       additional_claimants_upload:

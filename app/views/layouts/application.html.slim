@@ -16,7 +16,7 @@
 - content_for :javascripts do
   = javascript_include_tag "application"
 
-  - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present?
+  - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present? && cookie_settings['usage']
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
   javascript:
@@ -33,7 +33,7 @@
 - content_for :footer_support_links do
   li= link_to "Guide", guide_path
   li= link_to "Terms and Conditions", terms_path
-  li= link_to "Cookies", cookies_path
+  li= link_to "Cookies", edit_cookies_path
   li= link_to "Contact us", 'http://www.justice.gov.uk/contacts/hmcts/tribunals/employment'
 - unless content_for?(:before_alerts)
   - content_for :before_alerts do

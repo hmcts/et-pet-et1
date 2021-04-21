@@ -1,6 +1,6 @@
 en:
   cookies:
-    show:
+    edit:
       header: Cookies
       line_one: The ‘make a claim to an employment tribunal’ website stores small files (known as cookies), on your computer. They are used to improve your experience of using the service.
       section_one:
@@ -14,6 +14,10 @@ en:
       section_two:
         title_one: How cookies are used
         title_two: Measuring website usage (Google Analytics)
+        title_three: Essential cookies
+        title_four: Cookies message
+        line_four: You may see a banner when you visit employment tribunals inviting you to accept or reject optional cookies. We'll set cookies so that your computer knows you've seen it and not to show it again, and also store your settings.
+        line_three: Essential cookies are needed for the service to work. We do not need to ask for permission to use them.
         line_one: "We use Google Analytics software to collect information about how you use this service. Google Analytics stores the following information:"
         list:
           one: the pages you visit
@@ -47,6 +51,15 @@ en:
             purpose: Manages the deployment of the cookies above
             expires: 2 years
         line_three_html: 'You can <a href="https://tools.google.com/dlpage/gaoptout" rel="external" title="opt out of Google Analytics cookies">opt out of Google Analytics cookies</a>.'
+        table_two:
+          labels:
+            name: Name
+            purpose: Purpose
+            expires: Expires
+          one:
+            name: cookie_setting
+            purpose: Saves your cookie consent settings.
+            expires: 1 year
       section_three:
         title_one: Your progress when using the service
         line_one: "When using this service, we'll set a cookie to remember your progress. This cookie doesn’t store your personal data and is deleted when your session ends."
@@ -60,8 +73,9 @@ en:
             purpose: The information you enter is stored on the server for the length of time you stay on the page. This can be up to 60 minutes, with the option to extend for another 60 minutes. After you’ve downloaded the completed PDF, this data is deleted from our servers.
             expires: 60 mins (or when your session expires)
       section_four:
-        title_one: Our introductory message
-        line_one: "You may see a pop-up welcome message when you first visit this service. We’ll set a cookie so that your computer knows you’ve seen it and does not show it again."
+        title_one: Analytics cookies (optional)
+        title_two: Measuring website usage (Google Analytics)
+        line_one: "We use Google Analytics software to collect information about how you use this service. Google Analytics stores the following information:"
         table:
           labels:
             name: Name
@@ -75,3 +89,9 @@ en:
         title_one: Further information
         line_one: Refer here to %{link} cookie policy
         cookie_link_text: Gov.uk
+
+      helpers:
+        submit:
+          cookies:
+            edit: Save cookie settings
+
