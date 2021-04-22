@@ -70,9 +70,9 @@
               = f.hidden_field :usage, value: 'false'
               = f.hidden_field :return_path, value: path_only(request.url)
               = f.button :submit, t('banner.reject_analytics')
-              = link_to t('banner.cookie_link'), edit_cookies_path
+            = link_to t('banner.cookie_link'), edit_cookies_path
   - if flash[:cookie_banner_confirmation].present?
-    .govuk-cookie-banner.confirmation aria-label=("Cookies on <%= service_name %>") role="region"
+    .govuk-cookie-banner.confirmation aria-label=("Cookies on Employment tribunal") role="region"
       .govuk-cookie-banner__message.govuk-width-container role="alert"
         .govuk-grid-row
           .govuk-grid-column-two-thirds
