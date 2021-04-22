@@ -69,5 +69,6 @@ module App
     else
       config.azure_insights.enable = false
     end
+    config.x.cookie_expiry = 1.year
   end
 end

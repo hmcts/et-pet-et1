@@ -1,15 +1,18 @@
 class CookiesController < ApplicationController
   include CookiesHelper
+  include ApplicationHelper
 
-  def edit
-    @cookie = CookieForm.new(cookie_settings)
+  def update(cookie_expiry: Rails.application.config.x.cookie_expiry)
+    cookie_form.assign_attributes cookie_params.merge(seen: true)
+    cookies['cookie_setting'] = { value: cookie_form.to_json, expires: cookie_expiry }
+    redirect_to cookies_path, flash: { info: t('cookie_banner.confirmation_message.cookie_flashes') }
   end
 
-  def update
-    @cookie = CookieForm.new(cookie_settings)
-    @cookie.assign_attributes cookie_params.merge(seen: true)
-    cookies['cookie_setting'] = @cookie.to_json
-    redirect_to cookies_path, flash: { info: "You've set your cookie preferences"}
+  def create(cookie_expiry: Rails.application.config.x.cookie_expiry)
+    cookie_form.assign_attributes cookie_params.merge(seen: true)
+    cookies['cookie_setting'] = { value: cookie_form.to_json, expires: cookie_expiry }
+    redirect_to path_only(params.dig(:cookie, :return_path)),
+                flash: { cookie_banner_confirmation: t("cookie_banner.confirmation_message.#{cookie_form.usage}", edit_cookies_path: edit_cookies_path) }
   end
 
   private
