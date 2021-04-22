@@ -53,7 +53,7 @@
 
 - content_for :cookie_message do
   - unless cookie_settings['seen']
-    .govuk-cookie-banner.confirmation aria-label=("Cookies on Employment tribunal") role="region"
+    .govuk-cookie-banner.confirmation aria-label= t('cookies.edit.cookie_aria_label') role="region"
       .govuk-cookie-banner__message.govuk-width-container
         .govuk-grid-row
           .govuk-grid-column-two-thirds
@@ -72,7 +72,7 @@
               = f.button :submit, t('banner.reject_analytics')
             = link_to t('banner.cookie_link'), edit_cookies_path
   - if flash[:cookie_banner_confirmation].present?
-    .govuk-cookie-banner.confirmation aria-label=("Cookies on Employment tribunal") role="region"
+    .govuk-cookie-banner.confirmation aria-label= t('cookies.edit.cookie_aria_label') role="region"
       .govuk-cookie-banner__message.govuk-width-container role="alert"
         .govuk-grid-row
           .govuk-grid-column-two-thirds

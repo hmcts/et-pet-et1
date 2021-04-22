@@ -90,3 +90,4 @@ cy:
         line_one: ""
         cookie_link_text: Gov.uk
       save_cookies: Cadw gosodiadau cwcis
+      cookie_aria_label: Cwcis ar dribiwnlysoedd cyflogaeth

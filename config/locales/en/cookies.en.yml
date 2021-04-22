@@ -90,4 +90,5 @@ en:
         line_one: Refer here to %{link} cookie policy
         cookie_link_text: Gov.uk
       save_cookies: Save cookie settings
+      cookie_aria_label: Cookies on Employment tribunal
 
