@@ -73,6 +73,9 @@ en:
           "false": 'No'
       additional_claimants:
         collection: :"simple_form.options.claimant"
+      allow_analytics:
+        "true": 'Yes'
+        "false": 'No'
 
       representative:
         type:
@@ -212,6 +215,9 @@ en:
         has_additional_claimants: Do you want to upload details of 6 claimants or more?
         additional_claimants_csv: Upload spreadsheet
         claimants: :"simple_form.labels.claimant"
+
+      cookies:
+        allow_analytics: Do you want to accept analytics cookies?
 
       representative:
         has_representative: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
@@ -405,6 +411,7 @@ en:
       save_and_return[password]:
         create: Reset memorable word
 
+
     link:
       claim:
         return: Return to a claim
@@ -532,6 +539,19 @@ en:
         reset: "Reset my memorable word"
         didnt_request: "If you didn't request this, please ignore this email"
         paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."
+  banner:
+    title: Cookies on Employment tribunal
+    first_line: We use some essential cookies to make this service work.
+    second_line: We'd also like to use analytics cookies so we can understand how you use the service and make improvements.
+    accept_analytics: Accept analytics cookies
+    reject_analytics: Reject analytics cookies
+    cookie_link: View cookies
+  cookie_banner:
+    confirmation_message:
+      true: You've accepted analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
+      false: You've rejected analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
+      hide_button: Hide this message
+      cookie_flashes: You've set your cookie preferences
   claims:
     personal_details:
       date_of_birth: Date of birth

@@ -69,6 +69,9 @@ cy:
             mrs: Mrs
             miss: Miss
             ms: Ms
+      allow_analytics:
+        true: 'Ydw'
+        false: 'Nac ydw'
 
       representative:
         type:
@@ -224,6 +227,8 @@ cy:
           address_post_code: Cod post
           address_country: Gwlad
           email_address: Cyfeiriad e-bost
+      cookies:
+        allow_analytics: A ydych eisiau derbyn cwcis dadansoddol?
 
 
       additional_claimants_upload:
@@ -539,6 +544,20 @@ cy:
         exit_guide: Dychwelyd i'r ffurflen
         contact_us: Cysylltu â ni
         contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+
+  banner:
+    title: Cwcis ar dribiwnlysoedd cyflogaeth
+    first_line: Rydym yn defnyddio rhai cwcis hanfodol i wneud i’r gwasanaeth hwn weithio.
+    second_line: Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut mae pobl yn defnyddio’r gwasanaeth hwn a gwneud gwelliannau.
+    accept_analytics: Derbyn cwcis dadansoddol
+    reject_analytics: Gwrthod cwcis dadansoddol
+    cookie_link: Bwrw golwg dros y cwis
+  cookie_banner:
+    confirmation_message:
+      true: Rydych wedi derbyn cwcis dadansoddol. Gallwch newid eich <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      false: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch newid eich dewisiadau cwcis <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      hide_button: Cuddiwch y neges hon
+      cookie_flashes: Rydych wedi cadw eich dewisiadau cwcis
 
   terms:
     show:
