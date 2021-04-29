@@ -546,11 +546,11 @@ cy:
         contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
 
   banner:
-    title: Cwcis ar dribiwnlysoedd cyflogaeth
-    first_line: Rydym yn defnyddio rhai cwcis hanfodol i wneud i’r gwasanaeth hwn weithio.
-    second_line: Hoffem hefyd ddefnyddio cwcis dadansoddol fel y gallwn ddeall sut mae pobl yn defnyddio’r gwasanaeth hwn a gwneud gwelliannau.
-    accept_analytics: Derbyn cwcis dadansoddol
-    reject_analytics: Gwrthod cwcis dadansoddol
+    title: Cwcis ar gyfer Tribiwnlysoedd Cyflogaeth
+    first_line: Rydym yn defnyddio cwcis hanfodol i wneud i'r wefan hon weithio.
+    second_line: Hoffem osod cwcis ychwanegol i ddeall sut rydych yn defnyddio'r wefan a gwella gwasanaethau'r llywodraeth.
+    accept_analytics: Derbyn cwcis ychwanegol
+    reject_analytics: Gwrthod cwcis ychwanegol
     cookie_link: Bwrw golwg dros y cwis
   cookie_banner:
     confirmation_message:

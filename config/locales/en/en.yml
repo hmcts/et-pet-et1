@@ -540,9 +540,9 @@ en:
         didnt_request: "If you didn't request this, please ignore this email"
         paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."
   banner:
-    title: Cookies on Employment tribunal
+    title: Cookies on Employment tribunals
     first_line: We use some essential cookies to make this service work.
-    second_line: We'd also like to use analytics cookies so we can understand how you use the service and make improvements.
+    second_line: We'd also like to use analytics cookies so we can understand how you use the service and make improvements to government services.
     accept_analytics: Accept analytics cookies
     reject_analytics: Reject analytics cookies
     cookie_link: View cookies
