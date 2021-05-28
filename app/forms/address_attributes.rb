@@ -1,7 +1,7 @@
 module AddressAttributes
   extend ActiveSupport::Concern
 
-  ADDRESS_LINE_LENGTH  = 75
+  ADDRESS_LINE_LENGTH  = 50
   LOCALITY_LENGTH      = 25
   PHONE_NUMBER_LENGTH  = 21
   POSTCODE_LENGTH      = 8

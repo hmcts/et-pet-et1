@@ -12,7 +12,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to validate_length_of(:applicant_address_building).is_at_most(75)
+          expect(applicant_form).to validate_length_of(:applicant_address_building).is_at_most(50)
         end
       end
 
@@ -22,7 +22,7 @@ module Refunds
         end
 
         it 'validates length' do
-          expect(applicant_form).to validate_length_of(:applicant_address_street).is_at_most(75)
+          expect(applicant_form).to validate_length_of(:applicant_address_street).is_at_most(50)
         end
       end
 
