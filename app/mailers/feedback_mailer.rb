@@ -3,6 +3,6 @@ class FeedbackMailer < ApplicationMailer
     @comments = params[:comments]
     @suggestions = params[:suggestions]
     @requester = params[:requester]
-    mail(from: @requester[:email], to: service_now_email, subject: 'New ATET User Feedback')
+    mail(to: service_now_email, subject: 'New ATET User Feedback')
   end
 end
