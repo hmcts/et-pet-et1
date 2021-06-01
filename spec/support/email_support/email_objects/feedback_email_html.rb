@@ -7,7 +7,7 @@ module Et1
 
         def self.find(repo: ActionMailer::Base.deliveries, email_address:)
           instances = repo.map { |mail| FeedbackEmailHtml.new(mail) }
-          instances.detect { |instance| instance.has_correct_subject? && instance.has_correct_email_address?(email_address) }
+          instances.detect { |instance| instance.has_correct_subject? }
         end
 
         def initialize(mail)
@@ -15,10 +15,6 @@ module Et1
           part = mail.parts.detect { |p| p.content_type =~ %r{text\/html} }
           body = part.nil? ? '' : part.body.to_s
           load(body)
-        end
-
-        def has_correct_email_address?(email_address)
-          mail.from.include? email_address
         end
 
         def has_correct_content_for?(comments:, suggestions:, email_address:) # rubocop:disable Naming/PredicateName
