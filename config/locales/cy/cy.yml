@@ -611,7 +611,7 @@ cy:
       step_one_header: Cam 1
       download_template_html: |
         <a class="govuk-link" href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
-      download_template_asset: 'group-claims-template-cy.csv'
+      download_template_asset: 'group-claims-template-cy'
       dob_info: "Ar gyfer dyddiadau geni, defnyddiwch rifau a/neu lythrennau wedi'u gwahanu gan flaen slaesau. Ee 23/04/1983 neu 23/Ebr/1983"
       step_two_header: Cam 2
       save_csv_format: Cadw ffeil mewn fformat CSV
