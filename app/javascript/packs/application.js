@@ -14,7 +14,7 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
+const images = require.context('./csv', true);
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
 import "./stylesheets/application.scss"
