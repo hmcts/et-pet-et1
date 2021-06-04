@@ -3,6 +3,7 @@ default: &default
   encoding: unicode
   pool: 5
   port: <%= ENV.fetch('DB_PORT', '5432') %>
+  password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
 
 development:
   <<: *default
