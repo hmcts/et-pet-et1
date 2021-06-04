@@ -242,7 +242,6 @@ cy:
         address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
         date_of_birth: "Er enghraifft, 23 04 1981"
       representative:
-        address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
         respondent:
         acas_early_conciliation_certificate_number: |
           Mae hwn ar y dystysgrif y mae Acas yn ei hanfon os nad yw cymodi yn llwyddiannus. Mae'r rhif yn cychwyn gyda ’R’ neu ’MU’.
@@ -268,8 +267,6 @@ cy:
           Os ydych chi'n hawlio iawndal ariannol, ceisiwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Bydd unrhyw swm a nodir gennych yn wybodaeth ddefnyddiol ond gallwch ei newid hwyrach ymlaen.
         miscellaneous_information: |
           Ee efallai hoffech ddweud wrthym pam fod eich hawliad yn hwyr, neu a ydych wedi siarad â'ch cyflogwr am y broblem yn y gwaith
-      respondent:
-        work_address_county: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       additional_respondents:
         has_additional_respondents: "Gallwch wneud hawliad yn erbyn mwy nag un atebydd. Ee os ydych chi'n hawlio eich bod wedi profi gwahaniaethu, efallai eich bod yn cwyno am unigolyn(ion) yn ogystal â'ch cyflogwr."
         respondents:
@@ -656,6 +653,7 @@ cy:
         label: Stryd
       address_county:
         label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       address_post_code:
         label: Cod post
       mobile_number:
@@ -721,6 +719,7 @@ cy:
         label: Stryd
       work_address_county:
         label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
       work_address_post_code:
         label: Cod post
       acas_early_conciliation_certificate_number:
@@ -815,6 +814,7 @@ cy:
         label: Dyddiad gorffen y cyfnod rhybudd
         hint: Y dyddiad daw eich cyflogaeth i ben. Er enghraifft, 22 04 2014
       notice_pay_period_type:
+        label: "A oedd yr wythnosau neu'r misoedd hyn ?"
         options:
           weeks: Wythnosau
           months: Misoedd

@@ -367,7 +367,7 @@ en:
       label: 'Describe your claim'
       hint: Limit is 2500 characters.
     other_known_claimants:
-      label: Do you know of any other claimants (not already listed) making similar claims against the same employer?
+      label: Do you know of any other claimants (not already listed) making similar claims against the same employer? (optional)
       hint: A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
       options:
         'yes': 'Yes'

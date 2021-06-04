@@ -17,7 +17,7 @@
         = f.collection_radio_buttons :worked_notice_period_or_paid_in_lieu, inline: true
         = f.revealed_content :worked_notice_period_or_paid_in_lieu, values: [:true], classes: ['govuk-inset-text']
           = f.text_field :notice_pay_period_count, optional: true
-          = f.collection_radio_buttons :notice_pay_period_type, label: false, inline: true
+          = f.collection_radio_buttons :notice_pay_period_type, inline: true
         = f.text_field :average_hours_worked_per_week, optional: true
         /! Pay, pension and benefits
         = f.fieldset label: t('.pay_legend')
