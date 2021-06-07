@@ -7,14 +7,22 @@
 #     the user gets an error on the form instead.
 class EtDateType < ActiveRecord::Type::Date
   # @param [Boolean] omit_day If true, allows a date without a day - will default to the first of the month
-  def initialize(omit_day: false)
+  def initialize(omit_day: false, allow_2_digit_year: false)
     @omit_day = omit_day
+    @allow_2_digit_year = allow_2_digit_year
     super()
   end
 
   private
 
-  attr_reader :omit_day
+  attr_reader :omit_day, :allow_2_digit_year
+
+  def new_date(year, mon, mday)
+    if allow_2_digit_year && year.present? && year < 100
+      year = 1900 + year
+    end
+    super(year, mon, mday)
+  end
 
   def value_from_multiparameter_assignment(value)
     defaults = {}
