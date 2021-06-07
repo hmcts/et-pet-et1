@@ -374,6 +374,7 @@ feature 'Claim applications', type: :feature, js: true do
         complete_a_claim
         click_button 'Submit claim'
         expect(claim_submitted_page).to have_save_a_copy_link
+        expect(claim_submitted_page).not_to have_invalid_save_a_copy_link
       end
 
       context 'with pdf not ready yet' do
@@ -383,6 +384,7 @@ feature 'Claim applications', type: :feature, js: true do
           complete_a_claim
           click_button 'Submit claim'
           expect(claim_submitted_page).to have_invalid_save_a_copy_link
+          expect(claim_submitted_page).not_to have_save_a_copy_link
         end
       end
     end
