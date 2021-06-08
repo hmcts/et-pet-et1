@@ -102,7 +102,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.0'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.1'
 
 gem "webpacker", "~> 5.2"
 gem "devise", "~> 4.7"

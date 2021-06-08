@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 9f7ae1a5b38028ebc80fb1ec63112709cc53a991
-  tag: v2.0.0
+  revision: 61cb3a4b340ea91a09bd0e4380cbc52449a47d61
+  tag: v2.0.1
   specs:
-    et_gds_design_system (2.0.0)
+    et_gds_design_system (2.0.1)
       govuk_design_system_formbuilder (~> 2.1)
       rails (>= 6.0)
       webpacker (~> 5.0)
@@ -176,6 +176,7 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     debug_inspector (1.0.0)
+    deep_merge (1.2.1)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -237,10 +238,11 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (2.2.0)
-      actionview (>= 5.2)
-      activemodel (>= 5.2)
-      activesupport (>= 5.2)
+    govuk_design_system_formbuilder (2.5.1)
+      actionview (>= 6.0)
+      activemodel (>= 6.0)
+      activesupport (>= 6.0)
+      deep_merge (~> 1.2.1)
     guard (2.16.2)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
