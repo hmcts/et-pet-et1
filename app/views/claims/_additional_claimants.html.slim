@@ -1,4 +1,4 @@
-= f.fieldset label: t('.subheader')
+= f.fieldset label: { text: t('.subheader'), size: 'm' }
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   = f.collection_radio_buttons :has_multiple_claimants, inline: true, optional: true, include_hidden: false
   = f.revealed_content :has_multiple_claimants, values: [:true]
