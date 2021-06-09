@@ -1,7 +1,7 @@
 - if claim.submittable?
-  = form_for confirmation_email, url: request.url, method: :put, builder: EtGdsDesignSystem.form_builder_class do |f|
+  = form_for confirmation_email(claim), url: request.url, method: :put, builder: EtGdsDesignSystem.form_builder_class do |f|
     = f.fieldset label: t('.confirmation')
-      = f.collection_check_boxes :email_addresses, email_addresses(claim), :first, :last
+      = f.collection_check_boxes :email_addresses, f.object.all_email_addresses, :first, :first
 
     = f.fieldset label: t('.submit_warning_header')
       hr class="govuk-section-break.govuk-section-break--visible"
