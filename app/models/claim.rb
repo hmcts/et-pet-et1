@@ -119,4 +119,5 @@ class Claim < ApplicationRecord
   def immutable?
     submitted? || enqueued_for_submission?
   end
+
 end

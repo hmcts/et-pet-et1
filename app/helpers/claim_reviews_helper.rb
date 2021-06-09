@@ -8,16 +8,12 @@ module ClaimReviewsHelper
     end
   end
 
-  def email_addresses(claim)
-    ConfirmationEmailAddressesPresenter.email_addresses_for claim
-  end
-
   def claim_presenter
     @claim_presenter ||= ClaimPresenter.new(claim)
   end
 
-  def confirmation_email
-    @confirmation_email ||= ConfirmationEmail.new
+  def confirmation_email(claim)
+    @confirmation_email ||= ConfirmationEmail.new(claim)
   end
 
   def quick_edit_link_for(section)
