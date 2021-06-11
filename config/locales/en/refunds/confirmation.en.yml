@@ -15,4 +15,4 @@ en:
       refund_submitted:
         header: "Claim submitted"
       print_link_html: |
-        <a href="javascript:window.print(0);">Print this page</a> for your records
+        <a class="govuk-link" href="javascript:window.print(0);">Print this page</a> for your records

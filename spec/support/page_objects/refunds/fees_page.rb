@@ -18,7 +18,7 @@ module ET1
             # @!method fee_question
             #   A govuk text field component wrapping the input, label, hint etc..
             #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee'
+            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee (in pounds)'
             # @!method payment_date_question
             #   A govuk date field component wrapping the inputs, label, hint etc.. for a date question
             #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
@@ -41,7 +41,7 @@ module ET1
             # @!method fee_question
             #   A govuk text field component wrapping the input, label, hint etc..
             #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee'
+            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee (in pounds)'
             # @!method payment_date_question
             #   A govuk date field component wrapping the inputs, label, hint etc.. for a date question
             #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
@@ -64,7 +64,7 @@ module ET1
             # @!method fee_question
             #   A govuk text field component wrapping the input, label, hint etc..
             #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee'
+            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee (in pounds)'
             # @!method payment_date_question
             #   A govuk date field component wrapping the inputs, label, hint etc.. for a date question
             #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
@@ -87,7 +87,7 @@ module ET1
             # @!method fee_question
             #   A govuk text field component wrapping the input, label, hint etc..
             #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee'
+            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee (in pounds)'
             # @!method payment_date_question
             #   A govuk date field component wrapping the inputs, label, hint etc.. for a date question
             #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
@@ -110,7 +110,7 @@ module ET1
             # @!method fee_question
             #   A govuk text field component wrapping the input, label, hint etc..
             #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee'
+            section :fee_question, govuk_component(:text_field), :govuk_text_field, 'Fee (in pounds)'
             # @!method payment_date_question
             #   A govuk date field component wrapping the inputs, label, hint etc.. for a date question
             #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section

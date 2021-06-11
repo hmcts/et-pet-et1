@@ -1,4 +1,4 @@
 = f.fieldset label: { text: t('.claim_outcome') } do
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   = f.collection_check_boxes :desired_outcomes, optional: true
-  = f.text_area :other_outcome, optional: true
+  = f.text_area :other_outcome, optional: true, rows: 10

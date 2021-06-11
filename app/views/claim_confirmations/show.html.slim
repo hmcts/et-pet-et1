@@ -5,10 +5,12 @@ h1 class="govuk-heading-xl govuk-!-margin-top-9" = t '.header'
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
-    div.govuk-panel.govuk-panel--confirmation
-      h1 class="govuk-!-font-size-36 govuk-panel__title" = t '.callout_detail'
-      div.govuk-panel__body
-        span.number= claim.fee_group_reference
+    div.govuk-notification-banner.govuk-notification-banner--success role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner"
+      .govuk-notification-banner__header
+        h2.govuk-notification-banner__title = t '.callout_detail'
+      .govuk-notification-banner__content
+        .govuk-notification-banner__heading
+          span.number= claim.fee_group_reference
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds

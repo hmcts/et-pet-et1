@@ -1,5 +1,4 @@
-fieldset
-  span = t('.account_help')
+p.govuk-body = t('.account_help')
 = f.collection_radio_buttons :payment_account_type
 = f.revealed_content :payment_account_type, values: ['bank']
   = f.fieldset label: t('.your_bank_details')

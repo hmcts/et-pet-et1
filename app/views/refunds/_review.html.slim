@@ -1,202 +1,229 @@
 div class=("review-list-entry applicant")
   div data-behavior="refund-review-section"
-    h2.list-header
+    h2.govuk-heading-m
       span = t ".sections.applicant"
-      = link_to t('.edit'), refund_applicant_path(return_to_review: true)
-    table.review-table
-      tr
-        th = t('.full_name')
-        td = [f.object.applicant_title.titleize, f.object.applicant_first_name, f.object.applicant_last_name].join(' ')
-      tr
-        th = t('.date_of_birth')
-        td = f.object.applicant_date_of_birth.strftime('%d/%m/%Y')
+      = link_to t('.edit'), refund_applicant_path(return_to_review: true), class: 'edit-link govuk-link'
+    dl class="govuk-summary-list govuk-!-margin-bottom-9"
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.full_name')
+        dd class="govuk-summary-list__value" = [f.object.applicant_title.titleize, f.object.applicant_first_name, f.object.applicant_last_name].join(' ')
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.date_of_birth')
+        dd class="govuk-summary-list__value" = f.object.applicant_date_of_birth.strftime('%d/%m/%Y')
   div data-behavior= "refund-review-section"
-    h2.list-header
+    h2.govuk-heading-m
       span = t ".sections.applicant_contact_details"
-    table.review-table
-      tr
-        th = t('claims.address.address_building.label')
-        td = f.object.applicant_address_building
-      tr
-        th = t('claims.address.address_street.label')
-        td = f.object.applicant_address_street
-      tr
-        th = t('claims.address.address_locality.label')
-        td = f.object.applicant_address_locality
-      tr
-        th = t('claims.address.address_county.label')
-        td = f.object.applicant_address_county
-      tr
-        th = t('claims.address.address_post_code.label')
-        td = f.object.applicant_address_post_code
-      tr
-        th = t('claims.claimant.address_telephone_number.label')
-        td = f.object.applicant_address_telephone_number
-      tr
-        th = t('.applicant_email_address')
-        td = f.object.applicant_email_address
+    dl class="govuk-summary-list govuk-!-margin-bottom-9"
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.address.address_building.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_building
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.address.address_street.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_street
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.address.address_locality.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_locality
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.address.address_county.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_county
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.address.address_post_code.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_post_code
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('claims.claimant.address_telephone_number.label')
+        dd class="govuk-summary-list__value" = f.object.applicant_address_telephone_number
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.applicant_email_address')
+        dd class="govuk-summary-list__value" = f.object.applicant_email_address
   div data-behavior= "refund-review-section"
-    h2.list-header
+    h2.govuk-heading-m
       span = t ".sections.original_case_details"
-      = link_to t('.edit'), refund_original_case_details_path(return_to_review: true)
-    table.review-table
-      tr
-        th = t('.claimant_name')
-        td = f.object.claimant_name
-      tr
-        th = t('.claimant_email_address')
-        td = f.object.claimant_email_address
-      tr
-        th = t('.claimant_address_building')
-        td = f.object.claimant_address_building
-      tr
-        th = t('.claimant_address_street')
-        td = f.object.claimant_address_street
-      tr
-        th = t('.claimant_address_locality')
-        td = f.object.claimant_address_locality
-      tr
-        th = t('.claimant_address_county')
-        td = f.object.claimant_address_county
-      tr
-        th = t('.claimant_address_post_code')
-        td = f.object.claimant_address_post_code
+      = link_to t('.edit'), refund_original_case_details_path(return_to_review: true), class: 'edit-link govuk-link'
+    dl class="govuk-summary-list govuk-!-margin-bottom-9"
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_name')
+        dd class="govuk-summary-list__value" = f.object.claimant_name
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_email_address')
+        dd class="govuk-summary-list__value" = f.object.claimant_email_address
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_address_building')
+        dd class="govuk-summary-list__value" = f.object.claimant_address_building
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_address_street')
+        dd class="govuk-summary-list__value" = f.object.claimant_address_street
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_address_locality')
+        dd class="govuk-summary-list__value" = f.object.claimant_address_locality
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_address_county')
+        dd class="govuk-summary-list__value" = f.object.claimant_address_county
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.claimant_address_post_code')
+        dd class="govuk-summary-list__value" = f.object.claimant_address_post_code
       - if f.object.claim_had_representative?
-        tr
-          th = t('.representative_name')
-          td = f.object.representative_name
-        tr
-          th = t('.representative_address_building')
-          td = f.object.representative_address_building
-        tr
-          th = t('.representative_address_street')
-          td = f.object.representative_address_street
-        tr
-          th = t('.representative_address_locality')
-          td = f.object.representative_address_locality
-        tr
-          th = t('.representative_address_county')
-          td = f.object.representative_address_county
-        tr
-          th = t('.representative_address_post_code')
-          td = f.object.representative_address_post_code
-      tr
-        th = t('.respondent_name')
-        td = f.object.respondent_name
-      tr
-        th = t('.respondent_address_building')
-        td = f.object.respondent_address_building
-      tr
-        th = t('.respondent_address_street')
-        td = f.object.respondent_address_street
-      tr
-        th = t('.respondent_address_locality')
-        td = f.object.respondent_address_locality
-      tr
-        th = t('.respondent_address_county')
-        td = f.object.respondent_address_county
-      tr
-        th = t('.respondent_address_post_code')
-        td = f.object.respondent_address_post_code
-      tr
-        th = t('.et_country_of_claim')
-        td = country_of_claim_for(f.object.et_country_of_claim)
-      tr
-        th = t('.et_tribunal_office')
-        td = et_office_for(f.object.et_tribunal_office)
-      tr
-        th = t('.et_case_number')
-        td = f.object.et_case_number
-      tr
-        th = t('.eat_case_number')
-        td = f.object.eat_case_number
-      tr
-        th = t('.additional_information')
-        td = f.object.additional_information
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_name')
+          dd class="govuk-summary-list__value" = f.object.representative_name
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_address_building')
+          dd class="govuk-summary-list__value" = f.object.representative_address_building
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_address_street')
+          dd class="govuk-summary-list__value" = f.object.representative_address_street
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_address_locality')
+          dd class="govuk-summary-list__value" = f.object.representative_address_locality
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_address_county')
+          dd class="govuk-summary-list__value" = f.object.representative_address_county
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.representative_address_post_code')
+          dd class="govuk-summary-list__value" = f.object.representative_address_post_code
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_name')
+        dd class="govuk-summary-list__value" = f.object.respondent_name
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_address_building')
+        dd class="govuk-summary-list__value" = f.object.respondent_address_building
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_address_street')
+        dd class="govuk-summary-list__value" = f.object.respondent_address_street
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_address_locality')
+        dd class="govuk-summary-list__value" = f.object.respondent_address_locality
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_address_county')
+        dd class="govuk-summary-list__value" = f.object.respondent_address_county
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.respondent_address_post_code')
+        dd class="govuk-summary-list__value" = f.object.respondent_address_post_code
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.et_country_of_claim')
+        dd class="govuk-summary-list__value" = country_of_claim_for(f.object.et_country_of_claim)
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.et_tribunal_office')
+        dd class="govuk-summary-list__value" = et_office_for(f.object.et_tribunal_office)
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.et_case_number')
+        dd class="govuk-summary-list__value" = f.object.et_case_number
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.eat_case_number')
+        dd class="govuk-summary-list__value" = f.object.eat_case_number
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t('.additional_information')
+        dd class="govuk-summary-list__value" = f.object.additional_information
   div data-behavior= "refund-review-section"
-    h2.list-header
+    h2.govuk-heading-m
       span = t ".sections.original_case_fees"
-      = link_to t('.edit'), refund_fees_path(return_to_review: true)
+      = link_to t('.edit'), refund_fees_path(return_to_review: true), class: 'edit-link govuk-link'
     - unless f.object.has_fees?
       p = t('.no_fees')
     - if f.object.has_fees?
-      table.review-table.fees
-        tr
-          th.fee_type = t('.fee_type')
-          td.fee = t('.fee')
-          td.payment_date = "Payment Date"
-          td.payment_method = t('.payment_method')
+      dl class="govuk-summary-list govuk-!-margin-bottom-9"
         - if f.object.et_issue_fee_present?
-          tr
-            th = t('.et_issue_fee')
-            td = number_to_currency(f.object.et_issue_fee, delimiter: '', precision: 0)
-            td = payment_date_for(f.object, :et_issue_fee)
-            td = payment_method_for(f.object, :et_issue_fee)
+          h2 class="govuk-heading-s govuk-!-margin-top-5" = t('.et_issue_fee')
+          .fee
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.fee')
+              dd class="govuk-summary-list__value" = number_to_currency(f.object.et_issue_fee, delimiter: '', precision: 0)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = "Payment Date"
+              dd class="govuk-summary-list__value" = payment_date_for(f.object, :et_issue_fee)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.payment_method')
+              dd class="govuk-summary-list__value" = payment_method_for(f.object, :et_issue_fee)
         - if f.object.et_hearing_fee_present?
-          tr
-            th = t('.et_hearing_fee')
-            td = number_to_currency(f.object.et_hearing_fee, delimiter: '', precision: 0)
-            td = payment_date_for(f.object, :et_hearing_fee)
-            td = payment_method_for(f.object, :et_hearing_fee)
+          h2 class="govuk-heading-s govuk-!-margin-top-5" = t('.et_hearing_fee')
+          .fee
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.fee')
+              dd class="govuk-summary-list__value" = number_to_currency(f.object.et_hearing_fee, delimiter: '', precision: 0)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = "Payment Date"
+              dd class="govuk-summary-list__value" = payment_date_for(f.object, :et_hearing_fee)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.payment_method')
+              dd class="govuk-summary-list__value" = payment_method_for(f.object, :et_hearing_fee)
         - if f.object.et_reconsideration_fee_present?
-          tr
-            th = t('.et_reconsideration_fee')
-            td = number_to_currency(f.object.et_reconsideration_fee, delimiter: '', precision: 0)
-            td = payment_date_for(f.object, :et_reconsideration_fee)
-            td = payment_method_for(f.object, :et_reconsideration_fee)
+          h2 class="govuk-heading-s govuk-!-margin-top-5" = t('.et_reconsideration_fee')
+          .fee
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.fee')
+              dd class="govuk-summary-list__value" = number_to_currency(f.object.et_reconsideration_fee, delimiter: '', precision: 0)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = "Payment Date"
+              dd class="govuk-summary-list__value" = payment_date_for(f.object, :et_reconsideration_fee)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.payment_method')
+              dd class="govuk-summary-list__value" = payment_method_for(f.object, :et_reconsideration_fee)
         - if f.object.eat_issue_fee_present?
-          tr
-            th = t('.eat_issue_fee')
-            td = number_to_currency(f.object.eat_issue_fee, delimiter: '', precision: 0)
-            td = payment_date_for(f.object, :eat_issue_fee)
-            td = payment_method_for(f.object, :eat_issue_fee)
+          h2 class="govuk-heading-s govuk-!-margin-top-5" = t('.eat_issue_fee')
+          .fee
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.fee')
+              dd class="govuk-summary-list__value" = number_to_currency(f.object.eat_issue_fee, delimiter: '', precision: 0)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = "Payment Date"
+              dd class="govuk-summary-list__value" = payment_date_for(f.object, :eat_issue_fee)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.payment_method')
+              dd class="govuk-summary-list__value" = payment_method_for(f.object, :eat_issue_fee)
         - if f.object.eat_hearing_fee_present?
-          tr
-            th = t('.eat_hearing_fee')
-            td = number_to_currency(f.object.eat_hearing_fee, delimiter: '', precision: 0)
-            td = payment_date_for(f.object, :eat_hearing_fee)
-            td = payment_method_for(f.object, :eat_hearing_fee)
-        tr
-          th = t('.total_fees')
-          td = number_to_currency(f.object.total_fees, delimiter: '', precision: 0)
+          h2 class="govuk-heading-s govuk-!-margin-top-5" = t('.eat_hearing_fee')
+          .fee
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.fee')
+              dd class="govuk-summary-list__value" = number_to_currency(f.object.eat_hearing_fee, delimiter: '', precision: 0)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = "Payment Date"
+              dd class="govuk-summary-list__value" = payment_date_for(f.object, :eat_hearing_fee)
+            .govuk-summary-list__row
+              dt class="govuk-summary-list__key" = t('.payment_method')
+              dd class="govuk-summary-list__value" = payment_method_for(f.object, :eat_hearing_fee)
+        h2 class="govuk-heading-s govuk-!-margin-top-5" = "Total"
+        .fee
+          .govuk-summary-list__row
+            dt class="govuk-summary-list__key" = t('.total_fees')
+            dd class="govuk-summary-list__value" = number_to_currency(f.object.total_fees, delimiter: '', precision: 0)
   div data-behavior= "refund-review-section"
     - if f.object.payment_account_type == 'bank'
-      h2.list-header
+      h2.govuk-heading-m
         span = t '.sections.bank_details'
-        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
-      table.review-table
-        tr
-          th = t('.payment_bank_account_name')
-          td = f.object.payment_bank_account_name
-        tr
-          th = t('.payment_bank_name')
-          td = f.object.payment_bank_name
-        tr
-          th = t('.payment_bank_account_number')
-          td = f.object.payment_bank_account_number
-        tr
-          th = t('.payment_bank_sort_code')
-          td = f.object.payment_bank_sort_code
+        = link_to t('.edit'), refund_bank_details_path(return_to_review: true), class: 'edit-link govuk-link'
+      dl class="govuk-summary-list govuk-!-margin-bottom-9"
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_bank_account_name')
+          dd class="govuk-summary-list__value" = f.object.payment_bank_account_name
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_bank_name')
+          dd class="govuk-summary-list__value" = f.object.payment_bank_name
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_bank_account_number')
+          dd class="govuk-summary-list__value" = f.object.payment_bank_account_number
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_bank_sort_code')
+          dd class="govuk-summary-list__value" = f.object.payment_bank_sort_code
     - if f.object.payment_account_type == 'building_society'
-      h2.list-header
+      h2.govuk-heading-m
         span = t '.sections.building_society_details'
-        = link_to t('.edit'), refund_bank_details_path(return_to_review: true)
-      table.review-table
-        tr
-          th = t('.payment_building_society_account_name')
-          td = f.object.payment_building_society_account_name
-        tr
-          th = t('.payment_building_society_name')
-          td = f.object.payment_building_society_name
-        tr
-          th = t('.payment_building_society_account_number')
-          td = f.object.payment_building_society_account_number
-        tr
-          th = t('.payment_building_society_sort_code')
-          td = f.object.payment_building_society_sort_code
+        = link_to t('.edit'), refund_bank_details_path(return_to_review: true), class: 'edit-link govuk-link'
+      dl class="govuk-summary-list govuk-!-margin-bottom-9"
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_building_society_account_name')
+          dd class="govuk-summary-list__value" = f.object.payment_building_society_account_name
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_building_society_name')
+          dd class="govuk-summary-list__value" = f.object.payment_building_society_name
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_building_society_account_number')
+          dd class="govuk-summary-list__value" = f.object.payment_building_society_account_number
+        .govuk-summary-list__row
+          dt class="govuk-summary-list__key" = t('.payment_building_society_sort_code')
+          dd class="govuk-summary-list__value" = f.object.payment_building_society_sort_code
 = f.fieldset label: t('.declaration')
-  p = t('.declaration_i_confirm')
-  ul
+  p.govuk-body = t('.declaration_i_confirm')
+  ul.govuk-body
     - t('.declaration_detail_html').each_line do |line|
       li=line
 
