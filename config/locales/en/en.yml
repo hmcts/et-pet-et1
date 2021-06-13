@@ -521,7 +521,8 @@ en:
       steps_header: Spreadsheet for group claim
       error_line: "An error has been found on line %{line_number} of the uploaded file."
       malformatted_csv: The CSV doesn’t appear to be formatted correctly.
-      remove_additional_claimants_csv: :"claims.claim_details.remove_claim_details_rtf"
+      remove_additional_claimants_csv:
+        label: :"claims.claim_details.remove_claim_details_rtf.label"
       number_claimants_info: For 6 or more claimants, enter their details below.
       step_one_header: Step 1
       download_template_html: |
