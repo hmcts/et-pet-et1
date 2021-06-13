@@ -82,7 +82,8 @@ feature 'Attaching a document', js: true do
 
       scenario 'Deleting the file' do
         visit '/apply/additional-claimants-upload'
-        check "additional_claimants_upload_remove_additional_claimants_csv"
+        sleep 2
+        group_claims_upload_page.remove_csv_file
         click_button 'Save and continue'
 
         expect(claim.reload.additional_claimants_csv_file.present?).to be false

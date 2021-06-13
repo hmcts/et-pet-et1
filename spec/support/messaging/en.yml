@@ -198,6 +198,8 @@ en:
         "no": "No"
     upload_spreadsheet:
       label: Upload spreadsheet (optional)
+    remove_csv_file:
+      label: "Remove previously uploaded document:"
     switch_to_manual: manually
     save_and_continue: Save and continue
   representatives_details:
