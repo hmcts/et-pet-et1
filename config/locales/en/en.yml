@@ -898,6 +898,13 @@ en:
       miscellaneous_information:
         label: Enter more detail about your claim.
 
+    feedback:
+      header: Your feedback
+      feedback_comments: Have you had any problems using this service? (optional)
+      feedback_suggestions: Do you have any other comments or suggestions? (optional)
+      feedback_email_address: Your email address (optional)
+      feedback_submit_button: Send feedback
+
     registration:
       header: Saving your claim
       application_number: Your save and return number
