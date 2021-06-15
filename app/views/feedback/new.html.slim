@@ -6,9 +6,9 @@ h1.govuk-heading-xl= t("claims.feedback.header")
 
       .form-fields
         = f.invisible_captcha :subtitle
-        = f.text_area :comments, label: { text: "#{t('claims.feedback.feedback_comments')}"}, max_chars: 2500, rows: 5
-        = f.text_area :suggestions, label: { text: "#{t('claims.feedback.feedback_suggestions')}"}, max_chars: 2500, rows: 5
-        = f.text_field :email_address, label: { text: "#{t('claims.feedback.feedback_email_address')}"}
+        = f.text_area :comments, label: t('claims.feedback.feedback_comments'), max_chars: 2500, rows: 5
+        = f.text_area :suggestions, label: t('claims.feedback.feedback_suggestions'), max_chars: 2500, rows: 5
+        = f.text_field :email_address, label: t('claims.feedback.feedback_email_address')
       .form-actions
         = f.submit t('claims.feedback.feedback_submit_button')
 
