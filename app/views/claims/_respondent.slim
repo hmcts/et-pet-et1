@@ -22,12 +22,13 @@
     = f.phone_field :work_address_telephone_number, optional: true
 = f.fieldset label: { text: t('claims.respondent.acas_early_conciliation_certificate_number.label'), size: 'm' }
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.text_field :acas_early_conciliation_certificate_number, hint: { text: t('claims.respondent.acas_early_conciliation_certificate_number.hint', path:guide_path).html_safe }
-  = f.collection_radio_buttons :no_acas_number, inline: true
-  = f.revealed_content :no_acas_number, values: [:true], classes: ['govuk-inset-text']
+  = f.collection_radio_buttons :has_acas_number, inline: true
+  = f.revealed_content :has_acas_number, values: [:false], classes: ['govuk-inset-text']
     = f.collection_radio_buttons :no_acas_number_reason, include_hidden: false
     = f.revealed_content :no_acas_number_reason, values: [:interim_relief], classes: ['form-hint'], tag: 'span'
       = t '.no_acas_number_note_two'
+  = f.revealed_content :has_acas_number, values: [:true]
+    = f.text_field :acas_early_conciliation_certificate_number, hint: { text: t('claims.respondent.acas_early_conciliation_certificate_number.hint', path:guide_path).html_safe }
 
 - content_for(:javascripts)
   javascript:

@@ -161,7 +161,7 @@ cy:
           address_post_code: Cod post
           address_country: Gwlad
           acas_early_conciliation_certificate_number: Rhif Acas
-          no_acas_number: Nid oes gen i rif Acas
+          has_acas_number: Oes gennych chi rif ACAS?
           no_acas_number_reason:
             joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
             acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan"
@@ -731,8 +731,8 @@ cy:
       acas_early_conciliation_certificate_number:
         label: Rhif tystysgrif cymodi cynnar Acas
         hint: Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a class="govuk-link" href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
-      no_acas_number:
-        label: Nid oes gen i rif Acas
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
         options:
           'true': 'Oeddwn'
           'false': 'Nac oeddwn'
@@ -775,8 +775,8 @@ cy:
         label: Cod post
       acas_early_conciliation_certificate_number:
         label: Rhif tystysgrif cymodi cynnar Acas
-      no_acas_number:
-        label: Nid oes gen i rif Acas
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
         options:
           'true': 'Oeddwn'
           'false': 'Nac oeddwn'
@@ -1355,7 +1355,7 @@ cy:
             no_acas_number_reason:
               blank: "Dewiswch reswm o'r rhestr."
               inclusion: ""
-            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
               blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
               invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.

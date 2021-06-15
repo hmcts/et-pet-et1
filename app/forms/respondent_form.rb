@@ -22,10 +22,9 @@ class RespondentForm < Form
   attribute :work_address_county,                        :string
   attribute :work_address_post_code,                     :string
   attribute :work_address_telephone_number,              :string
+  attribute :has_acas_number,                            :boolean
 
-  boolean :no_acas_number
-
-  before_validation :reset_acas_number!,  if: :no_acas_number?
+  before_validation :reset_acas_number!,  unless: :has_acas_number?
   before_validation :reset_work_address!, if: :worked_at_same_address?
 
   validates :name, presence: true
@@ -57,18 +56,14 @@ class RespondentForm < Form
 
   validates :no_acas_number_reason,
     inclusion: { in: NO_ACAS_REASON, allow_blank: true },
-            ccd_acas_exemption_reason: { if: :no_acas_number? },
-    presence: { if: -> { no_acas_number? } }
+            ccd_acas_exemption_reason: { unless: :has_acas_number? },
+    presence: { unless: -> { has_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
-    presence: { unless: -> { no_acas_number? } },
+    presence: { if: -> { has_acas_number? } },
     acas: true
 
   before_save :reload_addresses
-
-  def no_acas_number
-    @no_acas_number ||= target.persisted? && acas_early_conciliation_certificate_number.blank?
-  end
 
   def target
     resource.primary_respondent || resource.build_primary_respondent

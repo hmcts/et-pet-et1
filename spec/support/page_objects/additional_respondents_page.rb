@@ -46,10 +46,12 @@ module ET1
             obj.address_town = s.town.value
             obj.address_county = s.county.value
             obj.address_post_code = s.post_code.value
-            obj.acas_number = s.acas_number.value
-            obj.dont_have_acas_number = s.dont_have_acas_number.value
-            if(obj.dont_have_acas_number.to_s.split('.').last == 'yes')
+            key = t('respondents_details.have_acas_number.options').key(s.have_acas_number.value)
+            obj.has_acas_number = :"respondents_details.have_acas_number.options.#{key}"
+            if(obj.has_acas_number.to_s.split('.').last == 'no')
               obj.dont_have_acas_number_reason = s.dont_have_acas_number_reason.value
+            else
+              obj.acas_number = s.acas_number.value
             end
           end
         end
@@ -87,10 +89,11 @@ module ET1
           town.set(respondent.address_town)
           county.set(respondent.address_county)
           post_code.set(respondent.address_post_code)
-          acas_number.set(respondent.acas_number)
-          dont_have_acas_number.set(respondent.dont_have_acas_number)
-          if respondent.dont_have_acas_number.to_s.split.last == 'true'
+          have_acas_number.set(t respondent.has_acas_number)
+          if respondent.has_acas_number.to_s.split.last == 'false'
             dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
+          else
+            acas_number.set(respondent.acas_number)
           end
         end
 
@@ -114,7 +117,7 @@ module ET1
         section :county, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.county.label'
         section :post_code, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.post_code.label'
         section :acas_number, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.acas_number.label'
-        section :dont_have_acas_number, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.dont_have_acas_number.label'
+        section :have_acas_number, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.have_acas_number.label'
         section :dont_have_acas_number_reason, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.dont_have_acas_number_reason.label'
         element :remove_this_respondent_element, :link, t('additional_respondents.remove_this_respondent')
       end

@@ -17,12 +17,8 @@ module ET1
       # Fills in the acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_acas_number(respondent)
-        value = :"respondents_details.dont_have_acas_number.options.#{respondent.dont_have_acas_number.blank? ? 'no' : 'yes'}"
-
-        dont_have_acas_number_question.set(value)
-        if respondent.dont_have_acas_number
-          acas_number_question.set('')
-        else
+        have_acas_number_question.set(respondent.has_acas_number)
+        if respondent.has_acas_number.to_s.split('.').last == 'yes'
           acas_number_question.set(respondent.acas_number)
         end
       end
@@ -30,9 +26,9 @@ module ET1
       # Fills in the section where you dont have an acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_dont_have_acas_number(respondent)
-        return unless respondent.dont_have_acas_number
+        return self if respondent.has_acas_number.to_s.split('.').last == 'yes'
 
-        dont_have_acas_number_question.set(:"respondents_details.dont_have_acas_number.options.yes")
+        have_acas_number_question.set(respondent.has_acas_number)
         dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
         self
       end
@@ -162,10 +158,10 @@ module ET1
         section :work_address_phone_number_question, govuk_component(:phone_field), :govuk_phone_field, :'respondents_details.work_address_phone_number.label'
       end
 
-      # @!method dont_have_acas_number_question
+      # @!method have_acas_number_question
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :dont_have_acas_number_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'respondents_details.dont_have_acas_number.label'
+      section :have_acas_number_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'respondents_details.have_acas_number.label'
       # @!method acas_number_question
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section

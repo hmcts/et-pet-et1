@@ -18,13 +18,14 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 2196500de5f2f70f2e51b3fbab1b81271edfdf8b
-  tag: v0.1.9
+  revision: 7d703e7c009cdf67d8aec538de9d16f1013e430f
+  tag: v0.1.22
   specs:
-    et_test_helpers (0.1.9)
-      activesupport (~> 6.0)
+    et_test_helpers (0.1.22)
+      activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
+      rspec (>= 3.0)
       site_prism (~> 3.5)
 
 GIT
@@ -402,6 +403,10 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
+    rspec (3.10.0)
+      rspec-core (~> 3.10.0)
+      rspec-expectations (~> 3.10.0)
+      rspec-mocks (~> 3.10.0)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)

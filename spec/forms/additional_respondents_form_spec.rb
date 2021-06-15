@@ -10,6 +10,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
         "0" => {
           name: 'Butch McTaggert',
           acas_early_conciliation_certificate_number: 'XX123456/12/12',
+          has_acas_number: true,
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
           address_post_code: 'W2 3ED'
@@ -17,6 +18,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
         "1" => {
           name: 'Pablo Noncer',
           acas_early_conciliation_certificate_number: 'XX123456/12/12',
+          has_acas_number: true,
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
           address_post_code: 'W2 3ED'
@@ -118,7 +120,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
           secondary_respondents_attributes: {
             "0" => {
               name: 'Butch McTaggert',
-              no_acas_number: 'false',
+              has_acas_number: 'true',
               acas_early_conciliation_certificate_number: 'invalid',
               address_building: '1', address_street: 'High Street',
               address_locality: 'Anytown', address_county: 'Anyfordshire',
@@ -126,7 +128,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
             },
             "1" => {
               name: 'Pablo Noncer',
-              no_acas_number: 'false',
+              has_acas_number: 'true',
               acas_early_conciliation_certificate_number: 'XX123456/12/12',
               address_building: '2', address_street: 'Main Street',
               address_locality: 'Anycity', address_county: 'Anyford',

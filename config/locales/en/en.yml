@@ -644,8 +644,8 @@ en:
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
         hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a class="govuk-link" href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
-      no_acas_number:
-        label: I don’t have an Acas number
+      has_acas_number:
+        label: Do you have an Acas number?
         options:
           'true': 'Yes'
           'false': 'No'
@@ -690,8 +690,8 @@ en:
         label: Postcode
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
-      no_acas_number:
-        label: I don’t have an Acas number
+      has_acas_number:
+        label: Do you have an Acas number?
         options:
           'true': 'Yes'
           'false': 'No'
@@ -1238,7 +1238,7 @@ en:
             no_acas_number_reason:
               blank: Select a reason from the list.
               inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
-            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
               blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
