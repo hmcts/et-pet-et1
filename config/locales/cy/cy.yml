@@ -996,6 +996,13 @@ cy:
       hearing_fee: |
         Os bydd eich achos yn mynd i dribiwnlys, bydd rhaid i chi dalu ffi gwrandawiad o <strong>£%{fee}</strong>.
 
+    feedback:
+      header: Eich adborth
+      feedback_comments: Ydych chi wedi cael unrhyw broblemau wrth ddefnyddio'r gwasanaeth hwn? (dewisol)
+      feedback_suggestions: Oes gennych chi unrhyw sylwadau neu awgrymiadau eraill? (dewisol)
+      feedback_email_address: Eich cyfeiriad e-bost (dewisol)
+      feedback_submit_button: Anfon adborth
+
     registration:
       header: "Cadw eich hawliad"
       application_number: Eich rhif cadw a dychwelyd
