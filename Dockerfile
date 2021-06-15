@@ -1,4 +1,4 @@
-FROM phusion/passenger-customizable:1.0.12
+FROM phusion/passenger-customizable:1.0.15
 # Or, instead of the 'full' variant, use one of these:
 #FROM phusion/passenger-ruby23:<VERSION>
 #FROM phusion/passenger-ruby24:<VERSION>
@@ -37,7 +37,7 @@ RUN /pd_build/ruby-2.7.*.sh
 RUN /pd_build/nodejs.sh
 
 # ...put your own build instructions here...
-
+RUN apt-get install -y shared-mime-info
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 

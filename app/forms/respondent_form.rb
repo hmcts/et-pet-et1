@@ -48,7 +48,6 @@ class RespondentForm < Form
             unless: :worked_at_same_address?
   validates :work_address_post_code,
             post_code: true,
-            ccd_post_code: true,
             length: { maximum: POSTCODE_LENGTH },
             unless: :worked_at_same_address?
   validates :work_address_telephone_number,
@@ -58,6 +57,7 @@ class RespondentForm < Form
 
   validates :no_acas_number_reason,
     inclusion: { in: NO_ACAS_REASON, allow_blank: true },
+            ccd_acas_exemption_reason: { if: :no_acas_number? },
     presence: { if: -> { no_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,

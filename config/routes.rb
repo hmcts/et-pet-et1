@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
       resource :guide,              only: :show
       resource :terms,              only: :show
-      resource :cookies,            only: :show
+      resource :cookies,            only: %i<edit update create>, path_names: { edit: '/' }
       resource :claim_review,       only: %i<show update>, path: :review
       resource :claim_confirmation, only: :show, path: :confirmation
 

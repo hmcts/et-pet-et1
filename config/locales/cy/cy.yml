@@ -46,6 +46,9 @@ cy:
             Mrs: Mrs
             Miss: Miss
             Ms: Ms
+      allow_analytics:
+        true: 'Ydw'
+        false: 'Nac ydw'
 
       additional_respondents:
         collection:
@@ -127,6 +130,8 @@ cy:
           address_post_code: Cod post
           address_country: Gwlad
           email_address: Cyfeiriad e-bost
+      cookies:
+        allow_analytics: A ydych eisiau derbyn cwcis dadansoddol?
 
 
       additional_claimants_upload:
@@ -345,6 +350,31 @@ cy:
       immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
 
   timeout_sessions:
+    new:
+      header: Dychwelyd i'ch hawliad
+      forgot_password: "Wedi anghofio eich gair cofiadwy?"
+      reset_password: "Cliciwch yma i'w ailosod"
+      hint_html: "Nid yw'r manylion hyn gennych? <a class=\"govuk-link\" href=\"%{path}\">Cychwynnwch hawliad newydd</a>."
+    edit:
+      header: "Cadw eich hawliad"
+      print_link: Argraffu'r dudalen hon
+      print_copy: "i gael copi o'ch rhif hawliad er mwyn i chi allu cyfeirio ato"
+    session:
+      subheader: Rhowch eich manylion isod
+    registration:
+      application_number: Eich rhif cadw a dychwelyd
+      intro_text: Gallwch gadw eich hawliad a dychwelyd iddo unrhyw dro. Byddwch angen eich rhif cadw a dychwelyd (uchod), a’ch gair cofiadwy, y byddwch yn ei greu isod. Os byddwch yn nodi eich cyfeiriad e-bost, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio.
+      email_address:
+        label: Nodwch eich cyfeiriad e-bost i gael eich rhif hawliad
+      password:
+        label: Crëwch eich gair cofiadwy
+        hint: Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio
+    reference:
+      label: Rhif cadw a dychwelyd
+      hint: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
+    password:
+      label: Gair cofiadwy
+      hint: Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio
     create:
       header: Dychwelyd i'ch hawliad
     reminder:
@@ -375,6 +405,20 @@ cy:
         exit_guide: Dychwelyd i'r ffurflen
         contact_us: Cysylltu â ni
         contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+
+  banner:
+    title: Cwcis ar gyfer Tribiwnlysoedd Cyflogaeth
+    first_line: Rydym yn defnyddio cwcis hanfodol i wneud i'r wefan hon weithio.
+    second_line: Hoffem osod cwcis ychwanegol i ddeall sut rydych yn defnyddio'r wefan a gwella gwasanaethau'r llywodraeth.
+    accept_analytics: Derbyn cwcis ychwanegol
+    reject_analytics: Gwrthod cwcis ychwanegol
+    cookie_link: Bwrw golwg dros y cwis
+  cookie_banner:
+    confirmation_message:
+      true: Rydych wedi derbyn cwcis dadansoddol. Gallwch newid eich <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      false: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch newid eich dewisiadau cwcis <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      hide_button: Cuddiwch y neges hon
+      cookie_flashes: Rydych wedi cadw eich dewisiadau cwcis
 
   terms:
     show:
@@ -566,7 +610,7 @@ cy:
       step_one_header: Cam 1
       download_template_html: |
         <a class="govuk-link" href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
-      download_template_asset: 'group-claims-template-cy.csv'
+      download_template_asset: 'group-claims-template-cy'
       dob_info: "Ar gyfer dyddiadau geni, defnyddiwch rifau a/neu lythrennau wedi'u gwahanu gan flaen slaesau. Ee 23/04/1983 neu 23/Ebr/1983"
       step_two_header: Cam 2
       save_csv_format: Cadw ffeil mewn fformat CSV
@@ -1127,6 +1171,7 @@ cy:
       messages:
         too_long: |
           Ni ddylai'r wybodaeth yr ydych wedi'i rhoi yma fod dros %{count} o nodau
+      invalid_ccd_address: :'activemodel.errors.messages.too_long'
       models:
         user_session:
           attributes:
@@ -1212,6 +1257,7 @@ cy:
               blank: Dywedwch p'un a ydych angen cymorth yn y gwrandawiad tribiwnlys
             contact_preference:
               blank: Dywedwch p'un a hoffech i ohebiaeth gael ei hanfon at yr hawlydd drwy'r post neu e-bost
+              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
             allow_video_attendance:
               inclusion: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
             address_building:
@@ -1302,6 +1348,7 @@ cy:
             no_acas_number_reason:
               blank: "Dewiswch reswm o'r rhestr."
               inclusion: ""
+            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
               blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
               invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.

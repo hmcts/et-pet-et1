@@ -1,6 +1,6 @@
 cy:
   cookies:
-    show:
+    edit:
       header: Cwcis
       line_one: "Mae gwefan ‘gwneud hawliad i dribiwnlys cyflogaeth’ yn rhoi ffeiliau bach (a elwir yn cwcis), ar eich cyfrifiadur. Fe'u defnyddir i wella'r wefan."
       section_one:
@@ -14,6 +14,10 @@ cy:
       section_two:
         title_one: Sut mae cwcis yn cael eu defnyddio
         title_two: Mesur defnydd o’r wefan (Google Analytics)
+        title_three: Cwcis Hanfodol
+        title_four: Neges yn ymwneud â chwcis
+        line_four: Efallai y byddwch yn gweld baner pan ymwelwch â thribiwnlysoedd cyflogaeth yn eich gwahodd i dderbyn neu wrthod cwcis dewisol. Byddwn yn gosod cwcis ar eich cyfrifiadur fel ei fod yn gwybod eich bod wedi'i weld ac nad oes angen ei ddangos eto, a hefyd i storio eich gosodiadau.
+        line_three: Mae angen cwcis hanfodol er mwyn i'r gwasanaeth weithio. Nid oes angen inni ofyn am ganiatâd i'w defnyddio
         line_one: "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych yn defnyddio'r gwasanaeth 'gwneud hawliad i dribiwnlys cyflogaeth'. Mae Google Analytics yn cadw'r wybodaeth ganlynol:"
         list:
           one: "y tudalennau y byddwch yn ymweld â nhw"
@@ -47,6 +51,15 @@ cy:
             purpose: "Rheoli'r defnydd o'r cwcis uchod"
             expires: 2 flynedd
         line_three_html: 'Gallwch <a href="https://tools.google.com/dlpage/gaoptout" rel="external" title="optio allan o gwcis Google Analytics">optio allan o gwcis Google Analytics</a>.'
+        table_two:
+          labels:
+            name: Enw
+            purpose: Diben
+            expires: Daw i ben
+          one:
+            name: cookie_settings
+            purpose: Cadw eich gosodiadau caniatau cwcis
+            expires: 1 blwyddyn
       section_three:
         title_one: Eich cynnydd pan fyddwch yn defnyddio'r gwasanaeth
         line_one: "Pan fyddwch yn defnyddio gwefan ‘gwneud hawliad i dribiwnlys cyflogaeth’, byddwn yn rhoi cwci ar eich cyfrifiadur i gofnodi eich cynnydd. Ni fydd y cwci hwn yn cadw eich data personol a chaiff ei ddileu pan fydd eich sesiwn yn dod i ben."
@@ -60,8 +73,9 @@ cy:
             purpose: "Bydd y wybodaeth y byddwch yn ei rhoi yn cael ei chadw ar y gweinydd am y cyfnod y byddwch yn aros ar y dudalen. Gall hyn fod hyd at 60 munud, gyda'r opsiwn i'w ymestyn am 60 munud arall. Ar ôl i chi lawrlwytho'r PDF wedi'i gwblhau, caiff y data hwn ei ddileu o'n gweinyddion."
             expires: "60 munud (neu pan ddaw eich sesiwn i ben)"
       section_four:
-        title_one: Ein neges ragarweiniol
-        line_one: "Pan ddewch i wefan 'gwneud hawliad i dribiwnlys cyflogaeth' am y tro cyntaf mae'n bosib y gwelwch neges naid yn eich croesawu i'r wefan. Byddwn yn rhoi cwci ar eich cyfrifiadur er mwyn iddo wybod eich bod wedi gweld y neges ac na ddylai ei dangos eto."
+        title_one: Cwcis Dadansoddol (dewisol)
+        title_two: Mesur defnydd o’r wefan (Google Analytics)
+        line_one: "Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych yn defnyddio'r gwasanaeth 'gwneud hawliad i dribiwnlys cyflogaeth'. Mae Google Analytics yn cadw'r wybodaeth ganlynol:"
         table:
           labels:
             name: Enw
@@ -75,3 +89,5 @@ cy:
         title_one: ""
         line_one: ""
         cookie_link_text: Gov.uk
+      save_cookies: Cadw gosodiadau cwcis
+      cookie_aria_label: Cwcis ar dribiwnlysoedd cyflogaeth

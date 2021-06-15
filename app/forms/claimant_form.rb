@@ -11,7 +11,7 @@ class ClaimantForm < Form
 
 
   validates :address_post_code,
-    post_code: true, ccd_post_code: true, length: { maximum: POSTCODE_LENGTH },
+    post_code: true, length: { maximum: POSTCODE_LENGTH },
     unless: :international_address?
 
   attribute :first_name,         :string
@@ -39,7 +39,7 @@ class ClaimantForm < Form
   validates :title, ccd_personal_title: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-  validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }
+  validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }, ccd_claimant_contact_preference: true
   validates :allow_video_attendance, inclusion: [true, false]
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
   validates :address_country, inclusion: { in: COUNTRIES }

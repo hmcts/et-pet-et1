@@ -1,14 +1,14 @@
 module AddressAttributes
   extend ActiveSupport::Concern
 
-  ADDRESS_LINE_LENGTH  = 75
+  ADDRESS_LINE_LENGTH  = 50
   LOCALITY_LENGTH      = 25
   PHONE_NUMBER_LENGTH  = 21
   POSTCODE_LENGTH      = 8
 
   included do
     include AddressAttributes.but_skip_postcode_validation
-    validates :address_post_code, post_code: true, ccd_post_code: true, length: { maximum: POSTCODE_LENGTH }
+    validates :address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   end
 
   # rubocop:disable MethodLength
@@ -32,8 +32,8 @@ module AddressAttributes
         validates :address_building, :address_street, :address_locality,
           :address_county, :address_post_code, presence: true
 
-        validates :address_building, :address_street, length: { maximum: ADDRESS_LINE_LENGTH }
-        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }
+        validates :address_building, :address_street, ccd_address: true
+        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }, ccd_address: true
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
       end
     end

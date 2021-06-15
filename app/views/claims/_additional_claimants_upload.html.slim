@@ -18,7 +18,7 @@
         .govuk-grid-column-one-quarter
           p class="govuk-body govuk-!-font-weight-bold" = t ".step_one_header"
         .govuk-grid-column-three-quarters
-          p.govuk-body = t(".download_template_html", path: asset_url(t('.download_template_asset')))
+          p.govuk-body = t(".download_template_html", path: asset_pack_url("media/packs/csv/#{t('.download_template_asset')}.csv"))
           p.govuk-body = t ".dob_info"
 
       .govuk-grid-row
@@ -34,6 +34,8 @@
           p class="govuk-body govuk-!-font-weight-bold"  = t ".step_three_header"
         .govuk-grid-column-three-quarters
           = f.file_field :additional_claimants_csv, optional: true
+          - if resource.has_additional_claimants_csv?
+            = f.check_box :remove_additional_claimants_csv, true, label: t('.remove_additional_claimants_csv.label', file: resource.attachment_filename)
 
 
           = f.hidden_field :additional_claimants_csv_cache
