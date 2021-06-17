@@ -9,26 +9,6 @@ fieldset
     label: t('.sex.hint'), input_html: {class: 'govuk-radios__input'}
 
 fieldset
-  = f.input :gender,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::GENDER,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.gender.hint'), input_html: {class: 'govuk-radios__input'}
-
-fieldset
-  = f.input :gender_at_birth,
-    required: true,
-    as: :radio_buttons,
-    readonly: nil,
-    include_hidden: false,
-    collection: Diversities::IdentityForm::GENDER_AT_BIRTH,
-    item_wrapper_class: 'govuk-radios__item',
-    label: t('.gender_at_birth.hint'), input_html: {class: 'govuk-radios__input'}
-
-fieldset
   = f.input :sexual_identity,
     required: true,
     as: :radio_buttons,
