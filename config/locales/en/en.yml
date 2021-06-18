@@ -63,9 +63,6 @@ en:
           reinstated_employment_and_compensation: To get my old job back
           new_employment_and_compensation: To get another job with the same employer or associated employer
     labels:
-      user_session:
-        destroy:
-          email_address: Enter your email address to get your claim number emailed to you.
       save_and_return:
         session:
           new:
@@ -189,11 +186,6 @@ en:
           A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         claim_details_rtf: |
           You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format
-
-      user_session:
-        destroy:
-          email_address: Get your claim number in an email
-
   helpers:
     submit:
       return: Complete later
@@ -299,7 +291,9 @@ en:
        Your claim has been saved. You can return to it by entering your claim number and your memorable word.
       submit: Sign out now
       print_link: Print this page
-
+      email_address:
+        label: Enter your email address to get your claim number emailed to you.
+        hint: Get your claim number in an email
     expired:
       header: Session expired
       content_html: Your session has expired due to inactivity. <a class="govuk-link" href="%{new_user_session_path}">Return to your claim</a>.

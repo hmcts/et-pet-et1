@@ -80,9 +80,6 @@ cy:
           reinstated_employment_and_compensation: I gael fy hen swydd yn ôl
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
     labels:
-      user_session:
-        destroy:
-          email_address: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
       save_and_return:
         session:
           new:
@@ -265,10 +262,6 @@ cy:
           Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
         claim_details_rtf: |
           Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format
-      user_session:
-        destroy:
-          email_address: Cael eich rhif hawliad drwy neges e-bost
-
   helpers:
     submit:
       return: Cwblhau wedyn
@@ -372,7 +365,9 @@ cy:
         Mae eich hawliad wedi'i gadw. Gallwch ddychwelyd iddo drwy fewnbynnu eich rhif hawliad a'ch gair cofiadwy
       submit: Allgofnodi nawr
       print_link: Argraffu'r dudalen hon
-
+      email_address:
+        label: Rhowch eich cyfeiriad e-bost i gael copi o rif eich hawliad drwy neges e-bost.
+        hint: Cael eich rhif hawliad drwy neges e-bost
     expired:
       header: Mae'r sesiwn wedi dod i ben
       content_html: "Mae eich sesiwn wedi dod i ben oherwydd anactifedd. <a class=\"govuk-link\" href=\"%{new_user_session_path}\">Dychwelwch i'ch hawliad</a>."
