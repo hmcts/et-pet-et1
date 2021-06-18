@@ -62,17 +62,6 @@ en:
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
           reinstated_employment_and_compensation: To get my old job back
           new_employment_and_compensation: To get another job with the same employer or associated employer
-      claim_type:
-        discrimination_claims_for_review:
-          sex_including_equal_pay: Sex (including equal pay) discrimination
-          disability: Disability discrimination
-          race: Race discrimination
-          age: Age discrimination
-          pregnancy_or_maternity: Pregnancy or maternity discrimination
-          religion_or_belief: Religion or belief discrimination
-          sexual_orientation: Sexual orientation discrimination
-          marriage_or_civil_partnership: Marriage or civil partnership discrimination
-          gender_reassignment: Gender reassignment discrimination
     labels:
       user_session:
         destroy:
@@ -228,6 +217,8 @@ en:
 
   shared:
     optional: '(optional)'
+    "yes": 'Yes'
+    "no": 'No'
     error_notification:
       default_message: Provide information in the highlighted fields.
     continue_button: Save and continue
@@ -880,7 +871,7 @@ en:
         options:
           compensation_only: Compensation
           tribunal_recommendation: A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)
-          reinstated_employment_and_compensation: To get your old job back
+          reinstated_employment_and_compensation: To get my old job back
           new_employment_and_compensation: To get another job with the same employer or associated employer
       other_outcome:
         label: What compensation or other outcome do you want?
@@ -939,6 +930,17 @@ en:
         password:
           label: Memorable word
           hint: Your new memorable word
+  claim_reviews:
+    discrimination_claims:
+      sex_including_equal_pay: Sex (including equal pay) discrimination
+      disability: Disability discrimination
+      race: Race discrimination
+      age: Age discrimination
+      pregnancy_or_maternity: Pregnancy or maternity discrimination
+      religion_or_belief: Religion or belief discrimination
+      sexual_orientation: Sexual orientation discrimination
+      marriage_or_civil_partnership: Marriage or civil partnership discrimination
+      gender_reassignment: Gender reassignment discrimination
   diversities:
     claim_type:
       diversities_claim_type:

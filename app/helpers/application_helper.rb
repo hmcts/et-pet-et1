@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def yes_no(val)
     unless val.nil?
-      I18n.t "simple_form.#{val ? 'yes' : 'no'}"
+      I18n.t "shared.#{val ? 'yes' : 'no'}"
     end
   end
 

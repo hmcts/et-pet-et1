@@ -79,17 +79,6 @@ cy:
           tribunal_recommendation: "Argymhelliad gan dribiwnlys (bod y cyflogwr yn cymryd camau gweithredu fel nad yw'r broblem yn y gwaith yn digwydd eto)"
           reinstated_employment_and_compensation: I gael fy hen swydd yn ôl
           new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
-      claim_type:
-        discrimination_claims_for_review:
-          sex_including_equal_pay: Gwahaniaethu ar sail rhyw (gan gynnwys tâl cyfartal)
-          disability: Gwahaniaethu ar sail anabledd
-          race: Gwahaniaethu ar sail hil
-          age: Gwahaniaethu ar sail oedran
-          pregnancy_or_maternity: Gwahaniaethu ar sail beichiogrwydd neu famolaeth
-          religion_or_belief: Gwahaniaethu ar sail crefydd neu gred
-          sexual_orientation: Gwahaniaethu ar sail cyfeiriadedd rhywiol
-          marriage_or_civil_partnership: Gwahaniaethu ar sail priodas neu bartneriaeth sifil
-          gender_reassignment: Gwahaniaethu ar sail ailbennu rhywedd
     labels:
       user_session:
         destroy:
@@ -300,6 +289,8 @@ cy:
 
   shared:
     optional: '(dewisol)'
+    "yes": 'Oes'
+    "no": 'Nac oes'
     error_notification:
       default_message: "Rhowch wybodaeth yn y blychau testun sydd wedi'u hamlygu."
     continue_button: Cadw a pharhau
@@ -1037,6 +1028,18 @@ cy:
         password:
           label: Gair cofiadwy
           hint: Eich gair cofiadwy newydd
+  claim_reviews:
+    discrimination_claims:
+      sex_including_equal_pay: Gwahaniaethu ar sail rhyw (gan gynnwys tâl cyfartal)
+      disability: Gwahaniaethu ar sail anabledd
+      race: Gwahaniaethu ar sail hil
+      age: Gwahaniaethu ar sail oedran
+      pregnancy_or_maternity: Gwahaniaethu ar sail beichiogrwydd neu famolaeth
+      religion_or_belief: Gwahaniaethu ar sail crefydd neu gred
+      sexual_orientation: Gwahaniaethu ar sail cyfeiriadedd rhywiol
+      marriage_or_civil_partnership: Gwahaniaethu ar sail priodas neu bartneriaeth sifil
+      gender_reassignment: Gwahaniaethu ar sail ailbennu rhywedd
+
   diversities:
     claim_type:
       diversities_claim_type:
