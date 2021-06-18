@@ -21,7 +21,6 @@ en:
         claim_details: Claim details
         claim_outcome: Claim outcome
         additional_information: Additional information
-        your_fee: Issue fee
 
     collection:
       additional_claimants:
@@ -122,10 +121,6 @@ en:
 
       additional_information:
         miscellaneous_information: Important details
-
-      your_fee:
-        seeking_remission: Help with fees
-        fee: Your fee
 
     email_addresses:
       submit_warning_header: Submit your claim

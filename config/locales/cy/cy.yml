@@ -205,9 +205,6 @@ cy:
         other_known_claimants: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
         other_known_claimant_names: "Gallwch ychwanegu enwau unigolion eraill yma."
         claim_details_rtf: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
-      your_fee:
-        applying_for_remission: "Ydych chi eisiau gwneud cais am help i dalu ffioedd?"
-        remission_claimant_count: "Faint yn eich grŵp chi sydd eisiau gwneud cais am help i dalu ffioedd?"
 
 
     hints:
@@ -962,25 +959,6 @@ cy:
           "false": 'Nac oes'
       miscellaneous_information:
         label: "Rhowch fwy o fanylion am eich hawliad."
-
-    your_fee:
-      header: Ffi
-      standard_fee: Ffi safonol
-      standard_fee_detail: "Dyma yw'r ffi am wneud eich hawliad"
-      application_fee: Ffi
-      reduce_fee: "Esemptiad rhag talu ffioedd"
-      applying_for_remission_single_html:
-        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a class=\"govuk-link\" href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
-      applying_for_remission_multiple_html:
-        "Efallai y byddwch yn gymwys i dalu ffi is neu dim ffi o gwbl (a elwir yn help i dalu ffioedd). Gwiriwch y <a class=\"govuk-link\" href=\"%{path}#reducing_fees\">canllaw ar help i dalu ffioedd</a>."
-      applying_for_remission_multiple_note_html: "Byddwch yn gallu gwneud cais am help i dalu ffioedd pan fyddwch wedi cyflwyno'r hawliad hwn. Bydd angen i bob hawlydd cymwys wneud cais ar wahân o fewn 7 diwrnod iddynt gyflwyno'r hawliad hwn (neu bydd yr hawliad yn cael ei wrthod)."
-      remission_applied_info_html:
-        "<p>Rydych chi'n gwneud cais am help i dalu ffioedd.</p>\n<p>Mae'n rhaid i chi lenwi a chyflwyno eich cais am help i dalu ffioedd o fewn 7 diwrnod i chi gyflwyno eich hawliad, neu bydd eich cais am help i dalu ffioedd yn cael ei wrthod.</p>\n<p>Ni fydd angen i chi dalu'r ffi cyflwyno pan fyddwch chi'n cyflwyno'r hawliad hwn.</p>"
-
-      initial_fee: |
-        Ar sail y wybodaeth yr ydych wedi'i rhoi i ni, mae'n rhaid i chi dalu <strong>£%{fee}</strong> gyda cherdyn debyd neu gredyd.
-      hearing_fee: |
-        Os bydd eich achos yn mynd i dribiwnlys, bydd rhaid i chi dalu ffi gwrandawiad o <strong>£%{fee}</strong>.
 
     feedback:
       header: Eich adborth
