@@ -166,7 +166,6 @@ en:
         address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         date_of_birth: For example, 23 04 1981
       representative:
-        address_county: Eg if London, Greater London; if Manchester, Greater Manchester
         respondent:
         acas_early_conciliation_certificate_number: |
           This is on the certificate that Acas sends if conciliation doesn’t work. The number starts with ’R’ or ’MU’.
@@ -192,8 +191,6 @@ en:
           If you’re claiming financial compensation, try to say how much you want and how you worked out the sum. Any amount you give will be helpful information but you can change it later.
         miscellaneous_information: |
           Eg you may want to tell us why your claim is late, or whether you’ve spoken to your employer about the problem at work
-      respondent:
-        work_address_county: Eg if London, Greater London; if Manchester, Greater Manchester
       additional_respondents:
         has_additional_respondents: You can claim against more than one respondent. Eg if you’re claiming discrimination, you may be complaining about individual(s) as well as your employer.
         respondents:
@@ -571,6 +568,7 @@ en:
         label: Street
       address_county:
         label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
       address_post_code:
         label: Postcode
       mobile_number:
@@ -634,6 +632,7 @@ en:
         label: Street
       work_address_county:
         label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
       work_address_post_code:
         label: Postcode
       acas_early_conciliation_certificate_number:
@@ -731,6 +730,7 @@ en:
       notice_pay_period_count:
         label: For how many weeks or months did you get paid?
       notice_pay_period_type:
+        label: Was this weeks or months ?
         options:
           weeks: Weeks
           months: Months
@@ -740,17 +740,14 @@ en:
       gross_pay:
         label: Pay before tax
         hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
-      gross_pay_period_type:
+      pay_period_type:
+        label: How often were you paid
         options:
           weekly: Weekly
           monthly: Monthly
       net_pay:
         label: Pay after tax
         hint: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
-      net_pay_period_type:
-        options:
-          weekly: Weekly
-          monthly: Monthly
       enrolled_in_pension_scheme:
         label: Are – or were – you a member of your employer’s pension scheme?
         options:
@@ -767,11 +764,8 @@ en:
       new_job_gross_pay:
         label: New job pay before tax
         hint: This is your gross pay, before tax and other deductions. You can find it on your payslip. Don’t include any overtime payments
-      new_job_pay_frequency:
-        options:
-          weekly: Weekly
-          monthly: Monthly
       new_job_gross_pay_frequency:
+        label: How often are you paid
         options:
           weekly: Weekly
           monthly: Monthly
