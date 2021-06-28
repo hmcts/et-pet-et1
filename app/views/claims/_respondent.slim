@@ -11,7 +11,7 @@
 
 = f.fieldset label: t('.workaddress_legend')
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.collection_radio_buttons :worked_at_same_address, optional: true, inline: true
+  = f.collection_radio_buttons :worked_at_same_address, optional: true, inline: true, include_hidden: false
   = f.revealed_content :worked_at_same_address, values: [:false], classes: ['govuk-inset-text']
     p.form-hint= t '.work_address'
     = f.text_field :work_address_building, optional: true
@@ -24,7 +24,7 @@
   = f.text_field :acas_early_conciliation_certificate_number, hint: { text: t('claims.respondent.acas_early_conciliation_certificate_number.hint', path:guide_path).html_safe }
   = f.collection_radio_buttons :no_acas_number, inline: true
   = f.revealed_content :no_acas_number, values: [:true], classes: ['govuk-inset-text']
-    = f.collection_radio_buttons :no_acas_number_reason
+    = f.collection_radio_buttons :no_acas_number_reason, include_hidden: false
     = f.revealed_content :no_acas_number_reason, values: [:interim_relief], classes: ['form-hint'], tag: 'span'
       = t '.no_acas_number_note_two'
 

@@ -224,9 +224,8 @@ FactoryBot.define do
     new_job_gross_pay                    { 4000 }
     average_hours_worked_per_week        { 37.5 }
     current_situation                    { "employment_terminated" }
-    gross_pay_period_type                { "monthly" }
+    pay_period_type                      { "monthly" }
     job_title                            { "tea boy" }
-    net_pay_period_type                  { "monthly" }
     benefit_details                      { "All the justice you can eat" }
   end
 
