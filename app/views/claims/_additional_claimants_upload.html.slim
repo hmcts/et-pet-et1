@@ -9,7 +9,7 @@
 
 = f.fieldset label: t('.subheader')
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.collection_radio_buttons :has_additional_claimants, optional: true, hint: t('.has_additional_claimants.hint', path: claim_additional_claimants_path).html_safe
+  = f.collection_radio_buttons :has_additional_claimants, optional: true, include_hidden: false, hint: t('.has_additional_claimants.hint', path: claim_additional_claimants_path).html_safe
   = f.revealed_content :has_additional_claimants, values: [:true]
     = f.fieldset label: t('.steps_header')
       hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"

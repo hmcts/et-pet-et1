@@ -8,10 +8,9 @@ class EmploymentForm < Form
   attribute :enrolled_in_pension_scheme,           :boolean
   attribute :found_new_job,                        :boolean
   attribute :gross_pay,                            :integer
-  attribute :gross_pay_period_type,                :string
+  attribute :pay_period_type,                      :string
   attribute :job_title,                            :string
   attribute :net_pay,                              :integer
-  attribute :net_pay_period_type,                  :string
   attribute :new_job_gross_pay,                    :integer
   attribute :new_job_gross_pay_frequency,          :string
   attribute :new_job_start_date,                   :et_date
@@ -46,8 +45,7 @@ class EmploymentForm < Form
 
   validates :new_job_gross_pay_frequency, presence: { if: :new_job_gross_pay? }
   validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
-  validates :gross_pay_period_type,       presence: { if: :gross_pay? }
-  validates :net_pay_period_type,         presence: { if: :net_pay? }
+  validates :pay_period_type,             presence: { if: :gross_pay? || net_pay? }
   validates :current_situation,           presence: { if: :was_employed? }
 
   def was_employed

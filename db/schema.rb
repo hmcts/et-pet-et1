@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_120824) do
+ActiveRecord::Schema.define(version: 2021_03_23_093709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,9 +126,8 @@ ActiveRecord::Schema.define(version: 2021_02_02_120824) do
     t.integer "new_job_gross_pay"
     t.float "average_hours_worked_per_week"
     t.string "current_situation"
-    t.string "gross_pay_period_type"
+    t.string "pay_period_type"
     t.string "job_title"
-    t.string "net_pay_period_type"
     t.string "new_job_gross_pay_frequency"
     t.string "notice_pay_period_type"
     t.text "benefit_details"

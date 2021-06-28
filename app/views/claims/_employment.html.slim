@@ -1,7 +1,7 @@
 = f.fieldset label: t('.situation_legend')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   /! Radios: main yes / no
-  = f.collection_radio_buttons :was_employed, optional: true, inline: true
+  = f.collection_radio_buttons :was_employed, optional: true, inline: true, include_hidden: true
   = f.revealed_content :was_employed, values: 'true'
     /! reveal_current_situation
     = f.collection_radio_buttons :current_situation
@@ -17,29 +17,28 @@
         = f.collection_radio_buttons :worked_notice_period_or_paid_in_lieu, inline: true
         = f.revealed_content :worked_notice_period_or_paid_in_lieu, values: [:true], classes: ['govuk-inset-text']
           = f.text_field :notice_pay_period_count, optional: true
-          = f.collection_radio_buttons :notice_pay_period_type, label: false, inline: true
-        = f.text_field :average_hours_worked_per_week, required: true
+          = f.collection_radio_buttons :notice_pay_period_type, inline: true
+        = f.text_field :average_hours_worked_per_week, optional: true
         /! Pay, pension and benefits
         = f.fieldset label: t('.pay_legend')
+          = f.collection_radio_buttons :pay_period_type, optional: true, inline: true, include_hidden: false
           = f.text_field :gross_pay, prefix_text: "£", optional: true
-          = f.collection_radio_buttons :gross_pay_period_type, label: false, inline: true
 
           = f.text_field :net_pay, prefix_text: "£", optional: true
-          = f.collection_radio_buttons :net_pay_period_type, label: false, inline: true
 
-          = f.collection_radio_buttons :enrolled_in_pension_scheme, inline: true, optional: true
+          = f.collection_radio_buttons :enrolled_in_pension_scheme, inline: true, optional: true, include_hidden: false
           = f.text_area :benefit_details, optional: true
 
         /! New job fieldset
         /! reveal on option 3
         = f.fieldset label: t('.new_job_legend')
-          = f.collection_radio_buttons :found_new_job, optional: true, inline: true
+          = f.collection_radio_buttons :found_new_job, optional: true, inline: true, include_hidden: false
 
         = f.revealed_content :found_new_job, values: [:true], classes: ['govuk-inset-text']
           = f.date_field :new_job_start_date
 
+          = f.collection_radio_buttons :new_job_gross_pay_frequency, inline: true, include_hidden: false
           = f.text_field :new_job_gross_pay, prefix_text: "£"
-          = f.collection_radio_buttons :new_job_gross_pay_frequency, label: false, inline: true
 - content_for(:javascripts)
 javascript:
   Et.pages.claims.EmploymentPage()
