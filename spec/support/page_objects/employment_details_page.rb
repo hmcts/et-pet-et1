@@ -19,17 +19,16 @@ module ET1
           notice_pay_period_type_question.set(employment.notice_pay_period_type)
         end
         hours_worked_per_week_question.set(employment.hours_worked_per_week)
+        pay_period_type_question.set(employment.pay_period_type)
         gross_pay_question.set(employment.gross_pay)
-        gross_pay_period_type_question.set(employment.gross_pay_period_type)
         net_pay_question.set(employment.net_pay)
-        net_pay_period_type_question.set(employment.net_pay_period_type)
         in_pension_scheme_question.set(employment.in_pension_scheme)
         benefits_question.set(employment.benefits)
         found_new_job_question.set(employment.found_new_job)
         if employment.found_new_job.to_s.split('.').last == 'true'
           new_job_start_date_question.set(employment.new_job_start_date)
           new_job_gross_pay_question.set(employment.new_job_gross_pay)
-          new_job_gross_pay_period_type_question.set(employment.new_job_gross_pay_period_type)
+          new_job_pay_period_type_question.set(employment.new_job_pay_period_type)
         end
       end
       # Clicks the save and continue button
@@ -89,25 +88,20 @@ module ET1
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
       section :hours_worked_per_week_question, govuk_component(:text_field), :govuk_text_field, :'employment.average_hours_worked_per_week.label'
 
+      # @!method pay_period_type_question
+      #   A govuk radio button component for pay_period_type question
+      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+      section :pay_period_type_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.pay_period_type.label'
+
       # @!method gross_pay_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Pay before tax' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
       section :gross_pay_question, govuk_component(:text_field), :govuk_text_field, :'employment.gross_pay.label'
 
-      # @!method gross_pay_period_type_question
-      #   A govuk radio button component for 'Did you work (or get paid for) a period of notice' question
-      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :gross_pay_period_type_question, govuk_component(:collection_radio_buttons), :xpath, XPath.generate { |x| x.descendant(:div)[x.attr(:class).contains_word('govuk-form-group') & x.child(:fieldset)[x.attr(:class).contains_word('govuk-fieldset') & x.child(:div)[x.attr(:'data-module').equals('govuk-radios') & x.descendant(:input)[x.attr(:name).equals('employment[gross_pay_period_type]')]]]] }
-
       # @!method net_pay_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Pay before tax' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
       section :net_pay_question, govuk_component(:text_field), :govuk_text_field, :'employment.net_pay.label'
-
-      # @!method net_pay_period_type_question
-      #   A govuk radio button component for 'Did you work (or get paid for) a period of notice' question
-      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :net_pay_period_type_question, govuk_component(:collection_radio_buttons), :xpath, XPath.generate { |x| x.descendant(:div)[x.attr(:class).contains_word('govuk-form-group') & x.child(:fieldset)[x.attr(:class).contains_word('govuk-fieldset') & x.child(:div)[x.attr(:'data-module').equals('govuk-radios') & x.descendant(:input)[x.attr(:name).equals('employment[net_pay_period_type]')]]]] }
 
       # @!method in_pension_scheme_question
       #   A govuk radio button component for 'Are you a member of your employers pension ...' question
@@ -138,7 +132,7 @@ module ET1
       # @!method new_job_gross_pay_period_type_question
       #   A govuk radio button component for 'Did you work (or get paid for) a period of notice' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :new_job_gross_pay_period_type_question, govuk_component(:collection_radio_buttons), :xpath, XPath.generate { |x| x.descendant(:div)[x.attr(:class).contains_word('govuk-form-group') & x.child(:fieldset)[x.attr(:class).contains_word('govuk-fieldset') & x.child(:div)[x.attr(:'data-module').equals('govuk-radios') & x.descendant(:input)[x.attr(:name).equals('employment[new_job_gross_pay_frequency]')]]]] }
+      section :new_job_pay_period_type_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.new_job_pay_period_type.label'
 
       # @!method save_and_continue_button
       #   A govuk submit button component...

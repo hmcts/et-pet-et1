@@ -1,6 +1,6 @@
 = f.fieldset label: t('.subheader')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.collection_radio_buttons :has_multiple_claimants, inline: true, optional: true
+  = f.collection_radio_buttons :has_multiple_claimants, inline: true, optional: true, include_hidden: false
   = f.revealed_content :has_multiple_claimants, values: [:true]
     #number_claimants_info.govuk-inset-text
       # = t ".number_claimants_info"

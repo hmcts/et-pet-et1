@@ -26,20 +26,21 @@ h1 class="govuk-heading-xl govuk-!-margin-top-9" = t '.header'
       / li
       /   p.govuk-body= t('.what_happens_next.next_steps')
 
-    h2.govuk-heading-m = t('.submission_details.header')
-    hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
-    .govuk-grid-row
-      .govuk-grid-column-one-third
-        p.govuk-body = t '.download_application.header'
-      .govuk-grid-column-two-thirds
-        = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link'
-        = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link'
-    - confirmation_presenter.each_item do |name, content|
+    .submission-details
+      h2.govuk-heading-m = t('.submission_details.header')
+      hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
       .govuk-grid-row
         .govuk-grid-column-one-third
-          p.govuk-body = t ".submission_details.#{name}"
+          p.govuk-body = t '.download_application.header'
         .govuk-grid-column-two-thirds
-          p.govuk-body = content
+          = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link'
+          = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link'
+      - confirmation_presenter.each_item do |name, content|
+        .govuk-grid-row
+          .govuk-grid-column-one-third.question
+            p.govuk-body = t ".submission_details.#{name}"
+          .govuk-grid-column-two-thirds.answer
+            p.govuk-body = content
 
     = simple_format t('.pel_info') unless claim.remission_claimant_count.zero?
 
