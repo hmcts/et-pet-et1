@@ -17,7 +17,7 @@
         = builder.text_field :acas_early_conciliation_certificate_number
         = builder.collection_radio_buttons :no_acas_number, inline: true
         = builder.revealed_content :no_acas_number, values: [:true], classes: ['govuk-inset-text']
-          = builder.collection_radio_buttons :no_acas_number_reason
+          = builder.collection_radio_buttons :no_acas_number_reason, include_hidden: false
           = builder.revealed_content :no_acas_number_reason, values: [:interim_relief], classes: ['form-hint'], tag: 'span'
             = t 'claims.respondent.no_acas_number_note_two'
         = builder.hidden_field :_destroy, data: { 'multiple-mark-for-destroy': true }
