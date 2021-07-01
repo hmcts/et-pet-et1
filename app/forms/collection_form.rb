@@ -1,2 +1,0 @@
-class CollectionForm < Form
-end
