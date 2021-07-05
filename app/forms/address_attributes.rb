@@ -16,7 +16,7 @@ module AddressAttributes
     Module.new do
       extend ActiveSupport::Concern
 
-      const_set :ADDRESS_LINE_LENGTH, 75
+      const_set :ADDRESS_LINE_LENGTH, 50
       const_set :LOCALITY_LENGTH,     25
       const_set :PHONE_NUMBER_LENGTH, 21
       const_set :POSTCODE_LENGTH,     8
