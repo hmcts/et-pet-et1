@@ -50,25 +50,25 @@ def and_i_fill_in_my_refund_fees_and_verify_the_total
     section.fee_question.set(test_user_fees.et_hearing_fee) unless test_user_fees.et_hearing_fee.nil?
     section.payment_method_question.set(test_user_fees.et_hearing_payment_method) unless test_user_fees.et_hearing_payment_method.nil?
     section.payment_date_question.set(test_user_fees.et_hearing_payment_date) unless test_user_fees.et_hearing_payment_date.nil?
-    section.payment_date_unknown_question.set(test_user_fees.et_issue_payment_date_unknown) unless test_user_fees.et_hearing_payment_date_unknown.nil?
+    section.payment_date_unknown_question.set(test_user_fees.et_hearing_payment_date_unknown) unless test_user_fees.et_hearing_payment_date_unknown.nil?
   end
   refund_fees_page.original_claim_fees.et_reconsideration do |section|
     section.fee_question.set(test_user_fees.et_reconsideration_fee) unless test_user_fees.et_reconsideration_fee.nil?
     section.payment_method_question.set(test_user_fees.et_reconsideration_payment_method) unless test_user_fees.et_reconsideration_payment_method.nil?
     section.payment_date_question.set(test_user_fees.et_reconsideration_payment_date) unless test_user_fees.et_reconsideration_payment_date.nil?
-    section.payment_date_unknown_question.set(test_user_fees.et_issue_payment_date_unknown) unless test_user_fees.et_reconsideration_payment_date_unknown.nil?
+    section.payment_date_unknown_question.set(test_user_fees.et_reconsideration_payment_date_unknown) unless test_user_fees.et_reconsideration_payment_date_unknown.nil?
   end
   refund_fees_page.original_claim_fees.eat_issue do |section|
     section.fee_question.set(test_user_fees.eat_issue_fee) unless test_user_fees.eat_issue_fee.nil?
     section.payment_method_question.set(test_user_fees.eat_issue_payment_method) unless test_user_fees.eat_issue_payment_method.nil?
     section.payment_date_question.set(test_user_fees.eat_issue_payment_date) unless test_user_fees.eat_issue_payment_date.nil?
-    section.payment_date_unknown_question.set(test_user_fees.et_issue_payment_date_unknown) unless test_user_fees.eat_issue_payment_date_unknown.nil?
+    section.payment_date_unknown_question.set(test_user_fees.eat_issue_payment_date_unknown) unless test_user_fees.eat_issue_payment_date_unknown.nil?
   end
   refund_fees_page.original_claim_fees.eat_hearing do |section|
     section.fee_question.set(test_user_fees.eat_hearing_fee) unless test_user_fees.eat_hearing_fee.nil?
     section.payment_method_question.set(test_user_fees.eat_hearing_payment_method) unless test_user_fees.eat_hearing_payment_method.nil?
     section.payment_date_question.set(test_user_fees.eat_hearing_payment_date) unless test_user_fees.eat_hearing_payment_date.nil?
-    section.payment_date_unknown_question.set(test_user_fees.et_issue_payment_date_unknown) unless test_user_fees.eat_hearing_payment_date_unknown.nil?
+    section.payment_date_unknown_question.set(test_user_fees.eat_hearing_payment_date_unknown) unless test_user_fees.eat_hearing_payment_date_unknown.nil?
   end
   expected_total = [:et_issue, :et_hearing, :et_reconsideration, :eat_issue, :eat_hearing].reduce(0.0) do |t, fee|
     fee_value = test_user_fees.send("#{fee}_fee".to_sym)
