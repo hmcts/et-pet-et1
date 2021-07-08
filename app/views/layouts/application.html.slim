@@ -40,23 +40,21 @@
 
 - content_for :cookie_message do
   - unless cookie_settings['seen']
-    .govuk-cookie-banner.confirmation aria-label= t('cookies.edit.cookie_aria_label') role="region"
-      .govuk-cookie-banner__message.banner-container
-        .govuk-grid-row
-          .govuk-grid-column-two-thirds
-            h2.govuk-cookie-banner__heading.govuk-heading-m.bold= t('banner.title')
-            .govuk-cookie-banner__content
-              p= t('banner.first_line')
-              p= t('banner.second_line')
+    = form_for cookie_form, as: :cookie, url: cookies_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.hidden_field :return_path, value: path_only(request.url)
+      .govuk-cookie-banner aria-label= t('cookies.edit.cookie_aria_label') role="region" data-nosnippet= true
+        .govuk-cookie-banner__message.govuk-width-container
+          .govuk-grid-row
+            .govuk-grid-column-two-thirds
+              h2.govuk-cookie-banner__heading.govuk-heading-m= t('banner.title')
+              .govuk-cookie-banner__content
+                p= t('banner.first_line')
+                p= t('banner.second_line')
           .govuk-button-group
-            = simple_form_for cookie_form, as: :cookie, url: cookies_path, method: :post, html: {style: 'display: inline'} do |f|
-              = f.hidden_field :usage, value: 'true'
-              = f.hidden_field :return_path, value: path_only(request.url)
-              = f.button :submit, t('banner.accept_analytics')
-            = simple_form_for cookie_form, as: :cookie, url: cookies_path, method: :post, html: {style: 'display: inline'} do |f|
-              = f.hidden_field :usage, value: 'false'
-              = f.hidden_field :return_path, value: path_only(request.url)
-              = f.button :submit, t('banner.reject_analytics')
+            button.govuk-button.button data-module="govuk-button" value= "true" name= "cookie[usage]" type= "submit"
+              = t('banner.accept_analytics')
+            button.govuk-button.button data-module="govuk-button" value= "false" name= "cookie[usage]" type= "submit"
+              = t('banner.reject_analytics')
             = link_to t('banner.cookie_link'), edit_cookies_path
   - if flash[:cookie_banner_confirmation].present?
     .govuk-cookie-banner.confirmation aria-label= t('cookies.edit.cookie_aria_label') role="region"
