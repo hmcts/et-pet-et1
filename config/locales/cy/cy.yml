@@ -403,7 +403,13 @@ cy:
         exit_guide: Dychwelyd i'r ffurflen
         contact_us: Cysylltu â ni
         contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
-
+  cookies:
+    edit:
+      usage:
+        label: A ydych eisiau derbyn cwcis dadansoddol?
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
   banner:
     title: Cwcis ar gyfer Tribiwnlysoedd Cyflogaeth
     first_line: Rydym yn defnyddio cwcis hanfodol i wneud i'r wefan hon weithio.
