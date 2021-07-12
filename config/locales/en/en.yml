@@ -379,6 +379,13 @@ en:
         reset: "Reset my memorable word"
         didnt_request: "If you didn't request this, please ignore this email"
         paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."
+  cookies:
+    edit:
+      usage:
+        label: 'Do you want to accept analytics cookies?'
+        options:
+          'true': 'Yes'
+          'false': 'No'
   banner:
     title: Cookies on Employment tribunals
     first_line: We use some essential cookies to make this service work.
