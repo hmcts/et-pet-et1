@@ -1,4 +1,3 @@
-require_relative './sections/simple_form'
 module ET1
   module Test
     module Refunds

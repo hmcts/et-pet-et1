@@ -32,12 +32,6 @@ cy:
       format:
         unit: '£'
 
-  simple_form:
-    include_blanks:
-      additional_claimants:
-        collection:
-          title: Dewiswch
-
     options:
       additional_claimants:
         collection:

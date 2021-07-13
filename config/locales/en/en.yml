@@ -41,14 +41,6 @@ en:
     currency:
       format:
         unit: '£'
-
-  simple_form:
-    include_blanks:
-      additional_claimants:
-        claimants: :"simple_form.include_blanks.claimant"
-    labels:
-      cookies:
-        allow_analytics: Do you want to accept analytics cookies?
   helpers:
     submit:
       return: Complete later
