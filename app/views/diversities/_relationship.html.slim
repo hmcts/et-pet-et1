@@ -1,2 +1,2 @@
-= f.govuk_collection_radio_buttons :relationship, Diversities::RelationshipForm::RELATIONSHIP.map { |relation_ship| [relation_ship, t("diversities.diversities_relationship.relationship.options.#{relation_ship}")]}, :first, :last, label: {text: false}
+= f.collection_radio_buttons :relationship, Diversities::RelationshipForm::RELATIONSHIP.map { |relation_ship| [relation_ship, t("diversities.diversities_relationship.relationship.options.#{relation_ship}")]}, :first, :last, label: {text: false}
 

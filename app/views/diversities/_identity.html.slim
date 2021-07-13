@@ -1,3 +1,3 @@
-= f.govuk_collection_radio_buttons :sex, Diversities::IdentityForm::SEX.map { |gender_type| [gender_type, t("diversities.diversities_identity.sex.options.#{gender_type}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sex.label')}
-= f.govuk_collection_radio_buttons :sexual_identity, Diversities::IdentityForm::SEXUAL_IDENTITY.map { |sexual_identity| [sexual_identity, t("diversities.diversities_identity.sexual_identity.options.#{sexual_identity}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sexual_identity.label')}
+= f.collection_radio_buttons :sex, Diversities::IdentityForm::SEX.map { |gender_type| [gender_type, t("diversities.diversities_identity.sex.options.#{gender_type}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sex.label')}
+= f.collection_radio_buttons :sexual_identity, Diversities::IdentityForm::SEXUAL_IDENTITY.map { |sexual_identity| [sexual_identity, t("diversities.diversities_identity.sexual_identity.options.#{sexual_identity}")]}, :first, :last, label: {text: t('diversities.diversities_identity.sexual_identity.label')}
 
