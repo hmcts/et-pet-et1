@@ -67,7 +67,7 @@ module ET1
           #   @return [EtTestHelpers::Components::GovUKEmailField] The site prism section
           section :email_address_question, govuk_component(:email_field), :govuk_email_field, 'Email address'
         end
-        element :save_and_continue, 'form.edit_refunds_applicant input[value="Continue"]'
+        gds_submit_button :save_and_continue, 'Continue'
       end
     end
 

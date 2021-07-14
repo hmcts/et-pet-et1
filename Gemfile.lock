@@ -18,10 +18,17 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
+<<<<<<< HEAD
   revision: 7d703e7c009cdf67d8aec538de9d16f1013e430f
   tag: v0.1.22
   specs:
     et_test_helpers (0.1.22)
+=======
+  revision: 103ff7307e4fd0e6fea073eaa6941a666f7d7905
+  tag: v1.0.2
+  specs:
+    et_test_helpers (1.0.2)
+>>>>>>> 549b41cd... RST-3229 Updated govuk_design_system_formbuilder gem
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -239,7 +246,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    govuk_design_system_formbuilder (2.5.1)
+    govuk_design_system_formbuilder (2.7.2)
       actionview (>= 6.0)
       activemodel (>= 6.0)
       activesupport (>= 6.0)

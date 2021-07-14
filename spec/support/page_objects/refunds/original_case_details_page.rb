@@ -118,8 +118,13 @@ module ET1
         # @!method address_changed_question
         #   A govuk radio button component for address_changed question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+<<<<<<< HEAD
         section :address_changed_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, "Has your address changed since you made your employment tribunal claim ?"
         element :save_and_continue, 'form.edit_refunds_original_case_details input[value="Continue"]'
+=======
+        gds_radios :address_changed_question, "Has your address changed since you made your employment tribunal claim ?"
+        gds_submit_button :save_and_continue, 'Continue'
+>>>>>>> 549b41cd... RST-3229 Updated govuk_design_system_formbuilder gem
       end
     end
 

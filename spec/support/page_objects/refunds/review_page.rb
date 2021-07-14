@@ -107,7 +107,7 @@ module ET1
           #   @return [EtTestHelpers::Components::GovUKCheckbox] The site prism section
           section :confirm_question, govuk_component(:checkbox), :govuk_checkbox, 'Tick to confirm'
         end
-        element :save_and_continue, 'form.edit_refunds_review input[value="Submit Claim"]'
+        gds_submit_button :save_and_continue, 'Submit Claim'
       end
     end
 

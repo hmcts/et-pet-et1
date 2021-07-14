@@ -11,7 +11,7 @@ module ET1
         section :select_profile_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, 'You can apply for a refund of Employment Tribunal or Employment Appeal Tribunal Fees (or both) by confirming you are one of the following:'
 
         element :session_reloaded_message, :flash_message_with_text, 'Your session has been re loaded - this may have been caused by your cookie expiring'
-        element :save_and_continue, 'input[value="Continue"]'
+        gds_submit_button :save_and_continue, 'Continue'
       end
     end
   end

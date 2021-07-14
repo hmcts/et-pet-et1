@@ -6,7 +6,7 @@ class MultipleRespondentsController < ClaimsController
   def update
     resource.assign_attributes params[current_step].permit!
 
-    if params[:commit] == t("claims.#{current_step}.add_fields")
+    if params[:commit] == "claims.#{current_step}.add_fields"
       resource.secondary_respondents.build
 
       render :show

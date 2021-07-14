@@ -140,7 +140,7 @@ module ET1
           help.assert_text(messages.join("\n"))
         end
 
-        element :save_and_continue, 'form.edit_refunds_fees input[value="Continue"]'
+        gds_submit_button :save_and_continue, 'Continue'
       end
     end
 

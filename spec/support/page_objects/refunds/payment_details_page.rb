@@ -49,7 +49,7 @@ module ET1
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
           section :sort_code_question, govuk_component(:text_field), :govuk_text_field, 'Building Society sort code'
         end
-        element :save_and_continue, 'form.edit_refunds_bank_details input[value="Continue"]'
+        gds_submit_button :save_and_continue, 'Continue'
       end
     end
 

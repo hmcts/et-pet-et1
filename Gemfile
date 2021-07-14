@@ -71,7 +71,11 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
+<<<<<<< HEAD
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v0.1.22'
+=======
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.2'
+>>>>>>> 549b41cd... RST-3229 Updated govuk_design_system_formbuilder gem
 end
 
 group :production do
