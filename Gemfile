@@ -104,4 +104,4 @@ gem 'invisible_captcha', '~> 2.0'
 gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.4'
 
 gem "webpacker", "~> 5.2"
-gem "devise", "~> 4.7"
+gem "devise", "~> 4.8"
