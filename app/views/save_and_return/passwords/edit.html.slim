@@ -1,13 +1,18 @@
-h1.govuk-heading-xl= t('claims.password.edit.header')
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, builder: EtGdsDesignSystem.form_builder_class) do |f|
-  = f.govuk_error_summary(t 'shared.error_notification.default_message')
-  = f.hidden_field :reset_password_token
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    h1.govuk-heading-xl= t('claims.password.edit.header')
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, builder: EtGdsDesignSystem.form_builder_class) do |f|
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
+      = f.hidden_field :reset_password_token
 
-  = f.govuk_fieldset label: {text: t('claims.password.edit.enter_your_details')}
-    = f.govuk_text_field :password,
-      label: {text: t('claims.password.edit.password.label')},
-      hint: { text: t('claims.password.edit.password.hint') }
+      = f.fieldset label: t('claims.password.edit.enter_your_details')
+        hr class="govuk-section-break--m govuk-!-margin-top-0"
+        = f.text_field :password,
+          label: t('claims.password.edit.password.label'),
+          hint: t('claims.password.edit.password.hint')
 
-    = f.govuk_submit t('.submit_button')
+    = f.submit t('.submit_button')
 
   = render partial: 'shared/aside'
