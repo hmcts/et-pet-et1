@@ -1,5 +1,6 @@
 = f.fieldset label: { text: t('.legend_personal_details'), size: 'm' } do
-  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
+  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-margin-top-0"
+
   p.govuk-body = t '.personal_details_description'
   = render partial: 'personal_details', locals: { f: f }
   = f.collection_radio_buttons :gender, optional: true, inline: true, include_hidden: false
