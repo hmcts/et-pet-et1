@@ -1,5 +1,5 @@
 = f.fieldset label: { text: t('.respondent_legend'), size: 'm' }
-  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
+  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
   p.govuk-body = t('.form_hint')
   = f.text_field :name
   = f.text_field :address_building
@@ -10,7 +10,7 @@
   = f.phone_field :address_telephone_number, optional: true
 
 = f.fieldset label: { text: t('.workaddress_legend'), size: 'm' }
-  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
+  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
   = f.collection_radio_buttons :worked_at_same_address, optional: true, inline: true, include_hidden: false
   = f.revealed_content :worked_at_same_address, values: [:false], classes: ['govuk-inset-text']
     p.form-hint= t '.work_address'
@@ -21,7 +21,7 @@
     = f.text_field :work_address_post_code, optional: true
     = f.phone_field :work_address_telephone_number, optional: true
 = f.fieldset label: { text: t('claims.respondent.acas_early_conciliation_certificate_number.label'), size: 'm' }
-  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
+  hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
   = f.collection_radio_buttons :has_acas_number, inline: true
   = f.revealed_content :has_acas_number, values: [:false], classes: ['govuk-inset-text']
     = f.collection_radio_buttons :no_acas_number_reason, include_hidden: false
