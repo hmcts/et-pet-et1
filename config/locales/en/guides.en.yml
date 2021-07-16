@@ -2,10 +2,10 @@ en:
   guides:
     show:
       links:
-        time_limits_html: '<a href="#time_limits">Time limits</a>'
-        acas_early_conciliation_html: '<a href="#acas_early_conciliation">Acas: early conciliation</a>'
-        acas_early_conciliation_exceptions_html: '<a href="#acas_early_conciliation_exceptions">Exceptions to early conciliation</a>'
-        writing_your_claim_statement_html: '<a href="#writing_your_claim_statement">Writing your claim statement</a>'
+        time_limits_html: '<a class="govuk-link" href="#time_limits">Time limits</a>'
+        acas_early_conciliation_html: '<a class="govuk-link" href="#acas_early_conciliation">Acas: early conciliation</a>'
+        acas_early_conciliation_exceptions_html: '<a class="govuk-link" href="#acas_early_conciliation_exceptions">Exceptions to early conciliation</a>'
+        writing_your_claim_statement_html: '<a class="govuk-link" href="#writing_your_claim_statement">Writing your claim statement</a>'
 
     time_limits:
       title: Time limits
@@ -13,7 +13,7 @@ en:
       list:
         one: if you think you’ve lost your job unfairly the 3 month period begins from the date your employment ended
         two: if your claim is about discrimination or a dispute over pay, the 3 month period begins when the incident or dispute happened
-      line_two_html: 'Before making a claim to an employment tribunal you must contact Acas (Advisory, Conciliation and Arbitration Service) to use their free <a href="http://www.acas.org.uk/earlyconciliation" rel="external">Early Conciliation</a> service.'
+      line_two_html: 'Before making a claim to an employment tribunal you must contact Acas (Advisory, Conciliation and Arbitration Service) to use their free <a class="govuk-link" href="http://www.acas.org.uk/earlyconciliation" rel="external">Early Conciliation</a> service.'
       line_three: The time limit for making a claim is put on hold while Acas helps you settle the dispute.
 
     acas_early_conciliation:
@@ -38,7 +38,7 @@ en:
         one_html: 'you&#39;re making the claim with another person who&#39;s already been through early conciliation'
         two_html: 'Acas doesn&#39;t have the power to conciliate on some or all of your claim'
         three_html: 'your employer has already been in touch with Acas - you&#39;ll need to provide evidence of this'
-        four_html: 'you&#39;re making a claim about a certain type of unfair dismissal that allows you to apply for <a href="#interim-relief"> &#39;interim relief&#39;</a> and it&#39;s within 7 days of the dismissal'
+        four_html: 'you&#39;re making a claim about a certain type of unfair dismissal that allows you to apply for <a class="govuk-link" href="#interim-relief"> &#39;interim relief&#39;</a> and it&#39;s within 7 days of the dismissal'
       line_two_html: 'If you think you don&#39;t need to contact Acas, you may want to get legal advice before you start your claim.'
       title_two: Interim relief
       line_three: 'Interim relief is when an employment tribunal orders an employer or business to give the job back to someone they sacked until a hearing happens.'

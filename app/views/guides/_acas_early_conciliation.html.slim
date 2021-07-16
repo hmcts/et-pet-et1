@@ -1,10 +1,11 @@
 article#acas_early_conciliation
-  h2 = t '.title'
+  h2.govuk-heading-m = t '.title'
+  hr.govuk-section-break--m
 
-  p = t '.line_one_html'
-  p = t '.line_two'
-  p = t '.line_three'
-  p
+  p.govuk-body = t '.line_one_html'
+  p.govuk-body = t '.line_two'
+  p.govuk-body = t '.line_three'
+  p.govuk-body
     = t '.address.phone'
     br
     = t '.address.textphone'
@@ -12,9 +13,9 @@ article#acas_early_conciliation
     br
     = t '.address.week'
 
-  h3 = t '.title_two'
-  p = t '.line_four_html'
-  p = t '.line_five_html'
+  h3.govuk-heading-s = t '.title_two'
+  p.govuk-body = t '.line_four_html'
+  p.govuk-body = t '.line_five_html'
 
-  h3 = t '.title_three'
-  p = t '.line_six_html'
+  h3.govuk-heading-s = t '.title_three'
+  p.govuk-body = t '.line_six_html'

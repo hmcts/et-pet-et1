@@ -394,8 +394,8 @@ en:
     cookie_link: View cookies
   cookie_banner:
     confirmation_message:
-      true: You've accepted analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
-      false: You've rejected analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
+      true: You've accepted analytics cookies. You can change your <a class="govuk-link" href="%{edit_cookies_path}">cookie settings</a> at any time.
+      false: You've rejected analytics cookies. You can change your <a class="govuk-link" href="%{edit_cookies_path}">cookie settings</a> at any time.
       hide_button: Hide this message
       cookie_flashes: You've set your cookie preferences
   claims:
