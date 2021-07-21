@@ -1352,12 +1352,14 @@ cy:
           attributes:
             name:
               blank: Nodwch enw'r unigolyn neu sefydliad yr ydych yn gwneud yr hawliad yn ei erbyn
+            has_acas_number:
+              inclusion: Nodwch a oes gennych rif Acas
             no_acas_number_reason:
               blank: "Dewiswch reswm o'r rhestr."
               inclusion: ""
               invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
-              blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
+              blank: Nodwch eich rhif cymodi cynnar Acas. Atebwch 'na' i 'Oes gennych chi rif ACAS?' os nad oes gennych un
               invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.
             address_country:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
@@ -1397,6 +1399,8 @@ cy:
           attributes:
             title:
               blank: Dewiswch deitl o'r rhestr
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
             name:
               blank: Nodwch enw'r unigolyn neu sefydliad ychwanegol yr ydych yn gwneud yr hawliad yn ei erbyn
             acas_early_conciliation_certificate_number:

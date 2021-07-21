@@ -1235,12 +1235,14 @@ en:
           attributes:
             name:
               blank: Provide the name of the person or organisation you are making the claim against
+            has_acas_number:
+              inclusion: Please indicate if you have an Acas number
             no_acas_number_reason:
               blank: Select a reason from the list.
               inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
               invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
-              blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
+              blank: Provide your Acas early conciliation number. Answer 'no' to ‘Do you have an Acas number?’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
             address_country:
               blank: You must provide information for this field
@@ -1280,6 +1282,8 @@ en:
           attributes:
             title:
               blank: Select a title from the list
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
             name:
               blank: Provide the name of the additional person or organisation you are making the claim against
             acas_early_conciliation_certificate_number:

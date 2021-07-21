@@ -71,11 +71,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-<<<<<<< HEAD
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v0.1.22'
-=======
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.2'
->>>>>>> 549b41cd... RST-3229 Updated govuk_design_system_formbuilder gem
 end
 
 group :production do
@@ -106,7 +102,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.2'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v2.0.4'
 
 gem "webpacker", "~> 5.2"
 gem "devise", "~> 4.7"

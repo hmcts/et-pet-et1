@@ -53,6 +53,7 @@ class RespondentForm < Form
             length: { maximum: PHONE_NUMBER_LENGTH },
             ccd_phone: true,
             unless: :worked_at_same_address?
+  validates :has_acas_number, inclusion: [true, false]     
 
   validates :no_acas_number_reason,
     inclusion: { in: NO_ACAS_REASON, allow_blank: true },

@@ -1,5 +1,5 @@
 = f.fieldset label: { text: t('.legend') } do
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.collection_radio_buttons :has_miscellaneous_information, optional: true, include_hidden: false
+  = f.collection_radio_buttons :has_miscellaneous_information, optional: true, include_hidden: false, inline: true
   = f.revealed_content :has_miscellaneous_information, values: [:true]
     = f.text_area :miscellaneous_information, max_chars: 2500, rows: 15

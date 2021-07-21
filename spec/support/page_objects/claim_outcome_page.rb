@@ -23,17 +23,17 @@ module ET1
       # @!method what_do_you_want_question
       #   A govuk collection of checkboxes component for what do you want question
       #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-      section :what_do_you_want_question, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'claim_outcome.what_do_you_want.label'
+      gds_checkboxes :what_do_you_want_question, :'claim_outcome.what_do_you_want'
 
       # @!method notes_question
       #   A govuk text area component wrapping the input, label, hint etc.. for the 'What compensation or other outcome do you want?' question
       #   @return [EtTestHelpers::Components::GovUKTextArea] The site prism section
-      section :notes_question, govuk_component(:text_area), :govuk_text_area, :'claim_outcome.notes.label'
+      gds_text_area :notes_question, :'claim_outcome.notes'
 
       # @!method save_and_continue_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'claim_outcome.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'claim_outcome.save_and_continue'
     end
   end
 end

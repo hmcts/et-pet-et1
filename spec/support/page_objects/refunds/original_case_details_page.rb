@@ -8,123 +8,118 @@ module ET1
           # @!method et_country_of_claim_question
           #   A govukselect component wrapping the select, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKCollectionSelect] The site prism section
-          section :et_country_of_claim_question, govuk_component(:collection_select), :govuk_collection_select, 'Where was your claim issued?'
+          gds_select :et_country_of_claim_question, 'Where was your claim issued?'
           # @!method et_case_number_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :et_case_number_question, govuk_component(:text_field), :govuk_text_field, 'Employment tribunal case number (optional)'
+          gds_text_input :et_case_number_question, 'Employment tribunal case number (optional)'
           # @!method eat_case_number_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :eat_case_number_question, govuk_component(:text_field), :govuk_text_field, 'Employment appeal tribunal case number (optional)'
+          gds_text_input :eat_case_number_question, 'Employment appeal tribunal case number (optional)'
           # @!method et_tribunal_office_question
           #   A govukselect component wrapping the select, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKCollectionSelect] The site prism section
-          section :et_tribunal_office_question, govuk_component(:collection_select), :govuk_collection_select, 'Employment tribunal office (optional)'
+          gds_select :et_tribunal_office_question, 'Employment tribunal office (optional)'
           # @!method additional_information_question
           #   A govuk text area component wrapping the input, label, hint etc.. for a text area
           #   @return [EtTestHelpers::Components::GovUKTextArea] The site prism section
-          section :additional_information_question, govuk_component(:text_area), :govuk_text_area, 'Additional information (optional)'
+          gds_text_area :additional_information_question, 'Additional information (optional)'
         end
         section :original_claimant_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Your address at the time of your claim")]] }) do
           include EtTestHelpers::Section
           # @!method building_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :building_question, govuk_component(:text_field), :govuk_text_field, 'Building number or name'
+          gds_text_input :building_question, 'Building number or name'
           # @!method street_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :street_question, govuk_component(:text_field), :govuk_text_field, 'Street'
+          gds_text_input :street_question, 'Street'
           # @!method locality_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :locality_question, govuk_component(:text_field), :govuk_text_field, 'Town/city (optional)'
+          gds_text_input :locality_question, 'Town/city (optional)'
           # @!method county_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :county_question, govuk_component(:text_field), :govuk_text_field, 'County (optional)'
+          gds_text_input :county_question, 'County (optional)'
           # @!method post_code_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :post_code_question, govuk_component(:text_field), :govuk_text_field, 'UK Postcode'
+          gds_text_input :post_code_question, 'UK Postcode'
           # @!method telephone_number_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :telephone_number_question, govuk_component(:text_field), :govuk_text_field, 'Phone or mobile number'
+          gds_text_input :telephone_number_question, 'Phone or mobile number'
           # @!method email_address_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :email_address_question, govuk_component(:text_field), :govuk_text_field, 'Email address'
+          gds_text_input :email_address_question, 'Email address'
         end
         section :original_respondent_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Who was your claim against (Respondent)")]] }) do
           include EtTestHelpers::Section
           # @!method name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :name_question, govuk_component(:text_field), :govuk_text_field, 'Respondent name'
+          gds_text_input :name_question, 'Respondent name'
           # @!method building_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :building_question, govuk_component(:text_field), :govuk_text_field, 'Building number or name'
+          gds_text_input :building_question, 'Building number or name'
           # @!method street_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :street_question, govuk_component(:text_field), :govuk_text_field, 'Street'
+          gds_text_input :street_question, 'Street'
           # @!method locality_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :locality_question, govuk_component(:text_field), :govuk_text_field, 'Town/city (optional)'
+          gds_text_input :locality_question, 'Town/city (optional)'
           # @!method county_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :county_question, govuk_component(:text_field), :govuk_text_field, 'County (optional)'
+          gds_text_input :county_question, 'County (optional)'
           # @!method post_code_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :post_code_question, govuk_component(:text_field), :govuk_text_field, 'UK Postcode (optional)'
+          gds_text_input :post_code_question, 'UK Postcode (optional)'
         end
         # @!method claim_had_representative_question
         #   A govuk radio button component for claim_had_representative question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        section :claim_had_representative_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, 'Did you have a representative at the time of your original claim ?'
+        gds_radios :claim_had_representative_question, 'Did you have a representative at the time of your original claim ?'
         section :original_representative_details, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Representative")]] }) do
           include EtTestHelpers::Section
           # @!method name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :name_question, govuk_component(:text_field), :govuk_text_field, 'Representative name'
+          gds_text_input :name_question, 'Representative name'
           # @!method building_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :building_question, govuk_component(:text_field), :govuk_text_field, 'Building number or name'
+          gds_text_input :building_question, 'Building number or name'
           # @!method street_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :street_question, govuk_component(:text_field), :govuk_text_field, 'Street'
+          gds_text_input :street_question, 'Street'
           # @!method locality_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :locality_question, govuk_component(:text_field), :govuk_text_field, 'Town/city (optional)'
+          gds_text_input :locality_question, 'Town/city (optional)'
           # @!method county_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :county_question, govuk_component(:text_field), :govuk_text_field, 'County (optional)'
+          gds_text_input :county_question, 'County (optional)'
           # @!method post_code_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :post_code_question, govuk_component(:text_field), :govuk_text_field, 'UK Postcode'
+          gds_text_input :post_code_question, 'UK Postcode'
         end
         # @!method address_changed_question
         #   A govuk radio button component for address_changed question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-<<<<<<< HEAD
-        section :address_changed_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, "Has your address changed since you made your employment tribunal claim ?"
-        element :save_and_continue, 'form.edit_refunds_original_case_details input[value="Continue"]'
-=======
         gds_radios :address_changed_question, "Has your address changed since you made your employment tribunal claim ?"
         gds_submit_button :save_and_continue, 'Continue'
->>>>>>> 549b41cd... RST-3229 Updated govuk_design_system_formbuilder gem
       end
     end
 

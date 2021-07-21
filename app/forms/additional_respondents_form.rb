@@ -49,6 +49,7 @@ class AdditionalRespondentsForm < Form
     attribute :has_acas_number,                            :boolean
 
     validates :name, presence: true, length: { maximum: NAME_LENGTH }
+    validates :has_acas_number, inclusion: [true, false]
     validates :no_acas_number_reason,
               inclusion: { in: NO_ACAS_REASON, allow_blank: true },
               presence:  { unless: -> { has_acas_number? } }

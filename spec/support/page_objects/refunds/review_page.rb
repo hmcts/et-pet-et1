@@ -100,12 +100,12 @@ module ET1
         # @!method declaration
         #   A govuk fieldset component
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :declaration, govuk_component(:fieldset), :govuk_fieldset, 'Declaration' do
+        gds_fieldset :declaration, "Declaration" do
           include EtTestHelpers::Section
           # @!method confirm_question
           #   A govuk file field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKCheckbox] The site prism section
-          section :confirm_question, govuk_component(:checkbox), :govuk_checkbox, 'Tick to confirm'
+          gds_checkbox :confirm_question, 'Tick to confirm'
         end
         gds_submit_button :save_and_continue, 'Submit Claim'
       end

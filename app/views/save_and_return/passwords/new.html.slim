@@ -12,8 +12,8 @@
           label:  t('claims.password.new.email.label'),
           hint: t('claims.password.new.email.hint')
 
-    = f.text_field :reference,
-      label: t('claims.password.new.reference.label'),
-      hint: t('claims.password.new.reference.hint')
-    = f.submit t('.submit_button')
+        = f.text_field :reference,
+          label: t('claims.password.new.reference.label'),
+          hint: t('claims.password.new.reference.hint')
+        = f.submit t('.submit_button')
   = render partial: 'shared/aside'

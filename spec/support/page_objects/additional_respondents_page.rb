@@ -110,15 +110,15 @@ module ET1
         section :fieldset, :xpath, XPath.generate {| x| x.child(:fieldset) } do
           element :respondent_number, :xpath, XPath.generate { |x| x.child(:legend) }
         end
-        section :name, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.name.label'
-        section :building, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.building.label'
-        section :street, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.street.label'
-        section :town, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.town.label'
-        section :county, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.county.label'
-        section :post_code, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.post_code.label'
-        section :acas_number, govuk_component(:text_field), :govuk_text_field, :'additional_respondents.acas_number.label'
-        section :have_acas_number, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.have_acas_number.label'
-        section :dont_have_acas_number_reason, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.dont_have_acas_number_reason.label'
+        gds_text_input :name, :'additional_respondents.name'
+        gds_text_input :building, :'additional_respondents.building'
+        gds_text_input :street, :'additional_respondents.street'
+        gds_text_input :town, :'additional_respondents.town'
+        gds_text_input :county, :'additional_respondents.county'
+        gds_text_input :post_code, :'additional_respondents.post_code'
+        gds_text_input :acas_number, :'additional_respondents.acas_number'
+        gds_radios :have_acas_number, :'additional_respondents.have_acas_number'
+        gds_radios :dont_have_acas_number_reason, :'additional_respondents.dont_have_acas_number_reason'
         element :remove_this_respondent_element, :link, t('additional_respondents.remove_this_respondent')
       end
 
@@ -133,19 +133,19 @@ module ET1
       # @!method govuk_radios
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :claim_against_other_person_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'additional_respondents.claim_against_other_person.label'
+      gds_radios :claim_against_other_person_question, :'additional_respondents.claim_against_other_person'
 
       # @!method add_more_respondents_action
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKErrorSummary] The site prism section
-      section :add_more_respondents_action, govuk_component(:submit), :govuk_submit, :'additional_respondents.add_more_respondents.label'
+      gds_submit_button :add_more_respondents_action, :'additional_respondents.add_more_respondents.label'
 
       sections :secondary_respondent_sections, RespondentSection, :xpath, XPath.generate {|x| x.descendant(:div)[x.attr(:class).contains_word('multiple')]}
 
       # @!method save_and_continue_button
       #   A govuk submit button component for the save and continue button
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'additional_respondents.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'additional_respondents.save_and_continue'
     end
   end
 end

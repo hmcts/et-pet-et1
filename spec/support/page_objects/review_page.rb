@@ -258,7 +258,7 @@ module ET1
         # @!method email_recipients
         #   A govuk collection of checkboxes component for unfair dismissal question
         #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-        section :email_recipients, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'review.email_confirmation.email_recipients.label'
+        gds_checkboxes :email_recipients, :'review.email_confirmation.email_recipients'
       end
       def edit_section(section_name)
         query = XPath.generate { |x| x.descendant(:a)[x.string.n.equals('Edit') & x.ancestor(:h2)[x.string.n.starts_with(section_name)]] }
