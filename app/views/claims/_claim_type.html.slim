@@ -2,9 +2,9 @@ h2.govuk-heading-m = t '.claim_type'
 hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
 
 p.govuk-body = t '.claim_type_label'
-
-= f.collection_check_boxes :is_unfair_dismissal,
-  hint: ->
+= f.singular_check_box :is_unfair_dismissal,
+  label: t('.is_unfair_dismissal.options.1'),
+  fieldset_hint: ->
     details.govuk-details data-module="govuk-details"
       summary.govuk-details__summary
         span.govuk-details__summary-text = t '.summary'
@@ -13,15 +13,15 @@ p.govuk-body = t '.claim_type_label'
 
 = f.collection_check_boxes :discrimination_claims
 = f.collection_check_boxes :pay_claims
-= f.collection_check_boxes :is_other_type_of_claim
-= f.revealed_content :is_other_type_of_claim, values: [:true], multiple: true, classes: ['govuk-inset-text']
+= f.singular_check_box :is_other_type_of_claim, label: t('.is_other_type_of_claim.options.true')
+= f.revealed_content :is_other_type_of_claim, values: [:true], multiple: false, classes: ['govuk-inset-text']
   = f.text_area :other_claim_details, rows: 2
 
 = f.fieldset label: t('.is_whistleblowing.heading')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
-  = f.collection_radio_buttons :is_whistleblowing
+  = f.collection_radio_buttons :is_whistleblowing, inline: true
   = f.revealed_content :is_whistleblowing, values: [:true], classes: ['govuk-inset-text']
-    = f.collection_radio_buttons :send_claim_to_whistleblowing_entity
+    = f.collection_radio_buttons :send_claim_to_whistleblowing_entity, inline: true
 - content_for(:javascripts)
 javascript:
   Et.pages.claims.ClaimTypePage()

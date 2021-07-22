@@ -28,18 +28,18 @@ module ET1
       # @!method memorable_word_element
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :memorable_word_element, govuk_component(:text_field), :govuk_text_field, :'return_to_your_claim.memorable_word.label'
+      gds_text_input :memorable_word_element, :'return_to_your_claim.memorable_word'
       # @!method claim_number_element
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :claim_number_element, govuk_component(:text_field), :govuk_text_field, :'return_to_your_claim.save_and_return_number.label'
+      gds_text_input :claim_number_element, :'return_to_your_claim.save_and_return_number'
 
       element :reset_memorable_word_element, :link, 'Click here to reset'
 
       # @!method submit_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :submit_button, govuk_component(:submit), :govuk_submit, :'return_to_your_claim.find_my_claim'
+      gds_submit_button :submit_button, :'return_to_your_claim.find_my_claim'
       element :memorable_word_email_sent_flash_element, '#flash-summary *', text: 'You will receive an email with instructions on how to reset your memorable word in a few minutes'
       element :invalid_word_or_number_flash_element, '#flash-summary *', text: "Invalid memorable word or save and return number, please check and try again."
     end

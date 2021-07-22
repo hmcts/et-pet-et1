@@ -48,14 +48,14 @@
             .govuk-grid-column-two-thirds
               h2.govuk-cookie-banner__heading.govuk-heading-m= t('banner.title')
               .govuk-cookie-banner__content
-                p= t('banner.first_line')
-                p= t('banner.second_line')
+                p.govuk-body= t('banner.first_line')
+                p.govuk-body= t('banner.second_line')
           .govuk-button-group
             button.govuk-button.button data-module="govuk-button" value= "true" name= "cookie[usage]" type= "submit"
               = t('banner.accept_analytics')
             button.govuk-button.button data-module="govuk-button" value= "false" name= "cookie[usage]" type= "submit"
               = t('banner.reject_analytics')
-            = link_to t('banner.cookie_link'), edit_cookies_path
+            = link_to t('banner.cookie_link'), edit_cookies_path, class: 'govuk-link'
   - if flash[:cookie_banner_confirmation].present?
     .govuk-cookie-banner.confirmation aria-label= t('cookies.edit.cookie_aria_label') role="region"
       .govuk-cookie-banner__message.govuk-width-container role="alert"

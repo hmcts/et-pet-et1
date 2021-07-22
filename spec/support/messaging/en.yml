@@ -293,8 +293,8 @@ en:
       label: Phone number (optional)
     acas_number:
       label: Acas early conciliation certificate number
-    dont_have_acas_number:
-      label: I don’t have an Acas number
+    have_acas_number:
+      label: Do you have an Acas number?
       options:
         "yes": "Yes"
         "no": "No"
@@ -331,8 +331,8 @@ en:
       label: Postcode
     acas_number:
       label: Acas early conciliation certificate number
-    dont_have_acas_number:
-      label: I don’t have an Acas number
+    have_acas_number:
+      label: Do you have an Acas number?
     dont_have_acas_number_reason:
       label: Why don’t you have an Acas number?
   save_and_complete_later:

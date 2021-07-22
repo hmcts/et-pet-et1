@@ -4,8 +4,8 @@
     hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
     = f.text_field :claimant_address_building
     = f.text_field :claimant_address_street
-    = f.text_field :claimant_address_locality
-    = f.text_field :claimant_address_county
+    = f.text_field :claimant_address_locality, optional: true
+    = f.text_field :claimant_address_county, optional: true
     = f.text_field :claimant_address_post_code
 = f.collection_radio_buttons :claim_had_representative, inline: true
 = f.revealed_content :claim_had_representative, values: [:true]
@@ -22,16 +22,16 @@
   = f.text_field :respondent_name
   = f.text_field :respondent_address_building
   = f.text_field :respondent_address_street
-  = f.text_field :respondent_address_locality
-  = f.text_field :respondent_address_county
-  = f.text_field :respondent_address_post_code
+  = f.text_field :respondent_address_locality, optional: true
+  = f.text_field :respondent_address_county, optional: true
+  = f.text_field :respondent_address_post_code, optional: true
 = f.fieldset label: t('.original_case_details')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   = f.collection_select :et_country_of_claim
-  = f.collection_select :et_tribunal_office
-  = f.text_field :et_case_number
-  = f.text_field :eat_case_number
-  = f.text_area :additional_information, rows: 10, max_chars: 500
+  = f.collection_select :et_tribunal_office, optional: true
+  = f.text_field :et_case_number, optional: true
+  = f.text_field :eat_case_number, optional: true
+  = f.text_area :additional_information, rows: 10, max_chars: 500, optional: true
 - content_for(:javascripts)
 javascript:
   $(document).ready(function() { Et.pages.refunds.OriginalCaseDetailsPage() });

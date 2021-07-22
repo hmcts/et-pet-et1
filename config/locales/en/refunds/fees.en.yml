@@ -15,15 +15,15 @@ en:
       fees_help_type_b: "A type B claim had an issue fee of £250 and a hearing fee of £950."
       fees_help_type_appeal: "An Employment Appeal Tribunal fee had a lodgement fee of £400 and a hearing fee of £1200."
       et_issue_fee:
-        label: Fee
+        label: Fee (in pounds)
       et_hearing_fee:
-        label: Fee
+        label: Fee (in pounds)
       et_reconsideration_fee:
-        label: Fee
+        label: Fee (in pounds)
       eat_issue_fee:
-        label: Fee
+        label: Fee (in pounds)
       eat_hearing_fee:
-        label: Fee
+        label: Fee (in pounds)
       et_issue_fee_payment_date:
         label: Payment date
       et_hearing_fee_payment_date:

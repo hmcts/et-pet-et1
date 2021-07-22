@@ -1,28 +1,29 @@
 article#writing_your_claim_statement
-  h2 = t '.title'
+  h2.govuk-heading-m = t '.title'
+  hr.govuk-section-break--m
 
-  p = t '.line_one_html'
+  p.govuk-body = t '.line_one_html'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list_one.one'
     li = t '.list_one.two'
     li = t '.list_one.three'
 
-  p = t '.line_two'
-  p = t '.line_three'
+  p.govuk-body = t '.line_two'
+  p.govuk-body = t '.line_three'
 
-  p
+  p.govuk-body
     strong = t '.line_four'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list_two.one'
     li = t '.list_two.two'
     li = t '.list_two.three'
 
-  p
+  p.govuk-body
     strong = t '.line_five'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list_three.one'
     li = t '.list_three.two'
     li = t '.list_three.three'
@@ -31,20 +32,20 @@ article#writing_your_claim_statement
     li = t '.list_three.six'
     li = t '.list_three.seven'
 
-  p
+  p.govuk-body
     strong = t '.line_six'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list_four.one'
     li = t '.list_four.two'
     li = t '.list_four.three'
 
-  p
+  p.govuk-body
     strong = t '.line_seven'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list_five.one'
     li = t '.list_five.two'
 
-  p
-    a href="#top" = t '.link_one'
+  p.govuk-body
+    a.govuk-link href="#top" = t '.link_one'

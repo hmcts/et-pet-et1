@@ -17,12 +17,8 @@ module ET1
       # Fills in the acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_acas_number(respondent)
-        value = :"respondents_details.dont_have_acas_number.options.#{respondent.dont_have_acas_number.blank? ? 'no' : 'yes'}"
-
-        dont_have_acas_number_question.set(value)
-        if respondent.dont_have_acas_number
-          acas_number_question.set('')
-        else
+        have_acas_number_question.set(respondent.has_acas_number)
+        if respondent.has_acas_number.to_s.split('.').last == 'yes'
           acas_number_question.set(respondent.acas_number)
         end
       end
@@ -30,9 +26,9 @@ module ET1
       # Fills in the section where you dont have an acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_dont_have_acas_number(respondent)
-        return unless respondent.dont_have_acas_number
+        return self if respondent.has_acas_number.to_s.split('.').last == 'yes'
 
-        dont_have_acas_number_question.set(:"respondents_details.dont_have_acas_number.options.yes")
+        have_acas_number_question.set(respondent.has_acas_number)
         dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
         self
       end
@@ -103,81 +99,81 @@ module ET1
         # @!method name_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :name_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.name.label'
+        gds_text_input :name_question, :'respondents_details.name'
         # @!method building_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :building_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.building.label'
+        gds_text_input :building_question, :'respondents_details.building'
         # @!method street_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :street_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.street.label'
+        gds_text_input :street_question, :'respondents_details.street'
         # @!method town_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :town_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.town.label'
+        gds_text_input :town_question, :'respondents_details.town'
         # @!method county_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :county_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.county.label'
+        gds_text_input :county_question, :'respondents_details.county'
         # @!method post_code_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :post_code_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.post_code.label'
+        gds_text_input :post_code_question, :'respondents_details.post_code'
         # @!method phone_number_question
         #   A govuk phone field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
-        section :phone_number_question, govuk_component(:phone_field), :govuk_phone_field, :'respondents_details.phone_number.label'
+        gds_phone_input :phone_number_question, :'respondents_details.phone_number'
       end
       section :your_work_address_group, :govuk_fieldset, :'respondents_details.your_work_address_group' do
         include EtTestHelpers::Section
         # @!method worked_at_same_address_question
         #   A govuk radio button component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        section :worked_at_same_address_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'respondents_details.worked_at_same_address.label'
+        gds_radios :worked_at_same_address_question, :'respondents_details.worked_at_same_address'
 
         # @!method work_building_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :work_building_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.work_building.label'
+        gds_text_input :work_building_question, :'respondents_details.work_building'
         # @!method work_street_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :work_street_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.work_street.label'
+        gds_text_input :work_street_question, :'respondents_details.work_street'
         # @!method work_town_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :work_town_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.work_town.label'
+        gds_text_input :work_town_question, :'respondents_details.work_town'
         # @!method work_county_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :work_county_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.work_county.label'
+        gds_text_input :work_county_question, :'respondents_details.work_county'
         # @!method work_post_code_question
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :work_post_code_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.work_post_code.label'
+        gds_text_input :work_post_code_question, :'respondents_details.work_post_code'
         # @!method work_address_phone_number_question
         #   A govuk phone field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
-        section :work_address_phone_number_question, govuk_component(:phone_field), :govuk_phone_field, :'respondents_details.work_address_phone_number.label'
+        gds_phone_input :work_address_phone_number_question, :'respondents_details.work_address_phone_number'
       end
 
-      # @!method dont_have_acas_number_question
+      # @!method have_acas_number_question
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :dont_have_acas_number_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'respondents_details.dont_have_acas_number.label'
+      gds_radios :have_acas_number_question, :'respondents_details.have_acas_number'
       # @!method acas_number_question
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :acas_number_question, govuk_component(:text_field), :govuk_text_field, :'respondents_details.acas_number.label'
+      gds_text_input :acas_number_question, :'respondents_details.acas_number'
       # @!method save_and_continue_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'respondents_details.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'respondents_details.save_and_continue'
       # @!method dont_have_acas_number_reason
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :dont_have_acas_number_reason, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'respondents_details.dont_have_acas_number_reason.label'
+      gds_radios :dont_have_acas_number_reason, :'respondents_details.dont_have_acas_number_reason'
     end
   end
 end

@@ -4,7 +4,9 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
   let(:additional_respondent) { described_class.new Respondent.new }
   let(:attributes) do
     {
-      name: 'Butch McTaggert', acas_early_conciliation_certificate_number: 'XX123456/12/12',
+      name: 'Butch McTaggert',
+      acas_early_conciliation_certificate_number: 'XX123456/12/12',
+      has_acas_number: true,
       address_building: '1', address_street: 'High Street',
       address_locality: 'Anytown', address_county: 'Anyfordshire',
       address_post_code: 'W2 3ED'
@@ -28,12 +30,12 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
 
     describe 'presence of ACAS certificate number' do
       describe 'when ACAS number is indicated' do
-        before { additional_respondent.no_acas_number = 'false' }
+        before { additional_respondent.has_acas_number = 'true' }
         it     { expect(additional_respondent).to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
 
       describe 'when no ACAS number is indicated' do
-        before { additional_respondent.no_acas_number = 'true' }
+        before { additional_respondent.has_acas_number = 'false' }
         it     { expect(additional_respondent).not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
 
@@ -41,6 +43,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
         { one_char_ten_digits:  'X123456/12/12',
           two_chars_ten_digits: 'XX123456/12/12' }.each do |key, acas_value|
           it "#{key.to_s.humanize} validates correctly" do
+            additional_respondent.has_acas_number = true
             additional_respondent.acas_early_conciliation_certificate_number = acas_value
             additional_respondent.valid?
 
@@ -49,6 +52,7 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
         end
 
         it 'adds an error if the format is invalid' do
+          additional_respondent.has_acas_number = true
           additional_respondent.acas_early_conciliation_certificate_number = 'invalid'
           additional_respondent.valid?
 
@@ -66,19 +70,19 @@ RSpec.describe AdditionalRespondentsForm::AdditionalRespondent, type: :form do
       it { expect(additional_respondent).to validate_inclusion_of(:no_acas_number_reason).in_array reasons }
 
       describe 'when and ACAS number is given' do
-        before { additional_respondent.no_acas_number = 'false' }
+        before { additional_respondent.has_acas_number = 'true' }
         it     { expect(additional_respondent).not_to validate_presence_of(:no_acas_number_reason) }
       end
 
       describe 'when and ACAS number is given' do
-        before { additional_respondent.no_acas_number = 'true' }
+        before { additional_respondent.has_acas_number = 'false' }
         it     { expect(additional_respondent).to validate_presence_of(:no_acas_number_reason) }
       end
     end
 
     it 'clears acas number when selecting no acas number' do
       additional_respondent.acas_early_conciliation_certificate_number = 'acas'
-      additional_respondent.no_acas_number = 'true'
+      additional_respondent.has_acas_number = 'false'
       additional_respondent.valid?
 
       expect(additional_respondent.acas_early_conciliation_certificate_number).to be nil

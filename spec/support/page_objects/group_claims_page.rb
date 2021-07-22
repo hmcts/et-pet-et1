@@ -114,15 +114,15 @@ module ET1
         section :fieldset, :xpath, XPath.generate {| x| x.child(:fieldset) } do
           element :claimant_number, :xpath, XPath.generate { |x| x.child(:legend) }
         end
-        section :title, govuk_component(:collection_select), :govuk_collection_select, :'claimants_details.title.label'
-        section :first_name, govuk_component(:text_field), :govuk_text_field, :'claimants_details.first_name.label'
-        section :last_name, govuk_component(:text_field), :govuk_text_field, :'claimants_details.last_name.label'
-        section :date_of_birth, govuk_component(:date_field), :govuk_date_field, :'claimants_details.date_of_birth.label'
-        section :building, govuk_component(:text_field), :govuk_text_field, :'claimants_details.building.label'
-        section :street, govuk_component(:text_field), :govuk_text_field, :'claimants_details.street.label'
-        section :town, govuk_component(:text_field), :govuk_text_field, :'claimants_details.town.label'
-        section :county, govuk_component(:text_field), :govuk_text_field, :'claimants_details.county.label'
-        section :post_code, govuk_component(:text_field), :govuk_text_field, :'claimants_details.post_code.label'
+        gds_select :title, :'claimants_details.title'
+        gds_text_input :first_name, :'claimants_details.first_name'
+        gds_text_input :last_name, :'claimants_details.last_name'
+        gds_date_input :date_of_birth, :'claimants_details.date_of_birth'
+        gds_text_input :building, :'claimants_details.building'
+        gds_text_input :street, :'claimants_details.street'
+        gds_text_input :town, :'claimants_details.town'
+        gds_text_input :county, :'claimants_details.county'
+        gds_text_input :post_code, :'claimants_details.post_code'
         element :remove_this_claimant_element, :link, t('claimants_details.remove_this_claimant')
       end
 
@@ -151,12 +151,12 @@ module ET1
       # @!method govuk_radios
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :people_making_claim_with_you_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'group_claims.people_making_claim_with_you.label'
+      gds_radios :people_making_claim_with_you_question, :'group_claims.people_making_claim_with_you'
 
       # @!method add_more_claimants_action
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKErrorSummary] The site prism section
-      section :add_more_claimants_action, govuk_component(:submit), :govuk_submit, :'group_claims.add_more_claimants.label'
+      gds_submit_button :add_more_claimants_action, :'group_claims.add_more_claimants.label'
 
       sections :secondary_claimant_sections, ClaimantSection, :xpath, XPath.generate {|x| x.descendant(:div)[x.attr(:class).contains_word('multiple')]}
 
@@ -165,7 +165,7 @@ module ET1
       # @!method save_and_continue_button
       #   A govuk submit button component for the save and continue button
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'group_claims.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'group_claims.save_and_continue'
 
     end
   end

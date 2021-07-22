@@ -7,49 +7,49 @@ module ET1
         # @!method account_type_question
         #   A govuk radio button component for account_type question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        section :account_type_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, 'Account type'
+        gds_radios :account_type_question, 'Account type'
         # @!method bank_details
         #   A govuk fieldset component
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-        section :bank_details, govuk_component(:fieldset), :govuk_fieldset, 'Your Bank Details' do
+        gds_fieldset :bank_details, "Your Bank Details" do
           include EtTestHelpers::Section
           # @!method account_name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :account_name_question, govuk_component(:text_field), :govuk_text_field, 'Bank account holder name'
+          gds_text_input :account_name_question, 'Bank account holder name'
           # @!method bank_name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :bank_name_question, govuk_component(:text_field), :govuk_text_field, 'Bank name'
+          gds_text_input :bank_name_question, 'Bank name'
           # @!method account_number_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :account_number_question, govuk_component(:text_field), :govuk_text_field, 'Bank account number'
+          gds_text_input :account_number_question, 'Bank account number'
           # @!method sort_code_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :sort_code_question, govuk_component(:text_field), :govuk_text_field, 'Bank sort code'
+          gds_text_input :sort_code_question, 'Bank sort code'
         end
-        section :building_society_details, govuk_component(:fieldset), :govuk_fieldset, 'Your Building Society Details' do
+        gds_fieldset :building_society_details, "Your Building Society Details" do
           include EtTestHelpers::Section
           # @!method account_name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :account_name_question, govuk_component(:text_field), :govuk_text_field, 'Building Society account holder name'
+          gds_text_input :account_name_question, 'Building Society account holder name'
           # @!method building_society_name_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :building_society_name_question, govuk_component(:text_field), :govuk_text_field, 'Building Society name'
+          gds_text_input :building_society_name_question, 'Building Society name'
           # @!method account_number_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :account_number_question, govuk_component(:text_field), :govuk_text_field, 'Building Society account number'
+          gds_text_input :account_number_question, 'Building Society account number'
           # @!method sort_code_question
           #   A govuk text field component wrapping the input, label, hint etc..
           #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-          section :sort_code_question, govuk_component(:text_field), :govuk_text_field, 'Building Society sort code'
+          gds_text_input :sort_code_question, 'Building Society sort code'
         end
-        element :save_and_continue, 'form.edit_refunds_bank_details input[value="Continue"]'
+        gds_submit_button :save_and_continue, 'Continue'
       end
     end
 

@@ -395,8 +395,8 @@ en:
     cookie_link: View cookies
   cookie_banner:
     confirmation_message:
-      true: You've accepted analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
-      false: You've rejected analytics cookies. You can change your <a href="%{edit_cookies_path}">cookie settings</a> at any time.
+      true: You've accepted analytics cookies. You can change your <a class="govuk-link" href="%{edit_cookies_path}">cookie settings</a> at any time.
+      false: You've rejected analytics cookies. You can change your <a class="govuk-link" href="%{edit_cookies_path}">cookie settings</a> at any time.
       hide_button: Hide this message
       cookie_flashes: You've set your cookie preferences
   claims:
@@ -645,8 +645,8 @@ en:
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
         hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. Read more about the <a class="govuk-link" href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
-      no_acas_number:
-        label: I don’t have an Acas number
+      has_acas_number:
+        label: Do you have an Acas number?
         options:
           'true': 'Yes'
           'false': 'No'
@@ -691,8 +691,8 @@ en:
         label: Postcode
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
-      no_acas_number:
-        label: I don’t have an Acas number
+      has_acas_number:
+        label: Do you have an Acas number?
         options:
           'true': 'Yes'
           'false': 'No'
@@ -1122,6 +1122,7 @@ en:
               blank: You must provide information for this field
             last_name:
               blank: You must provide information for this field
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
             additional_claimants_csv:
@@ -1236,12 +1237,14 @@ en:
           attributes:
             name:
               blank: Provide the name of the person or organisation you are making the claim against
+            has_acas_number:
+              inclusion: Please indicate if you have an Acas number
             no_acas_number_reason:
               blank: Select a reason from the list.
               inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
-            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
-              blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
+              blank: Provide your Acas early conciliation number. Answer 'no' to ‘Do you have an Acas number?’ if you don't have one
               invalid: You have provided an invalid Acas early conciliation number.
             address_country:
               blank: You must provide information for this field
@@ -1281,6 +1284,8 @@ en:
           attributes:
             title:
               blank: Select a title from the list
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
             name:
               blank: Provide the name of the additional person or organisation you are making the claim against
             acas_early_conciliation_certificate_number:
@@ -1301,6 +1306,8 @@ en:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
+
   claim:
     application_number:
       email_address:

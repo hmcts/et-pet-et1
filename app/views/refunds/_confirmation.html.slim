@@ -1,19 +1,23 @@
 - content_for(:submit_button, '<!-- Submit Button Placeholder -->'.html_safe)
 div
-  = t('.confirmation')
-  .callout.callout-confirmation
-    p.detail = t '.callout_detail'
-    span.number data-behavior="application_reference" = f.object.application_reference
+  p.govuk-body = t('.confirmation')
+  .govuk-notification-banner.govuk-notification-banner--success role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner"
+    .govuk-notification-banner__header
+      h2.govuk-notification-banner__title = t '.callout_detail'
+    .govuk-notification-banner__content
+      p.govuk-notification-banner__heading data-behavior="application_reference" = f.object.application_reference
 
   section.content-section
-    h2 = t('.what_happens_next.header')
+    h2.govuk-heading-m = t('.what_happens_next.header')
+    hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
     ul
       - t('.what_happens_next_detail_html').each_line do |line|
-        li= line
-    table.confirmation-table
-      caption = t('.refund_details.header')
-      tr role="row"
-        th = t '.refund_submitted.header'
-        td  data-behavior="submitted_at" = f.object.submitted_at.strftime('%d %B %Y')
+        li.govuk-body = line
+    h2.govuk-heading-m = t('.refund_details.header')
+    hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-0"
+    dl class="govuk-summary-list govuk-!-margin-bottom-9"
+      .govuk-summary-list__row
+        dt class="govuk-summary-list__key" = t '.refund_submitted.header'
+        dd class="govuk-summary-list__value" data-behavior="submitted_at" = f.object.submitted_at.strftime('%d %B %Y')
 
-    p = t '.print_link_html'
+    p.govuk-body = t '.print_link_html'

@@ -1,0 +1,14 @@
+.refunds.show {
+  .fee {
+    display: contents;
+  }
+  .edit-link {
+    float: right;
+  }
+  .behavior-continue-button {
+    margin-top: 50px;
+  }
+  .govuk-summary-list__key {
+    width: 60%;
+  }
+}
