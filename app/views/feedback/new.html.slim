@@ -1,7 +1,7 @@
 h1.govuk-heading-xl= t("claims.feedback.header")
 
-.main-section
-  .main-content
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
     = form_for resource, url: feedback_path, builder: EtGdsDesignSystem.form_builder_class do |f|
 
       .form-fields

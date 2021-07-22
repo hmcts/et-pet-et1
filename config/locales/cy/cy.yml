@@ -161,7 +161,7 @@ cy:
           address_post_code: Cod post
           address_country: Gwlad
           acas_early_conciliation_certificate_number: Rhif Acas
-          no_acas_number: Nid oes gen i rif Acas
+          has_acas_number: Oes gennych chi rif ACAS?
           no_acas_number_reason:
             joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
             acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan"
@@ -418,8 +418,8 @@ cy:
     cookie_link: Bwrw golwg dros y cwis
   cookie_banner:
     confirmation_message:
-      true: Rydych wedi derbyn cwcis dadansoddol. Gallwch newid eich <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
-      false: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch newid eich dewisiadau cwcis <a href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      true: Rydych wedi derbyn cwcis dadansoddol. Gallwch newid eich <a class="govuk-link" href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      false: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch newid eich dewisiadau cwcis <a class="govuk-link" href="%{edit_cookies_path}">ar unrhyw adeg</a>
       hide_button: Cuddiwch y neges hon
       cookie_flashes: Rydych wedi cadw eich dewisiadau cwcis
 
@@ -731,8 +731,8 @@ cy:
       acas_early_conciliation_certificate_number:
         label: Rhif tystysgrif cymodi cynnar Acas
         hint: Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a class="govuk-link" href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
-      no_acas_number:
-        label: Nid oes gen i rif Acas
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
         options:
           'true': 'Oeddwn'
           'false': 'Nac oeddwn'
@@ -775,8 +775,8 @@ cy:
         label: Cod post
       acas_early_conciliation_certificate_number:
         label: Rhif tystysgrif cymodi cynnar Acas
-      no_acas_number:
-        label: Nid oes gen i rif Acas
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
         options:
           'true': 'Oeddwn'
           'false': 'Nac oeddwn'
@@ -1225,6 +1225,7 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             last_name:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
             additional_claimants_csv:
@@ -1352,12 +1353,14 @@ cy:
           attributes:
             name:
               blank: Nodwch enw'r unigolyn neu sefydliad yr ydych yn gwneud yr hawliad yn ei erbyn
+            has_acas_number:
+              inclusion: Nodwch a oes gennych rif Acas
             no_acas_number_reason:
               blank: "Dewiswch reswm o'r rhestr."
               inclusion: ""
-            invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
             acas_early_conciliation_certificate_number:
-              blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
+              blank: Nodwch eich rhif cymodi cynnar Acas. Atebwch 'na' i 'Oes gennych chi rif ACAS?' os nad oes gennych un
               invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.
             address_country:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
@@ -1397,6 +1400,8 @@ cy:
           attributes:
             title:
               blank: Dewiswch deitl o'r rhestr
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
             name:
               blank: Nodwch enw'r unigolyn neu sefydliad ychwanegol yr ydych yn gwneud yr hawliad yn ei erbyn
             acas_early_conciliation_certificate_number:
@@ -1417,6 +1422,7 @@ cy:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
   claim:

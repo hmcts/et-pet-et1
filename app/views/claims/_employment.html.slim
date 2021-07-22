@@ -28,17 +28,17 @@
 
           = f.collection_radio_buttons :enrolled_in_pension_scheme, inline: true, optional: true, include_hidden: false
           = f.text_area :benefit_details, optional: true
+    = f.revealed_content :current_situation, values: [:employment_terminated]
+      /! New job fieldset
+      /! reveal on option 3
+      = f.fieldset label: t('.new_job_legend')
+        = f.collection_radio_buttons :found_new_job, optional: true, inline: true, include_hidden: false
 
-        /! New job fieldset
-        /! reveal on option 3
-        = f.fieldset label: t('.new_job_legend')
-          = f.collection_radio_buttons :found_new_job, optional: true, inline: true, include_hidden: false
+      = f.revealed_content :found_new_job, values: [:true], classes: ['govuk-inset-text']
+        = f.date_field :new_job_start_date
 
-        = f.revealed_content :found_new_job, values: [:true], classes: ['govuk-inset-text']
-          = f.date_field :new_job_start_date
-
-          = f.collection_radio_buttons :new_job_gross_pay_frequency, inline: true, include_hidden: false
-          = f.text_field :new_job_gross_pay, prefix_text: "£"
+        = f.collection_radio_buttons :new_job_gross_pay_frequency, inline: true, include_hidden: false
+        = f.text_field :new_job_gross_pay, prefix_text: "£"
 - content_for(:javascripts)
 javascript:
   Et.pages.claims.EmploymentPage()

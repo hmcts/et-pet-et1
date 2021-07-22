@@ -41,42 +41,42 @@ module ET1
       # @!method was_employed_question
       #   A govuk radio button component for 'Have you ever been employed by the person ...' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :was_employed_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.was_employed.label'
+      gds_radios :was_employed_question, :'employment.was_employed'
 
       # @!method current_situation_question
       #   A govuk radio button component for 'What is your current work situation' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :current_situation_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.current_situation.label'
+      gds_radios :current_situation_question, :'employment.current_situation'
 
       # @!method job_title_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the Job title
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :job_title_question, govuk_component(:text_field), :govuk_text_field, :'employment.job_title.label'
+      gds_text_input :job_title_question, :'employment.job_title'
 
       # @!method start_date_question
       #   A govuk date field component wrapping the input, label, hint etc.. for the start date question
       #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
-      section :start_date_question, govuk_component(:date_field), :govuk_date_field, :'employment.start_date.label'
+      gds_date_input :start_date_question, :'employment.start_date'
 
       # @!method end_date_question
       #   A govuk date field component wrapping the input, label, hint etc.. for the end date question
       #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
-      section :end_date_question, govuk_component(:date_field), :govuk_date_field, :'employment.end_date.label'
+      gds_date_input :end_date_question, :'employment.end_date'
 
       # @!method notice_period_end_date_question
       #   A govuk date field component wrapping the input, label, hint etc.. for the notice period end date question
       #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
-      section :notice_period_end_date_question, govuk_component(:date_field), :govuk_date_field, :'employment.notice_period_end_date.label'
+      gds_date_input :notice_period_end_date_question, :'employment.notice_period_end_date'
 
       # @!method worked_notice_period_question
       #   A govuk radio button component for 'Did you work (or get paid for) a period of notice' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :worked_notice_period_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.worked_notice_period.label'
+      gds_radios :worked_notice_period_question, :'employment.worked_notice_period'
 
       # @!method notice_pay_period_count_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'For how many weeks or months did you get paid?'
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :notice_pay_period_count_question, govuk_component(:text_field), :govuk_text_field, :'employment.notice_pay_period_count.label'
+      gds_text_input :notice_pay_period_count_question, :'employment.notice_pay_period_count'
 
       # @!method notice_pay_period_type_question
       #   A govuk radio button component for 'For how many weeks or months did you get paid?' question
@@ -86,58 +86,58 @@ module ET1
       # @!method hours_worked_per_week_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the hours worked per week
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :hours_worked_per_week_question, govuk_component(:text_field), :govuk_text_field, :'employment.average_hours_worked_per_week.label'
+      gds_text_input :hours_worked_per_week_question, :'employment.average_hours_worked_per_week'
 
       # @!method pay_period_type_question
       #   A govuk radio button component for pay_period_type question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :pay_period_type_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.pay_period_type.label'
+      gds_radios :pay_period_type_question, :'employment.pay_period_type'
 
       # @!method gross_pay_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Pay before tax' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :gross_pay_question, govuk_component(:text_field), :govuk_text_field, :'employment.gross_pay.label'
+      gds_text_input :gross_pay_question, :'employment.gross_pay'
 
       # @!method net_pay_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Pay before tax' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :net_pay_question, govuk_component(:text_field), :govuk_text_field, :'employment.net_pay.label'
+      gds_text_input :net_pay_question, :'employment.net_pay'
 
       # @!method in_pension_scheme_question
       #   A govuk radio button component for 'Are you a member of your employers pension ...' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :in_pension_scheme_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.enrolled_in_pension_scheme.label'
+      gds_radios :in_pension_scheme_question, :'employment.enrolled_in_pension_scheme'
 
       # @!method benefits_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Did you have any benefits ...' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :benefits_question, govuk_component(:text_area), :govuk_text_area, :'employment.benefit_details.label'
+      gds_text_area :benefits_question, :'employment.benefit_details'
 
       # @!method found_new_job_question
       #   A govuk radio button component for 'Have you got a new job?' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :found_new_job_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.found_new_job.label'
+      gds_radios :found_new_job_question, :'employment.found_new_job'
 
       # @!method new_job_start_date_question
       #   A govuk date field component wrapping the input, label, hint etc.. for the new job start date question
       #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
-      section :new_job_start_date_question, govuk_component(:date_field), :govuk_date_field, :'employment.new_job_start_date.label'
+      gds_date_input :new_job_start_date_question, :'employment.new_job_start_date'
 
 
       # @!method new_job_gross_pay_question
       #   A govuk text field component wrapping the input, label, hint etc.. for the 'Pay before tax' question
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :new_job_gross_pay_question, govuk_component(:text_field), :govuk_text_field, :'employment.new_job_gross_pay.label'
+      gds_text_input :new_job_gross_pay_question, :'employment.new_job_gross_pay'
 
       # @!method new_job_gross_pay_period_type_question
       #   A govuk radio button component for 'Did you work (or get paid for) a period of notice' question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :new_job_pay_period_type_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'employment.new_job_pay_period_type.label'
+      gds_radios :new_job_pay_period_type_question, :'employment.new_job_pay_period_type'
 
       # @!method save_and_continue_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'employment.save_and_continue.label'
+      gds_submit_button :save_and_continue_button, :'employment.save_and_continue.label'
     end
   end
 end

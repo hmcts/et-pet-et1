@@ -10,7 +10,7 @@ cy:
           two: "cofio'r hysbysiadau rydych wedi'u gweld fel nad ydych yn eu gweld eto"
 
         line_one: "Ni ddefnyddir cwcis ar y gwasanaeth ‘gwneud hawliad i dribiwnlys cyflogaeth’ i’ch adnabod chi’n bersonol."
-        line_two_html: 'Dysgwch fwy am <a href="http://www.aboutcookies.org/" rel="external" title="sut i reoli cwcis">sut i reoli cwcis</a>.'
+        line_two_html: 'Dysgwch fwy am <a class="govuk-link" href="http://www.aboutcookies.org/" rel="external" title="sut i reoli cwcis">sut i reoli cwcis</a>.'
       section_two:
         title_one: Sut mae cwcis yn cael eu defnyddio
         title_two: Mesur defnydd o’r wefan (Google Analytics)

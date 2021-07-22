@@ -18,8 +18,8 @@ module ET1
       # @!method memorable_word_element
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :email_address_element, govuk_component(:text_field), :govuk_text_field, :'save_and_complete_later.email_address.label'
-      section :sign_out_now_button, govuk_component(:submit), :govuk_submit, :'save_and_complete_later.sign_out_now'
+      gds_text_input :email_address_element, :'save_and_complete_later.email_address'
+      gds_submit_button :sign_out_now_button, :'save_and_complete_later.sign_out_now'
     end
   end
 end

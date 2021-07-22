@@ -30,37 +30,37 @@ module ET1
       # @!method claim_details_question
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
-      section :claim_details_question, govuk_component(:text_area), :govuk_text_area, :'claim_details.claim_details.label'
+      gds_text_area :claim_details_question, :'claim_details.claim_details'
 
       # @!method claim_details_file_question
       #   A govuk file field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      section :claim_details_file_question, govuk_component(:file_field), :govuk_file_field, :'claim_details.rtf_file.label'
+      gds_file_upload :claim_details_file_question, :'claim_details.rtf_file'
 
      # @!method remove_rtf_file_question
       #   A govuk file field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      section :remove_rtf_file_question, govuk_component(:checkbox), :govuk_checkbox, :'claim_details.remove_rtf_file.label'
+      gds_checkbox :remove_rtf_file_question, :'claim_details.remove_rtf_file.label'
 
       # @!method other_known_claimants_question
       #   A govuk radio button component for the other known claimants question
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :other_known_claimants_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claim_details.other_known_claimants.label'
+      gds_radios :other_known_claimants_question, :'claim_details.other_known_claimants'
 
       # @!method other_known_claimant_names_question
       #   A govuk text area component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextArea] The site prism section
-      section :other_known_claimant_names_question, govuk_component(:text_area), :govuk_text_area, :'claim_details.other_known_claimant_names.label'
+      gds_text_area :other_known_claimant_names_question, :'claim_details.other_known_claimant_names'
 
       # @!method save_and_continue_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'claim_details.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'claim_details.save_and_continue'
 
       # @!method upload_separate_document_section
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKDetails] The site prism section
-      section :upload_separate_document_section, govuk_component(:details), :govuk_details, :'claim_details.upload_separate_document_section.label'
+      gds_details :upload_separate_document_section, :'claim_details.upload_separate_document_section.label'
 
       def ensure_file_question_is_visible
         upload_separate_document_section.open
