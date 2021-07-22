@@ -1225,6 +1225,7 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             last_name:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
             additional_claimants_csv:
@@ -1421,6 +1422,7 @@ cy:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
   claim:

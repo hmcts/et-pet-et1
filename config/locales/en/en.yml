@@ -1121,6 +1121,7 @@ en:
               blank: You must provide information for this field
             last_name:
               blank: You must provide information for this field
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
             additional_claimants_csv:
@@ -1304,6 +1305,8 @@ en:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
+
   claim:
     application_number:
       email_address:
