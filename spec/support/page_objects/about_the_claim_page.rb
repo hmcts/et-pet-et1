@@ -38,46 +38,46 @@ module ET1
       # @!method unfair_dismissal_question
       #   A govuk collection of checkboxes component for unfair dismissal question
       #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-      section :unfair_dismissal_question, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'claim_type.unfair_dismissal.label'
+      gds_checkboxes :unfair_dismissal_question, :'claim_type.unfair_dismissal'
 
       # @!method discrimination_question
       #   A govuk collection of checkboxes component for discrimination question
       #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-      section :discrimination_question, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'claim_type.discrimination.label'
+      gds_checkboxes :discrimination_question, :'claim_type.discrimination'
 
       # @!method pay_question
       #   A govuk collection of checkboxes component for discrimination question
       #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-      section :pay_question, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'claim_type.pay.label'
+      gds_checkboxes :pay_question, :'claim_type.pay'
 
       # @!method other_question
       #   A govuk collection of checkboxes component for other type of claim question
       #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
-      section :other_question, govuk_component(:collection_check_boxes), :govuk_collection_check_boxes, :'claim_type.other.label'
+      gds_checkboxes :other_question, :'claim_type.other'
 
       # @!method claim_type_other_details_question
       #   A govuk text area component wrapping the input, label, hint etc.. for the 'State the other type of claim that you are making'
       #   @return [EtTestHelpers::Components::GovUKTextArea] The site prism section
-      section :claim_type_other_details_question, govuk_component(:text_area), :govuk_text_area, :'claim_type.claim_type_other_details.label'
+      gds_text_area :claim_type_other_details_question, :'claim_type.claim_type_other_details'
 
-      section :whistle_blowing_fieldset, :govuk_fieldset, :'claim_type.is_whistleblowing.heading' do
+      gds_fieldset :whistle_blowing_fieldset, :'claim_type.is_whistleblowing.heading' do
         include EtTestHelpers::Section
 
         # @!method whistle_blowing_question
         #   A govuk radio button component for whistle blowing question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        section :whistle_blowing_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claim_type.is_whistleblowing.label'
+        gds_radios :whistle_blowing_question, :'claim_type.is_whistleblowing'
 
         # @!method whistle_blowing_body_question
         #   A govuk radio button component for whistle blowing send to body question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        section :whistle_blowing_body_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'claim_type.send_claim_to_whistleblowing_entity.label'
+        gds_radios :whistle_blowing_body_question, :'claim_type.send_claim_to_whistleblowing_entity'
       end
 
       # @!method save_and_continue_button
       #   A govuk submit button component...
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'claim_type.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'claim_type.save_and_continue'
     end
   end
 end

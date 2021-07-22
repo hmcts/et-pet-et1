@@ -1,5 +1,5 @@
-= f.fieldset label: t('.subheader')
-  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
+= f.fieldset label: { text: t('.subheader'), size: 'm' }
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
   = f.collection_radio_buttons :has_multiple_claimants, inline: true, optional: true, include_hidden: false
   = f.revealed_content :has_multiple_claimants, values: [:true]
     #number_claimants_info.govuk-inset-text
@@ -9,14 +9,15 @@
     = f.fields_for :secondary_claimants do |builder|
       .multiple id=("resource_#{builder.index}")
         = builder.fieldset label: t('.person', number: builder.index + 2)
-          = link_to t('.remove_resource_link', number: builder.index + 2), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }
+          hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
+          = link_to t('.remove_resource_link', number: builder.index + 2), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }, class: 'remove-claimant govuk-link'
 
           = render 'personal_details', f: builder
 
           = render 'address', f: builder
           = builder.hidden_field :_destroy, data: { 'multiple-mark-for-destroy': true }
 
-    = f.submit t('.add_fields')
+    = f.submit t('.add_fields'), name: 'commit', value: 'claims.additional_claimants.add_fields', class: 'govuk-!-margin-bottom-0 govuk-!-margin-top-9'
 - content_for(:javascripts)
   javascript:
     Et.pages.claims.AdditionalClaimantsPage()

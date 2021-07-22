@@ -1,24 +1,30 @@
-p= t('claims.show.page_number', current_page: current_page, total_pages: total_pages)
-h1.govuk-heading-xl= t("claims.registration.header")
+span class="govuk-caption-l govuk-!-margin-top-5"= t('claims.show.page_number', current_page: current_page, total_pages: total_pages)
+h1 class="govuk-heading-xl govuk-!-margin-top-3"= t("claims.registration.header")
 
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    = form_for resource, as: :'save_and_return[user]', url: user_registration_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = hidden_field_tag :return_to_review, params[:return_to_review]
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
+      .govuk-notification-banner.govuk-notification-banner--success role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner"
+        .govuk-notification-banner__header
+          h2.govuk-notification-banner__title
+            = t('claims.registration.application_number')
+        .govuk-notification-banner__content
+          p.govuk-notification-banner__heading
+            span.number = claim.reference
 
-= form_for resource, as: :'save_and_return[user]', url: user_registration_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
-  = hidden_field_tag :return_to_review, params[:return_to_review]
-  = f.govuk_error_summary(t 'shared.error_notification.default_message')
-  = f.fieldset label: t('claims.registration.application_number') do
-    span.number= claim.reference
+      p.govuk-body= t('claims.registration.intro_text')
+      = f.text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
+      = f.text_field :password,
+        label: {text: t('claims.registration.password.label')},
+        hint: { text: t('claims.registration.password.hint') }
 
-    p= t('claims.registration.intro_text')
-    = f.text_field :email, label: {text: "#{t('claims.registration.email_address.label')} #{t('shared.optional')}"}
-    = f.text_field :password,
-      label: {text: t('claims.registration.password.label')},
-      hint: { text: t('claims.registration.password.hint') }
-
-    p.print
-      = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
-      = '&nbsp;'.html_safe
-      = t('.print_copy')
-    = f.hidden_field :reference
-    .form-actions
-      = f.submit t('shared.continue_button')
+      p class="govuk-body print govuk-!-padding-top-9 govuk-!-padding-bottom-5"
+        = link_to t('.print_link'), 'javascript:window.print();', { class: 'print-page govuk-link' }
+        = '&nbsp;'.html_safe
+        = t('.print_copy')
+      = f.hidden_field :reference
+      .form-actions
+        = f.submit t('shared.continue_button')
   = render partial: 'shared/aside'

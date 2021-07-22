@@ -1,10 +1,11 @@
 article#time_limits
-  h2 = t '.title'
-  p  = t '.line_one'
+  h2 class="govuk-heading-m govuk-!-padding-top-5" = t '.title'
+  hr.govuk-section-break--m
+  p.govuk-body  = t '.line_one'
 
-  ul
+  ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
     li = t '.list.one'
     li = t '.list.two'
 
-  p = t '.line_two_html'
-  p = t '.line_three'
+  p.govuk-body = t '.line_two_html'
+  p.govuk-body = t '.line_three'
