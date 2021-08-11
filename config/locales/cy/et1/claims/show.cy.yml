@@ -1,0 +1,4 @@
+cy:
+  claims:
+    show:
+      page_number: "Tudalen %{current_page} o %{total_pages}"

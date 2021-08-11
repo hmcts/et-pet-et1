@@ -1,0 +1,21 @@
+en:
+  claims:
+    personal_details:
+      date_of_birth:
+        label: Date of birth
+        hint: For example, 23 04 1981
+        day: Day
+        month: Month
+        year: Year
+      title:
+        label: Title
+        options:
+          '': Please select
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
+      first_name:
+        label: First name
+      last_name:
+        label: Last name

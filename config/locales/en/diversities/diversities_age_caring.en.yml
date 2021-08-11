@@ -1,0 +1,20 @@
+en:
+  diversities:
+    diversities_age_caring:
+      age_group:
+        label: Which age group are you in?
+        options:
+          under-25: Under 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 and over
+          prefer-not-to-say: Prefer not to say
+      caring_responsibility:
+        label: Do you have any caring responsibilities?
+        hint: For example, children, elderly relatives or partners
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say

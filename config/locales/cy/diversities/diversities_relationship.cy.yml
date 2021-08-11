@@ -1,0 +1,16 @@
+cy:
+  diversities:
+    diversities_relationship:
+      relationship:
+        label:
+        options:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Sengl, hynny yw, heb briodi erioed a heb gofrestru erioed mewn partneriaeth sifil gyfunrywiol
+          married: Priod
+          separated-but-still-legally-married: Wedi gwahanu ond yn parhau i fod yn briod yn ôl y gyfraith
+          divorced: Wedi ysgaru
+          widowed: Gweddw
+          in-a-registered-same-sex-civil-partnership: Mewn partneriaeth sifil gyfunrywiol gofrestredig
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Wedi gwahanu ond yn parhau i fod mewn partneriaeth sifil gyfunrywiol yn ôl y gyfraith
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Yn flaenorol mewn partneriaeth sifil gyfunrywiol sydd yn awr wedi ei diddymu'n gyfreithiol
+          surviving-partner-from-a-same-sex-civil-partnership: Wedi colli partner sifil o’r un rhyw trwy farwolaeth
+          prefer-not-to-say: Mae'n well gen i beidio dweud

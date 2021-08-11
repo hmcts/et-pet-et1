@@ -1,0 +1,11 @@
+en:
+  diversities:
+    claim_type:
+      diversities_claim_type:
+        claim_type:
+          options:
+            unfair-dismissal-or-constructive-dismissal: "Unfair dismissal or constructive dismissal"
+            discrimination: "Discrimination"
+            redundancy-payment: "Redundancy payment"
+            other-payments-you-are-owed: "Other payments you are owed"
+            other-complaints: "Other complaints"

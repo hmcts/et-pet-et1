@@ -1,0 +1,31 @@
+en:
+  diversities:
+    diversities_ethnicity:
+      ethnicity:
+        options:
+          white: White
+          mixed-multiple-ethnic-groups: Mixed / multiple ethnic groups
+          asian-asian-british: Asian / Asian British
+          black-african-caribbean-black-british: Black / African / Caribbean / Black British
+          other-ethnic-group: Other ethnic group
+          prefer-not-to-say: Prefer not to say
+      ethnicity_subgroup:
+          english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
+          irish: Irish
+          gypsy-or-irish-traveller: Gypsy or Irish Traveller
+          any-other-white-background: Any other White background
+          white-and-black-caribbean: White and Black Caribbean
+          white-and-black-african: White and Black African
+          white-and-asian: White and Asian
+          any-other-mixed-multiple-ethnic-background: Any other Mixed / multiple ethnic background
+          none-of-the-above: None of the above
+          indian: Indian
+          pakistani: Pakistani
+          bangladeshi: Bangladeshi
+          chinese: Chinese
+          any-other-asian-background: Any other Asian background
+          african: African
+          caribbean: Caribbean
+          any-other-black-african-caribbean-background: Any other Black / African / Caribbean background
+          arab: Arab
+          any-other-ethnic-group: Any other ethnic group

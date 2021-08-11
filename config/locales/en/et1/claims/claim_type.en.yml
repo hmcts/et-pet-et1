@@ -1,0 +1,52 @@
+en:
+  claims:
+    claim_type:
+      header: About the claim
+      claim_type: What your claim is about
+      claim_type_label: Select at least one of the claim types below.
+      is_unfair_dismissal:
+        label: Unfair dismissal
+        hint: Your dismissal could be unfair if your employer doesn’t have a good reason for dismissing you or follow the company’s formal disciplinary or dismissal process. Constructive dismissal is when you’re forced to leave your job against your will because of your employer’s conduct.
+        options:
+          1: Unfair dismissal (including constructive dismissal)
+      summary:  What is this?
+      discrimination_claims:
+        label: Discrimination
+        options:
+          sex_including_equal_pay: Sex (including equal pay)
+          disability: Disability
+          race: Race
+          age: Age
+          pregnancy_or_maternity: Pregnancy or maternity
+          religion_or_belief: Religion or belief
+          sexual_orientation: Sexual orientation
+          marriage_or_civil_partnership: Marriage or civil partnership
+          gender_reassignment: Gender reassignment
+      pay_claims:
+        label: Pay
+        options:
+          redundancy: Redundancy pay
+          notice: Notice pay
+          holiday: Holiday pay
+          arrears: Arrears of pay
+          other: Other payments
+      is_other_type_of_claim:
+        label: Other type of claim (not shown above)
+        hint: If you can’t see a good match for your claim or want to add a claim that doesn’t appear in the options above.
+        options:
+          'true': Other type of claim
+      other_claim_details:
+        label: State the other type of claim(s) that you’re making
+        hint: Give a very short description of your claim; you will have the opportunity to add more detail on the next page
+      is_whistleblowing:
+        heading: Whistleblowing claim
+        label: Are you reporting suspected wrongdoing at work?
+        hint: You can report things at work that aren’t right, are illegal or if anyone is neglecting their duties (also known as making ‘disclosure in the public interest’).
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      send_claim_to_whistleblowing_entity:
+        label: Do you want us to send a copy of your claim to the relevant person or body that deals with whistleblowing?
+        options:
+          'true': 'Yes'
+          'false': 'No'

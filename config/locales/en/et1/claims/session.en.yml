@@ -1,0 +1,11 @@
+en:
+  claims:
+    session:
+      header: Return to your claim
+      subheader: Enter your details below
+      reference:
+        label: Save and return number
+        hint: This was emailed to you (if you entered your email address)
+      password:
+        label: Memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it

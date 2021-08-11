@@ -1,0 +1,15 @@
+en:
+  guides:
+    show:
+      header: Guide
+      time_limits: Time limits
+      payments_from_ni_fund: Payments from the National Insurance fund
+      acas_early_conciliation: |
+        Acas: early conciliation
+      acas_early_conciliation_exceptions: Exceptions to early conciliation
+      writing_your_claim_statement: Writing your claim statement
+      aside:
+        gethelp_header: Support
+        exit_guide: Return to form
+        contact_us: Contact us
+        contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment

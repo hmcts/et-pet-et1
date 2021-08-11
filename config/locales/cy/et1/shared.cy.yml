@@ -1,0 +1,27 @@
+cy:
+  shared:
+    optional: '(dewisol)'
+    "yes": 'Oes'
+    "no": 'Nac oes'
+    error_notification:
+      default_message: "Rhowch wybodaeth yn y blychau testun sydd wedi'u hamlygu."
+    continue_button: Cadw a pharhau
+    reference: Eich rhif hawliad yw
+    aside:
+      skip_link: Neidio i'r cynnwys
+      gethelp_header: Cymorth
+      actions_header: Eich hawliad
+      read_guide: Canllaw
+      exit_guide: Yn ôl i'r ffurflen
+      contact_us: Cysylltu â ni
+      contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+      signout: Cadw a chwblhau wedyn
+    feedback_link:
+      feedback_statement_html: "<a class='govuk-link' href=\"%{path}\">Bydd eich adborth</a>  yn ein helpu i wella’r gwasanaeth."
+    mobile_nav:
+      save_and_complete: Cadw a chwblhau wedyn
+      support: Cymorth
+      read_guide: Canllawiau
+      exit_guide: Yn ôl i'r ffurflen
+      contact_us: Cysylltu â ni
+      contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"

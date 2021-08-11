@@ -1,0 +1,8 @@
+en:
+  cookies:
+    edit:
+      usage:
+        label: 'Do you want to accept analytics cookies?'
+        options:
+          'true': 'Yes'
+          'false': 'No'

@@ -1,0 +1,11 @@
+cy:
+  diversities:
+    claim_type:
+      diversities_claim_type:
+        claim_type:
+          options:
+            unfair-dismissal-or-constructive-dismissal: "Diswyddo annheg neu ddiswyddo deongliadol"
+            discrimination: "Gwahaniaethu"
+            redundancy-payment: "Taliad dileu swydd"
+            other-payments-you-are-owed: "Taliadau eraill sy'n ddyledus ichi"
+            other-complaints: "Cwynion eraill"

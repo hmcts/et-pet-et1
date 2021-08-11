@@ -1,0 +1,29 @@
+cy:
+  diversities:
+    diversities_identity:
+      sex:
+        label: Beth yw eich rhyw?
+        options:
+          male: Gwryw
+          female: Benyw
+          prefer_not_to_say: Mae'n well gen i beidio dweud
+      gender:
+        label: Beth yw eich hunaniaeth ryweddol?
+        options:
+          male-including-female-to-male-trans-men: Gwryw (yn cynnwys dynion trawsrywiol benyw i wryw)
+          female-including-male-to-female-trans-women: Benyw (yn cynnwys menywod trawsrywiol gwryw i fenyw)
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      gender_at_birth:
+        label: A yw eich hunaniaeth ryweddol yn wahanol i'ch rhyw tybiedig pan gawsoch eich geni?
+        options:
+          yes_answer: Ydi
+          no_answer: Nac ydi
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      sexual_identity:
+        label: Which of the options below best describes your sexual identity?
+        options:
+          heterosexual-straight: Heterorywiol
+          gay-lesbian: Hoyw / Lesbiaidd
+          bisexual: Deurywiol
+          other: Arall
+          prefer-not-to-say: Mae'n well gen i beidio dweud

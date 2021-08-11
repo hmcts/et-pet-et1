@@ -1,0 +1,15 @@
+cy:
+  terms:
+    show:
+      header: Telerau ac amodau
+      general: Telerau ac amodau - Cyffredinol
+      applicable_law: Cyfraith berthnasol
+      applicable_law_responsible_use: Defnydd cyfrifol o'r gwasanaeth hwn
+      privacy_policy: Polisi preifatrwydd
+      privacy_policy_personal_information: "Sut rydym yn defnyddio eich gwybodaeth bersonol"
+      privacy_policy_non_personal_information: Sut rydym yn defnyddio gwybodaeth nad ydyw'n bersonol
+      privacy_policy_data_storage: Sut rydym yn cadw eich gwybodaeth yn ddiogel
+      session_management: Sut rydym yn rheoli sesiynau
+      data_protection: Deddf Diogelu Data 1998
+      disclaimer: Ymwrthodiad
+      cookies: Cwcis

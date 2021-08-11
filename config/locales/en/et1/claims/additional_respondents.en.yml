@@ -1,0 +1,44 @@
+en:
+  claims:
+    additional_respondents:
+      header: Additional respondents
+      person: Respondent %{number}
+      add_fields: Add another respondent
+      remove_resource_link: Remove this respondent
+      additional_respondents_limit: If you are making a claim against more than %{max} additional respondents, enter their details in the ‘more about the claim’ section later in the form.
+      has_multiple_respondents:
+        label: Claims against more than one employer
+        hint: Are you making a claim against another person or organisation?
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      name:
+        label: Name of respondent
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_telephone_number:
+        label: Phone number
+      address_post_code:
+        label: Postcode
+      acas_early_conciliation_certificate_number:
+        label: Acas early conciliation certificate number
+      has_acas_number:
+        label: Do you have an Acas number?
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      no_acas_number_reason:
+        label: Why don’t you have an Acas number?
+        hint: "Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS."
+        options:
+          joint_claimant_has_acas_number: Another person I’m making the claim with has an Acas early conciliation certificate number
+          acas_has_no_jurisdiction: Acas doesn’t have the power to conciliate on some or all of my claim
+          employer_contacted_acas: My employer has already been in touch with Acas
+          interim_relief: The claim consists only of a complaint of unfair dismissal which contains an application for interim relief.

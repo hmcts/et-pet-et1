@@ -1,0 +1,8 @@
+cy:
+  cookies:
+    edit:
+      usage:
+        label: A ydych eisiau derbyn cwcis dadansoddol?
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'

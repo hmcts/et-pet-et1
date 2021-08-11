@@ -1,0 +1,8 @@
+en:
+  diversities:
+    diversities_pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say

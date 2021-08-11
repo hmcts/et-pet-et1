@@ -1,0 +1,41 @@
+en:
+  save_and_return:
+    registrations:
+      user:
+        signed_up: ""
+      new:
+        header: Saving your claim
+        application_number: Your save and return number
+        intro_text: You can save your claim and return to it at any time. You will need your save and return number (above), and memorable word, which you create below.  If you enter your email address you will be able to reset your memorable word if you forget it.
+        email_hint: Enter your email address to get the claim number emailed to you.
+        print_link: Print this page
+        print_copy: to have a copy of your claim number for reference
+    sessions:
+      user:
+        signed_in: "Your claim has been retrieved.  You can now continue where you left off"
+      new:
+        header: Return to your claim
+        subheader: Enter your details below
+        hint_html: Don’t have these details? <a class="govuk-link" href="%{path}">Start a new claim</a>.
+        forgot_password: "Forgot your memorable word? "
+        reset_password: "Click here to reset"
+    passwords:
+      user:
+        send_instructions: "You will receive an email with instructions on how to reset your memorable word in a few minutes."
+        updated_not_active: "Your memorable word has been updated. You can use it below and return to your claim."
+      new:
+        header: "Reset memorable word"
+        enter_your_details: "Enter your details below"
+        submit_button: "Reset memorable word"
+      edit:
+        submit_button: "Reset memorable word"
+        header: "Reset memorable word"
+        enter_your_details: "Enter your new details below"
+
+    mailer:
+      reset_password_instructions:
+        someone_requested: "Someone has requested a link to reset your memorable word which you can do using the link below."
+        not_be_changed: "Your memorable word will not be changed until you reset it using the link below."
+        reset: "Reset my memorable word"
+        didnt_request: "If you didn't request this, please ignore this email"
+        paste_in_browser: "You may not be able to click on the link. If not, please copy the url and paste it into your browser."

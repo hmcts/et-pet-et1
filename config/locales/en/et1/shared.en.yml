@@ -1,0 +1,27 @@
+en:
+  shared:
+    optional: '(optional)'
+    "yes": 'Yes'
+    "no": 'No'
+    error_notification:
+      default_message: Provide information in the highlighted fields.
+    continue_button: Save and continue
+    reference: Your claim number is
+    aside:
+      skip_link: Skip to content
+      gethelp_header: Support
+      actions_header: Your claim
+      read_guide: Guide
+      exit_guide: Back to form
+      contact_us: Contact us
+      contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
+      signout: Save and complete later
+    feedback_link:
+      feedback_statement_html: <a class="govuk-link" href="%{path}">Your feedback</a> helps us to improve this service.
+    mobile_nav:
+      save_and_complete: Save and complete later
+      support: Support
+      read_guide: Application guide
+      exit_guide: Back to form
+      contact_us: Contact us
+      contact_us_link: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment

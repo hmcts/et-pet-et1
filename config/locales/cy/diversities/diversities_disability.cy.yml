@@ -1,0 +1,8 @@
+cy:
+  diversities:
+    diversities_disability:
+      disability:
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud

@@ -1,0 +1,31 @@
+cy:
+  diversities:
+    diversities_ethnicity:
+      ethnicity:
+        options:
+          white: Gwyn
+          mixed-multiple-ethnic-groups: Cymysg / grwpiau aml-ethnig
+          asian-asian-british: Asiaidd / Asiaidd Prydeinig
+          black-african-caribbean-black-british: Du / Affricanaidd / Caribïaidd / Du Prydeinig
+          other-ethnic-group: Grŵp ethnig arall
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      ethnicity_subgroup:
+          english-welsh-scottish-northern-irish-british: Seisnig / Cymreig / Albanaidd / Gwyddelig o Ogledd Iwerddon / Prydeinig
+          irish: Gwyddelig
+          gypsy-or-irish-traveller: Sipsiwn neu Deithiwr Gwyddelig
+          any-other-white-background: Unrhyw gefndir Gwyn arall
+          white-and-black-caribbean: Gwyn a Du Caribïaidd
+          white-and-black-african: Gwyn a Du Affricanaidd
+          white-and-asian: Gwyn ac Asiaidd
+          any-other-mixed-multiple-ethnic-background: Unrhyw gefndir ethnig cymysg / aml-ethnig arall
+          none-of-the-above: Dim un o'r uchod
+          indian: Indiaidd
+          pakistani: Pacistanaidd
+          bangladeshi: Bangladesiaidd
+          chinese: Tsieniaidd
+          any-other-asian-background: Unrhyw gefndir Asiaidd arall
+          african: Affricanaidd
+          caribbean: Caribïaidd
+          any-other-black-african-caribbean-background: Unrhyw gefndir Du / Affricanaidd / Caribïaidd arall
+          arab: Arabaidd
+          any-other-ethnic-group: Unrhyw grŵp ethnig arall

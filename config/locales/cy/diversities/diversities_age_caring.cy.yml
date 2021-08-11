@@ -1,0 +1,20 @@
+cy:
+  diversities:
+    diversities_age_caring:
+      age_group:
+        label: Ym mha grŵp oedran ydych chi?
+        options:
+          under-25: Dan 25
+          25-34: 25 - 34
+          35-44: 35 - 44
+          45-54: 45 - 54
+          55-64: 55 - 64
+          65-over: 65 a throsodd
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      caring_responsibility:
+        label: A oes gennych chi unrhyw gyfrifoldebau gofalu?
+        hint: Er enghraifft, plant, perthnasau neu bartneriaid oedrannus
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud

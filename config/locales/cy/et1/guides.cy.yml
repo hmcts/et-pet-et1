@@ -1,0 +1,15 @@
+cy:
+  guides:
+    show:
+      header: Canllaw
+      time_limits: Terfynau amser
+      payments_from_ni_fund: Taliadau o'r Gronfa Yswiriant Cenedlaethol
+      acas_early_conciliation: |
+        Acas: cymodi cynnar
+      acas_early_conciliation_exceptions: Eithriadau i gymodi cynnar
+      writing_your_claim_statement: Ysgrifennu datganiad i gefnogi eich hawliad
+      aside:
+        gethelp_header: Cymorth
+        exit_guide: Dychwelyd i'r ffurflen
+        contact_us: Cysylltu â ni
+        contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
