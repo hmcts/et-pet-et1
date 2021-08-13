@@ -2,8 +2,8 @@
   h1= t 'diversities.header'
 .main-section
   .main-content class="diversities"
-    p = t '.optional_text'
-    p
+    p.govuk-body = t '.optional_text'
+    p.govuk-body
       b = t '.anonymous'
 
     = link_to (t '.begin_form'), new_diversity_path, class: "govuk-button govuk-button--start"
