@@ -21,15 +21,15 @@ module Diversities
     }.freeze
     attribute :ethnicity, :string
     attribute :ethnicity_subgroup, :string
-    alias ethnicity_subgroup_white ethnicity
-    alias ethnicity_subgroup_mixed ethnicity
-    alias ethnicity_subgroup_asian ethnicity
-    alias ethnicity_subgroup_black ethnicity
-    alias ethnicity_subgroup_other ethnicity
-    alias ethnicity_subgroup_white= ethnicity=
-    alias ethnicity_subgroup_mixed= ethnicity=
-    alias ethnicity_subgroup_asian= ethnicity=
-    alias ethnicity_subgroup_black= ethnicity=
-    alias ethnicity_subgroup_other= ethnicity=
+    alias_method :ethnicity_subgroup_white, :ethnicity
+    alias_method :ethnicity_subgroup_mixed, :ethnicity
+    alias_method :ethnicity_subgroup_asian, :ethnicity
+    alias_method :ethnicity_subgroup_black, :ethnicity
+    alias_method :ethnicity_subgroup_other, :ethnicity
+    alias_method :ethnicity_subgroup_white=, :ethnicity=
+    alias_method :ethnicity_subgroup_mixed=, :ethnicity=
+    alias_method :ethnicity_subgroup_asian=, :ethnicity=
+    alias_method :ethnicity_subgroup_black=, :ethnicity=
+    alias_method :ethnicity_subgroup_other=, :ethnicity=
   end
 end
