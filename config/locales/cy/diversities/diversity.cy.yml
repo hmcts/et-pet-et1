@@ -24,8 +24,7 @@ cy:
       more_from_the_working: "Rhagor o'r categori Gwaith, swyddi a phensiynau"
     claim_type:
       header: Math o hawliad
-      hint: "Beth yw natur eich hawliad?"
-      sub_header: Bydd hyn yn ein helpu i ddadansoddi gwybodaeth arall a ddarparwyd ar y ffurflen hon
+      hint: Math o hawliad
     identity:
       hint: "Sut ydych chi'n gweld eich hunaniaeth?"
       header: Hunaniaeth

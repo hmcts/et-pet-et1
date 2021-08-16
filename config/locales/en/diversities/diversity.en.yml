@@ -24,8 +24,7 @@ en:
       more_from_the_working: More from the Working, jobs and pensions category
     claim_type:
       header: Claim type
-      hint: What is the type of your claim?
-      sub_header: This will help us analyse other information provided in this form
+      hint: Claim Type
     identity:
       hint: How do you identify?
       header: Indentity
