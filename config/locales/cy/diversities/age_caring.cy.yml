@@ -1,6 +1,6 @@
 cy:
   diversities:
-    diversities_age_caring:
+    age_caring:
       age_group:
         label: Ym mha grŵp oedran ydych chi?
         options:

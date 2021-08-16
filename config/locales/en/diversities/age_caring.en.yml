@@ -1,6 +1,6 @@
 en:
   diversities:
-    diversities_age_caring:
+    age_caring:
       age_group:
         label: Which age group are you in?
         options:

@@ -23,21 +23,13 @@ cy:
       how_to_contact_us: Sut i gysylltu â ni
       more_from_the_working: "Rhagor o'r categori Gwaith, swyddi a phensiynau"
     claim_type:
-      header: Math o hawliad
       hint: Math o hawliad
     identity:
-      header: "Sut ydych chi'n gweld eich hunaniaeth?"
       hint: "Sut ydych chi'n gweld eich hunaniaeth?"
     relationship:
-      header: Perthynas
       hint: Perthynas
     age_caring:
       hint: "Beth yw eich grŵp oedran a'ch cyfrifoldebau gofalu?"
-      age_group:
-        hint: "Ym mha grŵp oedran ydych chi?"
-      caring_responsibility:
-        hint: "A oes gennych chi unrhyw gyfrifoldebau gofalu?"
-        form_hint: "Er enghraifft, plant, perthnasau neu bartneriaid oedrannus"
     religion:
       header: Crefydd
       hint: "Beth yw eich crefydd?"

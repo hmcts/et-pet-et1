@@ -23,21 +23,13 @@ en:
       how_to_contact_us: How to contact us
       more_from_the_working: More from the Working, jobs and pensions category
     claim_type:
-      header: Claim type
       hint: Claim Type
     identity:
-      header: How do you identify?
       hint: How do you identify?
     relationship:
-      header: Relationship
       hint: Relationship
     age_caring:
       hint: What is your age group and caring responsibilities?
-      age_group:
-        hint: Which age group are you in?
-      caring_responsibility:
-        hint: Do you have any caring responsibilities?
-        form_hint: For example, children, elderly relatives or partners
     religion:
       header: Religion
       hint: What is your religion?
