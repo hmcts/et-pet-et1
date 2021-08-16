@@ -31,9 +31,7 @@ en:
     age_caring:
       hint: What is your age group and caring responsibilities?
     religion:
-      header: Religion
-      hint: What is your religion?
-      free_text: Please describe
+      hint: Religion
     ethnicity:
       header: Ethnicity
       hint: What is your ethnic group?

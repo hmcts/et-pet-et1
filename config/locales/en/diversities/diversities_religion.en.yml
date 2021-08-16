@@ -1,7 +1,8 @@
 en:
   diversities:
-    diversities_religion:
+    religion:
       religion:
+        label: What is your religion?
         options:
           no-religion: No religion
           christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
@@ -13,4 +14,4 @@ en:
           prefer-not-to-say: Prefer not to say
           any-other-religion: Any other religion
       religion_text:
-        hint: Please describe
+        label: Please describe

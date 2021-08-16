@@ -31,9 +31,7 @@ cy:
     age_caring:
       hint: "Beth yw eich grŵp oedran a'ch cyfrifoldebau gofalu?"
     religion:
-      header: Crefydd
-      hint: "Beth yw eich crefydd?"
-      free_text: Rhowch ddisgrifiad os gwelwch yn dda
+      hint: Crefydd
     ethnicity:
       header: Ethnigrwydd
       hint: "Beth yw eich grŵp ethnig?"

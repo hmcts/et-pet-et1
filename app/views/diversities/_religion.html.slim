@@ -1,4 +1,4 @@
-= f.collection_radio_buttons :religion, Diversities::ReligionForm::RELIGION.map { |religion| [religion, t("diversities.diversities_religion.religion.options.#{religion}")]}, :first, :last, label: {text: false}
+= f.collection_radio_buttons :religion
 = f.revealed_content :religion, values: [:"any-other-religion"]
   div.religion_text_field
-    = f.text_field :religion_text, label: { text: t('diversities.diversities_religion.religion_text.hint') }, hint: false
+    = f.text_field :religion_text
