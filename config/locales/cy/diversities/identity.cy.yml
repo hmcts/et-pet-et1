@@ -1,6 +1,6 @@
 cy:
   diversities:
-    diversities_identity:
+    identity:
       sex:
         label: Beth yw eich rhyw?
         options:

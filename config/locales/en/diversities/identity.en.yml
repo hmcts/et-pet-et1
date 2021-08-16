@@ -1,6 +1,6 @@
 en:
   diversities:
-    diversities_identity:
+    identity:
       sex:
         label: What is your sex?
         options:
