@@ -26,18 +26,8 @@ cy:
       header: Math o hawliad
       hint: Math o hawliad
     identity:
+      header: "Sut ydych chi'n gweld eich hunaniaeth?"
       hint: "Sut ydych chi'n gweld eich hunaniaeth?"
-      header: Hunaniaeth
-      sex:
-        hint: "Beth yw eich rhyw?"
-      sexual_identity:
-        hint: "Pa un o'r opsiynau isod sy'n disgrifio orau eich hunaniaeth rywiol?"
-      gender:
-        hint: "Beth yw eich hunaniaeth ryweddol?"
-
-      gender_at_birth:
-        hint: "A yw eich hunaniaeth ryweddol yn wahanol i'ch rhyw tybiedig pan gawsoch eich geni?"
-
     relationship:
       header: Perthynas
       hint: "Beth yw statws eich perthynas?"

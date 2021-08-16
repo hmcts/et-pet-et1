@@ -26,18 +26,8 @@ en:
       header: Claim type
       hint: Claim Type
     identity:
+      header: How do you identify?
       hint: How do you identify?
-      header: Indentity
-      sex:
-        hint: What is your sex?
-      sexual_identity:
-        hint: Which of the options below best describes your sexual identity?
-      gender:
-        hint: What is your gender identity?
-
-      gender_at_birth:
-        hint: Is your gender identity different to the sex you were assumed to be at birth?
-
     relationship:
       header: Relationship
       hint: What is your relationship status?
