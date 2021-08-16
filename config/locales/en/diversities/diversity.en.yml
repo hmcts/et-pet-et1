@@ -30,7 +30,7 @@ en:
       hint: How do you identify?
     relationship:
       header: Relationship
-      hint: What is your relationship status?
+      hint: Relationship
     age_caring:
       hint: What is your age group and caring responsibilities?
       age_group:

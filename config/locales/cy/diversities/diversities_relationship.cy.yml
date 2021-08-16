@@ -1,8 +1,8 @@
 cy:
   diversities:
-    diversities_relationship:
+    relationship:
       relationship:
-        label:
+        label: "Beth yw statws eich perthynas?"
         options:
           single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Sengl, hynny yw, heb briodi erioed a heb gofrestru erioed mewn partneriaeth sifil gyfunrywiol
           married: Priod

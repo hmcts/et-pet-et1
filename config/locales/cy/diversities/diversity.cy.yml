@@ -30,7 +30,7 @@ cy:
       hint: "Sut ydych chi'n gweld eich hunaniaeth?"
     relationship:
       header: Perthynas
-      hint: "Beth yw statws eich perthynas?"
+      hint: Perthynas
     age_caring:
       hint: "Beth yw eich grŵp oedran a'ch cyfrifoldebau gofalu?"
       age_group:

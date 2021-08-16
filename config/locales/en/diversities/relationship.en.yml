@@ -1,7 +1,8 @@
 en:
   diversities:
-    diversities_relationship:
+    relationship:
       relationship:
+        label: What is your relationship status?
         options:
           single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Single, that is, never married and never registered in a same-sex civil partnership
           married: Married
