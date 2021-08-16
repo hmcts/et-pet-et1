@@ -33,8 +33,7 @@ en:
     religion:
       hint: Religion
     ethnicity:
-      header: Ethnicity
-      hint: What is your ethnic group?
+      hint: Ethnicity
       white:
         label: 'White'
         data: 'White'
@@ -50,8 +49,6 @@ en:
       other-ethnic-group:
         label: 'Other'
         data: 'Other ethnic group'
-    ethnicity_subgroup:
-      header: What is your ethnic type?
 
     disability:
       header: Disability

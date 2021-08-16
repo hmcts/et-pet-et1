@@ -23,7 +23,7 @@ module DiversitiesHelper
 
   def religion_value(object)
     if object.religion_text.blank? && object.religion
-      t("diversities.diversities_religion.religion.options.#{object.religion}")
+      t("diversities.religion.religion.options.#{object.religion}")
     elsif object.religion_text
       object.religion_text
     end

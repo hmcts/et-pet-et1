@@ -33,8 +33,7 @@ cy:
     religion:
       hint: Crefydd
     ethnicity:
-      header: Ethnigrwydd
-      hint: "Beth yw eich grŵp ethnig?"
+      hint: Ethnigrwydd
       white:
         label: 'Gwyn'
         data: 'Gwyn'
@@ -50,8 +49,6 @@ cy:
       other-ethnic-group:
         label: 'Arall'
         data: 'Grŵp ethnig arall'
-    ethnicity_subgroup:
-      header: "Beth yw eich ethnig?"
 
     disability:
       header: Anabledd
