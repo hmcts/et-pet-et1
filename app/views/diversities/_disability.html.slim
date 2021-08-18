@@ -1,5 +1,5 @@
 fieldset
   p.govuk-body = t('.act')
   p.govuk-body = t('.conditions')
-  = f.collection_radio_buttons :disability, Diversities::DisabilityForm::DISABILITY.map { |disability| [disability, t("diversities.diversities_disability.disability.options.#{disability}")]}, :first, :last, label: {text: false}
+  = f.collection_radio_buttons :disability, Diversities::DisabilityForm::DISABILITY.map { |disability| [disability, t("diversities.disability.disability.options.#{disability}")]}, :first, :last, label: {text: false}
 

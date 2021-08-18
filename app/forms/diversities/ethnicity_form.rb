@@ -21,10 +21,24 @@ module Diversities
     }.freeze
     attribute :ethnicity, :string
     attribute :ethnicity_subgroup, :string
-    alias_attribute :ethnicity_subgroup_white, :ethnicity_subgroup
-    alias_attribute :ethnicity_subgroup_mixed, :ethnicity_subgroup
-    alias_attribute :ethnicity_subgroup_asian, :ethnicity_subgroup
-    alias_attribute :ethnicity_subgroup_black, :ethnicity_subgroup
-    alias_attribute :ethnicity_subgroup_other, :ethnicity_subgroup
+    attribute :ethnicity_subgroup_white
+    attribute :ethnicity_subgroup_mixed
+    attribute :ethnicity_subgroup_asian
+    attribute :ethnicity_subgroup_black
+    attribute :ethnicity_subgroup_other
+
+    before_validation :calculate_ethnicity_subgroup
+
+    private
+
+    def calculate_ethnicity_subgroup
+      return if ethnicity.nil?
+
+      subgroup_method = :"ethnicity_subgroup_#{ethnicity.split('-').first}"
+      return unless respond_to?(subgroup_method)
+
+      self.ethnicity_subgroup = send(subgroup_method)
+    end
+
   end
 end

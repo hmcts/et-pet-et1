@@ -1,6 +1,6 @@
 en:
   diversities:
-    diversities_disability:
+    disability:
       disability:
         options:
           yes_answer: 'Yes'

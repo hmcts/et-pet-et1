@@ -11,7 +11,7 @@ en:
           other-ethnic-group: Other ethnic group
           prefer-not-to-say: Prefer not to say
       ethnicity_subgroup_white:
-      
+        label: What is your ethnic type?
         options:
           english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
           irish: Irish
