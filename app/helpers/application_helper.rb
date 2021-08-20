@@ -3,13 +3,9 @@ module ApplicationHelper
     "#{header} - Gov.uk"
   end
 
-  def simple_form_for(record, options = {}, &block)
-    super(record, options.merge(builder: ETFees::FormBuilder), &block)
-  end
-
   def yes_no(val)
     unless val.nil?
-      I18n.t "simple_form.#{val ? 'yes' : 'no'}"
+      I18n.t "shared.#{val ? 'yes' : 'no'}"
     end
   end
 

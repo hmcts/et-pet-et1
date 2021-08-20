@@ -1,0 +1,16 @@
+cy:
+  claims:
+    claim_outcome:
+      header: Canlyniad yr hawliad
+      claim_outcome: Dewiswch y canlyniad(au) a fyddai orau gennych
+      desired_outcomes:
+        label: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
+        hint: "Beth ydych chi eisiau os yw eich hawliad yn llwyddiannus?"
+        options:
+          compensation_only: Iawndal
+          tribunal_recommendation: "Argymhelliad gan dribiwnlys (bod y cyflogwr yn cymryd camau gweithredu fel nad yw'r broblem yn y gwaith yn digwydd eto)"
+          reinstated_employment_and_compensation: I gael eich hen swydd yn ôl
+          new_employment_and_compensation: "I gael swydd arall gyda'r un cyflogwr neu gyflogwr cysylltiedig"
+      other_outcome:
+        label: "Pa fath o iawndal neu ganlyniad arall ydych chi eisiau?"
+        hint: Os ydych chi'n hawlio iawndal ariannol, gallwch ddweud faint ydych chi eisiau a sut y gwnaethoch gyfrifo'r swm. Gallwch newid y manylion hyn hwyrach ymlaen, neu adael yr adran hon yn wag os nad ydych yn gwybod.

@@ -4,15 +4,15 @@ h1.govuk-heading-xl= t(".header")
 = form_for resource, as: user_session, url: user_session_path, method: :post, builder: EtGdsDesignSystem.form_builder_class do |f|
   = hidden_field_tag :return_to_review, params[:return_to_review]
   = f.govuk_error_summary(t 'shared.error_notification.default_message')
-  = f.govuk_fieldset label: {text: t('timeout_sessions.registration.application_number')} do
+  = f.fieldset label: t('timeout_sessions.registration.application_number') do
     span.number= claim.reference
 
-    = f.govuk_fieldset label: {text: false} do
+    = f.fieldset label: false do
       p= t('timeout_sessions.registration.intro_text')
       = f.text_field :email, label: {text: "#{t('timeout_sessions.registration.email_address.label')} #{t('shared.optional')}"}
       = f.text_field :password,
-        label: {text: t('timeout_sessions.registration.password.label')},
-        hint: {text: t('timeout_sessions.registration.password.hint')}
+        label: t('timeout_sessions.registration.password.label'),
+        hint: t('timeout_sessions.registration.password.hint')
 
 
     p.print

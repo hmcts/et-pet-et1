@@ -1,0 +1,16 @@
+en:
+  claims:
+    additional_claimants:
+      header: Group claims
+      subheader: People making a claim with you
+      person: Claimant %{number}
+      contact_details: Contact details
+      add_fields: Add more claimants
+      remove_resource_link: Remove this claimant
+      number_claimants_info: For 5 or fewer claimants, enter their details below.
+      csv_upload_text_html: For 6 or more claimants, you can <a class="govuk-link" href="%{path}">upload their details in a separate spreadsheet</a>.
+      has_multiple_claimants:
+        label: Are other people making a claim with you (against the same employer or organisation)?
+        options:
+          'true': 'Yes'
+          'false': 'No'

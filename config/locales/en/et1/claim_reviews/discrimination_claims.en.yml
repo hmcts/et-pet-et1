@@ -1,0 +1,12 @@
+en:
+  claim_reviews:
+    discrimination_claims:
+      sex_including_equal_pay: Sex (including equal pay) discrimination
+      disability: Disability discrimination
+      race: Race discrimination
+      age: Age discrimination
+      pregnancy_or_maternity: Pregnancy or maternity discrimination
+      religion_or_belief: Religion or belief discrimination
+      sexual_orientation: Sexual orientation discrimination
+      marriage_or_civil_partnership: Marriage or civil partnership discrimination
+      gender_reassignment: Gender reassignment discrimination

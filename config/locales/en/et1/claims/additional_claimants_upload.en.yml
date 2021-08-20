@@ -1,0 +1,30 @@
+en:
+  claims:
+    additional_claimants_upload:
+      has_additional_claimants:
+        label: Do you want to upload details of 6 claimants or more?
+        hint: For up to 5 other claimants you can enter their details <a class="govuk-link" href="%{path}">manually</a>.
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      header: :"claims.additional_claimants.header"
+      subheader: :"claims.additional_claimants.subheader"
+      steps_header: Spreadsheet for group claim
+      error_line: "An error has been found on line %{line_number} of the uploaded file."
+      malformatted_csv: The CSV doesn’t appear to be formatted correctly.
+      remove_additional_claimants_csv:
+        label: :"claims.claim_details.remove_claim_details_rtf.label"
+      number_claimants_info: For 6 or more claimants, enter their details below.
+      step_one_header: Step 1
+      download_template_html: |
+        <a class="govuk-link" href="%{path}" download="group-claims-template.csv">Download spreadsheet template</a> or use your own if it follows the same format.
+      download_template_asset: 'group-claims-template'
+      dob_info: For dates of birth, use numbers and/or letters separated by forward slashes. Eg 23/04/1983 or 23/Apr/1983
+      step_two_header: Step 2
+      save_csv_format: Save in CSV format.
+      how_to_save: "Do this by choosing File > Save as / Export To > Format: Comma Separated Values (.csv)"
+      no_spaces: Don’t include spaces in the file name.
+      step_three_header: Step 3
+      upload_limit: Maximum file size is 5MB.
+      additional_claimants_csv:
+        label: Upload spreadsheet

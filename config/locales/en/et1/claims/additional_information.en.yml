@@ -1,0 +1,13 @@
+en:
+  claims:
+    additional_information:
+      header: More about the claim
+      legend: Other important details
+      has_miscellaneous_information:
+        label: Do you want to provide additional information about your claim?
+        hint: Include anything that will help the tribunal come to a decision about whether your case can be heard. What you write may be seen by the respondent.
+        options:
+          "true": 'Yes'
+          "false": 'No'
+      miscellaneous_information:
+        label: Enter more detail about your claim.

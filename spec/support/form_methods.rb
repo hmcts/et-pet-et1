@@ -142,17 +142,6 @@ module FormMethods
     click_button 'Save and continue'
   end
 
-  def fill_in_your_fee(options = {})
-    if options[:additional_claimants]
-      fill_in 'How many in your group want to apply for help with fees?',
-        with: options[:seeking_remissions]
-    else
-      choose "your_fee_applying_for_remission_#{options.fetch(:seeking_remissions) { false }}"
-    end
-
-    click_button 'Save and continue'
-  end
-
   def complete_a_claim
     start_claim
     saving_your_claim_page.register(email_address: nil, password: 'green')

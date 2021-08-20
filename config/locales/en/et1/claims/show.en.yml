@@ -1,0 +1,4 @@
+en:
+  claims:
+    show:
+      page_number: Page %{current_page} of %{total_pages}

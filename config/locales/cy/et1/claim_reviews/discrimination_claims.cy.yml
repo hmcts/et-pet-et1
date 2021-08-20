@@ -1,0 +1,12 @@
+cy:
+  claim_reviews:
+    discrimination_claims:
+      sex_including_equal_pay: Gwahaniaethu ar sail rhyw (gan gynnwys tâl cyfartal)
+      disability: Gwahaniaethu ar sail anabledd
+      race: Gwahaniaethu ar sail hil
+      age: Gwahaniaethu ar sail oedran
+      pregnancy_or_maternity: Gwahaniaethu ar sail beichiogrwydd neu famolaeth
+      religion_or_belief: Gwahaniaethu ar sail crefydd neu gred
+      sexual_orientation: Gwahaniaethu ar sail cyfeiriadedd rhywiol
+      marriage_or_civil_partnership: Gwahaniaethu ar sail priodas neu bartneriaeth sifil
+      gender_reassignment: Gwahaniaethu ar sail ailbennu rhywedd

@@ -1,0 +1,44 @@
+cy:
+  claims:
+    additional_respondents:
+      header: Atebwyr ychwanegol
+      person: "Atebydd %{number}"
+      add_fields: Ychwanegu atebydd arall
+      remove_resource_link: "Dileu'r atebydd yma"
+      additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na %{max} atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
+      has_additional_respondents:
+        label: Hawliadau yn erbyn mwy nag un cyflogwr
+        hint: "Ydych chi'n gwneud hawliad yn erbyn unigolyn neu sefydliad arall?"
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
+      name:
+        label: Enw'r atebydd
+      address_building:
+        label: Rhif neu enw'r adeilad
+      address_locality:
+        label: Tref/dinas
+      address_street:
+        label: Stryd
+      address_county:
+        label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
+      address_telephone_number:
+        label: Rhif ffôn
+      address_post_code:
+        label: Cod post
+      acas_early_conciliation_certificate_number:
+        label: Rhif tystysgrif cymodi cynnar Acas
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
+        options:
+          'true': 'Oeddwn'
+          'false': 'Nac oeddwn'
+      no_acas_number_reason:
+        label: "Pam nad oes gennych rif Acas?"
+        hint: "Noder: Mae’n bosib y bydd eich hawliad yn cael ei wrthod os byddwch yn hawlio esemptiad yn anghywir. Os oes gennych amheuaeth, cysylltwch ag ACAS."
+        options:
+          joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
+          acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan"
+          employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas"
+          interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim."

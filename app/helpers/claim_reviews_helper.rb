@@ -39,12 +39,12 @@ module ClaimReviewsHelper
     claims = []
 
     if claim.is_unfair_dismissal?
-      claims << I18n.t("simple_form.labels.claim.is_unfair_dismissal")
+      claims << I18n.t("claims.claim_type.is_unfair_dismissal.options.1")
     end
 
     claims.push(*claim.pay_claims.map { |c| I18n.t "claims.claim_type.pay_claims.options.#{c}" })
 
-    claims.push(*claim.discrimination_claims.map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}" })
+    claims.push(*claim.discrimination_claims.map { |c| I18n.t "claim_reviews.discrimination_claims.#{c}" })
 
     claims.join(tag(:br)).html_safe
   end

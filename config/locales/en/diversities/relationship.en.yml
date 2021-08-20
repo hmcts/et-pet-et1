@@ -1,0 +1,16 @@
+en:
+  diversities:
+    relationship:
+      relationship:
+        label: What is your relationship status?
+        options:
+          single-that-is-never-married-and-never-registered-in-a-same-sex-civil-partnership: Single, that is, never married and never registered in a same-sex civil partnership
+          married: Married
+          separated-but-still-legally-married: Separated, but still legally married
+          divorced: Divorced
+          widowed: Widowed
+          in-a-registered-same-sex-civil-partnership: In a registered same-sex civil partnership
+          separated-but-still-legally-in-a-same-sex-civil-partnership: Separated, but still legally in a same-sex civil partnership
+          formerly-in-a-same-sex-civil-partnership-which-is-now-legally-dissolved: Formerly in a same-sex civil partnership which is now legally dissolved
+          surviving-partner-from-a-same-sex-civil-partnership: Surviving partner from a same-sex civil partnership
+          prefer-not-to-say: Prefer not to say

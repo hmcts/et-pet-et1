@@ -1,0 +1,21 @@
+cy:
+  errors:
+    internal_server_error:
+      title: "Mae problem technegol gyda’r wefan ar hyn o bryd ac ni ellir prosesu eich cais."
+    not_found:
+      title: "Nid yw’r dudalen yr ydych yn chwilio amdani yn bodoli neu nid yw ar gael ar hyn o bryd."
+      title_two: "Ceisiwch deipio’r cyfeiriad eto neu ddychwelyd i’r dudalen flaenorol."
+    unprocessable:
+      title: "Ni chaniateir ichi wneud y newid hwn."
+      title_two: "Cysylltwch â gweinyddwr y wefan."
+    service_unavailable:
+      title:  Nid yw’r gwasanaeth ar gael
+      title_two: Nid yw gwasanaeth ar-lein y tribiwnlys cyflogaeth ar gael ar hyn o bryd. Rhowch gynnig arall arni nes ymlaen.
+
+    messages:
+      rtf: nid yw'n RTF
+      csv: nid yw'n CSV
+    user_session:
+      not_found: "Rydych wedi rhoi rhif hawliad annilys"
+      invalid: "Nid yw'r gair cofiadwy yr ydych wedi'i roi wedi cael ei adnabod"
+      immutable: "Mae'r hawliad hwn wedi'i gyflwyno ac ni allwch bellach ei olygu ar-lein"
