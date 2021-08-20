@@ -1,0 +1,94 @@
+cy:
+  guides:
+    show:
+      header: Canllaw
+      time_limits: Terfynau amser
+      payments_from_ni_fund: Taliadau o'r Gronfa Yswiriant Cenedlaethol
+      acas_early_conciliation: |
+        Acas: cymodi cynnar
+      acas_early_conciliation_exceptions: Eithriadau i gymodi cynnar
+      writing_your_claim_statement: Ysgrifennu datganiad i gefnogi eich hawliad
+      aside:
+        gethelp_header: Cymorth
+        exit_guide: Dychwelyd i'r ffurflen
+        contact_us: Cysylltu â ni
+        contact_us_link: "http://www.justice.gov.uk/contacts/hmcts/tribunals/employment"
+      links:
+        time_limits_html: '<a class="govuk-link" href="#time_limits">Terfynau amser</a>'
+        acas_early_conciliation_html: '<a class="govuk-link" href="#acas_early_conciliation">Acas: cymodi cynnar</a>'
+        acas_early_conciliation_exceptions_html: '<a class="govuk-link" href="#acas_early_conciliation_exceptions">Eithriadau i gymodi cynnar</a>'
+        writing_your_claim_statement_html: '<a class="govuk-link" href="#writing_your_claim_statement">Ysgrifennu datganiad i gefnogi eich hawliad</a>'
+
+    time_limits:
+      title: Terfynau amser
+      line_one: Fel arfer mae'n rhaid i chi wneud hawliad i'r tribiwnlys o fewn 3 mis i'r broblem ddigwydd yn y gwaith.
+      list:
+        one: os ydych o'r farn eich bod wedi colli eich swydd yn annheg, bydd y cyfnod 3 mis yn dechrau o'r dyddiad y daeth eich cyflogaeth i ben
+        two: os yw eich hawliad yn ymwneud â gwahaniaethu neu anghydfod ynghylch tâl, bydd y cyfnod o 3 mis yn dechrau pan ddigwyddodd y digwyddiad neu'r anghydfod
+      line_two_html: "Cyn gwneud hawliad i dribiwnlys cyflogaeth, mae'n rhaid i chi gysylltu ag Acas (Y Gwasanaeth Cynghori, Cymodi a Chyflafareddu) i ddefnyddio eu gwasanaeth rhad ac am ddim <a class=\"govuk-link\" href=\"http://www.acas.org.uk/earlyconciliation\" rel=\"external\">Cymodi Cynnar</a>."
+      line_three: Mae'r terfyn amser ar gyfer gwneud hawliad wedi'i atal tra bydd Acas yn eich helpu i ddatrys yr anghydfod.
+
+    acas_early_conciliation:
+      title: "Acas: cymodi cynnar"
+      line_one_html: Mae Acas yn darparu gwybodaeth, cyngor a gwasanaeth cymodi diduedd ar bob agwedd o gyfraith cyflogaeth. Mae ei wasanaethau ar gael i gyflogwyr a gweithwyr.
+      line_two: Cyn gwneud hawliad i dribiwnlys cyflogaeth mae'n rhaid i chi gysylltu ag Acas (Y Gwasanaeth Cynghori, Cymodi a Chyflafareddu) i ddefnyddio eu gwasanaeth rhad ac am ddim Cymodi Cynnar. Nod y gwasanaeth hwn yw datrys problemau heb orfod mynd i dribiwnlys cyflogaeth.
+      line_three: "I ddefnyddio'r gwasanaeth hwn, llenwch ffurflen hysbysu cymodi cynnar Acas (sydd ar gael ar wefan Acas), neu cysylltwch ag Acas:"
+      address:
+        phone: 'Ffôn: 0300 123 1100'
+        textphone: 'Ffôn testun: 18001 030 0123 1100'
+        week: 'Dydd Llun i ddydd Gwener, 8am i 6pm'
+      title_two: Rhif tystysgrif cymodi cynnar
+      line_four_html: "Os na all Acas eich helpu i ddod i gytundeb gyda'ch cyflogwr, byddant yn anfon tystysgrif atoch."
+      line_five_html: "Bydd y dystysgrif yn cynnwys rhif tystysgrif cymodi cynnar Acas. Bydd arnoch angen y rhif hwn pan fyddwch yn gwneud eich hawliad ar-lein i dribiwnlys cyflogaeth."
+      title_three: Cymodi gydag atebwyr lluosog
+      line_six_html: "Os ydych chi'n gwneud hawliad yn erbyn mwy nag un cyflogwr neu unigolyn, bydd arnoch angen rhif tystysgrif cymodi cynnar Acas ar gyfer pob cyflogwr."
+
+    acas_early_conciliation_exceptions:
+      title: Eithriadau i gymodi cynnar
+      line_one: 'Efallai na fydd rhaid i chi gysylltu ag Acas am gymodi cynnar os:'
+      list:
+        one_html: "ydych chi'n gwneud yr hawliad gydag unigolyn arall sydd eisoes wedi bod drwy gymodi cynnar"
+        two_html: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o'ch hawliad neu'ch hawliad cyfan"
+        three_html: "mae eich cyflogwr eisoes wedi bod mewn cysylltiad ag Acas - bydd angen i chi ddarparu tystiolaeth o hyn"
+        four_html: "rydych chi'n gwneud hawliad am fath penodol o ddiswyddo annheg sy'n caniatáu i chi wneud cais am <a class=\"govuk-link\" href=\"#interim-relief\">'gymorth interim'</a> os yw'r cais o fewn 7 diwrnod i'r diswyddiad"
+      line_two_html: "Os ydych o'r farn nad oes angen i chi gysylltu ag Acas, efallai yr hoffech gael cyngor cyfreithiol cyn i chi gychwyn eich hawliad."
+      title_two: Cymorth interim
+      line_three: "Cymorth interim yw pan fydd tribiwnlys cyflogaeth yn gorchymyn bod cyflogwr neu fusnes yn rhoi'r swydd yn ôl i rywun maent wedi'i ddiswyddo nes cynhelir gwrandawiad."
+      line_four_html: "Os ydych chi'n gwneud hawliad am gymorth interim, nid oes rhaid i chi gysylltu ag Acas am gymodi cynnar."
+      line_five_html: "Gallwch ond wneud hawliad am gymorth interim os yw eich hawliad am rai rhesymau penodol megis chwythu'r chwiban, gweithgarwch undeb llafur neu am fod yn gynrychiolydd gweithwyr."
+      line_six: "Mae'n rhaid i'ch hawliad a'ch cais am gymorth interim gyrraedd y tribiwnlys o fewn 7 diwrnod i chi golli eich swydd."
+
+    writing_your_claim_statement:
+      title: Ysgrifennu datganiad i gefnogi eich hawliad
+      line_one_html: "Disgrifiwch beth yw eich problem yn y gwaith. Dylai esbonio i'r unigolyn yr ydych yn gwneud yr hawliad yn ei erbyn (yr atebydd), a'r tribiwnlys beth ddigwyddodd. Gwnewch yn siŵr eich bod yn cynnwys:"
+      list_one:
+        one: gwybodaeth gefndirol berthnasol
+        two: "dyddiadau'r digwyddiadau"
+        three: "enwau'r unigolion sy'n gysylltiedig â'r hawliad hwn"
+      line_two: "Defnyddiwch baragraffau byr wrth ysgrifennu. Disgrifiwch y digwyddiadau fel y bu iddynt ddigwydd, gan roi manylion tystion ac unrhyw dystiolaeth sydd gennych. Peidiwch ag atodi dogfennau tystiolaeth."
+      line_three: "Gweler isod ganllawiau penodol sy'n berthnasol i bob math o hawliad:"
+      line_four: "Diswyddo annheg a diswyddo deongliadol"
+      list_two:
+        one: disgrifiwch beth ddigwyddodd
+        two: dywedwch beth oedd y rheswm yn eich barn chi dros eich diswyddo
+        three: dywedwch pam eich bod o'r farn bod y diswyddo yn annheg
+      line_five: Gwahaniaethu
+      list_three:
+        one: disgrifiwch beth ddigwyddodd
+        two: esboniwch ym mha ffordd y profoch wahaniaethu
+        three: rhowch ddyddiad(au) y digwyddiad(au)
+        four: "dywedwch a yw'r gwahaniaethu yn dal i ddigwydd ai peidio"
+        five: "os ydych chi'n gwneud hawliad am fwy nag un math o wahaniaethu, rhowch fanylion am bob un ohonynt"
+        six: "disgrifiwch sut mae’r gwahaniaethu wedi effeithio arnoch"
+        seven: "os bu i chi ymgeisio am swydd a phrofi gwahaniaethu, dywedwch beth oedd y swydd"
+      line_six: Tâl
+      list_four:
+        one: "nodwch faint ydych chi'n ei hawlio ac esboniwch sut y gwnaethoch gyfrifo'r swm"
+        two: "esboniwch pam eich bod o'r farn y dylech gael y taliad hwn (dylech gynnwys dyddiadau a chyfradd y taliad)"
+        three: "os ydych chi'n hawlio mwy nag un math o daliad, rhowch y swm ar gyfer pob un ohonynt"
+      line_seven: Taliad dileu swydd
+      list_five:
+        one: "dywedwch p'un a ydych wedi gofyn i'ch cyflogwr am daliad (os felly, rhowch y dyddiad)"
+        two: "nodwch p'un a gafodd eich hawliad ei wrthod gan swyddfa taliadau dileu swydd (os felly, rhowch ddyddiad y llythyr gwrthod)"
+      link_one: Ewch â mi'n ôl i'r dechrau
+

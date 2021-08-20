@@ -1,0 +1,17 @@
+en:
+  diversities:
+    religion:
+      religion:
+        label: What is your religion?
+        options:
+          no-religion: No religion
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Christian (including Church of England, Catholic, Protestant and all other Christian denominations)
+          buddhist: Buddhist
+          hindu: Hindu
+          jewish: Jewish
+          muslim: Muslim
+          sikh: Sikh
+          prefer-not-to-say: Prefer not to say
+          any-other-religion: Any other religion
+      religion_text:
+        label: Please describe

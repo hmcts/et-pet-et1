@@ -1,0 +1,63 @@
+cy:
+  claims:
+    respondent:
+      header: Manylion yr atebydd
+      respondent_legend: Ynglŷn â’r atebydd
+      no_acas_number_note_one: "Noder: Mae’n bosib y bydd eich hawliad yn cael ei wrthod os byddwch yn hawlio esemptiad yn anghywir. Os oes gennych amheuaeth, cysylltwch ag ACAS."
+      no_acas_number_note_two: "Noder: Mae hwn yn fath anghyffredin o hawliad. Nid yw'r ffaith eich bod yn gwneud hawliad am ddiswyddo annheg yn golygu eich bod o reidrwydd yn gwneud hawliad am gymorth interim."
+
+      workaddress_legend: Eich cyfeiriad gwaith
+      form_hint: |
+        Manylion cyswllt yr unigolyn neu sefydliad yr ydych chi'n gwneud hawliad yn ei erbyn (a elwir yn 'atebydd'). Fe ddefnyddir y cyfeiriad ar gyfer anfon gohebiaeth am yr achos.
+      work_address: "Rhowch fanylion eich cyfeiriad gwaith"
+      'true': 'Oeddwn'
+      'false': 'Nac oeddwn'
+      name:
+        label: Enw'r atebydd
+      address_building:
+        label: Rhif neu enw'r adeilad
+      address_locality:
+        label: Tref/dinas
+      address_street:
+        label: Stryd
+      address_county:
+        label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
+      address_telephone_number:
+        label: Rhif ffôn
+      address_post_code:
+        label: Cod post
+      worked_at_same_address:
+        label: "Oeddech chi'n gweithio yn yr un cyfeiriad a roddwyd uchod?"
+        options:
+          'true': 'Oeddwn'
+          'false': 'Nac oeddwn'
+      work_address_telephone_number:
+        label: Rhif ffôn
+      work_address_building:
+        label: Rhif neu enw'r adeilad
+      work_address_locality:
+        label: Tref/dinas
+      work_address_street:
+        label: Stryd
+      work_address_county:
+        label: Sir
+        hint: "Ee os Llundain, Llundain Fwyaf; os Manceinion, Manceinion Fwyaf"
+      work_address_post_code:
+        label: Cod post
+      acas_early_conciliation_certificate_number:
+        label: Rhif tystysgrif cymodi cynnar Acas
+        hint: Dylai fod gan bron iawn bawb y rhif hwn cyn iddynt lenwi ffurflen hawlio. Gallwch ddod o hyd iddo ar eich tystysgrif Acas. Darllenwch fwy am <a class="govuk-link" href="%{path}#acas_early_conciliation">wasanaeth cymodi cynnar Acas</a>.
+      has_acas_number:
+        label: Oes gennych chi rif ACAS?
+        options:
+          'true': 'Oeddwn'
+          'false': 'Nac oeddwn'
+      no_acas_number_reason:
+        label: "Pam nad oes gennych rif Acas?"
+        hint: "Noder: Mae’n bosib y bydd eich hawliad yn cael ei wrthod os byddwch yn hawlio esemptiad yn anghywir. Os oes gennych amheuaeth, cysylltwch ag ACAS."
+        options:
+          joint_claimant_has_acas_number: "Mae gan unigolyn arall yr wyf yn gwneud hawliad ag ef/ȃ hi rif tystysgrif cymodi cynnar Acas"
+          acas_has_no_jurisdiction: "Nid oes gan Acas y pŵer i gymodi ar rai agweddau o fy hawliad neu fy hawliad cyfan"
+          employer_contacted_acas: "Mae fy nghyflogwr eisoes wedi bod mewn cysylltiad ag Acas"
+          interim_relief: "Mae'r hawliad yn ymwneud â chwyn am ddiswyddo annheg yn unig sy'n cynnwys cais am gymorth interim."

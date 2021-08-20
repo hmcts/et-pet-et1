@@ -1,0 +1,58 @@
+en:
+  claims:
+    representative:
+      header: Representative’s details
+      form_legend: The person representing you
+      has_representative:
+        label: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      type:
+        label: Type of representative
+        options:
+          '': Please select
+          citizen_advice_bureau: Employment advisor, Citizens Advice Bureau
+          free_representation_unit: Free Representation Unit
+          law_centre: Law centre
+          trade_union: Trade union
+          solicitor: Solicitor
+          private_individual: Private individual
+          trade_association: Trade association
+          other: Other
+      organisation_name:
+        label: Name of the representative’s organisation
+      name:
+        label: Representative’s name
+      address_telephone_number:
+        label: Phone or mobile number
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_post_code:
+        label: Postcode
+      mobile_number:
+        label: Alternative phone or mobile number
+      email_address:
+        label: Email address
+      dx_number:
+        label: Document exchange (DX) number
+      contact_preference:
+        label: Best way to send correspondence to your representative
+        options:
+          email: Email
+          post: Post
+          dx_number: DX number
+      representative_legend: About your representative
+      contact_legend: Representative’s contact details
+      contact_info: |
+        All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must send their contact details to the tribunal office handling your case.
+      what_is_dx:
+        detail: What is a DX number?
+        summary: DX is a private mail system used by organisations (eg legal firms)

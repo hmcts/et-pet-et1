@@ -1,0 +1,21 @@
+cy:
+  claims:
+    personal_details:
+      date_of_birth:
+        label: Dyddiad geni
+        hint: "Er enghraifft, 23 04 1981"
+        day: "Diwrnod"
+        month: "Mis"
+        year: "Blwyddyn"
+      title:
+        label: Teitl
+        options:
+          '': Dewiswch
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
+      first_name:
+        label: Enw cyntaf
+      last_name:
+        label: Enw olaf

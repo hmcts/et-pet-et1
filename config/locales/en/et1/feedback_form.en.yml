@@ -1,0 +1,11 @@
+en:
+  feedback:
+    new:
+      header: Your feedback
+    create:
+      sent: Thank you for your feedback
+
+  helpers:
+    submit:
+      feedback:
+        create: Send feedback

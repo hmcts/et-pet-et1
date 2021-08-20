@@ -1,0 +1,233 @@
+en:
+  activemodel:
+    errors:
+      attributes:
+      messages:
+        too_long: |
+           The information you have provided for this field must not exceed %{count} characters
+        invalid_ccd_address: :'activemodel.errors.messages.too_long'
+      models:
+        user_session:
+          attributes:
+            password:
+              blank: Enter the memorable word you created at the beginning of your claim
+              invalid: The memorable word you have entered has not been recognised
+            reference:
+              blank: Enter your claim number
+              invalid: You have entered an invalid claim number
+        additional_claimants_form/additional_claimant:
+          attributes:
+            title:
+              inclusion: Enter the title of the additional claimant
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
+            first_name:
+              blank: Enter the first name of the additional claimant
+            last_name:
+              blank: Enter the last name of the additional claimant
+            address_building:
+              blank: Enter the building name or number from the additional claimant’s address
+            address_street:
+              blank: Enter the street from the additional claimant’s address
+            address_locality:
+              blank: Enter the town or city from the additional claimant’s address
+            address_county:
+              blank: Enter the county from the additional claimant’s address
+            address_post_code:
+              blank: Enter the additional claimant’s postcode
+              invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
+            date_of_birth:
+              invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
+        additional_claimant:
+          attributes:
+            title:
+              blank: You must provide information for this field
+            first_name:
+              blank: You must provide information for this field
+            last_name:
+              blank: You must provide information for this field
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
+        additional_claimants_upload:
+          attributes:
+            additional_claimants_csv:
+              blank: You must provide a CSV file in order to continue
+        claim:
+          attributes:
+            secondary_respondents:
+              too_many: You may have no more than %{max} additional respondents
+        claim_type:
+          attributes:
+            blank: You must select at least one of the claim types below
+        claim_details:
+          attributes:
+            claim_details:
+              blank: You must enter details of your claim here. If you want to upload your claim statement in a separate document, type ‘see attached’ in the box
+            other_known_claimant_names:
+              blank: List the names of other people who are making a similar claim
+        claim_outcome:
+          attributes:
+            other_outcome:
+              blank: You must provide information for this field
+        claimant:
+          attributes:
+            date_of_birth:
+              invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
+              too_young: Claimant must be 16 years of age or over
+            title:
+              blank: Select a title from the list
+              invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
+            gender:
+              blank: Select the claimant’s gender, or select ‘prefer not to say’
+            first_name:
+              blank: Enter the claimant’s first name
+            last_name:
+              blank: Enter the claimant’s last name
+            special_needs:
+              blank: Say whether you require assistance at the tribunal hearing
+            contact_preference:
+              blank: Say whether you’d like correspondence to be sent to the claimant by post or email
+              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
+            allow_video_attendance:
+              inclusion: "Please say whether you would be able to attend a hearing by video"
+            address_building:
+              blank: Enter the building number or name from the claimant’s address
+            address_street:
+              blank: Enter the street from the claimant’s address
+            address_locality:
+              blank: Enter the town or city from the claimant’s address
+            address_county:
+              blank: Enter the county from the claimant’s address
+            address_post_code:
+              blank: Enter the claimant’s postcode
+              invalid: Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.claimant.attributes.address_post_code.invalid'
+            email_address:
+              blank: Enter the claimant’s email address
+              invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.claimant.attributes.email_address.invalid'
+            address_telephone_number:
+              invalid_ccd_phone: Invalid phone number
+            mobile_number:
+              invalid_ccd_phone: Invalid phone number
+        employment:
+          attributes:
+            start_date:
+              invalid: The date you have provided is invalid
+            end_date:
+              invalid: The date you have provided is invalid
+              end_date_before_start_date: Must be after the employment start date
+            notice_period_end_date:
+              invalid: The date you have provided is invalid
+            new_job_start_date:
+              invalid: The date you have provided is invalid
+            current_situation:
+              blank: Please select one of the options
+
+        password:
+          attributes:
+            password:
+              blank: You must provide information for this field
+        representative:
+          attributes:
+            type:
+              blank: Select which type of representative you have
+            name:
+              blank: Enter your representative’s name
+            address_country:
+              blank: You must provide information for this field
+            contact_preference:
+              blank: Say whether you’d like correspondence to be sent to the representative by post or email
+            address_building:
+              blank: Enter the building name or number from your representative’s address
+            address_street:
+              blank: Enter the street from your representative’s address
+            address_locality:
+              blank: Enter the town or city from your representative’s address
+            address_county:
+              blank: Enter the county from your representative’s address
+            address_post_code:
+              blank: Enter your representative’s postcode
+              invalid: Enter a valid postcode. If your representative lives abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.representative.attributes.address_post_code.invalid'
+            email_address:
+              blank: Enter your representative’s email address
+              invalid: You have entered an invalid email address
+              invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
+            address_telephone_number:
+              invalid_ccd_phone: Invalid phone number
+            mobile_number:
+              invalid_ccd_phone: Invalid phone number
+        respondent:
+          attributes:
+            name:
+              blank: Provide the name of the person or organisation you are making the claim against
+            has_acas_number:
+              inclusion: Please indicate if you have an Acas number
+            no_acas_number_reason:
+              blank: Select a reason from the list.
+              inclusion: :"activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank"
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+            acas_early_conciliation_certificate_number:
+              blank: Provide your Acas early conciliation number. Answer 'no' to ‘Do you have an Acas number?’ if you don't have one
+              invalid: You have provided an invalid Acas early conciliation number.
+            address_country:
+              blank: You must provide information for this field
+            contact_preference:
+              blank: You must provide information for this field
+            address_building:
+              blank: Enter the building name or number from the respondent’s address
+            address_street:
+              blank: Enter the street from the respondent’s address
+            address_locality:
+              blank: Enter the town or city from the respondent’s address
+            address_county:
+              blank: Enter the county from the respondent’s address
+            address_post_code:
+              blank: Enter the respondent’s postcode
+              invalid: Enter a valid UK postcode. If the respondent lives abroad, enter a SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
+            work_address_building:
+              blank: Enter the building name or number of your work address
+            work_address_street:
+              blank: Enter the street of your work address
+            work_address_locality:
+              blank: Enter the town or city of your work address
+            work_address_county:
+              blank: Enter the county of your work address
+            work_address_post_code:
+              blank: Enter the postcode of your work address
+              invalid: Enter a valid UK postcode. If you live abroad enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.work_address_post_code.invalid'
+            work_address_telephone_number:
+              invalid_ccd_phone: :'activemodel.errors.models.respondent.attributes.address_telephone_number.invalid_ccd_phone'
+            address_telephone_number:
+              invalid_ccd_phone: Invalid phone number
+            mobile_number:
+              invalid_ccd_phone: Invalid phone number
+        additional_respondents_form/additional_respondent:
+          attributes:
+            title:
+              blank: Select a title from the list
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
+            name:
+              blank: Provide the name of the additional person or organisation you are making the claim against
+            acas_early_conciliation_certificate_number:
+              blank: Provide your Acas early conciliation number. Select ‘I don't have an Acas number’ if you don't have one
+              invalid: You have provided an invalid Acas early conciliation number.
+            no_acas_number_reason:
+              blank: Select a reason from the list
+              inclusion: :"activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.no_acas_number_reason.blank"
+            address_building:
+              blank: Enter the building name or number from the additional respondent’s address
+            address_street:
+              blank: Enter the street from the additional respondent’s address
+            address_locality:
+              blank: Enter the town or city from the additional respondent’s address
+            address_county:
+              blank: Enter the county from the additional respondent’s address
+            address_post_code:
+              blank: Enter the additional respondent's postcode
+              invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'

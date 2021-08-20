@@ -1,4 +1,4 @@
-class CollectionForm
+module CollectionForm
   class Resource < Form
     boolean :_destroy
 

@@ -1,0 +1,46 @@
+en:
+  claims:
+    claimant:
+      header: Claimant’s details
+      gender:
+        label: Gender
+        options:
+          male: Male
+          female: Female
+          prefer_not_to_say: Prefer not to say
+      has_special_needs:
+        label: Do you have a disability which means you require assistance at the tribunal hearing?
+        hint: Eg documents in Braille, or a sign language interpreter
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      special_needs:
+        label: Describe the assistance you require
+      address_country:
+        label: Country
+        options:
+          united_kingdom: United Kingdom
+          other: Outside United Kingdom
+      address_telephone_number:
+        label: Phone or mobile number
+      mobile_number:
+        label: Alternative phone or mobile number
+      contact_preference:
+        label: Best way to send correspondence to you (the claimant)
+        hint: Note that if you have a representative (eg solicitor), then all future correspondence will be sent to them
+        options:
+          email: Email
+          post: Post
+      email_address:
+        label: Email address
+      allow_video_attendance:
+        label: "Would you be able to take part in a hearing by video? (Requires internet access)."
+        hint: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
+        options:
+          "true": 'Yes'
+          "false": 'No'
+      legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
+      legend_personal_details: About the claimant
+      legend_contact_details: Claimant’s contact details
+      personal_details_description: |
+        Information about the person or organisation making this claim (known as the 'claimant').

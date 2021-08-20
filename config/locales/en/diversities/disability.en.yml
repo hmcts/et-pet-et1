@@ -1,0 +1,8 @@
+en:
+  diversities:
+    disability:
+      disability:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say

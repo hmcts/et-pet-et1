@@ -1,0 +1,7 @@
+cy:
+  cookie_banner:
+    confirmation_message:
+      true: Rydych wedi derbyn cwcis dadansoddol. Gallwch newid eich <a class="govuk-link" href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      false: Rydych chi wedi gwrthod cwcis dadansoddeg. Gallwch newid eich dewisiadau cwcis <a class="govuk-link" href="%{edit_cookies_path}">ar unrhyw adeg</a>
+      hide_button: Cuddiwch y neges hon
+      cookie_flashes: Rydych wedi cadw eich dewisiadau cwcis

@@ -1,0 +1,6 @@
+cy:
+  claims:
+    claim:
+      header: Manylion yr hawliad
+      claim_type: "Pa fath o hawliad(au) ydych chi'n gwneud?"
+      claim_type_hint: Gallwch ddewis mwy nag un
