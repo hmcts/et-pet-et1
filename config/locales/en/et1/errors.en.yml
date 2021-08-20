@@ -1,0 +1,20 @@
+en:
+  errors:
+    internal_server_error:
+      title: The website is experiencing a technical issue and cannot complete your request.
+    not_found:
+      title: The page you are looking for does not exist or is temporarily unavailable.
+      title_two: Please try retyping the address or go back to the previous page.
+    unprocessable:
+      title: You do not have permission to make the requested change.
+      title_two: Please contact the website administrator.
+    service_unavailable:
+      title: Service unavailable
+      title_two: The employment tribunal online service is currently unavailable. Please check back later.
+    messages:
+      rtf: is not an RTF
+      csv: is not a CSV
+    user_session:
+      not_found: " You have entered an invalid claim number"
+      invalid: " The memorable word you have entered has not been recognised"
+      immutable: This claim has been submitted and can no longer be edited online

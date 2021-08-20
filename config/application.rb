@@ -18,9 +18,8 @@ module App
     #
     config.time_zone = 'London'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'en', '**', '*.{rb,yml}').to_s,
-      Rails.root.join('config', 'locales', 'cy', '*.{rb,yml}').to_s]
+    # The default locale is :en and all translations from config/locales/**/*.rb,yml are auto loaded.
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     # config.active_record.schema_format = :sql
     config.autoload_paths += Dir["#{config.root}/app/{services,forms,forms/concerns,presenters,validators}"]

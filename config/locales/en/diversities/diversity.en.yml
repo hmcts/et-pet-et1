@@ -1,0 +1,72 @@
+en:
+  diversities:
+    header: Diversity monitoring questionnaire
+    index:
+      optional_text: This is optional and won't affect your claim. The information is used to help make sure everyone in contact with HM Courts & Tribunals Service (HMCTS) gets equal treatment.
+      anonymous: Your answers will be anonymous.
+      begin_form: Start now
+    show:
+      sub_header: Confirmation of supplied details
+      edit: Edit your answers
+      previous: Previous
+      hint: Pressing "Submit form" below will send the details confirmed below for processing.
+      submit: Submit form
+      session_reloaded: Your session has been re loaded - this may have been caused by your cookie expiring
+    submit:
+      sub_header: Thank you
+      thank_you: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+    aside:
+      header: Other relevant links
+      how_to_make_claim: How to make a claim
+      how_to_make_response: How to make a response
+      how_to_contact_us: How to contact us
+      more_from_the_working: More from the Working, jobs and pensions category
+    claim_type:
+      hint: Claim Type
+    identity:
+      hint: How do you identify?
+    relationship:
+      hint: Relationship
+    age_caring:
+      hint: What is your age group and caring responsibilities?
+    religion:
+      hint: Religion
+    ethnicity:
+      hint: Ethnicity
+      white:
+        label: 'White'
+        data: 'White'
+      mixed-multiple-ethnic-groups:
+        label: 'Mixed'
+        data: 'Mixed / multiple ethnic groups'
+      asian-asian-british:
+        label: 'Asian'
+        data: 'Asian / Asian British'
+      black-african-caribbean-black-british:
+        label: 'Black'
+        data: 'Black / African / Caribbean / Black British'
+      other-ethnic-group:
+        label: 'Other'
+        data: 'Other ethnic group'
+
+    disability:
+      header: Disability
+      act: The Equality Act 2010 defines a disabled person as 'someone who has a physical or mental impairment and the impairment has a substantial and long-term adverse effect on his or her ability to carry out normal day-to-day activities'.
+      conditions: Conditions covered may include, for example, severe depression, dyslexia, epilepsy and arthritis.
+      hint: Do you have any physical or mental health conditions or illnesses lasting or expected to last for 12 months or more?
+    pregnancy:
+      header: Pregnancy
+      hint: Were you pregnant when you were dismissed?
+    review:
+      hint: Check your answers
+      submit: Submit form
+    confirmation:
+      hint: Thank you
+      message: Thank you for completing this diversity monitoring questionnaire.
+      return: Return to GOV.UK
+      return_title: return to GOV.UK website
+    edit: Change
+
+
+

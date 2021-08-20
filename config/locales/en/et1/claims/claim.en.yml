@@ -1,0 +1,6 @@
+en:
+  claims:
+    claim:
+      header: Claim details
+      claim_type: What type of claim(s) are you making?
+      claim_type_hint: You can select more than one

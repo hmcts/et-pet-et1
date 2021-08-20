@@ -1,0 +1,11 @@
+cy:
+  feedback:
+    new:
+      header: Eich adborth
+    create:
+      sent: Diolch am eich adborth
+
+  helpers:
+    submit:
+      feedback:
+        create: Anfon adborth
