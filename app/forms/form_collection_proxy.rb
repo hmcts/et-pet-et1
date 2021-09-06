@@ -79,10 +79,12 @@ class FormCollectionProxy
       instance = if value[child_primary_key].present?
                    collection_cache.find { |record| record.send(child_primary_key).to_s == value[child_primary_key].to_s }
                  else
-                   build(value.except('_destroy'))
+                   build
                  end
       if ::ActiveRecord::Type::Boolean.new.cast(value["_destroy"])
         instance.mark_for_destruction
+      else
+        instance.attributes = value.except('_destroy', 'id')
       end
     end
   end
