@@ -37,13 +37,13 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
     it 'deletes the existing 2 if specified whilst adding the new' do
       claim.secondary_claimants.each_with_index do | claimant, index|
-        attributes[:secondary_claimants_attributes][(index +2).to_s] = { id: claimant.id, _destroy: '1' }
+        attributes[:secondary_claimants_attributes][(index + 2).to_s] = { 'id' => claimant.id.to_s, '_destroy' => 'true' }
       end
 
       additional_claimants_form.attributes = attributes
       additional_claimants_form.save
       additional_claimants_form.secondary_claimants.each_with_index do |c, i|
-        attributes[:secondary_claimants_attributes].values[i].each do |key, value|
+        attributes[:secondary_claimants_attributes][i.to_s].each do |key, value|
           expect(c.send(key)).to eq value
         end
       end
