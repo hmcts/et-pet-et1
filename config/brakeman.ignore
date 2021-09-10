@@ -1,0 +1,126 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "008964c258f76daa8acf10095226880d33fbf155799ee4d834da02a04817a334",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/claims_controller.rb",
+      "line": 18,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params[current_step].permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ClaimsController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "156bd0e1ce672b2a3f2c48a9d746ac809afecfb67d596c39f1055f3cb4eaa1fc",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/refunds_controller.rb",
+      "line": 12,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "RefundsController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "461a322093811a8fa72ed06cfeb41fa5219af8842e5cbd5f3a4143474fc3360e",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/multiple_claimants_controller.rb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params[current_step].permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MultipleClaimantsController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "582882b7ff8e1d73d64880261ea23a7edda8c298a64d14897d143aefc96e7040",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/diversities_controller.rb",
+      "line": 15,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params.fetch(\"diversities_#{current_step}\", {}).permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "DiversitiesController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Mass Assignment",
+      "warning_code": 70,
+      "fingerprint": "d1d9f1db536b00b53113cb7d06d3142b79aeac89038f0977b33c1a0dc14216b4",
+      "check_name": "MassAssignment",
+      "message": "Specify exact keys allowed for mass assignment instead of using `permit!` which allows any keys",
+      "file": "app/controllers/multiple_respondents_controller.rb",
+      "line": 7,
+      "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
+      "code": "params[current_step].permit!",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "MultipleRespondentsController",
+        "method": "update"
+      },
+      "user_input": null,
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "Redirect",
+      "warning_code": 18,
+      "fingerprint": "e23a374b4d70b1eb76744e70804b4957b4c1148297abcc4ca86fa85efe8ed5f3",
+      "check_name": "Redirect",
+      "message": "Possible unprotected redirect",
+      "file": "app/controllers/cookies_controller.rb",
+      "line": 12,
+      "link": "https://brakemanscanner.org/docs/warning_types/redirect/",
+      "code": "redirect_to(path_only(params.dig(:cookie, :return_path)), :flash => ({ :cookie_banner_confirmation => t(\"cookie_banner.confirmation_message.#{cookie_form.usage}\", :edit_cookies_path => edit_cookies_path) }))",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "CookiesController",
+        "method": "create"
+      },
+      "user_input": "params.dig(:cookie, :return_path)",
+      "confidence": "Weak",
+      "note": ""
+    }
+  ],
+  "updated": "2021-09-10 08:12:50 +0000",
+  "brakeman_version": "5.1.1"
+}

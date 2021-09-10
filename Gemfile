@@ -42,6 +42,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.9'
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
+  gem 'brakeman', '~> 5.1', '>= 5.1.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'guard-livereload', '~> 2.5'
