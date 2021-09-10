@@ -2,7 +2,7 @@ class AdditionalRespondentsForm < Form
   include ValidateNested
   attribute :has_multiple_respondents, :boolean
   attribute :secondary_respondents
-  transient_attributes :secondary_claimants
+  transient_attributes :secondary_respondents
   validate :validate_associated_records_for_secondary_respondents
   before_validation :remove_secondaries, unless: :has_multiple_respondents
   has_many_forms :secondary_respondents, class_name: '::AdditionalRespondentsForm::RespondentForm'
