@@ -40,7 +40,7 @@ RUN /pd_build/nodejs.sh
 RUN apt-get -y install firefox
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
+RUN npm install -g yarn
 COPY --chown=app:app . /home/app/et1
 USER app
 ENV HOME /home/app
