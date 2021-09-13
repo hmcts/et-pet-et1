@@ -38,7 +38,10 @@
 
       p = t '.print_link_html'
 
-      p = t('.feedback_html', href: language_specific_feedback_url)
+      p 
+        = link_to t('.feedback_your'), 'https://www.smartsurvey.co.uk/s/ETES20/', class: 'govuk-link', target: '_blank'
+        = " "
+        = t('.feedback_helps_us')
       p = t('.diversity_html', href: diversity_landing_path)
 - content_for(:javascripts)
   javascript:
