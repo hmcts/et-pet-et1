@@ -45,16 +45,14 @@ group :development, :test do
   gem 'brakeman', '~> 5.1', '>= 5.1.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'guard-livereload', '~> 2.5'
   gem 'launchy'
   gem 'pry-rails', '~> 0.3'
-  gem 'rack-livereload', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rspec', '~> 2.1', :require => false
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'spring', '~> 2.1'
+  gem 'spring', '~> 3.0'
   gem 'parallel_tests', '~> 3.4'
   gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 4.4'
