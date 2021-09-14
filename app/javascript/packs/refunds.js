@@ -17,7 +17,7 @@
 
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
-import "./stylesheets/application.scss"
+import "./stylesheets/refunds/application.scss"
 require('jquery');
 require("@rails/ujs").start();
 import SessionPrompt from "./components/SessionPrompt";

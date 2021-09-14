@@ -2,26 +2,10 @@ class AdditionalClaimantsForm < Form
   include ValidateNested
   attribute :has_multiple_claimants, :boolean
   attribute :secondary_claimants
+  transient_attributes :secondary_claimants
   validate :validate_associated_records_for_secondary_claimants
   before_validation :remove_secondaries, unless: :has_multiple_claimants
   has_many_forms :secondary_claimants, class_name: '::AdditionalClaimantsForm::ClaimantForm'
-
-  def persisted_attributes
-    attributes.except('secondary_claimants')
-  end
-
-  def save
-    if valid?
-      run_callbacks :save do
-        ActiveRecord::Base.transaction do
-          target.update persisted_attributes unless target.frozen?
-          resource.save
-        end
-      end
-    else
-      false
-    end
-  end
 
   private
 
@@ -38,7 +22,7 @@ class AdditionalClaimantsForm < Form
   class ClaimantForm < Form
     TITLES      = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
     NAME_LENGTH = 100
-
+    transient_attributes :has_special_needs, :has_representative
     include AddressAttributes
     include AgeValidator
 
@@ -56,9 +40,5 @@ class AdditionalClaimantsForm < Form
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
     validate :older_then_16
-
-    def persisted_attributes
-      attributes.except('has_special_needs', 'has_representative', 'id')
-    end
   end
 end

@@ -37,24 +37,24 @@ module ET1
       # @!method govuk_radios
       #   A govuk radio button component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-      section :people_making_claim_with_you_question, govuk_component(:collection_radio_buttons), :govuk_collection_radio_buttons, :'group_claims_upload.people_making_claim_with_you.label'
+      gds_radios :people_making_claim_with_you_question, :'group_claims_upload.people_making_claim_with_you'
 
       # @!method upload_file_question
       #   A govuk file field component wrapping the input, label, hint etc.. for the upload file question
       #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      section :upload_file_question, govuk_component(:file_field), :govuk_file_field, :'group_claims_upload.upload_spreadsheet.label'
+      gds_file_upload :upload_file_question, :'group_claims_upload.upload_spreadsheet'
 
       # @!method save_and_continue_button
       #   A govuk submit button component for the save and continue button
       #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
-      section :save_and_continue_button, govuk_component(:submit), :govuk_submit, :'group_claims_upload.save_and_continue'
+      gds_submit_button :save_and_continue_button, :'group_claims_upload.save_and_continue'
 
       element :switch_to_manual_input_element, :link, t('group_claims_upload.switch_to_manual')
 
       # @!method remove_csv_file_question
       #   A govuk file field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      section :remove_csv_file_question, govuk_component(:checkbox), :govuk_checkbox, :'group_claims_upload.remove_csv_file.label'
+      gds_checkbox :remove_csv_file_question, :'group_claims_upload.remove_csv_file'
 
     end
   end

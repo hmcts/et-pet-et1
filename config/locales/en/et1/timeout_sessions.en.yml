@@ -1,0 +1,44 @@
+en:
+  timeout_sessions:
+    new:
+      header: Return to your claim
+      forgot_password: Forgot your memorable word?
+      reset_password: Click here to reset
+      hint_html: Don’t have these details? <a class="govuk-link" href="%{path}">Start a new claim</a>.
+    edit:
+      header: Saving your claim
+      print_link: Print this page
+      print_copy: to have a copy of your claim number for reference
+    session:
+      subheader: Enter your details below
+    registration:
+      application_number: Your save and return number
+      intro_text: You can save your claim and return to it at any time. You will need your save and return number (above), and memorable word, which you create below.  If you enter your email address you will be able to reset your memorable word if you forget it.
+      email_address:
+        label: Enter your email address to receive your claim number
+      password:
+        label: Create your memorable word
+        hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+    reference:
+      label: Save and return number
+      hint: This was emailed to you (if you entered your email address)
+    password:
+      label: Memorable word
+      hint: If you have entered your email address above, you will be able to reset your memorable word if you forget it
+    create:
+      header: Return to your claim
+    reminder:
+      header: Claim saved
+      legend: Return to complete your claim
+      subheader: |
+       Your claim has been saved. You can return to it by entering your claim number and your memorable word.
+      submit: Sign out now
+      print_link: Print this page
+      email_address:
+        label: Enter your email address to get your claim number emailed to you.
+        hint: Get your claim number in an email
+    expired:
+      header: Session expired
+      content_html: Your session has expired due to inactivity. <a class="govuk-link" href="%{new_user_session_path}">Return to your claim</a>.
+    destroy:
+      logout: You have been logged out

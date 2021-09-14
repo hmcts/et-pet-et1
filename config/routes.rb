@@ -81,9 +81,6 @@ Rails.application.routes.draw do
         end
       end
 
-      get  '/feedback' => 'feedback#new'
-      post '/feedback' => 'feedback#create'
-
       get '/stats' => 'stats#index'
     end
 

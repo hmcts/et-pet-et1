@@ -38,6 +38,7 @@ RUN /pd_build/nodejs.sh
 
 # ...put your own build instructions here...
 RUN apt-get install -y shared-mime-info
+RUN npm install -g yarn
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -63,6 +64,6 @@ ENV HOME /home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=production
 RUN npm install
-RUN bash -lc "gem install bundler -v 1.17.3 && bundle install --jobs=5 --retry=3 --without=test development --with=production"
+RUN bash -lc "rvm use 2.7.3 --default && gem install bundler -v 1.17.3 && bundle install --jobs=5 --retry=3 --without=test development --with=production"
 RUN bash -lc "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=ijustdontcareyoureonlydoingaraketask"
 CMD ["./run.sh"]

@@ -1,13 +1,8 @@
 - content_for(:page_title, diversity_title)
 
 .main-header role="banner"
-  h1.page-trail
-    span
-      = diversity_header
+  h1 class="govuk-heading-xl govuk-!-margin-top-3" = diversity_header
 
-    - if diversity_subheader
-      p.page-subheader
-        = diversity_subheader
 .main-section
   .main-content class="diversities diversities_#{current_step}"
     = form_for resource, url: request.path, multipart: true, builder: EtGdsDesignSystem.form_builder_class do |f|
@@ -20,4 +15,4 @@
         - if content_for?(:submit_button)
             = content_for(:submit_button)
         - else
-          = f.govuk_submit t('shared.continue_button')
+          = f.submit t('shared.continue_button')

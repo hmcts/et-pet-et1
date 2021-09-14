@@ -1,0 +1,14 @@
+en:
+  claims:
+    address:
+      address_building:
+        label: Building number or name
+      address_locality:
+        label: Town/city
+      address_street:
+        label: Street
+      address_county:
+        label: County
+        hint: Eg if London, Greater London; if Manchester, Greater Manchester
+      address_post_code:
+        label: Postcode

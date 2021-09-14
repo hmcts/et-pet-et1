@@ -1,21 +1,25 @@
-h1.govuk-heading-xl= t('claims.session.header')
-= form_for resource, as: resource_name, url: session_path(resource_name), builder: EtGdsDesignSystem.form_builder_class do |f|
-  = f.govuk_error_summary(t 'shared.error_notification.default_message')
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    h1 class="govuk-heading-xl govuk-!-padding-top-8" = t('claims.session.header')
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    = form_for resource, as: resource_name, url: session_path(resource_name), builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
 
-  = f.govuk_fieldset label: {text: t('claims.session.subheader')} do
-    = f.text_field :reference,
-      label: { text: t('claims.session.reference.label') },
-      hint: { text: t('claims.session.reference.hint') }
+      = f.fieldset label: t('claims.session.subheader') do
+        hr class="govuk-section-break--m govuk-!-margin-top-0"
+        = f.text_field :reference,
+          label: { text: t('claims.session.reference.label') },
+          hint: { text: t('claims.session.reference.hint') }
 
-    = f.text_field :password,
-      label: {text: t('claims.session.password.label')},
-      hint: { text: t('claims.session.password.hint') }
+        = f.text_field :password,
+          label: {text: t('claims.session.password.label')}
 
-    = f.submit t('helpers.submit.save_and_return[session].create')
+        = f.submit t('helpers.submit.save_and_return[session].create')
 
-  p.form-hint
-    = t(".forgot_password")
-    = link_to t(".reset_password"), new_password_path(resource_name)
-  p.form-hint= t('.hint_html', path: root_path)
+      p.govuk-body
+        = t(".forgot_password")
+        = link_to t(".reset_password"), new_password_path(resource_name), class: 'govuk-link'
+      p.govuk-body = t('.hint_html', path: root_path)
 
   = render partial: 'shared/aside'

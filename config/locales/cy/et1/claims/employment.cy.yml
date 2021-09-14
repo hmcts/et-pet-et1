@@ -1,0 +1,85 @@
+cy:
+  claims:
+    employment:
+      header: Manylion cyflogaeth
+      situation_legend: "Eich manylion cyflogaeth"
+      current_situation:
+        label: "Beth yw eich sefyllfa bresennol yn y gwaith o ran y cyflogwr yr ydych chi'n gwneud hawliad yn ei erbyn?"
+        options:
+          still_employed: "Dal i weithio i'r cyflogwr hwn"
+          notice_period: "Gweithio cyfnod rhybudd i'r cyflogwr hwn"
+          employment_terminated: Dim yn gweithio i'r cyflogwr hwn mwyach
+      job_title:
+        label: Teitl swydd
+        hint: Y swydd yr oeddech yn ei gwneud adeg y broblem yn y gwaith
+      start_date:
+        label: Dyddiad cychwyn cyflogaeth
+        hint: Er enghraifft, 22 04 2014 (os nad ydych yn gwybod yr union ddyddiad, rhowch eich amcangyfrif gorau)
+      end_date:
+        label: Dyddiad gorffen cyflogaeth
+        hint: Er enghraifft, 22 04 2014 (os nad ydych yn gwybod yr union ddyddiad, rhowch eich amcangyfrif gorau)
+      worked_notice_period_or_paid_in_lieu:
+        label: "A wnaethoch weithio cyfnod rhybudd (neu gael tâl amdano)?"
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
+      notice_pay_period_count:
+        label: Am faint o wythnosau neu fisoedd gawsoch chi dâl?
+      new_job_start_date:
+        label: Dyddiad cychwyn swydd newydd
+        hint: Er enghraifft, 22 04 2014
+      notice_period_end_date:
+        label: Dyddiad gorffen y cyfnod rhybudd
+        hint: Y dyddiad daw eich cyflogaeth i ben. Er enghraifft, 22 04 2014
+      notice_pay_period_type:
+        label: "A oedd yr wythnosau neu'r misoedd hyn ?"
+        options:
+          weeks: Wythnosau
+          months: Misoedd
+      average_hours_worked_per_week:
+        label: Oriau gwaith bob wythnos ar gyfartaledd
+        hint: Peidiwch â chynnwys goramser
+      gross_pay:
+        label: Tâl cyn treth
+        hint: Hwn yw eich tâl gros, cyn treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Peidiwch â chynnwys unrhyw daliadau goramser
+      pay_period_type:
+        label: 'Pa mor aml y cawsoch eich talu'
+        options:
+          weekly: Wythnosau
+          monthly: Misoedd
+      net_pay:
+        label: Tâl ar ôl treth
+        hint: Hwn yw eich tâl net neu dâl terfynol, ar ôl treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Dylech gynnwys unrhyw daliadau goramser, comisiwn a bonws
+      enrolled_in_pension_scheme:
+        label: Ydych chi - neu oeddech chi - yn aelod o gynllun pensiwn eich cyflogwr?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
+      benefit_details:
+        label: A oes - neu a oedd - gennych chi unrhyw fuddion, fel car cwmni?
+        hint: Manylion budd(ion)
+      found_new_job:
+        label: Oes gennych chi swydd newydd?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
+      new_job_gross_pay:
+        label: Tâl y swydd newydd cyn treth
+        hint: Hwn yw eich tâl gros, cyn treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Peidiwch â chynnwys unrhyw daliadau goramser
+      new_job_gross_pay_frequency:
+        label: Pa mor aml ydych chi'n cael eich talu
+        options:
+          weekly: Wythnosau
+          monthly: Misoedd
+      employment_details_legend: Manylion cyflogaeth
+      pay_legend: "Tâl, pensiwn a buddion"
+      new_job_legend: Swydd newydd
+      was_employed:
+        label: Ydych chi erioed wedi cael eich cyflogi gan yr unigolyn neu'r sefydliad yr ydych chi'n gwneud yr hawliad hwn yn ei erbyn?
+        options:
+          'true': 'Do'
+          'false': 'Naddo'
+      'true': 'Do'
+      'false': 'Naddo'
+      'true_v2': 'Ydw'
+      'false_v2': 'Nac ydw'

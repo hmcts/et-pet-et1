@@ -1,18 +1,18 @@
 = f.fieldset label: t('.form_legend')
-  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+  hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-0"
   = f.collection_radio_buttons :has_representative, optional: true, inline: true, include_hidden: false
   = f.revealed_content :has_representative, values: [:true]
     p.govuk-inset-text = t '.contact_info'
 
     = f.fieldset label: t('.representative_legend')
-      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-0"
       = f.collection_select :type
       = f.text_field :organisation_name, optional: true
       = f.text_field :name
 
 
     = f.fieldset label: t('.contact_legend')
-      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4"
+      hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-0"
       = f.text_field :address_building
       = f.text_field :address_street
       = f.text_field :address_locality
@@ -20,7 +20,7 @@
       = f.text_field :address_post_code
       = f.phone_field :address_telephone_number, optional: true
       = f.phone_field :mobile_number, optional: true
-      = f.collection_radio_buttons :contact_preference
+      = f.collection_radio_buttons :contact_preference, inline: true
       = f.email_field :email_address, optional: true
       = f.text_field :dx_number, optional: true
 

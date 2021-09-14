@@ -4,24 +4,24 @@
     h1 class="govuk-heading-xl govuk-!-margin-top-9" = t('.header')
 .govuk-grid-row
   .govuk-grid-column-two-thirds
-    = form_for claim, url: claim_path, builder: EtGdsDesignSystem.form_builder_class do |f|
-      = f.govuk_error_summary(t 'shared.error_notification.default_message')
 
-      h2.govuk-heading-m = t '.are_you_in_time.legend'
-      hr.govuk-section-break--m
-      p.govuk-body = t('.are_you_in_time.body_html', path:guide_path)
+    h2.govuk-heading-m = t '.are_you_in_time.legend'
+    hr.govuk-section-break--m
+    p.govuk-body = t('.are_you_in_time.body_html', path:guide_path)
 
 
-      h2.govuk-heading-m = t '.have_you_contacted_acas.legend'
-      hr.govuk-section-break--m
-      p.govuk-body = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
+    h2.govuk-heading-m = t '.have_you_contacted_acas.legend'
+    hr.govuk-section-break--m
+    p.govuk-body = t('.have_you_contacted_acas.body_html', path: 'http://www.acas.org.uk/earlyconciliation')
 
-      h2.govuk-heading-m = t '.what_you_need_to_know.legend'
-      hr.govuk-section-break--m
-      div class="govuk-body govuk-!-margin-left-5"
-        = t('.what_you_need_to_know.body_html', path: guide_path)
+    h2.govuk-heading-m = t '.what_you_need_to_know.legend'
+    hr.govuk-section-break--m
+    div class="govuk-body govuk-!-margin-left-5"
+      = t('.what_you_need_to_know.body_html', path: guide_path)
+    = form_for claim, url: claim_path, html: { class: 'inline-form' }, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.submit t('.continue')
 
-      = f.govuk_submit t('.continue')
-      = link_to t('helpers.link.claim.return'), new_user_session_path, { class: 'govuk-button govuk-button--secondary govuk-!-margin-left-2' }
+    = form_for :return_to_claim, url: new_user_session_path, method: :get, html: { class: 'inline-form' }, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.submit t('helpers.link.claim.return'), secondary: true, classes: ['govuk-!-margin-left-2']
 
   = render partial: 'shared/aside'

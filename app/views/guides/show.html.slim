@@ -1,25 +1,25 @@
 - content_for(:page_title, page_title)
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    h1 class="govuk-heading-xl govuk-!-margin-top-9 govuk-!-margin-bottom-9" = t '.header'
+.govuk-grid-row
+  .govuk-grid-column-two-thirds
+    - cache do
+      nav.nav-static-content
+        ul class="govuk-list govuk-list--bullet govuk-!-margin-left-5"
+          li = t '.links.time_limits_html'
+          li = t '.links.acas_early_conciliation_html'
+          li = t '.links.acas_early_conciliation_exceptions_html'
+          li = t '.links.writing_your_claim_statement_html'
 
-.main-header role="banner"
-  h1= t '.header'
-
-.main-content
-  - cache do
-    nav.nav-static-content
-      ul
-        li = t '.links.time_limits_html'
-        li = t '.links.acas_early_conciliation_html'
-        li = t '.links.acas_early_conciliation_exceptions_html'
-        li = t '.links.writing_your_claim_statement_html'
-
-    .static-content.guide
-      = render 'time_limits'
-      = render 'acas_early_conciliation'
-      = render 'acas_early_conciliation_exceptions'
-      = render 'writing_your_claim_statement'
-
-aside role="complementary"
-  h3= t '.aside.gethelp_header'
-  ul
-    li= link_to t('.aside.exit_guide'), return_to_form
-    li= link_to t('.aside.contact_us'), t('.aside.contact_us_link'), { rel: 'external' }
+      .static-content.guide
+        = render 'time_limits'
+        = render 'acas_early_conciliation'
+        = render 'acas_early_conciliation_exceptions'
+        = render 'writing_your_claim_statement'
+  .govuk-grid-column-one-third
+    aside role="complementary" class="govuk-!-padding-left-9"
+      h3 class="govuk-heading-m govuk-!-padding-top-8" = t '.aside.gethelp_header'
+      ul.govuk-list
+        li= link_to t('.aside.exit_guide'), return_to_form, class: 'govuk-link'
+        li= link_to t('.aside.contact_us'), t('.aside.contact_us_link'), { rel: 'external', target: '_blank', class: 'govuk-link' }

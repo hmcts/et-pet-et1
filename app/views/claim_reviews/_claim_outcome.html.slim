@@ -1,5 +1,5 @@
 = render 'answer', section_name: 'claim_outcome', question: 'desired_outcomes' do
-  = claim.desired_outcomes.map { |c| I18n.t "simple_form.options.claim.desired_outcomes.#{c}" }.join(tag(:br)).html_safe
+  = claim.desired_outcomes.map { |c| I18n.t "claims.claim_outcome.desired_outcomes.options.#{c}" }.join(tag(:br)).html_safe
 = render 'answer', section_name: 'claim_outcome', question: 'other_outcome' do
   = sanitize simple_format(claim.other_outcome), tags: ['br']
 

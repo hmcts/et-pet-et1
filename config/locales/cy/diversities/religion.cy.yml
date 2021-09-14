@@ -1,0 +1,17 @@
+cy:
+  diversities:
+    religion:
+      religion:
+        hint: "Beth yw eich crefydd?"    
+        options:
+          no-religion: Dim crefydd
+          christian-including-church-of-england-catholic-protestant-and-all-other-christian-denominations: Cristion (yn cynnwys Eglwys Loegr, yr Eglwys Gatholig, Protestannaidd a phob enwad Cristnogol arall)
+          buddhist: Bwdhydd
+          hindu: Hindŵ
+          jewish: Iddew
+          muslim: Mwslim
+          sikh: Sikh
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+          any-other-religion: Unrhyw grefydd arall
+      religion_text:
+        label: Rhowch ddisgrifiad os gwelwch yn dda

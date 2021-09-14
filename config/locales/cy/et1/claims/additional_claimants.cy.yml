@@ -1,0 +1,16 @@
+cy:
+  claims:
+    additional_claimants:
+      header: "Hawliadau grŵp"
+      subheader: Unigolion sy'n gwneud hawliad gyda chi
+      person: "Hawlydd %{number}"
+      contact_details: Manylion cyswllt
+      add_fields: "Ychwanegu mwy o hawlwyr"
+      remove_resource_link: Dileu'r hawlydd yma
+      number_claimants_info: "Ar gyfer 5 hawlydd neu lai, rhowch eu manylion isod."
+      csv_upload_text_html: "Ar gyfer 6 hawlydd neu fwy, gallwch <a class=\"govuk-link\" href=\"%{path}\" >uwchlwytho eu manylion mewn taenlen ar wahân</a>."
+      has_multiple_claimants:
+        label: A oes unigolion eraill sy'n gwneud hawliad gyda chi (yn erbyn yr un cyflogwr neu sefydliad)?
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'

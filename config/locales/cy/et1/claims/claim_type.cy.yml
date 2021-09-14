@@ -1,0 +1,52 @@
+cy:
+  claims:
+    claim_type:
+      header: Ynglŷn â'r hawliad
+      claim_type: Ynglŷn â beth mae eich hawliad
+      claim_type_label: "Dewiswch o leiaf un o'r mathau isod o hawliad."
+      is_unfair_dismissal:
+        label: Diswyddo annheg
+        hint: Fe all eich diswyddiad fod yn annheg os nad oes gan eich cyflogwr reswm da dros eich diswyddo neu os nad yw wedi dilyn proses ddisgyblu ffurfiol neu broses ddiswyddo'r cwmni. Diswyddo deongliadol yw pan fyddwch yn cael eich gorfodi i adael eich swydd yn erbyn eich ewyllys oherwydd ymddygiad eich cyflogwr.
+        options:
+          1: Diswyddo annheg (gan gynnwys diswyddo deongliadol)
+      summary:  "Beth yw hyn?"
+      discrimination_claims:
+        label: Gwahaniaethu
+        options:
+          sex_including_equal_pay: Rhyw (gan gynnwys tâl cyfartal)
+          disability: Anabledd
+          race: Hil
+          age: Oedran
+          pregnancy_or_maternity: "Beichiogrwydd neu famolaeth"
+          religion_or_belief: Crefydd neu gred
+          sexual_orientation: Cyfeiriadedd rhywiol
+          marriage_or_civil_partnership: Priodas neu bartneriaeth sifil
+          gender_reassignment: Ailbennu rhywedd
+      pay_claims:
+        label: Tâl
+        options:
+          redundancy: Tâl dileu swydd
+          notice: Tâl cyfnod rhybudd
+          holiday: Tâl gwyliau
+          arrears: Tâl dyledus
+          other: Taliadau eraill
+      is_other_type_of_claim:
+        label: Math arall o hawliad (na ddangosir uchod)
+        hint: Os na allwch weld opsiwn sy'n addas ar gyfer eich hawliad chi neu eich bod eisiau ychwanegu hawliad sydd ddim yn ymddangos yn yr opsiynau uchod.
+        options:
+          'true': Math arall o hawliad
+      other_claim_details:
+        label: Nodwch y math arall o hawliad(au) ydych yn gwneud
+        hint: Rhowch ddisgrifiad byr iawn o'ch hawliad; cewch gyfle i ychwanegu mwy o fanylion ar y dudalen nesaf
+      is_whistleblowing:
+        heading: Hawliad chwythu'r chwiban
+        label: "Ydych chi'n riportio'r posibilrwydd o gamymddwyn yn y gwaith?"
+        hint: Gallwch riportio pethau yn y gwaith sydd ddim yn iawn, sy'n anghyfreithlon neu os yw rhywun yn esgeuluso eu dyletswyddau (a elwir hefyd yn 'datgelu er lles y cyhoedd').
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
+      send_claim_to_whistleblowing_entity:
+        label: Ydych chi eisiau i ni anfon copi o'ch hawliad at yr unigolyn neu gorff perthnasol sy'n delio â chwythu'r chwiban?
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
