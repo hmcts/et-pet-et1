@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe SubmitClaimToApiService, type: :service do
   shared_context 'with api environment variable' do
-    let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
+    let(:et_api_url) { 'http://api.et.net:4000/api/v3' }
     around do |example|
       ClimateControl.modify ET_API_URL: et_api_url do
         example.run
@@ -76,10 +76,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
         subject { recorded_request }
         include_context 'with action performed before each example'
 
-        it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-        it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-        it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-        it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+        it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+        it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+        it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+        it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
         it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
         it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
         it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
@@ -116,10 +116,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_respondent_with_no_work_address, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
@@ -132,10 +132,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_respondent_with_no_addresses, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
@@ -148,10 +148,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_representative_with_no_address, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
@@ -164,9 +164,9 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim,:without_representative, :no_attachments, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
       it { is_expected.not_to contain_api_command('BuildPrimaryRepresentative') }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
@@ -180,9 +180,9 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_representative, :no_attachments, :without_employment, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
       it { is_expected.not_to contain_api_command('BuildPrimaryRepresentative') }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
@@ -196,11 +196,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_secondary_claimants, :no_attachments, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildSecondaryClaimants').version('2').for_db_data(example_claim.secondary_claimants) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildSecondaryClaimants').version('3').for_db_data(example_claim.secondary_claimants) }
       it { is_expected.not_to contain_api_command('BuildSecondaryRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
       it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
@@ -212,11 +212,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_secondary_respondents, :no_attachments, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildSecondaryRespondents').version('2').for_db_data(example_claim.secondary_respondents) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildSecondaryRespondents').version('3').for_db_data(example_claim.secondary_respondents) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
       it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
@@ -228,11 +228,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_rtf, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaimantsFile').version('2').for_db_data(example_claim.additional_claimants_csv) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaimantsFile').version('3').for_db_data(example_claim.additional_claimants_csv) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildClaimantsRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
@@ -244,11 +244,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_additional_claimants_csv, :not_submitted) }
 
-      it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('2').for_db_data(example_claim.primary_respondent) }
-      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('2').for_db_data(example_claim.representative) }
-      it { is_expected.to contain_valid_api_command('BuildClaimDetailsFile').version('2').for_db_data(example_claim.claim_details_rtf) }
+      it { is_expected.to contain_valid_api_command('BuildClaim').version('3').for_db_data(example_claim) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('3').for_db_data(example_claim.primary_claimant) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRespondent').version('3').for_db_data(example_claim.primary_respondent) }
+      it { is_expected.to contain_valid_api_command('BuildPrimaryRepresentative').version('3').for_db_data(example_claim.representative) }
+      it { is_expected.to contain_valid_api_command('BuildClaimDetailsFile').version('3').for_db_data(example_claim.claim_details_rtf) }
       it { is_expected.not_to contain_api_command('BuildSecondaryClaimants') }
       it { is_expected.not_to contain_api_command('BuildClaimantsRespondents') }
       it { is_expected.not_to contain_api_command('BuildSecondaryRepresentatives') }
