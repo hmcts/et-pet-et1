@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe SubmitClaimToApiService, type: :service do
   shared_context 'with api environment variable' do
-    let(:et_api_url) { 'http://api.et.net:4000/api/v3' }
+    let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
     around do |example|
       ClimateControl.modify ET_API_URL: et_api_url do
         example.run
