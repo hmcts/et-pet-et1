@@ -26,7 +26,7 @@ variables:
 jobs:
   - job: TestApplication
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
     steps:
 
     - script: |
@@ -44,7 +44,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
     steps:
     - bash: |
         repo_sha=$(git rev-parse --verify HEAD)
@@ -131,7 +131,7 @@ jobs:
     dependsOn: TestApplication
     condition: and(succeeded(), ne(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.Reason'], 'Manual'))
     pool:
-      vmImage: 'Ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
     steps:
     - bash: |
         repo_sha=$(git rev-parse --verify HEAD)
@@ -211,5 +211,3 @@ jobs:
   #         az storage blob upload-batch -d assets --account-name $(azure.storage.account) -s .
   #       displayName: 'Copy Assets To Blob'
   #       name: 'copyToBlob'
-
-
