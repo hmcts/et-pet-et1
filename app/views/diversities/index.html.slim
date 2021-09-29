@@ -6,4 +6,5 @@
     p.govuk-body
       b = t '.anonymous'
 
-    = link_to (t '.begin_form'), new_diversity_path, class: "govuk-button govuk-button--start"
+    = form_for :new_diversity, url: new_diversity_path, method: :get, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.submit t('.begin_form')
