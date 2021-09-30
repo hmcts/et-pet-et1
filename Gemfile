@@ -46,6 +46,7 @@ group :development, :test do
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'launchy'
+  gem 'listen', '~> 3.7'
   gem 'pry-rails', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 5.0'
