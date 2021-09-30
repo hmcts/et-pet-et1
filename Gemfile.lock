@@ -293,6 +293,9 @@ GEM
     kaminari-core (1.2.1)
     launchy (2.5.0)
       addressable (~> 2.7)
+    listen (3.7.0)
+      rb-fsevent (~> 0.10, >= 0.10.3)
+      rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.12.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -334,8 +337,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
-    rack-livereload (0.3.17)
-      rack
     rack-proxy (0.7.0)
       rack
     rack-test (1.1.0)
@@ -376,6 +377,9 @@ GEM
       activerecord (>= 5.2.4)
       activesupport (>= 5.2.4)
       i18n
+    rb-fsevent (0.11.0)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     redcarpet (3.5.1)
     redis (4.4.0)
     regexp_parser (2.1.1)
@@ -540,12 +544,12 @@ DEPENDENCIES
   jbuilder (~> 2.10)
   jquery-rails (~> 4.4)
   launchy
+  listen (~> 3.7)
   parallel_tests (~> 3.4)
   pg (~> 1.1)
   poltergeist (~> 1.18)
   pry-rails (~> 0.3)
   puma (~> 5.1)
-  rack-livereload (~> 0.3)
   rails (= 6.1.4.1)
   rails-controller-testing (~> 1.0)
   redcarpet (~> 3.5)

@@ -1,3 +1,5 @@
-#error-summary.validation-summary.group role="alert" tabindex='0' aria={ labelledby: 'error-heading', describedby: 'error-message' }
-  h2#error-heading = summary
-  p#error-message = message
+#error-summary.govuk-error-summary aria-labelledby="error-summary-title" role="alert" tabindex='-1' data-module="govuk-error-summary"
+  h2#error-summary-title.govuk-error-summary__title = summary
+  .govuk-error-summary__body
+    ul.govuk-list.govuk-error-summary__list
+      li = message
