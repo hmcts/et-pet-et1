@@ -14,9 +14,12 @@ GovFakeNotify.config do |c|
       message: <<~EOS
         Claim number: ((reference))
         You’ve started a claim to an employment tribunal. To return to your claim you’ll need your claim number (above), and memorable word.
+        ---
         Clicking on the links below will not work. Please copy and paste the URLs into your browser.
         COMPLETE CLAIM: ((url))
+        ---
         You’ll receive a confirmation email once you’ve submitted your claim.
+        ---
         Contact us: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       EOS
 
@@ -28,9 +31,12 @@ GovFakeNotify.config do |c|
       message: <<~EOS
         Rhif yr hawliad: ((reference))
         Rydych wedi cychwyn gwneud hawliad i dribiwnlys cyflogaeth. I ddychwelyd i'ch hawliad byddwch angen eich rhif hawliad (uchod), a'ch gair cofiadwy.
+        ---
         Ni fydd clicio ar y dolenni isod yn gweithio. Copïwch a gludwch yr URL i'ch porwr.
         CWBLHAU EICH HAWLIAD: ((url))
+        ---
         Fe gewch neges e-bost fel cadarnhad unwaith y byddwch wedi cyflwyno'ch hawliad.
+        ---
         Cysylltwch â ni: http://www.justice.gov.uk/contacts/hmcts/tribunals/employment
       EOS
     }
