@@ -8,6 +8,8 @@ feature 'Save and Return', js: true do
   include ActiveJobPerformHelper
   let(:ui_claimant) { build(:ui_claimant, :default) }
 
+  include_context 'fake gov notify'
+
   scenario 'ending the session actually ends the session' do
     start_claim
     saving_your_claim_page.register(password: 'green')

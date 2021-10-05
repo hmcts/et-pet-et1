@@ -7,6 +7,8 @@ feature 'Claim applications', type: :feature, js: true do
   include ActiveJob::TestHelper
   include ActiveJobPerformHelper
 
+  include_context 'fake gov notify'
+
   around { |example| travel_to(Date.new(2018, 9, 29)) { example.run } }
   let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
   let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
