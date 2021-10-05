@@ -79,6 +79,10 @@ Rails.application.configure do
   config.service_now_inbox_email = "fake@servicenow.fake.com"
 
   config.azure_insights.enable = false
+
+  config.govuk_notify.enabled = true
+  config.govuk_notify.test_api_key = 'fake-key-7fc24bc8-1938-1827-bed3-fb237f9cd5e7-c34b3015-02a1-4e01-b922-1ea21f331d4d'
+  config.govuk_notify.mode = :test
 end
 
 CarrierWave.configure do |config|

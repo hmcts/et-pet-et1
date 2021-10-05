@@ -35,6 +35,10 @@ gem 'activerecord-nulldb-adapter', git: 'https://github.com/hmcts/nulldb.git', r
 # Use dotenv for convenience in all environments
 gem 'dotenv-rails', '~> 2.7'
 
+# Gov uk notify service
+gem 'notifications-ruby-client', '~> 5.3'
+gem 'govuk_notify_rails', git: 'https://github.com/hmcts/govuk_notify_rails.git', tag: 'v3.0.0'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
@@ -45,7 +49,9 @@ group :development, :test do
   gem 'brakeman', '~> 5.1', '>= 5.1.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'gov_fake_notify', '~> 1.1', '>= 1.1.1'
   gem 'launchy'
+  gem 'listen', '~> 3.7'
   gem 'pry-rails', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 5.0'

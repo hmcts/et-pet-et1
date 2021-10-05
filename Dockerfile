@@ -14,6 +14,9 @@ ENV HOME /root
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
+RUN mv /etc/apt/sources.list.d /etc/apt/sources.list.d.bak
+RUN apt update && apt install -y ca-certificates
+RUN mv /etc/apt/sources.list.d.bak /etc/apt/sources.list.d
 
 # If you're using the 'customizable' variant, you need to explicitly opt-in
 # for features.

@@ -4,7 +4,7 @@ json.data do
   json.reference claim.fee_group_reference
   json.submission_reference claim.reference
   json.email_template_reference "et1-v1-#{I18n.locale}"
-  json.pdf_template_reference "et1-v2-#{I18n.locale}"
+  json.pdf_template_reference "et1-v3-#{I18n.locale}"
   json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
