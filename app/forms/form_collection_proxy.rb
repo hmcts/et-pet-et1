@@ -42,7 +42,7 @@ class FormCollectionProxy
 
   def each
     collection_cache.each do |proxied_object|
-      yield wrapped(proxied_object)
+      yield proxied_object
     end
   end
 

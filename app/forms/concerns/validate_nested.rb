@@ -12,6 +12,8 @@ module ValidateNested
   # Returns whether or not the collection is valid and applies any errors to
   # the parent, <tt>self</tt>, if it wasn't.
   def collection_valid?(collection_method, record, index = nil)
+    return true if record.marked_for_destruction?
+
     unless valid = record.valid?
       record.errors.each do |error|
         attribute = normalize_collection_attribute(collection_method, index, error.attribute)
