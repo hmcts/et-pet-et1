@@ -14,6 +14,9 @@ cy:
       other_known_claimants:
         label: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
         hint: Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
+        options:
+          'true': 'Ydw'
+          'false': 'Nac ydw'
       other_known_claimant_names:
         label: "Gallwch ychwanegu enwau unigolion eraill yma."
       claim_details_rtf:

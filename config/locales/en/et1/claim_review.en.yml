@@ -3,6 +3,16 @@ en:
     show:
       header: Check your claim
       edit: Edit
+      edit_claimant_details_page: Edit Claimant’s details answers
+      edit_group_claim_page: Edit Group claim answers
+      edit_representative_details_page: Edit Representative’s details answers
+      edit_respondent_page: Edit Respondent’s details answers
+      edit_additional_respondent_page: Edit Additional respondents answers
+      edit_employment_details_page: Edit Employment details answers
+      edit_claim_type_page: Edit Claim type answers
+      edit_claim_details_page: Edit Claim details answers
+      edit_claim_outcome_page: Edit Claim outcome answers
+      edit_additional_informations_page: Edit Additional information answers
       info: Check all the information below is correct before submitting your claim at the bottom of the page.
       incomplete_claim_summary: Your claim is incomplete.
       incomplete_claim_message: Go back through the form and ensure all required sections are complete
