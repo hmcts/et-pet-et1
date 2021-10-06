@@ -261,7 +261,7 @@ module ET1
         gds_checkboxes :email_recipients, :'review.email_confirmation.email_recipients'
       end
       def edit_section(section_name)
-        query = XPath.generate { |x| x.descendant(:a)[x.string.n.equals('Edit') & x.ancestor(:h2)[x.string.n.starts_with(section_name)]] }
+        query = XPath.generate { |x| x.descendant(:a)[x.string.n.equals("Edit #{section_name} answers")] }
         find(:xpath, query).click
       end
     end

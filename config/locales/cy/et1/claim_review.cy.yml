@@ -3,6 +3,16 @@ cy:
     show:
       header: Gwiriwch eich hawliad
       edit: Golygu
+      edit_claimant_details_page: Golygu Manylion yr hawlydd atebion
+      edit_group_claim_page: Golygu Hawliad grŵp atebion
+      edit_representative_details_page: Golygu Manylion y cynrychiolydd atebion
+      edit_respondent_page: Golygu Manylion yr atebydd atebion
+      edit_additional_respondent_page: Golygu Atebwyr ychwanegol atebion
+      edit_employment_details_page: Golygu Manylion cyflogaeth atebion
+      edit_claim_type_page: Golygu Math o hawliad atebion
+      edit_claim_details_page: Golygu Manylion yr hawliad atebion
+      edit_claim_outcome_page: Golygu Canlyniad yr hawliad atebion
+      edit_additional_informations_page: Golygu Gwybodaeth ychwanegol atebion
       info: "Gwiriwch fod yr holl wybodaeth isod yn gywir cyn cyflwyno eich hawliad ar waelod y dudalen."
       incomplete_claim_summary: "Nid yw eich hawliad yn gyflawn."
       incomplete_claim_message: "Ewch yn ôl drwy'r ffurflen a gwnewch yn siŵr bod yr holl adrannau angenrheidiol wedi'u llenwi"
@@ -42,6 +52,7 @@ cy:
         mobile_number: Ffôn Symudol
         email_address: E-bost
         contact_preference: Dull cyswllt dewisol
+        allow_video_attendance: A allech chi gymryd rhan mewn gwrandawiad drwy fideo?
         is_disabled: "Angen cymorth yn y tribiwnlys?"
         has_representative: Cynrychiolydd
 
