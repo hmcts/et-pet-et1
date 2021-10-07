@@ -10,14 +10,14 @@
     = incomplete_claim_warning(claim)
     h2.govuk-heading-m
       span = t ".sections.claimant"
-      span.review-quick-edit = quick_edit_link_for "claimant"
+    span = link_to t('.edit_claimant_details_page'), claim_claimant_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
       = render 'claimant', claimant: primary_claimant, section_name: 'claimant'
 
     h2.govuk-heading-m
       span = t ".sections.additional_claimants"
-      span.review-quick-edit = quick_edit_link_for 'additional_claimants'
+    span = link_to t('.edit_group_claim_page'), claim_additional_claimants_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
       - if claim.additional_claimants_csv.present?
@@ -27,7 +27,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.representative"
-      span.review-quick-edit = quick_edit_link_for "representative"
+    span = link_to t('.edit_representative_details_page'), claim_representative_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -35,7 +35,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.respondent"
-      span.review-quick-edit = quick_edit_link_for "respondent"
+    span = link_to t('.edit_respondent_page'), claim_respondent_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -43,7 +43,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.additional_respondents"
-      span.review-quick-edit = quick_edit_link_for "additional_respondents"
+    span = link_to t('.edit_additional_respondent_page'), claim_additional_respondents_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -51,7 +51,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.employment"
-      span.review-quick-edit = quick_edit_link_for "employment"
+    span = link_to t('.edit_employment_details_page'), claim_employment_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -59,7 +59,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.claim_type"
-      span.review-quick-edit = quick_edit_link_for "claim_type"
+    span = link_to t('.edit_claim_type_page'), claim_claim_type_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -67,7 +67,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.claim_details"
-      span.review-quick-edit = quick_edit_link_for "claim_details"
+    span = link_to t('.edit_claim_details_page'), claim_claim_details_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -75,7 +75,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.claim_outcome"
-      span.review-quick-edit = quick_edit_link_for "claim_outcome"
+    span = link_to t('.edit_claim_outcome_page'), claim_claim_outcome_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
@@ -83,7 +83,7 @@
 
     h2.govuk-heading-m
       span = t ".sections.additional_information"
-      span.review-quick-edit = quick_edit_link_for "additional_information"
+    span = link_to t('.edit_additional_informations_page'), claim_additional_information_path(return_to_review: true), class: 'govuk-link'
     hr class="govuk-section-break.govuk-section-break--visible"
 
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
