@@ -70,9 +70,13 @@ cy:
       return_title: Dychwelyd i wefan GOV.UK
     edit: Newid
     edit_claim_type_page: Golygu Math o hawliad atebion
-    edit_identify_page: Golygu Adnabod atebion
+    edit_identify_page: Golygu
+    edit_identify_page_sex: Beth yw eich rhyw?
+    edit_identify_page_sexual_identity: Pa un o'r opsiynau isod sy'n disgrifio'ch hunaniaeth rywiol orau?
     edit_relationship_page: Golygu Perthynas atebion
-    edit_age_group_page: Golygu grŵp oedran atebion
+    edit_age_group_page: Golygu
+    edit_age_group_page_group_in: Ym mha grŵp oedran ydych chi?
+    edit_age_group_page_caring_responsabilities: A oes gennych chi unrhyw gyfrifoldebau gofalu?
     edit_religion_page: Golygu Crefydd atebion
     edit_ethnicity_page: Golygu Ethnigrwydd atebion
     edit_disability_page: Golygu Anabledd atebion

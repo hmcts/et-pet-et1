@@ -68,9 +68,13 @@ en:
       return_title: return to GOV.UK website
     edit: Change
     edit_claim_type_page: Edit Claim Type answers
-    edit_identify_page: Edit Identify answers
+    edit_identify_page: Edit
+    edit_identify_page_sex: What is your sex?
+    edit_identify_page_sexual_identity: Which of the options below best describes your sexual identity?
     edit_relationship_page: Edit Relationship answers
-    edit_age_group_page: Edit Age group answers
+    edit_age_group_page: Edit
+    edit_age_group_page_group_in: Which age group are you in?
+    edit_age_group_page_caring_responsabilities: Do you have any caring responsibilities?
     edit_religion_page: Edit Religion answers
     edit_ethnicity_page: Edit Ethnicity answers
     edit_disability_page: Edit Disability answers

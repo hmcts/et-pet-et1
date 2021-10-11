@@ -11,14 +11,20 @@ dl.govuk-summary-list
     dt.govuk-summary-list__value
       - if f.object.sex
         = t("diversities.identity.sex.options.#{f.object.sex}")
-    dt.govuk-summary-list__value = link_to t('diversities.edit_identify_page'), diversity_identity_path(return_to_review: true)
+    dt.govuk-summary-list__value
+      a href= diversity_identity_path(return_to_review: true)
+        = t('diversities.edit_identify_page')
+        span.govuk-visually-hidden = t('diversities.edit_identify_page_sex')
 
   div.govuk-summary-list__row
     dt.govuk-summary-list__key = t 'diversities.identity.sexual_identity.label'
     dt.govuk-summary-list__value
       - if f.object.sexual_identity
         = t("diversities.identity.sexual_identity.options.#{f.object.sexual_identity}")
-    dt.govuk-summary-list__value = link_to t('diversities.edit_identify_page'), diversity_identity_path(return_to_review: true)
+    dt.govuk-summary-list__value
+      a href= diversity_identity_path(return_to_review: true)
+        = t('diversities.edit_identify_page')
+        span.govuk-visually-hidden = t('diversities.edit_identify_page_sexual_identity')
 
   div.govuk-summary-list__row
     dt.govuk-summary-list__key = t 'diversities.relationship.relationship.label'
@@ -32,14 +38,20 @@ dl.govuk-summary-list
     dt.govuk-summary-list__value
       - if f.object.age_group
         = t("diversities.age_caring.age_group.options.#{f.object.age_group}")
-    dt.govuk-summary-list__value = link_to t('diversities.edit_age_group_page'), diversity_age_caring_path(return_to_review: true)
+    dt.govuk-summary-list__value
+      a href= diversity_age_caring_path(return_to_review: true)
+        = t('diversities.edit_age_group_page')
+        span.govuk-visually-hidden = t('diversities.edit_age_group_page_group_in')
 
   div.govuk-summary-list__row
     dt.govuk-summary-list__key = t 'diversities.age_caring.caring_responsibility.label'
     dt.govuk-summary-list__value
       - if f.object.caring_responsibility
         = t("diversities.age_caring.caring_responsibility.options.#{f.object.caring_responsibility}")
-    dt.govuk-summary-list__value = link_to t('diversities.edit_age_group_page'), diversity_age_caring_path(return_to_review: true)
+    dt.govuk-summary-list__value
+      a href= diversity_age_caring_path(return_to_review: true)
+        = t('diversities.edit_age_group_page')
+        span.govuk-visually-hidden = t('diversities.edit_age_group_page_caring_responsabilities')
 
   div.govuk-summary-list__row
     dt.govuk-summary-list__key = t 'diversities.religion.religion.label'
