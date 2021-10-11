@@ -67,6 +67,14 @@ en:
       return: Return to GOV.UK
       return_title: return to GOV.UK website
     edit: Change
+    edit_claim_type_page: Edit Claim Type answers
+    edit_identify_page: Edit Identify answers
+    edit_relationship_page: Edit Relationship answers
+    edit_age_group_page: Edit Age group answers
+    edit_religion_page: Edit Religion answers
+    edit_ethnicity_page: Edit Ethnicity answers
+    edit_disability_page: Edit Disability answers
+    edit_pregnancy_page: Edit Pregnancy answers
 
 
 

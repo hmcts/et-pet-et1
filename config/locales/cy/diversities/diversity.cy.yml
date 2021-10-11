@@ -32,6 +32,8 @@ cy:
       hint: "Beth yw eich grŵp oedran a'ch cyfrifoldebau gofalu?"
     religion:
       hint: Crefydd
+      religion:
+        label: Crefydd
     ethnicity:
       hint: Ethnigrwydd
       white:
@@ -67,5 +69,13 @@ cy:
       return: Dychwelyd i GOV.UK
       return_title: Dychwelyd i wefan GOV.UK
     edit: Newid
+    edit_claim_type_page: Golygu Math o hawliad atebion
+    edit_identify_page: Golygu Adnabod atebion
+    edit_relationship_page: Golygu Perthynas atebion
+    edit_age_group_page: Golygu grŵp oedran atebion
+    edit_religion_page: Golygu Crefydd atebion
+    edit_ethnicity_page: Golygu Ethnigrwydd atebion
+    edit_disability_page: Golygu Anabledd atebion
+    edit_pregnancy_page: Golygu Beichiogrwydd atebion
 
 
