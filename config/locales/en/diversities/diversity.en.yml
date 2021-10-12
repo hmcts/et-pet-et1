@@ -77,6 +77,11 @@ en:
       conditions: Conditions covered may include, for example, severe depression, dyslexia, epilepsy and arthritis.
       hint: Do you have any physical or mental health conditions or illnesses lasting or expected to last for 12 months or more?
     pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: 'Prefer not to say'
       header: Pregnancy
       hint: Were you pregnant when you were dismissed?
     review:
