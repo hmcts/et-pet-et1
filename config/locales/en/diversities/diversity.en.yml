@@ -49,6 +49,27 @@ en:
       other-ethnic-group:
         label: 'Other'
         data: 'Other ethnic group'
+      ethnicity_subgroup:
+        options:
+          english-welsh-scottish-northern-irish-british: English / Welsh / Scottish / Northern Irish / British
+          irish: Irish
+          gypsy-or-irish-traveller: Gypsy or Irish Traveller
+          any-other-white-background: Any other White background
+          none-of-the-above: None of the above
+          white-and-black-caribbean: White and Black Caribbean
+          white-and-black-african: White and Black African
+          white-and-asian: White and Asian
+          any-other-mixed-multiple-ethnic-background: Any other Mixed / multiple ethnic background
+          indian: Indian
+          pakistani: Pakistani
+          bangladeshi: Bangladeshi
+          chinese: Chinese
+          any-other-asian-background: Any other Asian background
+          african: African
+          caribbean: Caribbean
+          any-other-black-african-caribbean-background: Any other Black / African / Caribbean background
+          arab: Arab
+          any-other-ethnic-group: Any other ethnic group
 
     disability:
       header: Disability
@@ -56,6 +77,11 @@ en:
       conditions: Conditions covered may include, for example, severe depression, dyslexia, epilepsy and arthritis.
       hint: Do you have any physical or mental health conditions or illnesses lasting or expected to last for 12 months or more?
     pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: 'Prefer not to say'
       header: Pregnancy
       hint: Were you pregnant when you were dismissed?
     review:
@@ -67,18 +93,6 @@ en:
       return: Return to GOV.UK
       return_title: return to GOV.UK website
     edit: Change
-    edit_claim_type_page: Edit Claim Type answers
-    edit_identify_page: Edit
-    edit_identify_page_sex: What is your sex?
-    edit_identify_page_sexual_identity: Which of the options below best describes your sexual identity?
-    edit_relationship_page: Edit Relationship answers
-    edit_age_group_page: Edit
-    edit_age_group_page_group_in: Which age group are you in?
-    edit_age_group_page_caring_responsabilities: Do you have any caring responsibilities?
-    edit_religion_page: Edit Religion answers
-    edit_ethnicity_page: Edit Ethnicity answers
-    edit_disability_page: Edit Disability answers
-    edit_pregnancy_page: Edit Pregnancy answers
 
 
 

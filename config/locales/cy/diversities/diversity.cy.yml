@@ -26,6 +26,8 @@ cy:
       hint: Math o hawliad
     identity:
       hint: "Sut ydych chi'n gweld eich hunaniaeth?"
+      sexual_identity:
+        label: "Pa un o'r opsiynau isod sy'n disgrifio orau eich hunaniaeth rywiol?"
     relationship:
       hint: Perthynas
     age_caring:
@@ -51,6 +53,27 @@ cy:
       other-ethnic-group:
         label: 'Arall'
         data: 'Grŵp ethnig arall'
+      ethnicity_subgroup:
+        options:
+          english-welsh-scottish-northern-irish-british: Seisnig / Cymreig / Albanaidd / Gwyddelig o Ogledd Iwerddon / Prydeinig
+          irish: Gwyddelig
+          gypsy-or-irish-traveller: Sipsiwn neu Deithiwr Gwyddelig
+          any-other-white-background: Unrhyw gefndir Gwyn arall
+          none-of-the-above: Dim un o'r uchod
+          white-and-black-caribbean: Gwyn a Du Caribïaidd
+          white-and-black-african: Gwyn a Du Affricanaidd
+          white-and-asian: Gwyn ac Asiaidd
+          any-other-mixed-multiple-ethnic-background: Unrhyw gefndir ethnig cymysg / aml-ethnig arall
+          indian: Indiaidd
+          pakistani: Pacistanaidd
+          bangladeshi: Bangladesiaidd
+          chinese: Tsieniaidd
+          any-other-asian-background: Unrhyw gefndir Asiaidd arall
+          african: Affricanaidd
+          caribbean: Caribïaidd
+          any-other-black-african-caribbean-background: Unrhyw gefndir Du / Affricanaidd / Caribïaidd arall
+          arab: Arabaidd
+          any-other-ethnic-group: Unrhyw grŵp ethnig arall
 
     disability:
       header: Anabledd
@@ -58,6 +81,11 @@ cy:
       conditions: "Gall y cyflyrau a gwmpesir gynnwys, er enghraifft, iselder ysbryd difrifol, dyslecsia, epilepsi ac arthritis."
       hint: "A oes gennych unrhyw gyflyrau neu anhwylderau iechyd meddwl neu iechyd corfforol sy'n parhau neu'n debygol o barhau am 12 mis neu ragor?"
     pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud
       header: Beichiogrwydd
       hint: "A oeddech chi'n feichiog pan gawsoch eich diswyddo?"
     review:
@@ -69,17 +97,5 @@ cy:
       return: Dychwelyd i GOV.UK
       return_title: Dychwelyd i wefan GOV.UK
     edit: Newid
-    edit_claim_type_page: Golygu Math o hawliad atebion
-    edit_identify_page: Golygu
-    edit_identify_page_sex: Beth yw eich rhyw?
-    edit_identify_page_sexual_identity: Pa un o'r opsiynau isod sy'n disgrifio'ch hunaniaeth rywiol orau?
-    edit_relationship_page: Golygu Perthynas atebion
-    edit_age_group_page: Golygu
-    edit_age_group_page_group_in: Ym mha grŵp oedran ydych chi?
-    edit_age_group_page_caring_responsabilities: A oes gennych chi unrhyw gyfrifoldebau gofalu?
-    edit_religion_page: Golygu Crefydd atebion
-    edit_ethnicity_page: Golygu Ethnigrwydd atebion
-    edit_disability_page: Golygu Anabledd atebion
-    edit_pregnancy_page: Golygu Beichiogrwydd atebion
 
 
