@@ -1,2 +1,2 @@
-= f.collection_radio_buttons :pregnancy, Diversities::PregnancyForm::PREGNANCY.map { |pregnancy| [pregnancy, t("diversities.diversities_pregnancy.pregnancy.options.#{pregnancy}")]}, :first, :last, label: {text: false}
+= f.collection_radio_buttons :pregnancy, Diversities::PregnancyForm::PREGNANCY.map { |pregnancy| [pregnancy, t("diversities.diversities_pregnancy.pregnancy.options.#{pregnancy}")]}, :first, :last, label: {text: t('.header')}
 
