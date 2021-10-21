@@ -17,18 +17,25 @@ class EtDateType < ActiveRecord::Type::Date
 
   attr_reader :omit_day, :allow_2_digit_year
 
-  def new_date(year, mon, mday)
+  def new_date(year, mon, mday = nil)
+    mday ||= 1 if omit_day
     if allow_2_digit_year && year.present? && year < 100
       year = 1900 + year
     end
-    super(year, mon, mday)
+    Date.new(year, mon, mday)
+  rescue ::Date::Error, TypeError
+    nil
   end
 
   def value_from_multiparameter_assignment(value)
-    defaults = {}
-    defaults[3] = 1 if omit_day
-    super defaults.merge(value)
-  rescue ArgumentError
-    value
+    return unless value[1] && value[2] && (value[3] || omit_day)
+    values = value.sort.map!(&:last).map(&:to_i)
+    new_date(*values)
+  end
+
+  def correct_year(year)
+    if year&.to_i < 100
+      year.to_i + 1900
+    end
   end
 end

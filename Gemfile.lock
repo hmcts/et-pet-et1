@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: a136d86f54d34365de384adeeea4074ddec63ddc
-  tag: v3.0.0
+  revision: 6da7539d61d30d1a1afc849358a4070af4e5dbbc
+  tag: v3.0.3
   specs:
-    et_gds_design_system (3.0.0)
+    et_gds_design_system (3.0.3)
       govuk_design_system_formbuilder (~> 2.1)
       rails (>= 6.0)
       webpacker (~> 5.0)
@@ -267,7 +267,7 @@ GEM
       roda (~> 3.48)
       thor (~> 1.1)
       tilt (~> 2.0, >= 2.0.10)
-    govuk_design_system_formbuilder (2.7.4)
+    govuk_design_system_formbuilder (2.7.5)
       actionview (>= 6.0)
       activemodel (>= 6.0)
       activesupport (>= 6.0)

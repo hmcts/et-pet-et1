@@ -119,7 +119,6 @@ module Refunds
                     'applicant_date_of_birth(1i)' => '1985' }
           applicant_form.assign_attributes(value)
 
-          applicant_form.applicant_date_of_birth = { 3 => '1', 2 => '3', 1 => '1980' }
           applicant_form.valid?
           expect(applicant_form.errors).not_to include :applicant_date_of_birth
         end

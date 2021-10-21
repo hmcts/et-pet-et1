@@ -12,26 +12,26 @@ RSpec.describe EmploymentForm, type: :form do
   describe 'validations' do
     shared_examples 'common date examples' do |field:|
       it 'rejects a 2 digit year' do
-        employment_form.send(:"#{field}=", {day: '1', month: '1', year: '16'})
+        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => '16'}
         employment_form.valid?
         expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
 
       end
 
       it 'rejects a missing year' do
-        employment_form.send(:"#{field}=", {day: '1', month: '1', year: ''})
+        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => ''}
         employment_form.valid?
         expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
       end
 
       it 'rejects a missing month' do
-        employment_form.send(:"#{field}=", {day: '1', month: '', year: '2010'})
+        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '', "#{field}(1i)" => '2010'}
         employment_form.valid?
         expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
       end
 
       it 'rejects a missing day' do
-        employment_form.send(:"#{field}=", {day: '', month: '1', year: '2010'})
+        employment_form.attributes={"#{field}(3i)" => '', "#{field}(2i)" => '1', "#{field}(1i)" => '2010'}
         employment_form.valid?
         expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
       end

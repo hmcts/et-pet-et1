@@ -8,7 +8,7 @@ module Refunds
     it_behaves_like 'a Form', {
       et_issue_fee: '12',
       et_issue_fee_payment_method: 'card',
-      et_issue_fee_payment_date: { 3 => '1', 2 => '1', 1 => '2016' }
+      et_issue_fee_payment_date: { 3 => 1, 2 => 1, 1 => 2016 }
     }, Session
 
     describe 'validation' do
@@ -248,7 +248,7 @@ module Refunds
         end
 
         it 'converts a full date from a hash' do
-          form.send(writer_method, 2 => '12', 1 => '2016', 3 => '12')
+          form.send(writer_method, 2 => 12, 1 => 2016, 3 => 12)
           expect(form.send(reader_method)).to eql Date.parse('12 December 2016')
         end
 
@@ -258,8 +258,8 @@ module Refunds
         end
 
         it 'leaves an invalid date from a hash as is' do
-          form.send(writer_method, 2 => '13', 1 => '2016')
-          expect(form.send(reader_method)).to eql(1 => '2016', 2 => '13'), "Expected invalid month to have converted to nil for '#{writer_method}'"
+          form.send(writer_method, 2 => 13, 1 => 2016)
+          expect(form.send(:"#{reader_method}_before_type_cast")).to eql(1 => 2016, 2 => 13), "Expected invalid month to have converted to nil for '#{writer_method}'"
         end
 
         it 'converts a partial date from an action controller params instance' do
@@ -288,7 +288,7 @@ module Refunds
           value = ActionController::Parameters.new("#{reader_method}(2i)" => '13',
                                                    "#{reader_method}(1i)" => '2016').permit!
           form.assign_attributes(value)
-          expect(form.send(reader_method)).to eql 2 => 13, 1 => 2016
+          expect(form.send(:"#{reader_method}_before_type_cast")).to eql 2 => 13, 1 => 2016
         end
 
         it 'does not convert nil' do
