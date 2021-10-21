@@ -37,7 +37,7 @@ module Refunds
 
     validates :et_issue_fee_payment_date,
       presence: true,
-      date: true,
+      date: { omit_day: true },
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: -> { et_issue_fee.try(:positive?) && !et_issue_fee_payment_date_unknown? }
 
@@ -48,7 +48,7 @@ module Refunds
 
     validates :et_hearing_fee_payment_date,
       presence: true,
-      date: true,
+      date: { omit_day: true },
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: -> { et_hearing_fee.try(:positive?) && !et_hearing_fee_payment_date_unknown? }
 
@@ -59,7 +59,7 @@ module Refunds
 
     validates :et_reconsideration_fee_payment_date,
       presence: true,
-      date: true,
+      date: { omit_day: true },
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: -> { et_reconsideration_fee.try(:positive?) && !et_reconsideration_fee_payment_date_unknown? }
 
@@ -70,7 +70,7 @@ module Refunds
 
     validates :eat_issue_fee_payment_date,
       presence: true,
-      date: true,
+      date: { omit_day: true },
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: -> { eat_issue_fee.try(:positive?) && !eat_issue_fee_payment_date_unknown? }
 
@@ -81,7 +81,7 @@ module Refunds
 
     validates :eat_hearing_fee_payment_date,
       presence: true,
-      date: true,
+      date: { omit_day: true },
       date_range: { range: VALID_PAYMENT_DATE_RANGE, format: '%B %Y' },
       if: -> { eat_hearing_fee.try(:positive?) && !eat_hearing_fee_payment_date_unknown? }
 
