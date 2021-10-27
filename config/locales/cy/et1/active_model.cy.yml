@@ -1,0 +1,252 @@
+cy:
+  activemodel:
+    errors:
+      attributes:
+      messages:
+        too_long: |
+          Ni ddylai'r wybodaeth yr ydych wedi'i rhoi yma fod dros %{count} o nodau
+      invalid_ccd_address: :'activemodel.errors.messages.too_long'
+      models:
+        user_session:
+          attributes:
+            password:
+              blank: Rhowch y gair cofiadwy y bu i chi ei greu ar ddechrau eich hawliad
+              invalid: Nid yw'r gair cofiadwy yr ydych wedi'i roi wedi cael ei adnabod
+            reference:
+              blank: "Rhowch eich rhif hawliad"
+              invalid: Rydych wedi rhoi rhif hawliad annilys
+        application_number:
+          attributes:
+            password:
+              blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
+            email_address:
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+        additional_claimants_form/additional_claimant:
+          attributes:
+            title:
+              inclusion: "Rhowch deitl yr hawlydd ychwanegol"
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
+            first_name:
+              blank: Rhowch enw cyntaf yr hawlydd ychwanegol
+            last_name:
+              blank: "Rhowch enw olaf yr hawlydd ychwanegol"
+            address_building:
+              blank: Rhowch enw neu rif adeilad cyfeiriad yr hawlydd ychwanegol
+            address_street:
+              blank: Rhowch stryd cyfeiriad yr hawlydd ychwanegol
+            address_locality:
+              blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd ychwanegol
+            address_county:
+              blank: Rhowch sir cyfeiriad yr hawlydd ychwanegol
+            address_post_code:
+              blank: "Rhowch god post yr hawlydd ychwanegol"
+              invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
+            date_of_birth:
+              invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
+        additional_claimant:
+          attributes:
+            title:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            first_name:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            last_name:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
+        additional_claimants_upload:
+          attributes:
+            additional_claimants_csv:
+              blank: Mae'n rhaid i chi ddarparu ffeil CSV er mwyn parhau
+        claim:
+          attributes:
+            secondary_respondents:
+              too_many: "Ni chewch fod â mwy na %{max} o atebwyr ychwanegol"
+        claim_type:
+          attributes:
+            blank: "Rhaid i chi ddewis o leiaf un o'r mathau isod o hawliad."
+        claim_details:
+          attributes:
+            claim_details:
+              blank: "Rhaid i chi roi'r manylion ynghylch eich hawliad yma. Os ydych chi eisiau uwchlwytho datganiad i gefnogi eich hawliad mewn dogfen ar wahân, teipiwch 'gweler yr atodiad' yn y blwch"
+            other_known_claimant_names:
+              blank: Rhestrwch enwau'r unigolion eraill sy'n gwneud hawliad tebyg
+        claim_outcome:
+          attributes:
+            other_outcome:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        claimant:
+          attributes:
+            date_of_birth:
+              invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
+              too_young: Rhaid i hawlydd fod yn 16 oed neu drosodd
+            title:
+              blank: Dewiswch deitl o'r rhestr
+              invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
+            gender:
+              blank: "Dewiswch rywedd yr hawlydd, neu dewiswch 'mae'n well gen i beidio dweud'"
+            first_name:
+              blank: Rhowch enw cyntaf yr hawlydd
+            last_name:
+              blank: Rhowch enw olaf yr hawlydd
+            special_needs:
+              blank: Dywedwch p'un a ydych angen cymorth yn y gwrandawiad tribiwnlys
+            contact_preference:
+              blank: Dywedwch p'un a hoffech i ohebiaeth gael ei hanfon at yr hawlydd drwy'r post neu e-bost
+              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
+            allow_video_attendance:
+              inclusion: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
+            address_building:
+              blank: Rhowch rif neu enw adeilad cyfeiriad yr hawlydd
+            address_street:
+              blank: Rhowch stryd cyfeiriad yr hawlydd
+            address_locality:
+              blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd
+            address_county:
+              blank: Rhowch sir cyfeiriad yr hawlydd
+            address_post_code:
+              blank: Rhowch god post yr hawlydd
+              invalid: "Rhowch god post DU dilys. Os yw'r hawlydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.claimant.attributes.address_post_code.invalid'
+            email_address:
+              blank: Rhowch gyfeiriad e-bost yr hawlydd
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+              invalid_ccd_email: :'activemodel.errors.models.claimant.attributes.email_address.invalid'
+            address_telephone_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+        employment:
+          attributes:
+            start_date:
+              invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+            end_date:
+              invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+              end_date_before_start_date: Rhaid nodi dyddiad sydd ar ôl dyddiad cychwyn y gyflogaeth
+            notice_period_end_date:
+              invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+            notice_pay_period_type:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            new_job_start_date:
+              invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+            gross_pay:
+              not_a_number: Rhaid rhoi rhif
+            gross_pay_period_type:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            net_pay:
+              not_a_number: Rhaid rhoi rhif
+            net_pay_period_type:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            current_situation:
+              blank: "Dewiswch un o’r opsiynau os gwelwch yn dda"
+            new_job_gross_pay:
+              not_a_number: Rhaid rhoi rhif
+            new_job_gross_pay_frequency:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        password:
+          attributes:
+            password:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+        representative:
+          attributes:
+            type:
+              blank: Dewiswch pa fath o gynrychiolydd sydd gennych
+            name:
+              blank: Rhowch enw eich cynrychiolydd
+            address_country:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            contact_preference:
+              blank: Nodwch a hoffech i ohebiaeth gael ei hanfon at yr hawlydd trwy'r post, e-bost neu rif DX
+            address_building:
+              blank: Rhowch enw neu rif adeilad cyfeiriad eich cynrychiolydd
+            address_street:
+              blank: Rhowch stryd cyfeiriad eich cynrychiolydd
+            address_locality:
+              blank: Rhowch dref neu ddinas cyfeiriad eich cynrychiolydd
+            address_county:
+              blank: Rhowch sir cyfeiriad eich cynrychiolydd
+            address_post_code:
+              blank: Rhowch god post eich cynrychiolydd
+              invalid: "Rhowch god post dilys. Os yw eich cynrychiolydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.representative.attributes.address_post_code.invalid'
+            email_address:
+              blank: Rhowch gyfeiriad e-bost eich cynrychiolydd
+              invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
+              invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
+            address_telephone_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+        respondent:
+          attributes:
+            name:
+              blank: Nodwch enw'r unigolyn neu sefydliad yr ydych yn gwneud yr hawliad yn ei erbyn
+            has_acas_number:
+              inclusion: Nodwch a oes gennych rif Acas
+            no_acas_number_reason:
+              blank: "Dewiswch reswm o'r rhestr."
+              inclusion: ""
+              invalid_cdd_acas_exemption_reason: :'activemodel.errors.models.respondent.attributes.no_acas_number_reason.blank'
+            acas_early_conciliation_certificate_number:
+              blank: Nodwch eich rhif cymodi cynnar Acas. Atebwch 'na' i 'Oes gennych chi rif ACAS?' os nad oes gennych un
+              invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys.
+            address_country:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            contact_preference:
+              blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+            address_building:
+              blank: Rhowch enw neu rif adeilad cyfeiriad yr atebydd
+            address_street:
+              blank: Rhowch stryd cyfeiriad yr atebydd
+            address_locality:
+              blank: Rhowch dref neu ddinas cyfeiriad yr atebydd
+            address_county:
+              blank: Rhowch sir cyfeiriad yr atebydd
+            address_post_code:
+              blank: Rhowch god post yr atebydd
+              invalid: "Rhowch god post DU dilys. Os yw'r atebydd yn byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
+            work_address_building:
+              blank: Rhowch enw neu rif adeilad eich cyfeiriad gwaith
+            work_address_street:
+              blank: Rhowch stryd eich cyfeiriad gwaith
+            work_address_locality:
+              blank: Rhowch dref neu ddinas eich cyfeiriad gwaith
+            work_address_county:
+              blank: Rhowch sir eich cyfeiriad gwaith
+            work_address_post_code:
+              blank: Rhowch god post eich cyfeiriad gwaith
+              invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.work_address_post_code.invalid'
+            work_address_telephone_number:
+              invalid_ccd_phone: :'activemodel.errors.models.respondent.attributes.address_telephone_number.invalid_ccd_phone'
+            address_telephone_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+            mobile_number:
+              invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+        additional_respondents_form/additional_respondent:
+          attributes:
+            title:
+              blank: Dewiswch deitl o'r rhestr
+            has_acas_number:
+              inclusion: :"activemodel.errors.models.respondent.attributes.has_acas_number.inclusion"
+            name:
+              blank: Nodwch enw'r unigolyn neu sefydliad ychwanegol yr ydych yn gwneud yr hawliad yn ei erbyn
+            acas_early_conciliation_certificate_number:
+              blank: Nodwch eich rhif cymodi cynnar Acas. Dewiswch 'Nid oes gen i rif Acas' os nad oes gennych un
+              invalid: Rydych wedi darparu rhif cymodi cynnar Acas annilys
+            no_acas_number_reason:
+              blank: "Dewiswch reswm o'r rhestr."
+              inclusion: ""
+            address_building:
+              blank: Rhowch enw neu rif adeilad cyfeiriad yr atebydd ychwanegol
+            address_street:
+              blank: Rhowch stryd cyfeiriad yr atebydd ychwanegol
+            address_locality:
+              blank: Rhowch dref neu ddinas cyfeiriad yr atebydd ychwanegol
+            address_county:
+              blank: Rhowch sir cyfeiriad yr atebydd ychwanegol
+            address_post_code:
+              blank: Rhowch god post yr atebydd ychwanegol
+              invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
+        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'

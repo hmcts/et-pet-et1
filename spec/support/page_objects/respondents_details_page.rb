@@ -6,29 +6,31 @@ module ET1
 
       # Fills in the respondent's details
       # @param [ET1::Test::RespondentUi] respondent The respondent
-      def fill_in_respondent(respondent)
+      def fill_in_all(respondent:)
         fill_in_about_the_respondent_group(respondent)
         fill_in_your_work_address_group(respondent)
         fill_in_acas_number(respondent)
         fill_in_dont_have_acas_number(respondent)
+        self
       end
 
       # Fills in the acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_acas_number(respondent)
-        return if respondent.dont_have_acas_number
-
-        dont_have_acas_number_question.set(false)
-        acas_number_question.set(respondent.acas_number)
+        have_acas_number_question.set(respondent.has_acas_number)
+        if respondent.has_acas_number.to_s.split('.').last == 'yes'
+          acas_number_question.set(respondent.acas_number)
+        end
       end
 
       # Fills in the section where you dont have an acas number
       # @param [ET1::Test::RespondentUi] respondent
       def fill_in_dont_have_acas_number(respondent)
-        return unless respondent.dont_have_acas_number
+        return self if respondent.has_acas_number.to_s.split('.').last == 'yes'
 
-        dont_have_acas_number_question.set(true)
+        have_acas_number_question.set(respondent.has_acas_number)
         dont_have_acas_number_reason.set(respondent.dont_have_acas_number_reason)
+        self
       end
 
       # @param [ET1::Test::RespondentUi] respondent
@@ -55,13 +57,22 @@ module ET1
           s.work_town_question.set(respondent.work_address_town)
           s.work_county_question.set(respondent.work_address_county)
           s.work_post_code_question.set(respondent.work_address_post_code)
-          s.work_phone_number_question.set(respondent.work_address_phone_number)
+          s.work_address_phone_number_question.set(respondent.work_address_phone_number)
         end
       end
 
+      def assert_correct_hints(respondent)
+        expect(page).to have_text 'Please note: Incorrectly claiming an exemption may lead to your claim being rejected. If in doubt, please contact ACAS.'
+        if respondent.dont_have_acas_number_reason.to_s.split('.').last == 'interim_relief'
+          expect(self).to have_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        else
+          expect(self).to have_no_text 'Please note: This is a rare type of claim. The fact that you are making a claim of unfair dismissal does not mean you are necessarily making a claim for interim relief.'
+        end
+        self
+      end
       # Clicks the save and continue button
       def save_and_continue
-        save_and_continue_element.click
+        save_and_continue_button.submit
       end
 
       # @param [Hash] error_messages A list of error messages keyed by the question name (ignoring groups)
@@ -80,28 +91,89 @@ module ET1
 
       private
 
-      section :about_the_respondent_group, :fieldset_translated, 'respondents_details.about_the_respondent_group' do
-        section :name_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.name.label'
-        section :building_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.building.label'
-        section :street_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.street.label'
-        section :town_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.town.label'
-        section :county_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.county.label'
-        section :post_code_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.post_code.label'
-        section :phone_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.phone_number.label'
+        # @!method about_the_respondent_group
+          #   A govuk fieldset component wrapping the input, label, hint etc..
+          #   @return [EtTestHelpers::Components::GovUKFieldset] The site prism section
+      section :about_the_respondent_group, :govuk_fieldset, :'respondents_details.about_the_respondent_group' do
+        include EtTestHelpers::Section
+        # @!method name_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :name_question, :'respondents_details.name'
+        # @!method building_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :building_question, :'respondents_details.building'
+        # @!method street_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :street_question, :'respondents_details.street'
+        # @!method town_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :town_question, :'respondents_details.town'
+        # @!method county_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :county_question, :'respondents_details.county'
+        # @!method post_code_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :post_code_question, :'respondents_details.post_code'
+        # @!method phone_number_question
+        #   A govuk phone field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
+        gds_phone_input :phone_number_question, :'respondents_details.phone_number'
       end
-      section :your_work_address_group, :fieldset_translated, 'respondents_details.your_work_address_group' do
-        section :worked_at_same_address_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'respondents_details.worked_at_same_address.label'
-        section :work_building_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_building.label'
-        section :work_street_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_street.label'
-        section :work_town_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_town.label'
-        section :work_county_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_county.label'
-        section :work_post_code_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_post_code.label'
-        section :work_address_phone_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'respondents_details.work_address_phone_number.label'
+      section :your_work_address_group, :govuk_fieldset, :'respondents_details.your_work_address_group' do
+        include EtTestHelpers::Section
+        # @!method worked_at_same_address_question
+        #   A govuk radio button component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+        gds_radios :worked_at_same_address_question, :'respondents_details.worked_at_same_address'
+
+        # @!method work_building_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :work_building_question, :'respondents_details.work_building'
+        # @!method work_street_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :work_street_question, :'respondents_details.work_street'
+        # @!method work_town_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :work_town_question, :'respondents_details.work_town'
+        # @!method work_county_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :work_county_question, :'respondents_details.work_county'
+        # @!method work_post_code_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :work_post_code_question, :'respondents_details.work_post_code'
+        # @!method work_address_phone_number_question
+        #   A govuk phone field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
+        gds_phone_input :work_address_phone_number_question, :'respondents_details.work_address_phone_number'
       end
 
-      section :dont_have_acas_number_question, ::ET1::Test::CheckboxQuestionSection, :checkbox_question_labelled_translated, 'respondents_details.dont_have_acas_number.label'
-      section :acas_number_question, ::ET1::Test::TextQuestionSection, :question_group_labelled_translated, 'respondents_details.acas_number.label'
-      element :save_and_continue_element, :button_translated, 'respondents_details.save_and_continue'
+      # @!method have_acas_number_question
+      #   A govuk radio button component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+      gds_radios :have_acas_number_question, :'respondents_details.have_acas_number'
+      # @!method acas_number_question
+      #   A govuk text field component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+      gds_text_input :acas_number_question, :'respondents_details.acas_number'
+      # @!method save_and_continue_button
+      #   A govuk submit button component...
+      #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
+      gds_submit_button :save_and_continue_button, :'respondents_details.save_and_continue'
+      # @!method dont_have_acas_number_reason
+      #   A govuk radio button component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+      gds_radios :dont_have_acas_number_reason, :'respondents_details.dont_have_acas_number_reason'
     end
   end
 end

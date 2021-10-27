@@ -1,0 +1,50 @@
+cy:
+  diversities:
+    ethnicity:
+      ethnicity:
+        label: "Beth yw eich grŵp ethnig?"
+        options:
+          white: Gwyn
+          mixed-multiple-ethnic-groups: Cymysg / grwpiau aml-ethnig
+          asian-asian-british: Asiaidd / Asiaidd Prydeinig
+          black-african-caribbean-black-british: Du / Affricanaidd / Caribïaidd / Du Prydeinig
+          other-ethnic-group: Grŵp ethnig arall
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      ethnicity_subgroup_white:
+        label: "Beth yw eich ethnig?"
+        options:
+          english-welsh-scottish-northern-irish-british: Seisnig / Cymreig / Albanaidd / Gwyddelig o Ogledd Iwerddon / Prydeinig
+          irish: Gwyddelig
+          gypsy-or-irish-traveller: Sipsiwn neu Deithiwr Gwyddelig
+          any-other-white-background: Unrhyw gefndir Gwyn arall
+          none-of-the-above: Dim un o'r uchod
+      ethnicity_subgroup_mixed:
+        label: "Beth yw eich ethnig?"
+        options:
+          white-and-black-caribbean: Gwyn a Du Caribïaidd
+          white-and-black-african: Gwyn a Du Affricanaidd
+          white-and-asian: Gwyn ac Asiaidd
+          any-other-mixed-multiple-ethnic-background: Unrhyw gefndir ethnig cymysg / aml-ethnig arall
+          none-of-the-above: Dim un o'r uchod
+      ethnicity_subgroup_asian:
+        label: "Beth yw eich ethnig?"
+        options:
+          indian: Indiaidd
+          pakistani: Pacistanaidd
+          bangladeshi: Bangladesiaidd
+          chinese: Tsieniaidd
+          any-other-asian-background: Unrhyw gefndir Asiaidd arall
+          none-of-the-above: Dim un o'r uchod
+      ethnicity_subgroup_black:
+        label: "Beth yw eich ethnig?"
+        options:
+          african: Affricanaidd
+          caribbean: Caribïaidd
+          any-other-black-african-caribbean-background: Unrhyw gefndir Du / Affricanaidd / Caribïaidd arall
+          none-of-the-above: Dim un o'r uchod
+      ethnicity_subgroup_other:
+        label: "Beth yw eich ethnig?"
+        options:
+          arab: Arabaidd
+          any-other-ethnic-group: Unrhyw grŵp ethnig arall
+          none-of-the-above: Dim un o'r uchod

@@ -11,21 +11,19 @@
         p.detail= t('shared.reference')
         span.number= claim.reference
 
-    = simple_form_for user_session, url: timeout_session_path, method: :delete do |f|
-      = f.error_notification
+    = form_for user_session, url: timeout_session_path, method: :delete, builder: EtGdsDesignSystem.form_builder_class do |f|
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
 
       .fieldset
         p = t('.subheader')
 
         p
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button button-return'}
-
-          = f.input :email_address
-
+          = f.text_field :email_address, optional: true
 
         p.print
           = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
 
-        = f.button :submit, value: t('.submit')
+        = f.submit t('.submit')
 
   = render partial: 'shared/aside'

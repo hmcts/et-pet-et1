@@ -2,10 +2,11 @@ require_relative './base_page'
 module ET1
   module Test
     class ApplyPage < BasePage
-      set_url "/en/apply"
+      set_url "/apply"
 
       # Starts a new claim by clicking on 'Start a claim'
       def start_a_claim
+        sleep 0.1 # @TODO Unsure why this is required
         start_a_claim_element.click
         ::ET1::Test::SavingYourClaimPage.new
       end

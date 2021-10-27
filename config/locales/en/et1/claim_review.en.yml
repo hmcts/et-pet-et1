@@ -1,0 +1,142 @@
+en:
+  claim_reviews:
+    show:
+      header: Check your claim
+      edit: Edit
+      edit_claimant_details_page: Edit Claimant’s details answers
+      edit_group_claim_page: Edit Group claim answers
+      edit_representative_details_page: Edit Representative’s details answers
+      edit_respondent_page: Edit Respondent’s details answers
+      edit_additional_respondent_page: Edit Additional respondents answers
+      edit_employment_details_page: Edit Employment details answers
+      edit_claim_type_page: Edit Claim type answers
+      edit_claim_details_page: Edit Claim details answers
+      edit_claim_outcome_page: Edit Claim outcome answers
+      edit_additional_informations_page: Edit Additional information answers
+      info: Check all the information below is correct before submitting your claim at the bottom of the page.
+      incomplete_claim_summary: Your claim is incomplete.
+      incomplete_claim_message: Go back through the form and ensure all required sections are complete
+      print_link: |
+        <a class="print-page" href="javascript:window.print();">Print this page</a> for your records
+
+      sections:
+        claimant: Claimant’s details
+        additional_claimants: Group claim
+        additional_claimants_upload: :"claim_reviews.show.sections.additional_claimants"
+        representative: Representative’s details
+        respondent: Respondent’s details
+        additional_respondents: Additional respondents
+        employment: Employment details
+        claim_type: Claim type
+        claim_details: Claim details
+        claim_outcome: Claim outcome
+        additional_information: Additional information
+
+    collection:
+      additional_claimants:
+        sub_header: "Claimant %{index}"
+      additional_respondents:
+        sub_header: "Respondent %{index}"
+
+    confirmation:
+      fee_paid: Fee is paid
+
+    item:
+      not_entered: Not entered
+
+      claimant:
+        full_name: Full name
+        gender: Gender
+        date_of_birth: Date of birth
+        address: Address
+        telephone_number: Phone
+        mobile_number: Mobile
+        email_address: Email
+        contact_preference: Preferred contact
+        allow_video_attendance: Would you be able to take part in a hearing by video?
+        is_disabled: Assistance required at the tribunal?
+        has_representative: Representative
+
+      additional_claimants:
+        group_claim: Group claim
+        full_name: Full name
+        date_of_birth: Date of birth
+        address: Address
+
+      additional_claimants_upload:
+        group_claim: :"claim_reviews.item.additional_claimants.group_claim"
+        file_name: CSV File Name
+        number_claimants: Number Of Additional Claimants
+
+      representative:
+        has_representative: Representative
+        type: Type of representative
+        organisation_name: Organisation name
+        name: Full name
+        address: Address
+        telephone_number: Phone
+        mobile_number: Mobile
+        email_address: Email
+        dx_number: DX number
+        contact_preference: Preferred contact
+
+      respondent:
+        name: Name
+        address: Address
+        telephone_number: Phone
+        employed_by_employer: Employed by employer
+        acas_early_conciliation_certificate_number: Acas number
+        work_address: Work address
+
+      additional_respondents:
+        additional_respondents: Additional respondents
+        name: Name
+        address: Address
+        acas_early_conciliation_certificate_number: Acas number
+
+      employment:
+        job_title: Job
+        start_date: Start date
+        average_hours_worked_per_week: Average weekly hours worked
+        gross_pay: Pay before tax
+        net_pay: Pay after tax
+        enrolled_in_pension_scheme: Pension scheme
+        benefit_details: Benefit details
+        current_situation: Current situation
+        end_date: End date
+        worked_notice_period_or_paid_in_lieu: Notice period
+        notice_period_end_date: Notice period end date
+        notice_period_pay: Notice pay
+        new_job: Another job
+        new_job_gross_pay: Pay before tax at new job
+        new_job_start_date: New job start date
+        pay_period_weekly: per week
+        pay_period_monthly: per month
+        was_employed: Employed by employer
+
+      claim_type:
+        types: Type(s)
+        is_whistleblowing: Whistleblowing
+        send_claim_to_whistleblowing_entity: Send to whistleblowing body
+
+      claim_details:
+        claim_details: Claim details
+        other_known_claimant_names: Other known claimants
+        miscellaneous_information: Other information
+        attached_document: Attached documents
+
+      claim_outcome:
+        desired_outcomes: What outcome?
+        other_outcome: Outcome details
+
+      additional_information:
+        miscellaneous_information: Important details
+
+    email_addresses:
+      submit_warning_header: Submit your claim
+      submit_warning: This is the last opportunity to change the details of your claim online. Check all the information above is correct.
+      confirmation: Email confirmation
+      submit: Submit claim
+      email_addresses:
+        label: "A copy of the completed claim will be sent to:"
+      add_email_address: Add email address

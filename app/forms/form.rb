@@ -4,12 +4,55 @@ class Form < ApplicationRecord
                        schema: 'config/nulldb_schema.rb'
   attr_reader :resource
   before_validation :clean_strings
+  class_attribute :__transient_attributes, default: []
 
   def initialize(resource, **attrs)
     self.resource = resource
     super(attrs)
     reload
     yield self if block_given?
+  end
+
+  def self.transient_attributes(*attrs)
+    __transient_attributes.concat attrs unless attrs.empty?
+    __transient_attributes
+  end
+
+  def transient_attributes
+    self.class.transient_attributes
+  end
+
+  def self.has_many_forms(collection_name, class_name: "#{collection_name.to_s.singularize.camelize}Form")
+    class_eval do
+      before_save :"update_#{collection_name}"
+      after_save :"#{collection_name}_after_save"
+      define_method :"#{collection_name}_proxy" do
+        existing = instance_variable_get("@#{collection_name}_proxy")
+        return existing unless existing.nil?
+
+        instance_variable_set("@#{collection_name}_proxy", FormCollectionProxy.new(class_name, collection_name, self))
+      end
+
+      define_method :"#{collection_name}" do
+        send("#{collection_name}_proxy")
+      end
+
+      define_method :"#{collection_name}_attributes=" do |attrs|
+        send("#{collection_name}_proxy").collection_attributes = attrs
+      end
+
+      define_method :"update_#{collection_name}" do
+        proxy = send :"#{collection_name}"
+        target.attributes = {
+          "#{collection_name}_attributes": proxy.collection_attributes
+        }
+      end
+
+      define_method :"#{collection_name}_after_save" do
+        proxy = send :"#{collection_name}"
+        proxy.after_save
+      end
+    end
   end
 
   # Form Methods
@@ -73,7 +116,7 @@ class Form < ApplicationRecord
   # bypassing strong parameters
   # @TODO Work out how to remove this
   def assign_attributes(attrs)
-    attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
+    #attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
     super(attrs)
   end
 
@@ -90,7 +133,7 @@ class Form < ApplicationRecord
     if valid?
       run_callbacks :save do
         ActiveRecord::Base.transaction do
-          target.update attributes unless target.frozen?
+          target.update attributes.except(*transient_attributes.map(&:to_s)) unless target.frozen?
           resource.save
         end
       end
@@ -103,7 +146,11 @@ class Form < ApplicationRecord
 
   # Loads the form object with values from the target
   def reload
-    attributes.each_key { |key| send "#{key}=", target.send(key) }
+    return if target.nil?
+
+    attributes.each_key do |key|
+      send "#{key}=", target.try(key)
+    end
   end
 
   private

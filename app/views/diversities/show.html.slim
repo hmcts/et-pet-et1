@@ -1,23 +1,18 @@
 - content_for(:page_title, diversity_title)
 
 .main-header role="banner"
-  h1.page-trail
-    span
-      = diversity_header
+  h1 class="govuk-heading-xl govuk-!-margin-top-3" = diversity_header
 
-    - if diversity_subheader
-      p.page-subheader
-        = diversity_subheader
 .main-section
   .main-content class="diversities diversities_#{current_step}"
-    = simple_form_for resource, url: request.path, multipart: true do |f|
+    = form_for resource, url: request.path, multipart: true, builder: EtGdsDesignSystem.form_builder_class do |f|
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
-      = f.error_notification
+      = f.govuk_error_summary(t 'shared.error_notification.default_message')
       .form-fields
         = render current_step, f: f
       .form-actions
         - if content_for?(:submit_button)
             = content_for(:submit_button)
         - else
-            = f.button :submit
+          = f.submit t('shared.continue_button')

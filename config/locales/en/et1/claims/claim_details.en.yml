@@ -1,0 +1,28 @@
+en:
+  claims:
+    claim_details:
+      header: Claim details
+      describe: Describe your claim
+      claim_details_upload: Or upload it as a separate document
+      claim_details_html: |
+        Write your claim statement below.
+        Include the background, dates and people involved.
+        <a class="govuk-link" href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
+      similar_claims: Similar claims
+      'true': 'Yes'
+      'false': 'No'
+      other_known_claimants:
+        label: Do you know of any other claimants (not already listed) making similar claims against the same employer?
+        hint: A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
+        options:
+          'true': 'Yes'
+          'false': 'No'
+      other_known_claimant_names:
+        label: You can add the names of other people here.
+      claim_details_rtf:
+        label: The document needs to be in Rich Text Format(RTF)
+        hint: "You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format"
+      remove_claim_details_rtf:
+        label: "Remove previously uploaded document: %{file}"
+      claim_details:
+        label: 'Describe your claim'

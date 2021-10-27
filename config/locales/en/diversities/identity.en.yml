@@ -1,0 +1,29 @@
+en:
+  diversities:
+    identity:
+      sex:
+        label: What is your sex?
+        options:
+          male: Male
+          female: Female
+          prefer-not-to-say: Prefer not to say
+      gender:
+        label: What is your gender identity?
+        options:
+          male-including-female-to-male-trans-men: Male (including female-to-male trans men)
+          female-including-male-to-female-trans-women: Female (including male-to-female trans women)
+          prefer-not-to-say: Prefer not to say
+      gender_at_birth:
+        label: Is your gender identity different to the sex you were assumed to be at birth?
+        options:
+          yes_answer: 'Yes'
+          no_answer: 'No'
+          prefer-not-to-say: Prefer not to say
+      sexual_identity:
+        label: Which of the options below best describes your sexual identity?
+        options:
+          heterosexual-straight: Heterosexual / Straight
+          gay-lesbian: Gay / Lesbian
+          bisexual: Bisexual
+          other: Other
+          prefer-not-to-say: Prefer not to say

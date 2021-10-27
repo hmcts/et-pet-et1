@@ -2,6 +2,7 @@ require_relative './base_page'
 module ET1
   module Test
     class ReturnToYourClaimPage < BasePage
+      set_url '/en/apply/users/sign_in'
 
       def assert_missing_claim_number
         invalid_word_or_number_flash_element
@@ -10,7 +11,7 @@ module ET1
       def return_to_your_claim(claim_number:, memorable_word:)
         memorable_word_element.set(memorable_word) unless memorable_word.nil?
         claim_number_element.set(claim_number) unless claim_number.nil?
-        submit_button.click
+        submit_button.submit
       end
 
       def reset_memorable_word
@@ -24,10 +25,21 @@ module ET1
 
       private
 
-      element :memorable_word_element, :fillable_field, "Memorable word"
-      element :claim_number_element, :fillable_field, "Save and return number"
+      # @!method memorable_word_element
+      #   A govuk text field component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+      gds_text_input :memorable_word_element, :'return_to_your_claim.memorable_word'
+      # @!method claim_number_element
+      #   A govuk text field component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+      gds_text_input :claim_number_element, :'return_to_your_claim.save_and_return_number'
+
       element :reset_memorable_word_element, :link, 'Click here to reset'
-      element :submit_button, :button, 'Find my claim'
+
+      # @!method submit_button
+      #   A govuk submit button component...
+      #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
+      gds_submit_button :submit_button, :'return_to_your_claim.find_my_claim'
       element :memorable_word_email_sent_flash_element, '#flash-summary *', text: 'You will receive an email with instructions on how to reset your memorable word in a few minutes'
       element :invalid_word_or_number_flash_element, '#flash-summary *', text: "Invalid memorable word or save and return number, please check and try again."
     end

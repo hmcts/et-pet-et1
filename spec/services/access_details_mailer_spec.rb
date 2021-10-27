@@ -5,6 +5,7 @@ RSpec.describe AccessDetailsMailer, type: :service do
   include ActiveJobPerformHelper
 
   describe '.deliver_later' do
+    include_context 'fake gov notify'
     context 'when the claim has an email address' do
 
       let(:claim) { Claim.create user: User.new(email: "funky@emailaddress.com", password: 'lollol') }

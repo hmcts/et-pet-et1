@@ -4,10 +4,10 @@ feature 'Guide', type: :feature do
   include FormMethods
 
   context 'on the page' do
-    let(:time_limits_header)          { '<h2>Time limits</h2>' }
-    let(:acas_header)                 { '<h2>Acas: early conciliation</h2>' }
-    let(:acas_exceptions_header)      { '<h3>Exceptions to early conciliation</h3>' }
-    let(:writing_yours_header)        { '<h2>Writing your claim statement</h2>' }
+    let(:time_limits_header)          { 'Time limits' }
+    let(:acas_header)                 { 'Acas: early conciliation' }
+    let(:acas_exceptions_header)      { 'Exceptions to early conciliation' }
+    let(:writing_yours_header)        { 'Writing your claim statement' }
 
     let(:time_limits_link)          { "Time limits" }
     let(:acas_link)                 { "Acas: early conciliation" }
@@ -58,8 +58,8 @@ feature 'Guide', type: :feature do
 
     scenario 'Returns to the claim review page when editing a claim' do
       start_claim
-      visit claim_review_path
-      within('.additional-claimants') { click_link 'Edit' }
+      review_page.load
+      review_page.edit_section('Group claim')
       within('aside') { click_link 'Guide' }
       click_link 'Return to form'
 

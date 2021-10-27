@@ -1,4 +1,4 @@
-FROM phusion/passenger-customizable:1.0.12
+FROM phusion/passenger-customizable:1.0.15
 # Or, instead of the 'full' variant, use one of these:
 #FROM phusion/passenger-ruby23:<VERSION>
 #FROM phusion/passenger-ruby24:<VERSION>
@@ -14,6 +14,9 @@ ENV HOME /root
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
+RUN mv /etc/apt/sources.list.d /etc/apt/sources.list.d.bak
+RUN apt update && apt install -y ca-certificates
+RUN mv /etc/apt/sources.list.d.bak /etc/apt/sources.list.d
 
 # If you're using the 'customizable' variant, you need to explicitly opt-in
 # for features.
@@ -38,6 +41,7 @@ RUN /pd_build/nodejs.sh
 
 # ...put your own build instructions here...
 RUN apt-get install -y shared-mime-info
+RUN npm install -g yarn
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -63,6 +67,6 @@ ENV HOME /home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=production
 RUN npm install
-RUN bash -lc "gem install bundler -v 1.17.3 && bundle install --jobs=5 --retry=3 --without=test development --with=production"
+RUN bash -lc "rvm use 2.7.3 --default && gem install bundler -v 1.17.3 && bundle install --jobs=5 --retry=3 --without=test development --with=production"
 RUN bash -lc "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=ijustdontcareyoureonlydoingaraketask"
 CMD ["./run.sh"]

@@ -4,16 +4,9 @@ module ET1
     class ResetMemorableWordPage < BasePage
 
       def set_memorable_word(value)
-        memorable_word_element.set(value)
-        submit_button.click
+        memorable_word_question.set(value)
+        submit_button.submit
         ReturnToYourClaimPage.new
-      end
-
-      def set_memorable_word_with(value, confirm_value:)
-        memorable_word_element.set(value)
-        submit_button.click
-        expect(memorable_word_question).to have_error(text: 'dfdfd')
-        self
       end
 
       # @param [String] email_address
@@ -28,9 +21,15 @@ module ET1
 
       private
 
-      element :memorable_word_element, :fillable_field, "Memorable word"
-      element :confirm_memorable_word_element, :fillable_field, "Confirm memorable word"
-      element :submit_button, :button, 'Reset memorable word'
+      # @!method memorable_word_element
+      #   A govuk text field component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+      gds_text_input :memorable_word_question, :'reset_memorable_word.memorable_word'
+
+      # @!method submit_button
+      #   A govuk submit button component...
+      #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
+      gds_submit_button :submit_button, :'reset_memorable_word.reset_memorable_word'
     end
   end
 end

@@ -1,0 +1,29 @@
+cy:
+  claims:
+    additional_claimants_upload:
+      has_additional_claimants:
+        label: "Ydych chi eisiau uwchlwytho manylion 6 hawlydd neu fwy?"
+        hint: "Ar gyfer hyd at 5 hawlydd arall gallwch roi eu manylion <a class=\"govuk-link\" href=\"%{path}\">â llaw</a>."
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
+      header: "Hawliadau grŵp"
+      subheader: Unigolion sy'n gwneud hawliad gyda chi
+      steps_header: Taenlen ar gyfer hawliad grŵp
+      error_line: "Mae gwall wedi'i ddarganfod ar linell %{line_number} o'r ffeil sydd wedi cael ei huwchlwytho."
+      malformatted_csv: "Nid yw'r CSV wedi cael ei fformatio'n gywir."
+      remove_additional_claimants_csv: ""
+      number_claimants_info: "Ar gyfer 6 hawlydd neu fwy, rhowch eu manylion isod."
+      step_one_header: Cam 1
+      download_template_html: |
+        <a class="govuk-link" href="%{path}" download="group-claims-template-cy.csv">Lawrlwythwch templed ar gyfer creu taenlen</a> neu defnyddiwch eich un chi os yw'n dilyn yr un fformat.
+      download_template_asset: 'group-claims-template-cy'
+      dob_info: "Ar gyfer dyddiadau geni, defnyddiwch rifau a/neu lythrennau wedi'u gwahanu gan flaen slaesau. Ee 23/04/1983 neu 23/Ebr/1983"
+      step_two_header: Cam 2
+      save_csv_format: Cadw ffeil mewn fformat CSV
+      how_to_save: "Gwnewch hyn drwy ddewis File > Save as / Export To > Format: Comma Separated Values (.csv)"
+      no_spaces: Peidiwch â chynnwys bylchau yn enw'r ffeil.
+      step_three_header: Cam 3
+      upload_limit: "Uchafswm maint ffeil: 5MB"
+      additional_claimants_csv:
+        label: Uwchlwytho taenlen

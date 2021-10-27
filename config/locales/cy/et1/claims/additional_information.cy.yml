@@ -1,0 +1,13 @@
+cy:
+  claims:
+    additional_information:
+      header: Mwy am yr hawliad
+      legend: "Manylion pwysig eraill"
+      has_miscellaneous_information:
+        label: "Ydych chi eisiau darparu gwybodaeth ychwanegol am eich hawliad?"
+        hint: "Dylech gynnwys unrhyw beth fyddai'n helpu'r tribiwnlys i ddod i benderfyniad ynghylch p'un a ellir gwrando eich achos. Efallai y bydd yr atebydd yn gweld beth ydych yn ysgrifennu."
+        options:
+          "true": 'Oes'
+          "false": 'Nac oes'
+      miscellaneous_information:
+        label: "Rhowch fwy o fanylion am eich hawliad."

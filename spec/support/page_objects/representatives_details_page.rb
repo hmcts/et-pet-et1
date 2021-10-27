@@ -5,12 +5,39 @@ module ET1
       set_url "/en/apply/representative"
 
       # Fills in the representative's details by answering Yes to the question then filling in the details
-      # @param [Representative] representative The representative
-      def fill_in_representative(representative)
+      # @param [::ET1::Test::RepresentativeUi] representative The representative
+      def fill_in_all(representative:)
         do_you_have_representative_question.set(:'representatives_details.do_you_have_representative.options.yes')
         fill_in_about_your_representative(representative)
         fill_in_representatives_contact_details(representative)
       end
+
+      # Cancel the representative by clicking No in the primary question
+      def no_representative
+        do_you_have_representative_question.set(:'representatives_details.do_you_have_representative.options.no')
+      end
+
+      # Clicks the save and continue button
+      def save_and_continue
+        save_and_continue_button.submit
+      end
+
+      # @param [Hash] error_messages A list of error messages keyed by the question name (ignoring groups)
+      def assert_error_messages(error_messages)
+        aggregate_failures 'validating error messages' do
+          error_messages.each_pair do |question_prefix, expected_message|
+            question = :"#{question_prefix}_question"
+            [:about_your_representative_group, :representatives_contact_details_group].any? do |group|
+              next unless send(group).respond_to?(question)
+              send(group).send(question).assert_error_message(t(expected_message))
+            end
+          end
+
+        end
+      end
+
+
+      private
 
       def fill_in_about_your_representative(representative)
         about_your_representative_group.tap do |s|
@@ -35,54 +62,81 @@ module ET1
         end
       end
 
-      # Cancel the representative by clicking No in the primary question
-      def no_representative
-        do_you_have_representative_question.set(:'representatives_details.do_you_have_representative.options.no')
+      # @!method do_you_have_representative_question
+      #   A govuk radio button component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
+      gds_radios :do_you_have_representative_question, :'representatives_details.do_you_have_representative'
+      # @!method about_your_representative_group
+      #   A govuk fieldset component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+      gds_fieldset :about_your_representative_group, :'representatives_details.about_your_representative_group' do
+        include EtTestHelpers::Section
+
+        # @!method type_question
+        #   A govukselect component wrapping the select, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKCollectionSelect] The site prism section
+        gds_select :type_question, :'representatives_details.type.label'
+        # @!method name_of_organisation_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :name_of_organisation_question, :'representatives_details.name_of_organisation'
+        # @!method name_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :name_question, :'representatives_details.name'
       end
 
-      # Clicks the save and continue button
-      def save_and_continue
-        save_and_continue_element.click
+      # @!method representatives_contact_details_group
+      #   A govuk fieldset component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKFieldset] The site prism section
+      gds_fieldset :representatives_contact_details_group, :'representatives_details.representatives_contact_details_group' do
+        include EtTestHelpers::Section
+        # @!method building_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :building_question, :'representatives_details.building'
+        # @!method street_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :street_question, :'representatives_details.street'
+        # @!method town_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :town_question, :'representatives_details.town'
+        # @!method county_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :county_question, :'representatives_details.county'
+        # @!method post_code_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :post_code_question, :'representatives_details.post_code'
+        # @!method phone_or_mobile_number_question
+        #   A govuk phone field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
+        gds_phone_input :phone_or_mobile_number_question, :'representatives_details.phone_or_mobile_number'
+        # @!method alternative_phone_or_mobile_number_question
+        #   A govuk phone field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
+        gds_phone_input :alternative_phone_or_mobile_number_question, :'representatives_details.alternative_phone_or_mobile_number'
+        # @!method email_address_question
+        #   A govuk email field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKEmailField] The site prism section
+        gds_email_input :email_address_question, :'representatives_details.email_address'
+        # @!method dx_number_question
+        #   A govuk text field component wrapping the input, label, hint etc..
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_text_input :dx_number_question, :'representatives_details.dx_number'
+        # @!method best_correspondence_method_question
+        #   A govuk collection radio buttons component
+        #   @return [EtTestHelpers::Components::GovUKCollectionRadioButton] The site prism section
+        gds_radios :best_correspondence_method_question, :'representatives_details.best_correspondence_method'
       end
 
-      # @param [Hash] error_messages A list of error messages keyed by the question name (ignoring groups)
-      def assert_error_messages(error_messages)
-        aggregate_failures 'validating error messages' do
-          error_messages.each_pair do |question_prefix, expected_message|
-            question = :"#{question_prefix}_question"
-            [:about_your_representative_group, :representatives_contact_details_group].any? do |group|
-              next unless send(group).respond_to?(question)
-              send(group).send(question).assert_error_message(t(expected_message))
-            end
-          end
-
-        end
-      end
-
-
-      private
-
-      section :do_you_have_representative_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'representatives_details.do_you_have_representative.label'
-      section :about_your_representative_group, :fieldset_translated, 'representatives_details.about_your_representative_group' do
-        section :type_question, ::ET1::Test::SelectQuestionSection, :question_labelled_translated, 'representatives_details.type.label'
-        section :name_of_organisation_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.name_of_organisation.label'
-        section :name_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.name.label'
-      end
-
-      section :representatives_contact_details_group, :fieldset_translated, 'representatives_details.representatives_contact_details_group' do
-        section :building_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.building.label'
-        section :street_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.street.label'
-        section :town_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.town.label'
-        section :county_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.county.label'
-        section :post_code_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.post_code.label'
-        section :phone_or_mobile_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.phone_or_mobile_number.label'
-        section :alternative_phone_or_mobile_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.alternative_phone_or_mobile_number.label'
-        section :email_address_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.email_address.label'
-        section :dx_number_question, ::ET1::Test::TextQuestionSection, :question_labelled_translated, 'representatives_details.dx_number.label'
-        section :best_correspondence_method_question, ::ET1::Test::RadioButtonsQuestionSection, :question_group_labelled_translated, 'representatives_details.best_correspondence_method.label'
-      end
-
-      element :save_and_continue_element, :button_translated, "representatives_details.save_and_continue"
+      # @!method save_and_continue_element
+      #   A govuk submit button component...
+      #   @return [EtTestHelpers::Components::GovUKSubmit] The site prism section
+      gds_submit_button :save_and_continue_button, :'representatives_details.save_and_continue'
     end
   end
 end

@@ -1,0 +1,11 @@
+cy:
+  claims:
+    session:
+      header: Dychwelyd i'ch hawliad
+      subheader: Rhowch eich manylion isod
+      reference:
+        label: Rhif cadw a dychwelyd
+        hint: Cafodd hwn ei anfon atoch drwy e-bost (os wnaethoch chi nodi cyfeiriad e-bost)
+      password:
+        label: Gair cofiadwy
+        hint: Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio

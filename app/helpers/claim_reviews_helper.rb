@@ -8,20 +8,12 @@ module ClaimReviewsHelper
     end
   end
 
-  def email_addresses(claim)
-    ConfirmationEmailAddressesPresenter.email_addresses_for claim
-  end
-
   def claim_presenter
     @claim_presenter ||= ClaimPresenter.new(claim)
   end
 
-  def confirmation_email
-    @confirmation_email ||= ConfirmationEmail.new
-  end
-
-  def quick_edit_link_for(section)
-    link_to t('.edit'), claim_path_for(section, return_to_review: true)
+  def confirmation_email(claim)
+    @confirmation_email ||= ConfirmationEmail.new(claim)
   end
 
   def submit_button_text(claim)
@@ -43,18 +35,18 @@ module ClaimReviewsHelper
     claims = []
 
     if claim.is_unfair_dismissal?
-      claims << I18n.t("simple_form.labels.claim_type.is_unfair_dismissal")
+      claims << I18n.t("claims.claim_type.is_unfair_dismissal.options.1")
     end
 
-    claims.push(*claim.pay_claims.map { |c| I18n.t "simple_form.options.claim_type.pay_claims.#{c}" })
+    claims.push(*claim.pay_claims.map { |c| I18n.t "claims.claim_type.pay_claims.options.#{c}" })
 
-    claims.push(*claim.discrimination_claims.map { |c| I18n.t "simple_form.options.claim_type.discrimination_claims_for_review.#{c}" })
+    claims.push(*claim.discrimination_claims.map { |c| I18n.t "claim_reviews.discrimination_claims.#{c}" })
 
     claims.join(tag(:br)).html_safe
   end
 
   def review_claimant_full_name(claimant)
-    salutation = t("simple_form.options.claimant.title.#{claimant.title}") unless claimant.title.nil?
+    salutation = t("claims.personal_details.title.options.#{claimant.title}") unless claimant.title.nil?
     [salutation, claimant.first_name, claimant.last_name].compact.join' '
   end
 

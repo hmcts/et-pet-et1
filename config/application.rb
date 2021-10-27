@@ -18,9 +18,8 @@ module App
     #
     config.time_zone = 'London'
 
-    # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'en', '*.{rb,yml}').to_s,
-      Rails.root.join('config', 'locales', 'cy', '*.{rb,yml}').to_s]
+    # The default locale is :en and all translations from config/locales/**/*.rb,yml are auto loaded.
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     # config.active_record.schema_format = :sql
     config.autoload_paths += Dir["#{config.root}/app/{services,forms,forms/concerns,presenters,validators}"]
@@ -40,7 +39,7 @@ module App
     # Controlls how many additional respondents are allowed
     config.additional_respondents_limit = 4
 
-    config.assets.enabled = true
+    config.assets.enabled = false
 
     config.assets.precompile += [
       'application-ie.css',
@@ -69,5 +68,17 @@ module App
       config.azure_insights.enable = false
     end
     config.x.cookie_expiry = 1.year
+
+    config.govuk_notify = ActiveSupport::OrderedOptions.new
+    config.govuk_notify.custom_url = ENV.fetch('GOVUK_NOTIFY_CUSTOM_URL', false)
+    if ENV.key?('GOVUK_NOTIFY_API_KEY_LIVE')
+      config.govuk_notify.enabled = true
+      config.govuk_notify.live_api_key = ENV['GOVUK_NOTIFY_API_KEY_LIVE']
+      config.govuk_notify.team_api_key = ENV['GOVUK_NOTIFY_API_KEY_TEAM']
+      config.govuk_notify.test_api_key = ENV['GOVUK_NOTIFY_API_KEY_TEST']
+      config.govuk_notify.mode = :live
+    else
+      config.govuk_notify.enabled = false
+    end
   end
 end

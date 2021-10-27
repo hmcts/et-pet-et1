@@ -1,0 +1,12 @@
+en:
+  helpers:
+    link:
+      start_a_refund: "Start a refund"
+    refunds:
+      payment_date_unknown: "Don't know"
+  refunds:
+    show:
+      page_number: Page %{current_page} of %{total_pages}
+      session_reloaded: 'Your session has been re loaded - this may have been caused by your cookie expiring'
+
+

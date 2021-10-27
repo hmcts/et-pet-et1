@@ -9,6 +9,8 @@ describe BaseMailer, type: :mailer do
   let(:claim) { create(:claim, user: build(:user, email: email_address)) }
   let(:email_address) { 'mail@example.com' }
   let(:email) { subject.deliver_now }
+  
+  include_context 'fake gov notify'
 
   describe '#access_details_email' do
     subject { described_class.access_details_email(claim) }

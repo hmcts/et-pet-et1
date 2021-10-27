@@ -1,0 +1,101 @@
+cy:
+  diversities:
+    header: Holiadur monitro amrywiaeth
+    index:
+      optional_text: Mae hyn yn ddewisol ac ni fydd yn effeithio ar eich hawliad. Defnyddir yr wybodaeth i sicrhau bod Gwasanaeth Llysoedd a Thribiwnlysoedd EM (GLlTEM) yn trin pawb yn gyfartal.
+      anonymous: Bydd eich atebion yn ddienw.
+      begin_form: Dechrau nawr
+    show:
+      sub_header: Cadarnhad o'r manylion a roddwyd
+      edit: Golygu eich atebion
+      previous: Blaenorol
+      hint: Bydd pwyso "Cyflwyno'r ffurflen" isod yn anfon y manylion a gadarnhawyd isod i'w prosesu.
+      submit: Cyflwyno'r ffurflen
+      session_reloaded: Mae eich sesiwn wedi ei hail-lwytho - efallai i hyn ddigwydd am fod eich cwci wedi dod i ben
+    submit:
+      sub_header: Diolch yn fawr
+      thank_you: Diolch i chi am lenwi'r holiadur monitro amrywiaeth hwn.
+      return: Dychwelyd i GOV.UK
+    aside:
+      header: Dolenni perthnasol eraill
+      how_to_make_claim: Sut i wneud hawliad
+      how_to_make_response: Sut i gyflwyno ymateb
+      how_to_contact_us: Sut i gysylltu â ni
+      more_from_the_working: "Rhagor o'r categori Gwaith, swyddi a phensiynau"
+    claim_type:
+      hint: Math o hawliad
+    identity:
+      hint: "Sut ydych chi'n gweld eich hunaniaeth?"
+      sexual_identity:
+        label: "Pa un o'r opsiynau isod sy'n disgrifio orau eich hunaniaeth rywiol?"
+    relationship:
+      hint: Perthynas
+    age_caring:
+      hint: "Beth yw eich grŵp oedran a'ch cyfrifoldebau gofalu?"
+    religion:
+      hint: Crefydd
+      religion:
+        label: Crefydd
+    ethnicity:
+      hint: Ethnigrwydd
+      white:
+        label: 'Gwyn'
+        data: 'Gwyn'
+      mixed-multiple-ethnic-groups:
+        label: 'Cymysg'
+        data: 'Cymysg / grwpiau aml-ethnig'
+      asian-asian-british:
+        label: 'Asiaidd'
+        data: 'Asiaidd / Asiaidd Prydeinig'
+      black-african-caribbean-black-british:
+        label: 'Du'
+        data: 'Du / Affricanaidd / Caribïaidd / Du Prydeinig'
+      other-ethnic-group:
+        label: 'Arall'
+        data: 'Grŵp ethnig arall'
+      ethnicity_subgroup:
+        options:
+          english-welsh-scottish-northern-irish-british: Seisnig / Cymreig / Albanaidd / Gwyddelig o Ogledd Iwerddon / Prydeinig
+          irish: Gwyddelig
+          gypsy-or-irish-traveller: Sipsiwn neu Deithiwr Gwyddelig
+          any-other-white-background: Unrhyw gefndir Gwyn arall
+          none-of-the-above: Dim un o'r uchod
+          white-and-black-caribbean: Gwyn a Du Caribïaidd
+          white-and-black-african: Gwyn a Du Affricanaidd
+          white-and-asian: Gwyn ac Asiaidd
+          any-other-mixed-multiple-ethnic-background: Unrhyw gefndir ethnig cymysg / aml-ethnig arall
+          indian: Indiaidd
+          pakistani: Pacistanaidd
+          bangladeshi: Bangladesiaidd
+          chinese: Tsieniaidd
+          any-other-asian-background: Unrhyw gefndir Asiaidd arall
+          african: Affricanaidd
+          caribbean: Caribïaidd
+          any-other-black-african-caribbean-background: Unrhyw gefndir Du / Affricanaidd / Caribïaidd arall
+          arab: Arabaidd
+          any-other-ethnic-group: Unrhyw grŵp ethnig arall
+
+    disability:
+      header: Anabledd
+      act: Mae Deddf Cydraddoldeb 2010 yn diffinio unigolyn anabl fel 'rhywun sydd â nam corfforol neu feddyliol sy'n cael effaith andwyol sylweddol a hirdymor ar ei allu/gallu i gyflawni gweithgareddau cyffredin pob dydd'.
+      conditions: "Gall y cyflyrau a gwmpesir gynnwys, er enghraifft, iselder ysbryd difrifol, dyslecsia, epilepsi ac arthritis."
+      hint: "A oes gennych unrhyw gyflyrau neu anhwylderau iechyd meddwl neu iechyd corfforol sy'n parhau neu'n debygol o barhau am 12 mis neu ragor?"
+    pregnancy:
+      pregnancy:
+        options:
+          yes_answer: 'Oes'
+          no_answer: 'Nac oes'
+          prefer-not-to-say: Mae'n well gen i beidio dweud
+      header: Beichiogrwydd
+      hint: "A oeddech chi'n feichiog pan gawsoch eich diswyddo?"
+    review:
+      hint: Gwiriwch eich atebion
+      submit: Cyflwyno'r ffurflen
+    confirmation:
+      hint: Diolch yn fawr
+      message: Diolch i chi am lenwi'r holiadur monitro amrywiaeth hwn.
+      return: Dychwelyd i GOV.UK
+      return_title: Dychwelyd i wefan GOV.UK
+    edit: Newid
+
+

@@ -1,0 +1,130 @@
+class FormCollectionProxy
+  include Enumerable
+
+  def initialize(child_form_class_name, collection_name, parent_form_instance)
+    @parent_form_instance = parent_form_instance
+    @collection_name = collection_name
+    @child_form_klass = child_form_class_name.safe_constantize
+    @collection_wrapped = {}
+    @collection_cache = []
+    raise "Unknown class #{child_form_class_name}" if child_form_klass.nil?
+
+    on_initialize
+  end
+
+  def collection_attributes=(value)
+    apply_collection_attributes(value)
+  end
+
+  # @return [Hash] Returns the collection attributes to be passed into the target's nested associations code
+  def collection_attributes
+    collection_cache.each_with_object({}).with_index do |(form, acc), idx|
+      nested_attributes = form_to_nested_attributes(form)
+      acc[idx] = nested_attributes unless nested_attributes.empty?
+      acc
+    end
+  end
+
+  def last
+    wrapped(collection_cache.last)
+  end
+
+  def build(attrs = {})
+    child_form_klass.new(nil).tap do |instance|
+      instance.attributes = attrs
+      collection_cache << instance
+    end
+  end
+
+  def slice(*args)
+    wrap_collection(collection_cache.slice(*args))
+  end
+
+  def each
+    collection_cache.each do |proxied_object|
+      yield proxied_object
+    end
+  end
+
+  def clear
+    parent_form_resource.send(collection_name).clear
+    collection_cache.clear
+    collection_wrapped.clear
+  end
+
+  def after_save
+    collection_cache.clear
+    load_collection_cache
+  end
+
+  delegate_missing_to :collection_cache
+  alias_method :to_ary, :to_a
+
+  private
+
+  attr_reader :parent_form_instance, :collection_name, :child_form_klass, :collection_wrapped, :collection_cache
+
+  def on_initialize
+    load_collection_cache
+  end
+
+  def load_collection_cache
+    parent_form_resource.send(collection_name).each do |entry|
+      collection_cache << wrapped(entry).tap(&:clear_changes_information)
+    end
+  end
+
+  def apply_collection_attributes(collection_attributes)
+    collection_attributes.each do |(key, value)|
+      instance = if value[child_primary_key].present?
+                   collection_cache.find { |record| record.send(child_primary_key).to_s == value[child_primary_key].to_s }
+                 else
+                   build
+                 end
+      if ::ActiveRecord::Type::Boolean.new.cast(value["_destroy"])
+        instance.mark_for_destruction
+      else
+        instance.attributes = value.except('_destroy', 'id')
+      end
+    end
+  end
+
+  def form_to_nested_attributes(form)
+    if form.marked_for_destruction?
+      { child_primary_key =>  form.send(child_primary_key), '_destroy' => '1' }
+    elsif form.target.nil?
+      # This was not loaded by the db but has been added since load
+      form.attributes.except(child_primary_key.to_s, *child_form_klass.transient_attributes.map(&:to_s))
+    else
+      form.changes_to_save
+    end
+  end
+
+  def parent_form_resource
+    @parent_form_instance.resource
+  end
+
+  def wrap(proxied_object)
+    child_form_klass.new(proxied_object)
+  end
+
+  def wrapped(proxied_object)
+    return collection_wrapped[proxied_object.object_id] if collection_wrapped.key?(proxied_object.object_id)
+
+    collection_wrapped[proxied_object.object_id] = wrap(proxied_object)
+  end
+
+  def wrap_collection(proxied_collection)
+    proxied_collection.map do |proxied_object|
+      wrapped(proxied_object)
+    end
+  end
+
+  def child_primary_key
+    @child_primary_key ||= child_form_resource_class.primary_key
+  end
+
+  def child_form_resource_class
+    @child_form_resource_class ||= parent_form_resource.class.reflect_on_association(collection_name).klass
+  end
+end

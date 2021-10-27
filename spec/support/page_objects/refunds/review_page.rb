@@ -53,32 +53,32 @@ module ET1
 
         section :original_claim_fees, :refund_review_section_labelled, 'Original Case Fees' do
           section :et_issue, :refund_review_section_fee_type_labelled, 'ET issue' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
-            element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
-            element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
+            element :fee, :refund_review_section_field_labelled, 'Fee'
+            element :payment_date, :refund_review_section_field_labelled, 'Payment Date'
+            element :payment_method, :refund_review_section_field_labelled, 'Payment Method'
           end
           section :et_hearing, :refund_review_section_fee_type_labelled, 'ET hearing' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
-            element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
-            element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
+            element :fee, :refund_review_section_field_labelled, 'Fee'
+            element :payment_date, :refund_review_section_field_labelled, 'Payment Date'
+            element :payment_method, :refund_review_section_field_labelled, 'Payment Method'
           end
           section :et_reconsideration, :refund_review_section_fee_type_labelled, 'ET reconsideration' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
-            element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
-            element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
+            element :fee, :refund_review_section_field_labelled, 'Fee'
+            element :payment_date, :refund_review_section_field_labelled, 'Payment Date'
+            element :payment_method, :refund_review_section_field_labelled, 'Payment Method'
           end
           section :eat_issue, :refund_review_section_fee_type_labelled, 'EAT issue' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
-            element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
-            element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
+            element :fee, :refund_review_section_field_labelled, 'Fee'
+            element :payment_date, :refund_review_section_field_labelled, 'Payment Date'
+            element :payment_method, :refund_review_section_field_labelled, 'Payment Method'
           end
           section :eat_hearing, :refund_review_section_fee_type_labelled, 'EAT hearing' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
-            element :payment_date, :xpath, (XPath.generate { |x| x.descendant(:td)[2] })
-            element :payment_method, :xpath, (XPath.generate { |x| x.descendant(:td)[3] })
+            element :fee, :refund_review_section_field_labelled, 'Fee'
+            element :payment_date, :refund_review_section_field_labelled, 'Payment Date'
+            element :payment_method, :refund_review_section_field_labelled, 'Payment Method'
           end
-          section :total, :refund_review_section_fee_type_labelled, 'Total fees paid' do
-            element :fee, :xpath, (XPath.generate { |x| x.descendant(:td)[1] })
+          section :total, :refund_review_section_fee_summary_labelled, 'Total' do
+            element :fee, :refund_review_section_field_labelled, 'Total fees paid'
           end
           element :empty_fees, :xpath, (XPath.generate { |x| x.descendant(:p)[x.string.n.is('You have not entered any fees')] })
         end
@@ -97,15 +97,17 @@ module ET1
           element :sort_code, :refund_review_section_field_labelled, 'Sort code'
         end
 
-        section :declaration, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Declaration")]] }) do
-          element :accept, 'Tick to confirm'
-
-          def set(value)
-            check 'refunds_review[accept_declaration]' if value == 'Yes'
-            uncheck 'refunds_review[accept_declaration]' if value == 'No'
-          end
+        # @!method declaration
+        #   A govuk fieldset component
+        #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
+        gds_fieldset :declaration, "Declaration" do
+          include EtTestHelpers::Section
+          # @!method confirm_question
+          #   A govuk file field component wrapping the input, label, hint etc..
+          #   @return [EtTestHelpers::Components::GovUKCheckbox] The site prism section
+          gds_checkbox :confirm_question, 'Tick to confirm'
         end
-        element :save_and_continue, 'form.edit_refunds_review input[value="Submit Claim"]'
+        gds_submit_button :save_and_continue, 'Submit Claim'
       end
     end
 
