@@ -17,7 +17,7 @@ cy:
       incomplete_claim_summary: "Nid yw eich hawliad yn gyflawn."
       incomplete_claim_message: "Ewch yn ôl drwy'r ffurflen a gwnewch yn siŵr bod yr holl adrannau angenrheidiol wedi'u llenwi"
       print_link: |
-        <a class="print-page" href="javascript:window.print();">Argraffwch y dudalen hon</a> ar gyfer eich cofnodion
+        <a class="print-page govuk-link" href="javascript:window.print();">Argraffwch y dudalen hon</a> ar gyfer eich cofnodion
       sections:
         claimant: Manylion yr hawlydd
         additional_claimants: "Hawliad grŵp"

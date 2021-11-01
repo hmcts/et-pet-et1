@@ -17,7 +17,7 @@ en:
       incomplete_claim_summary: Your claim is incomplete.
       incomplete_claim_message: Go back through the form and ensure all required sections are complete
       print_link: |
-        <a class="print-page" href="javascript:window.print();">Print this page</a> for your records
+        <a class="print-page govuk-link" href="javascript:window.print();">Print this page</a> for your records
 
       sections:
         claimant: Claimant’s details

@@ -5,7 +5,7 @@ dl.govuk-summary-list
       - if f.object.claim_type
         = t("diversities.claim_type.claim_type.options.#{f.object.claim_type}")
     dt.govuk-summary-list__value
-      a href= diversity_claim_type_path(return_to_review: true)
+      a.govuk-link href= diversity_claim_type_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.claim_type.claim_type.label')
 
@@ -15,7 +15,7 @@ dl.govuk-summary-list
       - if f.object.sex
         = t("diversities.identity.sex.options.#{f.object.sex}")
     dt.govuk-summary-list__value
-      a href= diversity_identity_path(return_to_review: true)
+      a.govuk-link href= diversity_identity_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.identity.sex.label')
 
@@ -25,7 +25,7 @@ dl.govuk-summary-list
       - if f.object.sexual_identity
         = t("diversities.identity.sexual_identity.options.#{f.object.sexual_identity}")
     dt.govuk-summary-list__value
-      a href= diversity_identity_path(return_to_review: true)
+      a.govuk-link href= diversity_identity_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.identity.sexual_identity.label')
 
@@ -35,7 +35,7 @@ dl.govuk-summary-list
       - if f.object.relationship
         = t("diversities.relationship.relationship.options.#{f.object.relationship}")
     dt.govuk-summary-list__value
-      a href= diversity_relationship_path(return_to_review: true)
+      a.govuk-link href= diversity_relationship_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.relationship.relationship.label')
 
@@ -45,7 +45,7 @@ dl.govuk-summary-list
       - if f.object.age_group
         = t("diversities.age_caring.age_group.options.#{f.object.age_group}")
     dt.govuk-summary-list__value
-      a href= diversity_age_caring_path(return_to_review: true)
+      a.govuk-link href= diversity_age_caring_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.age_caring.age_group.label')
 
@@ -55,7 +55,7 @@ dl.govuk-summary-list
       - if f.object.caring_responsibility
         = t("diversities.age_caring.caring_responsibility.options.#{f.object.caring_responsibility}")
     dt.govuk-summary-list__value
-      a href= diversity_age_caring_path(return_to_review: true)
+      a.govuk-link href= diversity_age_caring_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.age_caring.caring_responsibility.label')
 
@@ -65,7 +65,7 @@ dl.govuk-summary-list
       - if religion_value(f.object)
         = religion_value(f.object)
     dt.govuk-summary-list__value
-      a href= diversity_religion_path(return_to_review: true)
+      a.govuk-link href= diversity_religion_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.religion.religion.label')
 
@@ -75,7 +75,7 @@ dl.govuk-summary-list
       - if f.object.ethnicity
         = t("diversities.ethnicity.ethnicity.options.#{f.object.ethnicity}")
     dt.govuk-summary-list__value
-      a href= diversity_ethnicity_path(return_to_review: true)
+      a.govuk-link href= diversity_ethnicity_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.ethnicity.ethnicity.label')
 
@@ -96,7 +96,7 @@ dl.govuk-summary-list
       - if f.object.disability
         = t("diversities.disability.disability.options.#{f.object.disability}")
     dt.govuk-summary-list__value
-      a href= diversity_disability_path(return_to_review: true)
+      a.govuk-link href= diversity_disability_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.disability.hint')
 
@@ -106,7 +106,7 @@ dl.govuk-summary-list
       - if f.object.pregnancy
         = t("diversities.pregnancy.pregnancy.options.#{f.object.pregnancy}")
     dt.govuk-summary-list__value
-      a href= diversity_pregnancy_path(return_to_review: true)
+      a.govuk-link href= diversity_pregnancy_path(return_to_review: true)
         = t('diversities.edit')
         span.govuk-visually-hidden = t('diversities.pregnancy.hint')
 

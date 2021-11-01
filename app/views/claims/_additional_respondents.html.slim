@@ -5,7 +5,7 @@
       = builder.fieldset label: t('.person', number: builder.index + 2)
         hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
 
-        = link_to t('.remove_resource_link'), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }
+        = link_to t('.remove_resource_link'), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }, class: 'remove-respondent govuk-link'
 
         = builder.text_field :name
 
