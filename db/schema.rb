@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2021_07_16_102106) do
     t.string "title"
     t.boolean "primary_claimant", default: false
     t.boolean "allow_video_attendance"
+    t.index ["claim_id"], name: "index_claimants_on_claim_id"
+    t.index ["primary_claimant"], name: "index_claimants_on_primary_claimant"
   end
 
   create_table "claims", id: :serial, force: :cascade do |t|
@@ -262,6 +264,8 @@ ActiveRecord::Schema.define(version: 2021_07_16_102106) do
     t.boolean "worked_at_same_address", default: true
     t.boolean "primary_respondent", default: false
     t.boolean "has_acas_number"
+    t.index ["claim_id"], name: "index_respondents_on_claim_id"
+    t.index ["primary_respondent"], name: "index_respondents_on_primary_respondent"
   end
 
   create_table "sessions", id: :serial, force: :cascade do |t|
