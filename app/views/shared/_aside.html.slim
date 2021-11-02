@@ -7,5 +7,5 @@
     - if show_signout?
       h2 class="govuk-heading-m govuk-!-padding-top-3" = t '.actions_header'
       ul.govuk-list
-        li = link_to t('.signout'), timeout_session_path, method: :delete, class: 'govuk-link--no-visited-state'
+        li = link_to t('.signout'), timeout_session_path, method: :delete, class: 'govuk-link govuk-link--no-visited-state'
 

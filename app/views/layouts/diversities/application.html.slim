@@ -1,6 +1,6 @@
 - content_for(:before_alerts)
   .feedback-notice
     .language-picker
-      =link_to t('switch.language'), locale: t('switch.locale')
+      =link_to t('switch.language'), { locale: t('switch.locale') }, { class: 'govuk-link' }
     p &nbsp;
 = render template: "layouts/application"
