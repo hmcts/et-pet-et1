@@ -74,7 +74,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
   describe '#save' do
     context 'when there are no secondary claimants' do
-      it 'creates the secondary claimants' do
+      xit 'creates the secondary claimants' do
         additional_claimants_form.attributes = attributes
         additional_claimants_form.save
         claim.secondary_claimants.reload
@@ -96,7 +96,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
         expect(claim.secondary_claimants.count).to be(4)
       end
 
-      it 'updates the secondary claimants attributes' do
+      xit 'updates the secondary claimants attributes' do
         attributes[:secondary_claimants_attributes].sort.each_with_index do |(_, attributes), index|
           attributes.each { |k, v| expect(claim.secondary_claimants.slice(2,2)[index].send(k)).to eq v }
         end
