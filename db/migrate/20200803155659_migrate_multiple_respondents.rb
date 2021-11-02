@@ -10,12 +10,15 @@ class MigrateMultipleRespondents < ActiveRecord::Migration[6.0]
   end
 
   def up
-    Claim.all.each do |claim|
-      claim.update_columns has_multiple_respondents: claim.secondary_respondents.count > 0
-    end
+    add_index :respondents, :claim_id, unique: false
+    add_index :respondents, :primary_respondent, unique: false
+
+    Claim.joins(:secondary_respondents).update_all(has_multiple_respondents: true)
   end
 
   def down
-    # Pointless undoing this
+    remove_index :claimants, :claim_id
+    remove_index :claimants, :primary_respondent
+    # Pointless undoing the data
   end
 end
