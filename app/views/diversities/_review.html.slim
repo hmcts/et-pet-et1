@@ -86,7 +86,7 @@ dl.govuk-summary-list
         - if f.object.ethnicity
           = t("diversities.ethnicity.ethnicity_subgroup.options.#{f.object.ethnicity_subgroup}")
       dt.govuk-summary-list__value
-        a href= diversity_ethnicity_path(return_to_review: true)
+        a.govuk-link href= diversity_ethnicity_path(return_to_review: true)
           = t('diversities.edit')
           span.govuk-visually-hidden = t('diversities.ethnicity.ethnicity_subgroup_white.label')
 
