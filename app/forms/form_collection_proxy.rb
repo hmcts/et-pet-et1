@@ -96,7 +96,7 @@ class FormCollectionProxy
       # This was not loaded by the db but has been added since load
       form.attributes.except(child_primary_key.to_s, *child_form_klass.transient_attributes.map(&:to_s))
     else
-      form.changes_to_save
+      form.attributes.slice(*(form.changed_attribute_names_to_save + [child_primary_key]))
     end
   end
 
