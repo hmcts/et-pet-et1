@@ -47,6 +47,30 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
         expect(additional_respondents_form.secondary_respondents).to all(be_an_instance_of(AdditionalRespondentsForm::RespondentForm))
       end
     end
+
+    context 'modifying existing respondents' do
+      let(:attributes) do
+        {
+          has_multiple_respondents: 'true',
+          secondary_respondents_attributes: {
+            "0" => {
+              'id' => claim.secondary_respondents.first.id.to_s,
+              'name' => 'Modified Name'
+            }
+          }
+        }
+      end
+
+      it 'updates the first respondents name' do
+        additional_respondents_form.save
+        expect(claim.reload.secondary_respondents.first.name).to eql 'Modified Name'
+      end
+
+      it 'does not add a new respondent' do
+        additional_respondents_form.save
+        expect(claim.reload.secondary_respondents.count).to eql 2
+      end
+    end
   end
 
   describe '#secondary_respondents' do
