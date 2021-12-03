@@ -79,7 +79,7 @@ group :test do
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.2'
 end
 
-group :production do
+group :assets do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '~> 4.1'
 end

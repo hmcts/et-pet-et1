@@ -1,51 +1,25 @@
-FROM phusion/passenger-customizable:1.0.15
-# Or, instead of the 'full' variant, use one of these:
-#FROM phusion/passenger-ruby23:<VERSION>
-#FROM phusion/passenger-ruby24:<VERSION>
-#FROM phusion/passenger-ruby25:<VERSION>
-#FROM phusion/passenger-ruby26:<VERSION>
-#FROM phusion/passenger-ruby27:<VERSION>
-#FROM phusion/passenger-jruby92:<VERSION>
-#FROM phusion/passenger-nodejs:<VERSION>
-#FROM phusion/passenger-customizable:<VERSION>
+FROM ruby:2.7.5-alpine AS assets
+RUN addgroup app --gid 1000
+RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
+RUN chown -R app:app /usr/local/bundle
+COPY --chown=app:app . /home/app/et1
+ENV RAILS_ENV=production
+ENV HOME=/home/app
+RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info && \
+    apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
+    cd /home/app/et1 && \
+    gem install bundler -v 1.17.3 && \
+    bundle install --no-cache --jobs=5 --retry=3 --without=test development --with=assets production --deployment && \
+    bundle exec rails assets:precompile SECRET_KEY_BASE=doesntmatter && \
+    chown -R app:app /usr/local/bundle && \
+    apk del .build-tools
 
-# Set correct environment variables.
-ENV HOME /root
+FROM ruby:2.7.5-alpine
 
-# Use baseimage-docker's init process.
-CMD ["/sbin/my_init"]
-RUN mv /etc/apt/sources.list.d /etc/apt/sources.list.d.bak
-RUN apt update && apt install -y ca-certificates
-RUN mv /etc/apt/sources.list.d.bak /etc/apt/sources.list.d
+RUN addgroup app --gid 1000
+RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
 
-# If you're using the 'customizable' variant, you need to explicitly opt-in
-# for features.
-#
-# N.B. these images are based on https://github.com/phusion/baseimage-docker,
-# so anything it provides is also automatically on board in the images below
-# (e.g. older versions of Ruby, Node, Python).
-#
-# Uncomment the features you want:
-#
-#   Ruby support
-#RUN /pd_build/ruby-2.4.*.sh
-#RUN /pd_build/ruby-2.5.*.sh
-#RUN /pd_build/ruby-2.6.*.sh
-RUN /pd_build/ruby-2.7.*.sh
-#RUN /pd_build/jruby-9.2.*.sh
-#   Python support.
-#RUN /pd_build/python.sh
-#   Node.js and Meteor standalone support.
-#   (not needed if you already have the above Ruby support)
-RUN /pd_build/nodejs.sh
 
-# ...put your own build instructions here...
-RUN apt-get install -y shared-mime-info
-RUN npm install -g yarn
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Adding argument support for ping.json
 ARG APPVERSION=unknown
 ARG APP_BUILD_DATE=unknown
 ARG APP_GIT_COMMIT=unknown
@@ -57,16 +31,25 @@ ENV APP_BUILD_DATE ${APP_BUILD_DATE}
 ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
 ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 
-
-
 EXPOSE 8080
 
 COPY --chown=app:app . /home/app/et1
+COPY --from=assets --chown=app:app /home/app/et1/public/packs /home/app/et1/public/packs
+COPY --from=assets --chown=app:app /home/app/et1/vendor/bundle /home/app/et1/vendor/bundle
+RUN chown -R app:app /usr/local/bundle
+RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file && \
+    apk add --no-cache --virtual .build-tools git build-base && \
+    cd /home/app/et1 && \
+    gem install bundler -v 1.17.3 && \
+    bundle install --no-cache --jobs=5 --retry=3 --without=test development --with=production --deployment && \
+    apk del .build-tools && \
+    chown -R app:app /usr/local/bundle && \
+    mkdir -p /home/app/et1/tmp && \
+    chown -R app:app /home/app/et1/tmp
+
+
 USER app
 ENV HOME /home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=production
-RUN npm install
-RUN bash -lc "rvm use 2.7.3 --default && gem install bundler -v 1.17.3 && bundle install --jobs=5 --retry=3 --without=test development --with=production"
-RUN bash -lc "DB_ADAPTOR=nulldb bundle exec rake assets:precompile RAILS_ENV=production SECRET_KEY_BASE=ijustdontcareyoureonlydoingaraketask"
-CMD ["./run.sh"]
+CMD ["bundle", "exec", "iodine", "-port", "8080"]

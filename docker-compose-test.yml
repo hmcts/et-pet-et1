@@ -1,33 +1,30 @@
-version: "2"
+version: "3"
 
 services:
   test:
     build:
       context: .
       dockerfile: Dockerfile.test
+      args:
+        source_image: ${SOURCE_DOCKER_IMAGE}
     links:
       - db
     environment:
-      GEM_HOME: '/rubygems'
-      BUNDLE_PATH: '/rubygems'
       DB_HOST: 'db'
       DB_USERNAME: 'postgres'
-      RAILS_ENV: 'test'
       TEST_BROWSER: 'firefox_local'
       GOOGLE_ANALYTICS_ID: moj_et_test
       HTTP_OPEN_TIMEOUT_S: 100
       HTTP_READ_TIMEOUT_S: 100
-      JADU_API: https://fgr-stub-service.herokuapp.com/1/
       S3_UPLOAD_BUCKET: etuploads
       AWS_ACCESS_KEY_ID: anything
       AWS_SECRET_ACCESS_KEY: anything
       SERVICE_NOW_EMAIL: fake@servicenow.fake.com
+      RAILS_LOG_LEVEL: info
     volumes:
-      - rvm_cache:/home/app/.rvm
+      - ./tmp/capybara:/home/app/et1/tmp/capybara
   db:
     image: postgres:9.6
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
-volumes:
-  rvm_cache:
 
