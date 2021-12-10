@@ -16,4 +16,4 @@ RUN apk add --no-cache firefox && \
     chown -R app:app /home/app/.gov_fake_notify && \
     chown -R app:app /home/app/et1/log
 USER app
-CMD ["sh", "-c", "bundle exec rake db:create db:migrate && bundle exec rspec"]
+CMD ["sh", "-c", "bundle exec rake parallel:create[2] parallel:migrate[2] && bundle exec parallel_rspec -n 2 spec"]
