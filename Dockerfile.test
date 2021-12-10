@@ -1,4 +1,4 @@
-ARG source_image=garystest
+ARG source_image
 FROM ${source_image}
 ENV RAILS_ENV=test
 COPY --chown=app:app ./spec /home/app/et1/spec
