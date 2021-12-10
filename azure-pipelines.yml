@@ -87,7 +87,7 @@ jobs:
         azureContainerRegistry: $(azure.container.registry)
         command: 'Push an image'
         imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
-      condition: succeeded()
+      condition: and(succeeded(), or(eq(variables['Build.SourceBranch'], 'refs/heads/develop'), eq(variables['Build.Reason'], 'Manual')))
     - task: Docker@1
       displayName: logout
       inputs:
