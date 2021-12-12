@@ -9,11 +9,11 @@
     = f.revealed_content :current_situation, values: [:still_employed, :notice_period, :employment_terminated]
       = f.fieldset label: t('.employment_details_legend') do
         = f.text_field :job_title, optional: true
-        = f.date_field :start_date
+        = f.date_field :start_date, maxlength_enabled: true
         = f.revealed_content :current_situation, values: [:notice_period]
-          = f.date_field :notice_period_end_date
+          = f.date_field :notice_period_end_date, maxlength_enabled: true
         = f.revealed_content :current_situation, values: [:employment_terminated]
-          = f.date_field :end_date
+          = f.date_field :end_date, maxlength_enabled: true
         = f.collection_radio_buttons :worked_notice_period_or_paid_in_lieu, inline: true
         = f.revealed_content :worked_notice_period_or_paid_in_lieu, values: [:true], classes: ['govuk-inset-text']
           = f.text_field :notice_pay_period_count, optional: true
@@ -35,7 +35,7 @@
         = f.collection_radio_buttons :found_new_job, optional: true, inline: true, include_hidden: false
 
       = f.revealed_content :found_new_job, values: [:true], classes: ['govuk-inset-text']
-        = f.date_field :new_job_start_date
+        = f.date_field :new_job_start_date, maxlength_enabled: true
 
         = f.collection_radio_buttons :new_job_gross_pay_frequency, inline: true, include_hidden: false
         = f.text_field :new_job_gross_pay, prefix_text: "£"

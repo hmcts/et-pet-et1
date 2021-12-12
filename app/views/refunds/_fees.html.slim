@@ -9,7 +9,7 @@ fieldset.fees_copy data-behavior="help"
     = f.text_field :et_issue_fee
     .govuk-grid-row
       .govuk-grid-column-one-half
-        = f.date_field :et_issue_fee_payment_date, omit_day: true
+        = f.date_field :et_issue_fee_payment_date, omit_day: true, maxlength_enabled: true
       .govuk-grid-column-one-half
         .spacer.fee-date-dont-know
         = f.check_box :et_issue_fee_payment_date_unknown, true, multiple: false
@@ -19,7 +19,7 @@ fieldset.fees_copy data-behavior="help"
     = f.text_field :et_hearing_fee
     .govuk-grid-row
       .govuk-grid-column-one-half
-        = f.date_field :et_hearing_fee_payment_date, omit_day: true
+        = f.date_field :et_hearing_fee_payment_date, omit_day: true, maxlength_enabled: true
       .govuk-grid-column-one-half
         .spacer.fee-date-dont-know
         = f.check_box :et_hearing_fee_payment_date_unknown, true, multiple: false
@@ -29,7 +29,7 @@ fieldset.fees_copy data-behavior="help"
     = f.text_field :et_reconsideration_fee
     .govuk-grid-row
       .govuk-grid-column-one-half
-        = f.date_field :et_reconsideration_fee_payment_date, omit_day: true
+        = f.date_field :et_reconsideration_fee_payment_date, omit_day: true, maxlength_enabled: true
       .govuk-grid-column-one-half
         .spacer.fee-date-dont-know
         = f.check_box :et_reconsideration_fee_payment_date_unknown, true, multiple: false
@@ -39,7 +39,7 @@ fieldset.fees_copy data-behavior="help"
     = f.text_field :eat_issue_fee
     .govuk-grid-row
       .govuk-grid-column-one-half
-        = f.date_field :eat_issue_fee_payment_date, omit_day: true
+        = f.date_field :eat_issue_fee_payment_date, omit_day: true, maxlength_enabled: true
       .govuk-grid-column-one-half
         .spacer.fee-date-dont-know
         = f.check_box :eat_issue_fee_payment_date_unknown, true, multiple: false
@@ -49,7 +49,7 @@ fieldset.fees_copy data-behavior="help"
     = f.text_field :eat_hearing_fee
     .govuk-grid-row
       .govuk-grid-column-one-half
-        = f.date_field :eat_hearing_fee_payment_date, omit_day: true
+        = f.date_field :eat_hearing_fee_payment_date, omit_day: true, maxlength_enabled: true
       .govuk-grid-column-one-half
         .spacer.fee-date-dont-know
         = f.check_box :eat_hearing_fee_payment_date_unknown, true, multiple: false

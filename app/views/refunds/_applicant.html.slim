@@ -12,7 +12,7 @@
     = f.collection_select :applicant_title
     = f.text_field :applicant_first_name
     = f.text_field :applicant_last_name
-    = f.date_field :applicant_date_of_birth
+    = f.date_field :applicant_date_of_birth, maxlength_enabled: true
     = f.fieldset label: t('.legend_contact_details')
       hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
       = f.text_field :applicant_address_building
