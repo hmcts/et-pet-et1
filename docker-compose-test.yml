@@ -21,6 +21,8 @@ services:
       AWS_SECRET_ACCESS_KEY: anything
       SERVICE_NOW_EMAIL: fake@servicenow.fake.com
       RAILS_LOG_LEVEL: info
+      WAIT_HOSTS: db:5432
+
     volumes:
       - ./tmp/capybara:/home/app/et1/tmp/capybara
   db:

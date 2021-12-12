@@ -92,6 +92,19 @@ jobs:
       displayName: logout
       inputs:
         command: logout
+    - task: PublishBuildArtifacts@1
+      condition: failed()
+      inputs:
+        pathToPublish: '$(Build.SourcesDirectory)/tmp/capybara'
+        artifactName: screenshots
+    - task: DownloadBuildArtifacts@0
+      condition: failed()
+      inputs:
+        buildType: 'current'
+        downloadType: 'single'
+        artifactName: 'screenshots'
+        downloadPath: '$(System.ArtifactsDirectory)'
+        allowPartiallySucceededBuilds: true
 
 #  - job: BuildAndPushImage
 #    dependsOn: TestApplication
