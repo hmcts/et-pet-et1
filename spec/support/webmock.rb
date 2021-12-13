@@ -11,7 +11,8 @@ WebMock.disable_net_connect! allow_localhost: true,
                                                 "chromedriver.storage.googleapis.com",
                                                 'github.com',
                                                 'github-production-release-asset-2e65be.s3.amazonaws.com',
-                                                'github-releases.githubusercontent.com'
+                                                'github-releases.githubusercontent.com',
+                                                'objects.githubusercontent.com'
                                               ]
 RSpec.configure do |c|
   c.around mock_et_api: true do |example|
