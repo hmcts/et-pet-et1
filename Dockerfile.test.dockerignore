@@ -11,9 +11,7 @@ tmp/**/*
 /coverage
 /.bundle
 /.git
-/spec
 /.env.*
-/.rspec*
 /.rubocop*
 /.ruby-version
 /azure-pipelines.yml

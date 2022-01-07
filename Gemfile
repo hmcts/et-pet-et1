@@ -79,7 +79,7 @@ group :test do
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.2'
 end
 
-group :production do
+group :assets do
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '~> 4.1'
 end
@@ -106,7 +106,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.3'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.4'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
