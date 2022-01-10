@@ -21,8 +21,13 @@
       = f.phone_field :address_telephone_number, optional: true
       = f.phone_field :mobile_number, optional: true
       = f.collection_radio_buttons :contact_preference, inline: true
-      = f.email_field :email_address, optional: true
-      = f.text_field :dx_number, optional: true
+      = f.revealed_content :contact_preference, values: [:email]
+        .govuk-inset-text
+          = f.email_field :email_address
+      = f.revealed_content :contact_preference, values: [:dx_number]
+        .govuk-inset-text
+          = f.text_field :dx_number
+
 
       details class="govuk-details govuk-!-margin-bottom-9"
         summary.govuk-details__summary role="button" aria={controls: 'details-content-0', expanded: 'true'}
