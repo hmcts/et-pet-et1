@@ -27,6 +27,7 @@ class RespondentForm < Form
   before_validation :reset_acas_number!,  unless: :has_acas_number?
   before_validation :reset_work_address!, if: :worked_at_same_address?
 
+  validates :worked_at_same_address, inclusion: [true, false]
   validates :name, presence: true
   validates :work_address_street,
             :work_address_locality,

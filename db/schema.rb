@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_16_102106) do
+ActiveRecord::Schema.define(version: 2022_01_12_105754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_102106) do
     t.string "title"
     t.boolean "primary_claimant", default: false
     t.boolean "allow_video_attendance"
+    t.boolean "has_special_needs"
     t.index ["claim_id"], name: "index_claimants_on_claim_id"
     t.index ["primary_claimant"], name: "index_claimants_on_primary_claimant"
   end
@@ -91,8 +92,8 @@ ActiveRecord::Schema.define(version: 2021_07_16_102106) do
     t.string "pdf"
     t.string "confirmation_email_recipients", default: [], array: true
     t.string "pdf_url"
-    t.boolean "has_multiple_claimants", default: false
-    t.boolean "has_multiple_respondents", default: false
+    t.boolean "has_multiple_claimants"
+    t.boolean "has_multiple_respondents"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 
@@ -261,7 +262,7 @@ ActiveRecord::Schema.define(version: 2021_07_16_102106) do
     t.integer "claim_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean "worked_at_same_address", default: true
+    t.boolean "worked_at_same_address"
     t.boolean "primary_respondent", default: false
     t.boolean "has_acas_number"
     t.index ["claim_id"], name: "index_respondents_on_claim_id"

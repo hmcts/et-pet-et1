@@ -46,6 +46,10 @@ en:
               blank: You must provide information for this field
             last_name:
               blank: You must provide information for this field
+        additional_claimants:
+          attributes:
+            has_multiple_claimants:
+              inclusion: Please indicate if other people are making a claim with you
         additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
@@ -186,6 +190,8 @@ en:
               blank: Enter the respondent’s postcode
               invalid: Enter a valid UK postcode. If the respondent lives abroad, enter a SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
+            worked_at_same_address:
+              inclusion: Please indicate if you work at the same address
             work_address_building:
               blank: Enter the building name or number of your work address
             work_address_street:
@@ -204,6 +210,10 @@ en:
               invalid_ccd_phone: Invalid phone number
             mobile_number:
               invalid_ccd_phone: Invalid phone number
+        additional_respondents:
+          attributes:
+            has_multiple_respondents:
+              inclusion: Please indicate if you are making a claim against more than one employer
         additional_respondents_form/additional_respondent:
           attributes:
             title:

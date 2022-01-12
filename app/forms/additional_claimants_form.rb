@@ -7,6 +7,8 @@ class AdditionalClaimantsForm < Form
   before_validation :remove_secondaries, unless: :has_multiple_claimants
   has_many_forms :secondary_claimants, class_name: '::AdditionalClaimantsForm::ClaimantForm'
 
+  validates :has_multiple_claimants, inclusion: [true, false]
+
   private
 
   attr_accessor :_resource

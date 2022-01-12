@@ -11,7 +11,7 @@
 
 = f.fieldset label: { text: t('.workaddress_legend'), size: 'm' }
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
-  = f.collection_radio_buttons :worked_at_same_address, optional: true, inline: true, include_hidden: false
+  = f.collection_radio_buttons :worked_at_same_address, optional: false, inline: true, include_hidden: false
   = f.revealed_content :worked_at_same_address, values: [:false], classes: ['govuk-inset-text']
     p.form-hint= t '.work_address'
     = f.text_field :work_address_building, optional: true
