@@ -9,8 +9,8 @@ class RepresentativeForm < Form
   attribute :email_address,      :string
   attribute :dx_number,          :string
   attribute :contact_preference, :string
-
-  boolean :has_representative
+  attribute :has_representative, :boolean
+  map_attribute :has_representative, to: :resource
 
   before_validation :destroy_target!, unless: :has_representative?
 
@@ -29,10 +29,6 @@ class RepresentativeForm < Form
     else
       run_callbacks(:validation) { true }
     end
-  end
-
-  def has_representative
-    @has_representative ||= target.persisted?
   end
 
   def target
