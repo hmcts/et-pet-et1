@@ -6,6 +6,11 @@ class Form < ApplicationRecord
   before_validation :clean_strings
   class_attribute :__transient_attributes, default: []
 
+  def self.inherited(child)
+    child.__transient_attributes = []
+    super
+  end
+
   def initialize(resource, **attrs)
     self.resource = resource
     super(attrs)
