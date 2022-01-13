@@ -1,0 +1,15 @@
+class MigrateOtherKnownClaimantsInClaims < ActiveRecord::Migration[6.1]
+  class Claims < ActiveRecord::Base
+    self.table_name = :claims
+  end
+
+  def up
+    Claim.all.each do |claim|
+      claim.update_columns other_known_claimants: claim.other_known_claimants.present?
+    end
+  end
+
+  def down
+    #do nothing
+  end
+end

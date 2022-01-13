@@ -68,6 +68,8 @@ en:
               blank: You must enter details of your claim here. If you want to upload your claim statement in a separate document, type ‘see attached’ in the box
             other_known_claimant_names:
               blank: List the names of other people who are making a similar claim
+            other_known_claimants:
+              inclusion: Please indicate if you know any other claimants making a similar claim
         claim_outcome:
           attributes:
             other_outcome:

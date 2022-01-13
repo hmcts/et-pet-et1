@@ -3,8 +3,7 @@ class ClaimDetailsForm < Form
   attribute :other_known_claimant_names,  :string
   attribute :claim_details_rtf,           :attachment_uploader_type
   attribute :remove_claim_details_rtf,    :boolean
-
-  boolean :other_known_claimants
+  attribute :other_known_claimants, :boolean
 
   before_validation :remove_claim_details_rtf!,
     if: :remove_claim_details_rtf
@@ -19,6 +18,7 @@ class ClaimDetailsForm < Form
   validates :claim_details_rtf, content_type: {
     in: ['text/rtf'], message: I18n.t('errors.messages.rtf')
   }
+  validates :other_known_claimants, inclusion: [true, false]
 
   def claim_form_details_rtf?
     resource.claim_details_rtf_file.present?
@@ -26,9 +26,5 @@ class ClaimDetailsForm < Form
 
   def attachment_filename
     CarrierwaveFilename.for claim_details_rtf
-  end
-
-  def other_known_claimants
-    @other_known_claimants ||= other_known_claimant_names?
   end
 end
