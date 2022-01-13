@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_123019) do
+ActiveRecord::Schema.define(version: 2022_01_13_132414) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2022_01_13_123019) do
     t.boolean "has_multiple_claimants"
     t.boolean "has_multiple_respondents"
     t.boolean "other_known_claimants"
+    t.boolean "has_miscellaneous_information"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 

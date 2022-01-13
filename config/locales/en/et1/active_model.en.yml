@@ -74,6 +74,10 @@ en:
           attributes:
             other_outcome:
               blank: You must provide information for this field
+        additional_information:
+          attributes:
+            has_miscellaneous_information:
+              inclusion: Please indicate if you want to provide additional information about your claim
         claimant:
           attributes:
             date_of_birth:
