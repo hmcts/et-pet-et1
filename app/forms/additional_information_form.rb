@@ -1,5 +1,4 @@
 class AdditionalInformationForm < Form
-  # boolean   :has_miscellaneous_information
   attribute :miscellaneous_information, :string
   attribute :has_miscellaneous_information, :boolean
 
