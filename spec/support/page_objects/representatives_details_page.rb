@@ -56,9 +56,9 @@ module ET1
           s.post_code_question.set(representative.address_post_code)
           s.phone_or_mobile_number_question.set(representative.phone_or_mobile_number)
           s.alternative_phone_or_mobile_number_question.set(representative.alternative_phone_or_mobile_number)
-          s.email_address_question.set(representative.email_address)
-          s.dx_number_question.set(representative.dx_number)
           s.best_correspondence_method_question.set(representative.best_correspondence_method)
+          s.email_address_question.set(representative.email_address) if representative.best_correspondence_method.to_s.split.last == 'email'
+          s.dx_number_question.set(representative.dx_number) if representative.best_correspondence_method.to_s.split.last == 'dx_number'
         end
       end
 

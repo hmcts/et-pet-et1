@@ -306,15 +306,6 @@ feature 'Claim applications', type: :feature, js: true do
       check_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Saving the confirmation email recipients' do
-      complete_a_claim
-      click_button 'Submit claim'
-      sleep 2
-
-      expect(Claim.last.confirmation_email_recipients).
-        to eq [FormMethods::REPRESENTATIVE_EMAIL]
-    end
-
     scenario 'Deselecting email confirmation recipients before submission' do
       complete_a_claim
       review_page.email_confirmation_section.email_recipients.set([])
