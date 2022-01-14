@@ -141,6 +141,8 @@ en:
               blank: You must provide information for this field
         representative:
           attributes:
+            has_representative:
+              inclusion: Please indicate if you have someone representing you
             type:
               blank: Select which type of representative you have
             name:
