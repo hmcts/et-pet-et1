@@ -24,6 +24,10 @@ class RepresentativeForm < Form
   validates :dx_number, presence: true, if: ->(form) { form.contact_preference == 'dx_number' && has_representative? }
   validates :has_representative, inclusion: [true, false]
 
+  def initialize(resource, **attrs)
+    super
+  end
+
   def skip_address_validation?
     !has_representative?
   end
