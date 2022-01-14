@@ -21,6 +21,10 @@ module AddressAttributes
       const_set :PHONE_NUMBER_LENGTH, 21
       const_set :POSTCODE_LENGTH,     8
 
+      def skip_address_validation?
+        false
+      end
+
       included do
         attribute :address_building,         :string
         attribute :address_street,           :string
@@ -30,11 +34,11 @@ module AddressAttributes
         attribute :address_telephone_number, :string
 
         validates :address_building, :address_street, :address_locality,
-          :address_county, :address_post_code, presence: true
+          :address_county, :address_post_code, presence: true, unless: :skip_address_validation?
 
-        validates :address_building, :address_street, ccd_address: true
-        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }, ccd_address: true
-        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
+        validates :address_building, :address_street, ccd_address: true, unless: :skip_address_validation?
+        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }, ccd_address: true, unless: :skip_address_validation?
+        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true, unless: :skip_address_validation?
       end
     end
   end
