@@ -96,6 +96,8 @@ en:
               inclusion: Please indicate if you have a disability that require assistance at the tribunal hearing
             special_needs:
               blank: Say whether you require assistance at the tribunal hearing
+            address_country:
+              blank: Please indicate the country
             contact_preference:
               blank: Say whether you’d like correspondence to be sent to the claimant by post or email
               invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
