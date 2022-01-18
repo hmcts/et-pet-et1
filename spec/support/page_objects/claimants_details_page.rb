@@ -29,7 +29,7 @@ module ET1
       def fill_in_special_needs(claimant:)
         about_the_claimant_group.tap do |s|
           s.has_special_needs_question.set(claimant.has_special_needs)
-          s.special_needs_question.set(claimant.special_needs) if claimant.has_special_needs
+          s.special_needs_question.set(claimant.special_needs) if claimant.has_special_needs.to_s.split('.').last == 'yes'
         end
       end
 

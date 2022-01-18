@@ -1,4 +1,4 @@
-RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
+RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim, excluded_save_attributes = []|
   let(:resource_class) do
     if resource_class_or_lambda.respond_to?(:call)
       resource_class_or_lambda.call
@@ -28,7 +28,7 @@ RSpec.shared_examples 'a Form' do |attributes, resource_class_or_lambda = Claim|
 
         form.save
 
-        expect(form.target).to have_received(:update).with form.attributes
+        expect(form.target).to have_received(:update).with form.attributes.except(*excluded_save_attributes)
       end
     end
 

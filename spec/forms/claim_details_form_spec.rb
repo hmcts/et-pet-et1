@@ -46,13 +46,13 @@ RSpec.describe ClaimDetailsForm, type: :form do
 
   describe '#other_known_claimants' do
     context 'when #other_known_claimant_names is blank' do
-      it 'is false' do
-        expect(claim_details_form.other_known_claimants).to be false
+      it 'is nil' do
+        expect(claim_details_form.other_known_claimants).to be_nil
       end
     end
 
     context 'when #other_known_claimant_names is not blank' do
-      before { claim_details_form.other_known_claimant_names = "Lolly Lollington" }
+      before { claim_details_form.other_known_claimants = true }
 
       it 'is true' do
         expect(claim_details_form.other_known_claimants).to be true

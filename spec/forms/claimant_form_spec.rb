@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ClaimantForm, type: :form do
-  let(:claimant) { Claimant.new contact_preference: 'email' }
+  let(:claimant) { Claimant.new contact_preference: 'email', has_special_needs: false }
   let(:resource) { Claim.new primary_claimant: claimant }
 
   let(:claimant_form) { described_class.new Claim.new primary_claimant: claimant }
@@ -204,6 +204,7 @@ RSpec.describe ClaimantForm, type: :form do
                     address_locality: 'Anytown', address_county: 'Anyfordshire',
                     address_country: 'united_kingdom',
                     address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
+                    has_special_needs: false,
                     special_needs: '', date_of_birth: '01/01/1990'
 
     describe 'postcode' do

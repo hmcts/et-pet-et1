@@ -142,7 +142,7 @@ en:
         male: Male
         female: Female
     has_special_needs:
-      label: Do you have a disability which means you require assistance at the tribunal hearing? (optional)
+      label: Do you have a disability which means you require assistance at the tribunal hearing?
       options:
         "yes": "Yes"
         "no": "No"
@@ -182,7 +182,7 @@ en:
   group_claims:
     save_and_continue: Save and continue
     people_making_claim_with_you:
-      label: Are other people making a claim with you (against the same employer or organisation)? (optional)
+      label: Are other people making a claim with you (against the same employer or organisation)?
       options:
         "yes": "Yes"
         "no": "No"
@@ -209,7 +209,7 @@ en:
     errors:
       invalid_phone_number: Invalid phone number
     do_you_have_representative:
-      label: Do you have someone who’s agreed to represent you (eg by handling correspondence)? (optional)
+      label: Do you have someone who’s agreed to represent you (eg by handling correspondence)?
       options:
         "yes": "Yes"
         "no": "No"
@@ -275,7 +275,7 @@ en:
     phone_number:
       label: Phone number (optional)
     worked_at_same_address:
-      label: Did you work at the same address to the one given above? (optional)
+      label: Did you work at the same address to the one given above?
       options:
         "yes": "Yes"
         "no": "No"
@@ -367,7 +367,7 @@ en:
       label: 'Describe your claim'
       hint: Limit is 2500 characters.
     other_known_claimants:
-      label: Do you know of any other claimants (not already listed) making similar claims against the same employer? (optional)
+      label: Do you know of any other claimants (not already listed) making similar claims against the same employer?
       hint: A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
       options:
         'yes': 'Yes'
@@ -423,7 +423,7 @@ en:
     save_and_continue: Save and continue
   employment:
     was_employed:
-      label: Have you ever been employed by the person or organisation that you’re making this claim against? (optional)
+      label: Have you ever been employed by the person or organisation that you’re making this claim against?
       options:
         'true': 'Yes'
         'false': 'No'
@@ -493,7 +493,7 @@ en:
     save_and_continue: Save and continue
   more_about_the_claim:
     provide_more_information:
-      label: Do you want to provide additional information about your claim? (optional)
+      label: Do you want to provide additional information about your claim?
       options:
         'true': 'Yes'
         'false': 'No'

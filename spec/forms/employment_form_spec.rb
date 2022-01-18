@@ -98,13 +98,13 @@ RSpec.describe EmploymentForm, type: :form do
     context 'when the employment model has not been persisted' do
       before { allow(employment).to receive_messages persisted?: false }
 
-      it 'is false' do
-        expect(employment_form.was_employed).to be false
+      it 'is nil' do
+        expect(employment_form.was_employed).to be_nil
       end
     end
 
     context 'when the employment model has been persisted' do
-      before { allow(employment).to receive_messages persisted?: true }
+      before { employment_form.was_employed = true }
 
       it 'is true' do
         expect(employment_form.was_employed).to be true

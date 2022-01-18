@@ -21,11 +21,16 @@ FactoryBot.define do
     fee_group_reference { "511234567800" }
 
     additional_claimants_csv_record_count { 5 }
-
+    other_known_claimants { false }
+    was_employed { true }
+    has_representative { true }
+    has_multiple_claimants { false }
+    has_multiple_respondents { false }
     claim_details             { 'I am sad' }
     other_claim_details       { 'Really sad' }
     other_outcome             { 'I wanna take him to the cleaners!' }
     is_whistleblowing         { false }
+    has_miscellaneous_information { true }
     miscellaneous_information { 'Still really sad' }
 
     discrimination_claims  { [:sex_including_equal_pay, :disability, :race] }
@@ -113,10 +118,12 @@ FactoryBot.define do
     end
 
     trait :with_secondary_claimants do
+      has_multiple_claimants { true }
       after(:create) { |claim| create_list :claimant, 2, claim: claim }
     end
 
     trait :with_secondary_respondents do
+      has_multiple_respondents { true }
       after(:build) do |claim|
         claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
         claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
@@ -158,7 +165,7 @@ FactoryBot.define do
     gender     { 'male' }
 
     date_of_birth { Date.civil(1960, 6, 6) }
-
+    has_special_needs { false }
     mobile_number      { '07956273434' }
     contact_preference { 'email' }
     allow_video_attendance { true }
