@@ -500,7 +500,11 @@ en:
     more_information:
       label: Enter more detail about your claim.
     save_and_continue: Save and continue
+  guide:
+    return_to_form: Return to form
   components:
+    sidebar:
+      guide: Guide
     date:
       day: Day
       month: Month

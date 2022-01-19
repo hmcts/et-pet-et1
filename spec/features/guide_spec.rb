@@ -63,9 +63,11 @@ feature 'Guide', type: :feature do
       within('aside') { click_link 'Guide' }
       click_link 'Return to form'
 
-      expect(current_path).to eq claim_additional_claimants_path(locale: :en)
-      click_button 'Save and continue'
-      expect(current_path).to eq claim_review_path(locale: :en)
+      expect(group_claims_page).to be_displayed
+      group_claims_page
+        .no_secondary_claimants
+        .save_and_continue
+      expect(review_page).to be_displayed
     end
 
     scenario 'Redirects to claim apply path when not referred from current site' do

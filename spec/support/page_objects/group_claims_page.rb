@@ -2,7 +2,7 @@ require_relative './base_page'
 module ET1
   module Test
     class GroupClaimsPage < BasePage
-      set_url "/en/apply/additional-claimants"
+      set_url_matcher /apply\/additional-claimants/
 
       # Adds a list of secondary claimants using the user interface
       # If the list is not empty - it clicks "Yes" to the 'People making a claim with you'
