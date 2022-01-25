@@ -45,7 +45,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
   end
 
   describe '#other_known_claimants' do
-    context 'when #other_known_claimant_names is blank' do
+    context 'when #other_known_claimants is blank' do
       it 'is nil' do
         expect(claim_details_form.other_known_claimants).to be_nil
       end

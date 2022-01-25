@@ -103,7 +103,7 @@ RSpec.describe EmploymentForm, type: :form do
       end
     end
 
-    context 'when the employment model has been persisted' do
+    context 'when the employment model return true' do
       before { employment_form.was_employed = true }
 
       it 'is true' do
