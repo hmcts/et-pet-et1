@@ -1,5 +1,5 @@
 class MigrateHasMiscellaneousInformationInClaims < ActiveRecord::Migration[6.1]
-  class Claims < ActiveRecord::Base
+  class Claim < ActiveRecord::Base
     self.table_name = :claims
   end
 

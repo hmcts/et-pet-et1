@@ -1,11 +1,16 @@
 class MigrateWasEmployedInClaims < ActiveRecord::Migration[6.1]
-  class Claims < ActiveRecord::Base
+  class Claim < ActiveRecord::Base
     self.table_name = :claims
+    has_one :employment, class_name: 'MigrateWasEmployedInClaims::Employment'
+  end
+
+  class Employment < ActiveRecord::Base
+    self.table_name = :employments
   end
 
   def up
-    Claim.all.each do |was_employed|
-      was_employed.update_columns was_employed: was_employed.was_employed.present?
+    Claim.all.each do |claim|
+      claim.update_columns was_employed: claim.employment.present?
     end
   end
 
