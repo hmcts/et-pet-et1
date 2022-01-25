@@ -71,42 +71,5 @@ cy:
       password:
         label: Crëwch eich gair cofiadwy
         hint: "Os ydych wedi nodi eich cyfeiriad e-bost uchod, byddwch yn gallu ailosod eich gair cofiadwy os byddwch yn ei anghofio"
-  activemodel:
-    errors:
-      models:
-        claimant:
-          attributes:
-            has_special_needs:
-              inclusion: Nodwch os oes gennych anabledd a’ch bod angen cymorth yng ngwrandawiad y tribiwnlys
-            address_country:
-              inclusion: Nodwch y wlad
-        additional_claimants:
-          attributes:
-            has_multiple_claimants:
-              inclusion: Nodwch os oes pobl eraill yn gwneud hawliad gyda chi
-        representative:
-          attributes:
-            has_representative:
-              inclusion: Nodwch os oes gennych rywun yn eich cynrychioli
-        respondent:
-          attributes:
-            worked_at_same_address:
-              inclusion: Nodwch os ydych yn gweithio yn yr un cyfeiriad
-        additional_respondents:
-          attributes:
-            has_multiple_respondents:
-              inclusion: Nodwch os ydych yn gwneud hawliad yn erbyn mwy nag un cyflogwr
-        employment:
-          attributes:
-            was_employed:
-              inclusion: Nodwch os ydych erioed wedi’ch cyflogi gan yr unigolyn neu’r sefydliad yr ydych yn gwneud yr hawliad hwn yn ei erbyn
-        claim_details:
-          attributes:
-            other_known_claimants:
-              inclusion: Nodwch os ydych yn gwybod am unrhyw hawlwyr eraill sy’n gwneud hawliad tebyg
-        additional_information:
-          attributes:
-            has_miscellaneous_information:
-              inclusion: Nodwch os ydych eisiau darparu gwybodaeth ychwanegol am eich hawliad
 
 
