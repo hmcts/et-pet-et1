@@ -14,11 +14,11 @@
   = f.collection_radio_buttons :worked_at_same_address, inline: true, include_hidden: false
   = f.revealed_content :worked_at_same_address, values: [:false], classes: ['govuk-inset-text']
     p.form-hint= t '.work_address'
-    = f.text_field :work_address_building, optional: true
-    = f.text_field :work_address_street, optional: true
-    = f.text_field :work_address_locality, optional: true
+    = f.text_field :work_address_building
+    = f.text_field :work_address_street
+    = f.text_field :work_address_locality
     = f.text_field :work_address_county, optional: true
-    = f.text_field :work_address_post_code, optional: true
+    = f.text_field :work_address_post_code
     = f.phone_field :work_address_telephone_number, optional: true
 = f.fieldset label: { text: t('claims.respondent.acas_early_conciliation_certificate_number.label'), size: 'm' }
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
