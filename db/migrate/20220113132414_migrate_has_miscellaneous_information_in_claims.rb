@@ -5,7 +5,7 @@ class MigrateHasMiscellaneousInformationInClaims < ActiveRecord::Migration[6.1]
 
   def up
     Claim.all.each do |claim|
-      claim.update_columns has_miscellaneous_information: claim.has_miscellaneous_information.present?
+      claim.update_columns has_miscellaneous_information: claim.miscellaneous_information.present?
     end
   end
 
