@@ -1,11 +1,17 @@
 class MigrateHasRepresentativeInClaims < ActiveRecord::Migration[6.1]
-  class Claims < ActiveRecord::Base
+  class Claim < ActiveRecord::Base
     self.table_name = :claims
+    has_one :representative, class_name: 'MigrateHasRepresentativeInClaims::Representative'
+  end
+
+  class Representative < ActiveRecord::Base
+    self.table_name = :representatives
+    self.inheritance_column = nil
   end
 
   def up
-    Claim.all.each do |representative|
-      representative.update_columns has_representative: representative.has_representative.present?
+    Claim.all.each do |claim|
+      claim.update_columns has_representative: claim.representative.present?
     end
   end
 
