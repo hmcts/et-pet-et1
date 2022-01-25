@@ -5,7 +5,7 @@ class MigrateOtherKnownClaimantsInClaims < ActiveRecord::Migration[6.1]
 
   def up
     Claim.all.each do |claim|
-      claim.update_columns other_known_claimants: claim.other_known_claimants.present?
+      claim.update_columns other_known_claimants: claim.other_known_claimant_names.present?
     end
   end
 
