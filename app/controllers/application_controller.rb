@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :show_maintenance_page
   after_action :set_session_expiry
 
   before_action do
@@ -85,5 +86,11 @@ class ApplicationController < ActionController::Base
   def set_admin_locale
     @active_admin = true
     I18n.locale = :en
+  end
+
+  def show_maintenance_page(config = Rails.application.config)
+    return if !config.maintenance_enabled || config.maintenance_allowed_ips.include?(request.remote_ip)
+
+    render 'static_pages/maintenance', layout: false, status: :service_unavailable
   end
 end
