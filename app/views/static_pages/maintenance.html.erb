@@ -1,0 +1,20 @@
+<% content_for :page_title do %>
+  Sorry, the service is unavailable – Employment Tribunals – GOV.UK
+<% end %>
+
+<% content_for :content do %>
+  <h1 class="govuk-heading-xl govuk-!-margin-top-3">
+    Sorry, the service is unavailable
+  </h1>
+  <% if Rails.application.config.maintenance_end.present? %>
+    <p class="govuk-body">You will be able to use the service from <%= Rails.application.config.maintenance_end %></p>
+  <% else %>
+    <p class="govuk-body">You will be able to use the service later</p>
+  <% end %>
+  <p class="govuk-body">Any claims in progress will have been saved.</p>
+<% end %>
+
+<% content_for :footer_support_links do %>
+  <!-- No support links -->
+<% end %>
+<%= render template: "layouts/moj_template" %>
