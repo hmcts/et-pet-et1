@@ -5,6 +5,13 @@ class Form < ApplicationRecord
   attr_reader :resource
   before_validation :clean_strings
   class_attribute :__transient_attributes, default: []
+  class_attribute :__custom_mappings, default: {}
+
+  def self.inherited(child)
+    child.__transient_attributes = []
+    child.__custom_mappings = __custom_mappings.clone
+    super
+  end
 
   def initialize(resource, **attrs)
     self.resource = resource
@@ -16,6 +23,10 @@ class Form < ApplicationRecord
   def self.transient_attributes(*attrs)
     __transient_attributes.concat attrs unless attrs.empty?
     __transient_attributes
+  end
+
+  def self.map_attribute(attribute_name, to:)
+    __custom_mappings[attribute_name] = { to: to }
   end
 
   def transient_attributes
@@ -133,7 +144,14 @@ class Form < ApplicationRecord
     if valid?
       run_callbacks :save do
         ActiveRecord::Base.transaction do
-          target.update attributes.except(*transient_attributes.map(&:to_s)) unless target.frozen?
+          mapped_attributes = __custom_mappings.keys.map(&:to_s)
+          target.update attributes.except(*(transient_attributes.map(&:to_s) + mapped_attributes)) unless target.frozen?
+          __custom_mappings.each_pair do |attr, options|
+            object_to_write_to = options[:to]
+            raise "Unknown mapping 'to' method #{object_to_write_to}" unless respond_to?(object_to_write_to)
+
+            send(object_to_write_to).send(:"#{attr}=", send(attr))
+          end
           resource.save
         end
       end
@@ -148,8 +166,14 @@ class Form < ApplicationRecord
   def reload
     return if target.nil?
 
-    attributes.each_key do |key|
+    (attributes.keys - __custom_mappings.keys.map(&:to_s)).each do |key|
       send "#{key}=", target.try(key)
+    end
+    __custom_mappings.each_pair do |attr, options|
+      object_to_read_from = options[:to]
+      raise "Unknown mapping 'to' method #{object_to_read_from}" unless respond_to?(object_to_read_from)
+
+      send "#{attr}=", send(object_to_read_from).send(attr)
     end
   end
 

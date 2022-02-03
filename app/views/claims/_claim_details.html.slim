@@ -16,7 +16,7 @@ details.govuk-details data-module="govuk-details" open=(resource.claim_form_deta
 = f.text_area :claim_details, max_chars: 2500, rows: 15
 
 = f.fieldset label: t('.similar_claims') do
-  = f.collection_radio_buttons :other_known_claimants, inline: true, optional: true
+  = f.collection_radio_buttons :other_known_claimants, inline: true
   = f.revealed_content :other_known_claimants, values: [:true]
     = f.text_area :other_known_claimant_names, optional: true, rows: 5, max_chars: 350
 

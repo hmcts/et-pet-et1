@@ -44,35 +44,23 @@ RSpec.describe AdditionalInformationForm, type: :form do
     context 'when the underlying resource' do
       context 'does have miscellaneous information' do
         before do
+          additionl_information_form.has_miscellaneous_information = true
           resource.miscellaneous_information = 'such miscellany'
         end
 
         it 'returns true' do
           expect(additionl_information_form.has_miscellaneous_information).to be true
         end
-
-        it 'sets self.has_miscellaneous_information= with true' do
-          expect(additionl_information_form).to receive(:has_miscellaneous_information=).
-            with(true)
-
-          additionl_information_form.has_miscellaneous_information
-        end
       end
 
       context 'does not have miscellaneous information' do
         before do
+          additionl_information_form.has_miscellaneous_information = false
           resource.miscellaneous_information = ''
         end
 
         it 'returns false' do
           expect(additionl_information_form.has_miscellaneous_information).to be false
-        end
-
-        it 'sets self.has_miscellaneous_information= with false' do
-          expect(additionl_information_form).to receive(:has_miscellaneous_information=).
-            with(false)
-
-          additionl_information_form.has_miscellaneous_information
         end
       end
     end

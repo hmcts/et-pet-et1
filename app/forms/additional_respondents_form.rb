@@ -7,6 +7,8 @@ class AdditionalRespondentsForm < Form
   before_validation :remove_secondaries, unless: :has_multiple_respondents
   has_many_forms :secondary_respondents, class_name: '::AdditionalRespondentsForm::RespondentForm'
 
+  validates :has_multiple_respondents, inclusion: [true, false]
+
   def persisted_attributes
     attributes.except('secondary_respondents')
   end

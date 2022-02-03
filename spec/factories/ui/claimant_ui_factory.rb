@@ -12,6 +12,7 @@ FactoryBot.define do
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }
       date_of_birth { '29/11/1998' }
+      has_special_needs { :'claimants_details.has_special_needs.options.no' }
 
       address_building { '32' }
       address_street { 'My Street' }

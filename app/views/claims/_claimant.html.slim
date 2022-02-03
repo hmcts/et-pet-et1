@@ -4,7 +4,7 @@
   p.govuk-body = t '.personal_details_description'
   = render partial: 'personal_details', locals: { f: f }
   = f.collection_radio_buttons :gender, optional: true, inline: true, include_hidden: false
-  = f.collection_radio_buttons :has_special_needs, optional: true, inline: true, include_hidden: true
+  = f.collection_radio_buttons :has_special_needs, inline: true, include_hidden: true
   = f.revealed_content :has_special_needs, values: [:true]
     = f.text_area :special_needs, optional: true
 

@@ -19,6 +19,8 @@ class EmploymentForm < Form
   attribute :notice_period_end_date,               :et_date
   attribute :start_date,                           :et_date
   attribute :worked_notice_period_or_paid_in_lieu, :boolean
+  attribute :was_employed, :boolean
+  map_attribute :was_employed, to: :resource
 
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
     define_method("#{attribute}=") do |v|
@@ -35,8 +37,7 @@ class EmploymentForm < Form
   validates :new_job_start_date, date: true
   validates :notice_period_end_date, date: true
   validate :end_date_before_start_date?
-
-  boolean :was_employed
+  validates :was_employed, inclusion: [true, false]
 
   before_validation :reset_irrelevant_fields!, if: :was_employed?
   before_validation :destroy_target!, unless: :was_employed?
@@ -47,10 +48,6 @@ class EmploymentForm < Form
   validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
   validates :pay_period_type,             presence: { if: :gross_pay? || net_pay? }
   validates :current_situation,           presence: { if: :was_employed? }
-
-  def was_employed
-    @was_employed ||= target.persisted?
-  end
 
   private
 

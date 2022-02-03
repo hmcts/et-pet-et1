@@ -26,8 +26,8 @@ class ClaimantForm < Form
   attribute :gender,             :string
   attribute :contact_preference, :string
   attribute :allow_video_attendance, :boolean
+  attribute :has_special_needs, :boolean
 
-  boolean   :has_special_needs
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
   before_validation :clear_email_address, unless: :contact_preference_email?
@@ -35,6 +35,7 @@ class ClaimantForm < Form
 
   validates :first_name, :last_name, :address_country,
     :contact_preference, presence: true
+  validates :has_special_needs, inclusion: [true, false]
 
   validates :title, ccd_personal_title: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
@@ -57,10 +58,6 @@ class ClaimantForm < Form
 
   def contact_preference
     (read_attribute(:contact_preference) || "").inquiry
-  end
-
-  def has_special_needs
-    @has_special_needs ||= special_needs.present?
   end
 
   def target

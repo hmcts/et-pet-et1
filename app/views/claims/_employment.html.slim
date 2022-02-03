@@ -1,7 +1,7 @@
 = f.fieldset label: t('.situation_legend')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"
   /! Radios: main yes / no
-  = f.collection_radio_buttons :was_employed, optional: true, inline: true, include_hidden: true
+  = f.collection_radio_buttons :was_employed, inline: true, include_hidden: true
   = f.revealed_content :was_employed, values: 'true'
     /! reveal_current_situation
     = f.collection_radio_buttons :current_situation

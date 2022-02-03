@@ -2,23 +2,18 @@ require 'rails_helper'
 
 RSpec.describe RepresentativeForm, type: :form do
   let(:representative) { Representative.new }
-  let(:resource)       { Claim.new representative: representative }
+  let(:resource)       { Claim.new representative: representative, has_representative: true }
 
   let(:representative_form) { described_class.new resource }
 
   describe '#has_representative' do
-    context 'when the representative has not been persisted' do
-      it 'is false' do
-        expect(representative_form.has_representative).to be false
-      end
+    it 'is true' do
+      expect(representative_form.has_representative).to be true
     end
 
-    context 'when the representative has been persisted' do
-      before { allow(representative).to receive_messages persisted?: true }
-
-      it 'is true' do
-        expect(representative_form.has_representative).to be true
-      end
+    it 'can be set to false' do
+      representative_form.has_representative = false
+      expect(representative_form.has_representative).to be false
     end
   end
 
@@ -172,14 +167,19 @@ RSpec.describe RepresentativeForm, type: :form do
     subject { representative_form }
 
     it_behaves_like "a Form",
-                    name:               'Saul Goodman',
-                    organisation_name:  'Better Call Saul',
-                    type:               'citizen_advice_bureau', dx_number: '1',
-                    address_building:   '1', address_street: 'High Street',
-                    address_locality:   'Anytown', address_county: 'Anyfordshire',
-                    address_post_code:  'AT1 0AA', email_address: 'lol@example.com',
-                    has_representative: true,
-                    contact_preference: 'email'
+                    {
+                      name:               'Saul Goodman',
+                      organisation_name:  'Better Call Saul',
+                      type:               'citizen_advice_bureau', dx_number: '1',
+                      address_building:   '1', address_street: 'High Street',
+                      address_locality:   'Anytown', address_county: 'Anyfordshire',
+                      address_post_code:  'AT1 0AA', email_address: 'lol@example.com',
+                      has_representative: true,
+                      contact_preference: 'email'
+                    },
+                    Claim,
+                    ['has_representative']
+
 
     describe 'postcode validation' do
       before do
