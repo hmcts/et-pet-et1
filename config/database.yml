@@ -3,32 +3,32 @@ default: &default
   encoding: unicode
   pool: 5
   port: <%= ENV.fetch('DB_PORT', '5432') %>
-  password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
+  password: '<%= ENV['DB_PASSWORD']  || 'etpass' %>'
 
 development:
   <<: *default
-  database: <%= ENV.fetch('DB_NAME', 'atet_development') %>
-  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
-  user: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
+  database: '<%= ENV.fetch('DB_NAME', 'atet_development') %>'
+  host: '<%= ENV.fetch('DB_HOST', 'localhost') %>'
+  user: '<%= ENV.fetch('DB_USERNAME', 'postgres') %>'
 
 local:
   <<: *default
-  database: <%= ENV['DB_NAME'] || 'atet_local' %>
-  host: <%= ENV['DB_HOST'] || 'db' %>
-  user: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
+  database: '<%= ENV['DB_NAME'] || 'atet_local' %>'
+  host: '<%= ENV['DB_HOST'] || 'db' %>'
+  user: '<%= ENV.fetch('DB_USERNAME', 'postgres') %>'
 
 test: &test
   <<: *default
-  database: <%= ENV.fetch('DB_TEST_NAME', 'atet_test') %><%= ENV['TEST_ENV_NUMBER'] %>
-  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
-  user: <%= ENV.fetch('DB_USERNAME', 'postgres') %>
+  database: '<%= ENV.fetch('DB_TEST_NAME', 'atet_test') %><%= ENV['TEST_ENV_NUMBER'] %>'
+  host: '<%= ENV.fetch('DB_HOST', 'localhost') %>'
+  user: '<%= ENV.fetch('DB_USERNAME', 'postgres') %>'
 
 production:
   <<: *default
-  database: <%= ENV['DB_NAME'] || 'etdb' %>
-  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
-  username: <%= ENV['DB_USERNAME']  || 'etuser' %>
-  password: <%= ENV['DB_PASSWORD']  || 'etpass' %>
+  database: '<%= ENV['DB_NAME'] || 'etdb' %>'
+  host: '<%= ENV.fetch('DB_HOST', 'localhost') %>'
+  username: '<%= ENV['DB_USERNAME']  || 'etuser' %>'
+  password: '<%= ENV['DB_PASSWORD']  || 'etpass' %>'
   pool: 15
 
 cucumber:
