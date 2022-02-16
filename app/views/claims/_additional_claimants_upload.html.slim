@@ -33,10 +33,15 @@
         .govuk-grid-column-one-quarter
           p class="govuk-body govuk-!-font-weight-bold"  = t ".step_three_header"
         .govuk-grid-column-three-quarters
-          = f.file_field :additional_claimants_csv, optional: true
+          = f.file_dropzone_field :additional_claimants_csv,
+            optional: true,
+            accepted_files: ['.csv']
           - if resource.has_additional_claimants_csv?
             = f.check_box :remove_additional_claimants_csv, true, label: t('.remove_additional_claimants_csv.label', file: resource.attachment_filename)
 
 
           = f.hidden_field :additional_claimants_csv_cache
           p.form-hint = t('.upload_limit')
+- content_for(:javascripts)
+  javascript:
+    Et.pages.claims.AdditionalClaimantsUploadPage()

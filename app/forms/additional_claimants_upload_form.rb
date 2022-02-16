@@ -3,6 +3,9 @@ class AdditionalClaimantsUploadForm < Form
 
   attribute :additional_claimants_csv,        :attachment_uploader_type
   attribute :remove_additional_claimants_csv, :boolean
+  # @TODO These are from ET3 - remove
+  attribute :upload_additional_information, :string
+  attribute :upload_file_name, :string
 
   delegate :additional_claimants_csv_cache, :additional_claimants_csv_cache=,
     :additional_claimants_csv_record_count=, :remove_additional_claimants_csv!,
