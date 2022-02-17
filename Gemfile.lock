@@ -7,17 +7,6 @@ GIT
       application_insights (~> 0.5.7)
 
 GIT
-  remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 2549f12be6c5ea298572688c4d3d31ab7fe940e7
-  branch: RST-3853
-  specs:
-    et_gds_design_system (3.0.4)
-      govuk_design_system_formbuilder (~> 2.1)
-      rack-proxy (~> 0.6)
-      rails (>= 6.0)
-      webpacker (~> 5.0)
-
-GIT
   remote: https://github.com/hmcts/et_test_helpers.git
   revision: 103ff7307e4fd0e6fea073eaa6941a666f7d7905
   tag: v1.0.2
@@ -59,6 +48,15 @@ GIT
   tag: v0.1.3
   specs:
     azure_env_secrets (0.1.3)
+
+PATH
+  remote: ../../../et_gds_design_system
+  specs:
+    et_gds_design_system (3.0.4)
+      govuk_design_system_formbuilder (~> 2.1)
+      rack-proxy (~> 0.6)
+      rails (>= 6.0)
+      webpacker (~> 5.0)
 
 GEM
   remote: https://rubygems.org/

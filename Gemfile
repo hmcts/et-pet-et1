@@ -107,8 +107,8 @@ gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
 #gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.4'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', branch: 'RST-3853'
-#gem 'et_gds_design_system', path: '../../../et_gds_design_system'
+#gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', branch: 'RST-3853'
+gem 'et_gds_design_system', path: '../../../et_gds_design_system'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
