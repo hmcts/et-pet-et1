@@ -28,3 +28,5 @@ en:
       upload_limit: Maximum file size is 5MB.
       additional_claimants_csv:
         label: Upload spreadsheet
+        hint: Drag and drop .csv file below or use the button to browse for your file.
+        button_text: Choose File

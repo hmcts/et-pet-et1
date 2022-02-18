@@ -35,7 +35,9 @@
         .govuk-grid-column-three-quarters
           = f.file_dropzone_field :additional_claimants_csv,
             optional: true,
-            accepted_files: ['.csv']
+            accepted_files: ['.csv'],
+            hint: true,
+            upload_button: true
           - if resource.has_additional_claimants_csv?
             = f.check_box :remove_additional_claimants_csv, true, label: t('.remove_additional_claimants_csv.label', file: resource.attachment_filename)
 
