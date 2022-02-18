@@ -1,8 +1,9 @@
 class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
 
-  def validate_each(record, attribute, _value)
+  def validate_each(record, attribute, value)
     if record.send(attribute).present?
 
+      result = EtApi.validate_claimants_file(record, attribute, value)
       if result(record).success
         record.public_send("#{attribute}_record_count=", @result.line_count)
       else
