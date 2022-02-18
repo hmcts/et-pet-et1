@@ -30,3 +30,4 @@ en:
         label: Upload spreadsheet
         hint: Drag and drop .csv file below or use the button to browse for your file.
         button_text: Choose File
+        remove_file_button_text: Remove file
