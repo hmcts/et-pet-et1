@@ -15,7 +15,7 @@ FactoryBot.define do
     end
 
     additional_claimants_csv do
-      Rack::Test::UploadedFile.new 'spec/support/files/file.csv'
+      { 'path' => 'spec/support/files/file.csv', 'content_type' => 'application/csv', 'filename' => 'file.csv' }
     end
 
     fee_group_reference { "511234567800" }
@@ -143,7 +143,7 @@ FactoryBot.define do
 
     trait :non_sanitized_attachment_filenames do
       additional_claimants_csv do
-        Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.csv'
+        { 'path' => 'spec/support/files/file-l_o_l.biz._v1_.csv', 'content_type' => 'application/csv', 'filename' => 'file-l_o_l.biz._v1_.csv' }
       end
 
       claim_details_rtf do

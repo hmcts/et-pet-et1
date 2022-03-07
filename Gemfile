@@ -76,7 +76,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.2'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.5'
 end
 
 group :assets do
@@ -106,9 +106,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-#gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.4'
-#gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', branch: 'RST-3853'
-gem 'et_gds_design_system', path: '../../../et_gds_design_system'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.5'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"

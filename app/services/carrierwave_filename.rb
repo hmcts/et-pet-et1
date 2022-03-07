@@ -1,7 +1,11 @@
 module CarrierwaveFilename
   def for(attachment, underscore: false)
-    file_path = attachment.file && attachment.file.path
-
+    # @TODO This conditional can be removed once
+    file_path = if attachment.is_a?(Hash)
+                  attachment['filename']
+                else
+                  attachment&.file && attachment.file.path
+                end
     return unless file_path
 
     underscore ? underscore_filename_for(file_path) : filename_for(file_path)

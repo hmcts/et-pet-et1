@@ -5,7 +5,9 @@ class Claim < ApplicationRecord
   has_one :user, foreign_key: :reference, primary_key: :application_reference, inverse_of: :claim, required: false
   has_secure_password validations: false
   mount_uploader :claim_details_rtf,          AttachmentUploader
-  mount_uploader :additional_claimants_csv,   AttachmentUploader
+  serialize :additional_claimants_csv
+  # @TODO Decide what to do about removing
+  attr_accessor :remove_additional_claimants_csv
 
   after_create { create_event Event::CREATED }
 
@@ -58,9 +60,7 @@ class Claim < ApplicationRecord
     if: :secondary_claimants_any?
 
   def remove_additional_claimants_csv!
-    super.tap do
-      update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
-    end
+    update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
   end
 
   def create_event(event, actor: 'app', message: nil)
@@ -119,5 +119,4 @@ class Claim < ApplicationRecord
   def immutable?
     submitted? || enqueued_for_submission?
   end
-
 end

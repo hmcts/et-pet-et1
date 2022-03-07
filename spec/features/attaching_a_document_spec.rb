@@ -1,8 +1,11 @@
 require 'rails_helper'
+require 'securerandom'
 
 feature 'Attaching a document', js: true do
   include FormMethods
   include Messages
+  include EtTestHelpers::RSpec
+
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
   let(:file_path) { Rails.root + 'spec/support/files/' }
@@ -66,9 +69,11 @@ feature 'Attaching a document', js: true do
     end
   end
 
-  describe 'For additional claimants' do
+  describe 'For additional claimants', with_stubbed_azure_upload: true do
     let(:csv_file_path) { file_path + './file.csv' }
     let(:alternative_csv_file_path) { file_path + './alt_file.csv' }
+
+    before { EtTestHelpers.stub_validate_additional_claimants_api }
 
     context 'A valid CSV file' do
       before do
@@ -77,7 +82,7 @@ feature 'Attaching a document', js: true do
       end
 
       scenario 'Attaching the file' do
-        expect(claim.reload.additional_claimants_csv_file.read).to eq File.read(csv_file_path)
+        expect(claim.reload.additional_claimants_csv).to include filename: File.basename(csv_file_path)
       end
 
       scenario 'Deleting the file' do
@@ -85,36 +90,36 @@ feature 'Attaching a document', js: true do
         sleep 2
         group_claims_upload_page.remove_csv_file
         click_button 'Save and continue'
+        sleep 2
 
-        expect(claim.reload.additional_claimants_csv_file.present?).to be false
+        expect(claim.reload.additional_claimants_csv.present?).to be false
       end
 
       scenario 'Replacing the file' do
         group_claims_upload_page.load
+        group_claims_upload_page.upload_file_question.remove_file
         group_claims_upload_page.upload_secondary_claimants_csv(alternative_csv_file_path).save_and_continue
 
-        expect(claim.reload.additional_claimants_csv_file.read).to eq File.read(alternative_csv_file_path)
+        expect(claim.reload.additional_claimants_csv).to include filename: File.basename(alternative_csv_file_path)
       end
     end
 
     context 'An invalid file' do
+      before do
+        errors = [
+          { code: "invalid", attribute: :date_of_birth, row: 4 },
+          { code: "invalid", attribute: :post_code, row: 4 }
+        ]
+        EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
+      end
       let(:invalid_csv_path) { file_path + './invalid_file.csv' }
 
       scenario 'Uploading a CSV file with errors' do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(invalid_csv_path).save_and_continue
-
-        expect(page).to have_text('An error has been found on line 4 of the uploaded file.')
-        expect(page).to have_text('Postcode - Enter a valid UK postcode. If you live abroad, enter SW55 9QT')
-        expect(page).to have_text('Date of birth - Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)')
-        expect(claim.additional_claimants_csv).not_to be_present
-      end
-
-      scenario 'Uploading a file not of a CSV type', js:true do
-        group_claims_upload_page.load
-        group_claims_upload_page.upload_secondary_claimants_csv(invalid_file_path).save_and_continue
-
-        expect(page).to have_text('is not a CSV')
+        page.find('span', text: 'Error details').click
+        expect(page).to have_text('Row 4 Enter a valid UK postcode. If you live abroad, enter SW55 9QT')
+        expect(page).to have_text('Row 4 Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)')
         expect(claim.additional_claimants_csv).not_to be_present
       end
     end

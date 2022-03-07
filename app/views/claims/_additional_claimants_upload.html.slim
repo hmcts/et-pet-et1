@@ -1,11 +1,17 @@
-- unless resource.csv_errors.empty?
-    .validation-summary
-      - if resource.erroneous_line_number
-        #error-line
-          b = t ".error_line", line_number: resource.erroneous_line_number
+- if resource.csv_error_lines.present?
+  .govuk-error-summary
+    h2.govuk-error-summary__title
+      = t('claims.additional_claimants_upload.csv_error_header')
+    .govuk-error-summary__body
       #errors
-        - resource.csv_errors.each do |error|
-          p = error
+        details.govuk-details data-module="govuk-details"
+          p.govuk-body = t('claims.additional_claimants_upload.csv_error_more_details')
+          summary.govuk-details__summary
+            span.govuk-details__summary-text = t('claims.additional_claimants_upload.csv_error_details')
+          .govuk-details__text
+            ul
+              - resource.csv_error_lines.each do |error|
+                li.govuk-body = error
 
 = f.fieldset label: t('.subheader')
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
@@ -41,9 +47,6 @@
             remove_file_button: true
           - if resource.has_additional_claimants_csv?
             = f.check_box :remove_additional_claimants_csv, true, label: t('.remove_additional_claimants_csv.label', file: resource.attachment_filename)
-
-
-          = f.hidden_field :additional_claimants_csv_cache
           p.form-hint = t('.upload_limit')
 - content_for(:javascripts)
   javascript:

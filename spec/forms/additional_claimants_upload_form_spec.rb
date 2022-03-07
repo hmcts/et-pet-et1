@@ -6,9 +6,19 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
   let(:resource) { create :claim, :no_attachments }
   let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
-  let(:file) { File.open(path + 'file.csv') }
+  let(:file) { { 'path' => path, 'filename' => 'test.csv', 'content_type' => 'application/csv' } }
 
   describe "validations" do
+    let(:errors) do
+      [
+        { code: "too_young", attribute: :date_of_birth, row: 2 },
+        { code: "invalid", attribute: :date_of_birth, row: 3 },
+        { code: "invalid", attribute: :post_code, row: 4 }
+      ]
+    end
+    before do
+      EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
+    end
 
     before do
       additional_claimants_upload_form.additional_claimants_csv = file
@@ -19,23 +29,27 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
     describe "attachment additional_claimants_csv" do
 
       context "a valid csv is attached" do
+        let(:errors) { [] }
         it "doesn't have errors" do
           expect(additional_claimants_upload_form.errors).to be_empty
         end
 
         it "updates the number of valid models found on the resource" do
-          expect(resource.additional_claimants_csv_record_count).to eq 5
+          expect(resource.additional_claimants_csv_record_count).to eq 10
         end
       end
 
       context "an invalid csv is attached" do
-        let(:file) { File.open(path + 'invalid_file.csv') }
+        let(:errors) do
+          [
+            { code: "invalid_columns" }
+          ]
+        end
 
-        context 'when its value is not a plain text file' do
-          let(:file) { File.open(path + 'phil.jpg') }
+        context 'when the api responds with invalid_columns' do
 
           it 'adds an error message to the attribute' do
-            expect(additional_claimants_upload_form.csv_errors).to include(I18n.t('errors.messages.csv'))
+            expect(additional_claimants_upload_form.csv_errors).to include('Your CSV file has 1 or more errors')
           end
         end
 
@@ -44,26 +58,24 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
             expect(additional_claimants_upload_form.csv_errors).not_to be_empty
           end
         end
-
-        describe "#erroneous_line_number" do
-          it "returns the line number the error occurred on" do
-            expect(additional_claimants_upload_form.erroneous_line_number).to eq "4"
-          end
-        end
       end
     end
 
     describe "additional_claimants_csv_record_count" do
+      let(:errors) { [] }
       it "gets updated after validation" do
-        expect(resource.additional_claimants_csv_record_count).to eq 5
+        expect(resource.additional_claimants_csv_record_count).to eq 10
       end
     end
   end
 
   describe "#has_additional_claimants_csv?" do
+    let(:errors) { [] }
+    before do
+      EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
+    end
     it "returns whether a file is present or not" do
-      additional_claimants_upload_form.additional_claimants_csv = file
-      expect { additional_claimants_upload_form.save }.
+      expect { additional_claimants_upload_form.additional_claimants_csv = file }.
         to change { additional_claimants_upload_form.has_additional_claimants_csv? }.from(false).to(true)
     end
   end

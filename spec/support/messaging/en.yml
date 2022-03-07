@@ -202,6 +202,7 @@ en:
       label: "Remove previously uploaded document:"
     switch_to_manual: manually
     save_and_continue: Save and continue
+    error_details: Error details
   representatives_details:
     save_and_continue: Save and continue
     about_your_representative_group: About your representative
