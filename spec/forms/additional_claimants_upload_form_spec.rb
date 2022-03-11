@@ -16,6 +16,13 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
         { code: "invalid", attribute: :post_code, row: 4 }
       ]
     end
+    let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
+    around do |example|
+      ClimateControl.modify ET_API_URL: et_api_url do
+        example.run
+      end
+    end
+
     before do
       EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
     end

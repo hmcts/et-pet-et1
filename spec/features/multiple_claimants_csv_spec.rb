@@ -3,6 +3,12 @@ require 'rails_helper'
 feature 'Multiple claimants CSV', js: true do
   include FormMethods
 
+  let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
+  around do |example|
+    ClimateControl.modify ET_API_URL: et_api_url do
+      example.run
+    end
+  end
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
   let(:file_path) do
     csv_string = CSV.generate do |csv|

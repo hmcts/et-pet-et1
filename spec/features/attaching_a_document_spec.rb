@@ -70,6 +70,12 @@ feature 'Attaching a document', js: true do
   end
 
   describe 'For additional claimants', with_stubbed_azure_upload: true do
+    let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
+    around do |example|
+      ClimateControl.modify ET_API_URL: et_api_url do
+        example.run
+      end
+    end
     let(:csv_file_path) { file_path + './file.csv' }
     let(:alternative_csv_file_path) { file_path + './alt_file.csv' }
 
