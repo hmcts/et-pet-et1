@@ -22,6 +22,10 @@ en:
       claim_details_rtf:
         label: The document needs to be in Rich Text Format(RTF)
         hint: "You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format"
+        button_text: Choose File
+        remove_file_button_text: Remove file
+        file_selected_text: "File selected:"
+
       remove_claim_details_rtf:
         label: "Remove previously uploaded document: %{file}"
       claim_details:

@@ -1,16 +1,10 @@
 class ContentTypeValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, _value)
-    attachment = record.send(attribute)
+    file = record.send(attribute)
 
-    return if already_attached_to_model?(attachment)
-
-    if attachment.present? && options[:in].exclude?(ContentType.of(attachment))
+    if file.present? && options[:in].exclude?(file['content_type'])
       message = options[:message] || I18n.t('errors.messages.invalid')
       record.errors.add(attribute, message)
     end
-  end
-
-  private def already_attached_to_model?(attachment)
-    attachment.is_a? BaseUploader
   end
 end

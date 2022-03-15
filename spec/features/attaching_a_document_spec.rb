@@ -18,7 +18,13 @@ feature 'Attaching a document', js: true do
     claimants_details_page.assert_claim_retrieved_success
   end
 
-  describe 'For claim details RTF upload' do
+  describe 'For claim details RTF upload', with_stubbed_azure_upload: true do
+    let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
+    around do |example|
+      ClimateControl.modify ET_API_URL: et_api_url do
+        example.run
+      end
+    end
     let(:rtf_file_path) { file_path + './file.rtf' }
     let(:alternative_rtf_file_path) { file_path + './alt_file.rtf' }
     let(:ui_claim_details) { build(:ui_claim_details, :default) }
@@ -33,7 +39,7 @@ feature 'Attaching a document', js: true do
       end
 
       scenario 'Attaching the file' do
-        expect(claim.reload.claim_details_rtf_file.read).to eq File.read(rtf_file_path)
+        expect(claim.reload.claim_details_rtf['filename']).to eq File.basename(rtf_file_path)
       end
 
       scenario 'Deleting the file' do
@@ -49,23 +55,13 @@ feature 'Attaching a document', js: true do
         ui_claim_details.rtf_file_path = alternative_rtf_file_path
         claim_details_page
           .load
+          .claim_details_file_question.remove_file
+        claim_details_page
           .fill_in_all(claim_details: ui_claim_details)
           .save_and_continue
 
-        expect(claim.reload.claim_details_rtf_file.read).to eq File.read(alternative_rtf_file_path)
+        expect(claim.reload.claim_details_rtf['filename']).to eq File.basename(alternative_rtf_file_path)
       end
-    end
-
-    scenario 'Uploading a non text file' do
-      ui_claim_details.rtf_file_path = invalid_file_path
-      claim_details_page
-        .load
-        .fill_in_all(claim_details: ui_claim_details)
-        .save_and_continue
-
-      expect(page).to have_text('is not an RTF')
-      expect(claim.claim_details_rtf).not_to be_present
-      expect(page.find("details")).to be_visible
     end
   end
 
