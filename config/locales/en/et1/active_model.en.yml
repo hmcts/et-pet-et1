@@ -231,7 +231,7 @@ en:
               blank: Enter the county from the respondent’s address
             address_post_code:
               blank: Enter the respondent’s postcode
-              invalid: Enter a valid UK postcode. If the respondent lives abroad, enter a SW55 9QT
+              invalid: Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
             worked_at_same_address:
               inclusion: Please indicate if you work at the same address
