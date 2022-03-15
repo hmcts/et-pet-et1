@@ -14,6 +14,8 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import AdditionalClaimantsUploadPage from "./pages/claims/AdditionalClaimantsUploadPage";
+
 const images = require.context('./csv', true);
 import {EtGdsDesignSystem } from "et_gds_design_system"
 import "et_gds_design_system/stylesheet"
@@ -36,6 +38,7 @@ window.Et = {
     claims: {
       ClaimantPage: ClaimantPage,
       AdditionalClaimantsPage: AdditionalClaimantsPage,
+      AdditionalClaimantsUploadPage: AdditionalClaimantsUploadPage,
       RepresentativePage: RepresentativePage,
       RespondentPage: RespondentPage,
       AdditionalRespondentsPage: AdditionalRespondentsPage,

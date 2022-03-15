@@ -55,6 +55,35 @@ en:
           attributes:
             additional_claimants_csv:
               blank: You must provide a CSV file in order to continue
+              invalid: Your CSV file has 1 or more errors
+              empty_file: Your CSV file is empty
+              invalid_columns: Your CSV file has invalid columns
+              missing_file: Your CSV file is missing, please try again
+            additional_claimants_csv_row:
+              row_prefix: Row %{line_number}
+              attributes:
+                title:
+                  inclusion: Enter the title of the additional claimant
+                  invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.title.inclusion'
+                first_name:
+                  blank: Enter the first name of the additional claimant
+                last_name:
+                  blank: Enter the last name of the additional claimant
+                address_building:
+                  blank: Enter the building name or number from the additional claimant’s address
+                address_street:
+                  blank: Enter the street from the additional claimant’s address
+                address_locality:
+                  blank: Enter the town or city from the additional claimant’s address
+                address_county:
+                  blank: Enter the county from the additional claimant’s address
+                post_code:
+                  blank: Enter the additional claimant’s postcode
+                  invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
+                  invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.address_post_code.invalid'
+                date_of_birth:
+                  invalid: Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)
+                  too_young: :'activemodel.errors.models.claimant.attributes.date_of_birth.too_young'
         claim:
           attributes:
             secondary_respondents:

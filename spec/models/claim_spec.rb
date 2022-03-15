@@ -65,7 +65,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       end
 
       it 'deletes additional_claimants_csv' do
-        expect(claim.additional_claimants_csv.url).to be_blank
+        expect(claim.additional_claimants_csv).to be_blank
       end
     end
   end
@@ -233,12 +233,12 @@ RSpec.describe Claim, type: [:claim, :model] do
       expect(claim.attachments).to all(be_kind_of CarrierWave::Uploader::Base)
     end
 
-    specify { expect(claim.attachments.size).to eq 2 }
+    specify { expect(claim.attachments.size).to eq 1 }
 
     it "only returns attachments that exist" do
       expect { claim.remove_claim_details_rtf! }.
         to change { claim.attachments.size }.
-        from(2).to(1)
+        from(1).to(0)
     end
   end
 

@@ -58,16 +58,6 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     expect(page).to have_link 'Download RTF', href: 'http://lol.biz/deets.rtf'
   end
 
-  scenario 'downloading the additional claimants csv' do
-    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
-    allow(claim_with_attachments).to receive(:additional_claimants_csv_url).
-      and_return('http://lol.biz/additionals.csv')
-
-    visit admin_claim_path claim_with_attachments.reference
-
-    expect(page).to have_link 'Download CSV', href: 'http://lol.biz/additionals.csv'
-  end
-
   scenario 'downloading a text file containing claim details' do
     visit admin_claim_path claim_with_attachments.reference
 

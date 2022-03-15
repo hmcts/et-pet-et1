@@ -27,3 +27,6 @@ cy:
       upload_limit: "Uchafswm maint ffeil: 5MB"
       additional_claimants_csv:
         label: Uwchlwytho taenlen
+        button_text: Dewiswch ffeil
+        remove_file_button_text: Dileu ffeil
+        file_selected_text: "Ffeil wedi'i dewis:"

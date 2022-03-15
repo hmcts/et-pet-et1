@@ -32,6 +32,10 @@ module ET1
         remove_csv_file_question.set(true)
       end
 
+      def expand_csv_file_errors
+        error_details_element.open
+      end
+
       private
 
       # @!method govuk_radios
@@ -41,8 +45,8 @@ module ET1
 
       # @!method upload_file_question
       #   A govuk file field component wrapping the input, label, hint etc.. for the upload file question
-      #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      gds_file_upload :upload_file_question, :'group_claims_upload.upload_spreadsheet'
+      #   @return [EtTestHelpers::Components::GovUKFileDropzoneField] The site prism section
+      gds_file_dropzone_upload :upload_file_question, :'group_claims_upload.upload_spreadsheet'
 
       # @!method save_and_continue_button
       #   A govuk submit button component for the save and continue button
@@ -56,6 +60,7 @@ module ET1
       #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
       gds_checkbox :remove_csv_file_question, :'group_claims_upload.remove_csv_file'
 
+      gds_details :error_details_element, :'group_claims_upload.error_details'
     end
   end
 end

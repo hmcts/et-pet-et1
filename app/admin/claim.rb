@@ -75,13 +75,6 @@ ActiveAdmin.register Claim do
       end
     end
 
-    if resource.additional_claimants_csv?
-      br
-      div do
-        link_to 'Download CSV', resource.additional_claimants_csv_url, class: :button
-      end
-    end
-
     ['claim_details', 'miscellaneous_information',
      'other_claim_details', 'other_outcome'].each do |text|
       next if resource.send(text).blank?
