@@ -22,6 +22,8 @@ cy:
       claim_details_rtf:
         label: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
         hint: "Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format"
+        remove_file_button_text: Dileu ffeil
+        file_selected_text: "Ffeil wedi'i dewis:"
       remove_claim_details_rtf:
         label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
       claim_details:

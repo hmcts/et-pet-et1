@@ -34,8 +34,8 @@ module ET1
 
       # @!method claim_details_file_question
       #   A govuk file field component wrapping the input, label, hint etc..
-      #   @return [EtTestHelpers::Components::GovUKFileField] The site prism section
-      gds_file_upload :claim_details_file_question, :'claim_details.rtf_file'
+      #   @return [EtTestHelpers::Components::GovUKFileDropzoneField] The site prism section
+      gds_file_dropzone_upload :claim_details_file_question, :'claim_details.rtf_file'
 
      # @!method remove_rtf_file_question
       #   A govuk file field component wrapping the input, label, hint etc..

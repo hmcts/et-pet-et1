@@ -48,52 +48,6 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     end
   end
 
-  scenario 'downloading the claim details rtf' do
-    allow(Claim).to receive(:find_by_reference).and_return claim_with_attachments
-    allow(claim_with_attachments).to receive(:claim_details_rtf_url).
-      and_return('http://lol.biz/deets.rtf')
-
-    visit admin_claim_path claim_with_attachments.reference
-
-    expect(page).to have_link 'Download RTF', href: 'http://lol.biz/deets.rtf'
-  end
-
-  scenario 'downloading a text file containing claim details' do
-    visit admin_claim_path claim_with_attachments.reference
-
-    click_link 'Claim details'
-
-    expect(page.response_headers['Content-Type']).to eq 'text/plain'
-    expect(page.body).to eq 'I am sad'
-  end
-
-  scenario 'downloading a text file containing miscellaneous information' do
-    visit admin_claim_path claim_with_attachments.reference
-
-    click_link 'Miscellaneous information'
-
-    expect(page.response_headers['Content-Type']).to eq 'text/plain'
-    expect(page.body).to eq 'Still really sad'
-  end
-
-  scenario 'downloading a text file containing other claim details' do
-    visit admin_claim_path claim_with_attachments.reference
-
-    click_link 'Other claim details'
-
-    expect(page.response_headers['Content-Type']).to eq 'text/plain'
-    expect(page.body).to eq 'Really sad'
-  end
-
-  scenario 'downloading a text file containing other outcome' do
-    visit admin_claim_path claim_with_attachments.reference
-
-    click_link 'Other outcome'
-
-    expect(page.response_headers['Content-Type']).to eq 'text/plain'
-    expect(page.body).to eq 'I wanna take him to the cleaners!'
-  end
-
   scenario 'marking claim as submitted' do
 
     visit admin_claim_path enqueued_claim.reference

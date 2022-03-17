@@ -68,13 +68,6 @@ ActiveAdmin.register Claim do
   end
 
   sidebar :actions, only: :show do
-    if resource.claim_details_rtf?
-      br
-      div do
-        link_to 'Download RTF', resource.claim_details_rtf_url, class: :button
-      end
-    end
-
     ['claim_details', 'miscellaneous_information',
      'other_claim_details', 'other_outcome'].each do |text|
       next if resource.send(text).blank?

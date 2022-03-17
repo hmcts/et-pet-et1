@@ -226,29 +226,12 @@ RSpec.describe Claim, type: [:claim, :model] do
     end
   end
 
-  describe "#attachments" do
-    let(:claim) { create :claim }
-
-    it "returns a list of attachment uplaoders on the claim" do
-      expect(claim.attachments).to all(be_kind_of CarrierWave::Uploader::Base)
-    end
-
-    specify { expect(claim.attachments.size).to eq 1 }
-
-    it "only returns attachments that exist" do
-      expect { claim.remove_claim_details_rtf! }.
-        to change { claim.attachments.size }.
-        from(1).to(0)
-    end
-  end
-
   describe '#remove_claim_details_rtf!' do
-    before { claim.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+    before { claim.claim_details_rtf = { 'path' => 'anything', 'filename' => 'anything', 'content_type' => 'application/rtf' } }
 
     it 'removes the rtf file' do
-      expect { claim.remove_claim_details_rtf! }.
-        to change { claim.claim_details_rtf.present? }.
-        from(true).to(false)
+      claim.remove_claim_details_rtf!
+      expect(claim.claim_details_rtf).to be_nil
     end
   end
 
