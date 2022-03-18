@@ -14,7 +14,7 @@ class ClaimDetailsForm < Form
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :other_known_claimants, inclusion: [true, false]
   validates :claim_details_rtf, content_type: {
-    in: ['text/rtf', 'application/rtf'], message: I18n.t('errors.messages.rtf')
+    in: ['text/rtf', 'application/rtf', 'application/msword'], message: I18n.t('errors.messages.rtf')
   }
 
   def claim_form_details_rtf?
