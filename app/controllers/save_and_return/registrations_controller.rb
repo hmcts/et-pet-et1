@@ -3,6 +3,10 @@ module SaveAndReturn
     before_action :check_session_expiry, only: [:new, :create]
 
     def new
+      if session[:claim_reference].nil?
+        claim = Claim.create
+        session[:claim_reference] = claim.reference
+      end
       super
     end
 
