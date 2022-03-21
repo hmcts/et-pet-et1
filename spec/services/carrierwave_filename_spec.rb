@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CarrierwaveFilename, type: :service do
+RSpec.describe FilenameCleaner, type: :service do
   describe '.for' do
     let(:claimants_csv) { claim.additional_claimants_csv }
 

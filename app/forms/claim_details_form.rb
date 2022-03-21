@@ -22,7 +22,7 @@ class ClaimDetailsForm < Form
   end
 
   def attachment_filename
-    CarrierwaveFilename.for claim_details_rtf
+    FilenameCleaner.for claim_details_rtf
   end
 
   private

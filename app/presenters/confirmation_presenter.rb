@@ -38,7 +38,7 @@ class ConfirmationPresenter < Presenter
   def attachment_filenames
     @attachment_filenames ||= \
       [claim_details_rtf, additional_claimants_csv].
-      map { |attachment| CarrierwaveFilename.for attachment }.compact
+      map { |attachment| FilenameCleaner.for attachment }.compact
   end
 
   def display_wales_address_in_welsh?

@@ -1,4 +1,3 @@
-require 'carrierwave/storage/fog'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -124,7 +123,4 @@ Rails.application.configure do
   # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
   # var can also be used to disable.
   config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)
-end
-CarrierWave.configure do |config|
-  config.storage :fog
 end

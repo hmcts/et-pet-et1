@@ -94,7 +94,6 @@ gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
 
 
-gem 'carrierwave', '~> 2.0'
 gem 'fog-aws', '~> 3.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
