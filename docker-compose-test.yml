@@ -16,9 +16,6 @@ services:
       GOOGLE_ANALYTICS_ID: moj_et_test
       HTTP_OPEN_TIMEOUT_S: 100
       HTTP_READ_TIMEOUT_S: 100
-      S3_UPLOAD_BUCKET: etuploads
-      AWS_ACCESS_KEY_ID: anything
-      AWS_SECRET_ACCESS_KEY: anything
       SERVICE_NOW_EMAIL: fake@servicenow.fake.com
       RAILS_LOG_LEVEL: info
       WAIT_HOSTS: db:5432

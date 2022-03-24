@@ -51,7 +51,7 @@ class AdditionalClaimantsUploadForm < Form
   end
 
   def attachment_filename
-    CarrierwaveFilename.for additional_claimants_csv
+    FilenameCleaner.for additional_claimants_csv
   end
 
   private
