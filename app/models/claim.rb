@@ -22,7 +22,7 @@ class Claim < ApplicationRecord
   has_many :secondary_claimants, -> { where primary_claimant: false },
     class_name: 'Claimant'
 
-  has_many :secondary_respondents, -> { where primary_respondent: false },
+  has_many :secondary_respondents, -> { where(primary_respondent: false).order(created_at: :asc) },
     class_name: 'Respondent'
 
   has_many :events
