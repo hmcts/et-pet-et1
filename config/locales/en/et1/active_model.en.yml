@@ -122,7 +122,7 @@ en:
             last_name:
               blank: Enter the claimant’s last name
             has_special_needs:
-              inclusion: Please indicate if you have a disability that require assistance at the tribunal hearing
+              inclusion: Please indicate if you have a disability that requires assistance at the tribunal hearing
             special_needs:
               blank: Say whether you require assistance at the tribunal hearing
             address_country:
