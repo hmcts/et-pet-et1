@@ -11,7 +11,7 @@ FactoryBot.define do
     is_unfair_dismissal { true }
 
     claim_details_rtf do
-      Rack::Test::UploadedFile.new 'spec/support/files/file.rtf'
+      { 'path' => 'spec/support/files/file.rtf', 'content_type' => 'application/rtf', 'filename' => 'file.rtf' }
     end
 
     additional_claimants_csv do
@@ -147,7 +147,7 @@ FactoryBot.define do
       end
 
       claim_details_rtf do
-        Rack::Test::UploadedFile.new 'spec/support/files/file-l_o_l.biz._v1_.rtf'
+        { 'path' => 'spec/support/files/file-l_o_l.biz._v1_.rtf', 'content_type' => 'application/rtf', 'filename' => 'file-l_o_l.biz._v1_.rtf' }
       end
     end
 

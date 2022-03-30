@@ -58,6 +58,14 @@ feature 'Claim applications', type: :feature, js: true do
       apply_page.assert_no_session_prompt
     end
 
+    scenario 'Hitting the saving your claim page directly' do
+      saving_your_claim_page.load
+      expect(saving_your_claim_page).to be_displayed
+      expect(page).to have_text before_you_start_message
+      expect(saving_your_claim_page).not_to have_sign_out_button
+      saving_your_claim_page.assert_session_prompt
+    end
+
     scenario 'Create a new application', js: true do
       start_claim
       expect(saving_your_claim_page).to be_displayed

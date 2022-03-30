@@ -8,7 +8,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
       it { expect(claim_details_form).to validate_presence_of(:claim_details) }
 
       context 'claim details attached as an RTF' do
-        before { claim_details_form.claim_details_rtf = Tempfile.new('suchclaimdetails') }
+        before { claim_details_form.claim_details_rtf = { 'path' => 'anything', 'content_type' =>'application/rtf', 'filename' => 'filename.rtf' } }
         it { expect(claim_details_form).not_to validate_presence_of(:claim_details) }
       end
     end
@@ -36,7 +36,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
     end
 
     context 'when its value is not a plain text file' do
-      let(:file) { File.open(path + 'phil.jpg') }
+      let(:file) { { 'path' => path + 'phil.jpg', 'filename' => 'phil.jpg', 'content_type' => 'image/jpg' } }
 
       it 'adds an error message to the attribute' do
         expect(claim_details_form.errors[:claim_details_rtf]).to include(I18n.t('errors.messages.rtf'))

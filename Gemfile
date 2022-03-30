@@ -76,7 +76,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.5'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.7'
 end
 
 group :assets do
@@ -94,8 +94,6 @@ gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
 
 
-gem 'carrierwave', '~> 2.0'
-gem 'fog-aws', '~> 3.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
 gem 'slim-rails', '~> 3.2'

@@ -4,10 +4,12 @@ class Claim < ApplicationRecord
 
   has_one :user, foreign_key: :reference, primary_key: :application_reference, inverse_of: :claim, required: false
   has_secure_password validations: false
-  mount_uploader :claim_details_rtf,          AttachmentUploader
   serialize :additional_claimants_csv
+  serialize :claim_details_rtf
   # @TODO Decide what to do about removing
   attr_accessor :remove_additional_claimants_csv
+  # @TODO Decide what to do about removing
+  attr_accessor :remove_claim_details_rtf
 
   after_create { create_event Event::CREATED }
 
@@ -20,7 +22,7 @@ class Claim < ApplicationRecord
   has_many :secondary_claimants, -> { where primary_claimant: false },
     class_name: 'Claimant'
 
-  has_many :secondary_respondents, -> { where primary_respondent: false },
+  has_many :secondary_respondents, -> { where(primary_respondent: false).order(created_at: :asc) },
     class_name: 'Respondent'
 
   has_many :events
@@ -90,7 +92,7 @@ class Claim < ApplicationRecord
   end
 
   def remove_claim_details_rtf!
-    super.tap { update_column(:claim_details_rtf, nil) }
+    update_columns(claim_details_rtf: nil)
   end
 
   # @TODO Rename this as it is only to determine the jurisdiction - maybe it should be in a helper as its presentational

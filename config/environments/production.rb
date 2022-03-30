@@ -1,5 +1,4 @@
 require 'active_support/core_ext/integer/time'
-require 'carrierwave/storage/fog'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -148,9 +147,6 @@ Rails.application.configure do
   config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)
 
   config.service_now_inbox_email = ENV['SERVICE_NOW_EMAIL']
-end
-CarrierWave.configure do |config|
-  config.storage :fog
 end
 
 Raven.configure do |config|
