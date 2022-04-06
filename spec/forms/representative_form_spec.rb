@@ -163,6 +163,44 @@ RSpec.describe RepresentativeForm, type: :form do
     end
   end
 
+  describe 'before validation' do
+    context 'when contact preference == post' do
+      before do
+        representative_form.email_address = 'emailgmailcom'
+        representative_form.dx_number = 'email@gmail.com'
+        representative_form.contact_preference = 'post'
+        representative_form.valid?
+      end
+      it 'email address and dx number should be nil' do
+        expect(representative_form).to have_attributes(email_address: nil, dx_number: nil)
+      end
+    end
+
+    context 'when contact preference == email' do
+      before do
+        representative_form.contact_preference = 'email'
+        representative_form.email_address = 'email@gmail.com'
+        representative_form.dx_number = 'email@gmail.com'
+        representative_form.valid?
+      end
+      it 'dx number should be nil' do
+        expect(representative_form.dx_number).to be_nil
+      end
+    end
+
+    context 'when contact preference == dx_number' do
+      before do
+        representative_form.contact_preference = 'dx_number'
+        representative_form.email_address = 'emailgmailcom'
+        representative_form.dx_number = 'R000000/00/00'
+        representative_form.valid?
+      end
+      it 'email address should be nil' do
+        expect(representative_form.email_address).to be_nil
+      end
+    end
+  end
+
   describe 'form' do
     subject { representative_form }
 

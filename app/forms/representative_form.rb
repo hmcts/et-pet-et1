@@ -13,6 +13,7 @@ class RepresentativeForm < Form
   map_attribute :has_representative, to: :resource
 
   before_validation :destroy_target!, unless: :has_representative?
+  before_validation :clear_contact_preference_fields
 
   validates :type, :name, presence: true, if: :has_representative?
   validates :type, inclusion: { in: RepresentativeType::TYPES }, if: :has_representative?
@@ -40,5 +41,16 @@ class RepresentativeForm < Form
 
   def destroy_target!
     target.destroy
+  end
+
+  def clear_contact_preference_fields
+    if contact_preference == 'post'
+      self.dx_number = nil
+      self.email_address = nil
+    elsif contact_preference == 'email'
+      self.dx_number = nil
+    else
+      self.email_address = nil
+    end
   end
 end
