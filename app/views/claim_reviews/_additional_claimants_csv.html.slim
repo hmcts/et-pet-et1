@@ -1,9 +1,9 @@
 div.govuk-summary-list__row
   dt.govuk-summary-list__key = t "claim_reviews.item.additional_claimants_upload.group_claim"
-  dt.govuk-summary-list__value = yes_no claim.additional_claimants_csv.present?
+  dd.govuk-summary-list__value = yes_no claim.additional_claimants_csv.present?
 div.govuk-summary-list__row
   dt.govuk-summary-list__key = t "claim_reviews.item.additional_claimants_upload.file_name"
-  dt.govuk-summary-list__value = FilenameCleaner.for claim.additional_claimants_csv
+  dd.govuk-summary-list__value = FilenameCleaner.for claim.additional_claimants_csv
 div.govuk-summary-list__row
   dt.govuk-summary-list__key = t "claim_reviews.item.additional_claimants_upload.number_claimants"
-  dt.govuk-summary-list__value = claim.additional_claimants_csv_record_count
+  dd.govuk-summary-list__value = claim.additional_claimants_csv_record_count

@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: de4d0b37ba617b15f3d7084df0cd9224254bb41e
-  tag: v1.0.7
+  revision: 700e54820ee00b2cde24d96833d1efd62d68f96a
+  tag: v1.0.8
   specs:
-    et_test_helpers (1.0.7)
+    et_test_helpers (1.0.8)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)

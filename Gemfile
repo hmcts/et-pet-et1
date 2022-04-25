@@ -76,7 +76,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.7'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.8'
 end
 
 group :assets do
