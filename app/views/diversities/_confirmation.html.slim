@@ -3,4 +3,4 @@ div
   p.govuk-body
     = t('.message')
   p.govuk-body
-    = link_to t('.return'), 'https://www.gov.uk/', title: t('.return_title'), class: "govuk-button govuk-button--start"
+    = link_to t('.return'), 'https://www.gov.uk/', title: t('.return_title'), class: "govuk-button govuk-button--start", role: 'button', data: { module: 'govuk-button' }
