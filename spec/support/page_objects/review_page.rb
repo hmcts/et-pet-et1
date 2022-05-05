@@ -3,29 +3,29 @@ module ET1
   module Test
     class ReviewPage < BasePage
       set_url "/en/apply/review"
-      section :group_claim, :et1_review_section_labelled, 'review.group_claim.title' do
-        section :group_claim, :et1_review_question_labelled, 'review.group_claim.questions.group_claim' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :group_claim, :govuk_summary_list, :'review.group_claim.title' do
+        section :group_claim, :govuk_summary_list_row, :'review.group_claim.questions.group_claim' do
+          element :answer, :govuk_summary_list_col
         end
-        section :csv_file_name, :et1_review_question_labelled, 'review.group_claim.questions.csv_file_name' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :csv_file_name, :govuk_summary_list_row, :'review.group_claim.questions.csv_file_name' do
+          element :answer, :govuk_summary_list_col
         end
-        section :number_of_additional_claimants, :et1_review_question_labelled, 'review.group_claim.questions.number_of_additional_claimants' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :number_of_additional_claimants, :govuk_summary_list_row, :'review.group_claim.questions.number_of_additional_claimants' do
+          element :answer, :govuk_summary_list_col
         end
         sections :claimants, :et1_review_additional_claimant_labelled, 'review.group_claim.claimant_header' do
           include RSpec::Matchers
           include ET1::Test::I18n
-          section :full_name, :et1_review_question_labelled, 'review.group_claim.claimant.questions.full_name' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :full_name, :govuk_summary_list_row, :'review.group_claim.claimant.questions.full_name' do
+            element :answer, :govuk_summary_list_col
           end
 
-          section :date_of_birth, :et1_review_question_labelled, 'review.group_claim.claimant.questions.date_of_birth' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :date_of_birth, :govuk_summary_list_row, :'review.group_claim.claimant.questions.date_of_birth' do
+            element :answer, :govuk_summary_list_col
           end
 
-          section :address, :et1_review_question_labelled, 'review.group_claim.claimant.questions.address' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :address, :govuk_summary_list_row, :'review.group_claim.claimant.questions.address' do
+            element :answer, :govuk_summary_list_col
           end
 
           def valid_for_model?(model)
@@ -50,23 +50,23 @@ module ET1
         end
 
       end
-      section :additional_respondents_section, :et1_review_section_labelled, 'review.additional_respondents.title' do
-        section :additional_respondents, :et1_review_question_labelled, 'review.additional_respondents.questions.additional_respondents' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :additional_respondents_section, :govuk_summary_list, :'review.additional_respondents.title' do
+        section :additional_respondents, :govuk_summary_list_row, :'review.additional_respondents.questions.additional_respondents' do
+          element :answer, :govuk_summary_list_col
         end
         sections :respondents, :et1_review_additional_claimant_labelled, 'review.additional_respondents.respondent_header' do
           include RSpec::Matchers
           include ET1::Test::I18n
-          section :name, :et1_review_question_labelled, 'review.additional_respondents.respondent.questions.name' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :name, :govuk_summary_list_row, :'review.additional_respondents.respondent.questions.name' do
+            element :answer, :govuk_summary_list_col
           end
 
-          section :acas_number, :et1_review_question_labelled, 'review.additional_respondents.respondent.questions.acas_number' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :acas_number, :govuk_summary_list_row, :'review.additional_respondents.respondent.questions.acas_number' do
+            element :answer, :govuk_summary_list_col
           end
 
-          section :address, :et1_review_question_labelled, 'review.additional_respondents.respondent.questions.address' do
-            element :answer, :css, 'dt.govuk-summary-list__value'
+          section :address, :govuk_summary_list_row, :'review.additional_respondents.respondent.questions.address' do
+            element :answer, :govuk_summary_list_col
           end
 
           def valid_for_model?(model)
@@ -89,167 +89,167 @@ module ET1
           elements :questions, :css, '.govuk-summary-list__row'
         end
       end
-      section :additional_information, :et1_review_section_labelled, 'review.additional_information.title' do
-        section :important_details, :et1_review_question_labelled, 'review.additional_information.questions.important_details' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :additional_information, :govuk_summary_list, :'review.additional_information.title' do
+        section :important_details, :govuk_summary_list_row, :'review.additional_information.questions.important_details' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :claim_details, :et1_review_section_labelled, 'review.claim_details.title' do
-        section :claim_details, :et1_review_question_labelled, 'review.claim_details.questions.claim_details' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :claim_details, :govuk_summary_list, :'review.claim_details.title' do
+        section :claim_details, :govuk_summary_list_row, :'review.claim_details.questions.claim_details' do
+          element :answer, :govuk_summary_list_col
         end
-        section :other_known_claimants, :et1_review_question_labelled, 'review.claim_details.questions.other_known_claimants' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :other_known_claimants, :govuk_summary_list_row, :'review.claim_details.questions.other_known_claimants' do
+          element :answer, :govuk_summary_list_col
         end
-        section :attached_documents, :et1_review_question_labelled, 'review.claim_details.questions.attached_documents' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-      end
-      section :claim_outcome_section, :et1_review_section_labelled, 'review.claim_outcome.title' do
-        section :what_outcome, :et1_review_question_labelled, 'review.claim_outcome.questions.what_outcome' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :outcome_details, :et1_review_question_labelled, 'review.claim_outcome.questions.outcome_details' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :attached_documents, :govuk_summary_list_row, :'review.claim_details.questions.attached_documents' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :claim_type_section, :et1_review_section_labelled, 'review.claim_type.title' do
-        section :send_to_whistleblowing_body, :et1_review_question_labelled, 'review.claim_type.questions.send_to_whistleblowing_body' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :claim_outcome_section, :govuk_summary_list, :'review.claim_outcome.title' do
+        section :what_outcome, :govuk_summary_list_row, :'review.claim_outcome.questions.what_outcome' do
+          element :answer, :govuk_summary_list_col
         end
-        section :whistleblowing, :et1_review_question_labelled, 'review.claim_type.questions.whistleblowing' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :types, :et1_review_question_labelled, 'review.claim_type.questions.types' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :outcome_details, :govuk_summary_list_row, :'review.claim_outcome.questions.outcome_details' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :claimant_section, :et1_review_section_labelled, 'review.claimant.title' do
-        section :date_of_birth, :et1_review_question_labelled, 'review.claimant.questions.date_of_birth' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :claim_type_section, :govuk_summary_list, :'review.claim_type.title' do
+        section :send_to_whistleblowing_body, :govuk_summary_list_row, :'review.claim_type.questions.send_to_whistleblowing_body' do
+          element :answer, :govuk_summary_list_col
         end
-        section :preferred_contact, :et1_review_question_labelled, 'review.claimant.questions.preferred_contact' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :whistleblowing, :govuk_summary_list_row, :'review.claim_type.questions.whistleblowing' do
+          element :answer, :govuk_summary_list_col
         end
-        section :allow_video_attendance, :et1_review_question_labelled, 'review.claimant.questions.allow_video_attendance' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :address, :et1_review_question_labelled, 'review.claimant.questions.address' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :email, :et1_review_question_labelled, 'review.claimant.questions.email' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :assistance_required, :et1_review_question_labelled, 'review.claimant.questions.assistance_required' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :full_name, :et1_review_question_labelled, 'review.claimant.questions.full_name' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :mobile, :et1_review_question_labelled, 'review.claimant.questions.mobile' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :phone, :et1_review_question_labelled, 'review.claimant.questions.phone' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :gender, :et1_review_question_labelled, 'review.claimant.questions.gender' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :types, :govuk_summary_list_row, :'review.claim_type.questions.types' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :employment_section, :et1_review_section_labelled, 'review.employment.title' do
-        section :pension_scheme, :et1_review_question_labelled, 'review.employment.questions.pension_scheme' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :claimant_section, :govuk_summary_list, :'review.claimant.title' do
+        section :date_of_birth, :govuk_summary_list_row, :'review.claimant.questions.date_of_birth' do
+          element :answer, :govuk_summary_list_col
         end
-        section :notice_period, :et1_review_question_labelled, 'review.employment.questions.notice_period' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :preferred_contact, :govuk_summary_list_row, :'review.claimant.questions.preferred_contact' do
+          element :answer, :govuk_summary_list_col
         end
-        section :end_date, :et1_review_question_labelled, 'review.employment.questions.end_date' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :allow_video_attendance, :govuk_summary_list_row, :'review.claimant.questions.allow_video_attendance' do
+          element :answer, :govuk_summary_list_col
         end
-        section :start_date, :et1_review_question_labelled, 'review.employment.questions.start_date' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :address, :govuk_summary_list_row, :'review.claimant.questions.address' do
+          element :answer, :govuk_summary_list_col
         end
-        section :pay_before_tax, :et1_review_question_labelled, 'review.employment.questions.pay_before_tax' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :email, :govuk_summary_list_row, :'review.claimant.questions.email' do
+          element :answer, :govuk_summary_list_col
         end
-        section :pay_after_tax, :et1_review_question_labelled, 'review.employment.questions.pay_after_tax' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :assistance_required, :govuk_summary_list_row, :'review.claimant.questions.assistance_required' do
+          element :answer, :govuk_summary_list_col
         end
-        section :average_weekly_hours_worked, :et1_review_question_labelled, 'review.employment.questions.average_weekly_hours_worked' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :full_name, :govuk_summary_list_row, :'review.claimant.questions.full_name' do
+          element :answer, :govuk_summary_list_col
         end
-        section :current_situation, :et1_review_question_labelled, 'review.employment.questions.current_situation' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :mobile, :govuk_summary_list_row, :'review.claimant.questions.mobile' do
+          element :answer, :govuk_summary_list_col
         end
-        section :job, :et1_review_question_labelled, 'review.employment.questions.job' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :phone, :govuk_summary_list_row, :'review.claimant.questions.phone' do
+          element :answer, :govuk_summary_list_col
         end
-        section :benefit_details, :et1_review_question_labelled, 'review.employment.questions.benefit_details' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :another_job, :et1_review_question_labelled, 'review.employment.questions.another_job' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :notice_pay, :et1_review_question_labelled, 'review.employment.questions.notice_pay' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :notice_period_end_date, :et1_review_question_labelled, 'review.employment.questions.notice_period_end_date' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :pay_before_tax_at_new_job, :et1_review_question_labelled, 'review.employment.questions.pay_before_tax_at_new_job' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
-        end
-        section :employed_by_employer, :et1_review_question_labelled, 'review.employment.questions.employed_by_employer' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :gender, :govuk_summary_list_row, :'review.claimant.questions.gender' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :representative_section, :et1_review_section_labelled, 'review.representative.title' do
-        section :type_of_representative, :et1_review_question_labelled, 'review.representative.questions.type_of_representative' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :employment_section, :govuk_summary_list, :'review.employment.title' do
+        section :pension_scheme, :govuk_summary_list_row, :'review.employment.questions.pension_scheme' do
+          element :answer, :govuk_summary_list_col
         end
-        section :email, :et1_review_question_labelled, 'review.representative.questions.email' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :notice_period, :govuk_summary_list_row, :'review.employment.questions.notice_period' do
+          element :answer, :govuk_summary_list_col
         end
-        section :address, :et1_review_question_labelled, 'review.representative.questions.address' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :end_date, :govuk_summary_list_row, :'review.employment.questions.end_date' do
+          element :answer, :govuk_summary_list_col
         end
-        section :full_name, :et1_review_question_labelled, 'review.representative.questions.full_name' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :start_date, :govuk_summary_list_row, :'review.employment.questions.start_date' do
+          element :answer, :govuk_summary_list_col
         end
-        section :dx_number, :et1_review_question_labelled, 'review.representative.questions.dx_number' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :pay_before_tax, :govuk_summary_list_row, :'review.employment.questions.pay_before_tax' do
+          element :answer, :govuk_summary_list_col
         end
-        section :mobile, :et1_review_question_labelled, 'review.representative.questions.mobile' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :pay_after_tax, :govuk_summary_list_row, :'review.employment.questions.pay_after_tax' do
+          element :answer, :govuk_summary_list_col
         end
-        section :preferred_contact, :et1_review_question_labelled, 'review.representative.questions.preferred_contact' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :average_weekly_hours_worked, :govuk_summary_list_row, :'review.employment.questions.average_weekly_hours_worked' do
+          element :answer, :govuk_summary_list_col
         end
-        section :phone, :et1_review_question_labelled, 'review.representative.questions.phone' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :current_situation, :govuk_summary_list_row, :'review.employment.questions.current_situation' do
+          element :answer, :govuk_summary_list_col
         end
-        section :organisation_name, :et1_review_question_labelled, 'review.representative.questions.organisation_name' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :job, :govuk_summary_list_row, :'review.employment.questions.job' do
+          element :answer, :govuk_summary_list_col
         end
-        section :representative, :et1_review_question_labelled, 'review.representative.questions.representative' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :benefit_details, :govuk_summary_list_row, :'review.employment.questions.benefit_details' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :another_job, :govuk_summary_list_row, :'review.employment.questions.another_job' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :notice_pay, :govuk_summary_list_row, :'review.employment.questions.notice_pay' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :notice_period_end_date, :govuk_summary_list_row, :'review.employment.questions.notice_period_end_date' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :pay_before_tax_at_new_job, :govuk_summary_list_row, :'review.employment.questions.pay_before_tax_at_new_job' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :employed_by_employer, :govuk_summary_list_row, :'review.employment.questions.employed_by_employer' do
+          element :answer, :govuk_summary_list_col
         end
       end
-      section :respondent_section, :et1_review_section_labelled, 'review.respondent.title' do
-        section :name, :et1_review_question_labelled, 'review.respondent.questions.name' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+      section :representative_section, :govuk_summary_list, :'review.representative.title' do
+        section :type_of_representative, :govuk_summary_list_row, :'review.representative.questions.type_of_representative' do
+          element :answer, :govuk_summary_list_col
         end
-        section :address, :et1_review_question_labelled, 'review.respondent.questions.address' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :email, :govuk_summary_list_row, :'review.representative.questions.email' do
+          element :answer, :govuk_summary_list_col
         end
-        section :phone, :et1_review_question_labelled, 'review.respondent.questions.phone' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :address, :govuk_summary_list_row, :'review.representative.questions.address' do
+          element :answer, :govuk_summary_list_col
         end
-        section :acas_number, :et1_review_question_labelled, 'review.respondent.questions.acas_number' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :full_name, :govuk_summary_list_row, :'review.representative.questions.full_name' do
+          element :answer, :govuk_summary_list_col
         end
-        section :work_address, :et1_review_question_labelled, 'review.respondent.questions.work_address' do
-          element :answer, :css, 'dt.govuk-summary-list__value'
+        section :dx_number, :govuk_summary_list_row, :'review.representative.questions.dx_number' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :mobile, :govuk_summary_list_row, :'review.representative.questions.mobile' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :preferred_contact, :govuk_summary_list_row, :'review.representative.questions.preferred_contact' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :phone, :govuk_summary_list_row, :'review.representative.questions.phone' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :organisation_name, :govuk_summary_list_row, :'review.representative.questions.organisation_name' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :representative, :govuk_summary_list_row, :'review.representative.questions.representative' do
+          element :answer, :govuk_summary_list_col
+        end
+      end
+      section :respondent_section, :govuk_summary_list, :'review.respondent.title' do
+        section :name, :govuk_summary_list_row, :'review.respondent.questions.name' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :address, :govuk_summary_list_row, :'review.respondent.questions.address' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :phone, :govuk_summary_list_row, :'review.respondent.questions.phone' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :acas_number, :govuk_summary_list_row, :'review.respondent.questions.acas_number' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :work_address, :govuk_summary_list_row, :'review.respondent.questions.work_address' do
+          element :answer, :govuk_summary_list_col
         end
       end
       section :email_confirmation_section, :fieldset_translated, 'review.email_confirmation.title' do
