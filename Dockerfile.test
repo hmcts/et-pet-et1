@@ -8,8 +8,8 @@ USER root
 RUN apk add --no-cache firefox && \
     apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
     cd /home/app/et1 && \
-    bundle install --no-cache --jobs=5 --retry=3 --without=development --with=assets production test --deployment && \
-    bundle exec rails assets:precompile webdrivers:geckodriver:update && \
+    su app -c "bundle install --no-cache --jobs=5 --retry=3 --without=development --with=assets production test --deployment && \
+    bundle exec rails assets:precompile webdrivers:geckodriver:update" && \
     apk del .build-tools && \
     chown -R app:app /home/app/et1/vendor/bundle && \
     chown -R app:app /home/app/et1/public/packs-test && \
