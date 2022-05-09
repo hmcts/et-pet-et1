@@ -42,7 +42,6 @@ cy:
 
     item:
       not_entered: Heb ei roi
-      false: 'Nac oes'
 
       claimant:
         full_name: Enw llawn
