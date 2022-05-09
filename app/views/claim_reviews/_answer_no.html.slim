@@ -1,0 +1,8 @@
+div.govuk-summary-list__row
+  dt.govuk-summary-list__key = t "claim_reviews.item.#{section_name}.#{question}"
+  dd.govuk-summary-list__value
+    - value = yield
+    - if value.present?
+      = value
+    - else
+      = t 'claim_reviews.item.false'

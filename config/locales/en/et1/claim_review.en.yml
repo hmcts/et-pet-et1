@@ -43,6 +43,7 @@ en:
 
     item:
       not_entered: Not entered
+      false: 'No'
 
       claimant:
         full_name: Full name
