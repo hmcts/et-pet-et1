@@ -21,7 +21,7 @@
     = yes_no(false)
 = render 'answer', section_name: 'claimant', question: 'telephone_number' do
   = claimant.address_telephone_number
-- if claimant.special_needs.present?
+- if claimant.has_special_needs.present?
   = render 'answer', section_name: 'claimant', question: 'is_disabled' do
     = t "claims.claimant.has_special_needs.options.#{claimant.has_special_needs}"
 - else
