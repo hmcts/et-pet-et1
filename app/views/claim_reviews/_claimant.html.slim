@@ -13,10 +13,7 @@
 = render 'answer', section_name: 'claimant', question: 'contact_preference' do
   - if claimant.contact_preference.present?
     = t "claims.claimant.contact_preference.options.#{claimant.contact_preference}"
-= render 'answer', section_name: 'claimant', question: 'allow_video_attendance' do
-  - if claimant.allow_video_attendance
-    = t "claims.claimant.allow_video_attendance.options.#{claimant.allow_video_attendance}"
+= render 'answer_yes_no', section_name: 'claimant', question: 'allow_video_attendance', value: claimant.allow_video_attendance
 = render 'answer', section_name: 'claimant', question: 'telephone_number' do
   = claimant.address_telephone_number
-= render 'answer', section_name: 'claimant', question: 'is_disabled' do
-  = yes_no claimant.special_needs
+= render 'answer_yes_no', section_name: 'claimant', question: 'is_disabled', value: claimant.has_special_needs
