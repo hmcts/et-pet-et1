@@ -71,7 +71,7 @@ describe "claim_reviews/show.html.slim" do
             address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
             address_telephone_number: '01234567890', mobile_number: '07956123456',
             email_address: 'joe@example.com', contact_preference: 'post',
-            special_needs: true, primary_claimant: true
+            has_special_needs: true, primary_claimant: true
         end
         specify { expect(claimant_section.assistance_required.answer).to have_text('Yes') }
       end
