@@ -53,8 +53,16 @@ en:
         mobile_number: Mobile
         email_address: Email
         contact_preference: Preferred contact
-        allow_video_attendance: Would you be able to take part in a hearing by video?
-        is_disabled: Assistance required at the tribunal?
+        allow_video_attendance:
+          label: Would you be able to take part in a hearing by video?
+          options:
+            true: 'Yes'
+            false: 'No'
+        is_disabled:
+          label: Assistance required at the tribunal?
+          options:
+            true: 'Yes'
+            false: 'No'
         has_representative: Representative
 
       additional_claimants:

@@ -52,8 +52,16 @@ cy:
         mobile_number: Ffôn Symudol
         email_address: E-bost
         contact_preference: Dull cyswllt dewisol
-        allow_video_attendance: A allech chi gymryd rhan mewn gwrandawiad drwy fideo?
-        is_disabled: "Angen cymorth yn y tribiwnlys?"
+        allow_video_attendance:
+          label: A allech chi gymryd rhan mewn gwrandawiad drwy fideo?
+          options:
+            true: 'Gallaf'
+            false: 'Na allaf'
+        is_disabled:
+          label: "Angen cymorth yn y tribiwnlys?"
+          options:
+            true: 'Ydw'
+            false: 'Nac ydw'
         has_representative: Cynrychiolydd
 
       additional_claimants:
