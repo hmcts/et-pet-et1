@@ -1,5 +1,9 @@
 FactoryBot.define do
   factory :claim do
+    transient do
+      secondary_claimant_count { 0 }
+      secondary_respondent_count { 0 }
+    end
     association :primary_claimant,   factory: :claimant, primary_claimant: true
     association :primary_respondent, factory: :respondent
     association :representative
@@ -119,15 +123,12 @@ FactoryBot.define do
 
     trait :with_secondary_claimants do
       has_multiple_claimants { true }
-      after(:create) { |claim| create_list :claimant, 2, claim: claim }
+      secondary_claimant_count { 2 }
     end
 
     trait :with_secondary_respondents do
       has_multiple_respondents { true }
-      after(:build) do |claim|
-        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
-        claim.secondary_respondents.build(attributes_for(:respondent, primary_respondent: false))
-      end
+      secondary_respondent_count { 2 }
     end
 
     trait :no_fee_group_reference do
@@ -153,6 +154,15 @@ FactoryBot.define do
 
     trait :respondent_with_acas_number do
       association :primary_respondent, factory: [:respondent, :with_acas_number]
+    end
+
+    after(:build) do |claim, evaluator|
+      evaluator.secondary_claimant_count.times do
+        claim.secondary_claimants << build(:claimant)
+      end
+      evaluator.secondary_respondent_count.times do
+        claim.secondary_respondents << build(:respondent, primary_respondent: false)
+      end
     end
   end
 

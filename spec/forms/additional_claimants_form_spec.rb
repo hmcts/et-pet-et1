@@ -53,6 +53,29 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
       additional_claimants_form.attributes = attributes
       expect(additional_claimants_form.secondary_claimants).to all(be_an_instance_of(AdditionalClaimantsForm::ClaimantForm))
     end
+
+    context 'with 2nd additional claimant not persisted' do
+      let(:claim) { create(:claim, :with_secondary_claimants, secondary_claimant_count: 1) }
+
+      it 'deletes the 2nd and adds a new 2nd with the correct attributes' do
+        attributes = {
+          has_multiple_claimants: 'true',
+          secondary_claimants_attributes: {
+            "0" => {
+              '_destroy' => 'true'
+            },
+            "1" => {
+              title: 'Mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
+              address_building: '2', address_street: 'Main Street',
+              address_locality: 'Anycity', address_county: 'Anyford',
+              address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
+            }
+          }
+        }
+        additional_claimants_form.attributes = attributes
+        expect(additional_claimants_form.secondary_claimants.length).to eql 2
+      end
+    end
   end
 
   describe '#claimants' do
