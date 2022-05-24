@@ -17,7 +17,11 @@
           = render 'address', f: builder
           = builder.hidden_field :_destroy, data: { 'multiple-mark-for-destroy': true }
 
-    = f.submit t('.add_fields'), name: 'commit', value: 'claims.additional_claimants.add_fields', class: 'govuk-!-margin-bottom-0 govuk-!-margin-top-9'
+    = f.submit t('.add_fields'),
+      name: 'commit',
+      value: 'claims.additional_claimants.add_fields',
+      class: "govuk-!-margin-bottom-0 govuk-!-margin-top-9 #{f.object.secondary_claimants.length <= 3 ? '' : 'hidden'}",
+      data: { 'multiple-add': true }
 - content_for(:javascripts)
   javascript:
     Et.pages.claims.AdditionalClaimantsPage()

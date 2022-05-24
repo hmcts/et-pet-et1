@@ -5,7 +5,7 @@ cy:
       person: "Atebydd %{number}"
       add_fields: Ychwanegu atebydd arall
       remove_resource_link: "Dileu'r atebydd yma"
-      additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na %{max} atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
+      additional_respondents_limit: "Os ydych chi'n gwneud hawliad yn erbyn mwy na 4 atebydd ychwanegol, rhowch eu manylion yn yr adran ‘mwy am yr hawliad’ yn y ffurflen."
       has_multiple_respondents:
         label: Hawliadau yn erbyn mwy nag un cyflogwr
         hint: "Ydych chi'n gwneud hawliad yn erbyn unigolyn neu sefydliad arall?"
