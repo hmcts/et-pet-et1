@@ -16,7 +16,7 @@ function setupClickHandler() {
     e.preventDefault();
     removeMultiple(e.target.attributes['data-multiple-remove'].value)
     showButton()
-    removePTag()
+    removeMultipleRespondentPTag()
   });
 }
 
@@ -48,8 +48,8 @@ function showButton() {
   button.classList.remove('hidden')
 }
 
-function removePTag() {
-  const p = document.getElementById('multiple-respondent-p')
+function removeMultipleRespondentPTag() {
+  const p = document.querySelector('p[data-multiple-respondent-p]')
   p.remove()
 }
 

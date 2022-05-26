@@ -25,9 +25,9 @@
   = f.submit t('.add_fields'),
     name: 'commit',
     value: 'claims.additional_respondents.add_fields',
-    class: "#{f.object.secondary_respondents.length <= 2 ? '' : 'hidden'}",
+    class: "#{f.object.secondary_respondents.length <= 3 ? '' : 'hidden'}",
     data: { 'multiple-add': true }
-  p id=('multiple-respondent-p') class=[resource.secondary_respondents.length <= 2 ? 'hidden': ''] = t '.additional_respondents_limit'
+  p data-multiple-respondent-p='true' class=[resource.secondary_respondents.length <= 3 ? 'hidden': ''] = t '.additional_respondents_limit'
   / - if resource.secondary_respondents.length >= Rails.application.config.additional_respondents_limit
   /     p= t '.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit
   / - else
