@@ -1,12 +1,18 @@
-import { Components } from 'et_gds_design_system';
 import RemoveMultiple from "../../components/RemoveMultiple";
 
-function setupReveal() {
-  document.querySelectorAll('*[data-reveal-on-selector]').forEach(function (node) {
-    const selector = node.attributes['data-reveal-on-selector'].value;
-    const value = node.attributes['data-reveal-on-value'].value;
-    Components.RevealOnRadioButton(node, selector, value);
+function setupRemoveMoreThan4AdditionalRespondents() {
+  document.addEventListener('click', function (e) {
+    if (!e.target.matches('a[data-multiple-remove]')) {
+      return;
+    }
+
+    removeMoreThan4AdditionalRespondentsText()
   });
+}
+
+function removeMoreThan4AdditionalRespondentsText() {
+  const element = document.querySelector('*[data-multiple-respondent-re-enable]')
+  element.remove()
 }
 
 function setupRemoveMultiple() {
@@ -14,6 +20,6 @@ function setupRemoveMultiple() {
 }
 
 export default function AdditionalRespondentsPage() {
-  //setupReveal();
+  setupRemoveMoreThan4AdditionalRespondents();
   setupRemoveMultiple();
 };

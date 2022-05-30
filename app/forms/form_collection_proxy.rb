@@ -7,6 +7,7 @@ class FormCollectionProxy
     @child_form_klass = child_form_class_name.safe_constantize
     @collection_wrapped = {}
     @collection_cache = []
+    @to_destroy = []
     raise "Unknown class #{child_form_class_name}" if child_form_klass.nil?
 
     on_initialize
@@ -18,9 +19,15 @@ class FormCollectionProxy
 
   # @return [Hash] Returns the collection attributes to be passed into the target's nested associations code
   def collection_attributes
-    collection_cache.each_with_object({}).with_index do |(form, acc), idx|
+    attrs = collection_cache.each_with_object({}).with_index do |(form, acc), idx|
       nested_attributes = form_to_nested_attributes(form)
       acc[idx] = nested_attributes unless nested_attributes.empty?
+      acc
+    end
+    offset = attrs.length
+    to_destroy.each_with_object(attrs).with_index do |(form, acc), idx|
+      nested_attributes = form_to_nested_attributes(form)
+      acc[idx + offset] = nested_attributes unless nested_attributes.empty?
       acc
     end
   end
@@ -49,11 +56,13 @@ class FormCollectionProxy
   def clear
     parent_form_resource.send(collection_name).clear
     collection_cache.clear
+    to_destroy.clear
     collection_wrapped.clear
   end
 
   def after_save
     collection_cache.clear
+    to_destroy.clear
     load_collection_cache
   end
 
@@ -62,7 +71,7 @@ class FormCollectionProxy
 
   private
 
-  attr_reader :parent_form_instance, :collection_name, :child_form_klass, :collection_wrapped, :collection_cache
+  attr_reader :parent_form_instance, :collection_name, :child_form_klass, :collection_wrapped, :collection_cache, :to_destroy
 
   def on_initialize
     load_collection_cache
@@ -82,7 +91,7 @@ class FormCollectionProxy
                    build
                  end
       if ::ActiveRecord::Type::Boolean.new.cast(value["_destroy"])
-        instance.mark_for_destruction
+        mark_for_destruction!(instance)
       else
         instance.attributes = value.except('_destroy', 'id')
       end
@@ -126,5 +135,11 @@ class FormCollectionProxy
 
   def child_form_resource_class
     @child_form_resource_class ||= parent_form_resource.class.reflect_on_association(collection_name).klass
+  end
+
+  def mark_for_destruction!(instance)
+    instance.mark_for_destruction
+    collection_cache.delete(instance)
+    to_destroy << instance
   end
 end

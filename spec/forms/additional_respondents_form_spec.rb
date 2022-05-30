@@ -30,11 +30,9 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
   let(:claim) { create(:claim, :with_secondary_respondents) }
 
   describe '#secondary_respondents_attributes=' do
-    before do
-      additional_respondents_form.attributes = attributes
-    end
 
     it 'builds new respondents with attributes' do
+      additional_respondents_form.attributes = attributes
       additional_respondents_form.secondary_respondents.slice(2,2).each_with_index do |c, i|
         attributes[:secondary_respondents_attributes].values[i].each do |key, value|
           expect(c.send(key)).to eq value
@@ -43,8 +41,34 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
     end
 
     it 'new additional respondents are decorated as Respondents' do
+      additional_respondents_form.attributes = attributes
       additional_respondents_form.secondary_respondents.each_with_index do |_c, i|
         expect(additional_respondents_form.secondary_respondents).to all(be_an_instance_of(AdditionalRespondentsForm::RespondentForm))
+      end
+    end
+
+    context 'with 2nd additional respondent not persisted' do
+      let(:claim) { create(:claim, :with_secondary_respondents, secondary_respondent_count: 1) }
+
+      it 'deletes the 2nd and adds a new 2nd with the correct attributes' do
+        attributes = {
+          has_multiple_respondents: 'true',
+          secondary_respondents_attributes: {
+            "0" => {
+              '_destroy' => 'true'
+            },
+            "1" => {
+              name: 'Pablo Noncer',
+              acas_early_conciliation_certificate_number: 'XX123456/12/12',
+              has_acas_number: true,
+              address_building: '2', address_street: 'Main Street',
+              address_locality: 'Anycity', address_county: 'Anyford',
+              address_post_code: 'W2 3ED'
+            }
+          }
+        }
+        additional_respondents_form.attributes = attributes
+        expect(additional_respondents_form.secondary_respondents.length).to eql 2
       end
     end
 
@@ -62,11 +86,13 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
       end
 
       it 'updates the first respondents name' do
+        additional_respondents_form.attributes = attributes
         additional_respondents_form.save
         expect(claim.reload.secondary_respondents.first.name).to eql 'Modified Name'
       end
 
       it 'does not add a new respondent' do
+        additional_respondents_form.attributes = attributes
         additional_respondents_form.save
         expect(claim.reload.secondary_respondents.count).to eql 2
       end

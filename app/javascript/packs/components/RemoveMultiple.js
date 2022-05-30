@@ -15,6 +15,7 @@ function setupClickHandler() {
 
     e.preventDefault();
     removeMultiple(e.target.attributes['data-multiple-remove'].value)
+    showButton();
   });
 }
 
@@ -39,6 +40,11 @@ function removeMultiple(id) {
   multiple.style.display = 'none';
   markForDeletion(multiple);
   updateCount();
+}
+
+function showButton() {
+  const button = document.querySelector('button[data-multiple-add]')
+  button.classList.remove('hidden')
 }
 
 function markForDeletion(multiple) {
