@@ -15,8 +15,7 @@ function setupClickHandler() {
 
     e.preventDefault();
     removeMultiple(e.target.attributes['data-multiple-remove'].value)
-    showButton()
-    removeMultipleRespondentPTag()
+    showButton();
   });
 }
 
@@ -46,11 +45,6 @@ function removeMultiple(id) {
 function showButton() {
   const button = document.querySelector('button[data-multiple-add]')
   button.classList.remove('hidden')
-}
-
-function removeMultipleRespondentPTag() {
-  const p = document.querySelector('p[data-multiple-respondent-p]')
-  p.remove()
 }
 
 function markForDeletion(multiple) {

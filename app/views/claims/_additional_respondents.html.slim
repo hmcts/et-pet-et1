@@ -22,16 +22,14 @@
         = builder.revealed_content :has_acas_number, values: [:true]
           = builder.text_field :acas_early_conciliation_certificate_number
         = builder.hidden_field :_destroy, data: { 'multiple-mark-for-destroy': true }
+  - allow_more=f.object.secondary_respondents.length < Rails.application.config.additional_respondents_limit
   = f.submit t('.add_fields'),
     name: 'commit',
     value: 'claims.additional_respondents.add_fields',
-    class: "#{f.object.secondary_respondents.length <= 3 ? '' : 'hidden'}",
+    class: "#{allow_more ? '' : 'hidden'}",
     data: { 'multiple-add': true }
-  p data-multiple-respondent-p='true' class=[resource.secondary_respondents.length <= 3 ? 'hidden': ''] = t '.additional_respondents_limit'
-  / - if resource.secondary_respondents.length >= Rails.application.config.additional_respondents_limit
-  /     p= t '.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit
-  / - else
-  /     = f.submit t('.add_fields'), name: 'commit', value: 'claims.additional_respondents.add_fields'
+  p.govuk-body data-multiple-respondent-re-enable='true' class=[allow_more ? 'hidden': '']
+    = t'.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit
 - content_for(:javascripts)
   javascript:
     Et.pages.claims.AdditionalRespondentsPage()
