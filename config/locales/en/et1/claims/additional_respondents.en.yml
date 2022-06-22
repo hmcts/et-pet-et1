@@ -29,6 +29,7 @@ en:
         label: Postcode
       acas_early_conciliation_certificate_number:
         label: Acas early conciliation certificate number
+        hint: Nearly everyone should have this number before they fill in a claim form. You can find it on your Acas certificate. If you have been provided with an MU number from ACAS as part of a group notification you should use that number rather than an individual R prefixed certificate number.</br>Read more about the <a class="govuk-link" href="%{path}#acas_early_conciliation">Acas early conciliation service</a>.
       has_acas_number:
         label: Do you have an Acas number?
         options:
