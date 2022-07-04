@@ -8,7 +8,7 @@ class ValidateClaimantsFileViaApiService < ApiService
   def call(record, attribute, value, uuid: SecureRandom.uuid)
     @record = record
     @attribute = @attribute
-    json = ApplicationController.render 'api/claim/validate_claimants_file.json.jbuilder', locals: {
+    json = ApplicationController.render 'api/claim/validate_claimants_file', format: :json, locals: {
       file: value, uuid: uuid
     }
     send_request(json, path: '/validate', subject: 'claimants file')
