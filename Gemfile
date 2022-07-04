@@ -30,7 +30,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'iodine', '~> 0.7'
 
 # Use null db adapter for the form objects
-gem 'activerecord-nulldb-adapter', git: 'https://github.com/hmcts/nulldb.git', ref: '61af6221df8cbd20441a03425a8962993c024a53'
+gem 'activerecord-nulldb-adapter', '~> 0.8'
 
 # Use dotenv for convenience in all environments
 gem 'dotenv-rails', '~> 2.7'
