@@ -5,7 +5,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
   let(:additional_claimants_upload_form) { described_class.new(resource) }
 
   let(:resource) { create :claim, :no_attachments }
-  let(:path) { Pathname.new(Rails.root) + 'spec/support/files' }
+  let(:path) { Rails.root.join('spec/support/files').to_s }
   let(:file) { { 'path' => path, 'filename' => 'test.csv', 'content_type' => 'application/csv' } }
 
   describe "validations" do

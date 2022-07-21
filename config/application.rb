@@ -23,6 +23,7 @@ module App
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     # config.active_record.schema_format = :sql
+    config.active_record.yaml_column_permitted_classes = [ActiveSupport::HashWithIndifferentAccess]
     config.autoload_paths += Dir["#{config.root}/app/{services,forms,forms/concerns,presenters,validators}"]
 
     # Application Title (Populates <title>)
