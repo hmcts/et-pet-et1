@@ -312,7 +312,7 @@ GEM
       parallel
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    pg (1.2.3)
+    pg (1.4.1)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
