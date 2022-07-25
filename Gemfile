@@ -58,10 +58,10 @@ group :development, :test do
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rspec', '~> 2.1', :require => false
   gem 'shoulda-matchers', '~> 3.1'
-  gem 'spring', '~> 3.0'
+  gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 3.4'
   gem 'simplecov', '~> 0.21'
-  gem 'webdrivers', '~> 4.4'
+  gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
 
@@ -72,7 +72,7 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.7'
-  gem 'selenium-webdriver', '~> 3.142'
+  gem 'selenium-webdriver', '~> 4.3'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
