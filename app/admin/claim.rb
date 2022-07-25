@@ -82,7 +82,7 @@ ActiveAdmin.register Claim do
         submit_claim: "Submit claim" }.each do |action, text|
         br
         div do
-          div { button_to text, action: action }
+          div { button_to text, action: action, method: :post }
         end
       end
     end

@@ -17,11 +17,13 @@ module App
     # in config/environments, which are processed later.
     #
     config.time_zone = 'London'
+    # config.eager_load_paths << Rails.root.join("extras")
 
     # The default locale is :en and all translations from config/locales/**/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
     # config.active_record.schema_format = :sql
+    config.active_record.yaml_column_permitted_classes = [ActiveSupport::HashWithIndifferentAccess]
     config.autoload_paths += Dir["#{config.root}/app/{services,forms,forms/concerns,presenters,validators}"]
 
     # Application Title (Populates <title>)
@@ -38,16 +40,6 @@ module App
     config.feedback_url = ''
     # Controlls how many additional respondents are allowed
     config.additional_respondents_limit = 4
-
-    config.assets.enabled = false
-
-    config.assets.precompile += [
-      'application-ie.css',
-      'application-ie6.css',
-      'application-ie7.css',
-      'application-ie8.css',
-      '*.png'
-    ]
 
     config.cache_store = :memory_store
 
