@@ -57,7 +57,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rspec', '~> 2.1', :require => false
-  gem 'shoulda-matchers', '~> 3.1'
+  gem 'shoulda-matchers', '~> 5.1'
   gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 3.4'
   gem 'simplecov', '~> 0.21'

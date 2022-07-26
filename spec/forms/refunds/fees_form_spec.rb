@@ -91,8 +91,7 @@ module Refunds
 
           it 'validates inclusion of correct payment methods' do
             expect(form).to validate_inclusion_of(fee_payment_method_field).
-              in_array(['card', 'cheque', 'cash', 'unknown']).
-              allow_blank(false)
+              in_array(['card', 'cheque', 'cash', 'unknown'])
           end
         end
       end
