@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Representative, type: :model do
   it { is_expected.to have_one :address }
-  it { is_expected.to belong_to :claim }
+  it { is_expected.to belong_to(:claim).optional }
   let(:representative) { Representative.new }
 
   it_behaves_like "it has an address", :address
