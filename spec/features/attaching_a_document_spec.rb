@@ -121,7 +121,7 @@ feature 'Attaching a document', js: true do
         group_claims_upload_page.upload_secondary_claimants_csv(invalid_csv_path).save_and_continue
         page.find('span', text: 'Error details').click
         expect(page).to have_text('Row 4 Enter a valid UK postcode. If you live abroad, enter SW55 9QT')
-        expect(page).to have_text('Row 4 Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)')
+        expect(page).to have_text('Row 4 Enter a valid date of birth in the correct format (DD/MM/YYYY)')
         expect(claim.additional_claimants_csv).not_to be_present
       end
     end
