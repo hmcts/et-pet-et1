@@ -77,7 +77,7 @@ cy:
         claimant:
           attributes:
             date_of_birth:
-              invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
+              invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
               too_young: Rhaid i hawlydd fod yn 16 oed neu drosodd
             title:
               blank: Dewiswch deitl o'r rhestr
