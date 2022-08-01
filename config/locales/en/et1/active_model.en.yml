@@ -83,7 +83,6 @@ en:
                   invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.address_post_code.invalid'
                 date_of_birth:
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-                  too_young: :'activemodel.errors.models.claimant.attributes.date_of_birth.too_young'
         claim:
           attributes:
             secondary_respondents:
@@ -111,7 +110,6 @@ en:
           attributes:
             date_of_birth:
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
-              too_young: Claimant must be 16 years of age or over
             title:
               blank: Select a title from the list
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'

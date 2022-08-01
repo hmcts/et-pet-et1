@@ -51,7 +51,7 @@ class ClaimantForm < Form
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
   validates :date_of_birth, date: true
-  validate :older_then_16
+  validate :date_is_valid
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

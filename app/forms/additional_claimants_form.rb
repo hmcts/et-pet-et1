@@ -41,7 +41,8 @@ class AdditionalClaimantsForm < Form
     validates :title, inclusion: { in: TITLES }, allow_blank: true
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validate :older_then_16
+    validate :date_is_valid
+
     before_validation :clean_empty_title
 
     private

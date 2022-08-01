@@ -1,17 +1,17 @@
 module AgeValidator
 
-  def older_then_16
+  def date_is_valid
     return if dob_valid_date?
 
-    if date_of_birth.blank? || date_of_birth.to_datetime.to_i >= 16.years.ago.to_i
-      add_age_error_message
+    if date_of_birth.blank?
+      add_dob_error_message
     end
   end
 
   private
 
-  def add_age_error_message
-    message = I18n.t('activemodel.errors.models.claimant.attributes.date_of_birth.too_young')
+  def add_dob_error_message
+    message = I18n.t('activemodel.errors.models.claimant.attributes.date_of_birth.invalid')
     errors.add(:date_of_birth, message)
   end
 
