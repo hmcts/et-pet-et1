@@ -11,8 +11,7 @@ module AgeValidator
   private
 
   def add_dob_error_message
-    message = I18n.t('activemodel.errors.models.claimant.attributes.date_of_birth.invalid')
-    errors.add(:date_of_birth, message)
+    errors.add(:date_of_birth, :invalid)
   end
 
   def dob_valid_date?
