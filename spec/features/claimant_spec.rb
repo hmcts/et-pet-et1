@@ -28,28 +28,9 @@ feature 'Claimant page', js: true do
     fill_in_return_form claim.reference, 'lollolol'
   end
 
-  describe 'adding claimant that is 16 or more years older' do
+  describe 'adding claimant' do
     before do
       claimants_details_page.fill_in_all(claimant: ui_claimant)
-    end
-
-    context 'under 16 years old' do
-      let(:ui_claimant) { build(:ui_claimant, :default, :under_age) }
-
-      it "displays DOB validation above dob field" do
-        claimants_details_page.save_and_continue
-        expect(page).to have_text("Provide information in the highlighted fields")
-
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Claimant must be 16 years of age or over')
-      end
-    end
-
-    context 'over 16 years old' do
-      it "displays no validation if older then 16" do
-        claimants_details_page.save_and_continue
-
-        expect(page).not_to have_text("Provide information in the highlighted fields")
-      end
     end
 
     context 'no dob present' do
@@ -58,7 +39,7 @@ feature 'Claimant page', js: true do
       it "displays validation if no DOB is present" do
         claimants_details_page.save_and_continue
         expect(page).to have_text("Provide information in the highlighted fields")
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Claimant must be 16 years of age or over')
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Please enter your email address')
       end
     end
 
