@@ -64,6 +64,8 @@ cy:
         claim_type:
           attributes:
             blank: "Rhaid i chi ddewis o leiaf un o'r mathau isod o hawliad."
+            other_claim_details:
+              blank: "Rhowch ddisgrifiad ar gyfer y math arall o hawliad"
         claim_details:
           attributes:
             claim_details:
