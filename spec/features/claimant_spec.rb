@@ -68,7 +68,7 @@ feature 'Claimant page', js: true do
       it "displays validation of DOB is 2 digits" do
         claimants_details_page.save_and_continue
         expect(page).to have_text("Provide information in the highlighted fields")
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter the claimant’s date of birth in the correct format (DD/MM/YYYY)')
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a valid date of birth in the correct format (DD/MM/YYYY)')
       end
     end
 

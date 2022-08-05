@@ -57,11 +57,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rspec', '~> 2.1', :require => false
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'spring', '~> 3.0'
+  gem 'shoulda-matchers', '~> 5.1'
+  gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 3.4'
   gem 'simplecov', '~> 0.21'
-  gem 'webdrivers', '~> 4.4'
+  gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
 end
 
@@ -72,11 +72,11 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.7'
-  gem 'selenium-webdriver', '~> 3.142'
+  gem 'selenium-webdriver', '~> 4.3'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.8'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.0.17'
 end
 
 group :assets do
@@ -97,14 +97,14 @@ gem 'bitmask_attributes', '~> 1.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
 gem 'slim-rails', '~> 3.2'
-gem 'sidekiq', '~> 6.2'
+gem 'sidekiq', '6.2.1'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq_alive', '~> 2.1'
 gem 'uk_postcode', '~> 2.1'
-gem 'email_validator', '~> 1.6'
+gem 'email_validator', '~> 2.2'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v3.0.9'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v4.0.1'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
