@@ -39,12 +39,6 @@ RSpec.describe ClaimTypeForm, type: :form do
   end
 
   describe '#is_other_type_of_claim' do
-    context 'when there are no other claim details' do
-      it 'is false' do
-        expect(claim_type_form.is_other_type_of_claim).to be false
-      end
-    end
-
     context 'when there is other claim details' do
       before { claim_type_form.other_claim_details = 'details' }
 
@@ -62,6 +56,7 @@ RSpec.describe ClaimTypeForm, type: :form do
       claim_type_form.is_whistleblowing = false
       claim_type_form.send_claim_to_whistleblowing_entity = false
       claim_type_form.other_claim_details = ""
+      claim_type_form.is_other_type_of_claim = false
     end
 
     context 'empty attributes' do
