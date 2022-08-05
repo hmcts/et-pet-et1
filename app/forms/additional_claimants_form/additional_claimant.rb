@@ -4,7 +4,6 @@ class AdditionalClaimantsForm
     NAME_LENGTH = 100
 
     include AddressAttributes
-    include AgeValidator
 
     delegate :id, :id=, to: :resource
 
@@ -14,12 +13,11 @@ class AdditionalClaimantsForm
     attribute :title,         :string
 
     booleans   :has_special_needs, :has_representative
-    validates  :date_of_birth, date: true
+    validates  :date_of_birth, date: true, presence: true
 
     validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validate :date_is_valid
 
     before_validation :clean_empty_title
 

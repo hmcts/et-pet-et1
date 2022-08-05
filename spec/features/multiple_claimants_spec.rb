@@ -98,7 +98,7 @@ feature 'Multiple claimants', js: true do
         end
 
         click_button "Save and continue"
-        expect(page).to have_text("Enter a valid date of birth in the correct format (DD/MM/YYYY)")
+        expect(page).to have_text("Please enter your email address")
       end
 
       scenario "error message if DoB is missing" do
