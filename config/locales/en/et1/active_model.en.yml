@@ -85,6 +85,7 @@ en:
                 date_of_birth:
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+
         claim:
           attributes:
             secondary_respondents:
@@ -115,6 +116,7 @@ en:
             date_of_birth:
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
               less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+
             title:
               blank: Select a title from the list
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'

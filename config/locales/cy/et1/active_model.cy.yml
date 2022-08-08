@@ -82,6 +82,7 @@ cy:
             date_of_birth:
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
               less_than: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
+
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
