@@ -92,6 +92,8 @@ en:
         claim_type:
           attributes:
             blank: You must select at least one of the claim types below
+            other_claim_details:
+              blank: Enter a description for the other type of claim
         claim_details:
           attributes:
             claim_details:
