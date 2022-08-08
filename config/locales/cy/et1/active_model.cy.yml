@@ -43,7 +43,8 @@ cy:
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
               invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
-              invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
+              invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
+              less_than: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
         additional_claimant:
           attributes:
             title:
@@ -78,6 +79,7 @@ cy:
           attributes:
             date_of_birth:
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
+              less_than: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
