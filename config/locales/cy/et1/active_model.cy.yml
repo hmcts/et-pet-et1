@@ -43,8 +43,9 @@ cy:
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
               invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
-              invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
-              less_than: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
         additional_claimant:
           attributes:
             title:
@@ -80,8 +81,9 @@ cy:
         claimant:
           attributes:
             date_of_birth:
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
-              less_than: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
