@@ -39,7 +39,7 @@ feature 'Claimant page', js: true do
       it "displays validation if no DOB is present" do
         claimants_details_page.save_and_continue
         expect(page).to have_text("Provide information in the highlighted fields")
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Please enter your email address')
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a valid date of birth in the correct format (DD/MM/YYYY)')
       end
     end
 
