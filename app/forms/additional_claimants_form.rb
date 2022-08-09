@@ -35,7 +35,9 @@ class AdditionalClaimantsForm < Form
     attribute :has_special_needs, :boolean
     attribute :has_representative, :boolean
 
+
     validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
+
 
     validates :title, inclusion: { in: TITLES }, allow_blank: true
     validates :first_name, :last_name, presence: true
