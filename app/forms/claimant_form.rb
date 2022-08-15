@@ -49,10 +49,10 @@ class ClaimantForm < Form
                             ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
-  validates :date_of_birth, date: true, presence: true
+
+  validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
-
 
   def contact_preference
     (read_attribute(:contact_preference) || "").inquiry
