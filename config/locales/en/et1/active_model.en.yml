@@ -39,7 +39,7 @@ en:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
         additional_claimant:
           attributes:
             title:
@@ -86,7 +86,7 @@ en:
                 date_of_birth:
                   blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-                  less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+                  less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
 
         claim:
           attributes:
@@ -118,7 +118,7 @@ en:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
-              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: Enter a date of birth in the past
 
             title:
               blank: Select a title from the list
