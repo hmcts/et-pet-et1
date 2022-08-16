@@ -63,7 +63,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
 
   describe '#other_known_claimant_names' do
     context 'when #other_known_claimant is false' do
-      it 'should not have a value' do
+      it 'should not have a value after validation' do
         claim_details_form.other_known_claimant_names = 'value'
         claim_details_form.other_known_claimants = false
         claim_details_form.valid?
