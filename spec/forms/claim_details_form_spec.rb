@@ -61,6 +61,17 @@ RSpec.describe ClaimDetailsForm, type: :form do
     end
   end
 
+  describe '#other_known_claimant_names' do
+    context 'when #other_known_claimant is false' do
+      it 'should not have a value' do
+        claim_details_form.other_known_claimant_names = 'value'
+        claim_details_form.other_known_claimants = false
+        claim_details_form.valid?
+        expect(claim_details_form.other_known_claimant_names).to be_nil
+      end
+    end
+  end
+
   it_behaves_like "a Form",
     claim_details: "I want to make a claim", other_known_claimants: 'true',
     other_known_claimant_names: "Edgar"
