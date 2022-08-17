@@ -105,6 +105,24 @@ feature 'Save and Return', js: true do
     end
   end
 
+  scenario 'returning to the existing application page from the claims details page' do
+    start_claim
+    saving_your_claim_page.register(password: 'green')
+    page.go_back
+
+    expect(saving_your_claim_page).to be_displayed
+    expect(page).to have_field('save-and-return-user-password-field', with: 'green')
+  end
+
+  scenario 'returning to the application page shows the correct page numbers' do
+    start_claim
+    expect(page).to have_text('Page 1 of 11')
+    saving_your_claim_page.register(password: 'green')
+    expect(page).to have_text('Page 2 of 11')
+    page.go_back
+    expect(page).to have_text('Page 1 of 11')
+  end
+
   context 'memorable word not set' do
     scenario 'returning to an existing application' do
       start_claim
