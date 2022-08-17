@@ -111,7 +111,8 @@ feature 'Save and Return', js: true do
     page.go_back
 
     expect(saving_your_claim_page).to be_displayed
-    expect(page).to have_field('save-and-return-user-password-field', with: 'green')
+    claim = Claim.last
+    expect(claim.user.valid_password?('green')).to be true
   end
 
   scenario 'returning to the application page shows the correct page numbers' do
