@@ -7,6 +7,7 @@ class ClaimDetailsForm < Form
 
   before_validation :remove_claim_details_rtf!,
     if: :remove_claim_details_rtf
+  before_validation :reset_other_known_claimant_names!, unless: :other_known_claimants?
 
   validates :claim_details, length: { maximum: 2500 },
                             presence: true,
@@ -30,5 +31,9 @@ class ClaimDetailsForm < Form
   def remove_claim_details_rtf!
     self.attributes = { claim_details_rtf: nil }
     target.remove_claim_details_rtf!
+  end
+
+  def reset_other_known_claimant_names!
+    self.other_known_claimant_names = nil
   end
 end
