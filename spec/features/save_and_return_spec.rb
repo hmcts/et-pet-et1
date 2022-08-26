@@ -108,8 +108,8 @@ feature 'Save and Return', js: true do
   scenario 'returning to the existing application page from the claims details page' do
     start_claim
     saving_your_claim_page.register(password: 'green')
+    expect(claimants_details_page).to be_displayed
     page.go_back
-
     expect(saving_your_claim_page).to be_displayed
     claim = Claim.last
     expect(claim.user.valid_password?('green')).to be true
