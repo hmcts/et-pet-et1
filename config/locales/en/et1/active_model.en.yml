@@ -175,6 +175,8 @@ en:
               invalid: The date you have provided is invalid
             current_situation:
               blank: Please select one of the options
+            pay_period_type:
+              blank: Select how often you were paid
 
         password:
           attributes:
