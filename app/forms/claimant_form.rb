@@ -51,7 +51,7 @@ class ClaimantForm < Form
 
 
   # validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
-  validates :date_of_birth, date: { past: -> { .. Time.zone.today } }, presence: true
+  validates :date_of_birth, date: { in_the_past: true }, presence: true
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

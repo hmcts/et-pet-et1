@@ -1,9 +1,9 @@
 # @TODO This class can be much simpler once we are not worrying about values being hashes,
 # strings etc.. (once all forms are converted to NullDbForm)
 class DateValidator < ActiveModel::EachValidator
-  def initialize(omit_day: false, past: nil, **kwargs)
+  def initialize(omit_day: false, in_the_past: nil, **kwargs)
     @omit_day = omit_day
-    @past = past.respond_to?(:call) ? past.call() : past
+    @in_the_past = in_the_past
     super(**kwargs)
   end
 
@@ -21,7 +21,7 @@ class DateValidator < ActiveModel::EachValidator
 
   private
 
-  attr_reader :omit_day, :past
+  attr_reader :omit_day, :in_the_past
 
   # @TODO This will not need to check for a hash once all forms are converted to the NullDbForm
   def coercion_failed?(value, attribute, record)
@@ -54,11 +54,12 @@ class DateValidator < ActiveModel::EachValidator
   end
 
   def future_date?(value)
-    return false if past.nil?
+    return false if in_the_past.nil?
+    time = Time.zone.today
     if value.is_a?(String)
-      !past.cover?(Date.parse(value))
+      time < (Date.parse(value))
     elsif value.is_a?(Date) || value.is_a?(Time)
-      !past.cover?(value)
+      time < (value)
     end
   end
 

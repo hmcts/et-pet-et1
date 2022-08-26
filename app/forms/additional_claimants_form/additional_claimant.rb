@@ -14,7 +14,7 @@ class AdditionalClaimantsForm
 
     booleans   :has_special_needs, :has_representative
 
-    validates :date_of_birth, date: true, presence: true
+    validates :date_of_birth, date: { in_the_past: true }, presence: true
     validate :date_is_past
 
     validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true

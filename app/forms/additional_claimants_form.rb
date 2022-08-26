@@ -36,7 +36,7 @@ class AdditionalClaimantsForm < Form
     attribute :has_representative, :boolean
 
 
-    validates :date_of_birth, date: true, presence: true
+    validates :date_of_birth, date: { in_the_past: true }, presence: true
     validate :date_is_past
 
     validates :title, inclusion: { in: TITLES }, allow_blank: true
