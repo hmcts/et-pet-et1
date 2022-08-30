@@ -19,7 +19,7 @@ class EmploymentForm < Form
   attribute :notice_period_end_date,               :et_date
   attribute :start_date,                           :et_date
   attribute :worked_notice_period_or_paid_in_lieu, :boolean
-  attribute :was_employed, :boolean
+  attribute :was_employed,                         :boolean
   map_attribute :was_employed, to: :resource
 
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|

@@ -437,13 +437,13 @@ en:
     job_title:
       label: Job title (optional)
     start_date:
-      label: Employment start date
+      label: Employment start date (optional)
     notice_period_end_date:
-      label: Notice period end date
+      label: Notice period end date (optional)
     end_date:
-      label: Employment end date
+      label: Employment end date (optional)
     worked_notice_period:
-      label: Did you work (or get paid for) a period of notice?
+      label: Did you work (or get paid for) a period of notice? (optional)
       options:
         'true': 'Yes'
         'false': 'No'
