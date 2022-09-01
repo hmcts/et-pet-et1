@@ -38,8 +38,7 @@ class AdditionalClaimantsForm < Form
 
     validates :date_of_birth, date: { in_the_past: true }, presence: true
     validates :title, inclusion: { in: TITLES }, allow_blank: true
-    validates :first_name, :last_name, presence: true
-    validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
+    validates :first_name, :last_name, presence: true, length: { maximum: NAME_LENGTH }
 
     before_validation :clean_empty_title
 
