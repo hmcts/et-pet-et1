@@ -143,6 +143,8 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             current_situation:
               blank: "Dewiswch un o’r opsiynau os gwelwch yn dda"
+            pay_period_type:
+              blank: Dewiswch pa mor aml roeddech yn cael eich talu
             new_job_gross_pay:
               not_a_number: Rhaid rhoi rhif
             new_job_gross_pay_frequency:
