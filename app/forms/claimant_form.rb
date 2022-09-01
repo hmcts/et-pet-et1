@@ -7,7 +7,6 @@ class ClaimantForm < Form
   NAME_LENGTH          = 100
 
   include AddressAttributes.but_skip_postcode_validation
-  include AgeValidator
 
 
   validates :address_post_code,
@@ -50,11 +49,10 @@ class ClaimantForm < Form
                             ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
-  validates :date_of_birth, date: true
-  validate :older_then_16
+
+  validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
-
 
   def contact_preference
     (read_attribute(:contact_preference) || "").inquiry

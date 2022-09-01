@@ -37,7 +37,9 @@ en:
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
               invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
         additional_claimant:
           attributes:
             title:
@@ -82,8 +84,10 @@ en:
                   invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
                   invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.address_post_code.invalid'
                 date_of_birth:
+                  blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-                  too_young: :'activemodel.errors.models.claimant.attributes.date_of_birth.too_young'
+                  less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+
         claim:
           attributes:
             secondary_respondents:
@@ -91,6 +95,8 @@ en:
         claim_type:
           attributes:
             blank: You must select at least one of the claim types below
+            other_claim_details:
+              blank: Enter a description for the other type of claim
         claim_details:
           attributes:
             claim_details:
@@ -110,8 +116,10 @@ en:
         claimant:
           attributes:
             date_of_birth:
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
-              too_young: Claimant must be 16 years of age or over
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+
             title:
               blank: Select a title from the list
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
@@ -167,6 +175,8 @@ en:
               invalid: The date you have provided is invalid
             current_situation:
               blank: Please select one of the options
+            pay_period_type:
+              blank: Select how often you were paid
 
         password:
           attributes:

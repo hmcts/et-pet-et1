@@ -11,7 +11,6 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
   describe "validations" do
     let(:errors) do
       [
-        { code: "too_young", attribute: :date_of_birth, row: 2 },
         { code: "invalid", attribute: :date_of_birth, row: 3 },
         { code: "invalid", attribute: :post_code, row: 4 }
       ]

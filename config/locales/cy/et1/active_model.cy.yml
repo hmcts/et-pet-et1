@@ -43,7 +43,9 @@ cy:
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
               invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
             date_of_birth:
-              invalid: Rhowch ddyddiad geni'r hawlydd yn y fformat cywir (DD/MM/BBBB)
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
         additional_claimant:
           attributes:
             title:
@@ -64,6 +66,8 @@ cy:
         claim_type:
           attributes:
             blank: "Rhaid i chi ddewis o leiaf un o'r mathau isod o hawliad."
+            other_claim_details:
+              blank: "Rhowch ddisgrifiad ar gyfer y math arall o hawliad"
         claim_details:
           attributes:
             claim_details:
@@ -77,8 +81,9 @@ cy:
         claimant:
           attributes:
             date_of_birth:
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
-              too_young: Rhaid i hawlydd fod yn 16 oed neu drosodd
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
@@ -138,6 +143,8 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             current_situation:
               blank: "Dewiswch un o’r opsiynau os gwelwch yn dda"
+            pay_period_type:
+              blank: Dewiswch pa mor aml roeddech yn cael eich talu
             new_job_gross_pay:
               not_a_number: Rhaid rhoi rhif
             new_job_gross_pay_frequency:

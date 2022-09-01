@@ -80,31 +80,7 @@ feature 'Multiple claimants', js: true do
       end
     end
 
-    context "additional claimants age has to be 16 or over", js: true do
-      scenario "display age related error message" do
-        expect(page).not_to have_selector '#resource_1'
-
-        click_button "Add more claimants"
-        within '#resource_1' do
-          sixteen_years_ago = (Time.current - 14.years)
-          fill_in 'Day', with: sixteen_years_ago.day.to_s
-          fill_in 'Month', with: sixteen_years_ago.month.to_s
-          fill_in 'Year', with: sixteen_years_ago.year.to_s
-        end
-
-        click_button "Save and continue"
-        expect(page).to have_text("Provide information in the highlighted fields")
-
-        within '#resource_1' do
-          expect(page).to have_text("Claimant must be 16 years of age or over")
-        end
-
-        # This one is older then 16
-        within '#resource_0' do
-          expect(page).not_to have_text("Claimant must be 16 years of age or over")
-        end
-      end
-
+    context "additional claimants age has to be valid", js: true do
       scenario "error message if DoB is missing" do
         expect(page).not_to have_selector '#resource_1'
 
@@ -122,9 +98,7 @@ feature 'Multiple claimants', js: true do
         end
 
         click_button "Save and continue"
-        within '#resource_0' do
-          expect(page).not_to have_text("Claimant must be 16 years of age or over")
-        end
+        expect(page).to have_text("Enter a valid date of birth in the correct format (DD/MM/YYYY)")
       end
 
       scenario "error message if DoB is missing" do

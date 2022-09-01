@@ -34,22 +34,13 @@ feature 'Multiple claimants CSV', js: true do
       group_claims_upload_page.load
     end
 
-    context "group claimants age has to be 16 or over" do
+    context "group claimants age has to be valid" do
       before do
         errors = [
-          { code: "too_young", attribute: :date_of_birth, row: 2 },
           { code: "invalid", attribute: :date_of_birth, row: 3 },
           { code: "invalid", attribute: :post_code, row: 4 }
         ]
         EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
-      end
-
-      let(:csv_line) { ["Mr", "Tom", "Test", "01/01/2016", "1", "Test", "London", "Great London", "N103QS"] }
-
-      scenario "if claimant is too young" do
-        group_claims_upload_page.upload_secondary_claimants_csv(file_path).save_and_continue
-        group_claims_upload_page.expand_csv_file_errors
-        expect(page).to have_text("Row 2 Claimant must be 16 years of age or over")
       end
     end
   end

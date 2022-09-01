@@ -26,7 +26,6 @@ class AdditionalClaimantsForm < Form
     NAME_LENGTH = 100
     transient_attributes :has_special_needs, :has_representative
     include AddressAttributes
-    include AgeValidator
 
     attribute :id
     attribute :first_name,    :string
@@ -36,12 +35,14 @@ class AdditionalClaimantsForm < Form
     attribute :has_special_needs, :boolean
     attribute :has_representative, :boolean
 
-    validates  :date_of_birth, date: true
+
+    validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
+
 
     validates :title, inclusion: { in: TITLES }, allow_blank: true
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
-    validate :older_then_16
+
     before_validation :clean_empty_title
 
     private
