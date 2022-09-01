@@ -1,6 +1,7 @@
 module SaveAndReturn
   class RegistrationsController < ::Devise::RegistrationsController
     before_action :check_session_expiry, only: [:new, :create]
+    skip_before_action :require_no_authentication, only: [:new, :create]
 
     def new
       if session[:claim_reference].nil?
