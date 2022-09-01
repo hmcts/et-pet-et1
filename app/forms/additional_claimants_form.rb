@@ -37,8 +37,6 @@ class AdditionalClaimantsForm < Form
 
 
     validates :date_of_birth, date: { in_the_past: true }, presence: true
-    validate :date_is_past
-
     validates :title, inclusion: { in: TITLES }, allow_blank: true
     validates :first_name, :last_name, presence: true
     validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
@@ -46,12 +44,6 @@ class AdditionalClaimantsForm < Form
     before_validation :clean_empty_title
 
     private
-
-    def date_is_past
-      if date_of_birth.present? && date_of_birth > Date.today
-        errors.add(:date_of_birth, :invalid)
-      end
-    end
 
     def clean_empty_title
       self.title = nil if title == ''
