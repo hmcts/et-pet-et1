@@ -45,7 +45,7 @@ cy:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
         additional_claimant:
           attributes:
             title:
@@ -83,7 +83,7 @@ cy:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
-              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              less_than: Nodwch ddyddiad geni yn y gorffennol
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
