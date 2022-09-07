@@ -11,13 +11,13 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
           title: 'Mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
           address_building: '1', address_street: 'High Street',
           address_locality: 'Anytown', address_county: 'Anyfordshire',
-          address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
+          address_post_code: 'W2 3ED', date_of_birth: Date.civil(11.years.ago.year, 1, 1)
         },
         "1" => {
           title: 'Mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
           address_building: '2', address_street: 'Main Street',
           address_locality: 'Anycity', address_county: 'Anyford',
-          address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
+          address_post_code: 'W2 3ED', date_of_birth: Date.civil(11.years.ago.year, 1, 1)
         }
       }
     }
@@ -68,7 +68,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
               title: 'Mrs', first_name: 'Lollington', last_name: 'Wrigglesworth',
               address_building: '2', address_street: 'Main Street',
               address_locality: 'Anycity', address_county: 'Anyford',
-              address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
+              address_post_code: 'W2 3ED', date_of_birth: Date.civil(11.years.ago.year, 1, 1)
             }
           }
         }
@@ -145,7 +145,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
               title: 'invalid', first_name: '', last_name: '',
               address_building: '1', address_street: 'High Street',
               address_locality: 'Anytown', address_county: 'Anyfordshire',
-              address_post_code: 'W2 3ED', date_of_birth: Date.civil(1995, 1, 1)
+              address_post_code: 'W2 3ED', date_of_birth: Date.civil(11.years.ago.year, 1, 1)
             }
           }
         }

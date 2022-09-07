@@ -174,7 +174,7 @@ FactoryBot.define do
     last_name  { 'Wrigglesworth' }
     gender     { 'male' }
 
-    date_of_birth { Date.civil(1960, 6, 6) }
+    date_of_birth { Date.civil(11.years.ago.year, 6, 6) }
     has_special_needs { false }
     mobile_number      { '07956273434' }
     contact_preference { 'email' }

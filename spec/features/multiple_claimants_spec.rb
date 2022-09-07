@@ -13,7 +13,7 @@ feature 'Multiple claimants', js: true do
 
       'Day'   => '15',
       'Month' => '1',
-      'Year'  => '1985',
+      'Year'  => 11.years.ago.year,
 
       'Building number or name' => '1',
       'Street'    => 'High street',
@@ -99,6 +99,46 @@ feature 'Multiple claimants', js: true do
 
         click_button "Save and continue"
         expect(page).to have_text("Enter a valid date of birth in the correct format (DD/MM/YYYY)")
+      end
+
+      scenario "error message if DoB is in future" do
+        expect(page).not_to have_selector '#resource_1'
+
+        click_button "Add more claimants"
+
+        within '#resource_1' do
+          select 'Mr', from: 'Title'
+          secondary_attributes.each do |field, value|
+            fill_in field, with: value
+          end
+
+          fill_in 'Day', with: "1"
+          fill_in 'Month', with: "1"
+          fill_in 'Year', with: 2.years.from_now.year
+        end
+
+        click_button "Save and continue"
+        expect(page).to have_text("Enter a date of birth in the past")
+      end
+
+      scenario "error message if age is not between 10-100" do
+        expect(page).not_to have_selector '#resource_1'
+
+        click_button "Add more claimants"
+
+        within '#resource_1' do
+          select 'Mr', from: 'Title'
+          secondary_attributes.each do |field, value|
+            fill_in field, with: value
+          end
+
+          fill_in 'Day', with: "1"
+          fill_in 'Month', with: "1"
+          fill_in 'Year', with: 9.years.ago.year
+        end
+
+        click_button "Save and continue"
+        expect(page).to have_text("Age must be between 10 and 100")
       end
 
       scenario "error message if DoB is missing" do

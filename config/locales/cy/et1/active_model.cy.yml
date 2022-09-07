@@ -46,6 +46,7 @@ cy:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
+              out_of_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.out_of_range'
         additional_claimant:
           attributes:
             title:
@@ -90,6 +91,7 @@ cy:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Nodwch ddyddiad geni dilys yn y fformat cywir (DD/MM/YYYY)
               less_than: Nodwch ddyddiad geni yn y gorffennol
+              out_of_range: Rhaid i’r oed fod rhwng 10 a 100
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'

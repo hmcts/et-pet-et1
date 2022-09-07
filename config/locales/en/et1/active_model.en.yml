@@ -40,6 +40,7 @@ en:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
+              out_of_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.out_of_range'
         additional_claimant:
           attributes:
             title:
@@ -89,7 +90,7 @@ en:
                   blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
-
+                  out_of_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.out_of_range'
         claim:
           attributes:
             secondary_respondents:
@@ -121,7 +122,7 @@ en:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
               less_than: Enter a date of birth in the past
-
+              out_of_range: Age must be between 10 and 100
             title:
               blank: Select a title from the list
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'

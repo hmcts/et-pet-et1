@@ -53,6 +53,27 @@ feature 'Claimant page', js: true do
       end
     end
 
+
+    context 'dob is in the future' do
+      let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_in_future) }
+
+      it "displays validation if date is in the future" do
+        claimants_details_page.save_and_continue
+        expect(page).to have_text("Provide information in the highlighted fields")
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a date of birth in the past')
+      end
+    end
+
+    context 'age is not between 10-100' do
+      let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_not_in_range) }
+
+      it "displays validation if age is not between 10 or 100" do
+        claimants_details_page.save_and_continue
+        expect(page).to have_text("Provide information in the highlighted fields")
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Age must be between 10 and 100')
+      end
+    end
+
     context 'with no video question present' do
       let(:ui_claimant) { build(:ui_claimant, :default, :no_allow_video_attendance) }
 

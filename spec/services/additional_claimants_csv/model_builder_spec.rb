@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
   let(:additional_claimants_csv_builder) { described_class.new }
-  let(:row) { ['Mr', 'Timothy', 'Crotchet', '18/09/1937', '69', 'SomeStreet', 'Motown', 'County', 'SE17NX'] }
+  let(:row) { ['Mr', 'Timothy', 'Crotchet', "18/09/#{11.years.ago.year}", '69', 'SomeStreet', 'Motown', 'County', 'SE17NX'] }
   let(:model_class) { AdditionalClaimantsForm::AdditionalClaimant }
   let(:expected_attributes) {
     {
       title: "Mr",
       first_name: "Timothy",
       last_name: "Crotchet",
-      date_of_birth: Date.parse("18/09/1937"),
+      date_of_birth: Date.parse("18/09/#{11.years.ago.year}"),
       address_building: "69",
       address_street: "SomeStreet",
       address_locality: "Motown",

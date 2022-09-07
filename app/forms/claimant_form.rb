@@ -50,8 +50,7 @@ class ClaimantForm < Form
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
 
-  # validates :date_of_birth, date: true, presence: true, comparison: {less_than: Date.today}
-  validates :date_of_birth, date: { in_the_past: true }, presence: true
+  validates :date_of_birth, date: { in_the_past: true, within_range: true }, presence: true
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

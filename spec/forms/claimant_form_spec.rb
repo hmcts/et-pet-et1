@@ -205,7 +205,7 @@ RSpec.describe ClaimantForm, type: :form do
                     address_country: 'united_kingdom',
                     address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
                     has_special_needs: false,
-                    special_needs: '', date_of_birth: '01/01/1990'
+                    special_needs: '', date_of_birth: "01/01/#{11.years.ago.year}"
 
     describe 'postcode' do
       before { claimant_form.address_country = 'united_kingdom' }

@@ -22,7 +22,7 @@ feature 'Multiple claimants/respondents on the review page' do
   context 'with additional claimants' do
     before do
       claim.secondary_claimants.create first_name: 'Barry', last_name: 'Obama',
-                                       date_of_birth: Date.civil(2000, 1, 1), address_building: 1,
+                                       date_of_birth: Date.civil(11.years.ago.year, 1, 1), address_building: 1,
                                        address_street: 'Lol lane', address_locality: 'London',
                                        address_county: 'London', address_post_code: 'SW1 1AA'
 
@@ -36,7 +36,7 @@ feature 'Multiple claimants/respondents on the review page' do
         to include(
           'Claimant 2',
           'Full name', 'Barry Obama',
-          'Date of birth', '01 January 2000',
+          'Date of birth', "01 January #{11.years.ago.year}",
           'Address', '1', 'Lol lane', 'London', 'London', 'SW1 1AA'
         )
 

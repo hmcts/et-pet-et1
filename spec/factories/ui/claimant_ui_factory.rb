@@ -11,7 +11,7 @@ FactoryBot.define do
       title { :'claimants_details.title.options.unselected' }
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }
-      date_of_birth { '29/11/1998' }
+      date_of_birth { "29/11/#{11.years.ago.year}" }
       has_special_needs { :'claimants_details.has_special_needs.options.no' }
 
       address_building { '32' }
@@ -47,6 +47,14 @@ FactoryBot.define do
 
     trait :date_of_birth_two_digit do
       date_of_birth { '1/1/12' }
+    end
+
+    trait :date_of_birth_in_future do
+      date_of_birth { "1/1/#{2.years.from_now.year}" }
+    end
+
+    trait :date_of_birth_not_in_range do
+      date_of_birth { "1/1/#{9.years.ago.year}" }
     end
 
     trait :no_allow_video_attendance do
