@@ -1,7 +1,17 @@
 class DateRangeValidator < ActiveModel::EachValidator
+  def initialize(**kwargs)
+    super(**kwargs)
+  end
+
   def validate_each(record, attribute, value)
-    unless range.cover?(value)
-      record.errors.add(attribute, :date_range, start_date: start_date_str, end_date: end_date_str)
+    unless value.nil?
+      unless range.cover?(value)
+        if date_format.nil?
+          record.errors.add(attribute, :out_of_range)
+        else
+          record.errors.add(attribute, :date_range, start_date: start_date_str, end_date: end_date_str)
+        end
+      end
     end
   end
 
@@ -16,7 +26,7 @@ class DateRangeValidator < ActiveModel::EachValidator
   end
 
   def range
-    @range ||= options[:range]
+    @range ||= options[:range].respond_to?(:call) ? options[:range].call : options[:range]
   end
 
   def date_format
