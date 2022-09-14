@@ -59,6 +59,12 @@ cy:
           attributes:
             additional_claimants_csv:
               blank: Mae'n rhaid i chi ddarparu ffeil CSV er mwyn parhau
+            additional_claimants_csv_row:
+              attributes:
+                address_street:
+                  too_long: :'activemodel.errors.messages.too_long'
+                address_locality:
+                  too_long: :'activemodel.errors.messages.too_long'
         claim:
           attributes:
             secondary_respondents:
