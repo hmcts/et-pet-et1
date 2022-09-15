@@ -7,7 +7,7 @@ class ValidateClaimantsFileViaApiService < ApiService
 
   def call(record, attribute, value, uuid: SecureRandom.uuid)
     @record = record
-    @attribute = @attribute
+    @attribute = attribute
     json = ApplicationController.render 'api/claim/validate_claimants_file', format: :json, locals: {
       file: value, uuid: uuid
     }
@@ -19,7 +19,8 @@ class ValidateClaimantsFileViaApiService < ApiService
   def generate_custom_errors
     response_data['errors'].each do |error|
       source = error['source'] == '/' ? :base : error['source']
-      errors.add(source, error['code'])
+      options = (error['options'] || {}).deep_symbolize_keys
+      errors.add(source, error['code'], **options)
     end
   end
 end
