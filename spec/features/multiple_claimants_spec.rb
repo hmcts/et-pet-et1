@@ -13,7 +13,7 @@ feature 'Multiple claimants', js: true do
 
       'Day'   => '15',
       'Month' => '1',
-      'Year'  => 11.years.ago.year,
+      'Year'  => '1999',
 
       'Building number or name' => '1',
       'Street'    => 'High street',
@@ -134,7 +134,7 @@ feature 'Multiple claimants', js: true do
 
           fill_in 'Day', with: "1"
           fill_in 'Month', with: "1"
-          fill_in 'Year', with: 9.years.ago.year
+          fill_in 'Year', with: "2013"
         end
 
         click_button "Save and continue"

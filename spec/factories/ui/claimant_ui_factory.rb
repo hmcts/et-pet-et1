@@ -11,7 +11,7 @@ FactoryBot.define do
       title { :'claimants_details.title.options.unselected' }
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }
-      date_of_birth { "29/11/#{11.years.ago.year}" }
+      date_of_birth { "29/11/1999" }
       has_special_needs { :'claimants_details.has_special_needs.options.no' }
 
       address_building { '32' }

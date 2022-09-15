@@ -30,7 +30,7 @@ describe "claim_reviews/show.html.slim" do
     let(:claimant) do
       build :claimant,
         title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
-        date_of_birth: Date.civil(11.years.ago.year, 1 ,15), address_building: '1',
+        date_of_birth: Date.civil(1999, 1 ,15), address_building: '1',
         address_street: 'Lol street', address_locality: 'Lolzville',
         address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
         address_telephone_number: '01234567890', mobile_number: '07956123456',
@@ -46,7 +46,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     it { expect(claimant_section.gender.answer).to have_text('Male') }
-    it { expect(claimant_section.date_of_birth.answer).to have_text("15 January #{11.years.ago.year}") }
+    it { expect(claimant_section.date_of_birth.answer).to have_text("15 January 1999") }
 
     describe '#address' do
       it 'concatenates all address properties with a <br> tag' do
@@ -66,7 +66,7 @@ describe "claim_reviews/show.html.slim" do
         let(:claimant) do
           build :claimant,
             title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
-            date_of_birth: Date.civil(11.years.ago.year, 1, 15), address_building: '1',
+            date_of_birth: Date.civil(1999, 1, 15), address_building: '1',
             address_street: 'Lol street', address_locality: 'Lolzville',
             address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
             address_telephone_number: '01234567890', mobile_number: '07956123456',

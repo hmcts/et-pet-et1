@@ -10,7 +10,7 @@ FactoryBot.define do
     trait :mandatory do
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }
-      date_of_birth { "29/11/#{11.years.ago.year}" }
+      date_of_birth { "29/11/1999" }
 
       address_building { '32' }
       address_street { 'My Street' }
