@@ -7,7 +7,7 @@ def given_i_am_luke_skywalker
   self.test_user = OpenStruct.new title: "Mr",
                                   first_name: "Luke",
                                   last_name: "Skywalker",
-                                  date_of_birth: "21/11/1999",
+                                  date_of_birth: "21/11/1985",
                                   address: address,
                                   telephone_number: '01234 567890',
                                   email_address: 'test@digital.justice.gov.uk'
@@ -21,7 +21,7 @@ def given_i_am_anakin_skywalker
   self.test_user = OpenStruct.new title: "Mr",
                                   first_name: "Luke",
                                   last_name: "Skywalker",
-                                  date_of_birth: "21/11/1999",
+                                  date_of_birth: "21/11/1985",
                                   address: address,
                                   telephone_number: '01234 567890'
 end

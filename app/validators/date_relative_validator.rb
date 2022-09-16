@@ -16,11 +16,12 @@ class DateRelativeValidator < ActiveModel::EachValidator
 
   def future_date?(value)
     return false if in_the_past.nil?
+
     time = Time.zone.today
     if value.is_a?(String)
-      time < (Date.parse(value))
+      time < Date.parse(value)
     elsif value.is_a?(Date) || value.is_a?(Time)
-      time < (value)
+      time < value
     end
   end
 

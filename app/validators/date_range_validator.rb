@@ -4,24 +4,20 @@ class DateRangeValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    unless value.nil?
-      unless range.cover?(value)
-        if date_format.nil?
-          record.errors.add(attribute, :out_of_range)
-        else
-          record.errors.add(attribute, :date_range, start_date: start_date_str, end_date: end_date_str)
-        end
-      end
-    end
+    return if value.nil? || range.cover?(value)
+
+    record.errors.add(attribute, :date_range, start_date: start_date_str, end_date: end_date_str)
   end
 
   private
 
   def start_date_str
+    return nil if date_format.nil?
     range.first.strftime(date_format)
   end
 
   def end_date_str
+    return nil if date_format.nil?
     range.last.strftime(date_format)
   end
 
