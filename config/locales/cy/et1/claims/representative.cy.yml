@@ -46,10 +46,9 @@ cy:
       contact_preference:
         label: Y ffordd orau i anfon gohebiaeth at eich cynrychiolydd
         options:
-          contact_preference:
-            email: E-bost
-            post: Post
-            dx_number: Rhif cyfnewid dogfennau
+          email: E-bost
+          post: Post
+          dx_number: Rhif cyfnewid dogfennau
       representative_legend: Ynglŷn â’ch cynrychiolydd
       contact_legend: "Manylion cyswllt y cynrychiolydd"
       contact_info: |
