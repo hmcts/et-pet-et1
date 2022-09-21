@@ -60,7 +60,7 @@ cy:
           attributes:
             password:
               blank: Dylech greu gair cofiadwy er mwyn i chi allu dychwelyd i'ch hawliad
-            email_address:
+            email:
               invalid: Rydych wedi rhoi cyfeiriad e-bost annilys
   date:
     month_names: [~, Ionawr, Chwefror, Mawrth, Ebrill, Mai, Mehefin, Gorffennaf, Awst, Medi, Hydref, Tachwedd, Rhagfyr]
