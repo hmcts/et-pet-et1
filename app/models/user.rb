@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   belongs_to :claim, foreign_key: :reference, primary_key: :application_reference, required: true
 
+  validates :email, email: true, allow_blank: true
   validates :password, presence: true, on: :create
   after_commit :send_pending_devise_notifications
 
