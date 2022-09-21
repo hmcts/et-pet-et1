@@ -13,11 +13,13 @@ class DateRangeValidator < ActiveModel::EachValidator
 
   def start_date_str
     return nil if date_format.nil?
+
     range.first.strftime(date_format)
   end
 
   def end_date_str
     return nil if date_format.nil?
+
     range.last.strftime(date_format)
   end
 
