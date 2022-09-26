@@ -60,7 +60,7 @@ feature 'Claimant page', js: true do
       it "displays validation if date is in the future" do
         claimants_details_page.save_and_continue
         expect(page).to have_text("Provide information in the highlighted fields")
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a date of birth in the past')
+        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Age must be between 10 and 100')
       end
     end
 

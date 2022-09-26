@@ -118,7 +118,7 @@ feature 'Multiple claimants', js: true do
         end
 
         click_button "Save and continue"
-        expect(page).to have_text("Enter a date of birth in the past")
+        expect(page).to have_text("Age must be between 10 and 100")
       end
 
       scenario "error message if age is not between 10-100" do

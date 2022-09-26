@@ -39,7 +39,6 @@ en:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-              less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
               date_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.date_range'
         additional_claimant:
           attributes:
@@ -89,7 +88,6 @@ en:
                 date_of_birth:
                   blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
-                  less_than: :'activemodel.errors.models.claimant.attributes.date_of_birth.less_than'
                   date_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.date_range'
         claim:
           attributes:
@@ -121,7 +119,6 @@ en:
             date_of_birth:
               blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
               invalid: Enter a valid date of birth in the correct format (DD/MM/YYYY)
-              less_than: Enter a date of birth in the past
               date_range: Age must be between 10 and 100
             title:
               blank: Select a title from the list
