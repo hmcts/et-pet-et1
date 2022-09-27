@@ -86,6 +86,7 @@ Rails.application.routes.draw do
 
     get '/apply' => 'claims#new'
     get '/apply/refund' => 'refunds#new'
+    get '/apply/users', to: redirect('/apply/application-number')
     root to: redirect('/apply')
     get '/:locale/apply/admin', to: redirect('/apply/admin')
     get '/:locale/apply/sidekiq', to: redirect('/apply/sidekiq')
