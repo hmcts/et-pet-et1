@@ -236,7 +236,7 @@ cy:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
-        additional_respondents_form/additional_respondent:
+        additional_respondents_form/respondent:
           attributes:
             title:
               blank: Dewiswch deitl o'r rhestr
@@ -261,5 +261,4 @@ cy:
             address_post_code:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
-              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
-        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/respondent.attributes.address_post_code.invalid'

@@ -49,8 +49,8 @@ RSpec.describe ClaimantForm, type: :form do
 
     it { expect(claimant_form).to validate_length_of(:address_building).is_at_most(50) }
     it { expect(claimant_form).to validate_length_of(:address_street).is_at_most(50) }
-    it { expect(claimant_form).to validate_length_of(:address_locality).is_at_most(25) }
-    it { expect(claimant_form).to validate_length_of(:address_county).is_at_most(25) }
+    it { expect(claimant_form).to validate_length_of(:address_locality).is_at_most(50) }
+    it { expect(claimant_form).to validate_length_of(:address_county).is_at_most(50) }
     it { expect(claimant_form).to validate_inclusion_of(:address_country).in_array ['united_kingdom', 'other'] }
 
     [:address_telephone_number, :mobile_number, :fax_number].each do |number|

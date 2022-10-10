@@ -40,11 +40,11 @@ class RespondentForm < Form
             unless: :worked_at_same_address?
   validates :work_address_building,
             :work_address_street,
-            length: { maximum: ADDRESS_LINE_LENGTH },
+            ccd_address: true,
             unless: :worked_at_same_address?
   validates :work_address_locality,
             :work_address_county,
-            length: { maximum: LOCALITY_LENGTH },
+            ccd_address: true,
             unless: :worked_at_same_address?
   validates :work_address_post_code,
             post_code: true,

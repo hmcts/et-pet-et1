@@ -32,13 +32,13 @@ module Refunds
         end
 
         it 'validates the length' do
-          expect(applicant_form).to validate_length_of(:applicant_address_locality).is_at_most(25)
+          expect(applicant_form).to validate_length_of(:applicant_address_locality).is_at_most(50)
         end
       end
 
       context 'applicant_address_county' do
         it 'validates the length' do
-          expect(applicant_form).to validate_length_of(:applicant_address_county).is_at_most(25)
+          expect(applicant_form).to validate_length_of(:applicant_address_county).is_at_most(50)
         end
       end
 
