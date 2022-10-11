@@ -269,7 +269,7 @@ en:
           attributes:
             has_multiple_respondents:
               inclusion: Please indicate if you are making a claim against more than one employer
-        additional_respondents_form/additional_respondent:
+        additional_respondents_form/respondent:
           attributes:
             title:
               blank: Select a title from the list
@@ -282,7 +282,7 @@ en:
               invalid: You have provided an invalid Acas early conciliation number.
             no_acas_number_reason:
               blank: Select a reason from the list
-              inclusion: :"activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.no_acas_number_reason.blank"
+              inclusion: :"activemodel.errors.models.additional_respondents_form/respondent.attributes.no_acas_number_reason.blank"
             address_building:
               blank: Enter the building name or number from the additional respondent’s address
             address_street:
@@ -294,5 +294,4 @@ en:
             address_post_code:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
-              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/additional_respondent.attributes.address_post_code.invalid'
-        additional_respondents_form/respondent: :'activemodel.errors.models.additional_respondents_form/additional_respondent'
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_respondents_form/respondent.attributes.address_post_code.invalid'
