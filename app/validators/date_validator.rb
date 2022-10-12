@@ -1,9 +1,8 @@
 # @TODO This class can be much simpler once we are not worrying about values being hashes,
 # strings etc.. (once all forms are converted to NullDbForm)
 class DateValidator < ActiveModel::EachValidator
-  def initialize(omit_day: false, in_the_past: nil, **kwargs)
+  def initialize(omit_day: false, **kwargs)
     @omit_day = omit_day
-    @in_the_past = in_the_past
     super(**kwargs)
   end
 
@@ -12,8 +11,6 @@ class DateValidator < ActiveModel::EachValidator
       record.errors.add(attribute, :invalid)
     elsif illegal_year?(value)
       record.errors.add(attribute, :invalid)
-    elsif future_date?(value)
-      record.errors.add(attribute, :less_than)
     elsif coercion_failed?(value, attribute, record) || non_empty_string?(value, attribute, record)
       record.errors.add(attribute, :invalid)
     end
@@ -21,7 +18,7 @@ class DateValidator < ActiveModel::EachValidator
 
   private
 
-  attr_reader :omit_day, :in_the_past
+  attr_reader :omit_day
 
   # @TODO This will not need to check for a hash once all forms are converted to the NullDbForm
   def coercion_failed?(value, attribute, record)
@@ -51,16 +48,6 @@ class DateValidator < ActiveModel::EachValidator
     end
   rescue ArgumentError
     false
-  end
-
-  def future_date?(value)
-    return false if in_the_past.nil?
-    time = Time.zone.today
-    if value.is_a?(String)
-      time < (Date.parse(value))
-    elsif value.is_a?(Date) || value.is_a?(Time)
-      time < (value)
-    end
   end
 
   def illegal_date?(record, attribute)
