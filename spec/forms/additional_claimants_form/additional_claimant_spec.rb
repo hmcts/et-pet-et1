@@ -15,8 +15,8 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
 
     it { expect(additional_claimant).to validate_length_of(:address_building).is_at_most(50) }
     it { expect(additional_claimant).to validate_length_of(:address_street).is_at_most(50) }
-    it { expect(additional_claimant).to validate_length_of(:address_locality).is_at_most(25) }
-    it { expect(additional_claimant).to validate_length_of(:address_county).is_at_most(25) }
+    it { expect(additional_claimant).to validate_length_of(:address_locality).is_at_most(50) }
+    it { expect(additional_claimant).to validate_length_of(:address_county).is_at_most(50) }
     it { expect(additional_claimant).to validate_length_of(:address_post_code).is_at_most(8) }
   end
 
@@ -28,7 +28,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
         title: 'Mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
         address_building: '1', address_street: 'High Street',
         address_locality: 'Anytown', address_county: 'Anyfordshire',
-        address_post_code: 'AT1 0AA', date_of_birth: '01/01/1990'
+        address_post_code: 'AT1 0AA', date_of_birth: "01/01/1999"
       }
     end
 

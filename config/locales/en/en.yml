@@ -72,7 +72,7 @@ en:
           attributes:
             password:
               blank: Create a memorable word so you can return to your claim
-            email_address:
+            email:
               invalid: You have entered an invalid email address
               invalid_ccd_email: :'activerecord.errors.models.user.attributes.email_address.invalid'
   claim:
