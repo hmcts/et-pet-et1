@@ -36,7 +36,7 @@ class AdditionalClaimantsForm < Form
     attribute :has_representative, :boolean
 
 
-    validates :date_of_birth, date: { in_the_past: true }, presence: true
+    validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago }}, presence: true
     validates :title, inclusion: { in: TITLES }, allow_blank: true
     validates :first_name, :last_name, presence: true, length: { maximum: NAME_LENGTH }
 
