@@ -2,7 +2,6 @@ module AddressAttributes
   extend ActiveSupport::Concern
 
   ADDRESS_LINE_LENGTH  = 50
-  LOCALITY_LENGTH      = 25
   PHONE_NUMBER_LENGTH  = 21
   POSTCODE_LENGTH      = 8
 
@@ -17,7 +16,6 @@ module AddressAttributes
       extend ActiveSupport::Concern
 
       const_set :ADDRESS_LINE_LENGTH, 50
-      const_set :LOCALITY_LENGTH,     25
       const_set :PHONE_NUMBER_LENGTH, 21
       const_set :POSTCODE_LENGTH,     8
 
@@ -36,8 +34,7 @@ module AddressAttributes
         validates :address_building, :address_street, :address_locality,
           :address_county, :address_post_code, presence: true, unless: :skip_address_validation?
 
-        validates :address_building, :address_street, ccd_address: true, unless: :skip_address_validation?
-        validates :address_locality, :address_county, length: { maximum: LOCALITY_LENGTH }, ccd_address: true, unless: :skip_address_validation?
+        validates :address_building, :address_street, :address_locality, :address_county, ccd_address: true, unless: :skip_address_validation?
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true, unless: :skip_address_validation?
       end
     end
