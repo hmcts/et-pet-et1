@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: fce3b22b14561f574f30c01d64b38f279dcdc1d3
-  tag: v4.0.1
+  revision: a59c5fe113797b05e44f73827ddf9e1f4d885d2d
+  tag: v5.0.4
   specs:
-    et_gds_design_system (4.0.1)
+    et_gds_design_system (5.0.4)
       govuk_design_system_formbuilder (~> 3.0)
       rack-proxy (~> 0.6)
       rails (>= 6.0)
@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: e9db876106aaf13fcec03db2d1c6a6088e3cebaf
-  tag: v1.0.17
+  revision: 54cb6d2a236989e31a86f6bf7d29851c5b3db933
+  tag: v1.1.1
   specs:
-    et_test_helpers (1.0.17)
+    et_test_helpers (1.1.1)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -228,7 +228,7 @@ GEM
       roda (~> 3.48)
       thor (~> 1.1)
       tilt (~> 2.0, >= 2.0.10)
-    govuk_design_system_formbuilder (3.1.1)
+    govuk_design_system_formbuilder (3.1.2)
       actionview (>= 6.1)
       activemodel (>= 6.1)
       activesupport (>= 6.1)
