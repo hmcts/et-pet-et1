@@ -95,7 +95,9 @@ Rails.application.routes.draw do
   end
 
   scope :apply do
-    ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
+    unless ENV.fetch('DISABLE_ADMIN', 'false') == 'true'
+      ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
+    end
     mount Sidekiq::Web => '/sidekiq'
   end
 
