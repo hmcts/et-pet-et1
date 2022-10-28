@@ -1,9 +1,4 @@
-default_redis_host = ENV.fetch('REDIS_HOST', 'localhost')
-default_redis_port = ENV.fetch('REDIS_PORT', '6379')
-default_redis_database = ENV.fetch('REDIS_DATABASE', '1')
-default_redis_url = "redis://#{default_redis_host}:#{default_redis_port}/#{default_redis_database}"
-redis_url = ENV.fetch('REDIS_URL', default_redis_url)
-
+redis_url = Rails.application.config.redis_url
 Sidekiq.configure_server do |config|
   redis_config = { url: redis_url }
   redis_config[:password] = ENV['REDIS_PASSWORD'] if ENV['REDIS_PASSWORD'].present?
