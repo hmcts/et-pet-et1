@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/hmcts/et-azure-insights.git
-  revision: fc1d2cf84796764322c1939ab2e6a5c3ca893c35
-  tag: v0.2.14
+  revision: 73aa5c506113419c374be6cc42c3132ebdb4c791
+  tag: v0.3.0
   specs:
-    et_azure_insights (0.2.14)
+    et_azure_insights (0.3.0)
       application_insights (~> 0.5.7)
 
 GIT
@@ -521,7 +521,7 @@ DEPENDENCIES
   devise (~> 4.8)
   dotenv-rails (~> 2.7)
   email_validator (~> 2.2)
-  et_azure_insights (= 0.2.14)!
+  et_azure_insights (= 0.3.0)!
   et_gds_design_system!
   et_test_helpers!
   factory_bot_rails (~> 6.2)
