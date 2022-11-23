@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_162401) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,8 +21,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "resource_type", null: false
     t.string "author_type"
     t.integer "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
@@ -37,8 +36,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "post_code"
     t.integer "addressable_id"
     t.string "addressable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "telephone_number"
     t.string "country"
     t.boolean "primary", default: true
@@ -52,8 +51,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "fax_number"
     t.string "email_address"
     t.text "special_needs"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "claim_id"
     t.string "gender"
     t.string "contact_preference"
@@ -66,8 +65,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
   end
 
   create_table "claims", id: :serial, force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "password_digest"
     t.boolean "is_unfair_dismissal"
     t.integer "discrimination_claims"
@@ -82,7 +81,7 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.text "miscellaneous_information"
     t.string "fee_group_reference"
     t.string "state", default: "created"
-    t.datetime "submitted_at"
+    t.datetime "submitted_at", precision: nil
     t.string "claim_details_rtf"
     t.string "email_address"
     t.string "additional_claimants_csv"
@@ -98,6 +97,7 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.boolean "has_miscellaneous_information"
     t.boolean "has_representative"
     t.boolean "was_employed"
+    t.boolean "is_other_type_of_claim"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 
@@ -115,8 +115,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "pregnancy"
     t.string "relationship"
     t.string "religion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "employments", id: :serial, force: :cascade do |t|
@@ -139,8 +139,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "notice_pay_period_type"
     t.text "benefit_details"
     t.integer "claim_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "events", id: :serial, force: :cascade do |t|
@@ -149,8 +149,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "actor"
     t.string "message"
     t.string "claim_state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "offices", id: :serial, force: :cascade do |t|
@@ -158,15 +158,15 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "name"
     t.string "address"
     t.string "telephone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "claim_id"
     t.string "email"
   end
 
   create_table "refunds", id: :serial, force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "applicant_email_address", null: false
     t.string "application_reference", null: false
     t.integer "application_reference_number", null: false
@@ -242,7 +242,7 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.boolean "eat_issue_fee_payment_date_unknown"
     t.date "eat_hearing_fee_payment_date"
     t.boolean "eat_hearing_fee_payment_date_unknown"
-    t.datetime "submitted_at", null: false
+    t.datetime "submitted_at", precision: nil, null: false
     t.text "eat_case_number", null: false
   end
 
@@ -254,8 +254,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "email_address"
     t.string "dx_number"
     t.integer "claim_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "contact_preference"
   end
 
@@ -264,8 +264,8 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
     t.string "acas_early_conciliation_certificate_number"
     t.string "no_acas_number_reason"
     t.integer "claim_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.boolean "worked_at_same_address"
     t.boolean "primary_respondent", default: false
     t.boolean "has_acas_number"
@@ -275,18 +275,18 @@ ActiveRecord::Schema[6.1].define(version: 2022_01_14_153119) do
 
   create_table "sessions", id: :serial, force: :cascade do |t|
     t.json "data", default: {}
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
+    t.datetime "reset_password_sent_at", precision: nil
     t.string "reference", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

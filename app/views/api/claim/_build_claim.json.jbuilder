@@ -11,6 +11,7 @@ json.data do
   json.jurisdiction claim.attracts_higher_fee? ? 2 : 1
   json.date_of_receipt claim.submitted_at
   json.other_known_claimant_names claim.other_known_claimant_names
+  json.other_known_claimants claim.other_known_claimants
   json.is_unfair_dismissal claim.is_unfair_dismissal
   json.discrimination_claims do
     json.array! claim.discrimination_claims.map(&:to_s)

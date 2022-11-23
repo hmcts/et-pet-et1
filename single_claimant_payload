@@ -13,6 +13,7 @@
             "case_type": "Single",
             "jurisdiction": 2,
             "date_of_receipt": "2019-08-12T15:01:34.837+01:00",
+            "other_known_claimants": true,
             "other_known_claimant_names": "James Blunt, Punky Brewsters, Shirly Temple",
             "is_unfair_dismissal": true,
             "discrimination_claims":
