@@ -27,7 +27,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     let(:claim) do
-      create :claim, claim_details: "wut\r\nwut", other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys"
+      create :claim, claim_details: "wut\r\nwut", other_known_claimants: true, other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys"
     end
 
     context 'Claim details' do
