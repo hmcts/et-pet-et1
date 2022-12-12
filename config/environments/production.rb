@@ -114,8 +114,3 @@ Rails.application.configure do
 
   config.service_now_inbox_email = ENV['SERVICE_NOW_EMAIL']
 end
-
-Raven.configure do |config|
-  config.dsn = ENV['RAVEN_DSN'] || ""
-  config.ssl_verification = ENV.fetch('RAVEN_SSL_VERIFICATION', 'true').downcase == 'true'
-end

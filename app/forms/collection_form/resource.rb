@@ -32,8 +32,10 @@ module CollectionForm
         new_data: attributes
       }
 
-      Raven.extra_context sentry_data
-      Raven.capture_exception(exception)
+      Sentry.with_scope do |scope|
+        scope.set_extras(sentry_data)
+        Sentry.capture_exception(exception)
+      end
     end
   end
 end

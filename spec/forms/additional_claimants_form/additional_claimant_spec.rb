@@ -62,7 +62,11 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
           before { allow(target).to receive(:update).and_raise(PG::NotNullViolation.new('test')) }
 
           it "send a data to sentry" do
-            expect(Raven).to receive(:extra_context).with(
+            fake_scope = double('sentry double')
+            expect(Sentry).to receive(:with_scope) do |&block|
+              block.call fake_scope
+            end
+            expect(fake_scope).to receive(:set_extras).with(
               old_data: target.attributes,
               new_data: additional_claimant.attributes
             )
@@ -72,7 +76,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
           end
 
           it "expect sentry to receive exception" do
-            expect(Raven).to receive(:capture_exception)
+            expect(Sentry).to receive(:capture_exception)
             allow(additional_claimant).to receive(:raise).and_return false
             additional_claimant.save
           end
