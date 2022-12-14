@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/hmcts/et-azure-insights.git
-  revision: 73aa5c506113419c374be6cc42c3132ebdb4c791
-  tag: v0.3.0
+  revision: 1aa89eff387d15f680e5aa2368422f091ebdeae0
+  tag: v0.3.2
   specs:
-    et_azure_insights (0.3.0)
+    et_azure_insights (0.3.2)
       application_insights (~> 0.5.7)
 
 GIT
@@ -205,10 +205,6 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faraday (2.3.0)
-      faraday-net_http (~> 2.0)
-      ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.3)
     ferrum (0.11)
       addressable (~> 2.5)
       cliver (~> 0.3)
@@ -426,8 +422,14 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    sentry-raven (3.1.2)
-      faraday (>= 1.0)
+    sentry-rails (5.7.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.7.0)
+    sentry-ruby (5.7.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+    sentry-sidekiq (5.7.0)
+      sentry-ruby (~> 5.7.0)
+      sidekiq (>= 3.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
     sidekiq (6.5.7)
@@ -521,7 +523,7 @@ DEPENDENCIES
   devise (~> 4.8)
   dotenv-rails (~> 2.7)
   email_validator (~> 2.2)
-  et_azure_insights (= 0.3.0)!
+  et_azure_insights (= 0.3.2)!
   et_gds_design_system!
   et_test_helpers!
   factory_bot_rails (~> 6.2)
@@ -548,7 +550,9 @@ DEPENDENCIES
   rubocop (~> 1.8)
   rubocop-rspec (~> 2.1)
   selenium-webdriver (~> 4.3)
-  sentry-raven (~> 3.1)
+  sentry-rails (~> 5.7)
+  sentry-ruby (~> 5.7)
+  sentry-sidekiq (~> 5.7)
   shoulda-matchers (~> 5.1)
   sidekiq (~> 6.2)
   sidekiq-failures (~> 1.0)

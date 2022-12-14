@@ -15,7 +15,7 @@ gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
 gem 'azure_env_secrets', git: 'https://github.com/ministryofjustice/azure_env_secrets.git', tag: 'v0.1.3'
-gem 'et_azure_insights', '0.3.0', git: 'https://github.com/hmcts/et-azure-insights.git', tag: 'v0.3.0'
+gem 'et_azure_insights', '0.3.2', git: 'https://github.com/hmcts/et-azure-insights.git', tag: 'v0.3.2'
 #gem 'et_azure_insights', path: '../../../et_azure_insights'
 gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsights-Ruby.git', ref: '5db6b4'
 
@@ -84,8 +84,10 @@ group :assets do
   gem 'uglifier', '~> 4.1'
 end
 
-group :production, :test do
-  gem 'sentry-raven', '~> 3.1'
+group :production, :test, :development do
+  gem "sentry-ruby", "~> 5.7"
+  gem "sentry-rails", "~> 5.7"
+  gem "sentry-sidekiq", "~> 5.7"
 end
 
 gem 'activeadmin', '~> 2.9'
