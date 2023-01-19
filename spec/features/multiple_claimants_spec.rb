@@ -134,7 +134,7 @@ feature 'Multiple claimants', js: true do
 
           fill_in 'Day', with: "1"
           fill_in 'Month', with: "1"
-          fill_in 'Year', with: "2023"
+          fill_in 'Year', with: "2013"
         end
 
         click_button "Save and continue"
