@@ -15,7 +15,7 @@ p.govuk-body = t '.claim_type_label'
 = f.collection_check_boxes :pay_claims
 = f.singular_check_box :is_other_type_of_claim, label: t('.is_other_type_of_claim.options.true')
 = f.revealed_content :is_other_type_of_claim, values: [:true], multiple: false, classes: ['govuk-inset-text']
-  = f.text_area :other_claim_details, rows: 2
+  = f.text_area :other_claim_details, max_chars: 150, rows: 2
 
 = f.fieldset label: t('.is_whistleblowing.heading')
   hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3"

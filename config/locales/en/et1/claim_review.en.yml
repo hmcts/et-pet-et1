@@ -124,6 +124,7 @@ en:
 
       claim_type:
         types: Type(s)
+        other_claim_details: Other type of claim details
         is_whistleblowing: Whistleblowing
         send_claim_to_whistleblowing_entity: Send to whistleblowing body
 

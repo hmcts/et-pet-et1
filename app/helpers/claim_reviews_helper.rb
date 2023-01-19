@@ -42,6 +42,10 @@ module ClaimReviewsHelper
 
     claims.push(*claim.discrimination_claims.map { |c| I18n.t "claim_reviews.discrimination_claims.#{c}" })
 
+    if claim.is_other_type_of_claim?
+      claims.push(t("claims.claim_type.is_other_type_of_claim.options.true"))
+    end
+
     claims.join(tag(:br)).html_safe
   end
 

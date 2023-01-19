@@ -42,6 +42,8 @@ RSpec.describe ClaimTypeForm, type: :form do
     context 'when there is other claim details' do
       before { claim_type_form.other_claim_details = 'details' }
 
+      it { expect(claim_type_form).to validate_length_of(:other_claim_details).is_at_most(150) }
+
       it 'is true' do
         expect(claim_type_form.is_other_type_of_claim).to be true
       end

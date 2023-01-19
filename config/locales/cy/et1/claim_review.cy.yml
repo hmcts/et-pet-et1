@@ -123,6 +123,7 @@ cy:
 
       claim_type:
         types: Math(au)
+        other_claim_details: Manylion math arall o hawliad
         is_whistleblowing: Chwythu'r chwiban
         send_claim_to_whistleblowing_entity: Anfon i gorff chwythu'r chwiban
 

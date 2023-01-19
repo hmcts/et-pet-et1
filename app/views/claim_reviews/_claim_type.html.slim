@@ -1,5 +1,8 @@
 = render 'answer', section_name: 'claim_type', question: 'types' do
   = review_types(claim)
+- if claim.is_other_type_of_claim?
+  = render 'answer', section_name: 'claim_type', question: 'other_claim_details' do
+    = claim.other_claim_details
 = render 'answer', section_name: 'claim_type', question: 'is_whistleblowing' do
   = yes_no claim.is_whistleblowing
 = render 'answer', section_name: 'claim_type', question: 'send_claim_to_whistleblowing_entity' do
