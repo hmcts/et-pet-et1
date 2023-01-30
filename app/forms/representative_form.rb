@@ -12,6 +12,7 @@ class RepresentativeForm < Form
   attribute :has_representative, :boolean
   map_attribute :has_representative, to: :resource
 
+  before_validation :clear_fields!, unless: :has_representative?
   before_validation :destroy_target!, unless: :has_representative?
   before_validation :clear_contact_preference_fields
 
@@ -41,6 +42,14 @@ class RepresentativeForm < Form
 
   def destroy_target!
     target.destroy
+  end
+
+  def clear_fields!
+    attrs = attributes.keys.each_with_object({}) do |attr_name, obj|
+      next if attr_name == "has_representative"
+      obj[attr_name.to_sym] = nil
+    end
+    self.attributes = attrs
   end
 
   def clear_contact_preference_fields
