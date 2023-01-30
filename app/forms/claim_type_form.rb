@@ -10,7 +10,7 @@ class ClaimTypeForm < Form
 
   before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
   validate :presence_of_at_least_one_claim_type
-  validates :other_claim_details, presence: { if: :is_other_type_of_claim }
+  validates :other_claim_details, presence: { if: :is_other_type_of_claim }, length: { maximum: 150 }
 
 
   private
