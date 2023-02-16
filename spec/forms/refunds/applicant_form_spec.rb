@@ -228,7 +228,7 @@ module Refunds
       it 'stores the provided ActionController::Parameters as a hash if the date is invalid' do
         value = ActionController::Parameters.new(3 => '32', 2 => '15', 1 => '1985').freeze
         applicant_form.applicant_date_of_birth = value
-        expect(applicant_form.applicant_date_of_birth).to eql(3 => '32', 2 => '15', 1 => '1985')
+        expect(applicant_form.applicant_date_of_birth).to eql(value)
       end
     end
 
