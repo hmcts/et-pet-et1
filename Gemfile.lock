@@ -436,9 +436,10 @@ GEM
       redis (>= 4.5.0, < 5)
     sidekiq-failures (1.0.4)
       sidekiq (>= 4.0.0)
-    sidekiq_alive (2.1.5)
-      sidekiq
-      webrick
+    sidekiq_alive (2.1.9)
+      rack (< 3)
+      sidekiq (>= 5, < 8)
+      webrick (>= 1, < 2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
