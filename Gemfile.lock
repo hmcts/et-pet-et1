@@ -368,9 +368,9 @@ GEM
     redcarpet (3.5.1)
     redis (4.8.1)
     regexp_parser (2.7.0)
-    responders (3.0.1)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
+    responders (3.1.0)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.2.5)
     roda (3.65.0)
       rack
