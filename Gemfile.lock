@@ -195,8 +195,8 @@ GEM
       railties (>= 3.2)
     email_validator (2.2.3)
       activemodel
-    erubi (1.10.0)
-    ethon (0.15.0)
+    erubi (1.12.0)
+    ethon (0.16.0)
       ffi (>= 1.15.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
