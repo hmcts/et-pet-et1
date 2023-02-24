@@ -59,7 +59,7 @@ group :development, :test do
   gem 'rubocop-rspec', '~> 2.1', :require => false
   gem 'shoulda-matchers', '~> 5.1'
   gem 'spring', '~> 4.0'
-  gem 'parallel_tests', '~> 3.4'
+  gem 'parallel_tests', '~> 4.0'
   gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
