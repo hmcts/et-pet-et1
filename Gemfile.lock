@@ -193,7 +193,7 @@ GEM
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
       railties (>= 3.2)
-    email_validator (2.2.3)
+    email_validator (2.2.4)
       activemodel
     erubi (1.12.0)
     ethon (0.16.0)
