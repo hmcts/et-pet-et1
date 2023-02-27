@@ -6,8 +6,10 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:additional_respondents_section) { review_page.additional_respondents_section }
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -26,15 +28,14 @@ describe "claim_reviews/show.html.slim" do
       review_page.load(rendered)
     end
 
-    let(:additional_respondents_section) { review_page.additional_respondents_section }
-
-
     describe '#additional_respondents' do
       context 'with secondary respondents' do
         let(:claim) { create(:claim, :with_secondary_respondents) }
+
         it 'returns "Yes"' do
           expect(additional_respondents_section).not_to have_additional_respondents
         end
+
         it 'presents the list of respondents' do
           expect(additional_respondents_section.respondents[0]).to be_valid_for_model(claim.secondary_respondents[0])
           expect(additional_respondents_section.respondents[1]).to be_valid_for_model(claim.secondary_respondents[1])

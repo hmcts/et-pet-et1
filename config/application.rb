@@ -43,7 +43,8 @@ module App
 
     config.cache_store = :memory_store
 
-    config.action_mailer.default_options = { from: ENV.fetch('SMTP_FROM', 'no-reply@employmenttribunals.service.gov.uk') }
+    config.action_mailer.default_options = { from: ENV.fetch('SMTP_FROM',
+                                                             'no-reply@employmenttribunals.service.gov.uk') }
     config.secure_session_cookie = false
     config.exceptions_app = routes
 

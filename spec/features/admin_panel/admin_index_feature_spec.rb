@@ -1,20 +1,20 @@
 require 'rails_helper'
 
-RSpec.feature 'Viewing the admin interfaces index page', type: :feature do
+RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
 
   let(:out_of_filter_range_claim) do
     create :claim,
-      submitted_at: Date.new(2015, 6, 1),
-      created_at: Date.new(2015, 6, 1)
+           submitted_at: Date.new(2015, 6, 1),
+           created_at: Date.new(2015, 6, 1)
   end
 
   let(:claim) do
     create :claim,
-      application_reference: 'SUCH-9999',
-      fee_group_reference: '511234567800',
-      submitted_at: Date.new(2015, 6, 5),
-      # Set created_at to a later date than other models to ensure it's the first row.
-      created_at: Date.new(2015, 6, 5)
+           application_reference: 'SUCH-9999',
+           fee_group_reference: '511234567800',
+           submitted_at: Date.new(2015, 6, 5),
+           # Set created_at to a later date than other models to ensure it's the first row.
+           created_at: Date.new(2015, 6, 5)
   end
 
   before do
@@ -22,7 +22,7 @@ RSpec.feature 'Viewing the admin interfaces index page', type: :feature do
     claim
   end
 
-  scenario 'viewing a table of claims and their respective details' do
+  it 'viewing a table of claims and their respective details' do
     visit admin_root_path
 
     claim_row = claims_table.first
@@ -39,7 +39,7 @@ RSpec.feature 'Viewing the admin interfaces index page', type: :feature do
     end
   end
 
-  scenario 'filtering results by submitted_at timestamps' do
+  it 'filtering results by submitted_at timestamps' do
     visit admin_root_path
 
     expect(claims_table.size).to eq 2

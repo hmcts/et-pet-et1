@@ -25,15 +25,15 @@ class SubmitClaimToApiService < ApiService
   def error_attribute_for(error)
     attr = error['source'].split('/').last
     case error['command']
-    when 'BuildClaim' then
+    when 'BuildClaim'
       :"claim.#{attr}"
-    when 'BuildPrimaryClaimant' then
+    when 'BuildPrimaryClaimant'
       :"claim.primary_claimant.#{attr}"
-    when 'BuildSecondaryClaimants' then
+    when 'BuildSecondaryClaimants'
       :"claim.secondary_claimants.#{attr}"
-    when 'BuildPrimaryRespondent' then
+    when 'BuildPrimaryRespondent'
       :"claim.primary_respondent.#{attr}"
-    when 'BuildSecondaryRespondents' then
+    when 'BuildSecondaryRespondents'
       :"claim.secondary_respondents.#{attr}"
     else
       :base

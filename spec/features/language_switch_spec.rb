@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature 'Switching language', type: :feature do
+RSpec.describe 'Switching language', type: :feature do
 
-  scenario 'hitting the stats end point returns json' do
+  it 'hitting the stats end point returns json' do
     visit root_path
     expect(page).to have_link("Cymraeg", href: '/cy/apply')
     expect(page).to have_text("Make a claim to an employment tribunal")
@@ -16,7 +16,7 @@ RSpec.feature 'Switching language', type: :feature do
     expect(page).to have_link("Cymraeg", href: '/cy/apply')
   end
 
-  scenario 'langauge should persist after submitting the form', js: true do
+  it 'langauge should persist after submitting the form', js: true do
     visit root_path
     click_button 'Start a claim'
 

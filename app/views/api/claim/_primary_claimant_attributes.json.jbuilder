@@ -9,7 +9,7 @@ claimant.address.tap do |a|
     json.locality a.locality
     json.county a.county
     json.post_code a.post_code
-    json.country({'united_kingdom' => "United Kingdom", "other" => "Outside United Kingdom"}[a.country])
+    json.country({ 'united_kingdom' => "United Kingdom", "other" => "Outside United Kingdom" }[a.country])
   end
 end
 json.address_telephone_number claimant.address_telephone_number

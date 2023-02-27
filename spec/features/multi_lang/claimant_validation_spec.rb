@@ -16,7 +16,6 @@ RSpec.describe 'Claimant Validation', type: :feature, js: true do
     claimants_details_page.assert_error_messages phone_or_mobile_number: 'claimants_details.errors.invalid_phone_number',
                                                  alternative_phone_or_mobile_number: 'claimants_details.errors.invalid_phone_number'
 
-
   end
 
   it 'filters out a missing allow video attendance and provides the correct message' do

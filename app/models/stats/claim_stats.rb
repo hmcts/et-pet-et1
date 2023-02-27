@@ -9,13 +9,13 @@ module Stats
     }
 
     scope :completed_within_max_submission_timeframe,
-      -> { where(state: 'submitted').within_max_submission_timeframe }
+          -> { where(state: 'submitted').within_max_submission_timeframe }
 
     scope :progressed_from_application_reference_page,
-      -> { joins(:user).where.not(users: {id: nil}) }
+          -> { joins(:user).where.not(users: { id: nil }) }
 
     scope :within_max_submission_timeframe,
-      -> { where('claims.created_at >= ?', MAXIMUM_DAYS_TO_SUBMIT_CLAIM.ago.to_date) }
+          -> { where('claims.created_at >= ?', MAXIMUM_DAYS_TO_SUBMIT_CLAIM.ago.to_date) }
 
     def self.started_count
       started_within_max_submission_timeframe.count

@@ -1,27 +1,27 @@
 require 'rails_helper'
 
-feature 'Request redispatch' do
+describe 'Request redispatch' do
   include FormMethods
 
   context 'when the user is not signed' do
     describe 'accessing the claim form' do
       it 'redirects to the start page' do
         visit claim_claimant_path
-        expect(page.current_path).to eq apply_path
+        expect(page).to have_current_path apply_path, ignore_query: true
       end
     end
 
     describe 'accessing the review page' do
       it 'redirects to the start page' do
         visit claim_review_path
-        expect(page.current_path).to eq apply_path
+        expect(page).to have_current_path apply_path, ignore_query: true
       end
     end
 
     describe 'accessing the confirmation page' do
       it 'redirects to the start page' do
         visit claim_confirmation_path
-        expect(page.current_path).to eq apply_path
+        expect(page).to have_current_path apply_path, ignore_query: true
       end
     end
   end
@@ -40,7 +40,7 @@ feature 'Request redispatch' do
 
           specify 'the request is not redirected' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_claimant_path
+            expect(page).to have_current_path claim_claimant_path, ignore_query: true
           end
         end
 
@@ -49,7 +49,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
+            expect(page).to have_current_path claim_confirmation_path(locale: :en), ignore_query: true
           end
         end
 
@@ -58,7 +58,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_claimant_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
+            expect(page).to have_current_path claim_confirmation_path(locale: :en), ignore_query: true
           end
         end
       end
@@ -69,7 +69,7 @@ feature 'Request redispatch' do
 
           specify 'the request is not redirected' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_review_path
+            expect(page).to have_current_path claim_review_path, ignore_query: true
           end
         end
 
@@ -78,7 +78,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
+            expect(page).to have_current_path claim_confirmation_path(locale: :en), ignore_query: true
           end
         end
 
@@ -87,7 +87,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the confirmation page' do
             visit claim_review_path
-            expect(page.current_path).to eq claim_confirmation_path(locale: :en)
+            expect(page).to have_current_path claim_confirmation_path(locale: :en), ignore_query: true
           end
         end
       end
@@ -98,7 +98,7 @@ feature 'Request redispatch' do
 
           specify 'the request is not redirected' do
             visit claim_confirmation_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page).to have_current_path claim_confirmation_path, ignore_query: true
           end
         end
 
@@ -107,7 +107,7 @@ feature 'Request redispatch' do
 
           specify 'the request is not redirected' do
             visit claim_confirmation_path
-            expect(page.current_path).to eq claim_confirmation_path
+            expect(page).to have_current_path claim_confirmation_path, ignore_query: true
           end
         end
 
@@ -116,7 +116,7 @@ feature 'Request redispatch' do
 
           it 'redirects to the claimant page' do
             visit claim_confirmation_path
-            expect(page.current_path).to eq claim_claimant_path(locale: :en)
+            expect(page).to have_current_path claim_claimant_path(locale: :en), ignore_query: true
           end
         end
       end

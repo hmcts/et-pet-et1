@@ -20,6 +20,7 @@ module Refunds
         fee_payment_date_field = "#{fee_name}_fee_payment_date".to_sym
         fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
         before { form.send("#{fee_name}_fee=".to_sym, fee) }
+
         context "#{fee_payment_date_field} attribute" do
           it 'validates presence' do
             expect(form).to validate_presence_of(fee_payment_date_field)
@@ -120,6 +121,7 @@ module Refunds
         fee_payment_date_field = "#{fee_name}_fee_payment_date".to_sym
         fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
         before { form.send("#{fee_name}_fee=", fee) }
+
         context "#{fee_payment_date_field} attribute" do
           it 'does not validate presence' do
             expect(form).not_to validate_presence_of(fee_payment_date_field)

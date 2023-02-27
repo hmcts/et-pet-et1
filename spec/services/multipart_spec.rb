@@ -27,7 +27,7 @@ RSpec.describe Multipart, type: :service do
     }
 
     before do
-      allow(SecureRandom).to receive(:hex) { "0123456789abcdefdeadbeefcafeface" }.once
+      allow(SecureRandom).to receive(:hex).and_return("0123456789abcdefdeadbeefcafeface").once
     end
 
     it 'includes all parameters in the body, separated by boundary' do

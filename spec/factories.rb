@@ -62,12 +62,12 @@ FactoryBot.define do
     trait :null_primary_claimant do
       primary_claimant do
         build :claimant,
-          address_telephone_number: nil,
-          mobile_number: nil,
-          email_address: nil,
-          fax_number: nil,
-          contact_preference: nil,
-          gender: nil, date_of_birth: nil
+              address_telephone_number: nil,
+              mobile_number: nil,
+              email_address: nil,
+              fax_number: nil,
+              contact_preference: nil,
+              gender: nil, date_of_birth: nil
       end
     end
 
@@ -80,7 +80,6 @@ FactoryBot.define do
       claim_details_rtf { nil }
     end
 
-
     trait :without_representative do
       representative { nil }
     end
@@ -92,10 +91,10 @@ FactoryBot.define do
     trait :null_representative do
       representative do
         build :representative,
-          address_telephone_number: nil,
-          mobile_number: nil,
-          email_address: nil,
-          dx_number: nil
+              address_telephone_number: nil,
+              mobile_number: nil,
+              email_address: nil,
+              dx_number: nil
       end
     end
 
@@ -179,7 +178,7 @@ FactoryBot.define do
     mobile_number      { '07956273434' }
     contact_preference { 'email' }
     allow_video_attendance { true }
-    email_address      { "#{first_name}.#{last_name}@example.com" }
+    email_address { "#{first_name}.#{last_name}@example.com" }
   end
 
   factory :address do

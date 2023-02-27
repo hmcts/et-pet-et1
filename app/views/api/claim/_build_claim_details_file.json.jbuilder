@@ -6,4 +6,3 @@ json.data do
   json.data_url nil
   json.data_from_key file['path']
 end
-

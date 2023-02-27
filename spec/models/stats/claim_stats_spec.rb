@@ -39,10 +39,11 @@ RSpec.describe Stats::ClaimStats, type: :model do
     end
 
     describe '.completed_within_max_submission_timeframe' do
+      let(:results) { described_class.completed_within_max_submission_timeframe }
+
       it "has 7 claims" do
         expect(Claim.count).to be(7)
       end
-      let(:results) { described_class.completed_within_max_submission_timeframe }
 
       it 'returns claims completed within the past 91 days' do
         expect(results.size).to eq 2

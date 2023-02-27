@@ -36,21 +36,21 @@ module Refunds
     validates :claim_had_representative, nil_or_empty: true
     validates :address_changed, nil_or_empty: true
     validates :claimant_address_building,
-      :claimant_address_street,
-      :claimant_address_post_code,
-      presence: true
+              :claimant_address_street,
+              :claimant_address_post_code,
+              presence: true
     validates :representative_name,
-      :representative_address_building,
-      :representative_address_street,
-      :representative_address_post_code,
-      presence: true,
-      if: :claim_had_representative
+              :representative_address_building,
+              :representative_address_street,
+              :representative_address_post_code,
+              presence: true,
+              if: :claim_had_representative
     validates :respondent_name,
-      :respondent_address_building,
-      :respondent_address_street,
-      presence: true
-    validates :et_case_number, format: { with: %r(\A\d{7}\/\d{4}\z) }, allow_blank: true
-    validates :eat_case_number, format: { with: %r(\AUKEAT\/\d{4}\/\d{2}\/\d{3}\z) }, allow_blank: true
+              :respondent_address_building,
+              :respondent_address_street,
+              presence: true
+    validates :et_case_number, format: { with: %r(\A\d{7}/\d{4}\z) }, allow_blank: true
+    validates :eat_case_number, format: { with: %r(\AUKEAT/\d{4}/\d{2}/\d{3}\z) }, allow_blank: true
     before_validation :transfer_personal_info
     before_validation :transfer_address, unless: :address_changed
 

@@ -5,8 +5,8 @@ class Representative < ApplicationRecord
   has_one :address, as: :addressable, autosave: true
 
   delegate :building, :street, :locality, :county, :post_code, :telephone_number,
-    :building=, :street=, :locality=, :county=, :post_code=, :telephone_number=,
-    to: :address, prefix: true
+           :building=, :street=, :locality=, :county=, :post_code=, :telephone_number=,
+           to: :address, prefix: true
 
   def address
     super || build_address

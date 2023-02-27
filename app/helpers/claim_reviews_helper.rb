@@ -16,12 +16,13 @@ module ClaimReviewsHelper
     @confirmation_email ||= ConfirmationEmail.new(claim)
   end
 
-  def submit_button_text(claim)
+  def submit_button_text(_claim)
     t '.submit'
   end
 
   def review_date(date)
     return date if date.nil?
+
     I18n.l date, format: '%d %B %Y'
   end
 
@@ -46,14 +47,12 @@ module ClaimReviewsHelper
       claims.push(t("claims.claim_type.is_other_type_of_claim.options.true"))
     end
 
-    claims.join(tag(:br)).html_safe
+    claims.join(tag.br).html_safe
   end
 
   def review_claimant_full_name(claimant)
     salutation = t("claims.personal_details.title.options.#{claimant.title}") unless claimant.title.nil?
-    [salutation, claimant.first_name, claimant.last_name].compact.join' '
+    [salutation, claimant.first_name, claimant.last_name].compact.join ' '
   end
-
-
 
 end

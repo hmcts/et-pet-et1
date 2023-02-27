@@ -60,6 +60,7 @@ class RefundsController < ApplicationController
 
   def load_refund_from_session
     return nil if session[:refund_id].blank?
+
     Refund.find_by(id: session[:refund_id])
   end
 

@@ -66,6 +66,7 @@ class DiversitiesController < ApplicationController
 
   def load_diversity_from_session
     return nil if session[:diversity_id].blank?
+
     Diversity.find_by(id: session[:diversity_id])
   end
 
@@ -80,5 +81,5 @@ class DiversitiesController < ApplicationController
   end
 
   helper_method :diversity_path_for, :diversity, :current_step,
-    :page_manager, :resource
+                :page_manager, :resource
 end

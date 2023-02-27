@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Claimant page', js: true do
+describe 'Claimant page', js: true do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
@@ -8,12 +8,12 @@ feature 'Claimant page', js: true do
   let(:attributes) do
     {
       'First name' => 'Persephone',
-      'Last name'  => 'Lollington',
+      'Last name' => 'Lollington',
       'Building number or name' => '1',
-      'Street'    => 'High street',
+      'Street' => 'High street',
       'Town/city' => 'Anytown',
-      'County'    => 'Anyfordshire',
-      'Postcode'  => 'AT1 4PQ'
+      'County' => 'Anyfordshire',
+      'Postcode' => 'AT1 4PQ'
     }
   end
 
@@ -52,7 +52,6 @@ feature 'Claimant page', js: true do
         claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a valid date of birth in the correct format (DD/MM/YYYY)')
       end
     end
-
 
     context 'dob is in the future' do
       let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_in_future) }

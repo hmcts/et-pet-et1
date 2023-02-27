@@ -18,10 +18,10 @@ module CollectionForm
       else
         false
       end
-    rescue PG::NotNullViolation => exception
-      report_exception_to_sentry(exception, target, attributes)
+    rescue PG::NotNullViolation => e
+      report_exception_to_sentry(e, target, attributes)
 
-      raise PG::NotNullViolation, exception.message
+      raise PG::NotNullViolation, e.message
     end
 
     private

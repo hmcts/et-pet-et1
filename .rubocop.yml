@@ -2,7 +2,7 @@
 #   - .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
   # Exclude anything that isn't really part of our code.
   # rails_helper is excluded because it's full of solecisms, but it's mostly
   # generated code and copy-and-pasted snipets from READMEs.
@@ -22,12 +22,8 @@ AllCops:
     - 'config/routes.rb'
     - 'Gemfile'
     - 'spec/support/**/*'
+    - 'node_modules/**/*'
 
-Rails:
-  Enabled: true
-
-Rails/SkipsModelValidations:
-  Enabled: false
 # Allow long lines in specs, as it's almost impossible to fit RSpec's
 # expectations into 80 characters.
 Metrics/LineLength:
@@ -74,25 +70,13 @@ RSpec/DescribeClass:
     - spec/support/**/*
     - spec/views/**/*
 
-Rails/FilePath:
-  Exclude:
-    - spec/routing/**/*
-
-Rails/ApplicationJob:
-  Description: 'Check that jobs subclass ApplicationJob.'
-  Enabled: false
-
-Rails/ApplicationRecord:
-  Description: 'Check that models subclass ApplicationRecord.'
-  Enabled: false
-
 # private/protected/public
 Layout/AccessModifierIndentation:
   EnforcedStyle: indent
 
 # Just indent parameters by two spaces. It's less volatile if methods change,
 # and there's less busy work lining things up.
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
 Style/ClassAndModuleChildren:
@@ -204,13 +188,6 @@ Metrics/BlockLength:
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
 
-# ---------------
-# HttpPositionalArguments is rails 5 only
-# https://github.com/bbatsov/rubocop/issues/3629
-# ---------------
-Rails/HttpPositionalArguments:
-  Enabled: false
-
 RSpec/MultipleExpectations:
   Exclude:
     - 'spec/features/**/*'
@@ -223,14 +200,12 @@ Style/NumericPredicate:
   Exclude:
     - 'spec/**/*'
 
-Rails/OutputSafety:
-  Exclude:
-    - 'app/helpers/yaml_helper.rb'
-
 RSpec/VerifiedDoubles:
   Exclude:
     - 'spec/forms/refunds/**/*_spec.rb'
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
-require: rubocop-rspec
+require: 
+  - rubocop-rspec
+  - rubocop-rails

@@ -1,12 +1,11 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable
 
-  belongs_to :claim, foreign_key: :reference, primary_key: :application_reference, required: true
+  belongs_to :claim, foreign_key: :reference, primary_key: :application_reference, optional: false
 
-  validates :email, email: {mode: :strict}, allow_blank: true
+  validates :email, email: { mode: :strict }, allow_blank: true
   validates :password, presence: true, on: :create
   after_commit :send_pending_devise_notifications
-
 
   def validate_after_login
     claim_not_submitted
@@ -17,7 +16,7 @@ class User < ApplicationRecord
   end
 
   # As we allow multiple users with same email address - we always find the last one instead of the first
-  def self.find_first_by_auth_conditions(tainted_conditions, opts={})
+  def self.find_first_by_auth_conditions(tainted_conditions, opts = {})
     to_adapter.find_all(devise_parameter_filter.filter(tainted_conditions).merge(opts)).last
   end
 

@@ -19,8 +19,7 @@ RSpec.describe 'Representatives Details Validation', type: :feature, js: true do
 
     # Assert - check the error messages
     representatives_details_page.assert_error_messages phone_or_mobile_number: 'representatives_details.errors.invalid_phone_number',
-                                                 alternative_phone_or_mobile_number: 'representatives_details.errors.invalid_phone_number'
-
+                                                       alternative_phone_or_mobile_number: 'representatives_details.errors.invalid_phone_number'
 
   end
 end

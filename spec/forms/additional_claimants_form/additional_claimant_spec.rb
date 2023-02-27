@@ -63,9 +63,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
 
           it "send a data to sentry" do
             fake_scope = double('sentry double')
-            expect(Sentry).to receive(:with_scope) do |&block|
-              block.call fake_scope
-            end
+            expect(Sentry).to receive(:with_scope).and_yield(fake_scope)
             expect(fake_scope).to receive(:set_extras).with(
               old_data: target.attributes,
               new_data: additional_claimant.attributes
@@ -119,7 +117,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
     subject { described_class.new Claimant.new }
 
     include_examples "Postcode validation",
-      attribute_prefix: 'address',
-      error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
+                     attribute_prefix: 'address',
+                     error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
   end
 end

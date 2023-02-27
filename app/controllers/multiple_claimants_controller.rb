@@ -10,12 +10,10 @@ class MultipleClaimantsController < ClaimsController
       resource.secondary_claimants.build
 
       render :show
+    elsif resource.save
+      redirect_to next_page
     else
-      if resource.save
-        redirect_to next_page
-      else
-        render action: :show
-      end
+      render action: :show
     end
   end
 end

@@ -2,22 +2,21 @@ require 'rails_helper'
 
 RSpec.describe ClaimTypeForm, type: :form do
 
-  it_behaves_like 'a Form',
-    is_other_type_of_claim: true,
-    is_unfair_dismissal: true,
-    discrimination_claims: ['disability'],
-    pay_claims: ['holiday'],
-    is_whistleblowing: 'true',
-    send_claim_to_whistleblowing_entity: 'false',
-    other_claim_details: 'always'
-
-  let(:claim_type_form) { described_class.new(claim) { |f| f.is_other_type_of_claim = 'true' } }
-
   let(:claim) do
     Claim.new \
       discrimination_claims: [:sex_including_equal_pay, :disability, :race],
       pay_claims: [:redundancy, :notice, :holiday, :arrears, :other]
   end
+  let(:claim_type_form) { described_class.new(claim) { |f| f.is_other_type_of_claim = 'true' } }
+
+  it_behaves_like 'a Form',
+                  is_other_type_of_claim: true,
+                  is_unfair_dismissal: true,
+                  discrimination_claims: ['disability'],
+                  pay_claims: ['holiday'],
+                  is_whistleblowing: 'true',
+                  send_claim_to_whistleblowing_entity: 'false',
+                  other_claim_details: 'always'
 
   [:pay, :discrimination].each do |type|
     describe "##{type}_claims" do

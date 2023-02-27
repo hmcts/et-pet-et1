@@ -6,8 +6,13 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:claim) do
+      create :claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
+                     other_outcome: "25 bags\r\nyour job"
+    end
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -26,23 +31,19 @@ describe "claim_reviews/show.html.slim" do
       review_page.load(rendered)
     end
 
-    let(:claim) do
-      create :claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
-        other_outcome: "25 bags\r\nyour job"
-    end
-
     context 'Outcome details' do
       subject { review_page.claim_outcome_section.what_outcome.answer.native.inner_html }
+
       it do
-        is_expected.
+        expect(subject).
           to eq "A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)" \
             "<br>To get another job with the same employer or associated employer"
       end
     end
 
-
     context 'What outcome' do
       subject { review_page.claim_outcome_section.outcome_details.answer.native.inner_html }
+
       it { is_expected.to eq("25 bags\n<br>your job") }
     end
   end

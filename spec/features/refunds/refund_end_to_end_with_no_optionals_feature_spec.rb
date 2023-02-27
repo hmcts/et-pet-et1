@@ -1,14 +1,14 @@
 require 'rails_helper'
-RSpec.feature 'Refund form with no optional fields filled in', js: true do
-  #Assuming Anakin Skywalker's profile does not have any
-  #of the optional field values such as town/city, county, respondent post code etc..
-  #and he has a claim with case number 1234567/2015 which has all optional data missing also
+RSpec.describe 'Refund form with no optional fields filled in', js: true do
+  # Assuming Anakin Skywalker's profile does not have any
+  # of the optional field values such as town/city, county, respondent post code etc..
+  # and he has a claim with case number 1234567/2015 which has all optional data missing also
   before do
     given_i_am_anakin_skywalker
     and_i_want_a_refund_for_my_previous_et_claim_with_case_number_1234567_2015
   end
 
-  scenario 'Refund for a sole party who paid directly, used a representative and whos name or address has changed' do
+  it 'Refund for a sole party who paid directly, used a representative and whos name or address has changed' do
     and_i_have_a_bank_account
     and_my_name_has_not_changed_since_the_original_claim_that_i_want_a_refund_for
     and_my_address_has_changed_minimal_details_since_the_original_claim_that_i_want_a_refund_for

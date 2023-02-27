@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature 'Refund Validations - Confirmation Page', js: true do
-  #In order to ensure that the information provided to the business is
-  #as accurate as possible, field level validation is required to show
-  #the user where they have gone wrong before they move on to the next step
+RSpec.describe 'Refund Validations - Confirmation Page', js: true do
+  # In order to ensure that the information provided to the business is
+  # as accurate as possible, field level validation is required to show
+  # the user where they have gone wrong before they move on to the next step
 
   before do
     given_i_am_luke_skywalker
@@ -18,7 +18,8 @@ RSpec.feature 'Refund Validations - Confirmation Page', js: true do
     and_i_fill_in_my_refund_fees_and_verify_the_total
     and_i_fill_in_my_refund_bank_details
   end
-  scenario 'A user does not check the accept the declaration in the review page' do
+
+  it 'A user does not check the accept the declaration in the review page' do
     then_the_continue_button_should_be_disabled_on_the_review_page
   end
 end

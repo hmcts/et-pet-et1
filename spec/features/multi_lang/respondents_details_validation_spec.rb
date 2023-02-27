@@ -22,6 +22,5 @@ RSpec.describe 'Respondents Details Validation', type: :feature, js: true do
     # Assert - check the error messages
     respondents_details_page.assert_error_messages phone_number: 'respondents_details.errors.invalid_phone_number'
 
-
   end
 end

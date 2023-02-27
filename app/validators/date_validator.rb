@@ -39,6 +39,7 @@ class DateValidator < ActiveModel::EachValidator
   def illegal_year?(value)
     # Needs to verify that four digits are given for a year
     return false if value.nil?
+
     if value.is_a?(String)
       Date.parse(value).year < 1000
     elsif value.is_a?(Date) || value.is_a?(Time)
@@ -75,6 +76,7 @@ class DateValidator < ActiveModel::EachValidator
 
   def read_attribute_before_type_cast(record, attribute, default:)
     return default unless record.respond_to?(:read_attribute_before_type_cast)
+
     record.read_attribute_before_type_cast(attribute)
   end
 end

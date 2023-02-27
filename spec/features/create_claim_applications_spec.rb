@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Claim applications', type: :feature, js: true do
+describe 'Claim applications', type: :feature, js: true do
   include FormMethods
   include Messages
   include MailMatchers
@@ -10,6 +10,7 @@ feature 'Claim applications', type: :feature, js: true do
   include_context 'fake gov notify'
 
   around { |example| travel_to(Date.new(2018, 9, 29)) { example.run } }
+
   let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
   let(:build_claim_url) { "#{et_api_url}/claims/build_claim" }
   let(:example_pdf_url) { test_valid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
@@ -23,11 +24,13 @@ feature 'Claim applications', type: :feature, js: true do
   let(:ui_claim_details) { build(:ui_claim_details, :test) }
   let(:ui_claim_outcome) { build(:ui_claim_outcome, :default) }
   let(:ui_more_about_the_claim) { build(:ui_more_about_the_claim, :default) }
+
   around do |example|
     ClimateControl.modify ET_API_URL: et_api_url do
       example.run
     end
   end
+
   before do
     essential_response_data = {
       meta: {
@@ -44,21 +47,20 @@ feature 'Claim applications', type: :feature, js: true do
         }
       }
     }
-    stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
+    stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |_request|
       { body: essential_response_data.to_json, headers: { 'Content-Type': 'application/json' } }
     end
   end
 
-
   context 'along the happy path' do
-    scenario 'Hitting the start page' do
+    it 'Hitting the start page' do
       visit '/'
       expect(apply_page).to be_displayed
       expect(apply_page).not_to have_sign_out_button
       apply_page.assert_no_session_prompt
     end
 
-    scenario 'Hitting the saving your claim page directly' do
+    it 'Hitting the saving your claim page directly' do
       saving_your_claim_page.load
       expect(saving_your_claim_page).to be_displayed
       expect(page).to have_text before_you_start_message
@@ -66,7 +68,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Create a new application', js: true do
+    it 'Create a new application', js: true do
       start_claim
       expect(saving_your_claim_page).to be_displayed
       expect(page).to have_text before_you_start_message
@@ -74,7 +76,7 @@ feature 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Entering word for save and return' do
+    it 'Entering word for save and return' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
 
@@ -86,7 +88,7 @@ feature 'Claim applications', type: :feature, js: true do
       claimants_details_page.assert_session_prompt
     end
 
-    scenario 'Entering word and email for save and return', js: true do
+    it 'Entering word and email for save and return', js: true do
       start_claim
       saving_your_claim_page.register(email_address: FormMethods::SAVE_AND_RETURN_EMAIL, password: 'green')
 
@@ -102,7 +104,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(page).to have_text claim_heading_for(:claimant)
     end
 
-    scenario 'Entering personal details' do
+    it 'Entering personal details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -112,7 +114,7 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.assert_session_prompt
     end
 
-    scenario 'Entering additional claimant details' do
+    it 'Entering additional claimant details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -124,7 +126,7 @@ feature 'Claim applications', type: :feature, js: true do
       representatives_details_page.assert_session_prompt
     end
 
-    scenario "Navigating between manual and CSV upload for additional claimants" do
+    it "Navigating between manual and CSV upload for additional claimants" do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -141,7 +143,7 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.assert_session_prompt
     end
 
-    scenario 'Entering additional claimant upload details' do
+    it 'Entering additional claimant upload details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -153,7 +155,7 @@ feature 'Claim applications', type: :feature, js: true do
       representatives_details_page.assert_session_prompt
     end
 
-    scenario 'Entering representative details' do
+    it 'Entering representative details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -168,7 +170,7 @@ feature 'Claim applications', type: :feature, js: true do
       respondents_details_page.assert_session_prompt
     end
 
-    scenario 'Display ACAS hints', js: true do
+    it 'Display ACAS hints', js: true do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -179,14 +181,14 @@ feature 'Claim applications', type: :feature, js: true do
       representatives_details_page.save_and_continue
       dont_have_acas_respondent = build(:ui_respondent, :default, :dont_have_acas)
       dont_have_acas_respondent_interim_relief = build(:ui_respondent, :dont_have_acas, :interim_relief)
-      respondents_details_page
-        .fill_in_all(respondent: dont_have_acas_respondent)
-        .assert_correct_hints(dont_have_acas_respondent)
-        .fill_in_dont_have_acas_number(dont_have_acas_respondent_interim_relief)
-        .assert_correct_hints(dont_have_acas_respondent_interim_relief)
+      respondents_details_page.
+        fill_in_all(respondent: dont_have_acas_respondent).
+        assert_correct_hints(dont_have_acas_respondent).
+        fill_in_dont_have_acas_number(dont_have_acas_respondent_interim_relief).
+        assert_correct_hints(dont_have_acas_respondent_interim_relief)
     end
 
-    scenario 'Entering respondent details' do
+    it 'Entering respondent details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -203,7 +205,7 @@ feature 'Claim applications', type: :feature, js: true do
       additional_respondents_page.assert_session_prompt
     end
 
-    scenario 'Entering additional respondent details' do
+    it 'Entering additional respondent details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -212,7 +214,7 @@ feature 'Claim applications', type: :feature, js: true do
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
       representatives_details_page.save_and_continue
-      #fill_in_representative_details
+      # fill_in_representative_details
       respondents_details_page.fill_in_all(respondent: ui_respondent)
       respondents_details_page.save_and_continue
       additional_respondents_page.no_secondary_respondents
@@ -223,7 +225,7 @@ feature 'Claim applications', type: :feature, js: true do
       employment_details_page.assert_session_prompt
     end
 
-    scenario 'Entering employment details' do
+    it 'Entering employment details' do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -242,7 +244,7 @@ feature 'Claim applications', type: :feature, js: true do
       employment_details_page.assert_session_prompt
     end
 
-    scenario 'Entering claim type details' do
+    it 'Entering claim type details' do
       start_claim
 
       fill_in_pre_claim_pages
@@ -255,7 +257,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_details_page.assert_session_prompt
     end
 
-    scenario 'Entering claim details' do
+    it 'Entering claim details' do
       fill_in_pre_claim_pages
       about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
       about_the_claim_page.save_and_continue
@@ -267,7 +269,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_outcome_page.assert_session_prompt
     end
 
-    scenario 'Entering claim outcome details' do
+    it 'Entering claim outcome details' do
       fill_in_pre_claim_pages
       about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
       about_the_claim_page.save_and_continue
@@ -280,7 +282,7 @@ feature 'Claim applications', type: :feature, js: true do
       more_about_the_claim_page.assert_session_prompt
     end
 
-    scenario 'Entering additonal information' do
+    it 'Entering additonal information' do
       fill_in_pre_claim_pages
       about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
       about_the_claim_page.save_and_continue
@@ -293,7 +295,7 @@ feature 'Claim applications', type: :feature, js: true do
       check_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Entering your fee details' do
+    it 'Entering your fee details' do
       fill_in_pre_claim_pages
       about_the_claim_page.fill_in_all(claim_type: ui_claim_type)
       about_the_claim_page.save_and_continue
@@ -306,7 +308,7 @@ feature 'Claim applications', type: :feature, js: true do
       check_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Signout from claim review page' do
+    it 'Signout from claim review page' do
       complete_a_claim
 
       expect(check_your_claim_page).to be_displayed
@@ -314,7 +316,7 @@ feature 'Claim applications', type: :feature, js: true do
       check_your_claim_page.assert_session_prompt
     end
 
-    scenario 'Deselecting email confirmation recipients before submission' do
+    it 'Deselecting email confirmation recipients before submission' do
       complete_a_claim
       review_page.email_confirmation_section.email_recipients.set([])
       click_button 'Submit claim'
@@ -322,7 +324,7 @@ feature 'Claim applications', type: :feature, js: true do
       expect(Claim.last.confirmation_email_recipients).to be_empty
     end
 
-    scenario 'Submitting the claim' do
+    it 'Submitting the claim' do
       complete_a_claim
       click_button 'Submit claim'
 
@@ -333,7 +335,7 @@ feature 'Claim applications', type: :feature, js: true do
       claim_submitted_page.assert_no_session_prompt
     end
 
-    scenario 'attempting a new claim after submission' do
+    it 'attempting a new claim after submission' do
       complete_a_claim
       click_button 'Submit claim'
 
@@ -342,36 +344,37 @@ feature 'Claim applications', type: :feature, js: true do
       apply_page.start_a_claim
       expect(saving_your_claim_page).to be_displayed
     end
-    scenario 'Validating the API calls claimant data' do
+
+    it 'Validating the API calls claimant data' do
       complete_a_claim
       click_button 'Submit claim'
       expect(a_request(:post, build_claim_url).
         with do |request|
-        claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
-        expect(claimant).to include "title" => ET1::Test::I18n.t(ui_claimant.title),
-                                    "first_name" => ui_claimant.first_name,
-                                    "last_name" => ui_claimant.last_name,
-                                    "address_attributes" => a_hash_including(
-                                      "building" => ui_claimant.address_building,
-                                      "street" => ui_claimant.address_street,
-                                      "locality" => ui_claimant.address_town,
-                                      "county" => ui_claimant.address_county,
-                                      "post_code" => ui_claimant.address_post_code,
-                                      "country" => ET1::Test::I18n.t(ui_claimant.address_country)
-                                    ),
-                                    "address_telephone_number" => ui_claimant.phone_or_mobile_number,
-                                    "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
-                                    "email_address" => ui_claimant.email_address,
-                                    "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
-                                    "allow_video_attendance" => ui_claimant.allow_video_attendance.to_s.split('.').last == 'yes',
-                                    "gender" => ET1::Test::I18n.t(ui_claimant.gender),
-                                    "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
-                                    "special_needs" => ui_claimant.special_needs
-      end).to have_been_made
+               claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
+               expect(claimant).to include "title" => ET1::Test::I18n.t(ui_claimant.title),
+                                           "first_name" => ui_claimant.first_name,
+                                           "last_name" => ui_claimant.last_name,
+                                           "address_attributes" => a_hash_including(
+                                             "building" => ui_claimant.address_building,
+                                             "street" => ui_claimant.address_street,
+                                             "locality" => ui_claimant.address_town,
+                                             "county" => ui_claimant.address_county,
+                                             "post_code" => ui_claimant.address_post_code,
+                                             "country" => ET1::Test::I18n.t(ui_claimant.address_country)
+                                           ),
+                                           "address_telephone_number" => ui_claimant.phone_or_mobile_number,
+                                           "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
+                                           "email_address" => ui_claimant.email_address,
+                                           "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
+                                           "allow_video_attendance" => ui_claimant.allow_video_attendance.to_s.split('.').last == 'yes',
+                                           "gender" => ET1::Test::I18n.t(ui_claimant.gender),
+                                           "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
+                                           "special_needs" => ui_claimant.special_needs
+             end).to have_been_made
     end
 
     context 'Downloading the PDF', js: true do
-      scenario 'when the file is available' do
+      it 'when the file is available' do
         complete_a_claim
         click_button 'Submit claim'
         expect(claim_submitted_page).to have_save_a_copy_link
@@ -381,7 +384,7 @@ feature 'Claim applications', type: :feature, js: true do
       context 'with pdf not ready yet' do
         let(:example_pdf_url) { test_invalid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
 
-        scenario 'when the file is unavailable' do
+        it 'when the file is unavailable' do
           complete_a_claim
           click_button 'Submit claim'
           expect(claim_submitted_page).to have_invalid_save_a_copy_link
@@ -391,7 +394,7 @@ feature 'Claim applications', type: :feature, js: true do
     end
 
     context 'Viewing the confirmation page' do
-      scenario 'with a single claimant without remission option' do
+      it 'with a single claimant without remission option' do
         complete_a_claim
         expect(page).to have_text 'Check your claim'
 

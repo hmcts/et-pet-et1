@@ -16,6 +16,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
       ]
     end
     let(:et_api_url) { 'http://api.et.net:4000/api/v2' }
+
     around do |example|
       ClimateControl.modify ET_API_URL: et_api_url do
         example.run
@@ -36,6 +37,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
       context "a valid csv is attached" do
         let(:errors) { [] }
+
         it "doesn't have errors" do
           expect(additional_claimants_upload_form.errors).to be_empty
         end
@@ -69,6 +71,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     describe "additional_claimants_csv_record_count" do
       let(:errors) { [] }
+
       it "gets updated after validation" do
         expect(resource.additional_claimants_csv_record_count).to eq 10
       end
@@ -77,9 +80,11 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
   describe "#has_additional_claimants_csv?" do
     let(:errors) { [] }
+
     before do
       EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
     end
+
     it "returns whether a file is present or not" do
       expect { additional_claimants_upload_form.additional_claimants_csv = file }.
         to change { additional_claimants_upload_form.has_additional_claimants_csv? }.from(false).to(true)

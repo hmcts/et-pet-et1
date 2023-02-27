@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.feature 'Claim statistics', type: :feature do
+RSpec.describe 'Claim statistics', type: :feature do
   before do
-    allow(Stats::ClaimStats).to receive(:started_count)   { 10 }
-    allow(Stats::ClaimStats).to receive(:completed_count) { 15 }
+    allow(Stats::ClaimStats).to receive(:started_count).and_return(10)
+    allow(Stats::ClaimStats).to receive(:completed_count).and_return(15)
   end
 
-  scenario 'hitting the stats end point returns json' do
+  it 'hitting the stats end point returns json' do
     visit stats_path format: 'json'
 
     expect(page.response_headers['Content-Type']).to match('application/json')

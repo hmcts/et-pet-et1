@@ -10,7 +10,8 @@ class ClaimReviewsController < ApplicationController
       claim.update state: 'submitted',
                    pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url'),
                    fee_group_reference: response.response_data.dig('meta', 'BuildClaim', 'reference')
-      claim.create_office! response.response_data.dig('meta', 'BuildClaim', 'office').slice('code', 'name', 'address', 'telephone', 'email')
+      claim.create_office! response.response_data.dig('meta', 'BuildClaim', 'office').slice('code', 'name', 'address',
+                                                                                            'telephone', 'email')
       redirect_to claim_confirmation_path
     else
       claim.update state: 'submission_failed'

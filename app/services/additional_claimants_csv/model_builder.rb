@@ -35,6 +35,7 @@ class AdditionalClaimantsCsv::ModelBuilder
   def check_csv_dob_format(row_data)
     dob = row_data[ATTRIBUTES.index(:date_of_birth)]
     return if /(\D*-)/.match(dob).blank?
+
     raise CsvDobValidationError
   end
 end

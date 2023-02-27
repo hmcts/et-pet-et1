@@ -58,13 +58,13 @@ class RespondentForm < Form
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,
-    inclusion: { in: NO_ACAS_REASON, allow_blank: true },
+            inclusion: { in: NO_ACAS_REASON, allow_blank: true },
             ccd_acas_exemption_reason: { unless: :has_acas_number? },
-    presence: { unless: -> { has_acas_number? } }
+            presence: { unless: -> { has_acas_number? } }
 
   validates :acas_early_conciliation_certificate_number,
-    presence: { if: -> { has_acas_number? } },
-    acas: true
+            presence: { if: -> { has_acas_number? } },
+            acas: true
 
   before_save :reload_addresses
 

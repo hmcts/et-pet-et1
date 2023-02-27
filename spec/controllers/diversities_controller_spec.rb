@@ -11,7 +11,7 @@ RSpec.describe DiversitiesController, type: :controller do
 
       it "render the page as usual" do
         get :show, params: { page: 'confirmation' }
-        expect(response).to have_http_status(200)
+        expect(response).to have_http_status(:ok)
       end
 
       it 'destroy the session' do

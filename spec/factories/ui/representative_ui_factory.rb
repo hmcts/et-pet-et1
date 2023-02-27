@@ -6,7 +6,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_representative, class: ::ET1::Test::RepresentativeUi do
+  factory :ui_representative, class: '::ET1::Test::RepresentativeUi' do
     trait :mandatory do
       type { :'representatives_details.type.options.solicitor' }
       name { "Naughty Boy" }

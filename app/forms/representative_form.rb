@@ -1,5 +1,5 @@
 class RepresentativeForm < Form
-  CONTACT_PREFERENCES  = ['email', 'post', 'dx_number'].freeze
+  CONTACT_PREFERENCES = ['email', 'post', 'dx_number'].freeze
   include AddressAttributes
 
   attribute :type,               :string
@@ -21,7 +21,9 @@ class RepresentativeForm < Form
   validates :organisation_name, :name, length: { maximum: 100 }
   validates :dx_number, length: { maximum: 40 }
   validates :mobile_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
-  validates :email_address, email: true, ccd_email: true, presence: true, if: ->(form) { form.contact_preference == 'email' && has_representative? }
+  validates :email_address, email: true, ccd_email: true, presence: true, if: lambda { |form|
+                                                                                form.contact_preference == 'email' && has_representative?
+                                                                              }
   validates :contact_preference, presence: true, inclusion: CONTACT_PREFERENCES, if: :has_representative?
   validates :dx_number, presence: true, if: ->(form) { form.contact_preference == 'dx_number' && has_representative? }
   validates :has_representative, inclusion: [true, false]
@@ -47,6 +49,7 @@ class RepresentativeForm < Form
   def clear_fields!
     attrs = attributes.keys.each_with_object({}) do |attr_name, obj|
       next if attr_name == "has_representative"
+
       obj[attr_name.to_sym] = nil
     end
     self.attributes = attrs

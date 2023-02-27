@@ -158,6 +158,7 @@ module Refunds
           expect(form.errors).to include :et_case_number
         end
       end
+
       context 'eat_case_number' do
         it 'allows blank' do
           form.eat_case_number = ''
@@ -243,6 +244,7 @@ module Refunds
           expect(form.errors).to include :eat_case_number
         end
       end
+
       context 'address_changed' do
         it 'validates - allowing true value' do
           form.address_changed = true

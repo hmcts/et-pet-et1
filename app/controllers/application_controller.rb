@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     return {} if @active_admin
+
     { locale: I18n.locale }
   end
 
@@ -55,8 +56,8 @@ class ApplicationController < ActionController::Base
 
   def expired_session?
     Time.current > session[:expires_in]
-  rescue
-    return false
+  rescue StandardError
+    false
   end
 
   def claim
@@ -65,6 +66,7 @@ class ApplicationController < ActionController::Base
 
   def load_claim_from_session
     return nil if session[:claim_reference].blank?
+
     Claim.find_by(application_reference: session[:claim_reference])
   end
 

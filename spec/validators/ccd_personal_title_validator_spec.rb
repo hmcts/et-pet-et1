@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe CcdPersonalTitleValidator do
-  let(:allow_list) { %w(Mr Mrs Miss Ms Mx Dr Prof Sir Lord Lady Dame Capt Rev Other N/K) }
-  let(:example_deny_list) { %w(Doctor Professor Captain Reverend badtitle) }
+  let(:allow_list) { ['Mr', 'Mrs', 'Miss', 'Ms', 'Mx', 'Dr', 'Prof', 'Sir', 'Lord', 'Lady', 'Dame', 'Capt', 'Rev', 'Other', 'N/K'] }
+  let(:example_deny_list) { ['Doctor', 'Professor', 'Captain', 'Reverend', 'badtitle'] }
   let(:model_class) do
     Class.new do
       include ActiveModel::Model

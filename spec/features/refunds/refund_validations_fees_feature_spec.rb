@@ -1,8 +1,8 @@
 require 'rails_helper'
-RSpec.feature 'Refund Validations - Fees Page', js: true do
-  #In order to ensure that the information provided to the business is
-  #as accurate as possible, field level validation is required to show
-  #the user where they have gone wrong before they move on to the next step
+RSpec.describe 'Refund Validations - Fees Page', js: true do
+  # In order to ensure that the information provided to the business is
+  # as accurate as possible, field level validation is required to show
+  # the user where they have gone wrong before they move on to the next step
 
   before do
     given_i_am_luke_skywalker
@@ -15,36 +15,38 @@ RSpec.feature 'Refund Validations - Fees Page', js: true do
     and_i_fill_in_my_refund_original_case_details
   end
 
-  scenario 'A user fills in fees but no payment method or date' do
+  it 'A user fills in fees but no payment method or date' do
     and_i_fill_in_all_my_refund_fee_values_only
     and_i_save_the_refund_fees
     then_all_fee_payment_method_fields_in_the_fees_page_should_be_marked_with_an_error
     then_all_fee_payment_date_fields_in_the_fees_page_should_be_marked_with_an_error_for_blank_input
   end
 
-  scenario 'A user fills in negative fees' do
+  it 'A user fills in negative fees' do
     and_i_fill_in_the_refund_fee_values_with_negative_values
     and_i_save_the_refund_fees
     then_all_fee_value_fields_in_the_fees_page_should_be_marked_with_an_error_for_negative_values
   end
 
-  scenario 'A user fills in no fees data at all and submits' do
+  it 'A user fills in no fees data at all and submits' do
     and_i_save_the_refund_fees
     then_the_refund_fees_form_should_show_an_error_stating_that_at_least_one_fee_should_be_present
   end
 
-  scenario 'A user fills in no fees data at all and does not submit' do
+  it 'A user fills in no fees data at all and does not submit' do
     then_all_fee_payment_date_fields_in_the_fees_page_should_be_disabled
     and_all_fee_payment_method_fields_in_the_fees_page_should_be_disabled
   end
-  scenario 'A user fills in fees but no payment method and an unknown date' do
+
+  it 'A user fills in fees but no payment method and an unknown date' do
     and_i_fill_in_all_my_refund_fee_values_only
     and_i_check_all_my_refund_fee_unknown_dates
     and_i_save_the_refund_fees
     then_all_fee_payment_method_fields_in_the_fees_page_should_be_marked_with_an_error
     then_all_fee_payment_date_fields_in_the_fees_page_should_not_be_marked_with_an_error
   end
-  scenario 'A user fills in fees but the "Don\'t know" payment method and an unknown date' do
+
+  it 'A user fills in fees but the "Don\'t know" payment method and an unknown date' do
     and_i_fill_in_all_my_refund_fee_values_only
     and_i_check_all_my_refund_fee_unknown_dates
     and_i_fill_in_all_my_refund_fee_payment_methods_with "Don't know"

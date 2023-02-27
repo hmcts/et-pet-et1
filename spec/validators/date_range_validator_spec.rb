@@ -1,23 +1,21 @@
 require 'rails_helper'
 RSpec.describe DateRangeValidator do
   let(:valid_values) do
-    %W[5,1,#{99.years.ago.year} 2,1,#{11.years.ago.year} 21,5,#{50.years.ago.year}]
+    ["5,1,#{99.years.ago.year}", "2,1,#{11.years.ago.year}", "21,5,#{50.years.ago.year}"]
   end
+  let(:model) { ModelClass.new }
   let(:invalid_values) do
-    %W[1,1,#{9.years.ago.year} 15,1,#{102.years.ago.year}]
+    ["1,1,#{9.years.ago.year}", "15,1,#{102.years.ago.year}"]
   end
 
   class ModelClass < ActiveRecord::Base
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 
-
     attribute :date_of_birth, :et_date
 
-    validates :date_of_birth, date_range: { range: -> { 100.years.ago..10.years.ago }}
+    validates :date_of_birth, date_range: { range: -> { 100.years.ago..10.years.ago } }
   end
-
-  let(:model) { ModelClass.new }
 
   it 'is valid for all in the valid list' do
     aggregate_failures 'validating all in valid list' do

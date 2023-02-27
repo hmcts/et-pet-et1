@@ -70,7 +70,6 @@ RSpec.describe CcdPhoneValidator do
     expect(model.errors.details[:number]).to include a_hash_including(error: :invalid_ccd_phone)
   end
 
-
   it 'will not validate a string with a "+" anywhere other than the first character' do
     model = model_class.new(number: "+44+203 123 4567")
 

@@ -29,12 +29,13 @@ class EtDateType < ActiveRecord::Type::Date
 
   def value_from_multiparameter_assignment(value)
     return unless value[1] && value[2] && (value[3] || omit_day)
+
     values = value.sort.map!(&:last).map(&:to_i)
     new_date(*values)
   end
 
   def correct_year(year)
-    if year&.to_i < 100
+    if year&.to_i&.< 100
       year.to_i + 1900
     end
   end

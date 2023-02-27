@@ -56,6 +56,7 @@ group :development, :test do
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 6.0'
   gem 'rubocop', '~> 1.8', :require => false
+  gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', '~> 2.1', :require => false
   gem 'shoulda-matchers', '~> 5.1'
   gem 'spring', '~> 4.0'

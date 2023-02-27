@@ -6,8 +6,21 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:claimant_section) { review_page.claimant_section }
+    let(:claimant) do
+      build :claimant,
+            title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
+            date_of_birth: Date.civil(1999, 1, 15), address_building: '1',
+            address_street: 'Lol street', address_locality: 'Lolzville',
+            address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
+            address_telephone_number: '01234567890', mobile_number: '07956123456',
+            email_address: 'joe@example.com', contact_preference: 'post',
+            special_needs: false, primary_claimant: true
+    end
+    let(:claim) { create(:claim, primary_claimant: claimant) }
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -25,19 +38,6 @@ describe "claim_reviews/show.html.slim" do
       }
       review_page.load(rendered)
     end
-
-    let(:claimant_section) { review_page.claimant_section }
-    let(:claimant) do
-      build :claimant,
-        title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
-        date_of_birth: Date.civil(1999, 1 ,15), address_building: '1',
-        address_street: 'Lol street', address_locality: 'Lolzville',
-        address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
-        address_telephone_number: '01234567890', mobile_number: '07956123456',
-        email_address: 'joe@example.com', contact_preference: 'post',
-        special_needs: false, primary_claimant: true
-    end
-    let(:claim) { create(:claim, primary_claimant: claimant) }
 
     describe '#full_name' do
       it 'concatenates title, first_name and last_name' do
@@ -65,14 +65,15 @@ describe "claim_reviews/show.html.slim" do
       context 'when the claimant is disabled' do
         let(:claimant) do
           build :claimant,
-            title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
-            date_of_birth: Date.civil(1999, 1, 15), address_building: '1',
-            address_street: 'Lol street', address_locality: 'Lolzville',
-            address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
-            address_telephone_number: '01234567890', mobile_number: '07956123456',
-            email_address: 'joe@example.com', contact_preference: 'post',
-            has_special_needs: true, primary_claimant: true
+                title: 'Mr', first_name: 'Stevie', last_name: 'Graham', gender: 'male',
+                date_of_birth: Date.civil(1999, 1, 15), address_building: '1',
+                address_street: 'Lol street', address_locality: 'Lolzville',
+                address_county: 'Lolzfordshire', address_post_code: 'LOL B1Z',
+                address_telephone_number: '01234567890', mobile_number: '07956123456',
+                email_address: 'joe@example.com', contact_preference: 'post',
+                has_special_needs: true, primary_claimant: true
         end
+
         specify { expect(claimant_section.assistance_required.answer).to have_text('Yes') }
       end
     end

@@ -14,13 +14,14 @@ class AdditionalClaimantsUploadForm < Form
 
     validate do
       next if additional_claimants_csv.nil?
-      next if additional_claimants_csv['content_type'].in?(%w[text/csv text/plain application/csv application/vnd.ms-excel])
+      next if additional_claimants_csv['content_type'].in?(['text/csv', 'text/plain', 'application/csv',
+                                                            'application/vnd.ms-excel'])
 
       errors.add(:additional_claimants_csv, I18n.t('errors.messages.csv'))
     end
 
     form.validates :additional_claimants_csv,
-      additional_claimants_csv: true, if: :valid_so_far?
+                   additional_claimants_csv: true, if: :valid_so_far?
   end
 
   def has_additional_claimants_csv?

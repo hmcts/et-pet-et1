@@ -15,19 +15,19 @@ module Refunds
     attribute :has_name_changed, :boolean
 
     validates :applicant_address_building, :applicant_address_street,
-      :applicant_address_post_code, :applicant_address_locality, presence: true
+              :applicant_address_post_code, :applicant_address_locality, presence: true
 
     validates :applicant_address_building,
-      :applicant_address_street,
-      length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
+              :applicant_address_street,
+              length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
     validates :applicant_address_locality,
-      :applicant_address_county,
-      ccd_address: true
+              :applicant_address_county,
+              ccd_address: true
     validates :applicant_address_telephone_number,
-      length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
+              length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
 
     validates :applicant_address_post_code,
-      length: { maximum: AddressAttributes::POSTCODE_LENGTH }
+              length: { maximum: AddressAttributes::POSTCODE_LENGTH }
     attribute :applicant_first_name,         :string
     attribute :applicant_last_name,          :string
     attribute :applicant_date_of_birth,      :et_date

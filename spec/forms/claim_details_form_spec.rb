@@ -8,13 +8,15 @@ RSpec.describe ClaimDetailsForm, type: :form do
       it { expect(claim_details_form).to validate_presence_of(:claim_details) }
 
       context 'claim details attached as an RTF' do
-        before { claim_details_form.claim_details_rtf = { 'path' => 'anything', 'content_type' =>'application/rtf', 'filename' => 'filename.rtf' } }
+        before { claim_details_form.claim_details_rtf = { 'path' => 'anything', 'content_type' => 'application/rtf', 'filename' => 'filename.rtf' } }
+
         it { expect(claim_details_form).not_to validate_presence_of(:claim_details) }
       end
     end
 
     context 'character lengths' do
       before { claim_details_form.other_known_claimants = true }
+
       it { expect(claim_details_form).to validate_length_of(:claim_details).is_at_most(2500) }
       it { expect(claim_details_form).to validate_length_of(:other_known_claimant_names).is_at_most(350) }
     end
@@ -63,7 +65,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
 
   describe '#other_known_claimant_names' do
     context 'when #other_known_claimant is false' do
-      it 'should not have a value after validation' do
+      it 'does not have a value after validation' do
         claim_details_form.other_known_claimant_names = 'value'
         claim_details_form.other_known_claimants = false
         claim_details_form.valid?
@@ -73,7 +75,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
   end
 
   it_behaves_like "a Form",
-    claim_details: "I want to make a claim", other_known_claimants: 'true',
-    other_known_claimant_names: "Edgar"
+                  claim_details: "I want to make a claim", other_known_claimants: 'true',
+                  other_known_claimant_names: "Edgar"
 
 end

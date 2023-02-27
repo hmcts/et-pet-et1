@@ -1,23 +1,21 @@
 require 'rails_helper'
 RSpec.describe DateValidator do
   let(:valid_values) do
-    %w[2,1,1999 5,1,1999 12,5,1999]
+    ['2,1,1999', '5,1,1999', '12,5,1999']
   end
+  let(:model) { ModelClass.new }
   let(:invalid_values) do
-    %w[31,2,1999 1,15,1999 12,5,199]
+    ['31,2,1999', '1,15,1999', '12,5,199']
   end
 
   class ModelClass < ActiveRecord::Base
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 
-
     attribute :date_of_birth, :et_date
 
     validates :date_of_birth, date: true
   end
-
-  let(:model) { ModelClass.new }
 
   it 'is valid for all in the valid list' do
     aggregate_failures 'validating all in valid list' do

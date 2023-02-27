@@ -1,22 +1,22 @@
 require 'rails_helper'
 
-RSpec.feature 'Viewing a claims details in the admin interface', type: :feature do
+RSpec.describe 'Viewing a claims details in the admin interface', type: :feature do
   let!(:claim_with_attachments) do
     create :claim, :submitted, :with_pdf,
-      fee_group_reference: '511234567800',
-      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           fee_group_reference: '511234567800',
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
   let!(:enqueued_claim) do
     create :claim, :with_pdf,
-      fee_group_reference: '511234567800',
-      confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           fee_group_reference: '511234567800',
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
   end
 
   context 'with time frozen' do
     around { |example| travel_to(Date.new(2015, 6, 5)) { example.run } }
 
-    scenario 'viewing metadata about a particular claim' do
+    it 'viewing metadata about a particular claim' do
       visit admin_claim_path claim_with_attachments.reference
 
       expect(page).to have_text claim_with_attachments.reference
@@ -33,7 +33,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
       end
     end
 
-    scenario 'viewing event data related to a particular claim' do
+    it 'viewing event data related to a particular claim' do
       visit admin_claim_path claim_with_attachments.reference
 
       {
@@ -48,7 +48,7 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     end
   end
 
-  scenario 'marking claim as submitted' do
+  it 'marking claim as submitted' do
 
     visit admin_claim_path enqueued_claim.reference
 
@@ -62,9 +62,9 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
     expect(event.actor).to eq 'admin'
   end
 
-  scenario 're-submitting a claim', clean_with_truncation: true do
+  it 're-submitting a claim', clean_with_truncation: true do
 
-    fake_response = instance_spy('SubmitClaimToApiService', valid?: true, errors: [], response_data: { 'meta' => { 'BuildClaim' => { 'pdf_url' => 'http://anything.com/test.pdf' }}})
+    fake_response = instance_spy('SubmitClaimToApiService', valid?: true, errors: [], response_data: { 'meta' => { 'BuildClaim' => { 'pdf_url' => 'http://anything.com/test.pdf' } } })
     expect(EtApi).to receive(:create_claim).with(enqueued_claim).and_return(fake_response)
 
     visit admin_claim_path enqueued_claim.reference
@@ -79,27 +79,27 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
   context 'claim without large text inputs' do
     let!(:claim_without_large_text_inputs) do
       create :claim,
-        claim_details: nil,
-        miscellaneous_information: nil,
-        other_claim_details: nil,
-        other_outcome: nil
+             claim_details: nil,
+             miscellaneous_information: nil,
+             other_claim_details: nil,
+             other_outcome: nil
     end
 
     before { visit admin_claim_path claim_without_large_text_inputs.reference }
 
-    scenario 'no option to download claim details as a text file' do
+    it 'no option to download claim details as a text file' do
       expect(page).not_to have_link 'Claim details'
     end
 
-    scenario 'no option to download miscellaneous information as a text file' do
+    it 'no option to download miscellaneous information as a text file' do
       expect(page).not_to have_link 'Miscellaneous information'
     end
 
-    scenario 'no option to download other claim details as a text file' do
+    it 'no option to download other claim details as a text file' do
       expect(page).not_to have_link 'Other claim details'
     end
 
-    scenario 'no option to download other outcome as a text file' do
+    it 'no option to download other outcome as a text file' do
       expect(page).not_to have_link 'Other outcome'
     end
   end
@@ -109,11 +109,11 @@ RSpec.feature 'Viewing a claims details in the admin interface', type: :feature 
 
     before { visit admin_claim_path claim_without_attachments.reference }
 
-    scenario 'no option to download the claim details rtf' do
+    it 'no option to download the claim details rtf' do
       expect(page).not_to have_link 'Download RTF'
     end
 
-    scenario 'no option to download the additional claimants csv' do
+    it 'no option to download the additional claimants csv' do
       expect(page).not_to have_link 'Download CSV'
     end
   end

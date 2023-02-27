@@ -14,25 +14,25 @@ module Refunds
     validates :payment_account_type, presence: true, inclusion: { in: ACCOUNT_TYPES }
     validates :payment_bank_account_name, :payment_bank_name, presence: true, if: :is_bank_type?
     validates :payment_bank_account_number,
-      presence: true,
-      format: { with: %r(\A\d{8}\z), allow_blank: true },
-      if: :is_bank_type?
+              presence: true,
+              format: { with: %r(\A\d{8}\z), allow_blank: true },
+              if: :is_bank_type?
     validates :payment_bank_sort_code,
-      presence: true,
-      format: { with: %r(\A\d{6}\z), allow_blank: true },
-      if: :is_bank_type?
+              presence: true,
+              format: { with: %r(\A\d{6}\z), allow_blank: true },
+              if: :is_bank_type?
     validates :payment_building_society_account_name,
-      :payment_building_society_name,
-      presence: true,
-      if: :is_building_society_type?
+              :payment_building_society_name,
+              presence: true,
+              if: :is_building_society_type?
     validates :payment_building_society_account_number,
-      presence: true,
-      format: { with: %r(\A\d{8}\z), allow_blank: true },
-      if: :is_building_society_type?
+              presence: true,
+              format: { with: %r(\A\d{8}\z), allow_blank: true },
+              if: :is_building_society_type?
     validates :payment_building_society_sort_code,
-      presence: true,
-      format: { with: %r(\A\d{6}\z), allow_blank: true },
-      if: :is_building_society_type?
+              presence: true,
+              format: { with: %r(\A\d{6}\z), allow_blank: true },
+              if: :is_building_society_type?
 
     private
 

@@ -6,7 +6,7 @@ class ClaimDetailsForm < Form
   attribute :other_known_claimants, :boolean
 
   before_validation :remove_claim_details_rtf!,
-    if: :remove_claim_details_rtf
+                    if: :remove_claim_details_rtf
   before_validation :reset_other_known_claimant_names!, unless: :other_known_claimants?
 
   validates :claim_details, length: { maximum: 2500 },

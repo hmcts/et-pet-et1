@@ -10,7 +10,7 @@ module AddressAttributes
     validates :address_post_code, post_code: true, length: { maximum: POSTCODE_LENGTH }
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   def self.but_skip_postcode_validation
     Module.new do
       extend ActiveSupport::Concern
@@ -32,10 +32,12 @@ module AddressAttributes
         attribute :address_telephone_number, :string
 
         validates :address_building, :address_street, :address_locality,
-          :address_county, :address_post_code, presence: true, unless: :skip_address_validation?
+                  :address_county, :address_post_code, presence: true, unless: :skip_address_validation?
 
-        validates :address_building, :address_street, :address_locality, :address_county, ccd_address: true, unless: :skip_address_validation?
-        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true, unless: :skip_address_validation?
+        validates :address_building, :address_street, :address_locality, :address_county, ccd_address: true,
+                                                                                          unless: :skip_address_validation?
+        validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true,
+                                             allow_blank: true, unless: :skip_address_validation?
       end
     end
   end
