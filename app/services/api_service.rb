@@ -44,7 +44,7 @@ class ApiService
 
   private
 
-  def send_request(json, api_base: ENV.fetch('ET_API_URL'), path:, subject:)
+  def send_request(json, path:, subject:, api_base: ENV.fetch('ET_API_URL'))
     log_json(json, url: "#{api_base}#{path}", subject: subject)
 
     request = Typhoeus::Request.new "#{api_base}#{path}",
@@ -86,16 +86,17 @@ class ApiService
 
   def raise_on_response_code
     case response.code
-    when 200, 201, 202, 0, 422 then return
+    when 200, 201, 202, 0, 422 then nil
     when 400 then raise BadRequest.new('Bad request', response.body)
     when 500 then raise InternalServerError.new('Internal server error', response.body)
-    else raise UnknownResponse.new("An unknown response code of #{response.code} was returned from the api", response.body)
+    else raise UnknownResponse.new("An unknown response code of #{response.code} was returned from the api",
+                                   response.body)
     end
   end
 
   def raise_on_return_code
     case response.return_code
-    when nil, :ok, 0 then return
+    when nil, :ok, 0 then nil
     when :operation_timedout then raise Timeout, 'Timeout'
     else raise UnknownResponse.new("Unknown response return code - #{response.return_code}", response.body)
     end

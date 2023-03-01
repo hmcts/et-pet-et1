@@ -1,7 +1,7 @@
 require 'rails_helper'
-RSpec.feature 'Refund - Fees Page Content', js: true do
-  #In order to assist the user in providing accurate information
-  #the content of the page should provide assistance and useful content
+RSpec.describe 'Refund - Fees Page Content', js: true do
+  # In order to assist the user in providing accurate information
+  # the content of the page should provide assistance and useful content
 
   before do
     given_i_am_luke_skywalker
@@ -13,7 +13,8 @@ RSpec.feature 'Refund - Fees Page Content', js: true do
     and_i_fill_in_my_refund_applicant_details
     and_i_fill_in_my_refund_original_case_details
   end
-  scenario 'A user fills in fees but no payment method or date' do
+
+  it 'A user fills in fees but no payment method or date' do
     then_all_fee_help_content_should_be_correct_on_the_fees_page
   end
 end

@@ -3,6 +3,7 @@ class Form < ApplicationRecord
   establish_connection adapter: :nulldb,
                        schema: 'config/nulldb_schema.rb'
   attr_reader :resource
+
   before_validation :clean_strings
   class_attribute :__transient_attributes, default: []
   class_attribute :__custom_mappings, default: {}
@@ -127,7 +128,7 @@ class Form < ApplicationRecord
   # bypassing strong parameters
   # @TODO Work out how to remove this
   def assign_attributes(attrs)
-    #attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
+    # attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
     super(attrs)
   end
 
@@ -184,6 +185,7 @@ class Form < ApplicationRecord
   def clean_strings
     @attributes.each_value do |attr|
       next unless attr.type.is_a?(ActiveModel::Type::String) && attr.value.is_a?(String)
+
       if attr.value.frozen?
         attr.value = attr.value.strip!
       else

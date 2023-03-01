@@ -171,6 +171,7 @@ RSpec.describe RepresentativeForm, type: :form do
         representative_form.contact_preference = 'post'
         representative_form.valid?
       end
+
       it 'email address and dx number should be nil' do
         expect(representative_form).to have_attributes(email_address: nil, dx_number: nil)
       end
@@ -183,6 +184,7 @@ RSpec.describe RepresentativeForm, type: :form do
         representative_form.dx_number = 'email@gmail.com'
         representative_form.valid?
       end
+
       it 'dx number should be nil' do
         expect(representative_form.dx_number).to be_nil
       end
@@ -195,6 +197,7 @@ RSpec.describe RepresentativeForm, type: :form do
         representative_form.dx_number = 'R000000/00/00'
         representative_form.valid?
       end
+
       it 'email address should be nil' do
         expect(representative_form.email_address).to be_nil
       end
@@ -206,18 +209,17 @@ RSpec.describe RepresentativeForm, type: :form do
 
     it_behaves_like "a Form",
                     {
-                      name:               'Saul Goodman',
-                      organisation_name:  'Better Call Saul',
-                      type:               'citizen_advice_bureau', dx_number: '1',
-                      address_building:   '1', address_street: 'High Street',
-                      address_locality:   'Anytown', address_county: 'Anyfordshire',
-                      address_post_code:  'AT1 0AA', email_address: 'lol@example.com',
+                      name: 'Saul Goodman',
+                      organisation_name: 'Better Call Saul',
+                      type: 'citizen_advice_bureau', dx_number: '1',
+                      address_building: '1', address_street: 'High Street',
+                      address_locality: 'Anytown', address_county: 'Anyfordshire',
+                      address_post_code: 'AT1 0AA', email_address: 'lol@example.com',
                       has_representative: true,
                       contact_preference: 'email'
                     },
                     Claim,
                     ['has_representative']
-
 
     describe 'postcode validation' do
       before do
@@ -225,12 +227,11 @@ RSpec.describe RepresentativeForm, type: :form do
         representative_form.contact_preference = 'email'
       end
 
-
       include_examples "Postcode validation",
-        attribute_prefix: 'address',
-        error_message: 'Enter a valid postcode. If your representative lives abroad, enter SW55 9QT'
+                       attribute_prefix: 'address',
+                       error_message: 'Enter a valid postcode. If your representative lives abroad, enter SW55 9QT'
       include_examples "Email validation",
-        error_message: 'You have entered an invalid email address'
+                       error_message: 'You have entered an invalid email address'
     end
 
   end

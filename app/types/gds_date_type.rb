@@ -25,8 +25,10 @@ class GdsDateType < ActiveRecord::Type::Date
 
   def pre_process_date_hash(value)
     return nil if value.values.all?(&:empty?)
+
     value = value.symbolize_keys
     return nil if value[:year].to_i.zero?
+
     value
   end
 

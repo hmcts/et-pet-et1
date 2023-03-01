@@ -6,7 +6,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_claimant, class: ::ET1::Test::ClaimantUi do
+  factory :ui_claimant, class: '::ET1::Test::ClaimantUi' do
     trait :mandatory do
       title { :'claimants_details.title.options.unselected' }
       first_name { 'first' }

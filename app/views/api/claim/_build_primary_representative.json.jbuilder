@@ -4,7 +4,7 @@ json.data do
   json.name representative.name
   json.organisation_name representative.organisation_name
   representative.address.tap do |a|
-    if a.nil? ||a.empty?
+    if a.nil? || a.empty?
       json.address_attributes({})
     else
       json.address_attributes do

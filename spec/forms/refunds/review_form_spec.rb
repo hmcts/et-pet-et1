@@ -12,6 +12,7 @@ module Refunds
       before do
         allow(refund_class).to receive(:new).and_return refund_instance
       end
+
       it_behaves_like 'a Form', { accept_declaration: true }, Session
     end
 

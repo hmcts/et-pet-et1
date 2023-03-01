@@ -16,6 +16,7 @@ RSpec.describe AdditionalClaimantsCsv::Result, type: :service do
 
   describe "#fail" do
     before { additional_claimants_csv_result.fail(["some errors", "some more errors"]) }
+
     it { expect(additional_claimants_csv_result.success).to be false }
     it { expect(additional_claimants_csv_result.errors).not_to be_empty }
   end

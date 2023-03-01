@@ -49,7 +49,7 @@ module SaveAndReturn
       "save_and_return.#{controller_name}"
     end
 
-    def after_sign_up_path_for(resource)
+    def after_sign_up_path_for(_resource)
       claim_path_for page_manager.forward
     end
 

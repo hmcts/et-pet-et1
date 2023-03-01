@@ -28,7 +28,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
   describe '#secondary_claimants_attributes=' do
     it 'builds new claimants with attributes, adding to the existing 2' do
       additional_claimants_form.attributes = attributes
-      additional_claimants_form.secondary_claimants.slice(2,2).each_with_index do |c, i|
+      additional_claimants_form.secondary_claimants.slice(2, 2).each_with_index do |c, i|
         attributes[:secondary_claimants_attributes].values[i].each do |key, value|
           expect(c.send(key)).to eq value
         end
@@ -36,7 +36,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
     end
 
     it 'deletes the existing 2 if specified whilst adding the new' do
-      claim.secondary_claimants.each_with_index do | claimant, index|
+      claim.secondary_claimants.each_with_index do |claimant, index|
         attributes[:secondary_claimants_attributes][(index + 2).to_s] = { 'id' => claimant.id.to_s, '_destroy' => 'true' }
       end
 
@@ -79,7 +79,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
   end
 
   describe '#claimants' do
-    let(:form)     { additional_claimants_form.secondary_claimants.last }
+    let(:form) { additional_claimants_form.secondary_claimants.last }
 
     describe 'decorates any secondary claimants in an AdditionalClaimants' do
       it { expect(additional_claimants_form.secondary_claimants.length).to be 2 }
@@ -121,7 +121,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
       xit 'updates the secondary claimants attributes' do
         attributes[:secondary_claimants_attributes].sort.each_with_index do |(_, attributes), index|
-          attributes.each { |k, v| expect(claim.secondary_claimants.slice(2,2)[index].send(k)).to eq v }
+          attributes.each { |k, v| expect(claim.secondary_claimants.slice(2, 2)[index].send(k)).to eq v }
         end
       end
     end
@@ -150,6 +150,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
           }
         }
       end
+
       before { additional_claimants_form.attributes = attributes }
 
       it 'returns false' do
@@ -163,6 +164,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
           has_multiple_claimants: 'false'
         }
       end
+
       before { additional_claimants_form.attributes = attributes }
 
       it 'returns true' do

@@ -1,4 +1,3 @@
-# rubocop:disable RSpec/MultipleExpectations
 require 'rails_helper'
 
 RSpec.describe SubmitDiversityResponseToApiService, type: :service do
@@ -24,10 +23,10 @@ RSpec.describe SubmitDiversityResponseToApiService, type: :service do
       match do |actual|
         errors = []
         json = JSON.parse(actual.body).deep_symbolize_keys[:data].detect { |command| command[:command] == expected_command }
-        expect(json).to be_a_valid_api_command(expected_command).version(@version).for_db_data(@db_data) # rubocop:disable RSpec/InstanceVariable
-      rescue RSpec::Expectations::ExpectationNotMetError => err
+        expect(json).to be_a_valid_api_command(expected_command).version(@version).for_db_data(@db_data)
+      rescue RSpec::Expectations::ExpectationNotMetError => e
         errors << "Json did not contain valid api command for #{expected_command}"
-        errors.concat(err.message.lines.map { |l| "#{'  ' * 2}#{l.gsub(/\n\z/, '')}" })
+        errors.concat(e.message.lines.map { |l| "#{'  ' * 2}#{l.gsub(/\n\z/, '')}" })
         false
       end
 
@@ -77,4 +76,3 @@ RSpec.describe SubmitDiversityResponseToApiService, type: :service do
     end
   end
 end
-# rubocop:enable RSpec/MultipleExpectations

@@ -5,7 +5,7 @@ RSpec.describe ApplicationReference do
     end
 
     it 'is always full length even if there are leading zero bytes' do
-      allow(SecureRandom).to receive(:random_bytes) { "\x00\x00\x00\x00\xff" }
+      allow(SecureRandom).to receive(:random_bytes).and_return("\x00\x00\x00\x00\xff")
       expect(described_class.generate).to eql('0000-007Z')
     end
 
@@ -16,7 +16,7 @@ RSpec.describe ApplicationReference do
 
     it 'uses only digits and letters (except I, L, O, U)' do
       codes = Array.new(100) { described_class.generate }.join
-      expect(codes).to match(/\A[0-9A-HJKMNP-TV-Z\-]+\z/)
+      expect(codes).to match(/\A[0-9A-HJKMNP-TV-Z-]+\z/)
     end
   end
 

@@ -9,7 +9,6 @@ class Presenter
   # by manually entering the URL before completing all form pages
 
   class NullObject < BasicObject
-    # rubocop:disable Style/MethodMissing
     def method_missing(*)
       nil
     end
@@ -17,7 +16,6 @@ class Presenter
     def respond_to?(*)
       true
     end
-    # rubocop:enable Style/MethodMissing
   end
 
   def initialize(target)
@@ -66,6 +64,7 @@ class Presenter
 
   def date(date)
     return unless date
+
     I18n.l date, format: '%d %B %Y'
   end
 

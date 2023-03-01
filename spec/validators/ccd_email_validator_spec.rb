@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe CcdEmailValidator do
   let(:valid_values) do
-    %w(test@example.com fred@bloggs.com test@example.sub.com test@example.sub.sub.com test@example.abcom)
+    ['test@example.com', 'fred@bloggs.com', 'test@example.sub.com', 'test@example.sub.sub.com', 'test@example.abcom']
   end
   let(:invalid_values) do
     ['a space@example.com', 'test*@email.com', 'test@example.toolongdomain']

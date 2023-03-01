@@ -6,8 +6,17 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:claim_type_section) { review_page.claim_type_section }
+    let(:claim) do
+      create :claim,
+             is_unfair_dismissal: true,
+             discrimination_claims: [:sex_including_equal_pay, :race, :sexual_orientation],
+             pay_claims: [:redundancy, :other], other_claim_details: "yo\r\nyo",
+             is_whistleblowing: true, send_claim_to_whistleblowing_entity: false
+    end
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -24,16 +33,6 @@ describe "claim_reviews/show.html.slim" do
         secondary_respondents: claim.secondary_respondents
       }
       review_page.load(rendered)
-    end
-
-    let(:claim_type_section) { review_page.claim_type_section }
-
-    let(:claim) do
-      create :claim,
-        is_unfair_dismissal: true,
-        discrimination_claims: [:sex_including_equal_pay, :race, :sexual_orientation],
-        pay_claims: [:redundancy, :other], other_claim_details: "yo\r\nyo",
-        is_whistleblowing: true, send_claim_to_whistleblowing_entity: false
     end
 
     def type_text(text, line_break: true)

@@ -17,9 +17,9 @@ RSpec.describe RespondentForm, type: :form do
     acas_early_conciliation_certificate_number: ''
   }.merge(work_attributes)
 
-  it_behaves_like("a Form", attributes)
-
   let(:respondent_form) { described_class.new(Claim.new) { |f| f.assign_attributes attributes } }
+
+  it_behaves_like("a Form", attributes)
 
   describe 'validations' do
     [:name, :address_building, :address_street, :address_locality,
@@ -79,12 +79,13 @@ RSpec.describe RespondentForm, type: :form do
     describe 'presence of work address' do
       describe "when respondent didn't work at a different address" do
         before { respondent_form.worked_at_same_address = 'true' }
+
         [:work_address_building, :work_address_street, :work_address_locality,
          :work_address_telephone_number, :work_address_post_code].each do |attr|
           it { expect(respondent_form).not_to validate_presence_of(attr) }
         end
 
-        it 'should accept a nil value for work address telephone number' do
+        it 'accepts a nil value for work address telephone number' do
           respondent_form.work_address_telephone_number = nil
           respondent_form.valid?
           expect(respondent_form.errors[:work_address_telephone_number]).to be_empty
@@ -102,10 +103,11 @@ RSpec.describe RespondentForm, type: :form do
     describe 'presence of ACAS certificate number' do
       describe 'when ACAS number is indicated' do
         before { respondent_form.has_acas_number = 'true' }
+
         it     { expect(respondent_form).to validate_presence_of(:acas_early_conciliation_certificate_number) }
 
         describe 'ACAS format validation' do
-          { one_char_ten_digits:  'X123456/12/12',
+          { one_char_ten_digits: 'X123456/12/12',
             two_chars_ten_digits: 'XX123456/12/12' }.each do |key, acas_value|
             it "#{key.to_s.humanize} validates correctly" do
               respondent_form.acas_early_conciliation_certificate_number = acas_value
@@ -133,6 +135,7 @@ RSpec.describe RespondentForm, type: :form do
 
       describe 'when no ACAS number is indicated' do
         before { respondent_form.has_acas_number = 'false' }
+
         it     { expect(respondent_form).not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
       end
     end
@@ -146,11 +149,13 @@ RSpec.describe RespondentForm, type: :form do
 
       describe 'when and ACAS number is given' do
         before { respondent_form.has_acas_number = 'true' }
+
         it     { expect(respondent_form).not_to validate_presence_of(:no_acas_number_reason) }
       end
 
       describe 'when and ACAS number is given' do
         before { respondent_form.has_acas_number = 'false' }
+
         it     { expect(respondent_form).to validate_presence_of(:no_acas_number_reason) }
       end
     end
@@ -203,17 +208,18 @@ RSpec.describe RespondentForm, type: :form do
     subject { respondent_form }
 
     include_examples "Postcode validation",
-      attribute_prefix: 'address',
-      error_message: 'Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT'
+                     attribute_prefix: 'address',
+                     error_message: 'Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT'
 
     include_examples "Postcode validation",
-      attribute_prefix: 'work_address',
-      error_message: 'Enter a valid UK postcode. If you live abroad enter SW55 9QT'
+                     attribute_prefix: 'work_address',
+                     error_message: 'Enter a valid UK postcode. If you live abroad enter SW55 9QT'
   end
 
   describe '#has_acas_number' do
-    let(:respondent_form) { described_class.new(Claim.new) }
     subject { respondent_form.has_acas_number }
+
+    let(:respondent_form) { described_class.new(Claim.new) }
 
     it { is_expected.to be nil }
   end

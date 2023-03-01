@@ -10,7 +10,8 @@ class CookiesController < ApplicationController
   def create
     update_cookie
     redirect_to path_only(params.dig(:cookie, :return_path)),
-                flash: { cookie_banner_confirmation: t("cookie_banner.confirmation_message.#{cookie_form.usage}", edit_cookies_path: edit_cookies_path) }
+                flash: { cookie_banner_confirmation: t("cookie_banner.confirmation_message.#{cookie_form.usage}",
+                                                       edit_cookies_path: edit_cookies_path) }
   end
 
   private

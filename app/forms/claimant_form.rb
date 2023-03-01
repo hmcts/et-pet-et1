@@ -8,10 +8,9 @@ class ClaimantForm < Form
 
   include AddressAttributes.but_skip_postcode_validation
 
-
   validates :address_post_code,
-    post_code: true, length: { maximum: POSTCODE_LENGTH },
-    unless: :international_address?
+            post_code: true, length: { maximum: POSTCODE_LENGTH },
+            unless: :international_address?
 
   attribute :first_name,         :string
   attribute :last_name,          :string
@@ -27,13 +26,12 @@ class ClaimantForm < Form
   attribute :allow_video_attendance, :boolean
   attribute :has_special_needs, :boolean
 
-
   before_validation :reset_special_needs!, unless: :has_special_needs?
   before_validation :clear_email_address, unless: :contact_preference_email?
   before_validation :clean_empty_title
 
   validates :first_name, :last_name, :address_country,
-    :contact_preference, presence: true
+            :contact_preference, presence: true
   validates :has_special_needs, inclusion: [true, false]
 
   validates :title, ccd_personal_title: true
@@ -49,8 +47,7 @@ class ClaimantForm < Form
                             ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
-
-  validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago }}, presence: true
+  validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, presence: true
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

@@ -6,8 +6,30 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:employment_section) { review_page.employment_section }
+    let(:employment) do
+      build :employment, default_employment_attributes.merge(employment_attributes)
+    end
+    let(:employment_attributes) { {} }
+    let(:default_employment_attributes) do
+      {
+        start_date: Date.civil(2000, 2, 1),
+        average_hours_worked_per_week: 40.0,
+        gross_pay: 500, pay_period_type: 'weekly', net_pay: 490,
+        enrolled_in_pension_scheme: false,
+        benefit_details: 'Company car', current_situation: 'employment_terminated',
+        end_date: Date.civil(2010, 12, 1),
+        worked_notice_period_or_paid_in_lieu: false,
+        notice_period_end_date: Date.civil(2010, 12, 2), notice_pay_period_count: 4,
+        notice_pay_period_type: 'weeks', new_job_start_date: Date.civil(2011, 1, 1),
+        new_job_gross_pay: 100, new_job_gross_pay_frequency: 'monthly',
+        found_new_job: true
+      }
+    end
+    let(:claim) { create(:claim, employment: employment) }
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -26,30 +48,6 @@ describe "claim_reviews/show.html.slim" do
       review_page.load(rendered)
     end
 
-    let(:employment_section) { review_page.employment_section }
-
-    let(:employment) do
-      build :employment, default_employment_attributes.merge(employment_attributes)
-    end
-    let(:employment_attributes) { {} }
-
-    let(:default_employment_attributes) do
-      {
-        start_date: Date.civil(2000, 2, 1),
-        average_hours_worked_per_week: 40.0,
-        gross_pay: 500, pay_period_type: 'weekly', net_pay: 490,
-        enrolled_in_pension_scheme: false,
-        benefit_details: 'Company car', current_situation: 'employment_terminated',
-        end_date: Date.civil(2010, 12, 1),
-        worked_notice_period_or_paid_in_lieu: false,
-        notice_period_end_date: Date.civil(2010, 12, 2), notice_pay_period_count: 4,
-        notice_pay_period_type: 'weeks', new_job_start_date: Date.civil(2011, 1, 1),
-        new_job_gross_pay: 100, new_job_gross_pay_frequency: 'monthly',
-        found_new_job: true
-      }
-    end
-    let(:claim) { create(:claim, employment: employment) }
-
     it { expect(employment_section.start_date.answer).to have_text '01 February 2000' }
     it { expect(employment_section.average_weekly_hours_worked.answer).to have_text 40.0 }
     it { expect(employment_section.pay_before_tax.answer).to have_text '£500.00 per week' }
@@ -63,6 +61,7 @@ describe "claim_reviews/show.html.slim" do
     it { expect(employment_section).not_to have_notice_pay }
     it { expect(employment_section.another_job.answer).to have_text 'Yes' }
     it { expect(employment_section.pay_before_tax_at_new_job.answer).to have_text '£100.00 per month' }
+
     context "when found_new_job is false" do
       let(:employment_attributes) { { found_new_job: false } }
 
@@ -80,6 +79,7 @@ describe "claim_reviews/show.html.slim" do
     describe 'current_situation' do
       context 'when still_employed' do
         let(:employment_attributes) { { current_situation: :still_employed, new_job_start_date: nil, new_job_gross_pay: nil } }
+
         it 'does not include fields pertaining to employment end date or notice period' do
           aggregate_failures 'validating fields do not exist' do
             expect(employment_section).not_to have_end_date
@@ -92,7 +92,9 @@ describe "claim_reviews/show.html.slim" do
 
       context 'when notice_period' do
         let(:employment_attributes) { { current_situation: :notice_period, new_job_start_date: nil, new_job_gross_pay: nil } }
+
         it { expect(employment_section.notice_period_end_date.answer).to have_text '02 December 2010' }
+
         it 'does not include fields pertaining to employment end date or notice period pay' do
           aggregate_failures 'validating fields do not exist' do
             expect(employment_section).not_to have_end_date
@@ -129,6 +131,7 @@ describe "claim_reviews/show.html.slim" do
 
       context 'when employment is blank' do
         let(:claim) { create(:claim, employment: nil) }
+
         it 'presents as not employed there' do
           expect(employment_section.employed_by_employer.answer).to have_text('No')
         end

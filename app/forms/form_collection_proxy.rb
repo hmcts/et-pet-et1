@@ -47,10 +47,8 @@ class FormCollectionProxy
     wrap_collection(collection_cache.slice(*args))
   end
 
-  def each
-    collection_cache.each do |proxied_object|
-      yield proxied_object
-    end
+  def each(&block)
+    collection_cache.each(&block)
   end
 
   def clear
@@ -67,11 +65,12 @@ class FormCollectionProxy
   end
 
   delegate_missing_to :collection_cache
-  alias_method :to_ary, :to_a
+  alias to_ary to_a
 
   private
 
-  attr_reader :parent_form_instance, :collection_name, :child_form_klass, :collection_wrapped, :collection_cache, :to_destroy
+  attr_reader :parent_form_instance, :collection_name, :child_form_klass, :collection_wrapped, :collection_cache,
+              :to_destroy
 
   def on_initialize
     load_collection_cache
@@ -84,9 +83,11 @@ class FormCollectionProxy
   end
 
   def apply_collection_attributes(collection_attributes)
-    collection_attributes.each do |(key, value)|
+    collection_attributes.each do |(_key, value)|
       instance = if value[child_primary_key].present?
-                   collection_cache.find { |record| record.send(child_primary_key).to_s == value[child_primary_key].to_s }
+                   collection_cache.find do |record|
+                     record.send(child_primary_key).to_s == value[child_primary_key].to_s
+                   end
                  else
                    build
                  end
@@ -100,7 +101,7 @@ class FormCollectionProxy
 
   def form_to_nested_attributes(form)
     if form.marked_for_destruction?
-      { child_primary_key =>  form.send(child_primary_key), '_destroy' => '1' }
+      { child_primary_key => form.send(child_primary_key), '_destroy' => '1' }
     elsif form.target.nil?
       # This was not loaded by the db but has been added since load
       form.attributes.except(child_primary_key.to_s, *child_form_klass.transient_attributes.map(&:to_s))

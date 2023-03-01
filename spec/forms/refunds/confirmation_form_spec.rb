@@ -18,6 +18,7 @@ module Refunds
         allow(refund_class).to receive(:find_by!).with(id: 99).and_return refund_instance
         allow(mock_session_class).to receive(:new).and_return(refund_session)
       end
+
       it_behaves_like 'a Form', {}, -> { Session }
 
     end

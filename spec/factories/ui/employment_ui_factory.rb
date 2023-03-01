@@ -11,7 +11,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_employment, class: ::ET1::Test::EmploymentUi do
+  factory :ui_employment, class: '::ET1::Test::EmploymentUi' do
     trait :mandatory do
     end
 

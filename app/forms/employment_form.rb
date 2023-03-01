@@ -63,6 +63,7 @@ class EmploymentForm < Form
 
   def reset_unwanted_situations!
     return if current_situation.blank?
+
     unwanted = CURRENT_SITUATION - [current_situation.to_sym, :still_employed]
     unwanted.each { |situation| send("reset_#{situation}!") }
   end

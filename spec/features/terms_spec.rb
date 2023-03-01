@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Terms' do
+describe 'Terms' do
 
   let(:general_header)                                 { '<h2 class="legend">General terms and conditions</h2>' }
   let(:applicable_law_header)                          { '<h2 class="legend">Applicable Law</h2>' }
@@ -44,7 +44,7 @@ feature 'Terms' do
     visit terms_path
   end
 
-  scenario "User visits the terms page" do
+  it "User visits the terms page" do
     expect(page.html).to include(general_header)
     expect(page.html).to include(applicable_law_header)
     expect(page.html).to include(applicable_law_responsible_use_header)
@@ -66,32 +66,32 @@ feature 'Terms' do
     expect(page.html).to include(disclaimer_header)
   end
 
-  scenario "User can click general link" do
+  it "User can click general link" do
     expect(page).to have_link(general_link, href: general_div.to_s)
     expect(page.find(general_div)).not_to be_nil
   end
 
-  scenario "User can click applicable law link" do
+  it "User can click applicable law link" do
     expect(page).to have_link(applicable_law_link, href: applicable_law_div.to_s)
     expect(page.find(applicable_law_div)).not_to be_nil
   end
 
-  scenario "User can click applicable law responsible use link" do
+  it "User can click applicable law responsible use link" do
     expect(page).to have_link(applicable_law_responsible_use_link, href: applicable_law_responsible_use_div.to_s)
     expect(page.find(applicable_law_div)).not_to be_nil
   end
 
-  scenario "User can click privacy policy link" do
+  it "User can click privacy policy link" do
     expect(page).to have_link(privacy_policy_link, href: privacy_policy_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
-  scenario "User can click data protection link" do
+  it "User can click data protection link" do
     expect(page).to have_link(data_protection_link, href: data_protection_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end
 
-  scenario "User can click disclaimer link" do
+  it "User can click disclaimer link" do
     expect(page).to have_link(disclaimer_link, href: disclaimer_div.to_s)
     expect(page.find(privacy_policy_div)).not_to be_nil
   end

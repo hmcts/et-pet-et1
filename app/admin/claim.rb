@@ -54,13 +54,13 @@ ActiveAdmin.register Claim do
 
   member_action :txt_file, method: :get do
     text = case params[:type]
-           when 'claim_details' then
+           when 'claim_details'
              resource.claim_details
-           when 'miscellaneous_information' then
+           when 'miscellaneous_information'
              resource.miscellaneous_information
-           when 'other_claim_details' then
+           when 'other_claim_details'
              resource.other_claim_details
-           when 'other_outcome' then
+           when 'other_outcome'
              resource.other_outcome
            end
 
@@ -71,6 +71,7 @@ ActiveAdmin.register Claim do
     ['claim_details', 'miscellaneous_information',
      'other_claim_details', 'other_outcome'].each do |text|
       next if resource.send(text).blank?
+
       br
       div do
         link_to text.humanize.to_s, { action: :txt_file, type: text }, class: :button
@@ -122,4 +123,3 @@ ActiveAdmin.register Claim do
     end
   end
 end
-# rubocop:enable Metrics/ClassLength

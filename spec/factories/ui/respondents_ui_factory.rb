@@ -4,7 +4,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_respondent, class: ::ET1::Test::RespondentUi do
+  factory :ui_respondent, class: '::ET1::Test::RespondentUi' do
     trait :mandatory do
       name { 'Dodgy Co' }
       address_building { '32' }

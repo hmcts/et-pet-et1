@@ -6,7 +6,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_secondary_claimant, class: ::ET1::Test::SecondaryClaimantUi do
+  factory :ui_secondary_claimant, class: '::ET1::Test::SecondaryClaimantUi' do
     trait :mandatory do
       first_name { 'first' }
       sequence(:last_name) { |idx| "last#{idx}" }

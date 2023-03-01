@@ -41,7 +41,6 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
       end
 
-
       context 'and claimants are seeking remission' do
         before { claim.remission_claimant_count = 1 }
 
@@ -62,14 +61,14 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
   end
 
-  it { expect(confirmation_presenter.attachments).to eq 'file.rtf<br />file.csv' }
+  it { expect(confirmation_presenter.attachments).to eq 'file.rtf<br>file.csv' }
 
   describe '#each_item' do
     it 'yields the submission information' do
       expect { |b| confirmation_presenter.each_item(&b) }.
         to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
-          [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
-          [:attachments, "file.rtf<br />file.csv"]
+                                 [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
+                                 [:attachments, "file.rtf<br>file.csv"]
     end
 
     context 'when no attachments were uploaded' do
@@ -78,8 +77,8 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
       it 'yields text to state no attachments are present' do
         expect { |b| confirmation_presenter.each_item(&b) }.
           to yield_successive_args [:submission_information, "Submitted 01 January 2014"],
-            [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
-            [:attachments, "None"]
+                                   [:office_information, "Birmingham, email@example.com, 0121 600 7780"],
+                                   [:attachments, "None"]
       end
     end
   end

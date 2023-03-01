@@ -12,9 +12,9 @@ class AdditionalClaimantsForm
     attribute :date_of_birth, :et_date, allow_2_digit_year: true
     attribute :title,         :string
 
-    booleans   :has_special_needs, :has_representative
+    booleans :has_special_needs, :has_representative
 
-    validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago }}, presence: true
+    validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, presence: true
     validates :title, inclusion: { in: TITLES }, ccd_personal_title: true, allow_blank: true
     validates :first_name, :last_name, presence: true, length: { maximum: NAME_LENGTH }
 

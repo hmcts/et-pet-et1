@@ -24,10 +24,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       match do |actual|
         errors = []
         json = JSON.parse(actual.body).deep_symbolize_keys[:data].detect { |command| command[:command] == expected_command }
-        expect(json).to be_a_valid_api_command(expected_command).version(@version).for_db_data(@db_data) # rubocop:disable RSpec/InstanceVariable
-      rescue RSpec::Expectations::ExpectationNotMetError => err
+        expect(json).to be_a_valid_api_command(expected_command).version(@version).for_db_data(@db_data)
+      rescue RSpec::Expectations::ExpectationNotMetError => e
         errors << "Json did not contain valid api command for #{expected_command}"
-        errors.concat(err.message.lines.map { |l| "#{'  ' * 2}#{l.gsub(/\n\z/, '')}" })
+        errors.concat(e.message.lines.map { |l| "#{'  ' * 2}#{l.gsub(/\n\z/, '')}" })
         false
       end
 
@@ -72,8 +72,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent and a representative' do
       let(:example_claim) { create(:claim, :no_attachments, :not_submitted) }
+
       context 'validating recorded request' do
         subject { recorded_request }
+
         include_context 'with action performed before each example'
 
         it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
@@ -86,14 +88,15 @@ RSpec.describe SubmitClaimToApiService, type: :service do
         it { is_expected.not_to contain_api_command('BuildClaimantsFile') }
         it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
       end
+
       context 'validating returned service object' do
         subject(:service) { described_class.call example_claim }
 
-        it 'should be valid' do
+        it 'is valid' do
           expect(service).to be_valid
         end
 
-        it 'should have no errors' do
+        it 'has no errors' do
           subject.valid?
           expect(service.errors).to be_empty
         end
@@ -113,6 +116,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent (with no work address) and a representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_respondent_with_no_work_address, :not_submitted) }
 
@@ -129,6 +133,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent (with no addresses) and a representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_respondent_with_no_addresses, :not_submitted) }
 
@@ -145,6 +150,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent and a representative (with no address)' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :no_attachments, :primary_representative_with_no_address, :not_submitted) }
 
@@ -161,8 +167,9 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent and no representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
-      let(:example_claim) { create(:claim,:without_representative, :no_attachments, :not_submitted) }
+      let(:example_claim) { create(:claim, :without_representative, :no_attachments, :not_submitted) }
 
       it { is_expected.to contain_valid_api_command('BuildClaim').version('2').for_db_data(example_claim) }
       it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
@@ -177,6 +184,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent, no representative and no employment' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_representative, :no_attachments, :without_employment, :not_submitted) }
 
@@ -193,6 +201,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with multiple claimants, single respondent and a representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_secondary_claimants, :no_attachments, :not_submitted) }
 
@@ -209,6 +218,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, multiple respondents and a representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :with_secondary_respondents, :no_attachments, :not_submitted) }
 
@@ -225,6 +235,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with multiple claimants via CSV, single respondent and a representative' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_rtf, :not_submitted) }
 
@@ -241,6 +252,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
     context 'with a claim with single claimant, single respondent, a representative and an rtf file' do
       subject { recorded_request }
+
       include_context 'with action performed before each example'
       let(:example_claim) { create(:claim, :without_additional_claimants_csv, :not_submitted) }
 
@@ -266,7 +278,10 @@ RSpec.describe SubmitClaimToApiService, type: :service do
     end
 
     context 'with a 422 from the API endpoint' do
+      subject(:service) { described_class.call example_claim, uuid: 'my-claim-uuid' }
+
       let(:example_claim) { create(:claim, :no_attachments, :without_representative, :not_submitted) }
+
       before do
         stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |request|
           request_data = JSON.parse(request.body)
@@ -290,13 +305,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
       end
 
-      subject(:service) { described_class.call example_claim, uuid: 'my-claim-uuid' }
-
-      it 'should not be valid' do
+      it 'is not valid' do
         expect(service).not_to be_valid
       end
 
-      it 'should have errors' do
+      it 'has errors' do
         subject.valid?
         expect(service.errors).to be_present
       end

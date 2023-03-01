@@ -21,12 +21,12 @@ RSpec.describe AdditionalClaimantsCsvValidator do
               model_class: {
                 attributes: {
                   example_csv_row: {
-                    row_prefix: 'Row %{line_number}',
+                    row_prefix: 'Row %<line_number>s',
                     attributes: {
-                      title: { inclusion: 'The value "%{value}" is not in the list' },
+                      title: { inclusion: 'The value "%<value>s" is not in the list' },
                       date_of_birth: { invalid: 'The date is invalid' },
-                      street: { too_long: 'The street value is greater than the maximum %{count}' },
-                      locality: { too_long: 'The locality value is greater than the maximum %{count}' },
+                      street: { too_long: 'The street value is greater than the maximum %<count>s' },
+                      locality: { too_long: 'The locality value is greater than the maximum %<count>s' },
                       post_code: { invalid: 'The post code is invalid' }
                     }
                   }
@@ -37,11 +37,13 @@ RSpec.describe AdditionalClaimantsCsvValidator do
         }
       }
     end
+
     around do |example|
       I18n.backend.store_translations I18n.locale, example_translations
       example.run
       I18n.backend.reload!
     end
+
     it 'translates errors from API' do
       response_body = {
         "status": "not_accepted",
@@ -105,9 +107,9 @@ RSpec.describe AdditionalClaimantsCsvValidator do
           }
         ]
       }
-      stub_request(:post, "#{example_base_api_url}/validate")
-               .with(body: hash_including(command: 'ValidateClaimantsFile'))
-               .to_return(status: 422, body: response_body.to_json, headers: { 'ContentType' => 'application/json' })
+      stub_request(:post, "#{example_base_api_url}/validate").
+        with(body: hash_including(command: 'ValidateClaimantsFile')).
+        to_return(status: 422, body: response_body.to_json, headers: { 'ContentType' => 'application/json' })
       model = ModelClass.new(example_csv: { filename: 'a.txt', path: '/tmp/a.txt', content_type: 'text/csv' }.stringify_keys)
 
       ClimateControl.modify ET_API_URL: example_base_api_url do

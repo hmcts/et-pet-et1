@@ -7,33 +7,33 @@ RSpec.describe EmploymentForm, type: :form do
   let(:employment) { Employment.new }
 
   it_behaves_like 'it parses dates',
-    :start_date, :end_date, :notice_period_end_date, :new_job_start_date
+                  :start_date, :end_date, :notice_period_end_date, :new_job_start_date
 
   describe 'validations' do
     shared_examples 'common date examples' do |field:|
       it 'rejects a 2 digit year' do
-        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => '16'}
+        employment_form.attributes = { "#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => '16' }
         employment_form.valid?
-        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+        expect(employment_form.errors.details[field]).to include(a_hash_including(error: :invalid))
 
       end
 
       it 'rejects a missing year' do
-        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => ''}
+        employment_form.attributes = { "#{field}(3i)" => '1', "#{field}(2i)" => '1', "#{field}(1i)" => '' }
         employment_form.valid?
-        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+        expect(employment_form.errors.details[field]).to include(a_hash_including(error: :invalid))
       end
 
       it 'rejects a missing month' do
-        employment_form.attributes={"#{field}(3i)" => '1', "#{field}(2i)" => '', "#{field}(1i)" => '2010'}
+        employment_form.attributes = { "#{field}(3i)" => '1', "#{field}(2i)" => '', "#{field}(1i)" => '2010' }
         employment_form.valid?
-        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+        expect(employment_form.errors.details[field]).to include(a_hash_including(error: :invalid))
       end
 
       it 'rejects a missing day' do
-        employment_form.attributes={"#{field}(3i)" => '', "#{field}(2i)" => '1', "#{field}(1i)" => '2010'}
+        employment_form.attributes = { "#{field}(3i)" => '', "#{field}(2i)" => '1', "#{field}(1i)" => '2010' }
         employment_form.valid?
-        expect(employment_form.errors.details[field]).to include(a_hash_including error: :invalid)
+        expect(employment_form.errors.details[field]).to include(a_hash_including(error: :invalid))
       end
 
     end
@@ -41,19 +41,19 @@ RSpec.describe EmploymentForm, type: :form do
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
     end
 
-    { new_job_gross_pay_frequency: :new_job_gross_pay, notice_pay_period_type: :notice_pay_period_count}
-      .each do |type, pay|
-        describe type.to_s do
-          context "when #{pay} is true" do
-            before { employment_form.send "#{pay}=", "100" }
+    { new_job_gross_pay_frequency: :new_job_gross_pay, notice_pay_period_type: :notice_pay_period_count }.
+      each do |type, pay|
+      describe type.to_s do
+        context "when #{pay} is true" do
+          before { employment_form.send "#{pay}=", "100" }
 
-            it { expect(employment_form).to validate_presence_of type }
-          end
-
-          context "when #{pay} is false" do
-            it { expect(employment_form).not_to validate_presence_of type }
-          end
+          it { expect(employment_form).to validate_presence_of type }
         end
+
+        context "when #{pay} is false" do
+          it { expect(employment_form).not_to validate_presence_of type }
+        end
+      end
     end
 
     describe 'end_date' do

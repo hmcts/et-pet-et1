@@ -7,4 +7,3 @@ class CookieForm
   attribute :essential, :boolean, default: true
   attribute :seen, :boolean, default: false
 end
-

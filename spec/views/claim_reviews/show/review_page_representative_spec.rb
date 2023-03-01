@@ -6,8 +6,19 @@ describe "claim_reviews/show.html.slim" do
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
+    let(:representative_section) { review_page.representative_section }
+    let(:representative) do
+      Representative.new type: :law_centre,
+                         organisation_name: 'Better Call Saul', name: 'Saul Goodman',
+                         address_building: '1', address_street: 'Lol street',
+                         address_locality: 'Lolzville', address_county: 'Lolzfordshire',
+                         address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
+                         mobile_number: '07956123456', contact_preference: 'post', dx_number: '1'
+    end
+    let(:claim) { create :claim, representative: representative }
 
     let(:null_object) { NullObject.new }
+
     before do
       view.singleton_class.class_eval do
         def claim_path_for(*)
@@ -25,17 +36,6 @@ describe "claim_reviews/show.html.slim" do
       }
       review_page.load(rendered)
     end
-
-    let(:representative_section) { review_page.representative_section }
-    let(:representative) do
-      Representative.new type: :law_centre,
-        organisation_name: 'Better Call Saul', name: 'Saul Goodman',
-        address_building: '1', address_street: 'Lol street',
-        address_locality: 'Lolzville', address_county: 'Lolzfordshire',
-        address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
-        mobile_number: '07956123456', contact_preference: 'post', dx_number: '1'
-    end
-    let(:claim) { create :claim, representative: representative }
 
     it { expect(representative_section.type_of_representative.answer).to have_text('Law centre') }
     it { expect(representative_section.organisation_name.answer).to have_text('Better Call Saul') }

@@ -1,13 +1,13 @@
 module RepresentativeType
   MAPPINGS = {
-    'citizen_advice_bureau'    => 'CAB',
+    'citizen_advice_bureau' => 'CAB',
     'free_representation_unit' => 'FRU',
-    'law_centre'               => 'Law Centre',
-    'trade_union'              => 'Union',
-    'solicitor'                => 'Solicitor',
-    'private_individual'       => 'Private Individual',
-    'trade_association'        => 'Trade Association',
-    'other'                    => 'Other'
+    'law_centre' => 'Law Centre',
+    'trade_union' => 'Union',
+    'solicitor' => 'Solicitor',
+    'private_individual' => 'Private Individual',
+    'trade_association' => 'Trade Association',
+    'other' => 'Other'
   }.freeze
   private_constant :MAPPINGS
 

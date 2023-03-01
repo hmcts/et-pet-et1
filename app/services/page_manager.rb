@@ -24,6 +24,7 @@ class PageManager
 
     def namespace(name = nil)
       return @namespace if name.nil?
+
       @namespace = name
     end
   end

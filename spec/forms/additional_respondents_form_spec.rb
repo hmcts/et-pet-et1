@@ -33,7 +33,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
     it 'builds new respondents with attributes' do
       additional_respondents_form.attributes = attributes
-      additional_respondents_form.secondary_respondents.slice(2,2).each_with_index do |c, i|
+      additional_respondents_form.secondary_respondents.slice(2, 2).each_with_index do |c, i|
         attributes[:secondary_respondents_attributes].values[i].each do |key, value|
           expect(c.send(key)).to eq value
         end
@@ -42,7 +42,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
     it 'new additional respondents are decorated as Respondents' do
       additional_respondents_form.attributes = attributes
-      additional_respondents_form.secondary_respondents.each_with_index do |_c, i|
+      additional_respondents_form.secondary_respondents.each_with_index do |_c, _i|
         expect(additional_respondents_form.secondary_respondents).to all(be_an_instance_of(AdditionalRespondentsForm::RespondentForm))
       end
     end
@@ -129,7 +129,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
         attributes[:secondary_respondents_attributes].each do |str_index, attributes|
           attributes.each do |k, v|
-            expect(claim.secondary_respondents.slice(2,2)[str_index.to_i].send(k)).to eq v
+            expect(claim.secondary_respondents.slice(2, 2)[str_index.to_i].send(k)).to eq v
           end
         end
       end
@@ -148,7 +148,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
       it 'updates the secondary respondents attributes' do
         attributes[:secondary_respondents_attributes].each_with_index do |(_, attributes), index|
-          attributes.each { |k, v| expect(claim.secondary_respondents.slice(2,2)[index].send(k)).to eq v }
+          attributes.each { |k, v| expect(claim.secondary_respondents.slice(2, 2)[index].send(k)).to eq v }
         end
       end
     end
@@ -187,9 +187,11 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
           }
         }
       end
+
       before do
         additional_respondents_form.attributes = attributes
       end
+
       it 'returns false' do
         expect(additional_respondents_form.save).to be false
       end

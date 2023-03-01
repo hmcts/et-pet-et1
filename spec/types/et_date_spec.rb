@@ -63,6 +63,7 @@ RSpec.describe EtDateType do
       attribute :date, :et_date, allow_2_digit_year: true
     end
     let(:form) { FormWith2Digit.new }
+
     describe 'multi parameter assignment' do
       it 'converts valid value' do
         form.attributes = {
@@ -92,8 +93,8 @@ RSpec.describe EtDateType do
       end
     end
 
-
   end
+
   context 'configured with omit_day' do
     class FormWithOmitDay < ActiveRecord::Base
       establish_connection adapter: :nulldb,
@@ -101,6 +102,7 @@ RSpec.describe EtDateType do
       attribute :date, :et_date, omit_day: true
     end
     let(:form) { FormWithOmitDay.new }
+
     describe 'multi parameter assignment' do
       it 'converts valid value' do
         form.attributes = {
@@ -126,7 +128,6 @@ RSpec.describe EtDateType do
         expect(form.read_attribute_before_type_cast(:date)).to eql 1 => 2000, 2 => 13
       end
     end
-
 
   end
 end

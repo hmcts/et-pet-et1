@@ -1,7 +1,7 @@
 require 'rails_helper'
-RSpec.feature 'Refund Defaults - Case Details Page', js: true do
-  #In order to provide assistance to the user
-  #Some areas of the form have default values
+RSpec.describe 'Refund Defaults - Case Details Page', js: true do
+  # In order to provide assistance to the user
+  # Some areas of the form have default values
 
   before do
     given_i_am_luke_skywalker
@@ -11,7 +11,8 @@ RSpec.feature 'Refund Defaults - Case Details Page', js: true do
     when_i_start_a_new_refund_for_a_sole_party_who_paid_the_tribunal_fees_directly_and_has_not_been_reimbursed
     and_i_fill_in_my_refund_applicant_details
   end
-  scenario 'A user does not fill in anything in the case details step with same address and no representative' do
+
+  it 'A user does not fill in anything in the case details step with same address and no representative' do
 
     when_i_answer_no_to_the_has_your_address_changed_question_for_refunds
     and_i_answer_no_to_the_had_representative_question_for_refunds

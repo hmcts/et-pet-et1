@@ -9,6 +9,7 @@ RSpec.describe AdditionalInformationForm, type: :form do
     describe 'on #miscellaneous information' do
       context 'when has_miscellaneous_information is true' do
         before { additionl_information_form.has_miscellaneous_information = 'true' }
+
         it     { expect(additionl_information_form).to validate_length_of(:miscellaneous_information).is_at_most(2500) }
       end
     end

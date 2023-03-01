@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe RepresentativeType, type: :service do
   type_mappings = {
-    'citizen_advice_bureau'    => 'CAB',
+    'citizen_advice_bureau' => 'CAB',
     'free_representation_unit' => 'FRU',
-    'law_centre'               => 'Law Centre',
-    'trade_union'              => 'Union',
-    'solicitor'                => 'Solicitor',
-    'private_individual'       => 'Private Individual',
-    'trade_association'        => 'Trade Association',
-    'other'                    => 'Other'
+    'law_centre' => 'Law Centre',
+    'trade_union' => 'Union',
+    'solicitor' => 'Solicitor',
+    'private_individual' => 'Private Individual',
+    'trade_association' => 'Trade Association',
+    'other' => 'Other'
   }
 
   describe '::TYPES' do

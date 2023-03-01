@@ -6,7 +6,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_more_about_the_claim, class: ::ET1::Test::MoreAboutTheClaimUi do
+  factory :ui_more_about_the_claim, class: '::ET1::Test::MoreAboutTheClaimUi' do
     trait :mandatory do
     end
 

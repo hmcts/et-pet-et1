@@ -1,14 +1,9 @@
 require 'rails_helper'
 
-feature 'Multiple claimants CSV', js: true do
+describe 'Multiple claimants CSV', js: true do
   include FormMethods
 
   let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
-  around do |example|
-    ClimateControl.modify ET_API_URL: et_api_url do
-      example.run
-    end
-  end
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
   let(:file_path) do
     csv_string = CSV.generate do |csv|
@@ -23,6 +18,13 @@ feature 'Multiple claimants CSV', js: true do
       file&.close
     end
   end
+
+  around do |example|
+    ClimateControl.modify ET_API_URL: et_api_url do
+      example.run
+    end
+  end
+
   before do
     visit new_user_session_path
     fill_in_return_form claim.reference, 'lollolol'
@@ -30,6 +32,7 @@ feature 'Multiple claimants CSV', js: true do
 
   describe 'adding claimants', with_stubbed_azure_upload: true do
     before { EtTestHelpers.stub_validate_additional_claimants_api }
+
     before do
       group_claims_upload_page.load
     end

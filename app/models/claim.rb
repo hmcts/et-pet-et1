@@ -14,16 +14,16 @@ class Claim < ApplicationRecord
   after_create { create_event Event::CREATED }
 
   has_one :primary_claimant, -> { where primary_claimant: true },
-    class_name: 'Claimant'
+          class_name: 'Claimant'
 
   has_one :primary_respondent, -> { where primary_respondent: true },
-    class_name: 'Respondent'
+          class_name: 'Respondent'
 
   has_many :secondary_claimants, -> { where primary_claimant: false },
-    class_name: 'Claimant'
+           class_name: 'Claimant'
 
   has_many :secondary_respondents, -> { where(primary_respondent: false).order(created_at: :asc) },
-    class_name: 'Respondent'
+           class_name: 'Respondent'
 
   has_many :events
 
@@ -56,10 +56,10 @@ class Claim < ApplicationRecord
   delegate :destroy_all, :any?, to: :secondary_claimants, prefix: true
 
   before_update :secondary_claimants_destroy_all,
-    if: :additional_claimants_csv_changed?
+                if: :additional_claimants_csv_changed?
 
   before_update :remove_additional_claimants_csv!,
-    if: :secondary_claimants_any?
+                if: :secondary_claimants_any?
 
   def remove_additional_claimants_csv!
     update_columns(additional_claimants_csv_record_count: 0, additional_claimants_csv: nil)
@@ -102,6 +102,7 @@ class Claim < ApplicationRecord
 
   def finalize!
     raise "Invalid state - cannot finalize!" unless state == "enqueued_for_submission"
+
     self.state = "submitted"
     save!
   end

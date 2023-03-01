@@ -24,11 +24,13 @@ module Refunds
             expect(form).to validate_presence_of(:"payment_#{account_type}_account_name")
           end
         end
+
         context "payment_#{account_type}_name" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_name")
           end
         end
+
         context "payment_#{account_type}_account_number" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_account_number")
@@ -124,12 +126,12 @@ module Refunds
     end
 
     it_behaves_like 'a Form',
-      {
-        payment_account_type: 'bank',
-        payment_bank_account_name: 'Mr Skywalker',
-        payment_bank_name: 'Starship Bank',
-        payment_bank_account_number: '12345678',
-        payment_bank_sort_code: '123456'
-      }, Session
+                    {
+                      payment_account_type: 'bank',
+                      payment_bank_account_name: 'Mr Skywalker',
+                      payment_bank_name: 'Starship Bank',
+                      payment_bank_account_number: '12345678',
+                      payment_bank_sort_code: '123456'
+                    }, Session
   end
 end

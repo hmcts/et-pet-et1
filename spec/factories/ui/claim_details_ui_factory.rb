@@ -4,7 +4,7 @@ module ET1
   end
 end
 FactoryBot.define do
-  factory :ui_claim_details, class: ::ET1::Test::ClaimDetailsUi do
+  factory :ui_claim_details, class: '::ET1::Test::ClaimDetailsUi' do
     trait :mandatory do
       text { 'Claim details text' }
       rtf_file_path { nil }

@@ -1,10 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Claimant, type: :model do
-  it { is_expected.to have_one :address }
-  it_behaves_like "it has an address", :address
-
   let(:claimant) { described_class.new }
+
+  it { is_expected.to have_one :address }
+
+  it_behaves_like "it has an address", :address
 
   describe '#address' do
     describe 'when the association is empty' do

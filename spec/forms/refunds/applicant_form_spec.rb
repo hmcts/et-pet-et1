@@ -219,7 +219,6 @@ module Refunds
         expect(applicant_form.applicant_date_of_birth).to eql Date.parse('15/11/1985')
       end
 
-
       it 'stores the provided hash if the date is invalid' do
         value = { 3 => '32', 2 => '15', 1 => '1985' }
         applicant_form.applicant_date_of_birth = value

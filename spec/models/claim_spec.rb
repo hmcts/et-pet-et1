@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Claim, type: [:claim, :model] do
+  let(:claim_enqueued) { create :claim }
+  let(:claim) { described_class.create }
+
   it { is_expected.to have_secure_password }
 
   it { is_expected.to have_many(:claimants).dependent(:destroy) }
@@ -14,9 +17,6 @@ RSpec.describe Claim, type: [:claim, :model] do
   it { is_expected.to have_one(:office).dependent(:destroy) }
   it { is_expected.to have_one(:primary_claimant).conditions primary_claimant: true }
   it { is_expected.to have_one(:primary_respondent).conditions primary_respondent: true }
-
-  let(:claim) { described_class.create }
-  let(:claim_enqueued) { create :claim }
 
   describe 'callbacks' do
     describe 'after_create' do
@@ -85,7 +85,7 @@ RSpec.describe Claim, type: [:claim, :model] do
     end
   end
 
-  # rubocop:disable DynamicFindBy
+  # rubocop:disable Rails/DynamicFindBy
   describe '.find_by_reference' do
     it 'returns the claim with the corresponding reference' do
       claim = described_class.create!(application_reference: 'ABCD-1234')
@@ -104,7 +104,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       end
     end
   end
-  # rubocop:enable DynamicFindBy
+  # rubocop:enable Rails/DynamicFindBy
 
   describe '#claimant_count' do
     # rubocop:disable RSpec/AnyInstance
@@ -148,16 +148,19 @@ RSpec.describe Claim, type: [:claim, :model] do
 
     context 'when there is a claim of discrimination' do
       before { claim.discrimination_claims << :race }
+
       it { expect(claim.attracts_higher_fee?).to be true }
     end
 
     context 'when there is a claim of unfair dismissal' do
       before { claim.is_unfair_dismissal = true }
+
       it { expect(claim.attracts_higher_fee?).to be true }
     end
 
     context 'when claim is whistleblowing' do
       before { claim.is_whistleblowing = true }
+
       it { expect(claim.attracts_higher_fee?).to be true }
     end
 
@@ -202,7 +205,7 @@ RSpec.describe Claim, type: [:claim, :model] do
   describe '#submittable?' do
     let(:attributes) do
       {
-        primary_claimant:   Claimant.new,
+        primary_claimant: Claimant.new,
         primary_respondent: Respondent.new
       }
     end
