@@ -11,7 +11,9 @@ class ApplicationNumberForm < Form
     resource
   end
 
-  private def deliver_access_details
+  private
+
+  def deliver_access_details
     AccessDetailsMailer.deliver_later(target)
   end
 end

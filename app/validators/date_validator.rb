@@ -40,9 +40,10 @@ class DateValidator < ActiveModel::EachValidator
     # Needs to verify that four digits are given for a year
     return false if value.nil?
 
-    if value.is_a?(String)
+    case value
+    when String
       Date.parse(value).year < 1000
-    elsif value.is_a?(Date) || value.is_a?(Time)
+    when Date, Time
       value.year < 1000
     else
       value[1].present? && value[1].to_i < 1000

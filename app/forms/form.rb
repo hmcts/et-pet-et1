@@ -117,7 +117,7 @@ class Form < ApplicationRecord
   # @TODO This is used just to do multiple booleans !!  (crazy)
   def self.booleans(*attrs)
     attrs.each(&method(:boolean))
-  end # This is requires as all the I18n translations are setup to use it
+  end
 
   # @TODO Decide whether to change or not
   def self.i18n_scope
@@ -127,10 +127,6 @@ class Form < ApplicationRecord
   # @TODO This is for compatibility with old code and is naughty as it is effectively
   # bypassing strong parameters
   # @TODO Work out how to remove this
-  def assign_attributes(attrs)
-    # attrs = attrs.to_unsafe_hash if attrs.respond_to?(:to_unsafe_hash)
-    super(attrs)
-  end
 
   # This is to force everything in to thinking we are doing an update all the time ( needed for I18n labels etc.. )
   # @TODO Review if this is really required

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Representative, type: :model do
-  let(:representative) { Representative.new }
+  let(:representative) { described_class.new }
 
   it { is_expected.to have_one :address }
   it { is_expected.to belong_to(:claim).optional }

@@ -21,7 +21,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
   end
 
   context "claimant with target" do
-    let(:additional_claimant) { AdditionalClaimantsForm::AdditionalClaimant.new(target) }
+    let(:additional_claimant) { described_class.new(target) }
 
     let(:attributes) do
       {

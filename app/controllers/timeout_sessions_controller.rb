@@ -39,7 +39,7 @@ class TimeoutSessionsController < ApplicationController
   end
 
   def send_access_details_and_logout
-    return unless claim.user.present?
+    return if claim.user.blank?
 
     claim.user.update(email: user_session.email_address)
     deliver_access_details
