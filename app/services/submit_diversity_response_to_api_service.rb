@@ -1,6 +1,6 @@
 class SubmitDiversityResponseToApiService < ApiService
-  def self.call(*args)
-    new.call(*args)
+  def self.call(*args, **kw_args)
+    new.call(*args, **kw_args)
   end
 
   def call(diversity_response, uuid: SecureRandom.uuid)

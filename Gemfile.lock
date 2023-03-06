@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 946d9c9bbaab3f2750a7d82fd0492111815df180
-  tag: v5.0.5
+  revision: cd5c4e4dc87303ae7da5155b89c94c1425f870ec
+  tag: v5.1.0
   specs:
-    et_gds_design_system (5.0.5)
+    et_gds_design_system (5.1.0)
       govuk_design_system_formbuilder (~> 3.0)
       rack-proxy (~> 0.6)
       rails (>= 6.0)
@@ -19,10 +19,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6c97b12e3666570b100046cfbc6c804bed364761
-  tag: v1.1.4
+  revision: 1011062ff3e29c895f33302903ab53167b3aeb7a
+  tag: v1.2.0
   specs:
-    et_test_helpers (1.1.4)
+    et_test_helpers (1.2.0)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -575,4 +575,4 @@ DEPENDENCIES
   webrick (~> 1.4, >= 1.4.2)
 
 BUNDLED WITH
-   1.17.3
+   2.2.33
