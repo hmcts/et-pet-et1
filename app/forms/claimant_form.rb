@@ -36,7 +36,7 @@ class ClaimantForm < Form
 
   validates :title, ccd_personal_title: true
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
-  validates :first_name, :last_name, length: { maximum: NAME_LENGTH }
+  validates :first_name, :last_name, length: { maximum: NAME_LENGTH }, special_character: true
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }, ccd_claimant_contact_preference: true
   validates :allow_video_attendance, inclusion: [true, false]
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true

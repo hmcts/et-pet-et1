@@ -38,6 +38,8 @@ module AddressAttributes
                                                                                           unless: :skip_address_validation?
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true,
                                              allow_blank: true, unless: :skip_address_validation?
+        validates :address_building, :address_street, :address_locality, :address_county, :address_post_code,
+                  special_character: true
       end
     end
   end
