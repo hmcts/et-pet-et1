@@ -1,9 +1,13 @@
 class SpecialCharacterValidator < ActiveModel::EachValidator
 
+  def initialize(**kwargs)
+    super(**kwargs)
+  end
+
   def validate_each(record, attribute, value)
     return if value.nil?
 
-    if attribute == :address_building
+    if allow_comma == true
       special_chars = '\<>?.[]=)(*&£^%$#~{}+@!±§|"/:;`'
     else
       special_chars = '\<>.,?[]=)(*&£^%$#~{}+@!±§|"/:;`'
@@ -11,5 +15,11 @@ class SpecialCharacterValidator < ActiveModel::EachValidator
     regex = /[#{special_chars.gsub(/./){|char| "\\#{char}"}}]/
 
     record.errors.add(attribute, :contains_special_characters) if value.match(regex)
+  end
+
+  private
+
+  def allow_comma
+    @allow_comma ||= options[:comma]
   end
 end
