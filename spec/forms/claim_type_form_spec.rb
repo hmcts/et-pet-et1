@@ -62,7 +62,7 @@ RSpec.describe ClaimTypeForm, type: :form do
 
     context 'empty attributes' do
       it "will fail" do
-        expect(claim_type_form.valid?).to be_falsey
+        expect(claim_type_form).not_to be_valid
       end
 
       it "will return proper error message" do
@@ -73,13 +73,13 @@ RSpec.describe ClaimTypeForm, type: :form do
 
     it "is valid with 1 claim type" do
       claim_type_form.discrimination_claims = ["", "age"]
-      expect(claim_type_form.valid?).to be_truthy
+      expect(claim_type_form).to be_valid
     end
 
     it "is valid with 2 or more claim types" do
       claim_type_form.discrimination_claims = ["", "age"]
       claim_type_form.is_unfair_dismissal = true
-      expect(claim_type_form.valid?).to be_truthy
+      expect(claim_type_form).to be_valid
     end
   end
 end

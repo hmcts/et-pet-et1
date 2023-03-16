@@ -1,6 +1,7 @@
 ARG source_image
 FROM ${source_image}
 ENV RAILS_ENV=test
+ENV NODE_OPTIONS=--openssl-legacy-provider
 COPY --chown=app:app ./spec /home/app/et1/spec
 COPY --chown=app:app ./.rspec /home/app/et1/.rspec
 COPY --chown=app:app ./.rspec_parallel /home/app/et1/.rspec_parallel

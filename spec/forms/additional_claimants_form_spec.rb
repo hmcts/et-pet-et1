@@ -73,7 +73,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
           }
         }
         additional_claimants_form.attributes = attributes
-        expect(additional_claimants_form.secondary_claimants.length).to eql 2
+        expect(additional_claimants_form.secondary_claimants.length).to be 2
       end
     end
   end

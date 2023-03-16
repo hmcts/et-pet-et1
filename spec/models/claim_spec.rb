@@ -125,13 +125,13 @@ RSpec.describe Claim, type: [:claim, :model] do
 
   describe '#multiple_claimants?' do
     context 'claim with multiple claimants' do
-      specify { expect(claim_enqueued.multiple_claimants?).to be_truthy }
+      specify { expect(claim_enqueued).to be_multiple_claimants }
     end
 
     context 'claim with a single claimant' do
       let(:claim) { create :claim, :single_claimant }
 
-      specify { expect(claim.multiple_claimants?).to be_falsey }
+      specify { expect(claim).not_to be_multiple_claimants }
     end
   end
 
@@ -143,7 +143,7 @@ RSpec.describe Claim, type: [:claim, :model] do
 
   describe '#attracts_higher_fee?' do
     context 'when there are no claims of discrimination or unfair dismissal' do
-      it { expect(claim.attracts_higher_fee?).to be_falsey }
+      it { expect(claim).not_to be_attracts_higher_fee }
     end
 
     context 'when there is a claim of discrimination' do

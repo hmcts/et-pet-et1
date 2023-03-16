@@ -75,17 +75,17 @@ module ET1
 
       private
 
-      def t(*args)
-        ::ET1::Test::Messaging.instance.t(*args)
+      def t(*args, **kw_args)
+        ::ET1::Test::Messaging.instance.t(*args, **kw_args)
       end
 
-      def self.t(*args)
-        ::ET1::Test::Messaging.instance.t(*args)
+      def self.t(*args, **kw_args)
+        ::ET1::Test::Messaging.instance.t(*args, **kw_args)
       end
 
       class_methods do
-        def t(*args)
-          ::ET1::Test::Messaging.instance.t(*args)
+        def t(*args, **kw_args)
+          ::ET1::Test::Messaging.instance.t(*args, **kw_args)
         end
       end
     end

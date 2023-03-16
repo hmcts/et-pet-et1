@@ -17,7 +17,9 @@ module ClaimsHelper
     [[t('.true'), true], [t('.false'), false]]
   end
 
-  private def markdown
+  private
+
+  def markdown
     @markdown ||= Redcarpet::Markdown.new(Redcarpet::Render::HTML)
   end
 end

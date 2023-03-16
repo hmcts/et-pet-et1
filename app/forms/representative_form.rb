@@ -28,10 +28,6 @@ class RepresentativeForm < Form
   validates :dx_number, presence: true, if: ->(form) { form.contact_preference == 'dx_number' && has_representative? }
   validates :has_representative, inclusion: [true, false]
 
-  def initialize(resource, **attrs)
-    super
-  end
-
   def skip_address_validation?
     !has_representative?
   end
@@ -56,10 +52,11 @@ class RepresentativeForm < Form
   end
 
   def clear_contact_preference_fields
-    if contact_preference == 'post'
+    case contact_preference
+    when 'post'
       self.dx_number = nil
       self.email_address = nil
-    elsif contact_preference == 'email'
+    when 'email'
       self.dx_number = nil
     else
       self.email_address = nil

@@ -8,7 +8,7 @@ RSpec.describe DateValidator do
     ['31,2,1999', '1,15,1999', '12,5,199']
   end
 
-  class ModelClass < ActiveRecord::Base
+  class ModelClass < ApplicationRecord
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 

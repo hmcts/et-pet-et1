@@ -8,7 +8,7 @@ RSpec.describe DateRangeValidator do
     ["1,1,#{9.years.ago.year}", "15,1,#{102.years.ago.year}"]
   end
 
-  class ModelClass < ActiveRecord::Base
+  class ModelClass < ApplicationRecord
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 

@@ -28,7 +28,7 @@ module ClaimReviewsHelper
 
   def review_pay_for(pay, period)
     if [pay, period].all?(&:present?)
-      number_to_currency(pay) + ' ' + t("claim_reviews.item.employment.pay_period_#{period}")
+      "#{number_to_currency(pay)} #{t("claim_reviews.item.employment.pay_period_#{period}")}"
     end
   end
 
