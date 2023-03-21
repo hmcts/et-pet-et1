@@ -184,11 +184,11 @@ en:
               inclusion: Please indicate if you ever been employed by the person or organisation that you’re making this claim against
             start_date:
               invalid: The date you have provided is invalid
-              date_in_future: Must be in the past
+              date_in_future: Employment start date must be in the past
             end_date:
               invalid: The date you have provided is invalid
               end_date_before_start_date: Must be after the employment start date
-              date_in_future: Must be in the past
+              date_in_future: Employment end date must be in the past
             notice_period_end_date:
               invalid: The date you have provided is invalid
             new_job_start_date:
