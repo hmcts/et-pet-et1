@@ -22,16 +22,22 @@ en:
               invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: Enter the first name of the additional claimant
+              contains_special_characters: Must not contain special characters
             last_name:
               blank: Enter the last name of the additional claimant
+              contains_special_characters: Must not contain special characters
             address_building:
               blank: Enter the building name or number from the additional claimant’s address
+              contains_special_characters: Must not contain special characters
             address_street:
               blank: Enter the street from the additional claimant’s address
+              contains_special_characters: Must not contain special characters
             address_locality:
               blank: Enter the town or city from the additional claimant’s address
+              contains_special_characters: Must not contain special characters
             address_county:
               blank: Enter the county from the additional claimant’s address
+              contains_special_characters: Must not contain special characters
             address_post_code:
               blank: Enter the additional claimant’s postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
@@ -69,18 +75,24 @@ en:
                   invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.title.inclusion'
                 first_name:
                   blank: Enter the first name of the additional claimant
+                  contains_special_characters: Must not contain special characters
                 last_name:
                   blank: Enter the last name of the additional claimant
+                  contains_special_characters: Must not contain special characters
                 building:
                   blank: Enter the building name or number from the additional claimant’s address
+                  contains_special_characters: Must not contain special characters
                 street:
                   blank: Enter the street from the additional claimant’s address
                   too_long: :'activemodel.errors.messages.too_long'
+                  contains_special_characters: Must not contain special characters
                 locality:
                   blank: Enter the town or city from the additional claimant’s address
                   too_long: :'activemodel.errors.messages.too_long'
+                  contains_special_characters: Must not contain special characters
                 county:
                   blank: Enter the county from the additional claimant’s address
+                  contains_special_characters: Must not contain special characters
                 post_code:
                   blank: Enter the additional claimant’s postcode
                   invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
@@ -127,8 +139,10 @@ en:
               blank: Select the claimant’s gender, or select ‘prefer not to say’
             first_name:
               blank: Enter the claimant’s first name
+              contains_special_characters: Must not contain special characters
             last_name:
               blank: Enter the claimant’s last name
+              contains_special_characters: Must not contain special characters
             has_special_needs:
               inclusion: Please indicate if you have a disability that requires assistance at the tribunal hearing
             special_needs:
@@ -142,12 +156,16 @@ en:
               inclusion: "Please say whether you would be able to attend a hearing by video"
             address_building:
               blank: Enter the building number or name from the claimant’s address
+              contains_special_characters: Must not contain special characters
             address_street:
               blank: Enter the street from the claimant’s address
+              contains_special_characters: Must not contain special characters
             address_locality:
               blank: Enter the town or city from the claimant’s address
+              contains_special_characters: Must not contain special characters
             address_county:
               blank: Enter the county from the claimant’s address
+              contains_special_characters: Must not contain special characters
             address_post_code:
               blank: Enter the claimant’s postcode
               invalid: Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT
