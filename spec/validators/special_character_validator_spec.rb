@@ -20,7 +20,7 @@ RSpec.describe SpecialCharacterValidator do
       address_building: '&*(',
     }
   end
-  class ModelClass < ActiveRecord::Base
+  class ModelClass < ApplicationRecord
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 
