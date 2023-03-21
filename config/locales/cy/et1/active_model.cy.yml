@@ -28,16 +28,22 @@ cy:
               invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: Rhowch enw cyntaf yr hawlydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             last_name:
               blank: "Rhowch enw olaf yr hawlydd ychwanegol"
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad yr hawlydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_county:
               blank: Rhowch sir cyfeiriad yr hawlydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_post_code:
               blank: "Rhowch god post yr hawlydd ychwanegol"
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
@@ -52,8 +58,10 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             first_name:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             last_name:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
         additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
         additional_claimants_upload:
           attributes:
@@ -61,10 +69,16 @@ cy:
               blank: Mae'n rhaid i chi ddarparu ffeil CSV er mwyn parhau
             additional_claimants_csv_row:
               attributes:
+                building:
+                  contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
                 street:
                   too_long: :'activemodel.errors.messages.too_long'
+                  contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
                 locality:
                   too_long: :'activemodel.errors.messages.too_long'
+                  contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
+                county:
+                  contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
         claim:
           attributes:
             secondary_respondents:
@@ -97,8 +111,10 @@ cy:
               blank: "Dewiswch rywedd yr hawlydd, neu dewiswch 'mae'n well gen i beidio dweud'"
             first_name:
               blank: Rhowch enw cyntaf yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             last_name:
               blank: Rhowch enw olaf yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             special_needs:
               blank: Dywedwch p'un a ydych angen cymorth yn y gwrandawiad tribiwnlys
             contact_preference:
@@ -108,12 +124,16 @@ cy:
               inclusion: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
             address_building:
               blank: Rhowch rif neu enw adeilad cyfeiriad yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_county:
               blank: Rhowch sir cyfeiriad yr hawlydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_post_code:
               blank: Rhowch god post yr hawlydd
               invalid: "Rhowch god post DU dilys. Os yw'r hawlydd yn byw dramor, rhowch SW55 9QT"
@@ -191,6 +211,8 @@ cy:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+            dx_number:
+              invalid_dx: Rhif DX annilys
         respondent:
           attributes:
             name:
