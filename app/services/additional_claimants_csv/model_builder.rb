@@ -29,7 +29,7 @@ class AdditionalClaimantsCsv::ModelBuilder
 
   def sanitize(row_data)
     check_csv_dob_format(row_data) if ATTRIBUTES.include?(:date_of_birth)
-    row_data.take(ATTRIBUTES.size).map { |value| value.strip if value }
+    row_data.take(ATTRIBUTES.size).map { |value| value&.strip }
   end
 
   def check_csv_dob_format(row_data)

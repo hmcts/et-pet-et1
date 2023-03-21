@@ -87,7 +87,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     it "returns whether a file is present or not" do
       expect { additional_claimants_upload_form.additional_claimants_csv = file }.
-        to change { additional_claimants_upload_form.has_additional_claimants_csv? }.from(false).to(true)
+        to change(additional_claimants_upload_form, :has_additional_claimants_csv?).from(false).to(true)
     end
   end
 

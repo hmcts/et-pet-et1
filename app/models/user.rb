@@ -11,10 +11,6 @@ class User < ApplicationRecord
     claim_not_submitted
   end
 
-  def send_reset_password_instructions
-    super
-  end
-
   # As we allow multiple users with same email address - we always find the last one instead of the first
   def self.find_first_by_auth_conditions(tainted_conditions, opts = {})
     to_adapter.find_all(devise_parameter_filter.filter(tainted_conditions).merge(opts)).last

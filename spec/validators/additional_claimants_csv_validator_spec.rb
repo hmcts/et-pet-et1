@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe AdditionalClaimantsCsvValidator do
-  class ModelClass < ActiveRecord::Base
+  class ModelClass < ApplicationRecord
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 

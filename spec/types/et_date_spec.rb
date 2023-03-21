@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EtDateType do
-  class ExampleForm < ActiveRecord::Base
+  class ExampleForm < ApplicationRecord
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
     attribute :date, :et_date
@@ -57,7 +57,7 @@ RSpec.describe EtDateType do
   end
 
   context 'configured with allow_2_digit_year' do
-    class FormWith2Digit < ActiveRecord::Base
+    class FormWith2Digit < ApplicationRecord
       establish_connection adapter: :nulldb,
                            schema: 'config/nulldb_schema.rb'
       attribute :date, :et_date, allow_2_digit_year: true
@@ -96,7 +96,7 @@ RSpec.describe EtDateType do
   end
 
   context 'configured with omit_day' do
-    class FormWithOmitDay < ActiveRecord::Base
+    class FormWithOmitDay < ApplicationRecord
       establish_connection adapter: :nulldb,
                            schema: 'config/nulldb_schema.rb'
       attribute :date, :et_date, omit_day: true

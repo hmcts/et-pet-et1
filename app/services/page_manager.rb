@@ -49,7 +49,9 @@ class PageManager
     self.class.pages.map(&:number).compact.uniq.size
   end
 
-  private def page
+  private
+
+  def page
     @page ||= self.class.pages.find do |p|
       if self.class.namespace.nil?
         p.name == @resource.form_name

@@ -21,7 +21,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
   end
 
   context "claimant with target" do
-    let(:additional_claimant) { AdditionalClaimantsForm::AdditionalClaimant.new(target) }
+    let(:additional_claimant) { described_class.new(target) }
 
     let(:attributes) do
       {
@@ -64,10 +64,11 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
           it "send a data to sentry" do
             fake_scope = double('sentry double')
             expect(Sentry).to receive(:with_scope).and_yield(fake_scope)
-            expect(fake_scope).to receive(:set_extras).with(
-              old_data: target.attributes,
-              new_data: additional_claimant.attributes
-            )
+            expect(fake_scope).to receive(:set_extras).
+              with({
+                     old_data: target.attributes,
+                     new_data: additional_claimant.attributes
+                   })
             # binding.pry
             allow(additional_claimant).to receive(:raise).and_return false
             additional_claimant.save

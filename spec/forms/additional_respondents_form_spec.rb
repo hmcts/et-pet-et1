@@ -68,7 +68,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
           }
         }
         additional_respondents_form.attributes = attributes
-        expect(additional_respondents_form.secondary_respondents.length).to eql 2
+        expect(additional_respondents_form.secondary_respondents.length).to be 2
       end
     end
 
@@ -94,7 +94,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
       it 'does not add a new respondent' do
         additional_respondents_form.attributes = attributes
         additional_respondents_form.save
-        expect(claim.reload.secondary_respondents.count).to eql 2
+        expect(claim.reload.secondary_respondents.count).to be 2
       end
     end
   end

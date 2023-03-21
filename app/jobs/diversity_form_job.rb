@@ -1,4 +1,4 @@
-class DiversityFormJob < ActiveJob::Base
+class DiversityFormJob < ApplicationJob
   queue_as :diversity_form
 
   def perform(diversity, uuid)

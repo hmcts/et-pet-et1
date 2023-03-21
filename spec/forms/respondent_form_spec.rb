@@ -111,7 +111,7 @@ RSpec.describe RespondentForm, type: :form do
             two_chars_ten_digits: 'XX123456/12/12' }.each do |key, acas_value|
             it "#{key.to_s.humanize} validates correctly" do
               respondent_form.acas_early_conciliation_certificate_number = acas_value
-              expect(respondent_form.valid?).to be_truthy
+              expect(respondent_form).to be_valid
             end
 
             it "#{key.to_s.humanize} has no errors" do
@@ -128,7 +128,7 @@ RSpec.describe RespondentForm, type: :form do
 
           it 'is invalid if acas is set to invalid' do
             respondent_form.acas_early_conciliation_certificate_number = 'invalid'
-            expect(respondent_form.valid?).to be_falsey
+            expect(respondent_form).not_to be_valid
           end
         end
       end

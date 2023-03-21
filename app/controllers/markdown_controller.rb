@@ -1,4 +1,4 @@
-class MarkdownController < ActionController::Base
+class MarkdownController < ApplicationController
   layout 'application'
 
   RENDERER_INSTANCE = MarkdownRenderer.new
@@ -32,7 +32,7 @@ class MarkdownController < ActionController::Base
 
   def markdown_files
     self.class.markdown_files.map do |name|
-      self.class.markdown_path.join(name + '.md').to_s
+      self.class.markdown_path.join("#{name}.md").to_s
     end
   end
 end

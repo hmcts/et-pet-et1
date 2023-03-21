@@ -19,7 +19,9 @@ module ApplicationHelper
     end.to_s
   end
 
-  private def generic_header
+  private
+
+  def generic_header
     I18n.t("#{controller_path.gsub(/\//, '.')}.#{action_name}.header")
   end
 end

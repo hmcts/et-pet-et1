@@ -1,7 +1,4 @@
 class DateRangeValidator < ActiveModel::EachValidator
-  def initialize(**kwargs)
-    super(**kwargs)
-  end
 
   def validate_each(record, attribute, value)
     return if value.nil? || range.cover?(value)

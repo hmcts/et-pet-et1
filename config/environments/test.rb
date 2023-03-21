@@ -18,7 +18,7 @@ Rails.application.configure do
 
   config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'debug').to_sym
   if ENV["RAILS_LOG_TO_STDOUT"].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 

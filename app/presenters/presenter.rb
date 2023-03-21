@@ -31,7 +31,9 @@ class Presenter
   end
 
   def each_item
-    items.each { |meth| proc[meth, send(meth)] }
+    items.each do |meth|
+      yield(meth, send(meth))
+    end
   end
 
   private
