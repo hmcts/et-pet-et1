@@ -211,6 +211,8 @@ cy:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
             mobile_number:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
+            dx_number:
+              invalid_dx: Rhif DX annilys
         respondent:
           attributes:
             name:
