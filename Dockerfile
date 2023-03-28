@@ -5,7 +5,6 @@ RUN chown -R app:app /usr/local/bundle
 COPY --chown=app:app . /home/app/et1
 ENV RAILS_ENV=production
 ENV HOME=/home/app
-ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat && \
     apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
     cd /home/app/et1 && \
