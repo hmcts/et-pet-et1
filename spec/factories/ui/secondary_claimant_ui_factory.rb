@@ -9,7 +9,7 @@ FactoryBot.define do
   factory :ui_secondary_claimant, class: '::ET1::Test::SecondaryClaimantUi' do
     trait :mandatory do
       first_name { 'first' }
-      sequence(:last_name) { |idx| "last#{idx}" }
+      sequence(:last_name, 'A') { |idx| "last#{idx}" }
       date_of_birth { "29/11/1999" }
 
       address_building { '32' }
