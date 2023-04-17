@@ -6,7 +6,8 @@ class TimeoutSessionsController < ApplicationController
     if claim.user&.email.present?
       logout
     elsif params[:user_session].present?
-      send_access_details_and_logout
+      send_access_details
+      logout
     else
       render 'reminder'
     end
@@ -38,12 +39,11 @@ class TimeoutSessionsController < ApplicationController
     redirect_to apply_path(locale: I18n.locale), flash: { info: t('.logout') }
   end
 
-  def send_access_details_and_logout
-    return if claim.user.blank?
+  def send_access_details
+    return if claim.user.blank? || user_session.email_address.blank?
 
     claim.user.update(email: user_session.email_address)
     deliver_access_details
-    logout
   end
 
   def deliver_access_details
