@@ -2,6 +2,8 @@ class BaseMailer < GovukNotifyRails::Mailer
   helper :claims
 
   def access_details_email(claim)
+    return if claim&.user&.email.blank?
+
     set_template_name "et1-access-details-v1-#{I18n.locale}"
     @claim = claim
     set_personalisation reference: claim.reference,
