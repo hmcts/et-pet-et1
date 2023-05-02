@@ -64,6 +64,9 @@ group :development, :test do
   gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
+  gem 'ruby-debug-ide'
+  gem 'debase'
+  gem 'solargraph'
 end
 
 group :test do
