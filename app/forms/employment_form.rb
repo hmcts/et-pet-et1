@@ -74,7 +74,7 @@ class EmploymentForm < Form
   end
 
   def reset_employment_terminated!
-    assign_attributes end_date: nil, worked_notice_period_or_paid_in_lieu: nil,
+    assign_attributes end_date: nil,
                       found_new_job: nil
   end
 

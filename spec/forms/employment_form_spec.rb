@@ -139,10 +139,8 @@ RSpec.describe EmploymentForm, type: :form do
         end
 
         context 'previously entered other information clears other fields' do
-          it { expect(employment_form.worked_notice_period_or_paid_in_lieu).to be nil }
           it { expect(employment_form.notice_period_end_date).to be nil }
           it { expect(employment_form.end_date).to be nil }
-          it { expect(employment_form.notice_pay_period_count).to be nil }
           it { expect(employment_form.new_job_start_date).to be nil }
         end
       end
@@ -165,8 +163,6 @@ RSpec.describe EmploymentForm, type: :form do
 
         it { expect(employment_form.notice_period_end_date).not_to be nil }
         it { expect(employment_form.end_date).to be nil }
-        it { expect(employment_form.worked_notice_period_or_paid_in_lieu).to be nil }
-        it { expect(employment_form.notice_pay_period_count).to be nil }
         it { expect(employment_form.new_job_start_date).to be nil }
       end
 
