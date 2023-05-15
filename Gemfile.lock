@@ -8,10 +8,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 8798807d163565c56106bf42c6f9295ecb646e23
-  tag: v5.2.0-rc1
+  revision: 8f32450e784b9d5d233f319faa1c64d3f74de2c4
+  tag: v5.2.0-rc2
   specs:
-    et_gds_design_system (5.2.0.pre.rc1)
+    et_gds_design_system (5.2.0.pre.rc2)
       govuk_design_system_formbuilder (~> 3.0)
       rails (>= 6.0)
       typhoeus (~> 1.4)
