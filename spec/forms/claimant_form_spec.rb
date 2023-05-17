@@ -24,10 +24,10 @@ RSpec.describe ClaimantForm, type: :form do
       context 'when address_country is not united_kingdom' do
         before { claimant_form.address_country = 'other' }
 
-        it { expect(claimant_form).not_to validate_length_of(:address_post_code).is_at_most(8) }
+        it { expect(claimant_form).to validate_length_of(:address_post_code).is_at_most(14) }
 
         it 'allows illegal (from a UK p.o.v) postcodes' do
-          claimant_form.address_post_code = "obviously shabby"
+          claimant_form.address_post_code = "weird address"
           claimant_form.valid?
 
           expect(claimant_form.errors[:address_post_code]).to be_empty

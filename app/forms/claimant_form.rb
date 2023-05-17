@@ -1,16 +1,18 @@
 class ClaimantForm < Form
-  TITLES               = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
-  GENDERS              = ['male', 'female', 'prefer_not_to_say'].freeze
-  CONTACT_PREFERENCES  = ['email', 'post'].freeze
-  COUNTRIES            = ['united_kingdom', 'other'].freeze
-  EMAIL_ADDRESS_LENGTH = 100
-  NAME_LENGTH          = 100
+  TITLES                   = ['Mr', 'Mrs', 'Miss', 'Ms'].freeze
+  GENDERS                  = ['male', 'female', 'prefer_not_to_say'].freeze
+  CONTACT_PREFERENCES      = ['email', 'post'].freeze
+  COUNTRIES                = ['united_kingdom', 'other'].freeze
+  EMAIL_ADDRESS_LENGTH     = 100
+  NAME_LENGTH              = 100
+  EXTERNAL_POSTCODE_LENGTH = 14
 
   include AddressAttributes.but_skip_postcode_validation
 
   validates :address_post_code,
             post_code: true, length: { maximum: POSTCODE_LENGTH },
             unless: :international_address?
+  validates :address_post_code, length: { maximum: EXTERNAL_POSTCODE_LENGTH }, if: :international_address?
 
   attribute :first_name,         :string
   attribute :last_name,          :string
