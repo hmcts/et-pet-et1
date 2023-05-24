@@ -97,6 +97,7 @@ en:
                   blank: Enter the additional claimant’s postcode
                   invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
                   invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_upload.attributes.additional_claimants_csv_row.attributes.address_post_code.invalid'
+                  too_long: :'activemodel.errors.messages.too_long'
                 date_of_birth:
                   blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
                   invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
