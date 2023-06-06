@@ -3023,9 +3023,9 @@ esutils@^2.0.2:
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#5.4.0":
-  version "5.0.5"
-  resolved "https://github.com/hmcts/et_gds_design_system.git#25f6fa6ff9dc88a043b4ed406df9a31d991c5482"
+"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#v5.4.1":
+  version "5.4.1"
+  resolved "https://github.com/hmcts/et_gds_design_system.git#0878b3d2ff40b22723febddf1b26b0e93afcdcef"
   dependencies:
     "@rails/ujs" "^6.0.0"
     "@rails/webpacker" "^5.4.3"
