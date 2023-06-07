@@ -79,6 +79,8 @@ cy:
                   contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
                 county:
                   contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
+                post_code:
+                  too_long: :'activemodel.errors.messages.too_long'
         claim:
           attributes:
             secondary_respondents:

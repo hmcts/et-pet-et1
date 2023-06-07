@@ -230,7 +230,7 @@ div class=("review-list-entry applicant")
 
   = f.check_box :accept_declaration, true, multiple: false
 - content_for(:submit_button)
-  = f.submit 'Submit Claim', classes: ['behavior-continue-button']
+  = f.submit 'Submit Claim', class: ['behavior-continue-button']
 - content_for(:javascripts)
   javascript:
       $(document).ready(function () {

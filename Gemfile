@@ -80,7 +80,7 @@ group :test do
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.2.0'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.2'
 end
 
 group :assets do
@@ -110,7 +110,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 2.2'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.1.0'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.1'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"

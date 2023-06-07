@@ -17,7 +17,7 @@
     "@rails/webpacker": "5.4.3",
     "browserify": "^14.0.0",
     "browserify-incremental": "^3.1.0",
-    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#5.0.5",
+    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#v5.4.1",
     "jquery": "^3.6.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12"

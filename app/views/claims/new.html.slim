@@ -22,6 +22,6 @@
       = f.submit t('.continue')
 
     = form_for :return_to_claim, url: new_user_session_path, method: :get, html: { class: 'inline-form' }, builder: EtGdsDesignSystem.form_builder_class do |f|
-      = f.submit t('helpers.link.claim.return'), secondary: true, classes: ['govuk-!-margin-left-2']
+      = f.submit t('helpers.link.claim.return'), secondary: true, class: ['govuk-!-margin-left-2']
 
   = render partial: 'shared/aside'

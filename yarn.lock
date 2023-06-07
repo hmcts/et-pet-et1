@@ -3023,15 +3023,15 @@ esutils@^2.0.2:
   resolved "https://registry.npmjs.org/esutils/-/esutils-2.0.3.tgz"
   integrity sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==
 
-"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#5.0.5":
-  version "5.0.5"
-  resolved "https://github.com/hmcts/et_gds_design_system.git#946d9c9bbaab3f2750a7d82fd0492111815df180"
+"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#v5.4.1":
+  version "5.4.1"
+  resolved "https://github.com/hmcts/et_gds_design_system.git#0878b3d2ff40b22723febddf1b26b0e93afcdcef"
   dependencies:
     "@rails/ujs" "^6.0.0"
     "@rails/webpacker" "^5.4.3"
     axios "^0.25.0"
     dropzone "^6.0.0-beta.2"
-    govuk-frontend "^4.1.0"
+    govuk-frontend "^4.6.0"
     prop-types "^15.7.2"
     spark-md5 "^3.0.2"
     turbolinks "^5.2.0"
@@ -3530,10 +3530,10 @@ globby@^11.0.1:
     merge2 "^1.3.0"
     slash "^3.0.0"
 
-govuk-frontend@^4.1.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.3.1.tgz#d9c581aca3d23bbfe9bd27c25fee65322b276393"
-  integrity sha512-uD0KVFds7drOwLEvfp4zRBOXuHCxkWLYDQcYvlbG+2baZ9po2TGZz8WjfzhfueYjo9+Uwk+bM0NQT6g4cg/Q+A==
+govuk-frontend@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/govuk-frontend/-/govuk-frontend-4.6.0.tgz#662b41f7c468bb5468441218c720f0b31c948cbd"
+  integrity sha512-pLJVHVvfsTmNDBH/YBCMyuqSMCQmOrNQXoThdcAzhXJVbuaWnGc1URvjOR7EJeZyOm101fHDjzTkTvpEy6zfiw==
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   version "4.2.4"
