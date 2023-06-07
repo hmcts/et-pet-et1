@@ -198,6 +198,8 @@ en:
               blank: Please select one of the options
             pay_period_type:
               blank: Select how often you were paid
+            notice_pay_period_type:
+              blank: You must provide information for this field
 
         password:
           attributes:
