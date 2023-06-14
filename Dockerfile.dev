@@ -1,4 +1,4 @@
-FROM ruby:2.7.7-alpine
+FROM ruby:3.2.1-alpine
 
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
@@ -35,4 +35,5 @@ USER app
 ENV HOME /home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=development
+ENV NODE_OPTIONS=--openssl-legacy-provider
 CMD ["bundle", "exec", "iodine", "-port", "8080"]
