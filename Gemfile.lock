@@ -183,9 +183,6 @@ GEM
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
     date (3.3.3)
-    debase (0.2.4.1)
-      debase-ruby_core_source (>= 0.10.2)
-    debase-ruby_core_source (3.2.0)
     debug_inspector (1.1.0)
     devise (4.8.1)
       bcrypt (~> 3.0)
@@ -432,8 +429,6 @@ GEM
     rubocop-rspec (2.18.1)
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
-    ruby-debug-ide (0.7.3)
-      rake (>= 0.8.1)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
@@ -557,7 +552,6 @@ DEPENDENCIES
   climate_control (~> 1.0)
   cuprite (~> 0.10)
   database_cleaner (~> 2.0)
-  debase
   devise (~> 4.8)
   dotenv-rails (~> 2.7)
   email_validator (~> 2.2)
@@ -588,7 +582,6 @@ DEPENDENCIES
   rubocop (~> 1.8)
   rubocop-rails
   rubocop-rspec (~> 2.1)
-  ruby-debug-ide
   selenium-webdriver (~> 4.3)
   sentry-rails (~> 5.7)
   sentry-ruby (~> 5.7)
