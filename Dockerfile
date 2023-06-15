@@ -1,10 +1,11 @@
-FROM ruby:2.7.7-alpine AS assets
+FROM ruby:3.2.2-alpine AS assets
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
 RUN chown -R app:app /usr/local/bundle
 COPY --chown=app:app . /home/app/et1
 ENV RAILS_ENV=production
 ENV HOME=/home/app
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat && \
     apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
     cd /home/app/et1 && \
@@ -14,7 +15,7 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-comp
     chown -R app:app /usr/local/bundle && \
     apk del .build-tools
 
-FROM ruby:2.7.7-alpine
+FROM ruby:3.2.2-alpine
 
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
