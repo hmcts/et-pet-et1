@@ -39,7 +39,7 @@ module Refunds
     validates :applicant_title, inclusion: { in: TITLES }
     validates :applicant_first_name, :applicant_last_name, length: { maximum: NAME_LENGTH }
     validates :applicant_email_address, allow_blank: true,
-                                        email: true,
+                                        email: { mode: :strict },
                                         length: { maximum: EMAIL_ADDRESS_LENGTH }
     validates :applicant_address_telephone_number, presence: true
     validates :applicant_date_of_birth, presence: true
