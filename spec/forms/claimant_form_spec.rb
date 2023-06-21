@@ -153,7 +153,7 @@ RSpec.describe ClaimantForm, type: :form do
 
     it 'disallows an invalid email' do
       claimant_form.contact_preference = 'email'
-      claimant_form.email_address = 'jls435829@gmail..com'
+      claimant_form.email_address = 'testemail123@gmail..com'
 
       claimant_form.valid?
 

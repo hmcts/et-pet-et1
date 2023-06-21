@@ -164,7 +164,7 @@ RSpec.describe RepresentativeForm, type: :form do
 
     it 'validates email - disallowing a bad email address' do
       representative_form.contact_preference = 'email'
-      representative_form.email_address = 'jls435829@gmail..com'
+      representative_form.email_address = 'testemail123@gmail..com'
 
       representative_form.valid?
 
