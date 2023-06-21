@@ -45,9 +45,9 @@ class ClaimantForm < Form
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
   validates :email_address, presence: { if: :contact_preference_email? },
+                            email: { if: :contact_precerence_email?, mode: :strict },
                             ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
-  validates :email_address, email: { mode: :strict }, if: :contact_preference_email?
 
   validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, presence: true
 
