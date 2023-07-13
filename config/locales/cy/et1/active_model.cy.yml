@@ -195,12 +195,16 @@ cy:
               blank: Nodwch a hoffech i ohebiaeth gael ei hanfon at yr hawlydd trwy'r post, e-bost neu rif DX
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad eich cynrychiolydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_street:
               blank: Rhowch stryd cyfeiriad eich cynrychiolydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad eich cynrychiolydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_county:
               blank: Rhowch sir cyfeiriad eich cynrychiolydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_post_code:
               blank: Rhowch god post eich cynrychiolydd
               invalid: "Rhowch god post dilys. Os yw eich cynrychiolydd yn byw dramor, rhowch SW55 9QT"
@@ -234,12 +238,16 @@ cy:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad yr atebydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_county:
               blank: Rhowch sir cyfeiriad yr atebydd
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_post_code:
               blank: Rhowch god post yr atebydd
               invalid: "Rhowch god post DU dilys. Os yw'r atebydd yn byw dramor, rhowch SW55 9QT"
@@ -278,12 +286,16 @@ cy:
               inclusion: ""
             address_building:
               blank: Rhowch enw neu rif adeilad cyfeiriad yr atebydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_county:
               blank: Rhowch sir cyfeiriad yr atebydd ychwanegol
+              contains_special_characters: Rhaid peidio â chynnwys nodau arbennig
             address_post_code:
               blank: Rhowch god post yr atebydd ychwanegol
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"

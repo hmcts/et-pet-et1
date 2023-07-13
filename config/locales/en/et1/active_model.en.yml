@@ -219,12 +219,16 @@ en:
               blank: Say whether you’d like correspondence to be sent to the representative by post or email
             address_building:
               blank: Enter the building name or number from your representative’s address
+              contains_special_characters: Must not contain special characters
             address_street:
               blank: Enter the street from your representative’s address
+              contains_special_characters: Must not contain special characters
             address_locality:
               blank: Enter the town or city from your representative’s address
+              contains_special_characters: Must not contain special characters
             address_county:
               blank: Enter the county from your representative’s address
+              contains_special_characters: Must not contain special characters
             address_post_code:
               blank: Enter your representative’s postcode
               invalid: Enter a valid postcode. If your representative lives abroad, enter SW55 9QT
@@ -258,12 +262,16 @@ en:
               blank: You must provide information for this field
             address_building:
               blank: Enter the building name or number from the respondent’s address
+              contains_special_characters: Must not contain special characters
             address_street:
               blank: Enter the street from the respondent’s address
+              contains_special_characters: Must not contain special characters
             address_locality:
               blank: Enter the town or city from the respondent’s address
+              contains_special_characters: Must not contain special characters
             address_county:
               blank: Enter the county from the respondent’s address
+              contains_special_characters: Must not contain special characters
             address_post_code:
               blank: Enter the respondent’s postcode
               invalid: Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT
@@ -308,12 +316,16 @@ en:
               inclusion: :"activemodel.errors.models.additional_respondents_form/respondent.attributes.no_acas_number_reason.blank"
             address_building:
               blank: Enter the building name or number from the additional respondent’s address
+              contains_special_characters: Must not contain special characters
             address_street:
               blank: Enter the street from the additional respondent’s address
+              contains_special_characters: Must not contain special characters
             address_locality:
               blank: Enter the town or city from the additional respondent’s address
+              contains_special_characters: Must not contain special characters
             address_county:
               blank: Enter the county from the additional respondent’s address
+              contains_special_characters: Must not contain special characters
             address_post_code:
               blank: Enter the additional respondent's postcode
               invalid: Enter a valid UK postcode. If you live abroad, enter SW55 9QT
