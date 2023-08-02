@@ -11,6 +11,6 @@ function ScrollToTop() {
   window.scrollTo({ top: 0 });
 }
 
-export default function WritingYourClaimStatementPage() {
+export default function GuidesPage() {
   setupClickListener();
 };
