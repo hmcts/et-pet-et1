@@ -151,6 +151,14 @@ RSpec.describe ClaimantForm, type: :form do
       expect(claimant_form.errors).not_to include :mobile_number
     end
 
+    it 'disallows an invalid email' do
+      claimant_form.contact_preference = 'email'
+      claimant_form.email_address = 'testemail123@gmail..com'
+
+      claimant_form.valid?
+
+      expect(claimant_form.errors).to include :email_address
+    end
   end
 
   describe 'callbacks' do

@@ -98,7 +98,7 @@ module Refunds
         end
 
         it 'validates email - disallowing a bad email address' do
-          applicant_form.applicant_email_address = 'test.com'
+          applicant_form.applicant_email_address = 'testemail123@gmail..com'
           applicant_form.valid?
           expect(applicant_form.errors).to include :applicant_email_address
         end
