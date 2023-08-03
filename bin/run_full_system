@@ -22,15 +22,12 @@ FileUtils.chdir APP_ROOT do
     puts "\n== bundling for development"
     system! 'bundle config set with "development test"'
     system! 'bundle config --delete without'
-  else
-    puts "\n== bundling for production"
-    system! 'bundle config set without "development test"'
-    system! 'bundle config set with "production"'
-  end
-  system! 'bundle install'
+    system! 'bundle install'
 
-  puts "\n== Running yarn install"
-  system! 'yarn install'
+    puts "\n== Running yarn install"
+    system! 'yarn install'
+  end
+
 
   puts "\n== Preparing database =="
   system! 'bin/rails db:create db:migrate'
