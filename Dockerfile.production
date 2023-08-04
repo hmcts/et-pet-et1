@@ -9,8 +9,11 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat && \
     apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
     cd /home/app/et1 && \
-    gem install bundler -v 1.17.3 && \
-    bundle install --no-cache --jobs=5 --retry=3 --without=test development --with=assets production --deployment && \
+    gem install bundler && \
+    bundle config set without 'test development' && \
+    bundle config set with 'assets production' && \
+    bundle config set deployment 'true' && \
+    bundle install --no-cache --jobs=5 --retry=3 && \
     bundle exec rails assets:precompile SECRET_KEY_BASE=doesntmatter && \
     chown -R app:app /usr/local/bundle && \
     apk del .build-tools
@@ -42,8 +45,11 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev f
     apk add --no-cache postgresql-client~=11.12 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main && \
     apk add --no-cache --virtual .build-tools git build-base && \
     cd /home/app/et1 && \
-    gem install bundler -v 1.17.3 && \
-    bundle install --no-cache --jobs=5 --retry=3 --without=test development --with=production --deployment && \
+    gem install bundler foreman && \
+    bundle config set without 'test development' && \
+    bundle config set with 'production' && \
+    bundle config set deployment 'true' && \
+    bundle install --no-cache --jobs=5 --retry=3 && \
     apk del .build-tools && \
     chown -R app:app /usr/local/bundle && \
     mkdir -p /home/app/et1/tmp && \

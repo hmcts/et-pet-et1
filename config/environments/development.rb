@@ -79,6 +79,13 @@ Rails.application.configure do
   default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}/#{config.redis_database}"
   config.redis_url = ENV.fetch('REDIS_URL', default_redis_url)
 
+  config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'debug').to_sym
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new($stdout)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
   # The google tag manager account - set to false if you do not want google tag manager in this environment
   config.google_tag_manager_account = false
 
