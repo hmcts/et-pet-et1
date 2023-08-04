@@ -27,7 +27,8 @@ module Et1
                                              :notice_pay_period_type => employment.notice_pay_period_type,
                                              :notice_period_end_date => employment.notice_period_end_date.try(:strftime, '%Y-%m-%d'),
                                              :start_date => employment.start_date.try(:strftime, '%Y-%m-%d'),
-                                             :worked_notice_period_or_paid_in_lieu => employment.worked_notice_period_or_paid_in_lieu
+                                             :worked_notice_period_or_paid_in_lieu => employment.worked_notice_period_or_paid_in_lieu,
+                                             :current_situation => employment.current_situation
                                            )
                                          else
                                            eq({})

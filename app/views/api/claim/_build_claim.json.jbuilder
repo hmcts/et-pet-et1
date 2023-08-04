@@ -36,6 +36,7 @@ json.data do
       json.end_date employment.end_date
       json.notice_period_end_date employment.notice_period_end_date
       json.job_title employment.job_title
+      json.current_situation employment.current_situation
       json.average_hours_worked_per_week employment.average_hours_worked_per_week
       json.gross_pay employment.gross_pay
       json.gross_pay_period_type employment.pay_period_type

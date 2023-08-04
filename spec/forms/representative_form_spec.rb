@@ -161,6 +161,15 @@ RSpec.describe RepresentativeForm, type: :form do
         expect(representative_form).to be_valid
       end
     end
+
+    it 'validates email - disallowing a bad email address' do
+      representative_form.contact_preference = 'email'
+      representative_form.email_address = 'testemail123@gmail..com'
+
+      representative_form.valid?
+
+      expect(representative_form.errors).to include :email_address
+    end
   end
 
   describe 'before validation' do
