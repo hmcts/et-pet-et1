@@ -23,8 +23,9 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev f
     apk add --no-cache postgresql-client~=11.12 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main && \
     apk add --no-cache git build-base nodejs yarn && \
     cd /home/app/et1 && \
-    gem install bundler -v 1.17.3 && \
-    bundle install --no-cache --jobs=5 --retry=3 --deployment && \
+    gem install bundler foreman && \
+    bundle config set deployment 'true' && \
+    bundle install --no-cache --jobs=5 --retry=3 && \
     yarn install && \
     chown -R app:app /usr/local/bundle && \
     mkdir -p /home/app/et1/tmp && \

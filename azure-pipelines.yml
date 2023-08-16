@@ -61,6 +61,7 @@ jobs:
       displayName: 'Build main image'
       inputs:
         imageName: '$(application.name):$(getDockerTag.DOCKER_TAG)'
+        dockerfile: 'Dockerfile.production'
         arguments: '--build-arg APPVERSION=$(getDockerTag.DOCKER_TAG) --build-arg APP_BUILD_TAG=$(Build.SourceBranchName)-$(Build.SourceVersion) --build-arg APP_GIT_COMMIT=$(Build.SourceVersion)'
     - task: Docker@1
       displayName: 'Tag main image'
