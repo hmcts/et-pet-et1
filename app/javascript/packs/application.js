@@ -35,6 +35,7 @@ import SessionPrompt from "./components/SessionPrompt";
 import RefundApplicantPage from "./pages/refunds/ApplicantPage";
 import RefundFeesPage from "./pages/refunds/FeesPage";
 import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
+import GuidesPage from "./pages/claims/GuidesPage";
 EtGdsDesignSystem.initAll();
 window.Et = {
   pages:{
@@ -48,7 +49,8 @@ window.Et = {
       AdditionalRespondentsPage: AdditionalRespondentsPage,
       EmploymentPage: EmploymentPage,
       ClaimTypePage: ClaimTypePage,
-      ClaimConfirmationPage: ClaimConfirmationPage
+      ClaimConfirmationPage: ClaimConfirmationPage,
+      GuidesPage: GuidesPage
     },
     refunds: {
       ApplicantPage: RefundApplicantPage,
