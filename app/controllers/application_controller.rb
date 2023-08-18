@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :show_maintenance_page
+  before_action :set_sentry_context
   after_action :set_session_expiry
 
   before_action do
@@ -58,6 +59,14 @@ class ApplicationController < ActionController::Base
     Time.current > session[:expires_in]
   rescue StandardError
     false
+  end
+
+  def set_sentry_context
+    return unless claim&.id.present? && claim&.application_reference.present? && claim.user&.id.present?
+
+    Sentry.with_scope do |scope|
+      scope.set_extras(claim_id: claim.id, application_reference: claim.application_reference, user_id: claim.user.id)
+    end
   end
 
   def claim
