@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :show_maintenance_page
-  before_action :set_sentry_context
+  after_action :set_sentry_context
   after_action :set_session_expiry
 
   before_action do
