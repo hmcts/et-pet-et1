@@ -62,7 +62,37 @@ cy:
             last_name:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
-        additional_claimants_form/claimant: :'activemodel.errors.models.additional_claimants_form/additional_claimant'
+        additional_claimants_form/claimant:
+          attributes:
+            title:
+              inclusion: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
+              invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
+            first_name:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.contains_special_characters'
+            last_name:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.last_name.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+            address_building:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_building.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+            address_street:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+            address_locality:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_locality.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+            address_county:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_county.blank'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+            address_post_code:
+              blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.blank'
+              invalid: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
+              invalid_ccd_post_code: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_post_code.invalid'
+            date_of_birth:
+              blank: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              invalid: :'activemodel.errors.models.claimant.attributes.date_of_birth.invalid'
+              date_range: :'activemodel.errors.models.claimant.attributes.date_of_birth.date_range'
         additional_claimants_upload:
           attributes:
             additional_claimants_csv:
