@@ -15,10 +15,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 0878b3d2ff40b22723febddf1b26b0e93afcdcef
-  tag: v5.4.1
+  revision: 0315abb851246e3ef9bf870a5b188c3db2556610
+  tag: v5.4.2
   specs:
-    et_gds_design_system (5.4.1)
+    et_gds_design_system (5.4.2)
       govuk_design_system_formbuilder (~> 4.0)
       rails (>= 6.0)
       typhoeus (~> 1.4)
@@ -230,7 +230,7 @@ GEM
       roda (~> 3.48)
       thor (~> 1.1)
       tilt (~> 2.0, >= 2.0.10)
-    govuk_design_system_formbuilder (4.0.0)
+    govuk_design_system_formbuilder (4.1.1)
       actionview (>= 6.1)
       activemodel (>= 6.1)
       activesupport (>= 6.1)
@@ -239,7 +239,7 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
     hashdiff (1.0.1)
-    html-attributes-utils (1.0.0)
+    html-attributes-utils (1.0.2)
       activesupport (>= 6.1.4.4)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)

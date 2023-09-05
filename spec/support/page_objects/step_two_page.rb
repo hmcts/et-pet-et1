@@ -7,7 +7,7 @@ module ET1
         element :title, 'select[name="claimant[title]"]'
         element :first_name, 'input[name="claimant[first_name]"]'
         element :last_name, 'input[name="claimant[last_name]"]'
-        section :date_of_birth, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth")]] }) do
+        section :date_of_birth, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth (optional)")]] }) do
           element :day, 'input[name="claimant[date_of_birth][day]"]'
           element :month, 'input[name="claimant[date_of_birth][month]"]'
           element :year, 'input[name="claimant[date_of_birth][year]"]'

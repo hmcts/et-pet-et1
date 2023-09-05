@@ -35,6 +35,39 @@ RSpec.describe ClaimantForm, type: :form do
       end
     end
 
+    describe 'date_of_birth' do
+      it 'does now allow non parseable value' do
+        claimant_form.attributes = {
+          'date_of_birth(3)' => 'aa',
+          'date_of_birth(2)' => 'bb',
+          'date_of_birth(1)' => 'cccc'
+        }
+        claimant_form.valid?
+        expect(claimant_form.errors.where(:date_of_birth)).to be_present
+      end
+
+      it 'allows nil' do
+        claimant_form.attributes = {
+          'date_of_birth(3)' => '',
+          'date_of_birth(2)' => '',
+          'date_of_birth(1)' => ''
+        }
+        claimant_form.valid?
+        expect(claimant_form.errors.where(:date_of_birth)).to be_empty
+      end
+
+      it 'allows a valid date' do
+        claimant_form.attributes = {
+          'date_of_birth(3)' => '30',
+          'date_of_birth(2)' => '11',
+          'date_of_birth(1)' => '1985'
+        }
+        claimant_form.valid?
+        expect(claimant_form.errors.where(:date_of_birth)).to be_empty
+
+      end
+    end
+
     [:first_name, :last_name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
       it { expect(claimant_form).to validate_presence_of(attr) }
     end

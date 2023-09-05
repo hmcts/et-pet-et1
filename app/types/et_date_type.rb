@@ -19,18 +19,18 @@ class EtDateType < ActiveRecord::Type::Date
 
   def new_date(year, mon, mday = nil)
     mday ||= 1 if omit_day
-    if allow_2_digit_year && year.present? && year < 100
-      year = 1900 + year
+    if allow_2_digit_year && year.present? && year.strip.length <= 2
+      year = (1900 + year.to_i).to_s
     end
-    Date.new(year, mon, mday)
+    Date.strptime("#{year}-#{mon}-#{mday}", '%Y-%m-%d')
   rescue ::Date::Error, TypeError
-    nil
+    InvalidDate.new(year, mon, mday)
   end
 
   def value_from_multiparameter_assignment(value)
     return unless value[1] && value[2] && (value[3] || omit_day)
 
-    values = value.sort.map!(&:last).map(&:to_i)
+    values = value.sort.map!(&:last)
     new_date(*values)
   end
 
@@ -38,5 +38,19 @@ class EtDateType < ActiveRecord::Type::Date
     if year&.to_i&.< 100
       year.to_i + 1900
     end
+  end
+
+  def fallback_string_to_date(string)
+    new_date(*::Date._parse(string, false).values_at(:year, :mon, :mday).map(&:to_s))
+  end
+
+  class InvalidDate
+    def initialize(year, month, day)
+      @year = year
+      @month = month
+      @day = day
+    end
+
+    attr_reader :day, :month, :year
   end
 end

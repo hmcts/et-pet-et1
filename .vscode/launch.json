@@ -5,15 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Rails server",
-      "type": "Ruby",
+      "type": "rdbg",
+      "name": "Debug server",
       "request": "launch",
-      "useBundler": true,
-      "cwd": "${workspaceRoot}",
-      "program": "${workspaceRoot}/bin/rails",
+      "script": "${workspaceRoot}/bin/rails",
       "args": [
-        "server"
+        "s"
       ]
-    }
+    },
+    {
+      "type": "rdbg",
+      "name": "Debug something",
+      "request": "launch",
+      "script": "${workspaceRoot}/bin/rspec",
+      "args": [
+        "./spec/services/additional_claimants_csv/model_builder_spec.rb:33"
+      ]
+    },
   ]
 }
