@@ -284,12 +284,16 @@ cy:
               invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
             work_address_building:
               blank: Rhowch enw neu rif adeilad eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_street:
               blank: Rhowch stryd eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_locality:
               blank: Rhowch dref neu ddinas eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_county:
               blank: Rhowch sir eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_post_code:
               blank: Rhowch god post eich cyfeiriad gwaith
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"

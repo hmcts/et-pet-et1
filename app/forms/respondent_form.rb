@@ -55,6 +55,14 @@ class RespondentForm < Form
             ccd_phone: true,
             allow_blank: true,
             unless: :worked_at_same_address?
+  validates :work_address_building,
+            special_character: { comma: true, number: true },
+            unless: :worked_at_same_address?
+  validates :work_address_street,
+            :work_address_locality,
+            :work_address_county,
+            special_character: true,
+            unless: :worked_at_same_address?
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,

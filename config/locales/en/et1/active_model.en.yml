@@ -310,12 +310,16 @@ en:
               inclusion: Please indicate if you work at the same address
             work_address_building:
               blank: Enter the building name or number of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_street:
               blank: Enter the street of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_locality:
               blank: Enter the town or city of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_county:
               blank: Enter the county of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_post_code:
               blank: Enter the postcode of your work address
               invalid: Enter a valid UK postcode. If you live abroad enter SW55 9QT
