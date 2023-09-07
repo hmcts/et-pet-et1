@@ -82,6 +82,17 @@ RSpec.describe EmploymentForm, type: :form do
         expect(employment_form.errors.details[:end_date]).to include(error: :end_date_before_start_date)
       end
     end
+
+    context 'notice_period_end_date before start date' do
+
+      it 'rejects when notice_period_end_date is before start_date' do
+        employment_form.start_date = '1/1/2015'
+        employment_form.notice_period_end_date = '1/1/2014'
+
+        employment_form.valid?
+        expect(employment_form.errors.details[:notice_period_end_date]).to include(error: :notice_period_end_date_before_start_date)
+      end
+    end
   end
 
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attr|
