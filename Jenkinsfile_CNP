@@ -1,0 +1,16 @@
+#!groovy
+
+@Library("Infrastructure")
+
+def type = "nodejs"
+def product = "et-pet"
+def component = "et1"
+
+def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
+def rubyBuilder = new uk.gov.hmcts.contino.RubyBuilder(this)
+
+withPipeline(type, product, component) {
+  afterSuccess('build') {
+    yarnBuilder.yarn('build')
+  }
+}
