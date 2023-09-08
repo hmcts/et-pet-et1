@@ -55,6 +55,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 6.0'
+  gem 'rspec_junit_formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', '~> 2.1', :require => false
