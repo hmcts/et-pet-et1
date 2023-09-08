@@ -10,7 +10,26 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 def rubyBuilder = new uk.gov.hmcts.contino.RubyBuilder(this)
 
 withPipeline(type, product, component) {
-  afterSuccess('build') {
-    yarnBuilder.yarn('build')
-  }
+    env.RAILS_ENV = 'test'
+    env.DB_HOST = 'localhost'
+    env.DB_USER = 'postgres'
+    env.DB_PORT = '5421'
+    env.DB_PASSWORD = 'postgres'
+    env.TEST_BROWSER = 'chrome_local'
+    env.NODE_OPTIONS='--openssl-legacy-provider'
+
+    before('test') {
+        sh script:"""
+            yarn install
+            docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
+            docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+        """, label: 'Start test postgres'
+
+        rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile webdrivers:chromedriver:update")
+    }
+
+    afterAlways('test') {
+        sh script: "docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping postgres'",
+            label: "docker stop pet-et-et1-test-postgres"
+    }
 }
