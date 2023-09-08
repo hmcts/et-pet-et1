@@ -1,0 +1,16 @@
+#!groovy
+
+properties([
+// H allow predefined but random minute see https://en.wikipedia.org/wiki/Cron#Non-standard_characters
+pipelineTriggers([cron('H 07 * * 1-5')])
+])
+
+@Library("Infrastructure")
+
+def type = "ruby"
+def product = "et-pet"
+def component = "et1"
+
+withNightlyPipeline(type, product, component) {
+
+}
