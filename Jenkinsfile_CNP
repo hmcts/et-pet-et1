@@ -2,7 +2,7 @@
 
 @Library("Infrastructure")
 
-def type = "nodejs"
+def type = "ruby"
 def product = "et-pet"
 def component = "et1"
 
