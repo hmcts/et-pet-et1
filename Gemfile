@@ -47,6 +47,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
   gem 'brakeman', '~> 5.1', '>= 5.1.1'
+  gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'gov_fake_notify', '~> 1.1', '>= 1.1.1'

@@ -153,6 +153,9 @@ GEM
       activerecord (>= 3.1)
     brakeman (5.4.0)
     builder (3.2.4)
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -549,6 +552,7 @@ DEPENDENCIES
   binding_of_caller (~> 1.0)
   bitmask_attributes (~> 1.0)
   brakeman (~> 5.1, >= 5.1.1)
+  bundler-audit (~> 0.9.1)
   capybara (~> 3.34)
   capybara-screenshot (~> 1.0)
   climate_control (~> 1.0)
