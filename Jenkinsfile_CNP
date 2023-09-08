@@ -15,15 +15,18 @@ withPipeline(type, product, component) {
     env.DB_USER = 'postgres'
     env.DB_PORT = '5421'
     env.DB_PASSWORD = 'postgres'
+    env.TEST_BROWSER = 'chrome_local'
 
     before('test') {
         sh script:"""
             docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
             docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
         """, label: 'Start test postgres'
+        sh script:"""
+            yarn install
+        """, label: 'Yarn'
 
-        rubyBuilder.bundle("exec rake db:create")
-        rubyBuilder.bundle("exec rake db:migrate")
+        rubyBuilder.bundle("exec rails db:create db:migrate webdrivers:chromedriver:update")
     }
 
     afterAlways('test') {

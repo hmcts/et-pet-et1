@@ -75,7 +75,7 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 3.7'
-  gem 'selenium-webdriver', '~> 4.3'
+  gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'puma', '~> 5.1'
