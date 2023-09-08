@@ -10,7 +10,34 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 def rubyBuilder = new uk.gov.hmcts.contino.RubyBuilder(this)
 
 withPipeline(type, product, component) {
-  afterSuccess('build') {
-    yarnBuilder.yarn('build')
-  }
+    env.RAILS_ENV = 'test'
+    env.DB_HOST = 'postgres'
+    env.DB_USER = 'postgres'
+    env.DB_PASSWORD = 'postgres'
+
+    before('build') {
+        sh script:"""#!/bin/bash -l
+            set -x
+            gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+            curl -sSL https://get.rvm.io | sudo bash -s stable --ruby
+            source ~/.rvm/scripts/rvm
+            rvm install 3.2.2"
+            set +x
+        """, label: 'Installing ruby'
+    }
+
+    before('test') {
+        sh script:"""
+            docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
+            docker run --rm --name tt-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+        """, label: 'Start test postgres'
+
+        rubyBuilder.bundle("exec rake db:create")
+        rubyBuilder.bundle("exec rake db:schema:load")
+    }
+
+    after('test') {
+        sh script: "docker stop tt-test-postgres && docker rm tt-test-postgres || echo 'Ignoring failure in stopping postgres'",
+            label: "docker stop tt-test-postgres"
+    }
 }
