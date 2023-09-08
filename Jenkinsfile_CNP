@@ -18,7 +18,6 @@ withPipeline(type, product, component) {
 
     before('test') {
         sh script:"""
-            apt-get install -y firefox
             docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
             docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
         """, label: 'Start test postgres'

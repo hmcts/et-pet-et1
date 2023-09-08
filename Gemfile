@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '3.2.2'
 
 # Use CoffeeScript for .js.coffee assets and views
 # gem 'coffee-rails', '~> 4.0.0'
