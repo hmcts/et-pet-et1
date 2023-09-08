@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.0.4.2'
+gem 'rails', '7.0.7.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -79,7 +79,7 @@ group :test do
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
-  gem 'puma', '~> 5.1'
+  gem 'puma', '~> 6.3'
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.2'
 end
 
