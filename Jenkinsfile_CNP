@@ -19,14 +19,12 @@ withPipeline(type, product, component) {
 
     before('test') {
         sh script:"""
+            yarn install
             docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
             docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
         """, label: 'Start test postgres'
-        sh script:"""
-            yarn install
-        """, label: 'Yarn'
 
-        rubyBuilder.bundle("exec rails db:create db:migrate webdrivers:chromedriver:update")
+        rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile webdrivers:chromedriver:update")
     }
 
     afterAlways('test') {
