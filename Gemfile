@@ -114,3 +114,4 @@ gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.g
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
+gem 'i18n', '1.12.0' # Temporary
