@@ -17,6 +17,7 @@ withPipeline(type, product, component) {
     env.DB_PASSWORD = 'postgres'
     env.TEST_BROWSER = 'chrome_local'
     env.NODE_OPTIONS='--openssl-legacy-provider'
+    env.ENABLE_COVERAGE='true'
 
     before('test') {
         sh script:"""
