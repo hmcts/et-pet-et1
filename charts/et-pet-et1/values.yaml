@@ -5,7 +5,7 @@ base:
   startupPath: /apply/ping.json
   image: "hmctspublic.azurecr.io/et-pet/et1:latest"
   ingressHost: et-pet-et1.{{ .Values.global.environment }}.platform.hmcts.net
-  aadIdentityName: et1-pet
+  aadIdentityName: et-pet
   environment:
     RAILS_ENV: production
     RAILS_LOG_TO_STDOUT: true
