@@ -1,4 +1,4 @@
-ruby:
+base:
   # Don't modify below here
   image: ${IMAGE_NAME}
   ingressHost: ${SERVICE_FQDN}
