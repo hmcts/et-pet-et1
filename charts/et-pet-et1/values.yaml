@@ -38,6 +38,7 @@ base:
       key: "et1-zendesk-user"
       disabled: false
     SMTP_USERNAME:
+
       secretRef: "sendgrid-username"
       key: "sendgrid-username"
       disabled: false
@@ -50,6 +51,7 @@ base:
       key: "et1-raven-dsn"
       disabled: false
     GOVUK_NOTIFY_API_KEY_LIVE:
+
       secretRef: "govuk-notify-api-key"
       key: "govuk-notify-api-key"
       disabled: false
