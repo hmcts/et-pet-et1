@@ -3,8 +3,81 @@ base:
   readinessPath: /apply/ping.json
   livenessPath: /apply/ping.json
   startupPath: /apply/ping.json
-  image: 'hmctspublic.azurecr.io/et-pet/et1:latest'
+  image: "hmctspublic.azurecr.io/et-pet/et1:latest"
   ingressHost: et-pet-et1.{{ .Values.global.environment }}.platform.hmcts.net
   aadIdentityName: et1-pet
   environment:
-    RAILS_ENV: 'production'
+    RAILS_ENV: production
+    SECRETS_PATH: "/kvmnt/"
+    GOOGLE_ANALYTICS_ID:
+      secretRef: "et1-google-analytics-id"
+      key: "et1-google-analytics-id"
+      disabled: false
+    SECRET_KEY_BASE:
+      secretRef: "et1-secret-key-base"
+      key: "et1-secret-key-base"
+      disabled: false
+    SECRET_KEY_TOKEN:
+      secretRef: "et1-secret-key-token"
+      key: "et1-secret-key-token"
+      disabled: false
+    ZENDESK_GROUP_ID:
+      secretRef: "et1-zendesk-group-id"
+      key: "et1-zendesk-group-id"
+      disabled: false
+    ZENDESK_TOKEN:
+      secretRef: "et1-zendesk-token"
+      key: "et1-zendesk-token"
+      disabled: false
+    ZENDESK_URL:
+      secretRef: "et1-zendesk-url"
+      key: "et1-zendesk-url"
+      disabled: false
+    ZENDESK_USER:
+      secretRef: "et1-zendesk-user"
+      key: "et1-zendesk-user"
+      disabled: false
+    SMTP_USERNAME:
+      secretRef: "sendgrid-username"
+      key: "sendgrid-username"
+      disabled: false
+    SMTP_PASSWORD:
+      secretRef: "sendgrid-password"
+      key: "sendgrid-password"
+      disabled: false
+    RAVEN_DSN:
+      secretRef: "et1-raven-dsn"
+      key: "et1-raven-dsn"
+      disabled: false
+    GOVUK_NOTIFY_API_KEY_LIVE:
+      secretRef: "govuk-notify-api-key"
+      key: "govuk-notify-api-key"
+      disabled: false
+    DB_HOST: "employment-tribunals-et1-demo.postgres.database.azure.com"
+    DB_PORT: 5432
+    DB_USERNAME: "employment_tribunals_postgresql_user@employment-tribunals-et1-demo"
+    DB_NAME: "et1"
+    RAILS_LOG_TO_STDOUT: true
+    ABSOLUTE_HOST: "http://et-dev-azure.dev.et.dsd.io"
+    REMOVE_ASSET_HOST: "https://bbea327e42bedevet1.blob.core.windows.net/"
+    RAILS_SERVE_STATIC_FILES: true
+    CLOUD_PROVIDER: "azure"
+    HTTP_OPEN_TIMEOUT_S: 60
+    HTTP_READ_TIMEOUT_S: 60
+    JADU_API: "http://et-api.employmenttribunal:8080/api/v1/"
+    ET_API_URL: "http://et-api.employmenttribunal:8080/api/v2/"
+    SENDING_HOST: "https://et-dev-azure.dev.et.dsd.io"
+    WEB_CONCURRENCY: 2
+    RAILS_LOG_LEVEL: "info"
+    SMTP_HOSTNAME: "smtp.sendgrid.net"
+    SMTP_PORT: 587
+    FLATTEN_PDF: false
+    FOO: "bar"
+    DOCKER_STATE: "migrate"
+    GTM_ACCOUNT:
+      secretRef: "et1-gtm-account"
+      key: "et1-gtm-account"
+      disabled: false
+    RAVEN_SSL_VERIFICATION: false
+    SERVICE_NOW_EMAIL: "DCD-ETOnlineServiceDesk@HMCTS.NET"
+    AZURE_APP_INSIGHTS_ROLE_NAME: "ET1"
