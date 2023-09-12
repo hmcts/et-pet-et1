@@ -10,8 +10,7 @@ base:
     CLOUD_PROVIDER: "azure"
     HTTP_OPEN_TIMEOUT_S: 60
     HTTP_READ_TIMEOUT_S: 60
-    JADU_API: "http://et-api.employmenttribunal:8080/api/v1/"
-    ET_API_URL: "http://et-api.employmenttribunal:8080/api/v2/"
+    ET_API_URL: "{{ et-pet-api.{{ .Values.global.environment }}.platform.hmcts.net }}/api/v2"
     SENDING_HOST: "https://et-stg-azure.staging.et.dsd.io"
     WEB_CONCURRENCY: 2
     RAILS_ENV: "production"
