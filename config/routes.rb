@@ -72,8 +72,6 @@ Rails.application.routes.draw do
       end
       get 'diversity' => 'diversities#index', as: 'diversity_landing'
 
-      get 'ping' => 'ping#index'
-
       resource :timeout_session, only: %i<destroy>, path: :session do
         member do
           get :touch
@@ -100,6 +98,10 @@ Rails.application.routes.draw do
     end
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  get '/health' => 'status#healthcheck', defaults: { format: 'json' }
+  get '/health/readiness' => 'status#healthcheck', defaults: { format: 'json' }
+  get '/health/liveness' => 'status#healthcheck', defaults: { format: 'json' }
 
   if Rails.env.test?
     match '/test/valid_pdf', to: -> (_env) { [200, {'Content-Type' => 'application/pdf'}, ['anything']] }, as: :test_valid_pdf, via: :all
