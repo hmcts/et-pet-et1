@@ -10,7 +10,7 @@ def yarnBuilder = new uk.gov.hmcts.contino.YarnBuilder(this)
 def rubyBuilder = new uk.gov.hmcts.contino.RubyBuilder(this)
 
 withPipeline(type, product, component) {
-    enableDbMigration()
+    enableDbMigration(et1)
     env.RAILS_ENV = 'test'
     env.DB_HOST = 'localhost'
     env.DB_USER = 'postgres'
