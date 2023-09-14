@@ -6,12 +6,11 @@ base:
   environment:
     SECRETS_PATH: "/mnt/secrets/et-pet"
     RAILS_LOG_TO_STDOUT: true
-    ABSOLUTE_HOST: "http://et-stg-azure.staging.et.dsd.io"
     CLOUD_PROVIDER: "azure"
     HTTP_OPEN_TIMEOUT_S: 60
     HTTP_READ_TIMEOUT_S: 60
     ET_API_URL: "http://et-pet-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/api/v2"
-    SENDING_HOST: "https://et-stg-azure.staging.et.dsd.io"
+    SENDING_HOST: ${SERVICE_FQDN}
     WEB_CONCURRENCY: 2
     RAILS_ENV: "production"
     RAILS_LOG_LEVEL: "info"
