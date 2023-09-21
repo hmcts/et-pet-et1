@@ -248,6 +248,7 @@ cy:
             mobile_number:
               invalid_ccd_phone: Mae'r rhif ffôn a nodoch yn annilys
             dx_number:
+              blank: Rhowch rif DX eich cynrychiolydd
               invalid_dx: Rhif DX annilys
         respondent:
           attributes:
