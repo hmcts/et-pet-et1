@@ -1,7 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
-require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
 require 'database_cleaner'
@@ -10,6 +9,7 @@ require "simplecov_json_formatter"
 ENV['RAILS_ENV'] ||= 'test'
 SimpleCov.formatter = SimpleCov::Formatter::JSONFormatter
 SimpleCov.start if ENV.fetch('ENABLE_COVERAGE', 'false').downcase == 'true'
+require File.expand_path("../../config/environment", __FILE__)
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
