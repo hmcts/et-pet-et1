@@ -106,4 +106,4 @@ MAINTENANCE_ENABLED - Set to 'true' to enable maintenance page to be enabled
 Any of the environment variables below can be added if you want to customize from the defaults
 
 MAINTENANCE_ALLOWED_IPS
-MAINTENANCE_END - If added you will see "You will be able to use the service from " followed by this text
+MAINTENANCE_END - If added you will see "You will be able to use the service from " followed by this text.

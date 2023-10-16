@@ -18,7 +18,7 @@ class CookiesController < ApplicationController
 
   def update_cookie(cookie_expiry: Rails.application.config.x.cookie_expiry)
     cookie_form.assign_attributes cookie_params.merge(seen: true)
-    cookies['cookie_setting'] = { value: cookie_form.to_json, expires: cookie_expiry }
+    cookies['cookie_setting'] = { value: cookie_form.to_json, expires: cookie_expiry, secure: Rails.application.config.secure_cookies }
   end
 
   def cookie_params

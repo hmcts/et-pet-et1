@@ -134,7 +134,7 @@ en:
     last_name:
       label: Last name
     date_of_birth:
-      label: Date of birth
+      label: Date of birth (optional)
     gender:
       label: Gender (optional)
       options:

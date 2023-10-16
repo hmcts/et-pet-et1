@@ -56,6 +56,7 @@ en:
           attributes:
             applicant_date_of_birth:
               blank: Enter your date of birth
+              invalid: Enter a valid date of birth
             applicant_last_name:
               blank: Enter your last name
             applicant_first_name:

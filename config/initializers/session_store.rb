@@ -2,4 +2,4 @@
 
 Rails.application.config.session_store :cookie_store,
                                        key: '_app_session',
-                                       secure: Rails.application.config.secure_session_cookie
+                                       secure: Rails.application.config.secure_cookies

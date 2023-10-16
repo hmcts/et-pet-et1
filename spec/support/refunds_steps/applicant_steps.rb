@@ -80,7 +80,7 @@ def and_the_email_address_in_the_refund_applicant_page_should_be_marked_with_an_
 end
 
 def and_the_date_of_birth_in_the_refund_applicant_page_should_be_marked_with_an_invalid_error
-  expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error.text).to eql 'Enter your date of birth'
+  expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error.text).to eql 'Enter a valid date of birth'
 end
 
 def then_the_title_field_in_the_applicant_page_should_have_the_correct_default_option_selected
