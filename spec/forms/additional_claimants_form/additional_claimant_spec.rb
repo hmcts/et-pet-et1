@@ -28,7 +28,8 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
         title: 'Mr', first_name: 'Barrington', last_name: 'Wrigglesworth',
         address_building: '1', address_street: 'High Street',
         address_locality: 'Anytown', address_county: 'Anyfordshire',
-        address_post_code: 'AT1 0AA', date_of_birth: "01/01/1999"
+        address_post_code: 'AT1 0AA',
+        'date_of_birth(1)' => '1999', 'date_of_birth(2)' => '1', 'date_of_birth(3)' => '1'
       }
     end
 

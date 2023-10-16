@@ -36,10 +36,9 @@ describe 'Claimant page', js: true do
     context 'no dob present' do
       let(:ui_claimant) { build(:ui_claimant, :default, :no_date_of_birth) }
 
-      it "displays validation if no DOB is present" do
+      it "displays no validation error if no DOB is present" do
         claimants_details_page.save_and_continue
-        expect(page).to have_text("Provide information in the highlighted fields")
-        claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Enter a valid date of birth in the correct format (DD/MM/YYYY)')
+        expect(page).not_to have_text("Provide information in the highlighted fields")
       end
     end
 
