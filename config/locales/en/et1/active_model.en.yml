@@ -272,6 +272,7 @@ en:
             mobile_number:
               invalid_ccd_phone: Invalid phone number
             dx_number:
+              blank: Enter your representative’s DX number
               invalid_dx: Invalid DX number
         respondent:
           attributes:
