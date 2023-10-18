@@ -67,6 +67,8 @@ base:
           alias: GOVUK_NOTIFY_API_KEY_LIVE
         - name: et1-gtm-account
           alias: GTM_ACCOUNT
+        - name: ai-instrumentation-key
+          alias: AZURE_APP_INSIGHTS_KEY
 sidekiq:
   applicationPort: 7433
   readinessPath: /health
@@ -141,3 +143,5 @@ sidekiq:
           alias: GOVUK_NOTIFY_API_KEY_LIVE
         - name: et1-gtm-account
           alias: GTM_ACCOUNT
+        - name: app-insights-instrumentation-key
+          alias: AZURE_APP_INSIGHTS_KEY
