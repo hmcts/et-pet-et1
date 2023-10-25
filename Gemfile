@@ -103,14 +103,14 @@ gem 'bitmask_attributes', '~> 1.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
 gem 'slim-rails', '~> 3.2'
-gem 'sidekiq', '< 7'
+gem 'sidekiq', '< 8'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq_alive', '~> 2.1'
 gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 2.2'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.2'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.1'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
