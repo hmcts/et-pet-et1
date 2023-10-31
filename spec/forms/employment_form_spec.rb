@@ -79,7 +79,18 @@ RSpec.describe EmploymentForm, type: :form do
         employment_form.end_date = '1/1/2014'
 
         employment_form.valid?
-        expect(employment_form.errors.details[:end_date]).to include(error: :end_date_before_start_date)
+        expect(employment_form.errors.where(:end_date, :end_date_before_start_date)).not_to be_empty
+      end
+    end
+
+    context 'notice_period_end_date before start date' do
+
+      it 'rejects when notice_period_end_date is before start_date' do
+        employment_form.start_date = '1/1/2015'
+        employment_form.notice_period_end_date = '1/1/2014'
+
+        employment_form.valid?
+        expect(employment_form.errors.where(:notice_period_end_date, :notice_period_end_date_before_start_date)).not_to be_empty
       end
     end
   end
