@@ -25,7 +25,7 @@ class RepresentativeForm < Form
                                                                                 form.contact_preference == 'email' && has_representative?
                                                                               }
   validates :contact_preference, presence: true, inclusion: CONTACT_PREFERENCES, if: :has_representative?
-  validates :dx_number,  presence: true, dx_string: true, if: ->(form) { form.contact_preference == 'dx_number' && has_representative? }
+  validates :dx_number, presence: true, dx_string: true, if: ->(form) { form.contact_preference == 'dx_number' && has_representative? }
   validates :has_representative, inclusion: [true, false]
 
   def skip_address_validation?

@@ -1,8 +1,0 @@
-version: "2"
-services:
-  test:
-    environment:
-      DISABLE_DEBUG_SCREENSHOTS: 'true'
-    volumes:
-      - ~/rubygems:/rubygems
-      - ~/node_modules:/app/node_modules

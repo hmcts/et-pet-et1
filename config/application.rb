@@ -45,14 +45,14 @@ module App
 
     config.action_mailer.default_options = { from: ENV.fetch('SMTP_FROM',
                                                              'no-reply@employmenttribunals.service.gov.uk') }
-    config.secure_session_cookie = false
+    config.secure_cookies = false
     config.exceptions_app = routes
 
     config.redis_host = ENV.fetch('REDIS_HOST', 'localhost')
     config.redis_port = ENV.fetch('REDIS_PORT', '6379')
     config.redis_database = ENV.fetch('REDIS_DATABASE', '5')
-    default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}/#{config.redis_database}"
-    config.redis_url = ENV.fetch('REDIS_URL', default_redis_url)
+    default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}"
+    config.redis_url = ENV.fetch('REDIS_URL', default_redis_url) + "/#{config.redis_database}"
 
     role_suffix = Sidekiq.server? ? '-SIDEKIQ' : ''
     insights_key = ENV.fetch('AZURE_APP_INSIGHTS_KEY', false)

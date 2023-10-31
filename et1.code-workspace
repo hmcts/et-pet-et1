@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "et_gds_design_system",
+			"path": "../../../et_gds_design_system"
+		}
+	],
+	"settings": {}
+}

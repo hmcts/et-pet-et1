@@ -52,6 +52,7 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev f
     bundle install --no-cache --jobs=5 --retry=3 && \
     apk del .build-tools && \
     chown -R app:app /usr/local/bundle && \
+    chown -R app:app /home/app/et1/vendor/bundle && \
     mkdir -p /home/app/et1/tmp && \
     chown -R app:app /home/app/et1/tmp
 

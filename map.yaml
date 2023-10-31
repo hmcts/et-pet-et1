@@ -1,0 +1,13 @@
+env:
+  GOOGLE_ANALYTICS_ID: et1-google-analytics-id
+  SECRET_KEY_BASE: et1-secret-key-base
+  SECRET_KEY_TOKEN: et1-secret-key-token
+  ZENDESK_GROUP_ID: et1-zendesk-group-id
+  ZENDESK_TOKEN: et1-zendesk-token
+  ZENDESK_URL: et1-zendesk-url
+  ZENDESK_USER: et1-zendesk-user
+  SMTP_USERNAME: sendgrid-username
+  SMTP_PASSWORD: sendgrid-password
+  RAVEN_DSN: et1-raven-dsn
+  GOVUK_NOTIFY_API_KEY_LIVE: govuk-notify-api-key
+  GTM_ACCOUNT: et1-gtm-account
