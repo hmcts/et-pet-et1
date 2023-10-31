@@ -49,7 +49,7 @@ class ClaimantForm < Form
                             ccd_email: { if: :contact_preference_email? },
                             length: { maximum: EMAIL_ADDRESS_LENGTH }
 
-  validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, presence: true
+  validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, allow_blank: true
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
 

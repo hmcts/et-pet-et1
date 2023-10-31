@@ -21,6 +21,9 @@
 /tmp
 /public/uploads
 
+# Ignore test coverage
+/coverage
+
 #ignore node modules
 /node_modules
 /bower_components

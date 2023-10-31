@@ -81,26 +81,6 @@ describe 'Multiple claimants', js: true do
     end
 
     context "additional claimants age has to be valid", js: true do
-      it "error message if DoB is missing" do
-        expect(page).not_to have_selector '#resource_1'
-
-        click_button "Add more claimants"
-
-        within '#resource_1' do
-          select 'Mr', from: 'Title'
-          secondary_attributes.each do |field, value|
-            fill_in field, with: value
-          end
-
-          fill_in 'Day', with: ""
-          fill_in 'Month', with: ""
-          fill_in 'Year', with: ""
-        end
-
-        click_button "Save and continue"
-        expect(page).to have_text("Enter a valid date of birth in the correct format (DD/MM/YYYY)")
-      end
-
       it "error message if DoB is in future" do
         expect(page).not_to have_selector '#resource_1'
 

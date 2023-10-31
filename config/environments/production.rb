@@ -106,7 +106,7 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
-  config.secure_session_cookie = ENV.fetch('SECURE_SESSION_COOKIE', 'true').downcase == 'true'
+  config.secure_cookies = ENV.fetch('SECURE_SESSION_COOKIE', 'true').downcase == 'true'
 
   # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
   # var can also be used to disable.

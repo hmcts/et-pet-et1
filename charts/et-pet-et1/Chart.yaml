@@ -1,0 +1,14 @@
+apiVersion: v2
+appVersion: "1.0"
+description: A Helm chart for et-pet et1 application
+name: et-pet-et1
+home: https://github.com/hmcts/et-pet-et1
+version: 0.0.15
+dependencies:
+  - name: base
+    version: 0.2.7
+    repository: https://hmctspublic.azurecr.io/helm/v1/repo/
+  - name: base
+    version: 0.2.7
+    alias: sidekiq
+    repository: https://hmctspublic.azurecr.io/helm/v1/repo/

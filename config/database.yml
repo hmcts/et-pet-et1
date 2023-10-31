@@ -4,6 +4,7 @@ default: &default
   pool: 5
   port: <%= ENV.fetch('DB_PORT', '5432') %>
   password: '<%= ENV['DB_PASSWORD']  || 'etpass' %>'
+  sslmode: '<%= ENV.fetch('DB_SSL_MODE', 'disable') %>'
 
 development:
   <<: *default

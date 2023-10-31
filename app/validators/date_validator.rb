@@ -8,7 +8,7 @@ class DateValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    if illegal_date?(record, attribute)
+    if illegal_date?(record, attribute, value)
       record.errors.add(attribute, :invalid)
     elsif illegal_year?(value)
       record.errors.add(attribute, :invalid)
@@ -53,24 +53,21 @@ class DateValidator < ActiveModel::EachValidator
     false
   end
 
-  def illegal_date?(record, attribute)
+  def illegal_date?(record, attribute, value)
     # The date type in rails seems a bit basic in terms of validation - it will accept 31/2/xxxx but not 32/2/xxxx,
     #   neither of which should be valid so we are going to validate better here.
-    value = read_attribute_before_type_cast(record, attribute, default: nil)
-    if value.is_a?(Hash) && value.values.all?(&:present?)
-      Date.new(value[1], value[2], value[3] || (omit_day ? 1 : nil))
+    raw_value = read_attribute_before_type_cast(record, attribute, default: nil)
+    if raw_value.is_a?(String) && raw_value.blank?
       false
-    elsif value.is_a?(String) && value.blank?
+    elsif raw_value.is_a?(String)
+      Date.parse(raw_value)
       false
-    elsif value.is_a?(String)
-      Date.parse(value)
+    elsif raw_value.is_a?(Date) || raw_value.is_a?(Time)
       false
-    elsif value.is_a?(Date) || value.is_a?(Time)
-      false
-    elsif value.nil?
+    elsif raw_value.nil?
       false
     else
-      true
+      value.is_a?(EtDateType::InvalidDate)
     end
   rescue Date::Error, TypeError
     true
