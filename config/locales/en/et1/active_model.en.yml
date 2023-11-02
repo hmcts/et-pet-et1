@@ -65,7 +65,7 @@ en:
               invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.blank'
-              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.contains_special_characters'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             last_name:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.last_name.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'

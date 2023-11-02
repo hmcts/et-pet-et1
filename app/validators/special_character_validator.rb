@@ -1,7 +1,7 @@
 class SpecialCharacterValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
-    return if value.nil? || value.blank?
+    return if value.nil?
 
     allowed_values = ["a-zA-Z -'"]
     allowed_values << "0-9" if allow_numbers == true
