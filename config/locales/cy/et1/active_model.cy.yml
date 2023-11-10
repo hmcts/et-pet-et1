@@ -38,6 +38,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: Ni ddylid cynnwys rhifau
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -79,6 +80,7 @@ cy:
             address_street:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_locality.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -104,6 +106,7 @@ cy:
                 street:
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+                  contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
                 locality:
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -160,6 +163,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -229,6 +233,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad eich cynrychiolydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad eich cynrychiolydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -273,6 +278,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -289,6 +295,7 @@ cy:
             work_address_street:
               blank: Rhowch stryd eich cyfeiriad gwaith
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             work_address_locality:
               blank: Rhowch dref neu ddinas eich cyfeiriad gwaith
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -325,6 +332,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'

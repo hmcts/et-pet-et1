@@ -59,6 +59,8 @@ class RespondentForm < Form
             special_character: { comma: true, number: true },
             unless: :worked_at_same_address?
   validates :work_address_street,
+            numerical_character: true
+  validates :work_address_street,
             :work_address_locality,
             :work_address_county,
             special_character: true,
