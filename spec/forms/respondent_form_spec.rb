@@ -76,6 +76,11 @@ RSpec.describe RespondentForm, type: :form do
       expect(respondent_form.errors).not_to include :address_telephone_number
     end
 
+    it 'allows a blank county in address_county' do
+      respondent_form.address_county = ""
+      expect(respondent_form.errors).not_to include :address_county
+    end
+
     describe 'presence of work address' do
       describe "when respondent didn't work at a different address" do
         before { respondent_form.worked_at_same_address = 'true' }
