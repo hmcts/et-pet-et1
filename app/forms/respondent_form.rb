@@ -34,18 +34,18 @@ class RespondentForm < Form
             :work_address_building,
             :work_address_post_code,
             presence: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :name,
             length: { maximum: NAME_LENGTH },
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_building,
             :work_address_street,
             ccd_address: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_locality,
             :work_address_county,
             ccd_address: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_post_code,
             post_code: true,
             length: { maximum: POSTCODE_LENGTH },
@@ -54,19 +54,19 @@ class RespondentForm < Form
             length: { maximum: PHONE_NUMBER_LENGTH },
             ccd_phone: true,
             allow_blank: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_county,
             special_character: true,
             allow_blank: true
   validates :work_address_building,
             special_character: { comma: true, number: true },
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_street,
             numerical_character: true
   validates :work_address_street,
             :work_address_locality,
             special_character: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,
