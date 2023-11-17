@@ -39,7 +39,7 @@ class EmploymentForm < Form
   validate :end_date_before_start_date?
   validate :date_is_past?
   validates :was_employed, inclusion: [true, false]
-  validates :average_hours_worked_per_week, numericality: { greater_than: 0, less_than_or_equal_to: 168 }
+  validates :average_hours_worked_per_week, numericality: { greater_than: 0, less_than_or_equal_to: 168, allow_blank: true }
 
   before_validation :reset_irrelevant_fields!, if: :was_employed?
   before_validation :destroy_target!, unless: :was_employed?
