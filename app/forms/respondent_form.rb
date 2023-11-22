@@ -70,9 +70,10 @@ class RespondentForm < Form
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,
-            inclusion: { in: NO_ACAS_REASON, allow_blank: true },
+            inclusion: { in: NO_ACAS_REASON },
             ccd_acas_exemption_reason: { unless: :has_acas_number? },
-            presence: { unless: -> { has_acas_number? } }
+            presence: true,
+            if: :validate_acas_reason_presence
 
   validates :acas_early_conciliation_certificate_number,
             presence: { if: -> { has_acas_number? } },
@@ -96,5 +97,9 @@ class RespondentForm < Form
 
   def reload_addresses
     target.addresses.reload
+  end
+
+  def validate_acas_reason_presence
+    has_acas_number == false || has_acas_number.present?
   end
 end
