@@ -100,6 +100,6 @@ class RespondentForm < Form
   end
 
   def validate_acas_reason_presence
-    has_acas_number == false || has_acas_number.present?
+    has_acas_number == false && has_acas_number.is_a?(FalseClass)
   end
 end
