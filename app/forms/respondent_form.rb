@@ -7,10 +7,6 @@ class RespondentForm < Form
   ].freeze
 
   NAME_LENGTH    = 100
-  NO_ACAS_REASON = [
-    'joint_claimant_has_acas_number', 'acas_has_no_jurisdiction',
-    'employer_contacted_acas', 'interim_relief'
-  ].freeze
 
   attribute :name,                                       :string
   attribute :acas_early_conciliation_certificate_number, :string
@@ -70,10 +66,9 @@ class RespondentForm < Form
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,
-            inclusion: { in: NO_ACAS_REASON },
-            ccd_acas_exemption_reason: { unless: :has_acas_number? },
+            ccd_acas_exemption_reason: true,
             presence: true,
-            if: :validate_acas_reason_presence
+            if: -> { has_acas_number == false }
 
   validates :acas_early_conciliation_certificate_number,
             presence: { if: -> { has_acas_number? } },
@@ -100,6 +95,6 @@ class RespondentForm < Form
   end
 
   def validate_acas_reason_presence
-    has_acas_number == false && has_acas_number.is_a?(FalseClass)
+    has_acas_number == false
   end
 end
