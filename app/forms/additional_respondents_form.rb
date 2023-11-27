@@ -25,7 +25,7 @@ class AdditionalRespondentsForm < Form
 
   class RespondentForm < Form
     NAME_LENGTH    = 100
-    NO_ACAS_REASON = ::RespondentForm::NO_ACAS_REASON
+    NO_ACAS_REASON = ::CcdAcasExemptionReasonValidator::VALUES
 
     include AddressAttributes
 
