@@ -93,8 +93,4 @@ class RespondentForm < Form
   def reload_addresses
     target.addresses.reload
   end
-
-  def validate_acas_reason_presence
-    has_acas_number == false
-  end
 end
