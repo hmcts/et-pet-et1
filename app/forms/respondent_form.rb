@@ -7,10 +7,6 @@ class RespondentForm < Form
   ].freeze
 
   NAME_LENGTH    = 100
-  NO_ACAS_REASON = [
-    'joint_claimant_has_acas_number', 'acas_has_no_jurisdiction',
-    'employer_contacted_acas', 'interim_relief'
-  ].freeze
 
   attribute :name,                                       :string
   attribute :acas_early_conciliation_certificate_number, :string
@@ -34,18 +30,18 @@ class RespondentForm < Form
             :work_address_building,
             :work_address_post_code,
             presence: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :name,
             length: { maximum: NAME_LENGTH },
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_building,
             :work_address_street,
             ccd_address: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_locality,
             :work_address_county,
             ccd_address: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_post_code,
             post_code: true,
             length: { maximum: POSTCODE_LENGTH },
@@ -54,23 +50,25 @@ class RespondentForm < Form
             length: { maximum: PHONE_NUMBER_LENGTH },
             ccd_phone: true,
             allow_blank: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
+  validates :work_address_county,
+            special_character: true,
+            allow_blank: true
   validates :work_address_building,
             special_character: { comma: true, number: true },
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :work_address_street,
             numerical_character: true
   validates :work_address_street,
             :work_address_locality,
-            :work_address_county,
             special_character: true,
-            unless: :worked_at_same_address?
+            if: -> { worked_at_same_address == false }
   validates :has_acas_number, inclusion: [true, false]
 
   validates :no_acas_number_reason,
-            inclusion: { in: NO_ACAS_REASON, allow_blank: true },
-            ccd_acas_exemption_reason: { unless: :has_acas_number? },
-            presence: { unless: -> { has_acas_number? } }
+            ccd_acas_exemption_reason: true,
+            presence: true,
+            if: -> { has_acas_number == false }
 
   validates :acas_early_conciliation_certificate_number,
             presence: { if: -> { has_acas_number? } },
