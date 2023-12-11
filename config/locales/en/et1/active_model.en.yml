@@ -32,6 +32,7 @@ en:
             address_street:
               blank: Enter the street from the additional claimant’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: Must not contain numerical characters
             address_locality:
               blank: Enter the town or city from the additional claimant’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -65,7 +66,7 @@ en:
               invalid_ccd_personal_title: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.inclusion'
             first_name:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.blank'
-              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.title.contains_special_characters'
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             last_name:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.last_name.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -75,6 +76,7 @@ en:
             address_street:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_locality.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -116,6 +118,7 @@ en:
                   blank: Enter the street from the additional claimant’s address
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+                  contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
                 locality:
                   blank: Enter the town or city from the additional claimant’s address
                   too_long: :'activemodel.errors.messages.too_long'
@@ -191,6 +194,7 @@ en:
             address_street:
               blank: Enter the street from the claimant’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Enter the town or city from the claimant’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -253,6 +257,7 @@ en:
             address_street:
               blank: Enter the street from your representative’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Enter the town or city from your representative’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -297,6 +302,7 @@ en:
             address_street:
               blank: Enter the street from the respondent’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Enter the town or city from the respondent’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -311,12 +317,17 @@ en:
               inclusion: Please indicate if you work at the same address
             work_address_building:
               blank: Enter the building name or number of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_street:
               blank: Enter the street of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             work_address_locality:
               blank: Enter the town or city of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_county:
               blank: Enter the county of your work address
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_post_code:
               blank: Enter the postcode of your work address
               invalid: Enter a valid UK postcode. If you live abroad enter SW55 9QT
@@ -351,6 +362,7 @@ en:
             address_street:
               blank: Enter the street from the additional respondent’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Enter the town or city from the additional respondent’s address
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
