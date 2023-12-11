@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.0.7.1'
+gem 'rails', '7.1.2'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -30,7 +30,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'iodine', '~> 0.7'
 
 # Use null db adapter for the form objects
-gem 'activerecord-nulldb-adapter', '~> 0.8'
+gem 'activerecord-nulldb-adapter', '~> 1.0'
 
 # Use dotenv for convenience in all environments
 gem 'dotenv-rails', '~> 2.7'
@@ -75,7 +75,7 @@ group :test do
   gem 'database_cleaner', '~> 2.0'
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 3.7'
+  gem 'site_prism', '~> 4.0'
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
@@ -94,7 +94,7 @@ group :production, :test, :development do
   gem "sentry-sidekiq", "~> 5.7"
 end
 
-gem 'activeadmin', '~> 2.9'
+gem 'activeadmin', '~> 3.1'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'

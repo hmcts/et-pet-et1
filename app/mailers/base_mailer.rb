@@ -1,6 +1,8 @@
 class BaseMailer < GovukNotifyRails::Mailer
   helper :claims
 
+  self.deliver_later_queue_name = :mailers
+
   def access_details_email(claim)
     return if claim&.user&.email.blank?
 
