@@ -226,6 +226,7 @@ en:
               date_in_future: Employment end date must be in the past
             notice_period_end_date:
               invalid: The date you have provided is invalid
+              notice_period_end_date_before_start_date: Must be after the employment start date
             new_job_start_date:
               invalid: The date you have provided is invalid
             current_situation:

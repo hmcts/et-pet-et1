@@ -193,6 +193,7 @@ cy:
               date_in_future: Rhaid i ddyddiad gorffen y gyflogaeth fod yn y gorffennol
             notice_period_end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+              notice_period_end_date_before_start_date: Rhaid nodi dyddiad sydd ar ôl dyddiad cychwyn y gyflogaeth
             notice_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             new_job_start_date:

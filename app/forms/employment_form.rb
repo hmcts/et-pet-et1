@@ -37,6 +37,7 @@ class EmploymentForm < Form
   validates :new_job_start_date, date: true
   validates :notice_period_end_date, date: true
   validate :end_date_before_start_date?
+  validate :start_date_before_notice_period_end_date?
   validate :date_is_past?
   validates :was_employed, inclusion: [true, false]
 
@@ -97,6 +98,15 @@ class EmploymentForm < Form
 
     if end_date < start_date
       errors.add(:end_date, :end_date_before_start_date)
+    end
+  end
+
+  def start_date_before_notice_period_end_date?
+    return if notice_period_end_date.blank? || start_date.blank?
+    return unless notice_period_end_date.is_a?(Date) && start_date.is_a?(Date)
+
+    if notice_period_end_date < start_date
+      errors.add(:notice_period_end_date, :notice_period_end_date_before_start_date)
     end
   end
 
