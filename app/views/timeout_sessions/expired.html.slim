@@ -1,5 +1,5 @@
 .main-header role="banner"
-  h1= t('.header')
+  h1 class="govuk-heading-xl govuk-!-margin-top-3" = t(".header")
 
   .main-content#main-sub-content
-    p = t('.content_html', new_user_session_path:new_user_session_path)
+    p.govuk-body = t('.content_html', new_user_session_path:new_user_session_path)
