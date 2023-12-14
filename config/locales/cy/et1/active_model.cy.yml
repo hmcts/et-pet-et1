@@ -102,6 +102,7 @@ cy:
             additional_claimants_csv_row:
               attributes:
                 building:
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 street:
                   too_long: :'activemodel.errors.messages.too_long'
@@ -111,6 +112,7 @@ cy:
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 county:
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 post_code:
                   too_long: :'activemodel.errors.messages.too_long'

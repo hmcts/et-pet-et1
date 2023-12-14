@@ -113,6 +113,7 @@ en:
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 building:
                   blank: Enter the building name or number from the additional claimant’s address
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 street:
                   blank: Enter the street from the additional claimant’s address
@@ -125,6 +126,7 @@ en:
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 county:
                   blank: Enter the county from the additional claimant’s address
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 post_code:
                   blank: Enter the additional claimant’s postcode
