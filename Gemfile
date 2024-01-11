@@ -94,7 +94,7 @@ group :production, :test, :development do
   gem "sentry-sidekiq", "~> 5.7"
 end
 
-gem 'activeadmin', '~> 3.1'
+gem 'activeadmin', '~> 3.2'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
