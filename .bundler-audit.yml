@@ -2,3 +2,4 @@
 ignore:
   # https://github.com/sidekiq/sidekiq/issues/6043, ignored till new 6.x version is released or Azure supports v7 of redis
   - CVE-2023-26141
+  - CVE-2023-51763
