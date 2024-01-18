@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Claimant Validation', type: :feature, js: true do
+RSpec.describe 'Claimant Validation', js: true, type: :feature do
   it 'filters out an incorrect phone number and provides the correct message' do
     # Arrange - get to the page loaded with a claimant with the phone number overridden
     claimant = build(:ui_claimant, :mandatory, phone_or_mobile_number: 'somethingwromg', alternative_phone_or_mobile_number: 'something_wrong')

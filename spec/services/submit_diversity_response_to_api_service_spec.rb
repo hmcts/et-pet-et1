@@ -69,7 +69,7 @@ RSpec.describe SubmitDiversityResponseToApiService, type: :service do
     include_context 'with build diversity response endpoint recording'
     include_context 'with command matcher'
     context 'typical data set' do
-      let(:example_diversity_response) { create :diversity }
+      let(:example_diversity_response) { create(:diversity) }
 
       include_context 'with action performed before each example'
       it { is_expected.to be_a_valid_api_command('BuildDiversityResponse').version(2).for_db_data(example_diversity_response) }

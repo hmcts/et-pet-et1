@@ -8,7 +8,7 @@ describe "claim_reviews/show.html.slim" do
     end
 
     let(:null_object) { NullObject.new }
-    let(:claim) { build_stubbed :claim, miscellaneous_information: "hey\r\nhey" }
+    let(:claim) { build_stubbed(:claim, miscellaneous_information: "hey\r\nhey") }
 
     before do
       view.singleton_class.class_eval do

@@ -1,4 +1,3 @@
-# rubocop:disable RSpec/MultipleExpectations
 require 'rails_helper'
 
 RSpec.describe SubmitClaimToApiService, type: :service do
@@ -336,4 +335,3 @@ RSpec.describe SubmitClaimToApiService, type: :service do
     end
   end
 end
-# rubocop:enable RSpec/MultipleExpectations

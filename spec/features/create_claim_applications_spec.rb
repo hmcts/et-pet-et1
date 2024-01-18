@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Claim applications', type: :feature, js: true do
+describe 'Claim applications', js: true, type: :feature do
   include FormMethods
   include Messages
   include MailMatchers

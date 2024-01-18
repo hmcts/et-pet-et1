@@ -2,15 +2,15 @@ require 'rails_helper'
 
 RSpec.describe 'Viewing a claims details in the admin interface', type: :feature do
   let!(:claim_with_attachments) do
-    create :claim, :submitted, :with_pdf,
+    create(:claim, :submitted, :with_pdf,
            fee_group_reference: '511234567800',
-           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz'])
   end
 
   let!(:enqueued_claim) do
-    create :claim, :with_pdf,
+    create(:claim, :with_pdf,
            fee_group_reference: '511234567800',
-           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz'])
   end
 
   context 'with time frozen' do
@@ -78,11 +78,11 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
 
   context 'claim without large text inputs' do
     let!(:claim_without_large_text_inputs) do
-      create :claim,
+      create(:claim,
              claim_details: nil,
              miscellaneous_information: nil,
              other_claim_details: nil,
-             other_outcome: nil
+             other_outcome: nil)
     end
 
     before { visit admin_claim_path claim_without_large_text_inputs.reference }
@@ -105,7 +105,7 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
   end
 
   context 'claim without attachments' do
-    let!(:claim_without_attachments) { create :claim, :no_attachments }
+    let!(:claim_without_attachments) { create(:claim, :no_attachments) }
 
     before { visit admin_claim_path claim_without_attachments.reference }
 

@@ -7,7 +7,7 @@ describe "claim_reviews/show.html.slim" do
       ET1::Test::ReviewPage.new
     end
     let(:claim) do
-      create :claim, claim_details: "wut\r\nwut", other_known_claimants: true, other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys"
+      create(:claim, claim_details: "wut\r\nwut", other_known_claimants: true, other_known_claimant_names: "Johnny Wishbone\r\nSamuel Pepys")
     end
 
     let(:null_object) { NullObject.new }

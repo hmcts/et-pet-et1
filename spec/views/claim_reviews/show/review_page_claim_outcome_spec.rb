@@ -7,8 +7,8 @@ describe "claim_reviews/show.html.slim" do
       ET1::Test::ReviewPage.new
     end
     let(:claim) do
-      create :claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
-                     other_outcome: "25 bags\r\nyour job"
+      create(:claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
+                     other_outcome: "25 bags\r\nyour job")
     end
 
     let(:null_object) { NullObject.new }

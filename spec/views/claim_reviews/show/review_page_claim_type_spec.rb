@@ -8,11 +8,11 @@ describe "claim_reviews/show.html.slim" do
     end
     let(:claim_type_section) { review_page.claim_type_section }
     let(:claim) do
-      create :claim,
+      create(:claim,
              is_unfair_dismissal: true,
              discrimination_claims: [:sex_including_equal_pay, :race, :sexual_orientation],
              pay_claims: [:redundancy, :other], other_claim_details: "yo\r\nyo",
-             is_whistleblowing: true, send_claim_to_whistleblowing_entity: false
+             is_whistleblowing: true, send_claim_to_whistleblowing_entity: false)
     end
 
     let(:null_object) { NullObject.new }

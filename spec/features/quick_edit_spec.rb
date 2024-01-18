@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Quick edit' do
   include FormMethods
 
-  let(:claim_ready_for_review) { create :claim, :no_attachments, state: 'created' }
+  let(:claim_ready_for_review) { create(:claim, :no_attachments, state: 'created') }
 
   before do
     fill_in_return_form claim_ready_for_review.reference, 'lollolol'
