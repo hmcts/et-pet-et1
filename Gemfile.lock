@@ -622,7 +622,7 @@ DEPENDENCIES
   rspec-rails (~> 6.0)
   rspec_junit_formatter (~> 0.6.0)
   rubocop (~> 1.8)
-  rubocop-rails
+  rubocop-rails (~> 2.17)
   rubocop-rspec (~> 2.1)
   selenium-webdriver (~> 4.3, < 4.11)
   sentry-rails (~> 5.7)
