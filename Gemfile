@@ -67,6 +67,7 @@ group :development, :test do
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
   gem 'solargraph'
+  gem 'et_full_system_control', git: 'https://github.com/hmcts/et-full-system-control.git'
 end
 
 group :test do
