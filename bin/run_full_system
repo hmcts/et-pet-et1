@@ -20,8 +20,6 @@ FileUtils.chdir APP_ROOT do
 
   if ENV.fetch('RAILS_ENV', 'development') == 'development'
     puts "\n== bundling for development"
-    system! 'bundle config set with "development test"'
-    system! 'bundle config --delete without'
     system! 'bundle install'
 
     puts "\n== Running yarn install"
@@ -30,8 +28,8 @@ FileUtils.chdir APP_ROOT do
 
 
   puts "\n== Preparing database =="
-  system! 'bin/rails db:create db:migrate'
+  system! 'DISABLE_ADMIN=true bin/rails db:create db:migrate'
 
   puts "\n== Starting app and sidekiq =="
-  system! 'foreman start --port 8080'
+  system! "cd #{APP_ROOT} && invoker start"
 end
