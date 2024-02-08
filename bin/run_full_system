@@ -28,7 +28,7 @@ FileUtils.chdir APP_ROOT do
 
 
   puts "\n== Preparing database =="
-  system! 'DISABLE_ADMIN=true bin/rails db:create db:migrate'
+  system! 'DISABLE_ADMIN=true bin/rails db:create db:migrate db:seed'
 
   puts "\n== Starting app and sidekiq =="
   system! "cd #{APP_ROOT} && invoker start"
