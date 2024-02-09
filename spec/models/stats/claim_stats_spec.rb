@@ -17,12 +17,12 @@ RSpec.describe Stats::ClaimStats, type: :model do
     after { travel_back }
 
     let(:current_time)                     { Time.zone.parse("2010-01-27 13:56:25") }
-    let(:started_claim)                    { create :claim, :not_submitted }
-    let(:old_started_claim)                { create :claim, :not_submitted, created_at: 91.days.ago }
-    let(:old_out_of_range_started_claim)   { create :claim, :not_submitted, created_at: 92.days.ago }
-    let(:completed_claim)                  { create :claim, :submitted }
-    let(:old_completed_claim)              { create :claim, :submitted, created_at: 91.days.ago }
-    let(:old_out_of_range_completed_claim) { create :claim, :submitted, created_at: 92.days.ago }
+    let(:started_claim)                    { create(:claim, :not_submitted) }
+    let(:old_started_claim)                { create(:claim, :not_submitted, created_at: 91.days.ago) }
+    let(:old_out_of_range_started_claim)   { create(:claim, :not_submitted, created_at: 92.days.ago) }
+    let(:completed_claim)                  { create(:claim, :submitted) }
+    let(:old_completed_claim)              { create(:claim, :submitted, created_at: 91.days.ago) }
+    let(:old_out_of_range_completed_claim) { create(:claim, :submitted, created_at: 92.days.ago) }
     let(:not_started_claim)                { Claim.create }
 
     describe '.started_within_max_submission_timeframe' do

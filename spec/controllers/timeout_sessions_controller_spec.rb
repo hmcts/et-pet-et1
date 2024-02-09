@@ -28,7 +28,7 @@ RSpec.describe TimeoutSessionsController, type: :controller do
       end
 
       describe 'for email' do
-        let(:claim) { create :claim, email_address: nil }
+        let(:claim) { create(:claim, email_address: nil) }
 
         before do
           allow(user_session).to receive(:email_address).and_return(email)

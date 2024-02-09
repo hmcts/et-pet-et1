@@ -18,7 +18,7 @@ RSpec.describe EtApi, type: :service do
 
     let(:mock_submit_diversity_service) { class_spy('SubmitDiversityResponseToApiService', call: mock_submit_diversity_service_instance) }
     let(:mock_submit_diversity_service_instance) { instance_spy('SubmitDiversityResponseToApiService', valid?: true, errors: []) }
-    let(:example_diversity_response) { create :diversity }
+    let(:example_diversity_response) { create(:diversity) }
 
     it 'delegates to SubmitClaimToApiService' do
       expect(service).to be mock_submit_diversity_service_instance
