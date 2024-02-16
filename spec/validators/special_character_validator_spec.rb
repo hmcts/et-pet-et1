@@ -7,7 +7,7 @@ RSpec.describe SpecialCharacterValidator do
       first_name: 'name',
       address_building: '12',
       address_postcode: 'DV1 GJ1',
-      address_with_comma: 'home, address',
+      address_with_comma: 'home, /address',
     }
   end
   let(:valid_attributes_with_comma) do
