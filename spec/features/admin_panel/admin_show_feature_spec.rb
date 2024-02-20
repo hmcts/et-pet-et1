@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe 'Viewing a claims details in the admin interface', type: :feature do
+  before do
+    admin_user = create :admin_user
+    sign_in admin_user, scope: :admin_user
+  end
+
   let!(:claim_with_attachments) do
     create :claim, :submitted, :with_pdf,
            fee_group_reference: '511234567800',

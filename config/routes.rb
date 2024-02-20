@@ -93,10 +93,14 @@ Rails.application.routes.draw do
   end
 
   scope :apply do
-    unless ENV.fetch('DISABLE_ADMIN', 'false') == 'true'
-      ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
+    devise_for :admin_users, ActiveAdmin::Devise.config
+
+    devise_scope :admin_user do
+      unless ENV.fetch('DISABLE_ADMIN', 'false') == 'true'
+        ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
+      end
+      mount Sidekiq::Web => '/sidekiq'
     end
-    mount Sidekiq::Web => '/sidekiq'
   end
 
   get '/health' => 'status#healthcheck', defaults: { format: 'json' }

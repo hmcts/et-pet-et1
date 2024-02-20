@@ -18,6 +18,8 @@ RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
   end
 
   before do
+    admin_user = create :admin_user
+    sign_in admin_user, scope: :admin_user
     out_of_filter_range_claim
     claim
   end

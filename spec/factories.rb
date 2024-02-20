@@ -309,4 +309,9 @@ FactoryBot.define do
   factory :user do
     password { 'lollolol' }
   end
+
+  factory :admin_user, class: 'AdminUser' do
+    sequence(:email) { |idx| "testuser#{idx}@example.com" }
+    password { 'supersecurepassword' }
+  end
 end
