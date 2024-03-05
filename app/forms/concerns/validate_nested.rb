@@ -34,6 +34,6 @@ module ValidateNested
   end
 
   def normalize_collection_attribute(collection_method, index, attribute)
-    "#{collection_method}[#{index}].#{attribute}"
+    "#{collection_method}.attributes.[#{index}].#{attribute}"
   end
 end

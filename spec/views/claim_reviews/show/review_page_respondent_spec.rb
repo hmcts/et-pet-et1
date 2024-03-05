@@ -34,7 +34,7 @@ describe "claim_reviews/show.html.slim" do
         secondary_claimants: claim.secondary_claimants,
         secondary_respondents: claim.secondary_respondents
       }
-      review_page.load(rendered)
+      review_page.load(rendered.to_s)
     end
 
     it { expect(respondent_section.name.answer).to have_text('Lol Corp') }

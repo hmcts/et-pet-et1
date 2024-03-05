@@ -18,6 +18,8 @@ RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
   end
 
   before do
+    admin_user = create :admin_user
+    sign_in admin_user, scope: :admin_user
     out_of_filter_range_claim
     claim
   end
@@ -45,8 +47,8 @@ RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
     expect(claims_table.size).to eq 2
 
     within('.filter_form') do
-      fill_in('q_submitted_at_gteq_datetime', with: '2015-06-02')
-      fill_in('q_submitted_at_lteq_datetime', with: '2015-06-05')
+      fill_in('q_submitted_at_gteq', with: '2015-06-02')
+      fill_in('q_submitted_at_lteq', with: '2015-06-05')
     end
 
     click_button 'Filter'

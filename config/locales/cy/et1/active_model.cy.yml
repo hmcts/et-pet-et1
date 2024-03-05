@@ -38,6 +38,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: Ni ddylid cynnwys rhifau
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -79,6 +80,7 @@ cy:
             address_street:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_locality.blank'
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -100,14 +102,17 @@ cy:
             additional_claimants_csv_row:
               attributes:
                 building:
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 street:
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+                  contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
                 locality:
                   too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 county:
+                  too_long: :'activemodel.errors.messages.too_long'
                   contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
                 post_code:
                   too_long: :'activemodel.errors.messages.too_long'
@@ -160,6 +165,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr hawlydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr hawlydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -189,6 +195,7 @@ cy:
               date_in_future: Rhaid i ddyddiad gorffen y gyflogaeth fod yn y gorffennol
             notice_period_end_date:
               invalid: Mae'r dyddiad rydych wedi'i roi yn annilys
+              notice_period_end_date_before_start_date: Rhaid nodi dyddiad sydd ar ôl dyddiad cychwyn y gyflogaeth
             notice_pay_period_type:
               blank: Mae'n rhaid i chi roi gwybodaeth ar gyfer y maes hwn
             new_job_start_date:
@@ -229,6 +236,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad eich cynrychiolydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad eich cynrychiolydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -273,6 +281,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
@@ -285,12 +294,17 @@ cy:
               invalid_ccd_post_code: :'activemodel.errors.models.respondent.attributes.address_post_code.invalid'
             work_address_building:
               blank: Rhowch enw neu rif adeilad eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_street:
               blank: Rhowch stryd eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             work_address_locality:
               blank: Rhowch dref neu ddinas eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_county:
               blank: Rhowch sir eich cyfeiriad gwaith
+              contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
             work_address_post_code:
               blank: Rhowch god post eich cyfeiriad gwaith
               invalid: "Rhowch god post DU dilys. Os ydych chi'n byw dramor, rhowch SW55 9QT"
@@ -321,6 +335,7 @@ cy:
             address_street:
               blank: Rhowch stryd cyfeiriad yr atebydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'
+              contains_numerical_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.address_street.contains_numerical_characters'
             address_locality:
               blank: Rhowch dref neu ddinas cyfeiriad yr atebydd ychwanegol
               contains_special_characters: :'activemodel.errors.models.additional_claimants_form/additional_claimant.attributes.first_name.contains_special_characters'

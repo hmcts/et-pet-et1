@@ -38,6 +38,7 @@ module AddressAttributes
                                                                                           unless: :skip_address_validation?
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true,
                                              allow_blank: true, unless: :skip_address_validation?
+        validates :address_street, numerical_character: true
         validates :address_street, :address_locality, :address_county, special_character: true
         validates :address_building, special_character: { comma: true, number: true }
       end

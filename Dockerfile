@@ -45,7 +45,8 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev f
     apk add --no-cache postgresql-client~=11.12 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main && \
     apk add --no-cache --virtual .build-tools git build-base && \
     cd /home/app/et1 && \
-    gem install bundler foreman && \
+    BUNDLER_VERSION=$(grep -A 1 "BUNDLED WITH" Gemfile.lock | tail -n 1 | awk '{$1=$1};1') && \
+    gem install bundler:$BUNDLER_VERSION invoker && \
     bundle config set without 'test development' && \
     bundle config set with 'production' && \
     bundle config set deployment 'true' && \

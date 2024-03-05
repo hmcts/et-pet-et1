@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.0.7.1'
+gem 'rails', '7.1.2'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -30,7 +30,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'iodine', '~> 0.7'
 
 # Use null db adapter for the form objects
-gem 'activerecord-nulldb-adapter', '~> 0.8'
+gem 'activerecord-nulldb-adapter', '~> 1.0'
 
 # Use dotenv for convenience in all environments
 gem 'dotenv-rails', '~> 2.7'
@@ -67,6 +67,7 @@ group :development, :test do
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
   gem 'solargraph'
+  gem 'et_full_system_control', git: 'https://github.com/hmcts/et-full-system-control.git'
 end
 
 group :test do
@@ -75,7 +76,7 @@ group :test do
   gem 'database_cleaner', '~> 2.0'
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 3.7'
+  gem 'site_prism', '~> 4.0'
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
@@ -94,7 +95,7 @@ group :production, :test, :development do
   gem "sentry-sidekiq", "~> 5.7"
 end
 
-gem 'activeadmin', '~> 2.9'
+gem 'activeadmin', '~> 3.2'
 gem 'base32_pure', '~> 0.1'
 gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
@@ -110,8 +111,10 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 2.2'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.2'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.3'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
 gem 'i18n', '1.12.0' # Temporary
+
+gem "rack-attack", "~> 6.7"

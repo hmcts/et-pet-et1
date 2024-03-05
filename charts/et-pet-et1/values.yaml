@@ -104,6 +104,7 @@ sidekiq:
     MAINTENANCE_ALLOWED_IPS: "109.157.179.51,151.225.112.106"
     SERVICE_FQDN: ${SERVICE_FQDN}
     DB_SSL_MODE: "require"
+    DISABLE_ADMIN: "true"
   keyVaults:
     et-pet:
       secrets:

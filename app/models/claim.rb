@@ -2,10 +2,14 @@ class Claim < ApplicationRecord
   include Reference
   include ClaimLists
 
+  def self.ransackable_associations(_auth_object = nil)
+    ['claimants', 'employment', 'events', 'office', 'primary_claimant', 'primary_respondent', 'representative', 'respondents', 'secondary_claimants', 'secondary_respondents', 'user']
+  end
+
   has_one :user, foreign_key: :reference, primary_key: :application_reference, inverse_of: :claim, required: false
   has_secure_password validations: false
-  serialize :additional_claimants_csv
-  serialize :claim_details_rtf
+  serialize :additional_claimants_csv, coder: YAML
+  serialize :claim_details_rtf, coder: YAML
   # @TODO Decide what to do about removing
   attr_accessor :remove_additional_claimants_csv
   # @TODO Decide what to do about removing

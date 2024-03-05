@@ -1,27 +1,25 @@
 - content_for(:page_title, t('.header'))
 
-.main-header role="banner"
-  h1= t('.header')
+h1 class="govuk-heading-xl govuk-!-padding-top-5" = t '.header'
+
+p.govuk-body = t('shared.reference')
+
+p.govuk-body-l = claim.reference
 
 .main-section
-
   .main-content
-    .clearfix
-      .callout.callout-reference
-        p.detail= t('shared.reference')
-        span.number= claim.reference
 
     = form_for user_session, url: timeout_session_path, method: :delete, builder: EtGdsDesignSystem.form_builder_class do |f|
       = f.govuk_error_summary(t 'shared.error_notification.default_message')
 
       .fieldset
-        p = t('.subheader')
+        p.govuk-body = t('.subheader')
 
-        p
+        p.govuk-body
           = link_to t('helpers.link.claim.return'), new_user_session_path, {class: 'button button-return'}
           = f.text_field :email_address, optional: true
 
-        p.print
+        p.govuk-body.print
           = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
 
         = f.submit t('.submit')
