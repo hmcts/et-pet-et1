@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.1.2'
+gem 'rails', '7.1.3.2'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -66,7 +66,6 @@ group :development, :test do
   gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
-  gem 'solargraph'
   gem 'et_full_system_control', git: 'https://github.com/hmcts/et-full-system-control.git'
 end
 
