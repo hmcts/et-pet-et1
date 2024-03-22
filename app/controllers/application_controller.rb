@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
   def load_claim_from_session
     return nil if session[:claim_reference].blank?
 
-    Claim.find_by(application_reference: session[:claim_reference])
+    Claim.includes(primary_claimant: :address).find_by(application_reference: session[:claim_reference])
   end
 
   def claim_path_for(page, options = {})
