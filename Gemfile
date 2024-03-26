@@ -75,7 +75,7 @@ group :test do
   gem 'database_cleaner', '~> 2.0'
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 4.0'
+  gem 'site_prism', '~> 5.0.1'
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'

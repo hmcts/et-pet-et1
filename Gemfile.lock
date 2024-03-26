@@ -320,7 +320,6 @@ GEM
     matrix (0.4.2)
     method_source (1.0.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
     minitest (5.22.3)
     multi_json (1.15.0)
     mutex_m (0.2.0)
@@ -334,8 +333,7 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.1)
-    nokogiri (1.16.3)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.16.3-arm64-darwin)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
@@ -516,11 +514,11 @@ GEM
       simplecov_json_formatter (~> 0.1)
     simplecov-html (0.12.3)
     simplecov_json_formatter (0.1.4)
-    site_prism (4.0.3)
-      addressable (~> 2.8)
-      capybara (~> 3.27)
-      site_prism-all_there (~> 2.0)
-    site_prism-all_there (2.0.2)
+    site_prism (5.0.1)
+      addressable (~> 2.8, >= 2.8.1)
+      capybara (~> 3.31)
+      site_prism-all_there (> 2, < 5)
+    site_prism-all_there (3.0.3)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -570,7 +568,7 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
-  ruby
+  arm64-darwin-22
 
 DEPENDENCIES
   activeadmin (~> 3.2)
@@ -633,7 +631,7 @@ DEPENDENCIES
   sidekiq-failures (~> 1.0)
   sidekiq_alive (~> 2.1)
   simplecov (~> 0.21)
-  site_prism (~> 4.0)
+  site_prism (~> 5.0.1)
   slim-rails (~> 3.2)
   spring (~> 4.0)
   turbolinks (~> 5.2)
