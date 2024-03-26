@@ -40,11 +40,13 @@ class EmploymentForm < Form
   validate :start_date_before_notice_period_end_date?
   validate :date_is_past?
   validates :was_employed, inclusion: [true, false]
+  validates :average_hours_worked_per_week, numericality: { greater_than: 0, less_than_or_equal_to: 168, allow_blank: true }
 
   before_validation :reset_irrelevant_fields!, if: :was_employed?
   before_validation :destroy_target!, unless: :was_employed?
 
-  validates :gross_pay, :net_pay, :new_job_gross_pay, numericality: { allow_blank: true }
+  validates :gross_pay, :new_job_gross_pay, numericality: { allow_blank: true }
+  validates :net_pay, numericality: { less_than_or_equal_to: :gross_pay, allow_blank: true }
 
   validates :new_job_gross_pay_frequency, presence: { if: :new_job_gross_pay? }
   validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
