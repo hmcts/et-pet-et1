@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_08_163140) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_20_062552) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_08_163140) do
     t.string "telephone_number"
     t.string "country"
     t.boolean "primary", default: true
+    t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
   end
 
   create_table "admin_users", force: :cascade do |t|

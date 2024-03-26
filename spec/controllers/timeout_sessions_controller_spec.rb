@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe TimeoutSessionsController, type: :controller do
   before do
     allow(UserSession).to receive(:new).and_return user_session
-    allow(Claim).to receive(:find_by).with(application_reference: claim.reference).and_return claim
+    allow(Claim).to receive_message_chain(:includes, :find_by).with(application_reference: claim.reference).and_return claim
   end
 
   let(:user_session) { instance_double(UserSession, claim: claim) }
