@@ -28,6 +28,12 @@ cy:
           attributes:
             was_employed:
               inclusion: Nodwch os ydych erioed wedi’ch cyflogi gan yr unigolyn neu’r sefydliad yr ydych yn gwneud yr hawliad hwn yn ei erbyn
+            average_hours_worked_per_week:
+              not_a_number: Rhaid bod yn rif dilys
+              less_than_or_equal_to: Rhaid bod yn llai na 168 awr
+              greater_than: Rhaid bod yn fwy na 0
+            net_pay:
+              less_than_or_equal_to: Rhaid i’r cyflog net fod yn llai na’r cyflog gros
         claim_details:
           attributes:
             other_known_claimants:
