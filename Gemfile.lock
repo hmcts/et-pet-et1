@@ -266,7 +266,7 @@ GEM
     hashdiff (1.1.0)
     html-attributes-utils (1.0.2)
       activesupport (>= 6.1.4.4)
-    i18n (1.12.0)
+    i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     inherited_resources (1.14.0)
       actionpack (>= 6.0)
@@ -600,7 +600,7 @@ DEPENDENCIES
   factory_bot_rails (~> 6.2)
   gov_fake_notify (~> 1.1, >= 1.1.1)
   govuk_notify_rails!
-  i18n (= 1.12.0)
+  i18n (~> 1.14.0)
   invisible_captcha (~> 2.0)
   iodine (~> 0.7)
   jbuilder (~> 2.10)

@@ -5,7 +5,7 @@ en:
       messages:
         too_long: |
            The information you have provided for this field must not exceed %{count} characters
-        invalid_ccd_address: :'activemodel.errors.messages.too_long'
+        invalid_ccd_address: The information you have provided for this field must not exceed %{count} characters
       models:
         user_session:
           attributes:
