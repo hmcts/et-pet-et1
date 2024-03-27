@@ -5,7 +5,7 @@ cy:
       messages:
         too_long: |
           Ni ddylai'r wybodaeth yr ydych wedi'i rhoi yma fod dros %{count} o nodau
-      invalid_ccd_address: :'activemodel.errors.messages.too_long'
+      invalid_ccd_address: activemodel.errors.messages.too_long
       models:
         user_session:
           attributes:

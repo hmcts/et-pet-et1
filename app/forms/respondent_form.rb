@@ -6,7 +6,7 @@ class RespondentForm < Form
     :work_address_county, :work_address_post_code, :work_address_telephone_number
   ].freeze
 
-  NAME_LENGTH    = 100
+  NAME_LENGTH = 100
 
   attribute :name,                                       :string
   attribute :acas_early_conciliation_certificate_number, :string
@@ -73,6 +73,10 @@ class RespondentForm < Form
   validates :acas_early_conciliation_certificate_number,
             presence: { if: -> { has_acas_number? } },
             acas: true
+
+  validates :work_address_building, :work_address_street, :work_address_locality, :work_address_county, length: { maximum: ADDRESS_LINE_LENGTH }, if: lambda {
+                                                                                                                                                        worked_at_same_address == false
+                                                                                                                                                      }
 
   before_save :reload_addresses
 

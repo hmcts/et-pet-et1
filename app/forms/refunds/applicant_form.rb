@@ -22,6 +22,7 @@ module Refunds
               length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH }
     validates :applicant_address_locality,
               :applicant_address_county,
+              length: { maximum: AddressAttributes::ADDRESS_LINE_LENGTH },
               ccd_address: true
     validates :applicant_address_telephone_number,
               length: { maximum: AddressAttributes::PHONE_NUMBER_LENGTH }
