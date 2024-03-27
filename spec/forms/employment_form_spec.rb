@@ -95,6 +95,35 @@ RSpec.describe EmploymentForm, type: :form do
     end
   end
 
+  describe "average hours worked per week" do
+    it 'validates that hours worked cannot be greater than 168' do
+      employment_form.average_hours_worked_per_week = 169
+      expect(employment_form).not_to be_valid
+      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.less_than_or_equal_to"))
+    end
+
+    it 'validates that hours worked cannot be less than or equal to 0' do
+      employment_form.average_hours_worked_per_week = 0
+      expect(employment_form).not_to be_valid
+      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.greater_than"))
+    end
+
+    it 'validates that hours worked must be numerical' do
+      employment_form.average_hours_worked_per_week = "abcd"
+      expect(employment_form).not_to be_valid
+      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.not_a_number"))
+    end
+  end
+
+  describe "net pay" do
+    it 'must be less than or equal to gross pay' do
+      employment_form.net_pay = '10000'
+      employment_form.gross_pay = '6000'
+      expect(employment_form).not_to be_valid
+      expect(employment_form.errors[:net_pay]).to include("Net pay must be lower than gross pay")
+    end
+  end
+
   [:gross_pay, :net_pay, :new_job_gross_pay].each do |attr|
     describe "#{attr}=" do
       before { employment_form.send "#{attr}=", '10,000' }

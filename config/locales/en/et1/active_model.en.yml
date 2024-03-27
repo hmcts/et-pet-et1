@@ -237,6 +237,12 @@ en:
               blank: Select how often you were paid
             notice_pay_period_type:
               blank: You must provide information for this field
+            average_hours_worked_per_week:
+              not_a_number: Must be a valid number
+              less_than_or_equal_to: Must be less than 168 hours
+              greater_than: Must be greater than 0
+            net_pay:
+              less_than_or_equal_to: Net pay must be lower than gross pay
 
         password:
           attributes:
