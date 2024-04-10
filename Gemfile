@@ -33,7 +33,7 @@ gem 'iodine', '~> 0.7'
 gem 'activerecord-nulldb-adapter', '~> 1.0'
 
 # Use dotenv for convenience in all environments
-gem 'dotenv-rails', '~> 2.7'
+gem 'dotenv-rails', '~> 3.1.0'
 
 # Gov uk notify service
 gem 'notifications-ruby-client', '~> 5.3'
@@ -46,7 +46,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.9'
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
-  gem 'brakeman', '~> 5.1', '>= 5.1.1'
+  gem 'brakeman', '~> 6.1.2'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
@@ -60,9 +60,9 @@ group :development, :test do
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', '~> 2.1', :require => false
-  gem 'shoulda-matchers', '~> 5.1'
+  gem 'shoulda-matchers', '~> 6.2'
   gem 'spring', '~> 4.0'
-  gem 'parallel_tests', '~> 4.0'
+  gem 'parallel_tests', '~> 4.6.0'
   gem 'simplecov', '~> 0.21'
   gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
@@ -75,7 +75,7 @@ group :test do
   gem 'database_cleaner', '~> 2.0'
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'site_prism', '~> 4.0'
+  gem 'site_prism', '~> 5.0.1'
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
@@ -89,9 +89,9 @@ group :assets do
 end
 
 group :production, :test, :development do
-  gem "sentry-ruby", "~> 5.7"
-  gem "sentry-rails", "~> 5.7"
-  gem "sentry-sidekiq", "~> 5.7"
+  gem "sentry-ruby", "~> 5.17"
+  gem "sentry-rails", "~> 5.17"
+  gem "sentry-sidekiq", "~> 5.17"
 end
 
 gem 'activeadmin', '~> 3.2'
@@ -114,6 +114,6 @@ gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.g
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"
-gem 'i18n', '1.12.0' # Temporary
+gem 'i18n', '~> 1.14.0' # Temporary
 
 gem "rack-attack", "~> 6.7"

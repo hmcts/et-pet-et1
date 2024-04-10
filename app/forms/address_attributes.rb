@@ -34,8 +34,11 @@ module AddressAttributes
         validates :address_building, :address_street, :address_locality,
                   :address_county, :address_post_code, presence: true, unless: :skip_address_validation?
 
-        validates :address_building, :address_street, :address_locality, :address_county, ccd_address: true,
-                                                                                          unless: :skip_address_validation?
+        validates :address_building,
+                  :address_street,
+                  :address_locality,
+                  :address_county, length: { maximum: ADDRESS_LINE_LENGTH }, ccd_address: true,
+                                   unless: :skip_address_validation?
         validates :address_telephone_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true,
                                              allow_blank: true, unless: :skip_address_validation?
         validates :address_street, numerical_character: true
@@ -44,4 +47,5 @@ module AddressAttributes
       end
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end
