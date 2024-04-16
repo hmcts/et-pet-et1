@@ -1,8 +1,7 @@
-# inherit_from:
-#   - .rubocop_todo.yml
+inherit_from: .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.2.2
   # Exclude anything that isn't really part of our code.
   # rails_helper is excluded because it's full of solecisms, but it's mostly
   # generated code and copy-and-pasted snipets from READMEs.
@@ -26,7 +25,7 @@ AllCops:
 
 # Allow long lines in specs, as it's almost impossible to fit RSpec's
 # expectations into 80 characters.
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
     - 'features/**/*'
@@ -206,6 +205,13 @@ RSpec/VerifiedDoubles:
 
 RSpec/MessageSpies:
   EnforcedStyle: receive
-require: 
+
+Capybara/CurrentPathExpectation:
+  Enabled: true
+
+require:
   - rubocop-rspec
   - rubocop-rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
