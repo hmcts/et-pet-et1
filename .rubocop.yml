@@ -31,6 +31,7 @@ Layout/LineLength:
     - 'features/**/*'
     - 'spec/**/*'
     - 'Gemfile'
+    - 'import-secrets.rb'
 Metrics/ClassLength:
   Exclude:
     - 'app/forms/**/*'
@@ -207,6 +208,15 @@ RSpec/MessageSpies:
   EnforcedStyle: receive
 
 Capybara/CurrentPathExpectation:
+  Enabled: true
+
+Layout/BlockAlignment:
+  Enabled: true
+
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+
+Layout/EmptyLines:
   Enabled: true
 
 require:
