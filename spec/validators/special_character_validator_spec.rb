@@ -30,10 +30,10 @@ RSpec.describe SpecialCharacterValidator do
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 
-    attribute :first_name,                :string
+    attribute :first_name, :string
     attribute :address_building,         :string
     attribute :address_postcode,         :string
-    attribute :address_with_comma,         :string
+    attribute :address_with_comma, :string
 
     validates :first_name, special_character: true
     validates :address_building, special_character: { comma: true, number: true }

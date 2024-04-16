@@ -14,7 +14,8 @@ module ValidateNested
   def collection_valid?(collection_method, record, index = nil)
     return true if record.marked_for_destruction?
 
-    unless valid = record.valid?
+    valid = record.valid?
+    unless valid
       record.errors.each do |error|
         attribute = normalize_collection_attribute(collection_method, index, error.attribute)
         errors.add(attribute, error.message)

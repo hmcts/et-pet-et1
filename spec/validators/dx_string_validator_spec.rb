@@ -17,7 +17,7 @@ RSpec.describe DxStringValidator do
     establish_connection adapter: :nulldb,
                          schema: 'config/nulldb_schema.rb'
 
-    attribute :dx_number,                :string
+    attribute :dx_number, :string
 
     validates :dx_number, dx_string: true
 

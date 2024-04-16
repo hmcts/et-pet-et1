@@ -10,7 +10,7 @@ class ApplicationRecord < ::ActiveRecord::Base
       my_params = enhance_date_range_search(args.first)
       super my_params, **kw_args
     else
-      super *args, **kw_args
+      super(*args, **kw_args)
     end
   end
 
