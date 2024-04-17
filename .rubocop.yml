@@ -184,6 +184,9 @@ Metrics/BlockLength:
     - 'features/step_definitions/**/*'
     - 'features/support/page_objects/**/*'
     - 'features/support/sections/**/*'
+    - 'app/views/api/claim/_build_claim.json.jbuilder'
+    - 'app/views/api/claim/create_claim.json.jbuilder'
+
 
 Layout/EmptyLineAfterMagicComment:
   Enabled: false
