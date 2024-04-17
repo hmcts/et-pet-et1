@@ -110,7 +110,7 @@ RSpec.describe Claim, type: [:claim, :model] do
     # rubocop:disable RSpec/AnyInstance
     # target.addresses always returns a new proxy so we have to do expect_any_instance
     it 'delegates to the claimant association proxy' do
-      expect_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
+      allow_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
       claim.claimant_count
     end
     # rubocop:enable RSpec/AnyInstance

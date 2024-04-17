@@ -25,13 +25,11 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     before do
       EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
-    end
-
-    before do
-      additional_claimants_upload_form.additional_claimants_csv = file
+additional_claimants_upload_form.additional_claimants_csv = file
       additional_claimants_upload_form.assign_attributes(has_additional_claimants: 'true')
       additional_claimants_upload_form.valid?
     end
+
 
     describe "attachment additional_claimants_csv" do
 

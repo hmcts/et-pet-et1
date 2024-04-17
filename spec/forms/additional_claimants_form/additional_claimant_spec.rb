@@ -63,8 +63,8 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
           before { allow(target).to receive(:update).and_raise(PG::NotNullViolation.new('test')) }
 
           it "send a data to sentry" do
-            fake_scope = double('sentry double')
-            expect(Sentry).to receive(:with_scope).and_yield(fake_scope)
+            fake_scope = instance_double('sentry double')
+            allow(Sentry).to receive(:with_scope).and_yield(fake_scope)
             expect(fake_scope).to receive(:set_extras).
               with({
                      old_data: target.attributes,

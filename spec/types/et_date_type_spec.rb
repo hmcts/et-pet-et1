@@ -41,7 +41,7 @@ RSpec.describe EtDateType do
       expect(form.date).to be_an_instance_of(EtDateType::InvalidDate)
     end
 
-    it 'retains the invalid value - 30th february' do
+    it 'retains the invalid value - 30th february - month integer' do
       form.attributes = {
         'date(1)' => '2000',
         'date(2)' => '2',
@@ -59,7 +59,7 @@ RSpec.describe EtDateType do
       expect(form.date).to be_an_instance_of(EtDateType::InvalidDate)
     end
 
-    it 'retains the invalid value - 30th february' do
+    it 'retains the invalid value - 30th february - month string' do
       form.attributes = {
         'date(1)' => '2000',
         'date(2)' => 'feb',

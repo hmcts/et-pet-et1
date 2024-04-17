@@ -70,7 +70,7 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
   it 're-submitting a claim', clean_with_truncation: true do
 
     fake_response = instance_spy('SubmitClaimToApiService', valid?: true, errors: [], response_data: { 'meta' => { 'BuildClaim' => { 'pdf_url' => 'http://anything.com/test.pdf' } } })
-    expect(EtApi).to receive(:create_claim).with(enqueued_claim).and_return(fake_response)
+    allow(EtApi).to receive(:create_claim).with(enqueued_claim).and_return(fake_response)
 
     visit admin_claim_path enqueued_claim.reference
 
