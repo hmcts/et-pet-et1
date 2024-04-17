@@ -97,7 +97,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
         end
 
         it 'has no errors' do
-          subject.valid?
+          service.valid?
           expect(service.errors).to be_empty
         end
       end
@@ -310,7 +310,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       end
 
       it 'has errors' do
-        subject.valid?
+        service.valid?
         expect(service.errors).to be_present
       end
     end

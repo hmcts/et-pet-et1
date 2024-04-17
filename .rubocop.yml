@@ -259,6 +259,31 @@ Lint/UnusedMethodArgument:
 Lint/UselessAccessModifier:
   Enabled: true
 
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: true
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
+
+RSpec/ExampleWording:
+  Enabled: true
+
+RSpec/ExpectInHook:
+  Enabled: true
+
+RSpec/FilePath:
+  Exclude:
+    - 'spec/services/carrierwave_filename_spec.rb'
+
+RSpec/LeakyConstantDeclaration:
+  Enabled: true
+
+RSpec/LetBeforeExamples:
+  Enabled: true
+
+RSpec/NamedSubject:
+  Enabled: true
+
 require:
   - rubocop-rspec
   - rubocop-rails

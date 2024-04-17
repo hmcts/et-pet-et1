@@ -32,10 +32,10 @@ describe "claim_reviews/show.html.slim" do
     end
 
     context 'Outcome details' do
-      subject { review_page.claim_outcome_section.what_outcome.answer.native.inner_html }
+      subject(:page) { review_page.claim_outcome_section.what_outcome.answer.native.inner_html }
 
       it do
-        expect(subject).
+        expect(page).
           to eq "A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)" \
             "<br>To get another job with the same employer or associated employer"
       end

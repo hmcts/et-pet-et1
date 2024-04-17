@@ -61,11 +61,11 @@ RSpec.describe ClaimTypeForm, type: :form do
     end
 
     context 'empty attributes' do
-      it "will fail" do
+      it "fails" do
         expect(claim_type_form).not_to be_valid
       end
 
-      it "will return proper error message" do
+      it "returns proper error message" do
         claim_type_form.valid?
         expect(claim_type_form.errors.messages[:base].first).to eql('You must select at least one of the claim types below')
       end

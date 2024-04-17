@@ -89,8 +89,8 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
 
   describe '#has_multiple_claimants=' do
     it 'empties the collection when set to false' do
-      subject.has_multiple_claimants = false
-      subject.save
+      additional_claimants_form.has_multiple_claimants = false
+      additional_claimants_form.save
       expect(claim.reload.secondary_claimants.count).to be_zero
     end
   end

@@ -18,7 +18,7 @@ module Refunds
 
     describe 'validations' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return(refund_instance)
       end
 
       context 'accept_declaration' do
@@ -28,9 +28,10 @@ module Refunds
       end
     end
 
+
     describe 'callbacks' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
       end
 
       it 'request the model generates application reference before save' do
@@ -46,7 +47,7 @@ module Refunds
 
     describe 'attributes' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
       end
 
       let(:refund_instance) { build(:refund, created_at: DateTime.parse('1 December 2012 00:00:00').utc) }

@@ -37,6 +37,7 @@ RSpec.describe EmploymentForm, type: :form do
       end
 
     end
+
     [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
     end
