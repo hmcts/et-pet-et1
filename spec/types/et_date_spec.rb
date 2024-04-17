@@ -1,11 +1,24 @@
 require 'rails_helper'
 
+class FormWithOmitDay < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+  attribute :date, :et_date, omit_day: true
+end
+
+class ExampleForm < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+  attribute :date, :et_date
+end
+
+class FormWith2Digit < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+  attribute :date, :et_date, allow_2_digit_year: true
+end
+
 RSpec.describe EtDateType do
-  class ExampleForm < ApplicationRecord
-    establish_connection adapter: :nulldb,
-                         schema: 'config/nulldb_schema.rb'
-    attribute :date, :et_date
-  end
 
   let(:form) { ExampleForm.new }
 
@@ -57,11 +70,6 @@ RSpec.describe EtDateType do
   end
 
   context 'configured with allow_2_digit_year' do
-    class FormWith2Digit < ApplicationRecord
-      establish_connection adapter: :nulldb,
-                           schema: 'config/nulldb_schema.rb'
-      attribute :date, :et_date, allow_2_digit_year: true
-    end
     let(:form) { FormWith2Digit.new }
 
     describe 'multi parameter assignment' do
@@ -96,11 +104,6 @@ RSpec.describe EtDateType do
   end
 
   context 'configured with omit_day' do
-    class FormWithOmitDay < ApplicationRecord
-      establish_connection adapter: :nulldb,
-                           schema: 'config/nulldb_schema.rb'
-      attribute :date, :et_date, omit_day: true
-    end
     let(:form) { FormWithOmitDay.new }
 
     describe 'multi parameter assignment' do

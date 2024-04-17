@@ -237,6 +237,25 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/TrailingEmptyLines:
   Enabled: true
 
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+
+Lint/EmptyFile:
+  Exclude:
+    - 'config/nulldb_schema.rb'
+
+Lint/IneffectiveAccessModifier:
+  Enabled: true
+
+Lint/MissingCopEnableDirective:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Lint/UselessAccessModifier:
+  Enabled: true
+
 require:
   - rubocop-rspec
   - rubocop-rails

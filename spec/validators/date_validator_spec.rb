@@ -1,4 +1,14 @@
 require 'rails_helper'
+
+class ModelClass < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+
+  attribute :date_of_birth, :et_date
+
+  validates :date_of_birth, date: true
+end
+
 RSpec.describe DateValidator do
   let(:valid_values) do
     ['2,1,1999', '5,1,1999', '12,5,1999']
@@ -6,15 +16,6 @@ RSpec.describe DateValidator do
   let(:model) { ModelClass.new }
   let(:invalid_values) do
     ['31,2,1999', '1,15,1999', '12,5,199']
-  end
-
-  class ModelClass < ApplicationRecord
-    establish_connection adapter: :nulldb,
-                         schema: 'config/nulldb_schema.rb'
-
-    attribute :date_of_birth, :et_date
-
-    validates :date_of_birth, date: true
   end
 
   it 'is valid for all in the valid list' do

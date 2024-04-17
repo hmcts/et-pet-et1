@@ -83,7 +83,7 @@ ActiveAdmin.register Claim do
         submit_claim: "Submit claim" }.each do |action, text|
         br
         div do
-          div { button_to text, action: action, method: :post }
+          div { button_to text, action:, method: :post }
         end
       end
     end
@@ -123,3 +123,4 @@ ActiveAdmin.register Claim do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
