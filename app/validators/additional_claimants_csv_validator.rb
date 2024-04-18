@@ -1,7 +1,7 @@
 class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
-    return unless record.send(attribute).present?
+    return if record.send(attribute).blank?
 
     result = EtApi.validate_claimants_file(record, attribute, value)
 

@@ -43,7 +43,7 @@ class DiversitiesController < ApplicationController
   end
 
   def resource
-    @form ||= Form.for("diversities_/#{current_step}").new(diversity_session)
+    @resource ||= Form.for("diversities_/#{current_step}").new(diversity_session)
   end
 
   def current_step
@@ -59,7 +59,7 @@ class DiversitiesController < ApplicationController
   end
 
   def load_diversity_session_from_session
-    return unless session[:diversity_session_id].present?
+    return if session[:diversity_session_id].blank?
 
     Session.find_by(id: session[:diversity_session_id])
   end

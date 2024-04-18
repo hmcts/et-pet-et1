@@ -25,7 +25,7 @@ class ApplicationRecord < ::ActiveRecord::Base
                                                                       '_gteq')) && is_date_time_type?(key.sub('_lteq',
                                                                                                               ''))
 
-        my_params[key] = my_params[key] + ' 23:59:59'
+        my_params[key] = "#{my_params[key]} 23:59:59"
       end
       my_params
     end

@@ -37,7 +37,7 @@ class RefundsController < ApplicationController
   end
 
   def resource
-    @form ||= Form.for("refunds/#{current_step}").new(refund_session)
+    @resource ||= Form.for("refunds/#{current_step}").new(refund_session)
   end
 
   def current_step
@@ -53,7 +53,7 @@ class RefundsController < ApplicationController
   end
 
   def load_refund_session_from_session
-    return unless session[:refund_session_id].present?
+    return if session[:refund_session_id].blank?
 
     Session.find_by(id: session[:refund_session_id])
   end

@@ -4,6 +4,6 @@ module CookiesHelper
   end
 
   def cookie_form
-    @_cookie_form ||= CookieForm.new(cookie_settings)
+    @cookie_form ||= CookieForm.new(cookie_settings)
   end
 end
