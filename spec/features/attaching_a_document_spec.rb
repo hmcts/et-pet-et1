@@ -7,7 +7,7 @@ describe 'Attaching a document', js: true do
   include EtTestHelpers::RSpec
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
-  let(:file_path) { "#{Rails.root}/spec/support/files/" }
+  let(:file_path) { Rails.root.join('spec/support/files/').to_s }
   let(:invalid_file_path) { "#{file_path}phil.jpg" }
 
   before do

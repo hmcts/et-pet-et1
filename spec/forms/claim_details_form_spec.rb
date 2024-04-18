@@ -23,7 +23,7 @@ RSpec.describe ClaimDetailsForm, type: :form do
   end
 
   describe 'on #claim_details_rtf' do
-    let(:path) { "#{Rails.root}/spec/support/files" }
+    let(:path) { Rails.root.join('spec/support/files').to_s }
 
     before do
       claim_details_form.claim_details_rtf = file
