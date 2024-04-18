@@ -53,9 +53,9 @@ class RefundsController < ApplicationController
   end
 
   def load_refund_session_from_session
-    if session[:refund_session_id].present?
-      Session.find_by(id: session[:refund_session_id])
-    end
+    return unless session[:refund_session_id].present?
+
+    Session.find_by(id: session[:refund_session_id])
   end
 
   def load_refund_from_session

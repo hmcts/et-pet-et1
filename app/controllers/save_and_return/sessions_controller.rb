@@ -34,9 +34,9 @@ module SaveAndReturn
     def check_session_expiry
       return unless session[:expires_in]
 
-      if Time.current > session[:expires_in]
-        logout_application
-      end
+      return unless Time.current > session[:expires_in]
+
+      logout_application
     end
 
     def logout_application

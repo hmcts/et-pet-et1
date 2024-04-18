@@ -19,9 +19,7 @@ class EtDateType < ActiveRecord::Type::Date
 
   def new_date(year, mon, mday = nil)
     mday ||= 1 if omit_day
-    if allow_2_digit_year && year.present? && year.strip.length <= 2
-      year = (1900 + year.to_i).to_s
-    end
+    year = (1900 + year.to_i).to_s if allow_2_digit_year && year.present? && year.strip.length <= 2
     Date.strptime("#{year}-#{mon}-#{mday}", '%Y-%m-%d')
   rescue ::Date::Error, TypeError
     InvalidDate.new(year, mon, mday)
@@ -35,9 +33,9 @@ class EtDateType < ActiveRecord::Type::Date
   end
 
   def correct_year(year)
-    if year&.to_i&.< 100
-      year.to_i + 1900
-    end
+    return unless year&.to_i&.< 100
+
+    year.to_i + 1900
   end
 
   def fallback_string_to_date(string)

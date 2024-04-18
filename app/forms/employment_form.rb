@@ -40,7 +40,8 @@ class EmploymentForm < Form
   validate :start_date_before_notice_period_end_date?
   validate :date_is_past?
   validates :was_employed, inclusion: [true, false]
-  validates :average_hours_worked_per_week, numericality: { greater_than: 0, less_than_or_equal_to: 168, allow_blank: true }
+  validates :average_hours_worked_per_week,
+            numericality: { greater_than: 0, less_than_or_equal_to: 168, allow_blank: true }
 
   before_validation :reset_irrelevant_fields!, if: :was_employed?
   before_validation :destroy_target!, unless: :was_employed?
@@ -98,29 +99,27 @@ class EmploymentForm < Form
     return if end_date.blank? || start_date.blank?
     return unless end_date.is_a?(Date) && start_date.is_a?(Date)
 
-    if end_date < start_date
-      errors.add(:end_date, :end_date_before_start_date)
-    end
+    return unless end_date < start_date
+
+    errors.add(:end_date, :end_date_before_start_date)
   end
 
   def start_date_before_notice_period_end_date?
     return if notice_period_end_date.blank? || start_date.blank?
     return unless notice_period_end_date.is_a?(Date) && start_date.is_a?(Date)
 
-    if notice_period_end_date < start_date
-      errors.add(:notice_period_end_date, :notice_period_end_date_before_start_date)
-    end
+    return unless notice_period_end_date < start_date
+
+    errors.add(:notice_period_end_date, :notice_period_end_date_before_start_date)
   end
 
   def date_is_past?
     return if end_date.blank? || start_date.blank?
     return unless end_date.is_a?(Date) && start_date.is_a?(Date)
 
-    if Time.zone.today < start_date
-      errors.add(:start_date, :date_in_future)
-    end
-    if Time.zone.today < end_date
-      errors.add(:end_date, :date_in_future)
-    end
+    errors.add(:start_date, :date_in_future) if Time.zone.today < start_date
+    return unless Time.zone.today < end_date
+
+    errors.add(:end_date, :date_in_future)
   end
 end

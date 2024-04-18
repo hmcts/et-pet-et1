@@ -28,7 +28,6 @@ module Refunds
       end
     end
 
-
     describe 'callbacks' do
       before do
         allow(refund_class).to receive(:new).with(session_attributes).and_return refund_instance

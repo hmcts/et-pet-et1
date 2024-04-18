@@ -22,7 +22,7 @@ FactoryBot.define do
       job_title { 'Super High Powered Exec' }
       start_date { '01/07/2000' }
       hours_worked_per_week { 37.5 }
-      gross_pay { 10000 }
+      gross_pay { 10_000 }
       pay_period_type { :'employment.pay_period_type.options.weekly' }
       net_pay { 6000 }
     end

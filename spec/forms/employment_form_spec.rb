@@ -130,7 +130,7 @@ RSpec.describe EmploymentForm, type: :form do
       before { employment_form.send "#{attr}=", '10,000' }
 
       it 'strips commas entered by the user' do
-        expect(employment_form.send(attr)).to eq 10000
+        expect(employment_form.send(attr)).to eq 10_000
       end
     end
   end

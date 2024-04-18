@@ -36,7 +36,8 @@ class ClaimReviewsController < ApplicationController
   def load_claim_from_session
     return nil if session[:claim_reference].blank?
 
-    Claim.includes(secondary_respondents: :addresses, secondary_claimants: :address).find_by(application_reference: session[:claim_reference])
+    Claim.includes(secondary_respondents: :addresses,
+                   secondary_claimants: :address).find_by(application_reference: session[:claim_reference])
   end
 
   def null_object

@@ -28,8 +28,8 @@ RSpec.describe RespondentForm, type: :form do
     end
 
     let(:address_building) { "x" * 50 }
-    it { expect(respondent_form).to validate_length_of(:name).is_at_most(100) }
 
+    it { expect(respondent_form).to validate_length_of(:name).is_at_most(100) }
 
     it { expect(respondent_form).to validate_length_of(:address_building).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:address_street).is_at_most(50) }

@@ -59,9 +59,9 @@ class DiversitiesController < ApplicationController
   end
 
   def load_diversity_session_from_session
-    if session[:diversity_session_id].present?
-      Session.find_by(id: session[:diversity_session_id])
-    end
+    return unless session[:diversity_session_id].present?
+
+    Session.find_by(id: session[:diversity_session_id])
   end
 
   def load_diversity_from_session
@@ -75,9 +75,9 @@ class DiversitiesController < ApplicationController
   end
 
   def validate_session
-    if diversity_session.nil? || expired_session?
-      redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') })
-    end
+    return unless diversity_session.nil? || expired_session?
+
+    redirect_to({ action: :new }, flash: { alert: t('diversities.show.session_reloaded') })
   end
 
   helper_method :diversity_path_for, :diversity, :current_step,

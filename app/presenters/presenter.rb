@@ -59,9 +59,9 @@ class Presenter
   end
 
   def yes_no(val)
-    unless val.nil?
-      I18n.t "shared.#{val ? 'yes' : 'no'}"
-    end
+    return if val.nil?
+
+    I18n.t "shared.#{val ? 'yes' : 'no'}"
   end
 
   def date(date)

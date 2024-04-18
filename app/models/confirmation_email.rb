@@ -6,12 +6,10 @@ class ConfirmationEmail
   def initialize(claim)
     @claim = claim
     @email_addresses = []
-    if primary_claimant_ticked?
-      @email_addresses << primary_claimant.email_address
-    end
-    if representative_ticked?
-      @email_addresses << representative.email_address
-    end
+    @email_addresses << primary_claimant.email_address if primary_claimant_ticked?
+    return unless representative_ticked?
+
+    @email_addresses << representative.email_address
   end
 
   def all_email_addresses
