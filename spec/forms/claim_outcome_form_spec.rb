@@ -8,7 +8,7 @@ RSpec.describe ClaimOutcomeForm, type: :form do
   end
 
   describe 'validations' do
-    context 'character lengths' do
+    context 'with character lengths' do
       it { expect(claim_outcome_form).to validate_length_of(:other_outcome).is_at_most(2500) }
     end
   end

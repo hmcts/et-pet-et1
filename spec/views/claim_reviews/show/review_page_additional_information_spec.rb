@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
-  context "additional_information" do
+  context "with additional_information" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new

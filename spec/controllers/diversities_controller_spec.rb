@@ -4,7 +4,7 @@ RSpec.describe DiversitiesController, type: :controller do
   describe 'PUT update' do
     let(:diversity_session) { Session.create }
 
-    context 'confirmation page' do
+    context 'when on the confirmation page' do
       before do
         allow(controller).to receive(:diversity_session).and_return diversity_session
       end
@@ -20,7 +20,7 @@ RSpec.describe DiversitiesController, type: :controller do
       end
     end
 
-    context 'expired session' do
+    context 'when expired session' do
       before do
         session[:expires_in] = 2.minutes.ago
         allow(controller).to receive(:diversity_session).and_return diversity_session

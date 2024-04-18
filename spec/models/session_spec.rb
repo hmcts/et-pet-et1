@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Session, type: :model do
   subject(:session) { described_class.new }
 
-  context 'virtual attributes' do
+  context 'with virtual attributes' do
     it 'adds to the data hash when a writer is called' do
       session.virtual_attribute_1 = 'test'
       expect(session.data).to include('virtual_attribute_1' => 'test')

@@ -69,7 +69,7 @@ RSpec.describe EtDateType do
     end
   end
 
-  context 'configured with allow_2_digit_year' do
+  context 'with allow_2_digit_year configured' do
     let(:form) { FormWith2Digit.new }
 
     describe 'multi parameter assignment' do
@@ -103,7 +103,7 @@ RSpec.describe EtDateType do
 
   end
 
-  context 'configured with omit_day' do
+  context 'with omit_day configured' do
     let(:form) { FormWithOmitDay.new }
 
     describe 'multi parameter assignment' do

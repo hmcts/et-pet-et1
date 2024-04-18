@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Multipart, type: :service do
-  context 'StringParam' do
+  context 'with StringParam' do
     it 'renders with a header and the content' do
       param = Multipart::StringParam.new('NAME', 'CONTENT')
       expected = %(Content-Disposition: form-data; name="NAME"\r\n\r\nCONTENT)
@@ -9,7 +9,7 @@ RSpec.describe Multipart, type: :service do
     end
   end
 
-  context 'FileParam' do
+  context 'with FileParam' do
     it 'renders with two headers and the content' do
       param = Multipart::FileParam.new('NAME', 'FILENAME', 'CONTENT')
       expected = %(Content-Disposition: form-data; name="NAME"; filename="FILENAME"\r\nContent-Type: application/octet-stream\r\n\r\nCONTENT)
@@ -17,7 +17,7 @@ RSpec.describe Multipart, type: :service do
     end
   end
 
-  context 'Post' do
+  context 'when post' do
     let(:multipart_post) {
       Multipart::Post.new(
         '/foo',

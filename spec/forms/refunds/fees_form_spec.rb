@@ -21,7 +21,7 @@ module Refunds
         fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
         before { form.send("#{fee_name}_fee=".to_sym, fee) }
 
-        context "#{fee_payment_date_field} attribute" do
+        context "with #{fee_payment_date_field} attribute" do
           it 'validates presence' do
             expect(form).to validate_presence_of(fee_payment_date_field)
           end
@@ -95,7 +95,7 @@ module Refunds
           end
         end
 
-        context "#{fee_payment_method_field} attribute" do
+        context "with #{fee_payment_method_field} attribute" do
           it 'validates presence' do
             expect(form).to validate_presence_of(fee_payment_method_field)
           end
@@ -114,7 +114,7 @@ module Refunds
           form.send("#{fee_name}_fee_payment_date_unknown=", true)
         end
 
-        context "#{fee_payment_date_field} attribute" do
+        context "with #{fee_payment_date_field} attribute" do
           it 'does not validate presence' do
             expect(form).not_to validate_presence_of(fee_payment_date_field)
           end
@@ -134,7 +134,7 @@ module Refunds
         fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
         before { form.send("#{fee_name}_fee=", fee) }
 
-        context "#{fee_payment_date_field} attribute" do
+        context "with #{fee_payment_date_field} attribute" do
           it 'does not validate presence' do
             expect(form).not_to validate_presence_of(fee_payment_date_field)
           end
@@ -148,7 +148,7 @@ module Refunds
           end
         end
 
-        context "#{fee_payment_method_field} attribute" do
+        context "with #{fee_payment_method_field} attribute" do
           it 'does not validate presence' do
             expect(form).not_to validate_presence_of(fee_payment_method_field)
           end
@@ -237,7 +237,7 @@ module Refunds
         end
       end
 
-      context 'common validations per fee' do
+      context 'with common validations per fee' do
         include_examples 'any fee', fee_name: :et_issue
         include_examples 'any fee', fee_name: :et_hearing
         include_examples 'any fee', fee_name: :et_reconsideration
@@ -246,7 +246,7 @@ module Refunds
       end
     end
 
-    context 'attribute writers' do
+    context 'with attribute writers' do
       shared_examples 'a fee date writer' do |fee_name:|
         reader_method = "#{fee_name}_fee_payment_date".to_sym
         writer_method = "#{fee_name}_fee_payment_date=".to_sym
@@ -337,7 +337,7 @@ module Refunds
         end
       end
 
-      context 'fee date writers' do
+      context 'with fee date writers' do
         include_examples 'a fee date writer', fee_name: :et_issue
         include_examples 'a fee date writer', fee_name: :et_hearing
         include_examples 'a fee date writer', fee_name: :et_reconsideration
@@ -345,7 +345,7 @@ module Refunds
         include_examples 'a fee date writer', fee_name: :eat_hearing
       end
 
-      context 'fee amount writers' do
+      context 'with fee amount writers' do
         include_examples 'a fee amount writer', fee_name: :et_issue
         include_examples 'a fee amount writer', fee_name: :et_hearing
         include_examples 'a fee amount writer', fee_name: :et_reconsideration

@@ -35,7 +35,7 @@ describe 'Request redispatch' do
 
     describe 'sending users to the correct pages per the claim state' do
       describe 'accessing the claim form when the claim state is' do
-        context 'created' do
+        context 'when created' do
           before { claim.update state: 'created' }
 
           specify 'the request is not redirected' do
@@ -44,7 +44,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'enqueued_for_submission' do
+        context 'when enqueued_for_submission' do
           before { claim.update state: 'enqueued_for_submission' }
 
           it 'redirects to the confirmation page' do
@@ -53,7 +53,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'submitted' do
+        context 'when submitted' do
           before { claim.update state: 'submitted' }
 
           it 'redirects to the confirmation page' do
@@ -64,7 +64,7 @@ describe 'Request redispatch' do
       end
 
       describe 'accessing the review page when the claim state is' do
-        context 'created' do
+        context 'when created' do
           before { claim.update state: 'created' }
 
           specify 'the request is not redirected' do
@@ -73,7 +73,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'enqueued_for_submission' do
+        context 'when enqueued_for_submission' do
           before { claim.update state: 'enqueued_for_submission' }
 
           it 'redirects to the confirmation page' do
@@ -82,7 +82,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'submitted' do
+        context 'when submitted' do
           before { claim.update state: 'submitted' }
 
           it 'redirects to the confirmation page' do
@@ -93,7 +93,7 @@ describe 'Request redispatch' do
       end
 
       describe 'accessing the confirmation page when the claim state is' do
-        context 'submitted' do
+        context 'when submitted' do
           before { claim.update state: 'submitted' }
 
           specify 'the request is not redirected' do
@@ -102,7 +102,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'enqueued_for_submission' do
+        context 'when enqueued_for_submission' do
           before { claim.update state: 'enqueued_for_submission' }
 
           specify 'the request is not redirected' do
@@ -111,7 +111,7 @@ describe 'Request redispatch' do
           end
         end
 
-        context 'created' do
+        context 'when created' do
           before { claim.update state: 'created' }
 
           it 'redirects to the claimant page' do

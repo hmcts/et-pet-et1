@@ -91,7 +91,7 @@ module Refunds
     end
 
     describe 'validations' do
-      context 'et_case_number' do
+      context 'with et_case_number' do
         it 'allows blank' do
           form.et_case_number = ''
           form.valid?
@@ -159,7 +159,7 @@ module Refunds
         end
       end
 
-      context 'eat_case_number' do
+      context 'with et_case_number' do
         it 'allows blank' do
           form.eat_case_number = ''
           form.valid?
@@ -245,7 +245,7 @@ module Refunds
         end
       end
 
-      context 'address_changed' do
+      context 'when address_changed' do
         it 'validates - allowing true value' do
           form.address_changed = true
           form.valid?
@@ -271,25 +271,25 @@ module Refunds
         end
       end
 
-      context 'claimant_address_building' do
+      context 'with claimant_address_building' do
         it 'validates presence' do
           expect(form).to validate_presence_of(:claimant_address_building)
         end
       end
 
-      context 'claimant_address_street' do
+      context 'with claimant_address_street' do
         it 'validates presence' do
           expect(form).to validate_presence_of(:claimant_address_street)
         end
       end
 
-      context 'claimant_address_post_code' do
+      context 'with claimant_address_post_code' do
         it 'validates presence' do
           expect(form).to validate_presence_of(:claimant_address_post_code)
         end
       end
 
-      context 'claim_had_representative' do
+      context 'with claim_had_representative' do
         it 'validates - allowing true value' do
           form.claim_had_representative = true
           form.valid?

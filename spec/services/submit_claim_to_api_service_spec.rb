@@ -73,7 +73,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
     context 'with a claim with single claimant, single respondent and a representative' do
       let(:example_claim) { create(:claim, :no_attachments, :not_submitted) }
 
-      context 'validating recorded request' do
+      context 'when validating recorded request' do
         subject { recorded_request }
 
         include_context 'with action performed before each example'
@@ -89,7 +89,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
         it { is_expected.not_to contain_api_command('BuildClaimDetailsFile') }
       end
 
-      context 'validating returned service object' do
+      context 'when validating returned service object' do
         subject(:service) { described_class.call example_claim }
 
         it 'is valid' do
@@ -102,7 +102,7 @@ RSpec.describe SubmitClaimToApiService, type: :service do
         end
       end
 
-      context 'validating the state of the given claim' do
+      context 'when validating the state of the given claim' do
         include_context 'with action performed before each example'
         it 'has its submitted_at attribute set' do
           expect(example_claim.reload).to have_attributes(submitted_at: instance_of(ActiveSupport::TimeWithZone))

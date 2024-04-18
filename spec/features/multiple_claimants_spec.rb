@@ -80,7 +80,7 @@ describe 'Multiple claimants', js: true do
       end
     end
 
-    context "additional claimants age has to be valid", js: true do
+    context "when additional claimants age has to be valid", js: true do
       it "error message if DoB is in future" do
         expect(page).not_to have_selector '#resource_1'
 

@@ -158,7 +158,7 @@ RSpec.describe AdditionalClaimantsForm, type: :form do
       end
     end
 
-    context 'valid?' do
+    context 'with valid?' do
       let(:attributes) do
         {
           has_multiple_claimants: 'false'

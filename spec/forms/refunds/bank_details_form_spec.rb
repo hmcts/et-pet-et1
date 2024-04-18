@@ -6,7 +6,7 @@ module Refunds
     let(:form) { described_class.new(refund_session) }
 
     describe 'validations' do
-      context 'payment_account_type' do
+      context 'with payment_account_type' do
         it 'validates presence' do
           expect(form).to validate_presence_of(:payment_account_type)
         end
@@ -19,19 +19,19 @@ module Refunds
       shared_examples 'an account' do |account_type:|
         before { form.payment_account_type = account_type }
 
-        context "payment_#{account_type}_account_name" do
+        context "with payment_#{account_type}_account_name" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_account_name")
           end
         end
 
-        context "payment_#{account_type}_name" do
+        context "with payment_#{account_type}_name" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_name")
           end
         end
 
-        context "payment_#{account_type}_account_number" do
+        context "with payment_#{account_type}_account_number" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_account_number")
           end
@@ -73,7 +73,7 @@ module Refunds
           end
         end
 
-        context "payment_#{account_type}_sort_code" do
+        context "with payment_#{account_type}_sort_code" do
           it 'validates presence' do
             expect(form).to validate_presence_of(:"payment_#{account_type}_sort_code")
           end

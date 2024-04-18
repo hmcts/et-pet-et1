@@ -52,7 +52,7 @@ describe 'Claim applications', type: :feature, js: true do
     end
   end
 
-  context 'along the happy path' do
+  context 'when along the happy path' do
     it 'Hitting the start page' do
       visit '/'
       expect(apply_page).to be_displayed
@@ -373,7 +373,7 @@ describe 'Claim applications', type: :feature, js: true do
              end).to have_been_made
     end
 
-    context 'Downloading the PDF', js: true do
+    context 'when downloading the PDF', js: true do
       it 'when the file is available' do
         complete_a_claim
         click_button 'Submit claim'
@@ -393,7 +393,7 @@ describe 'Claim applications', type: :feature, js: true do
       end
     end
 
-    context 'Viewing the confirmation page' do
+    context 'when viewing the confirmation page' do
       it 'with a single claimant without remission option' do
         complete_a_claim
         expect(page).to have_text 'Check your claim'

@@ -20,7 +20,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
     it { expect(additional_claimant).to validate_length_of(:address_post_code).is_at_most(8) }
   end
 
-  context "claimant with target" do
+  context "with claimant with target" do
     let(:additional_claimant) { described_class.new(target) }
 
     let(:attributes) do
@@ -59,7 +59,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
           expect(additional_claimant.save).to be true
         end
 
-        context 'PG::NotNullViolation' do
+        context 'when PG::NotNullViolation error' do
           before { allow(target).to receive(:update).and_raise(PG::NotNullViolation.new('test')) }
 
           it "send a data to sentry" do
@@ -115,7 +115,7 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
     end
   end
 
-  context 'shared validation' do
+  context 'with shared validation' do
     subject { described_class.new Claimant.new }
 
     include_examples "Postcode validation",

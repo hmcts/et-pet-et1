@@ -60,7 +60,7 @@ RSpec.describe ClaimTypeForm, type: :form do
       claim_type_form.is_other_type_of_claim = false
     end
 
-    context 'empty attributes' do
+    context 'with empty attributes' do
       it "fails" do
         expect(claim_type_form).not_to be_valid
       end

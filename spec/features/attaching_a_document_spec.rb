@@ -29,7 +29,7 @@ describe 'Attaching a document', js: true do
       end
     end
 
-    context 'Uploading a valid RTF file' do
+    context 'when uploading a valid RTF file' do
       let(:ui_claim_details) { build(:ui_claim_details, :default, rtf_file_path: rtf_file_path) }
 
       before do
@@ -79,7 +79,7 @@ describe 'Attaching a document', js: true do
 
     before { EtTestHelpers.stub_validate_additional_claimants_api }
 
-    context 'A valid CSV file' do
+    context 'with a valid CSV file' do
       before do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(csv_file_path).save_and_continue
@@ -108,7 +108,7 @@ describe 'Attaching a document', js: true do
       end
     end
 
-    context 'An invalid file' do
+    context 'with an invalid file' do
       before do
         errors = [
           { code: "invalid", attribute: :date_of_birth, row: 4 },

@@ -72,7 +72,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
       end
     end
 
-    context 'modifying existing respondents' do
+    context 'when modifying existing respondents' do
       let(:attributes) do
         {
           has_multiple_respondents: 'true',

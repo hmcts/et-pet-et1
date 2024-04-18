@@ -32,7 +32,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     describe "attachment additional_claimants_csv" do
 
-      context "a valid csv is attached" do
+      context "when a valid csv is attached" do
         let(:errors) { [] }
 
         it "doesn't have errors" do
@@ -44,7 +44,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
         end
       end
 
-      context "an invalid csv is attached" do
+      context "when an invalid csv is attached" do
         let(:errors) do
           [
             { code: "invalid_columns" }

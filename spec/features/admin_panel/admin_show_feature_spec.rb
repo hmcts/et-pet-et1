@@ -81,7 +81,7 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
     expect(event.actor).to eq 'admin'
   end
 
-  context 'claim without large text inputs' do
+  context 'with claim without large text inputs' do
     let!(:claim_without_large_text_inputs) do
       create :claim,
              claim_details: nil,
@@ -109,7 +109,7 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
     end
   end
 
-  context 'claim without attachments' do
+  context 'when claim without attachments' do
     let!(:claim_without_attachments) { create :claim, :no_attachments }
 
     before { visit admin_claim_path claim_without_attachments.reference }

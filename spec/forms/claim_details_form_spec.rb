@@ -4,17 +4,17 @@ RSpec.describe ClaimDetailsForm, type: :form do
   let(:claim_details_form) { described_class.new Claim.new }
 
   describe 'validations' do
-    context 'presence' do
+    context 'with presence' do
       it { expect(claim_details_form).to validate_presence_of(:claim_details) }
 
-      context 'claim details attached as an RTF' do
+      context 'when claim details attached as an RTF' do
         before { claim_details_form.claim_details_rtf = { 'path' => 'anything', 'content_type' => 'application/rtf', 'filename' => 'filename.rtf' } }
 
         it { expect(claim_details_form).not_to validate_presence_of(:claim_details) }
       end
     end
 
-    context 'character lengths' do
+    context 'with character lengths' do
       before { claim_details_form.other_known_claimants = true }
 
       it { expect(claim_details_form).to validate_length_of(:claim_details).is_at_most(2500) }

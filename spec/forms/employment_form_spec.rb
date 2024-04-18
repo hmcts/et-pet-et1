@@ -73,7 +73,7 @@ RSpec.describe EmploymentForm, type: :form do
       include_examples 'common date examples', field: :start_date
     end
 
-    context 'end date before start date' do
+    context 'when end date before start date' do
 
       it 'rejects when end_date is before start_date' do
         employment_form.start_date = '1/1/2015'
@@ -84,7 +84,7 @@ RSpec.describe EmploymentForm, type: :form do
       end
     end
 
-    context 'notice_period_end_date before start date' do
+    context 'when notice_period_end_date before start date' do
 
       it 'rejects when notice_period_end_date is before start_date' do
         employment_form.start_date = '1/1/2015'
@@ -154,7 +154,7 @@ RSpec.describe EmploymentForm, type: :form do
   end
 
   describe 'callbacks' do
-    context 'was not employed' do
+    context 'when not previously employed' do
       before { employment_form.was_employed = 'false' }
 
       it 'destroys the representative relation' do
@@ -163,7 +163,7 @@ RSpec.describe EmploymentForm, type: :form do
       end
     end
 
-    context 'was employed' do
+    context 'when previously employed' do
       before do
         employment_form.assign_attributes worked_notice_period_or_paid_in_lieu: true,
                                           notice_period_end_date: 1.week.ago.to_date, end_date: Time.zone.today,
@@ -179,14 +179,14 @@ RSpec.describe EmploymentForm, type: :form do
           employment_form.valid?
         end
 
-        context 'previously entered other information clears other fields' do
+        context 'when previously entered other information clears other fields' do
           it { expect(employment_form.notice_period_end_date).to be nil }
           it { expect(employment_form.end_date).to be nil }
           it { expect(employment_form.new_job_start_date).to be nil }
         end
       end
 
-      context 'empty current_situation' do
+      context 'with empty current_situation' do
         before do
           employment_form.current_situation = nil
           employment_form.valid?

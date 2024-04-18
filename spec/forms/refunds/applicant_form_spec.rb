@@ -6,7 +6,7 @@ module Refunds
     let(:applicant_form) { described_class.new(refund_session) }
 
     describe 'validations' do
-      context 'applicant_address_building' do
+      context 'with applicant_address_building' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_address_building)
         end
@@ -16,7 +16,7 @@ module Refunds
         end
       end
 
-      context 'applicant_address_street' do
+      context 'with applicant_address_street' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_address_street)
         end
@@ -26,7 +26,7 @@ module Refunds
         end
       end
 
-      context 'applicant_address_locality' do
+      context 'with applicant_address_locality' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_address_locality)
         end
@@ -36,13 +36,13 @@ module Refunds
         end
       end
 
-      context 'applicant_address_county' do
+      context 'with applicant_address_county' do
         it 'validates the length' do
           expect(applicant_form).to validate_length_of(:applicant_address_county).is_at_most(50)
         end
       end
 
-      context 'applicant_address_post_code' do
+      context 'with applicant_address_post_code' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_address_post_code)
         end
@@ -52,7 +52,7 @@ module Refunds
         end
       end
 
-      context 'applicant_address_telephone_number' do
+      context 'with applicant_address_telephone_number' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_address_telephone_number)
         end
@@ -62,7 +62,7 @@ module Refunds
         end
       end
 
-      context 'applicant_title' do
+      context 'with applicant_title' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_title)
         end
@@ -72,19 +72,19 @@ module Refunds
         end
       end
 
-      context 'applicant_first_name' do
+      context 'with applicant_first_name' do
         it 'validates length' do
           expect(applicant_form).to validate_length_of(:applicant_first_name).is_at_most(100)
         end
       end
 
-      context 'applicant_last_name' do
+      context 'with applicant_last_name' do
         it 'validates length' do
           expect(applicant_form).to validate_length_of(:applicant_last_name).is_at_most(100)
         end
       end
 
-      context 'applicant_email_address' do
+      context 'with applicant_email_address' do
         it 'allows blank' do
           applicant_form.applicant_email_address = ''
           applicant_form.valid?
@@ -108,7 +108,7 @@ module Refunds
         end
       end
 
-      context 'applicant_date_of_birth' do
+      context 'with applicant_date_of_birth' do
         it 'validates presence' do
           expect(applicant_form).to validate_presence_of(:applicant_date_of_birth)
         end
@@ -159,7 +159,7 @@ module Refunds
         end
       end
 
-      context 'has_name_changed' do
+      context 'with has_name_changed' do
         it 'validates - disallowing nil value' do
           applicant_form.has_name_changed = nil
           applicant_form.valid?

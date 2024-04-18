@@ -8,7 +8,7 @@ module Refunds
     it_behaves_like 'a Form', { profile_type: 'claimant_direct_not_reimbursed' }, Refund
 
     describe 'validations' do
-      context 'profile_type' do
+      context 'with profile_type' do
         it 'validates presence of' do
           expect(form).to validate_presence_of(:profile_type)
         end
