@@ -15,12 +15,12 @@ RSpec.describe DxStringValidator do
   let(:model) { ModelClass.new }
   let(:valid_attributes) do
     {
-      dx_number: 'Na1 12-3',
+      dx_number: 'Na1 12-3'
     }
   end
   let(:invalid_attributes) do
     {
-      dx_number: '£$%^&*<',
+      dx_number: '£$%^&*<'
     }
   end
 

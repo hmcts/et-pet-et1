@@ -23,7 +23,7 @@ RSpec.describe SpecialCharacterValidator do
       first_name: 'name',
       address_building: '12',
       address_postcode: 'DV1 GJ1',
-      address_with_comma: 'home, /address',
+      address_with_comma: 'home, /address'
     }
   end
   let(:valid_attributes_with_comma) do
@@ -31,7 +31,7 @@ RSpec.describe SpecialCharacterValidator do
       first_name: 'name',
       address_building: '12,,,,,',
       address_postcode: 'DV1 GJ1',
-      address_with_comma: 'home, address',
+      address_with_comma: 'home, address'
     }
   end
   let(:invalid_attributes) do
@@ -39,7 +39,7 @@ RSpec.describe SpecialCharacterValidator do
       first_name: 'qwe<',
       address_building: '&*(',
       address_postcode: 'DV1 GJ1,',
-      address_with_comma: 'home, address42434',
+      address_with_comma: 'home, address42434'
     }
   end
 

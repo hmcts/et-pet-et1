@@ -116,10 +116,10 @@ class EmploymentForm < Form
     return if end_date.blank? || start_date.blank?
     return unless end_date.is_a?(Date) && start_date.is_a?(Date)
 
-    if Date.today < start_date
+    if Time.zone.today < start_date
       errors.add(:start_date, :date_in_future)
     end
-    if Date.today < end_date
+    if Time.zone.today < end_date
       errors.add(:end_date, :date_in_future)
     end
   end

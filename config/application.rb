@@ -26,7 +26,7 @@ module App
     # config.eager_load_paths << Rails.root.join("extras")
 
     # The default locale is :en and all translations from config/locales/**/*.rb,yml are auto loaded.
-    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join("config/locales/**/*.{rb,yml}").to_s]
     config.i18n.default_locale = :en
     # config.active_record.schema_format = :sql
     config.active_record.yaml_column_permitted_classes = [ActiveSupport::HashWithIndifferentAccess]

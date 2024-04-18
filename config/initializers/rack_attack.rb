@@ -8,7 +8,7 @@
   # different IPs to try brute-forcing a password for a specific account.
 
   # Throttle POST requests to /admin/password by IP address
-Rack::Attack::throttle('admin_password_resets/ip', limit: 5, period: 15.minutes) do |req|
+Rack::Attack.throttle('admin_password_resets/ip', limit: 5, period: 15.minutes) do |req|
     if req.path == '/apply/admin/password' && req.post?
       req.ip
     end

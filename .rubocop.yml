@@ -298,6 +298,40 @@ RSpec/ScatteredSetup:
 RSpec/StubbedMock:
   Enabled: true
 
+Rails/Blank:
+  Enabled: true
+  Exclude:
+    - 'app/views/api/claim/_build_primary_representative.json.jbuilder'
+    - 'app/controllers/claims_controller.rb'
+
+Rails/Date:
+  Enabled: true
+
+Rails/FilePath:
+  Enabled: true
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/save_and_return/sessions_controller.rb'
+
+Style/ColonMethodCall:
+  Enabled: true
+
+Style/FormatStringToken:
+  Enabled: true
+  Exclude:
+    - 'app/services/multipart.rb'
+
+Style/MutableConstant:
+  Enabled: true
+
+Style/StringConcatenation:
+  Enabled: true
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+
 require:
   - rubocop-rspec
   - rubocop-rails

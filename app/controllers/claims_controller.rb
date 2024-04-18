@@ -4,6 +4,8 @@ class ClaimsController < ApplicationController
   before_action :check_session_expiry, only: [:show, :update]
   before_action :sign_out_user, only: [:new]
 
+  def show; end
+
   def new
     @claim = Claim.new
   end
