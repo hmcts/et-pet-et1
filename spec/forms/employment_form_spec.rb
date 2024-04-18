@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe EmploymentForm, type: :form do
   let(:employment_form) { described_class.new resource }
 
-  let(:resource)   { Claim.new employment: employment }
+  let(:resource)   { Claim.new employment: }
   let(:employment) { Employment.new }
 
   it_behaves_like 'it parses dates',

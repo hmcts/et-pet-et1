@@ -9,7 +9,7 @@ class ValidateClaimantsFileViaApiService < ApiService
     @record = record
     @attribute = attribute
     json = ApplicationController.render 'api/claim/validate_claimants_file', format: :json, locals: {
-      file: value, uuid: uuid
+      file: value, uuid:
     }
     send_request(json, path: '/validate', subject: 'claimants file')
     @line_count = response_data.dig('meta', 'line_count')

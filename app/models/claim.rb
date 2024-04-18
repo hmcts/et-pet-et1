@@ -70,7 +70,7 @@ class Claim < ApplicationRecord
   end
 
   def create_event(event, actor: 'app', message: nil)
-    events.create event: event, actor: actor, message: message
+    events.create event:, actor:, message:
   end
 
   def authenticate(password)

@@ -33,7 +33,7 @@ class RefundsController < ApplicationController
   end
 
   def page_manager
-    @page_manager ||= RefundPagesManager.new(resource: resource)
+    @page_manager ||= RefundPagesManager.new(resource:)
   end
 
   def resource

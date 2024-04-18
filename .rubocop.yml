@@ -332,6 +332,11 @@ Style/StringConcatenation:
 Style/TrailingCommaInHashLiteral:
   Enabled: true
 
+Style/HashSyntax:
+  Enabled: true
+  Exclude:
+    - 'spec/features/attaching_a_document_spec.rb'
+
 require:
   - rubocop-rspec
   - rubocop-rails

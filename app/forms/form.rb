@@ -27,7 +27,7 @@ class Form < ApplicationRecord
   end
 
   def self.map_attribute(attribute_name, to:)
-    __custom_mappings[attribute_name] = { to: to }
+    __custom_mappings[attribute_name] = { to: }
   end
 
   def transient_attributes

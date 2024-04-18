@@ -37,7 +37,7 @@ class ClaimsController < ApplicationController
   end
 
   def page_manager
-    @page_manager ||= ClaimPagesManager.new(resource: resource)
+    @page_manager ||= ClaimPagesManager.new(resource:)
   end
 
   def resource

@@ -45,7 +45,7 @@ class ApiService
   private
 
   def send_request(json, path:, subject:, api_base: ENV.fetch('ET_API_URL'))
-    log_json(json, url: "#{api_base}#{path}", subject: subject)
+    log_json(json, url: "#{api_base}#{path}", subject:)
 
     request = Typhoeus::Request.new "#{api_base}#{path}",
                                     verbose: true, method: :post, body: json,

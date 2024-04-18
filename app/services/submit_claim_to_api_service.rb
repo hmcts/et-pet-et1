@@ -7,7 +7,7 @@ class SubmitClaimToApiService < ApiService
     claim.submitted_at ||= Time.now.utc
     claim.update state: 'submitted'
     json = ApplicationController.render 'api/claim/create_claim', format: :json, locals: {
-      claim: claim, employment: claim.employment, uuid: uuid
+      claim:, employment: claim.employment, uuid:
     }
     send_request(json, path: '/claims/build_claim', subject: 'claim')
     self

@@ -29,12 +29,12 @@ class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
         "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row.row_prefix", line_number: line_number.to_i + 1
       )
       error_text = I18n.t(
-        "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row.attributes.#{line_attribute}.#{e.type}", line_number: line_number, **e.options
+        "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row.attributes.#{line_attribute}.#{e.type}", line_number:, **e.options
       )
       acc << "#{prefix} #{error_text}"
     end
     record.errors.add attribute,
                       :invalid,
-                      line_errors: line_errors
+                      line_errors:
   end
 end

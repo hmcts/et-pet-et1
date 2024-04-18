@@ -39,7 +39,7 @@ class DiversitiesController < ApplicationController
   end
 
   def page_manager
-    @page_manager ||= DiversityPagesManager.new(resource: resource)
+    @page_manager ||= DiversityPagesManager.new(resource:)
   end
 
   def resource

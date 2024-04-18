@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe RepresentativeForm, type: :form do
   let(:representative) { Representative.new }
-  let(:resource)       { Claim.new representative: representative, has_representative: true }
+  let(:resource)       { Claim.new representative:, has_representative: true }
 
   let(:representative_form) { described_class.new resource }
 
