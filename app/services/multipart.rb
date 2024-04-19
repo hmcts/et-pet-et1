@@ -70,8 +70,8 @@ module Multipart
       RawContent.new('')
     end
 
-    def raw_content(a)
-      RawContent.new(a)
+    def raw_content(content)
+      RawContent.new(content)
     end
 
     def render_lines(*lines)

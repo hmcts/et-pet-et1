@@ -4,11 +4,11 @@ class Session < ApplicationRecord
     data.dup
   end
 
-  def method_missing(m, *args)
-    if m.to_s.end_with?('=')
-      data.merge!(m.to_s[0..-2] => args.first)
+  def method_missing(method, *args)
+    if method.to_s.end_with?('=')
+      data.merge!(method.to_s[0..-2] => args.first)
     else
-      data[m.to_s]
+      data[method.to_s]
     end
   end
 

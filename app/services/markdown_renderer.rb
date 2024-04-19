@@ -8,6 +8,7 @@ class MarkdownRenderer
     @renderer.render(contents).html_safe
   end
   # rubocop:enable Rails/OutputSafety
+
   private
 
   def setup_redcarpet_renderer

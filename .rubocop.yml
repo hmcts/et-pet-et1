@@ -238,6 +238,13 @@ Layout/SpaceInsideArrayLiteralBrackets:
 Layout/TrailingEmptyLines:
   Enabled: true
 
+# Naming
+Naming/FileName:
+  Exclude:
+    - "import-secrets.rb"
+Naming/PredicateName:
+  Enabled: false
+
 require:
   - rubocop-rspec
   - rubocop-rails
