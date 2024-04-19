@@ -82,20 +82,24 @@ class FormCollectionProxy
     end
   end
 
-  def apply_collection_attributes(collection_attributes)
-    collection_attributes.each do |(_key, value)|
-      instance = if value[child_primary_key].present?
-                   collection_cache.find do |record|
-                     record.send(child_primary_key).to_s == value[child_primary_key].to_s
-                   end
-                 else
-                   build
-                 end
+  def apply_collection_attributes(collection_attrs)
+    collection_attrs.each do |(_key, value)|
+      instance = find_or_build_instance(value)
       if ::ActiveRecord::Type::Boolean.new.cast(value["_destroy"])
         mark_for_destruction!(instance)
       else
         instance.attributes = value.except('_destroy', 'id')
       end
+    end
+  end
+
+  def find_or_build_instance(value)
+    if value[child_primary_key].present?
+      collection_cache.find do |record|
+        record.send(child_primary_key).to_s == value[child_primary_key].to_s
+      end
+    else
+      build
     end
   end
 

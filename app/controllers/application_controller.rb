@@ -62,11 +62,15 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sentry_context
-    return unless claim&.id.present? && claim&.application_reference.present? && claim&.user&.id.present?
+    return unless id_or_application_presence?
 
     Sentry.with_scope do |scope|
       scope.set_extras(claim_id: claim.id, application_reference: claim.application_reference, user_id: claim.user.id)
     end
+  end
+
+  def id_or_application_presence?
+    claim&.id.present? && claim&.application_reference.present? && claim&.user&.id.present?
   end
 
   def claim

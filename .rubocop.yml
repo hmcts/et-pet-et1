@@ -38,6 +38,11 @@ Metrics/MethodLength:
     - 'spec/**/*'
     - 'app/models/ability.rb'
     - 'config/initializers/markdown_handler.rb'
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*.rb'
+    - '**/*.jbuilder'
+  Max: 25
 
 # Style
 Style/BlockDelimiters:

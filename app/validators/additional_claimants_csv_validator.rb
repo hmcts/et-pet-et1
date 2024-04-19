@@ -20,20 +20,32 @@ class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
 
       record.errors.add attribute, e.type.to_sym
     end
-    line_errors = result.errors.each_with_object([]) do |e, acc|
-      next if e.attribute == :base
-
-      _, line_number, line_attribute = e.attribute.to_s.split('/').reject(&:blank?)
-      prefix = I18n.t(
-        "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row.row_prefix", line_number: line_number.to_i + 1
-      )
-      error_text = I18n.t(
-        "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row.attributes.#{line_attribute}.#{e.type}", line_number:, **e.options
-      )
-      acc << "#{prefix} #{error_text}"
-    end
+    line_errors = line_errors(record, result, attribute)
     record.errors.add attribute,
                       :invalid,
                       line_errors:
+  end
+
+  def line_errors(record, result, attribute)
+    result.errors.each_with_object([]) do |e, acc|
+      next if e.attribute == :base
+
+      _, line_number, line_attribute = e.attribute.to_s.split('/').reject(&:blank?)
+      prefix = I18n.t(error_prefix(record, attribute), line_number: line_number.to_i + 1)
+      error_text = I18n.t(error_text(record, attribute, line_attribute, e), line_number:, **e.options)
+      acc << "#{prefix} #{error_text}"
+    end
+  end
+
+  def error_prefix(record, attribute)
+    "#{error_attributes(record, attribute)}.row_prefix"
+  end
+
+  def error_text(record, attribute, line_attribute, error)
+    "#{error_attributes(record, attribute)}.attributes.#{line_attribute}.#{error.type}"
+  end
+
+  def error_attributes(record, attribute)
+    "activemodel.errors.models.#{record.class.model_name.i18n_key}.attributes.#{attribute}_row"
   end
 end

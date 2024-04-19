@@ -34,6 +34,7 @@ class Form < ApplicationRecord
     self.class.transient_attributes
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Naming/PredicateName
   def self.has_many_forms(collection_name, class_name: "#{collection_name.to_s.singularize.camelize}Form")
     class_eval do
       before_save :"update_#{collection_name}"
@@ -66,6 +67,7 @@ class Form < ApplicationRecord
       end
     end
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Naming/PredicateName
 
   # Form Methods
   def form_name
@@ -138,22 +140,15 @@ class Form < ApplicationRecord
   # @TODO Consider separating persistence from form objects
   # @TODO Why is this calling stuff on target and resource ?
   def save
-    if valid?
-      run_callbacks :save do
-        ActiveRecord::Base.transaction do
-          mapped_attributes = __custom_mappings.keys.map(&:to_s)
-          target.update attributes.except(*(transient_attributes.map(&:to_s) + mapped_attributes)) unless target.frozen?
-          __custom_mappings.each_pair do |attr, options|
-            object_to_write_to = options[:to]
-            raise "Unknown mapping 'to' method #{object_to_write_to}" unless respond_to?(object_to_write_to)
+    return false unless valid?
 
-            send(object_to_write_to).send(:"#{attr}=", send(attr))
-          end
-          resource.save
-        end
+    run_callbacks :save do
+      ActiveRecord::Base.transaction do
+        mapped_attributes = __custom_mappings.keys.map(&:to_s)
+        target.update attributes.except(*(transient_attributes.map(&:to_s) + mapped_attributes)) unless target.frozen?
+        custom_mappings(__custom_mappings)
+        resource.save
       end
-    else
-      false
     end
   end
 
@@ -166,17 +161,21 @@ class Form < ApplicationRecord
     (attributes.keys - __custom_mappings.keys.map(&:to_s)).each do |key|
       send "#{key}=", target.try(key)
     end
-    __custom_mappings.each_pair do |attr, options|
+    custom_mappings(__custom_mappings)
+  end
+
+  private
+
+  attr_writer :resource
+
+  def custom_mappings(mappings)
+    mappings.each_pair do |attr, options|
       object_to_read_from = options[:to]
       raise "Unknown mapping 'to' method #{object_to_read_from}" unless respond_to?(object_to_read_from)
 
       send "#{attr}=", send(object_to_read_from).send(attr)
     end
   end
-
-  private
-
-  attr_writer :resource
 
   def clean_strings
     @attributes.each_value do |attr|
