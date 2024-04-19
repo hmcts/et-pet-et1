@@ -13,6 +13,10 @@ class Presenter
       nil
     end
 
+    def respond_to_missing?(method_name, include_private = false)
+      target.respond_to?(method_name, include_private) || super
+    end
+
     def respond_to?(*)
       true
     end

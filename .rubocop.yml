@@ -69,6 +69,8 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/FormatString:
   Enabled: false
+Style/FormatStringToken:
+  EnforcedStyle: annotated
 Style/HashSyntax:
   Enabled: true
   Exclude:
