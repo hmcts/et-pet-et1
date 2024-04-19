@@ -191,6 +191,12 @@ Rails/LexicallyScopedActionFilter:
   Enabled: true
   Exclude:
     - 'app/controllers/save_and_return/sessions_controller.rb'
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/InverseOf:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
 
 # Layout
 Layout/AccessModifierIndentation:

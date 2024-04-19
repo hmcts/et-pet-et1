@@ -43,7 +43,7 @@ module ClaimReviewsHelper
 
     claims.push(t("claims.claim_type.is_other_type_of_claim.options.true")) if claim.is_other_type_of_claim?
 
-    claims.join(tag.br).html_safe
+    safe_join(claims, content_tag(:br))
   end
 
   def review_claimant_full_name(claimant)
