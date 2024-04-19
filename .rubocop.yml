@@ -220,6 +220,9 @@ Layout/LineLength:
     - 'spec/**/*'
     - 'Gemfile'
     - 'import-secrets.rb'
+    - 'config/initializers/devise.rb'
+    - 'config/environments/*.rb'
+    - 'app/validators/ccd_phone_validator.rb'
 Layout/MultilineMethodCallIndentation:
   Enabled: true
 Layout/ParameterAlignment:

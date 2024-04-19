@@ -81,7 +81,9 @@ class ApiService
   end
 
   def log_response
-    Rails.logger.info "API Responded with status #{response.code}, a return code of #{response.return_code} and a body of #{response.body}"
+    Rails.logger.info "API Responded with status #{response.code}," \
+                        " a return code of #{response.return_code}," \
+                        " and a body of #{response.body}"
   end
 
   def raise_on_response_code
