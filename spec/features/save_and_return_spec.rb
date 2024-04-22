@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Save and Return', js: true do
+describe 'Save and Return', js: true, type: :feature do
   include FormMethods
   include Messages
   include MailMatchers

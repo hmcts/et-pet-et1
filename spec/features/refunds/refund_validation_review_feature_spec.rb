@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Refund Validations - Confirmation Page', js: true do
+RSpec.describe 'Refund Validations - Confirmation Page', js: true, type: :feature do
   # In order to ensure that the information provided to the business is
   # as accurate as possible, field level validation is required to show
   # the user where they have gone wrong before they move on to the next step

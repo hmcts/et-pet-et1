@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'securerandom'
 
-describe 'Attaching a document', js: true do
+describe 'Attaching a document', js: true, type: :feature do
   include FormMethods
   include Messages
   include EtTestHelpers::RSpec

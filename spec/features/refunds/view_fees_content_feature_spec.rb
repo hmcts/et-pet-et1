@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Refund - Fees Page Content', js: true do
+RSpec.describe 'Refund - Fees Page Content', js: true, type: :feature do
   # In order to assist the user in providing accurate information
   # the content of the page should provide assistance and useful content
 

@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Refund Validations - Profile selection page', js: true do
+RSpec.describe 'Refund Validations - Profile selection page', js: true, type: :feature do
   # In order to ensure that the user is
   # of a particular profile, profile selection with validation is required to make
   # sure the user has selected a valid profile before they move on to the next step

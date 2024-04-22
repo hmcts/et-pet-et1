@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Request redispatch' do
+describe 'Request redispatch', type: :feature do
   include FormMethods
 
   context 'when the user is not signed' do

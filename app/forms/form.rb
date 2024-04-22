@@ -34,7 +34,7 @@ class Form < ApplicationRecord
     self.class.transient_attributes
   end
 
-  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Naming/PredicateName
+  # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def self.has_many_forms(collection_name, class_name: "#{collection_name.to_s.singularize.camelize}Form")
     class_eval do
       before_save :"update_#{collection_name}"

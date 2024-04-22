@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Refund Defaults - Case Details Page', js: true do
+RSpec.describe 'Refund Defaults - Case Details Page', js: true, type: :feature do
   # In order to provide assistance to the user
   # Some areas of the form have default values
 

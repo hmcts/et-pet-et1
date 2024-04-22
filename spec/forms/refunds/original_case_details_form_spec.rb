@@ -159,7 +159,7 @@ module Refunds
         end
       end
 
-      context 'with et_case_number' do
+      context 'with eat_case_number' do
         it 'allows blank' do
           form.eat_case_number = ''
           form.valid?

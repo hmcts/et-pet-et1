@@ -155,17 +155,19 @@ RSpec.describe RespondentForm, type: :form do
       it { expect(respondent_form).to validate_inclusion_of(:no_acas_number_reason).in_array reasons }
 
       describe 'when an ACAS number is given' do
-        before { respondent_form.has_acas_number = 'true' }
+        context 'when respondent has acas number' do
+          before { respondent_form.has_acas_number = 'true' }
 
-        it     { expect(respondent_form).to validate_presence_of(:acas_early_conciliation_certificate_number) }
-        it     { expect(respondent_form).not_to validate_presence_of(:no_acas_number_reason) }
-      end
+          it     { expect(respondent_form).to validate_presence_of(:acas_early_conciliation_certificate_number) }
+          it     { expect(respondent_form).not_to validate_presence_of(:no_acas_number_reason) }
+        end
 
-      describe 'when an ACAS number is given' do
-        before { respondent_form.has_acas_number = 'false' }
+        context 'when respondent has no acas number' do
+          before { respondent_form.has_acas_number = 'false' }
 
-        it     { expect(respondent_form).to validate_presence_of(:no_acas_number_reason) }
-        it     { expect(respondent_form).not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
+          it     { expect(respondent_form).to validate_presence_of(:no_acas_number_reason) }
+          it     { expect(respondent_form).not_to validate_presence_of(:acas_early_conciliation_certificate_number) }
+        end
       end
     end
 

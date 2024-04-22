@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Quick edit' do
+describe 'Quick edit', type: :feature do
   include FormMethods
 
   let(:claim_ready_for_review) { create :claim, :no_attachments, state: 'created' }
