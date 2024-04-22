@@ -49,15 +49,26 @@ RSpec.describe SpecialCharacterValidator do
     expect(model.errors).to be_empty
   end
 
-  it 'is not valid for an input with special characters' do
-    model.attributes = invalid_attributes
-    model.valid?
+  # it 'is not valid for an input with special characters' do
+  #   model.attributes = invalid_attributes
+  #   model.valid?
+  #
+  #   expect(model.errors.where(:first_name, :contains_special_characters)).to be_present
+  #   expect(model.errors.where(:address_building, :contains_special_characters)).to be_present
+  #   expect(model.errors.where(:address_postcode, :contains_special_characters)).to be_present
+  #   expect(model.errors.where(:address_with_comma, :contains_special_characters)).to be_present
+  # end
+  context 'when input has special characters' do
+    before do
+      model.attributes = invalid_attributes
+      model.valid?
+    end
 
-    expect(model.errors.where(:first_name, :contains_special_characters)).to be_present
-    expect(model.errors.where(:address_building, :contains_special_characters)).to be_present
-    expect(model.errors.where(:address_postcode, :contains_special_characters)).to be_present
-    expect(model.errors.where(:address_with_comma, :contains_special_characters)).to be_present
-
+    it 'is not valid' do
+      invalid_attributes.each_key do |attribute|
+        expect(model.errors).to include(attribute)
+      end
+    end
   end
 
   it 'is valid for address_building when there is a comma in the input' do

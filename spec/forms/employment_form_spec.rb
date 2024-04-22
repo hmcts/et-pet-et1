@@ -97,30 +97,24 @@ RSpec.describe EmploymentForm, type: :form do
   end
 
   describe "average hours worked per week" do
-    it 'validates that hours worked cannot be greater than 168' do
-      employment_form.average_hours_worked_per_week = 169
-      expect(employment_form).not_to be_valid
-      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.less_than_or_equal_to"))
-    end
-
-    it 'validates that hours worked cannot be less than or equal to 0' do
-      employment_form.average_hours_worked_per_week = 0
-      expect(employment_form).not_to be_valid
-      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.greater_than"))
-    end
-
-    it 'validates that hours worked must be numerical' do
-      employment_form.average_hours_worked_per_week = "abcd"
-      expect(employment_form).not_to be_valid
-      expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.not_a_number"))
+    [
+      { value: 169, error_message: "less_than_or_equal_to" },
+      { value: 0, error_message: "greater_than" },
+      { value: "abcd", error_message: "not_a_number" }
+    ].each do |example|
+      it "validates that hours worked #{example[:error_message] == 'not_a_number' ? 'must be numerical' : "cannot be #{example[:error_message]}"} #{example[:value]}" do
+        employment_form.average_hours_worked_per_week = example[:value]
+        employment_form.valid?
+        expect(employment_form.errors[:average_hours_worked_per_week]).to include(I18n.t("activemodel.errors.models.employment.attributes.average_hours_worked_per_week.#{example[:error_message]}"))
+      end
     end
   end
 
   describe "net pay" do
     it 'must be less than or equal to gross pay' do
-      employment_form.net_pay = '10000'
-      employment_form.gross_pay = '6000'
-      expect(employment_form).not_to be_valid
+      employment_form.net_pay = 10_000
+      employment_form.gross_pay = 6000
+      employment_form.valid?
       expect(employment_form.errors[:net_pay]).to include("Net pay must be lower than gross pay")
     end
   end
