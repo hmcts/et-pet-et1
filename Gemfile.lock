@@ -23,12 +23,12 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: ac9718c6bc3f3573c9f515985d113815403394cb
-  tag: v5.4.3
+  revision: d49f65049a9c5168357cfd67a41d4cd6275f44d2
+  tag: v6.0.0
   specs:
-    et_gds_design_system (5.4.3)
-      govuk_design_system_formbuilder (~> 4.0)
-      rack (< 3.0.0)
+    et_gds_design_system (6.0.0)
+      govuk_design_system_formbuilder (= 5.3.0)
+      rack
       rails (>= 6.0)
       typhoeus (~> 1.4)
       webpacker (~> 5.0)
@@ -247,15 +247,15 @@ GEM
     formtastic_i18n (0.7.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    gov_fake_notify (1.2.0)
+    gov_fake_notify (2.0.0)
       activemodel (>= 6.1)
-      iodine (~> 0.7)
       jwt (~> 2.2, >= 2.2.3)
       mail (~> 2.7, >= 2.7.1)
+      puma (~> 6.4)
       roda (~> 3.48)
       thor (~> 1.1)
       tilt (~> 2.0, >= 2.0.10)
-    govuk_design_system_formbuilder (4.1.1)
+    govuk_design_system_formbuilder (5.3.0)
       actionview (>= 6.1)
       activemodel (>= 6.1)
       activesupport (>= 6.1)
@@ -426,7 +426,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
-    roda (3.78.0)
+    roda (3.79.0)
       rack
     rouge (4.2.1)
     rspec (3.13.0)
@@ -602,7 +602,7 @@ DEPENDENCIES
   et_gds_design_system!
   et_test_helpers!
   factory_bot_rails (~> 6.2)
-  gov_fake_notify (~> 1.1, >= 1.1.1)
+  gov_fake_notify (~> 2.0)
   govuk_notify_rails!
   i18n (~> 1.14.0)
   invisible_captcha (~> 2.0)

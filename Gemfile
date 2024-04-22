@@ -26,7 +26,7 @@ gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsigh
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks', '~> 5.2'
 
-# Use iodine as the app server
+# Use puma as the app server
 gem 'iodine', '~> 0.7'
 
 # Use null db adapter for the form objects
@@ -50,7 +50,7 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'gov_fake_notify', '~> 1.1', '>= 1.1.1'
+  gem 'gov_fake_notify', '~> 2.0'
   gem 'launchy'
   gem 'listen', '~> 3.7'
   gem 'pry-rails', '~> 0.3'
@@ -79,7 +79,6 @@ group :test do
   gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
-  gem 'puma', '~> 6.3'
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.2'
 end
 
@@ -110,7 +109,7 @@ gem 'uk_postcode', '~> 2.1'
 gem 'email_validator', '~> 2.2'
 gem 'typhoeus', '~> 1.4'
 gem 'invisible_captcha', '~> 2.0'
-gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v5.4.3'
+gem 'et_gds_design_system', git:'https://github.com/hmcts/et_gds_design_system.git', tag: 'v6.0.0'
 
 gem "webpacker", "~> 5.4"
 gem "devise", "~> 4.8"

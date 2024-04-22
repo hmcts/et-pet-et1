@@ -3,7 +3,7 @@ hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom
 
 p.govuk-body = t('.claim_details_html', path: guide_path)
 
-details.govuk-details data-module="govuk-details" open=(resource.claim_form_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
+details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors[:claim_details_rtf].empty? ? true : nil)
   summary.govuk-details__summary
     span.govuk-details__summary-text= t('.claim_details_upload')
 
