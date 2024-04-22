@@ -22,6 +22,7 @@ class SubmitClaimToApiService < ApiService
     end
   end
 
+  # rubocop:disable Metrics/MethodLength
   def error_attribute_for(error)
     attr = error['source'].split('/').last
     case error['command']
@@ -39,4 +40,5 @@ class SubmitClaimToApiService < ApiService
       :base
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

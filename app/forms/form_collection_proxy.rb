@@ -19,15 +19,19 @@ class FormCollectionProxy
 
   # @return [Hash] Returns the collection attributes to be passed into the target's nested associations code
   def collection_attributes
-    attrs = collection_cache.each_with_object({}).with_index do |(form, acc), idx|
-      nested_attributes = form_to_nested_attributes(form)
-      acc[idx] = nested_attributes unless nested_attributes.empty?
-      acc
-    end
+    attrs = collection_object
     offset = attrs.length
     to_destroy.each_with_object(attrs).with_index do |(form, acc), idx|
       nested_attributes = form_to_nested_attributes(form)
       acc[idx + offset] = nested_attributes unless nested_attributes.empty?
+      acc
+    end
+  end
+
+  def collection_object
+    collection_cache.each_with_object({}).with_index do |(form, acc), idx|
+      nested_attributes = form_to_nested_attributes(form)
+      acc[idx] = nested_attributes unless nested_attributes.empty?
       acc
     end
   end
@@ -123,9 +127,11 @@ class FormCollectionProxy
   end
 
   def wrapped(proxied_object)
-    return collection_wrapped[proxied_object.object_id] if collection_wrapped.key?(proxied_object.object_id)
+    collection_wrapped.compare_by_identity
 
-    collection_wrapped[proxied_object.object_id] = wrap(proxied_object)
+    return collection_wrapped[proxied_object] if collection_wrapped.key?(proxied_object)
+
+    collection_wrapped[proxied_object] = wrap(proxied_object)
   end
 
   def wrap_collection(proxied_collection)
