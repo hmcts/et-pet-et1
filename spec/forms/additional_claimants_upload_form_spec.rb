@@ -24,10 +24,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
     end
 
     before do
-      EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
-    end
-
-    before do
+      EtTestHelpers.stub_validate_additional_claimants_api(errors:)
       additional_claimants_upload_form.additional_claimants_csv = file
       additional_claimants_upload_form.assign_attributes(has_additional_claimants: 'true')
       additional_claimants_upload_form.valid?
@@ -35,7 +32,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
 
     describe "attachment additional_claimants_csv" do
 
-      context "a valid csv is attached" do
+      context "when a valid csv is attached" do
         let(:errors) { [] }
 
         it "doesn't have errors" do
@@ -47,7 +44,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
         end
       end
 
-      context "an invalid csv is attached" do
+      context "when an invalid csv is attached" do
         let(:errors) do
           [
             { code: "invalid_columns" }
@@ -82,7 +79,7 @@ RSpec.describe AdditionalClaimantsUploadForm, type: :form do
     let(:errors) { [] }
 
     before do
-      EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
+      EtTestHelpers.stub_validate_additional_claimants_api(errors:)
     end
 
     it "returns whether a file is present or not" do

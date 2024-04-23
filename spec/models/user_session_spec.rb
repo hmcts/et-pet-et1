@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe UserSession do
 
-  let(:claim)           { Claim.new password_digest: password_digest }
+  let(:claim)           { Claim.new password_digest: }
   let(:reference)       { ApplicationReference.normalize 'reference' }
   let(:password)        { 'password' }
   let(:password_digest) { 'gff76tyuiy' }

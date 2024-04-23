@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Claimant page', js: true do
+describe 'Claimant page', js: true, type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
@@ -33,7 +33,7 @@ describe 'Claimant page', js: true do
       claimants_details_page.fill_in_all(claimant: ui_claimant)
     end
 
-    context 'no dob present' do
+    context 'when no dob present' do
       let(:ui_claimant) { build(:ui_claimant, :default, :no_date_of_birth) }
 
       it "displays no validation error if no DOB is present" do
@@ -42,7 +42,7 @@ describe 'Claimant page', js: true do
       end
     end
 
-    context 'dob is 2 digit year' do
+    context 'when dob is 2 digit year' do
       let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_two_digit) }
 
       it "displays validation of DOB is 2 digits" do
@@ -52,7 +52,7 @@ describe 'Claimant page', js: true do
       end
     end
 
-    context 'dob is in the future' do
+    context 'when dob is in the future' do
       let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_in_future) }
 
       it "displays validation if date is in the future" do
@@ -62,7 +62,7 @@ describe 'Claimant page', js: true do
       end
     end
 
-    context 'age is not between 10-100' do
+    context 'when age is not between 10-100' do
       let(:ui_claimant) { build(:ui_claimant, :default, :date_of_birth_not_in_range) }
 
       it "displays validation if age is not between 10 or 100" do

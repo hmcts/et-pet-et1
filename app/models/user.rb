@@ -29,9 +29,9 @@ class User < ApplicationRecord
   private
 
   def claim_not_submitted
-    if claim.immutable?
-      errors.add(:base, I18n.t('errors.user_session.immutable'))
-    end
+    return unless claim.immutable?
+
+    errors.add(:base, I18n.t('errors.user_session.immutable'))
   end
 
   def send_pending_devise_notifications

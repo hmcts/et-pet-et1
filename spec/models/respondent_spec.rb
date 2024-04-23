@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Respondent, type: :model do
-  let(:respondent) { described_class.new claim: claim }
+  let(:respondent) { described_class.new claim: }
   let(:claim) { Claim.new }
 
   it { is_expected.to belong_to(:claim).optional }

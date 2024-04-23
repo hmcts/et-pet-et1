@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe ClaimPagesManager, type: :service do
   let(:claim) { Claim.new }
-  let(:claim_pages_manager) { described_class.new resource: resource }
+  let(:claim_pages_manager) { described_class.new resource: }
 
   describe '.first_page' do
     it 'returns the first page in the process' do

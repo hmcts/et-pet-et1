@@ -4,7 +4,7 @@ class DiversityFormJob < ApplicationJob
   def perform(diversity, uuid)
     Rails.logger.info "Starting DiversityFormJob"
 
-    EtApi.build_diversity_response diversity, uuid: uuid
+    EtApi.build_diversity_response(diversity, uuid:)
     Rails.logger.info "Finished DiversityFormJob"
   end
 end

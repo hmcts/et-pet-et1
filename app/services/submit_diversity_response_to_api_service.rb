@@ -5,7 +5,7 @@ class SubmitDiversityResponseToApiService < ApiService
 
   def call(diversity_response, uuid: SecureRandom.uuid)
     json = ApplicationController.render 'api/diversity/build_diversity_response', format: :json, locals: {
-      response: diversity_response, uuid: uuid
+      response: diversity_response, uuid:
     }
     send_request(json, path: '/diversity/build_diversity_response', subject: 'diversity_response')
   end

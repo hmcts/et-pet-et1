@@ -23,6 +23,7 @@ yaml['env'].each_pair do |key, value|
       if result['name'] != new_key || result['value'] != value
         raise "Error writing secret #{new_key} to key vault #{new_keyvault_id}"
       end
+
       key_vaults << "        - name: #{new_key}\n          alias: #{key}"
     end
   elsif value.is_a?(String)

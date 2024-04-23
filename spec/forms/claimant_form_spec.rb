@@ -232,7 +232,7 @@ RSpec.describe ClaimantForm, type: :form do
     end
   end
 
-  context 'shared validations' do
+  context 'with shared validations' do
     subject { claimant_form }
 
     it_behaves_like "a Form",

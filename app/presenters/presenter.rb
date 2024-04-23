@@ -13,6 +13,10 @@ class Presenter
       nil
     end
 
+    def respond_to_missing?(method_name, include_private = false)
+      target.respond_to?(method_name, include_private) || super
+    end
+
     def respond_to?(*)
       true
     end
@@ -59,9 +63,9 @@ class Presenter
   end
 
   def yes_no(val)
-    unless val.nil?
-      I18n.t "shared.#{val ? 'yes' : 'no'}"
-    end
+    return if val.nil?
+
+    I18n.t "shared.#{val ? 'yes' : 'no'}"
   end
 
   def date(date)

@@ -97,7 +97,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       expect(described_class.find_by_reference('abcd-l234')).to eql(claim)
     end
 
-    context "no record is found" do
+    context "when no record is found" do
       it "returns nil" do
         described_class.destroy_all
         expect(described_class.find_by_reference('ABCD-1234')).to be_nil
@@ -110,7 +110,7 @@ RSpec.describe Claim, type: [:claim, :model] do
     # rubocop:disable RSpec/AnyInstance
     # target.addresses always returns a new proxy so we have to do expect_any_instance
     it 'delegates to the claimant association proxy' do
-      expect_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
+      allow_any_instance_of(claim.claimants.class).to receive(:count).and_return(0)
       claim.claimant_count
     end
     # rubocop:enable RSpec/AnyInstance
@@ -124,11 +124,11 @@ RSpec.describe Claim, type: [:claim, :model] do
   end
 
   describe '#multiple_claimants?' do
-    context 'claim with multiple claimants' do
+    context 'when claim with multiple claimants' do
       specify { expect(claim_enqueued).to be_multiple_claimants }
     end
 
-    context 'claim with a single claimant' do
+    context 'when claim with a single claimant' do
       let(:claim) { create :claim, :single_claimant }
 
       specify { expect(claim).not_to be_multiple_claimants }
@@ -239,7 +239,7 @@ RSpec.describe Claim, type: [:claim, :model] do
   end
 
   describe '#finalize!' do
-    context 'transitioning state from "enqueued_for_submission"' do
+    context 'when transitioning state from "enqueued_for_submission"' do
       before do
         allow(claim).to receive_messages save!: true
         claim.state = 'enqueued_for_submission'
@@ -267,7 +267,7 @@ RSpec.describe Claim, type: [:claim, :model] do
 
   describe '#immutable?' do
     context 'when `state` is' do
-      context 'created' do
+      context 'when created' do
         before { claim.state = 'created' }
 
         it 'is false' do
@@ -275,7 +275,7 @@ RSpec.describe Claim, type: [:claim, :model] do
         end
       end
 
-      context 'submitted' do
+      context 'when submitted' do
         before { claim.state = 'submitted' }
 
         it 'is true' do
@@ -283,7 +283,7 @@ RSpec.describe Claim, type: [:claim, :model] do
         end
       end
 
-      context 'enqueued_for_submission' do
+      context 'when enqueued_for_submission' do
         before { claim.state = 'enqueued_for_submission' }
 
         it 'is true' do
@@ -313,7 +313,7 @@ RSpec.describe Claim, type: [:claim, :model] do
   describe 'secondary respondent count' do
     let(:max) { Rails.application.config.additional_respondents_limit }
 
-    context "max secondary respondents" do
+    context "when max secondary respondents" do
       before do
         max.times { claim.secondary_respondents << create(:respondent) }
       end
@@ -323,7 +323,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       end
     end
 
-    context "over max secondary respondents" do
+    context "when over max secondary respondents" do
       before do
         (max + 1).times { claim.secondary_respondents << create(:respondent) }
       end

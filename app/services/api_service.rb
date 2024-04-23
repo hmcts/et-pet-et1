@@ -45,11 +45,9 @@ class ApiService
   private
 
   def send_request(json, path:, subject:, api_base: ENV.fetch('ET_API_URL'))
-    log_json(json, url: "#{api_base}#{path}", subject: subject)
+    log_json(json, url: "#{api_base}#{path}", subject:)
 
-    request = Typhoeus::Request.new "#{api_base}#{path}",
-                                    verbose: true, method: :post, body: json,
-                                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+    request = typhoeus_request_object(api_base, path, json)
     perform_requests(request)
     self.response = request.response
     parse_response
@@ -58,6 +56,12 @@ class ApiService
     raise_on_return_code
     generate_errors
     response
+  end
+
+  def typhoeus_request_object(api_base, path, json)
+    Typhoeus::Request.new "#{api_base}#{path}",
+                          verbose: true, method: :post, body: json,
+                          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
   end
 
   def parse_response
@@ -81,7 +85,9 @@ class ApiService
   end
 
   def log_response
-    Rails.logger.info "API Responded with status #{response.code}, a return code of #{response.return_code} and a body of #{response.body}"
+    Rails.logger.info "API Responded with status #{response.code}," \
+                        " a return code of #{response.return_code}," \
+                        " and a body of #{response.body}"
   end
 
   def raise_on_response_code

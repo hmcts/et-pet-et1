@@ -1,4 +1,14 @@
 require 'rails_helper'
+
+class ModelClass < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+
+  attribute :date_of_birth, :et_date
+
+  validates :date_of_birth, date_range: { range: -> { 100.years.ago..10.years.ago } }
+end
+
 RSpec.describe DateRangeValidator do
   let(:valid_values) do
     ["5,1,#{99.years.ago.year}", "2,1,#{11.years.ago.year}", "21,5,#{50.years.ago.year}"]
@@ -6,15 +16,6 @@ RSpec.describe DateRangeValidator do
   let(:model) { ModelClass.new }
   let(:invalid_values) do
     ["1,1,#{9.years.ago.year}", "15,1,#{102.years.ago.year}"]
-  end
-
-  class ModelClass < ApplicationRecord
-    establish_connection adapter: :nulldb,
-                         schema: 'config/nulldb_schema.rb'
-
-    attribute :date_of_birth, :et_date
-
-    validates :date_of_birth, date_range: { range: -> { 100.years.ago..10.years.ago } }
   end
 
   it 'is valid for all in the valid list' do

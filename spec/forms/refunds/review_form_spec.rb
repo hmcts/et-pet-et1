@@ -8,7 +8,7 @@ module Refunds
     let(:refund_session) { spy('Session', session_attributes.merge(to_h: session_attributes)) }
     let(:form) { described_class.new(refund_session) }
 
-    context 'standard form behavior' do
+    context 'with standard form behavior' do
       before do
         allow(refund_class).to receive(:new).and_return refund_instance
       end
@@ -18,10 +18,10 @@ module Refunds
 
     describe 'validations' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return(refund_instance)
       end
 
-      context 'accept_declaration' do
+      context 'with accept_declaration' do
         it 'validates acceptance of' do
           expect(form).to validate_acceptance_of(:accept_declaration)
         end
@@ -30,7 +30,7 @@ module Refunds
 
     describe 'callbacks' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
       end
 
       it 'request the model generates application reference before save' do
@@ -46,7 +46,7 @@ module Refunds
 
     describe 'attributes' do
       before do
-        expect(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
+        allow(refund_class).to receive(:new).with(session_attributes).and_return refund_instance
       end
 
       let(:refund_instance) { build(:refund, created_at: DateTime.parse('1 December 2012 00:00:00').utc) }

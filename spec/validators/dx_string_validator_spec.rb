@@ -1,26 +1,27 @@
 require 'rails_helper'
+
+class ModelClass < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+
+  attribute :dx_number, :string
+
+  validates :dx_number, dx_string: true
+
+end
+
 RSpec.describe DxStringValidator do
 
   let(:model) { ModelClass.new }
   let(:valid_attributes) do
     {
-      dx_number: 'Na1 12-3',
+      dx_number: 'Na1 12-3'
     }
   end
   let(:invalid_attributes) do
     {
-      dx_number: '£$%^&*<',
+      dx_number: '£$%^&*<'
     }
-  end
-
-  class ModelClass < ApplicationRecord
-    establish_connection adapter: :nulldb,
-                         schema: 'config/nulldb_schema.rb'
-
-    attribute :dx_number,                :string
-
-    validates :dx_number, dx_string: true
-
   end
 
   it 'is valid for an input with no special characters' do

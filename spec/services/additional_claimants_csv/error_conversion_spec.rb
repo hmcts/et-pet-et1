@@ -7,18 +7,18 @@ RSpec.describe AdditionalClaimantsCsv::ErrorConversion, type: :service do
      "Street", "Town/city", "County", "Postcode"]
   }
 
-  let(:model_errros) { ActiveModel::Errors.new(Object.new) }
+  let(:model_errors) { ActiveModel::Errors.new(Object.new) }
 
   describe "#convert" do
 
     before do
-      model_errros.add(:title, "such invalid title")
-      model_errros.add(:address_street, "so very long text")
+      model_errors.add(:title, "such invalid title")
+      model_errors.add(:address_street, "so very long text")
     end
 
-    context "adapts the error message to include the header it relates to" do
-      describe "retruns an array of error messages" do
-        let(:errors) { described_class.new(header, model_errros).convert }
+    context "with errors" do
+      describe "returns an array of error messages" do
+        let(:errors) { described_class.new(header, model_errors).convert }
 
         it { expect(errors.size).to eq 2 }
         it { expect(errors.first).to eq "Title - such invalid title" }

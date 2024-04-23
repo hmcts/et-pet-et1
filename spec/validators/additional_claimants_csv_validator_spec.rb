@@ -1,16 +1,17 @@
 require 'rails_helper'
 
+class ModelClass < ApplicationRecord
+  establish_connection adapter: :nulldb,
+                       schema: 'config/nulldb_schema.rb'
+
+  attribute :example_csv, :gds_azure_file
+  attribute :example_csv_record_count
+
+  validates :example_csv,
+            additional_claimants_csv: true
+end
+
 RSpec.describe AdditionalClaimantsCsvValidator do
-  class ModelClass < ApplicationRecord
-    establish_connection adapter: :nulldb,
-                         schema: 'config/nulldb_schema.rb'
-
-    attribute :example_csv, :gds_azure_file
-    attribute :example_csv_record_count
-
-    validates :example_csv,
-              additional_claimants_csv: true
-  end
   describe '#valid?' do
     let(:example_base_api_url) { 'http://et-api.com' }
     let(:example_translations) do

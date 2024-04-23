@@ -1,11 +1,11 @@
 module ClaimReviewsHelper
   def incomplete_claim_warning(claim)
-    unless claim.submittable?
-      render partial: 'error_header', locals: {
-        summary: t('.incomplete_claim_summary'),
-        message: t('.incomplete_claim_message')
-      }
-    end
+    return if claim.submittable?
+
+    render partial: 'error_header', locals: {
+      summary: t('.incomplete_claim_summary'),
+      message: t('.incomplete_claim_message')
+    }
   end
 
   def claim_presenter
@@ -27,27 +27,23 @@ module ClaimReviewsHelper
   end
 
   def review_pay_for(pay, period)
-    if [pay, period].all?(&:present?)
-      "#{number_to_currency(pay)} #{t("claim_reviews.item.employment.pay_period_#{period}")}"
-    end
+    return unless [pay, period].all?(&:present?)
+
+    "#{number_to_currency(pay)} #{t("claim_reviews.item.employment.pay_period_#{period}")}"
   end
 
   def review_types(claim)
     claims = []
 
-    if claim.is_unfair_dismissal?
-      claims << I18n.t("claims.claim_type.is_unfair_dismissal.options.1")
-    end
+    claims << I18n.t("claims.claim_type.is_unfair_dismissal.options.1") if claim.is_unfair_dismissal?
 
     claims.push(*claim.pay_claims.map { |c| I18n.t "claims.claim_type.pay_claims.options.#{c}" })
 
     claims.push(*claim.discrimination_claims.map { |c| I18n.t "claim_reviews.discrimination_claims.#{c}" })
 
-    if claim.is_other_type_of_claim?
-      claims.push(t("claims.claim_type.is_other_type_of_claim.options.true"))
-    end
+    claims.push(t("claims.claim_type.is_other_type_of_claim.options.true")) if claim.is_other_type_of_claim?
 
-    claims.join(tag.br).html_safe
+    safe_join(claims, content_tag(:br))
   end
 
   def review_claimant_full_name(claimant)

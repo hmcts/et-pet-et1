@@ -72,7 +72,7 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
       end
     end
 
-    context 'modifying existing respondents' do
+    context 'when modifying existing respondents' do
       let(:attributes) do
         {
           has_multiple_respondents: 'true',
@@ -112,8 +112,8 @@ RSpec.describe AdditionalRespondentsForm, type: :form do
 
   describe '#has_multiple_respondents=' do
     it 'empties the collection when set to false' do
-      subject.has_multiple_respondents = false
-      subject.save
+      additional_respondents_form.has_multiple_respondents = false
+      additional_respondents_form.save
       expect(claim.reload.secondary_respondents.count).to be_zero
     end
   end

@@ -29,9 +29,7 @@ class ClaimTypeForm < Form
 
   def claim_type_value(attribute_name)
     claim_type_value = self[attribute_name]
-    if claim_type_value.is_a?(Array)
-      claim_type_value = claim_type_value.select(&:present?)
-    end
+    claim_type_value = claim_type_value.select(&:present?) if claim_type_value.is_a?(Array)
     claim_type_value
   end
 end

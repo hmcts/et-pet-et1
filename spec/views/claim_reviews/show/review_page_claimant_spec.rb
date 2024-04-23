@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
-  context "claim_type" do
+  context "with claim_type" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new
@@ -28,7 +28,7 @@ describe "claim_reviews/show.html.slim" do
         end
       end
       render template: "claim_reviews/show", locals: {
-        claim: claim,
+        claim:,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,

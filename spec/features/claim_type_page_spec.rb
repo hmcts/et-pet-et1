@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Claim type page', js: true do
+describe 'Claim type page', js: true, type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }

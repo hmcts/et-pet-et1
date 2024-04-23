@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Multiple respondents', js: true do
+describe 'Multiple respondents', js: true, type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }

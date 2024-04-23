@@ -74,9 +74,10 @@ class RespondentForm < Form
             presence: { if: -> { has_acas_number? } },
             acas: true
 
-  validates :work_address_building, :work_address_street, :work_address_locality, :work_address_county, length: { maximum: ADDRESS_LINE_LENGTH }, if: lambda {
-                                                                                                                                                        worked_at_same_address == false
-                                                                                                                                                      }
+  validates :work_address_building, :work_address_street, :work_address_locality, :work_address_county,
+            length: { maximum: ADDRESS_LINE_LENGTH }, if: lambda {
+                                                            worked_at_same_address == false
+                                                          }
 
   before_save :reload_addresses
 
