@@ -23,11 +23,11 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: d49f65049a9c5168357cfd67a41d4cd6275f44d2
-  tag: v6.0.0
+  revision: 901ee6289f3895f9968fdedecf1615a736e1c162
+  tag: v6.0.1-rc1
   specs:
-    et_gds_design_system (6.0.0)
-      govuk_design_system_formbuilder (= 5.3.0)
+    et_gds_design_system (6.0.1)
+      govuk_design_system_formbuilder (~> 5.3.0)
       rack
       rails (>= 6.0)
       typhoeus (~> 1.4)
@@ -276,7 +276,6 @@ GEM
     invisible_captcha (2.3.0)
       rails (>= 5.2)
     io-console (0.7.2)
-    iodine (0.7.57)
     irb (1.12.0)
       rdoc
       reline (>= 0.4.2)
@@ -335,6 +334,8 @@ GEM
       net-protocol
     nio4r (2.7.1)
     nokogiri (1.16.3-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.3-x86_64-linux)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
@@ -573,8 +574,8 @@ GEM
     zeitwerk (2.6.13)
 
 PLATFORMS
-  aarch64-linux-musl
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   activeadmin (~> 3.2)
@@ -606,7 +607,6 @@ DEPENDENCIES
   govuk_notify_rails!
   i18n (~> 1.14.0)
   invisible_captcha (~> 2.0)
-  iodine (~> 0.7)
   jbuilder (~> 2.10)
   jquery-rails (~> 4.4)
   launchy
