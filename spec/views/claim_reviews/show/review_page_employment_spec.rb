@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
-  context "employment" do
+  context "with employment" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new
@@ -26,7 +26,7 @@ describe "claim_reviews/show.html.slim" do
         found_new_job: true
       }
     end
-    let(:claim) { create(:claim, employment: employment) }
+    let(:claim) { create(:claim, employment:) }
 
     let(:null_object) { NullObject.new }
 
@@ -37,7 +37,7 @@ describe "claim_reviews/show.html.slim" do
         end
       end
       render template: "claim_reviews/show", locals: {
-        claim: claim,
+        claim:,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,
@@ -114,7 +114,7 @@ describe "claim_reviews/show.html.slim" do
       end
 
       describe 'when target.worked_notice_period_or_paid_in_lieu' do
-        context 'is true' do
+        context 'when is true' do
           let(:employment_attributes) { { worked_notice_period_or_paid_in_lieu: true } }
 
           it 'includes notice period pay' do
@@ -122,7 +122,7 @@ describe "claim_reviews/show.html.slim" do
           end
         end
 
-        context 'is false' do
+        context 'when is false' do
           it 'does not include notice period pay' do
             expect(employment_section).not_to have_notice_pay
           end

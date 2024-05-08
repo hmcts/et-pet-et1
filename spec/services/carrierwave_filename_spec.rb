@@ -4,14 +4,14 @@ RSpec.describe FilenameCleaner, type: :service do
   describe '.for' do
     let(:claimants_csv) { claim.additional_claimants_csv }
 
-    context 'attachment exists' do
+    context 'when attachment exists' do
       let(:claim) { create :claim }
 
       it 'returns the filename including the extension' do
         expect(described_class.for(claimants_csv)).to eq 'file.csv'
       end
 
-      context 'handling filenames with non alphanumeric characters' do
+      context 'when handling filenames with non alphanumeric characters' do
         let(:claim) { create :claim, :non_sanitized_attachment_filenames }
 
         context 'when underscore = true' do
@@ -28,7 +28,7 @@ RSpec.describe FilenameCleaner, type: :service do
       end
     end
 
-    context 'attachment does not exist' do
+    context 'when attachment does not exist' do
       let(:claim) { create :claim, :without_additional_claimants_csv }
 
       it 'returns nil' do

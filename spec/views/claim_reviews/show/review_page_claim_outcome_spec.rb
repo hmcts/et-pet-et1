@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
-  context "claim_outcome" do
+  context "with claim_outcome" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new
@@ -20,7 +20,7 @@ describe "claim_reviews/show.html.slim" do
         end
       end
       render template: "claim_reviews/show", locals: {
-        claim: claim,
+        claim:,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,
@@ -31,17 +31,17 @@ describe "claim_reviews/show.html.slim" do
       review_page.load(rendered.to_s)
     end
 
-    context 'Outcome details' do
-      subject { review_page.claim_outcome_section.what_outcome.answer.native.inner_html }
+    context 'with outcome details' do
+      subject(:page) { review_page.claim_outcome_section.what_outcome.answer.native.inner_html }
 
       it do
-        expect(subject).
+        expect(page).
           to eq "A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)" \
             "<br>To get another job with the same employer or associated employer"
       end
     end
 
-    context 'What outcome' do
+    context 'with outcome' do
       subject { review_page.claim_outcome_section.outcome_details.answer.native.inner_html }
 
       it { is_expected.to eq("25 bags\n<br>your job") }

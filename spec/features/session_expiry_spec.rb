@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Session Expiry', type: :feature do
   include FormMethods
 
-  context 'within the context of creating a claim' do
-    context 'outside of the allocated time frame for a user session' do
+  context 'when within the context of creating a claim' do
+    context 'when outside of the allocated time frame for a user session' do
 
       before { start_claim }
 
@@ -29,7 +29,7 @@ describe 'Session Expiry', type: :feature do
     end
   end
 
-  context 'on the start page of the application' do
+  context 'when on the start page of the application' do
     it 'a users session does not expire' do
       visit apply_path
       travel_to TimeHelper.session_expiry_time do

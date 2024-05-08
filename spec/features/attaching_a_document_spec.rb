@@ -1,14 +1,14 @@
 require 'rails_helper'
 require 'securerandom'
 
-describe 'Attaching a document', js: true do
+describe 'Attaching a document', js: true, type: :feature do
   include FormMethods
   include Messages
   include EtTestHelpers::RSpec
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
-  let(:file_path) { Rails.root + 'spec/support/files/' }
-  let(:invalid_file_path) { file_path + './phil.jpg' }
+  let(:file_path) { Rails.root.join('spec/support/files/').to_s }
+  let(:invalid_file_path) { "#{file_path}phil.jpg" }
 
   before do
     return_to_your_claim_page.
@@ -19,8 +19,8 @@ describe 'Attaching a document', js: true do
 
   describe 'For claim details RTF upload', with_stubbed_azure_upload: true do
     let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
-    let(:rtf_file_path) { file_path + './file.rtf' }
-    let(:alternative_rtf_file_path) { file_path + './alt_file.rtf' }
+    let(:rtf_file_path) { "#{file_path}file.rtf" }
+    let(:alternative_rtf_file_path) { "#{file_path}alt_file.rtf" }
     let(:ui_claim_details) { build(:ui_claim_details, :default) }
 
     around do |example|
@@ -29,7 +29,7 @@ describe 'Attaching a document', js: true do
       end
     end
 
-    context 'Uploading a valid RTF file' do
+    context 'when uploading a valid RTF file' do
       let(:ui_claim_details) { build(:ui_claim_details, :default, rtf_file_path: rtf_file_path) }
 
       before do
@@ -68,8 +68,8 @@ describe 'Attaching a document', js: true do
 
   describe 'For additional claimants', with_stubbed_azure_upload: true do
     let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
-    let(:csv_file_path) { "#{file_path}./file.csv" }
-    let(:alternative_csv_file_path) { "#{file_path}./alt_file.csv" }
+    let(:csv_file_path) { "#{file_path}file.csv" }
+    let(:alternative_csv_file_path) { "#{file_path}alt_file.csv" }
 
     around do |example|
       ClimateControl.modify ET_API_URL: et_api_url do
@@ -79,7 +79,7 @@ describe 'Attaching a document', js: true do
 
     before { EtTestHelpers.stub_validate_additional_claimants_api }
 
-    context 'A valid CSV file' do
+    context 'with a valid CSV file' do
       before do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(csv_file_path).save_and_continue
@@ -108,7 +108,7 @@ describe 'Attaching a document', js: true do
       end
     end
 
-    context 'An invalid file' do
+    context 'with an invalid file' do
       before do
         errors = [
           { code: "invalid", attribute: :date_of_birth, row: 4 },
@@ -117,7 +117,7 @@ describe 'Attaching a document', js: true do
         EtTestHelpers.stub_validate_additional_claimants_api(errors: errors)
       end
 
-      let(:invalid_csv_path) { file_path + './invalid_file.csv' }
+      let(:invalid_csv_path) { "#{file_path}invalid_file.csv" }
 
       it 'Uploading a CSV file with errors' do
         group_claims_upload_page.load

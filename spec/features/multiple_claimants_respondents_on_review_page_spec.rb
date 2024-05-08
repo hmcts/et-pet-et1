@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Multiple claimants/respondents on the review page' do
+describe 'Multiple claimants/respondents on the review page', type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }

@@ -21,11 +21,11 @@ RSpec.describe 'Switching language', type: :feature do
     click_button 'Start a claim'
 
     expect(page).to have_text('Saving your claim')
-    expect(current_path).to eql('/en/apply/application-number')
+    expect(page).to have_current_path('/en/apply/application-number')
     click_link('Cymraeg')
 
     expect(page).to have_text('Cadw eich hawliad')
-    expect(current_path).to eql('/cy/apply/application-number')
+    expect(page).to have_current_path('/cy/apply/application-number')
     click_button('Cadw a pharhau')
 
     expect(page).to have_text("Rhowch wybodaeth yn y blychau testun sydd wedi'u hamlygu.")

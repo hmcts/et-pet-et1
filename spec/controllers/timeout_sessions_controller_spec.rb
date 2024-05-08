@@ -1,14 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe TimeoutSessionsController, type: :controller do
-  before do
-    allow(UserSession).to receive(:new).and_return user_session
-    allow(Claim).to receive_message_chain(:includes, :find_by).with(application_reference: claim.reference).and_return claim
-  end
-
-  let(:user_session) { instance_double(UserSession, claim: claim) }
+  let(:user_session) { instance_double(UserSession, claim:) }
   let(:email)        { 'sg@example.com' }
-  let(:claim)        { create(:claim, user: build(:user, email: email)) }
+  let(:claim)        { create(:claim, user: build(:user, email:)) }
+  let(:claim_reference) { claim.reference }
+
+  before do
+    allow(UserSession).to receive(:new).and_return(user_session)
+    allow(Claim).to receive(:includes).and_return(Claim)
+    allow(Claim).to receive(:find_by).with(application_reference: claim_reference).and_return(claim)
+  end
 
   describe 'creating events' do
     describe 'for logout' do

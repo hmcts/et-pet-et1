@@ -37,6 +37,7 @@ class DateValidator < ActiveModel::EachValidator
     (value.nil? && original_value.is_a?(String) && original_value.present?) || (value.is_a?(String) && value.present?)
   end
 
+  # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def illegal_year?(value)
     # Needs to verify that four digits are given for a year
     return false if value.nil?
@@ -72,6 +73,7 @@ class DateValidator < ActiveModel::EachValidator
   rescue Date::Error, TypeError
     true
   end
+  # rubocop:enable Metrics/MethodLength, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
   def read_attribute_before_type_cast(record, attribute, default:)
     return default unless record.respond_to?(:read_attribute_before_type_cast)

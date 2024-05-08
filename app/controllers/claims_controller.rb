@@ -4,6 +4,8 @@ class ClaimsController < ApplicationController
   before_action :check_session_expiry, only: [:show, :update]
   before_action :sign_out_user, only: [:new]
 
+  def show; end
+
   def new
     @claim = Claim.new
   end
@@ -35,7 +37,7 @@ class ClaimsController < ApplicationController
   end
 
   def page_manager
-    @page_manager ||= ClaimPagesManager.new(resource: resource)
+    @page_manager ||= ClaimPagesManager.new(resource:)
   end
 
   def resource

@@ -13,13 +13,13 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     context 'when there is an associated fee office' do
       before { claim.build_office name: 'Brum', address: 'Brum lane, B1 1AA' }
 
-      context 'and no claimants seeking remission' do
+      context 'when no claimants seeking remission' do
         it 'has the submitted date, the name, and address of the fee centre' do
           expect(confirmation_presenter.submission_information).
             to eq 'Submitted 01 January 2014'
         end
 
-        context 'Welsh locale' do
+        context 'with Welsh locale' do
           before { I18n.locale = :cy }
 
           it 'has the submitted date, the name, and address of the fee centre' do
@@ -27,7 +27,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
               to eq 'Cyflwynwyd ar 01 Ionawr 2014'
           end
 
-          context 'Welsh address' do
+          context 'with Welsh address' do
             before do
               claim.build_office name: 'Wales', address: 'Employment Tribunal, Cardiff, CF24 0RZ'
             end
@@ -41,7 +41,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
 
       end
 
-      context 'and claimants are seeking remission' do
+      context 'when claimants are seeking remission' do
         before { claim.remission_claimant_count = 1 }
 
         it 'is the submission date' do

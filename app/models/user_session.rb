@@ -15,9 +15,9 @@ class UserSession
   private
 
   def claim_not_submitted
-    if claim.immutable? && claim.authenticate(password)
-      errors.add(:base, I18n.t('errors.user_session.immutable'))
-    end
+    return unless claim.immutable? && claim.authenticate(password)
+
+    errors.add(:base, I18n.t('errors.user_session.immutable'))
   end
 
   def presence_of_claim
@@ -25,8 +25,8 @@ class UserSession
   end
 
   def password_authenticates
-    unless claim.authenticate(password)
-      errors.add(:password, I18n.t('errors.user_session.invalid'))
-    end
+    return if claim.authenticate(password)
+
+    errors.add(:password, I18n.t('errors.user_session.invalid'))
   end
 end

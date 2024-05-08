@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Save and Return', js: true do
+describe 'Save and Return', js: true, type: :feature do
   include FormMethods
   include Messages
   include MailMatchers
@@ -124,7 +124,7 @@ describe 'Save and Return', js: true do
     expect(page).to have_text('Page 1 of 11')
   end
 
-  context 'memorable word not set' do
+  context 'when memorable word not set' do
     it 'returning to an existing application' do
       start_claim
       fill_in_return_form Claim.last.reference, 'memorable word was not set'
@@ -134,7 +134,7 @@ describe 'Save and Return', js: true do
     end
   end
 
-  context 'forgotten memorable word', js: true do
+  context 'when forgotten memorable word', js: true do
     let(:email_address) { 'doesntmatter@example.com' }
 
     it 'recovers correctly when the email is not used at the beginning but when saved' do
@@ -144,10 +144,10 @@ describe 'Save and Return', js: true do
       claimants_details_page.
         fill_in_all(claimant: build(:ui_claimant, :mandatory)).
         save_and_complete_later.
-        with(email_address: email_address)
+        with(email_address:)
       apply_page.return_to_a_claim.
         reset_memorable_word.
-        using(email_address: email_address, claim_number: Claim.last.application_reference).
+        using(email_address:, claim_number: Claim.last.application_reference).
         assert_memorable_word_email_sent
 
       perform_active_jobs(ActionMailer::MailDeliveryJob)
@@ -161,13 +161,13 @@ describe 'Save and Return', js: true do
     it 'recovers correctly when the email used at the beginning' do
 
       apply_page.load.start_a_claim.
-        register(email_address: email_address, password: 'green')
+        register(email_address:, password: 'green')
       claimants_details_page.
         fill_in_all(claimant: build(:ui_claimant, :mandatory)).
         save_and_complete_later
       apply_page.return_to_a_claim.
         reset_memorable_word.
-        using(email_address: email_address, claim_number: Claim.last.application_reference).
+        using(email_address:, claim_number: Claim.last.application_reference).
         assert_memorable_word_email_sent
 
       perform_active_jobs(ActionMailer::MailDeliveryJob)
@@ -180,18 +180,18 @@ describe 'Save and Return', js: true do
 
     it 'allows a second claim to be used against the same email' do
       apply_page.load.start_a_claim.
-        register(email_address: email_address, password: 'green')
+        register(email_address:, password: 'green')
       claimants_details_page.
         fill_in_all(claimant: build(:ui_claimant, :mandatory, first_name: 'old', last_name: 'claim')).
         save_and_complete_later
       apply_page.start_a_claim.
-        register(email_address: email_address, password: 'green')
+        register(email_address:, password: 'green')
       claimants_details_page.
         fill_in_all(claimant: build(:ui_claimant, :mandatory)).
         save_and_complete_later
       apply_page.return_to_a_claim.
         reset_memorable_word.
-        using(email_address: email_address).
+        using(email_address:).
         assert_memorable_word_email_sent
 
       perform_active_jobs(ActionMailer::MailDeliveryJob)

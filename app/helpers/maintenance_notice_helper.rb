@@ -6,7 +6,7 @@ module MaintenanceNoticeHelper
 
     day = I18n.localize(Time.zone.parse(ENV['SHOW_DOWNTIME_BANNER'].split(',').last.strip), format: "%e %B %Y")
 
-    t('maintenance.notice_string', start_time: start_time, end_time: end_time, day: day)
+    t('maintenance.notice_string', start_time:, end_time:, day:)
   end
 
 end

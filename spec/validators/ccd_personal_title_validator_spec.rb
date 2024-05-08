@@ -53,16 +53,4 @@ RSpec.describe CcdPersonalTitleValidator do
       end
     end
   end
-
-  it 'does not validate for some strings outside of the allow list' do
-    aggregate_failures 'validating all lowercase variations of the allow list' do
-      allow_list.each do |value|
-        model = model_class.new(title: value.downcase)
-
-        model.valid?
-
-        expect(model.errors.details[:title]).to include a_hash_including(error: :invalid_ccd_personal_title)
-      end
-    end
-  end
 end

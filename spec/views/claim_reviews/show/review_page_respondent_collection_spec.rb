@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
-  context "respondent_collection" do
+  context "with respondent_collection" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new
@@ -17,7 +17,7 @@ describe "claim_reviews/show.html.slim" do
         end
       end
       render template: "claim_reviews/show", locals: {
-        claim: claim,
+        claim:,
         primary_claimant: claim.primary_claimant || null_object,
         representative: claim.representative || null_object,
         employment: claim.employment || null_object,
@@ -36,9 +36,14 @@ describe "claim_reviews/show.html.slim" do
           expect(additional_respondents_section).not_to have_additional_respondents
         end
 
-        it 'presents the list of respondents' do
-          expect(additional_respondents_section.respondents[0]).to be_valid_for_model(claim.secondary_respondents[0])
-          expect(additional_respondents_section.respondents[1]).to be_valid_for_model(claim.secondary_respondents[1])
+        context 'when presenting the list of respondents' do
+          it 'has a valid first secondary respondent' do
+            expect(additional_respondents_section.respondents[0]).to be_valid_for_model(claim.secondary_respondents[0])
+          end
+
+          it 'has a valid second secondary respondent' do
+            expect(additional_respondents_section.respondents[1]).to be_valid_for_model(claim.secondary_respondents[1])
+          end
         end
       end
 

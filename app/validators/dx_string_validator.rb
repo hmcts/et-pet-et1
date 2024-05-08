@@ -6,4 +6,3 @@ class DxStringValidator < ActiveModel::EachValidator
     record.errors.add(attribute, :invalid_dx) unless value.nil? || value =~ REGEX
   end
 end
-

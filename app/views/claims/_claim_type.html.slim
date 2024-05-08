@@ -5,7 +5,7 @@ p.govuk-body = t '.claim_type_label'
 = f.singular_check_box :is_unfair_dismissal,
   label: t('.is_unfair_dismissal.options.1'),
   fieldset_hint: ->
-    details.govuk-details data-module="govuk-details"
+    details.govuk-details
       summary.govuk-details__summary
         span.govuk-details__summary-text = t '.summary'
       .govuk-details__text.panel-indent

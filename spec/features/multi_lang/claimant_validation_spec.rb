@@ -7,7 +7,7 @@ RSpec.describe 'Claimant Validation', type: :feature, js: true do
     apply_page.load
     apply_page.start_a_claim
     saving_your_claim_page.register(email_address: 'fred@bloggs.com', password: 'password')
-    claimants_details_page.fill_in_all(claimant: claimant)
+    claimants_details_page.fill_in_all(claimant:)
 
     # ACT - Click the save and continue button
     claimants_details_page.save_and_continue
@@ -25,7 +25,7 @@ RSpec.describe 'Claimant Validation', type: :feature, js: true do
     apply_page.load
     apply_page.start_a_claim
     saving_your_claim_page.register(email_address: 'fred@bloggs.com', password: 'password')
-    claimants_details_page.fill_in_all(claimant: claimant)
+    claimants_details_page.fill_in_all(claimant:)
 
     # ACT - Click the save and continue button
     claimants_details_page.save_and_continue

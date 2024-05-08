@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Guide', type: :feature do
   include FormMethods
 
-  context 'on the page' do
+  context 'when on the page' do
     let(:time_limits_header)          { 'Time limits' }
     let(:acas_header)                 { 'Acas: early conciliation' }
     let(:acas_exceptions_header)      { 'Exceptions to early conciliation' }
@@ -46,7 +46,7 @@ describe 'Guide', type: :feature do
     end
   end
 
-  context 'Returning to the form from the guide page' do
+  context 'when returning to the form from the guide page' do
     it 'Returns to the previous form page' do
       start_claim
       visit claim_claimant_path

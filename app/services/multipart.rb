@@ -45,11 +45,11 @@ module Multipart
     private
 
     def rendered_name_and_value
-      '%s: %s' % [@name, @value]
+      '%<name>s: %<value>s' % [name: @name, value: @value]
     end
 
     def rendered_options
-      @options.map { |k, v| '%s="%s"' % [escape(k), escape(v)] }
+      @options.map { |k, v| '%<option>s="%<value>s"' % [option: escape(k), value: escape(v)] }
     end
   end
 
@@ -70,8 +70,8 @@ module Multipart
       RawContent.new('')
     end
 
-    def raw_content(a)
-      RawContent.new(a)
+    def raw_content(content)
+      RawContent.new(content)
     end
 
     def render_lines(*lines)

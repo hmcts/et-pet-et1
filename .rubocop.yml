@@ -1,11 +1,5 @@
-# inherit_from:
-#   - .rubocop_todo.yml
-
 AllCops:
-  TargetRubyVersion: 2.7
-  # Exclude anything that isn't really part of our code.
-  # rails_helper is excluded because it's full of solecisms, but it's mostly
-  # generated code and copy-and-pasted snipets from READMEs.
+  TargetRubyVersion: 3.2.2
   Exclude:
     - 'Guardfile'
     - 'vendor/**/*'
@@ -24,14 +18,7 @@ AllCops:
     - 'spec/support/**/*'
     - 'node_modules/**/*'
 
-# Allow long lines in specs, as it's almost impossible to fit RSpec's
-# expectations into 80 characters.
-Metrics/LineLength:
-  Max: 120
-  Exclude:
-    - 'features/**/*'
-    - 'spec/**/*'
-    - 'Gemfile'
+# Metrics
 Metrics/ClassLength:
   Exclude:
     - 'app/forms/**/*'
@@ -46,166 +33,232 @@ Metrics/AbcSize:
   Exclude:
     - 'spec/**/*'
   Max: 20
-
-# Allow expect {}.to blocks in specs
-# but not in the code
-Style/BlockDelimiters:
-  Enabled: true
-  Exclude:
-    - 'spec/**/*'
-
-Naming/PredicateName:
-  Enabled: false
-
-# Don't worry about long methods in specs.
 Metrics/MethodLength:
   Exclude:
     - 'spec/**/*'
     - 'app/models/ability.rb'
     - 'config/initializers/markdown_handler.rb'
-
-# No need to check for describe class param in support files.
-RSpec/DescribeClass:
+Metrics/BlockLength:
   Exclude:
-    - spec/support/**/*
-    - spec/views/**/*
+    - 'config/environments/*.rb'
+    - '**/*.jbuilder'
+  Max: 25
 
-# private/protected/public
-Layout/AccessModifierIndentation:
-  EnforcedStyle: indent
-
-# Just indent parameters by two spaces. It's less volatile if methods change,
-# and there's less busy work lining things up.
-Layout/ParameterAlignment:
-  EnforcedStyle: with_fixed_indentation
-
+# Style
+Style/BlockDelimiters:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
 Style/ClassAndModuleChildren:
-  EnforcedStyle: nested
   Enabled: false
-
 Style/CollectionMethods:
-  PreferredMethods:
-    collect: 'map'
-    collect!: 'map!'
-    each_with_object: 'inject'
-    inject: 'inject'
-    reduce: 'inject'
-    detect: 'find'
-    find_all: 'select'
-
-# Chain methods with trailing dots.
-Layout/DotPosition:
+  Enabled: false
+Style/DotPosition:
   EnforcedStyle: trailing
-
-# No, we don't prefer each_with_object
 Style/EachWithObject:
   Enabled: false
-
-# Prefer blank line after class/module start.
-Layout/EmptyLinesAroundClassBody:
+Style/EmptyLines:
+  Enabled: true
+Style/EmptyLineAfterGuardClause:
+  Enabled: true
+Style/EmptyLineAfterMagicComment:
   Enabled: false
-
-Layout/EmptyLinesAroundModuleBody:
-  Enabled: false
-
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: false
-
-# We have a mixture at the moment, so don't enforce anything.
-Style/FormatString:
-  Enabled: false
-
-# It's not really clearer to replace every if with a return if.
-Style/GuardClause:
-  Enabled: false
-
-# Groups of three is not always the right thing for numeric literals
-Style/NumericLiterals:
-  Enabled: false
-
+Style/ExtraSpacing:
+  Enabled: true
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-# Percent-formatting and hash interpolation both have their place. Don't
-# enforce any particular one.
-Style/StringLiterals:
+Style/FormatString:
   Enabled: false
-
-# I'm happy with raise, thanks.
-Style/SignalException:
-  Enabled: false
-
-# Let us use foo? methods
-Style/TrivialAccessors:
-  AllowPredicates: true
-
-# Prefer sensible naming to comments everywhere.
-Documentation:
-  Description: Document classes and non-namespace modules.
-  Enabled: false
-
-# Would enforce do_y if x over if x / do y / end. As with GuardClause above,
-# this enforces code organisation that doesn't necesarily make things clearer.
-IfUnlessModifier:
-  Enabled: false
-
-# Allow safe assignment in conditions.
-Lint/AssignmentInCondition:
-  AllowSafeAssignment: false
-
-# Just a preference to use %w[] over %w()
+Style/FormatStringToken:
+  EnforcedStyle: annotated
+Style/HashSyntax:
+  Enabled: true
+  Exclude:
+    - 'spec/features/attaching_a_document_spec.rb'
+Style/MutableConstant:
+  Enabled: true
+Style/NumericPredicate:
+  Exclude:
+    - 'spec/**/*'
+Style/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     '%w': '[]'
     '%W': '[]'
     '%i': '[]'
-
+Style/RegexpLiteral:
+  Enabled: false
+Style/StringConcatenation:
+  Enabled: true
+Style/StringLiterals:
+  Enabled: false
+Style/SymbolArray:
+  EnforcedStyle: brackets
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+Style/TrivialAccessors:
+  AllowPredicates: true
 Style/WordArray:
   EnforcedStyle: brackets
 
-Style/SymbolArray:
-  EnforcedStyle: brackets
+# Lint
+Lint/AssignmentInCondition:
+  AllowSafeAssignment: false
+Lint/ConstantDefinitionInBlock:
+  Enabled: true
+Lint/EmptyFile:
+  Exclude:
+    - 'config/nulldb_schema.rb'
+Lint/IneffectiveAccessModifier:
+  Enabled: true
+Lint/MissingCopEnableDirective:
+  Enabled: true
+Lint/UnusedMethodArgument:
+  Enabled: true
+Lint/UselessAccessModifier:
+  Enabled: true
 
-Style/RegexpLiteral:
+# Documentation
+Documentation:
+  Description: Document classes and non-namespace modules.
   Enabled: false
 
-RSpec/NestedGroups:
-  Max: 10
-
-RSpec/ExpectActual:
+# RSpec
+RSpec/DescribeClass:
   Exclude:
-    - 'spec/routing/**/*'
-
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
-    - 'config/**/*'
-    - 'lib/tasks/**/*'
-    - 'features/step_definitions/**/*'
-    - 'features/support/page_objects/**/*'
-    - 'features/support/sections/**/*'
-
-Layout/EmptyLineAfterMagicComment:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Exclude:
-    - 'spec/features/**/*'
-
+    - spec/support/**/*
+    - spec/views/**/*
+RSpec/EmptyLineAfterExampleGroup:
+  Enabled: true
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
 RSpec/ExampleLength:
   Exclude:
     - 'spec/**/*'
-
-Style/NumericPredicate:
+RSpec/ExampleWording:
+  Enabled: true
+RSpec/ExpectActual:
   Exclude:
-    - 'spec/**/*'
-
+    - 'spec/routing/**/*'
+RSpec/ExpectInHook:
+  Enabled: true
+RSpec/FilePath:
+  Exclude:
+    - 'spec/services/carrierwave_filename_spec.rb'
+RSpec/LeakyConstantDeclaration:
+  Enabled: true
+RSpec/LetBeforeExamples:
+  Enabled: true
+RSpec/MultipleExpectations:
+  Exclude:
+    - 'spec/features/**/*'
+RSpec/NamedSubject:
+  Enabled: true
+RSpec/NotToNot:
+  Enabled: true
+RSpec/RepeatedDescription:
+  Enabled: true
+RSpec/ScatteredSetup:
+  Enabled: true
+  Exclude:
+    - "spec/features/create_claim_applications_spec.rb"
+RSpec/StubbedMock:
+  Enabled: true
+RSpec/NestedGroups:
+  Max: 10
 RSpec/VerifiedDoubles:
   Exclude:
     - 'spec/forms/refunds/**/*_spec.rb'
-
 RSpec/MessageSpies:
   EnforcedStyle: receive
-require: 
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - 'spec/views/claim_reviews/show/review_page_employment_spec.rb'
+    - 'spec/models/stats/claim_stats_spec.rb'
+    - 'spec/forms/refunds/review_form_spec.rb'
+    - 'spec/forms/refunds/confirmation_form_spec.rb'
+    - 'spec/forms/additional_claimants_upload_form_spec.rb'
+    - 'spec/features/terms_spec.rb'
+    - 'spec/features/guide_spec.rb'
+    - 'spec/features/create_claim_applications_spec.rb'
+    - 'spec/features/attaching_a_document_spec.rb'
+
+# Capybara
+Capybara/CurrentPathExpectation:
+  Enabled: true
+
+# Rails
+Rails/Blank:
+  Enabled: true
+  Exclude:
+    - 'app/views/api/claim/_build_primary_representative.json.jbuilder'
+    - 'app/controllers/claims_controller.rb'
+Rails/Date:
+  Enabled: true
+Rails/FilePath:
+  Enabled: true
+Rails/LexicallyScopedActionFilter:
+  Enabled: true
+  Exclude:
+    - 'app/controllers/save_and_return/sessions_controller.rb'
+Rails/SkipsModelValidations:
+  Enabled: false
+Rails/InverseOf:
+  Enabled: false
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+# Layout
+Layout/AccessModifierIndentation:
+  EnforcedStyle: indent
+Layout/BlockAlignment:
+  Enabled: true
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Layout/EmptyLineAfterGuardClause:
+  Enabled: true
+Layout/EmptyLines:
+  Enabled: true
+Layout/ExtraSpacing:
+  Enabled: true
+Layout/InitialIndentation:
+  Enabled: true
+Layout/LeadingEmptyLines:
+  Enabled: true
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'features/**/*'
+    - 'spec/**/*'
+    - 'Gemfile'
+    - 'import-secrets.rb'
+    - 'config/initializers/devise.rb'
+    - 'config/environments/*.rb'
+    - 'app/validators/ccd_phone_validator.rb'
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# Naming
+Naming/FileName:
+  Exclude:
+    - "import-secrets.rb"
+Naming/PredicateName:
+  Enabled: false
+
+require:
   - rubocop-rspec
   - rubocop-rails
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
