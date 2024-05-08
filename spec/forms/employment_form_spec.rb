@@ -38,8 +38,12 @@ RSpec.describe EmploymentForm, type: :form do
 
     end
 
-    [:gross_pay, :net_pay, :new_job_gross_pay].each do |attribute|
+    [:gross_pay, :new_job_gross_pay].each do |attribute|
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
+    end
+
+    it 'should validate net_pay if gross_pay is present' do
+      expect(employment_form).to validate_numericality_of(:net_pay)
     end
 
     { new_job_gross_pay_frequency: :new_job_gross_pay, notice_pay_period_type: :notice_pay_period_count }.
