@@ -47,7 +47,7 @@ class EmploymentForm < Form
   before_validation :destroy_target!, unless: :was_employed?
 
   validates :gross_pay, :new_job_gross_pay, numericality: { allow_blank: true }
-  validates :net_pay, numericality: { allow_blank: true }
+  validates :net_pay, numericality: { allow_blank: true, allow_nil: true }
   validates :net_pay, numericality: { less_than_or_equal_to: :gross_pay }, if: :gross_pay?
 
   validates :new_job_gross_pay_frequency, presence: { if: :new_job_gross_pay? }
