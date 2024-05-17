@@ -33,15 +33,39 @@ cy:
           post: Post
       email_address:
         label: Cyfeiriad e-bost
-      allow_video_attendance:
-        label: "A allech chi gymryd rhan mewn gwrandawiad drwy fideo? (angen mynediad i'r rhyngrwyd)."
+      allow_phone_or_video_attendance:
+        label: "A ydych chi’n gallu cymryd rhan mewn gwrandawiadau drwy fideo a dros y ffôn?"
         hint: "Ceir rhagor o fanylion am wrandawiadau fideo drwy ddilyn y ddolen a ganlyn: https://www.gov.uk/guidance/hmcts-telephone-and-video-hearings-during-coronavirus-outbreak"
         options:
-          'true': 'Gallaf'
-          'false': 'Na allaf'
+          video: Gallaf gymryd rhan mewn gwrandawiad fideo
+          phone: Gallaf gymryd rhan mewn gwrandawiad dros y ffôn
+          neither: Ni allaf gymryd rhan mewn gwrandawiad fideo na gwrandawiad dros yffôn
+      allow_phone_or_video_reason:
+        label: Explain why you are unable to take part in video or phone hearings
       legend_disability: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
       legend_personal_details: Ynglŷn â’r hawlydd
       legend_contact_details: "Manylion cyswllt yr hawlydd"
       personal_details_description: |
         Gwybodaeth am yr unigolyn neu'r sefydliad sy'n gwneud yr hawliad hwn (a elwir yn 'hawlydd').
-  
+      date_of_birth:
+        label: Dyddiad geni
+        hint: "Er enghraifft, 23 04 1981"
+        day: "Diwrnod"
+        month: "Mis"
+        year: "Blwyddyn"
+      title:
+        label: Teitl
+        options:
+          '': Dewiswch
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
+          Mx: Mx
+          Other: Arall
+      other_title:
+        label: Arall
+      first_name:
+        label: Enw cyntaf
+      last_name:
+        label: Enw olaf

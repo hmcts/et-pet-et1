@@ -43,7 +43,7 @@ en:
       questions:
         date_of_birth: 'Date of birth'
         preferred_contact: 'Preferred contact'
-        allow_video_attendance: 'Would you be able to take part in a hearing by video?'
+        allow_phone_or_video_attendance: 'Would you be able to take part in hearings by video and phone?'
         address: 'Address'
         email: 'Email'
         assistance_required: 'Assistance required at the tribunal?'
@@ -119,8 +119,6 @@ en:
     remove_this_claimant: Remove this claimant
     errors:
       invalid_phone_number: Invalid phone number
-      allow_video_attendance:
-        blank: 'Please say whether you would be able to attend a hearing by video'
     title:
       label: Title (optional)
       options:
@@ -174,11 +172,12 @@ en:
       options:
         email: Email
         post: Post
-    allow_video_attendance:
-      label: Would you be able to take part in a hearing by video? (Requires internet access).
+    allow_phone_or_video_attendance:
+      label: Would you be able to take part in hearings by video and phone?
       options:
-        "yes": "Yes"
-        "no": "No"
+        "phone": "Yes, I can take part in phone hearings"
+        "video": "Yes, I can take part in video hearings"
+        "neither": "None"
   group_claims:
     save_and_continue: Save and continue
     people_making_claim_with_you:

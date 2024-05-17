@@ -50,3 +50,5 @@ cy:
         options:
           'true': 'Ydw'
           'false': 'Nac ydw'
+      whistleblowing_regulator_name:
+        label: Enw’r rheoleiddiwr perthnasol

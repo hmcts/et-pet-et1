@@ -366,7 +366,9 @@ describe 'Claim applications', type: :feature, js: true do
                                            "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
                                            "email_address" => ui_claimant.email_address,
                                            "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
-                                           "allow_video_attendance" => ui_claimant.allow_video_attendance.to_s.split('.').last == 'yes',
+                                           "allow_video_attendance" => ui_claimant.allow_phone_or_video_attendance.map {|option| option.to_s.split('.').last}.include?('video'),
+                                           "allow_phone_attendance" => ui_claimant.allow_phone_or_video_attendance.map {|option| option.to_s.split('.').last}.include?('phone'),
+                                           "allow_phone_or_video_reason" => ui_claimant.allow_phone_or_video_reason,
                                            "gender" => ET1::Test::I18n.t(ui_claimant.gender),
                                            "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
                                            "special_needs" => ui_claimant.special_needs

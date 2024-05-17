@@ -59,7 +59,7 @@ describe "claim_reviews/show.html.slim" do
     it { expect(claimant_section.mobile.answer).to have_text('07956123456') }
     it { expect(claimant_section.email.answer).to have_text('joe@example.com') }
     it { expect(claimant_section.preferred_contact.answer).to have_text('Post') }
-    it { expect(claimant_section.allow_video_attendance.answer).to have_text('Yes') }
+    it { expect(claimant_section.allow_phone_or_video_attendance.answer).to have_text('Yes, I can take part in video hearings') }
 
     describe '#is_disabled' do
       context 'when the claimant is disabled' do

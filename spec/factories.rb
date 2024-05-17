@@ -169,6 +169,7 @@ FactoryBot.define do
     association :address, country: 'united_kingdom'
 
     title      { 'Mr' }
+    other_title { nil}
     first_name { 'Barrington' }
     last_name  { 'Wrigglesworth' }
     gender     { 'male' }
@@ -177,8 +178,22 @@ FactoryBot.define do
     has_special_needs { false }
     mobile_number      { '07956273434' }
     contact_preference { 'email' }
-    allow_video_attendance { true }
+    allow_phone_or_video_attendance { ['video'] }
     email_address { "#{first_name}.#{last_name}@example.com" }
+
+    trait :with_other_title do
+      title { 'Other' }
+      other_title { 'Absolutely Anything' }
+    end
+
+    trait :with_phone_and_video_attendance do
+      allow_phone_or_video_attendance { ['phone', 'video'] }
+    end
+
+    trait :with_no_phone_or_video_attendance do
+      allow_phone_or_video_attendance { ['neither'] }
+      allow_phone_or_video_reason { 'I am a ghost' }
+    end
   end
 
   factory :address do

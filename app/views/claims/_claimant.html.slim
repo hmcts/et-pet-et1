@@ -2,7 +2,13 @@
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-margin-top-0"
 
   p.govuk-body = t '.personal_details_description'
-  = render partial: 'personal_details', locals: { f: f }
+  = f.collection_select :title, optional: true, data: { action: "change->claim-form-claimant#showOrHideOtherTitle", claim_form_claimant_target: 'title' }
+  div.govuk-inset-text data-claim-form-claimant-target='otherTitle'
+    = f.text_field :other_title, optional: false
+  = f.text_field :first_name
+  = f.text_field :last_name
+  = f.date_field :date_of_birth, maxlength_enabled: true, optional: true
+
   = f.collection_radio_buttons :gender, optional: true, inline: true, include_hidden: false
   = f.collection_radio_buttons :has_special_needs, inline: true, include_hidden: true
   = f.revealed_content :has_special_needs, values: [:true]
@@ -18,7 +24,10 @@
   = f.revealed_content :contact_preference, values: [:email]
     .govuk-inset-text
       = f.email_field :email_address
-  = f.collection_radio_buttons :allow_video_attendance, inline: true
+  = f.collection_check_boxes :allow_phone_or_video_attendance, data: { claim_form_claimant_target: 'allowPhoneOrVideo' }
+  div.govuk-inset-text data-claim-form-claimant-target='allowPhoneOrVideoReason'
+    = f.text_field :allow_phone_or_video_reason, optional: false
+
 
 - content_for(:javascripts)
   javascript:
