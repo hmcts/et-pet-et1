@@ -41,7 +41,7 @@ cy:
           phone: Gallaf gymryd rhan mewn gwrandawiad dros y ffôn
           neither: Ni allaf gymryd rhan mewn gwrandawiad fideo na gwrandawiad dros yffôn
       allow_phone_or_video_reason:
-        label: Explain why you are unable to take part in video or phone hearings
+        label: "Eglurwch pam na allwch chi gymryd rhan mewn gwrandawiad fideo na gwrandawiad"
       legend_disability: "Oes gennych chi anabledd sy'n golygu eich bod angen cymorth yn y gwrandawiad tribiwnlys?"
       legend_personal_details: Ynglŷn â’r hawlydd
       legend_contact_details: "Manylion cyswllt yr hawlydd"
