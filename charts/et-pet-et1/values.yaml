@@ -3,6 +3,8 @@ base:
   image: "hmctspublic.azurecr.io/et-pet/et1:latest"
   ingressHost: et-pet-et1.{{ .Values.global.environment }}.platform.hmcts.net
   aadIdentityName: et-pet
+  startupPeriod: 12
+  startupFailureThreshold: 10
   environment:
     SECRETS_PATH: "/mnt/secrets/et-pet"
     RAILS_LOG_TO_STDOUT: true
