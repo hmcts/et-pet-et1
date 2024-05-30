@@ -62,4 +62,4 @@ USER app
 ENV HOME /home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=production
-CMD ["bundle", "exec", "puma", "--port", "8080"]
+CMD ["bundle", "exec", "rails", "server", "start"]
