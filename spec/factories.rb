@@ -168,8 +168,8 @@ FactoryBot.define do
   factory :claimant do
     association :address, country: 'united_kingdom'
 
-    title      { 'Mr' }
-    other_title { nil}
+    title { 'Mr' }
+    other_title { nil }
     first_name { 'Barrington' }
     last_name  { 'Wrigglesworth' }
     gender     { 'male' }
