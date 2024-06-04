@@ -16,6 +16,7 @@ RSpec.describe ClaimTypeForm, type: :form do
                   pay_claims: ['holiday'],
                   is_whistleblowing: 'true',
                   send_claim_to_whistleblowing_entity: 'false',
+                  whistleblowing_regulator_name: 'My regulator',
                   other_claim_details: 'always'
 
   [:pay, :discrimination].each do |type|
@@ -58,6 +59,7 @@ RSpec.describe ClaimTypeForm, type: :form do
       claim_type_form.send_claim_to_whistleblowing_entity = false
       claim_type_form.other_claim_details = ""
       claim_type_form.is_other_type_of_claim = false
+      claim_type_form.whistleblowing_regulator_name = ''
     end
 
     context 'with empty attributes' do

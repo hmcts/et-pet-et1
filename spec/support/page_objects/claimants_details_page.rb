@@ -47,7 +47,7 @@ module ET1
           s.alternative_phone_or_mobile_number_question.set(claimant.alternative_phone_or_mobile_number)
           s.best_correspondence_method_question.set(claimant.best_correspondence_method)
           s.email_address_question.set(claimant.email_address) if claimant.best_correspondence_method.to_s.split('.').last == 'email'
-          s.allow_video_attendance_question.set(claimant.allow_video_attendance)
+          s.allow_phone_or_video_attendance_question.set(claimant.allow_phone_or_video_attendance)
         end
       end
 
@@ -167,10 +167,10 @@ module ET1
         #   A govuk radio button component for the gender question
         #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
         gds_radios :best_correspondence_method_question, :'claimants_details.best_correspondence_method'
-        # @!method allow_video_attendance_question
-        #   A govuk radio button component for the video question
-        #   @return [EtTestHelpers::Components::GovUKCollectionRadioButtons] The site prism section
-        gds_radios :allow_video_attendance_question, :'claimants_details.allow_video_attendance'
+        # @!method allow_phone_or_video_attendance_question
+        #   A govuk radio button component for the phone or video question
+        #   @return [EtTestHelpers::Components::GovUKCollectionCheckBoxes] The site prism section
+        gds_checkboxes :allow_phone_or_video_attendance_question, :'claimants_details.allow_phone_or_video_attendance'
       end
 
       # @!method save_and_continue_button

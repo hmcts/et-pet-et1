@@ -15,7 +15,7 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 import 'core-js';
-
+import "./controllers";
 import AdditionalClaimantsUploadPage from "./pages/claims/AdditionalClaimantsUploadPage";
 
 const images = require.context('./csv', true);

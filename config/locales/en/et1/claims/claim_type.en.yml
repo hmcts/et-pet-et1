@@ -50,3 +50,5 @@ en:
         options:
           'true': 'Yes'
           'false': 'No'
+      whistleblowing_regulator_name:
+        label: Name of relevant regulator

@@ -9,14 +9,16 @@ module Et1
 
           def has_valid_json_for_model?(example_claimant, errors: [], indent: 1)
             example_address = example_claimant.address
-            expect(json).to include title: example_claimant.title.try(:titleize),
+            expect(json).to include title: example_claimant.title == 'Other' ? example_claimant.other_title : example_claimant.title,
                                     first_name: example_claimant.first_name,
                                     last_name: example_claimant.last_name,
                                     gender: {'male' => 'Male', 'female' => 'Female', 'prefer_not_to_say' => 'N/K'}[example_claimant.gender],
                                     email_address: example_claimant.email_address,
                                     date_of_birth: example_claimant.date_of_birth.strftime('%Y-%m-%d'),
                                     contact_preference: example_claimant.contact_preference.try(:humanize),
-                                    allow_video_attendance: example_claimant.allow_video_attendance,
+                                    allow_video_attendance: example_claimant.allow_phone_or_video_attendance.include?('video'),
+                                    allow_phone_attendance: example_claimant.allow_phone_or_video_attendance.include?('phone'),
+                                    allow_phone_or_video_reason: example_claimant.allow_phone_or_video_attendance == ['neither'] ? example_claimant.allow_phone_or_video_reason : nil,
                                     fax_number: example_claimant.fax_number,
                                     special_needs: example_claimant.special_needs,
                                     mobile_number: example_claimant.mobile_number,

@@ -131,7 +131,7 @@ module ET1
         section :preferred_contact, :govuk_summary_list_row, :'review.claimant.questions.preferred_contact' do
           element :answer, :govuk_summary_list_col
         end
-        section :allow_video_attendance, :govuk_summary_list_row, :'review.claimant.questions.allow_video_attendance' do
+        section :allow_phone_or_video_attendance, :govuk_summary_list_row, :'review.claimant.questions.allow_phone_or_video_attendance' do
           element :answer, :govuk_summary_list_col
         end
         section :address, :govuk_summary_list_row, :'review.claimant.questions.address' do

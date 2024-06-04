@@ -4,12 +4,12 @@ RSpec.describe RespondentForm, type: :form do
   work_attributes = {
     work_address_building: "2", work_address_street: "Business Lane",
     work_address_locality: "Business City", work_address_county: 'Businessbury',
-    work_address_post_code: "SW1A 1AA", work_address_telephone_number: "01234000000"
+    work_address_post_code: "SW1A 1AA"
   }
 
   attributes = {
     name: "Crappy Co. LTD",
-    address_telephone_number: "01234567890", address_building: "1",
+    address_building: "1",
     address_street: "Business Street", address_locality: "Businesstown",
     address_county: "Businessfordshire", address_post_code: "SW1A 1AB",
     worked_at_same_address: 'false', has_acas_number: "0",
@@ -36,47 +36,12 @@ RSpec.describe RespondentForm, type: :form do
     it { expect(respondent_form).to validate_length_of(:address_locality).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:address_county).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:address_post_code).is_at_most(8) }
-    it { expect(respondent_form).to validate_length_of(:address_telephone_number).is_at_most(21) }
 
     it { expect(respondent_form).to validate_length_of(:work_address_building).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:work_address_street).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:work_address_locality).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:work_address_county).is_at_most(50) }
     it { expect(respondent_form).to validate_length_of(:work_address_post_code).is_at_most(8) }
-    it { expect(respondent_form).to validate_length_of(:work_address_telephone_number).is_at_most(21) }
-
-    it 'disallows an invalid phone number in address_telephone_number' do
-      # Arrange - Give the form an invalid number
-      respondent_form.address_telephone_number = "invalid"
-
-      # Act - call .valid?
-      respondent_form.valid?
-
-      # Assert - Check the errors
-      expect(respondent_form.errors).to include :address_telephone_number
-    end
-
-    it 'allows a blank phone number in address_telephone_number' do
-      # Arrange - Give the form an invalid number
-      respondent_form.address_telephone_number = ""
-
-      # Act - call .valid?
-      respondent_form.valid?
-
-      # Assert - Check the errors
-      expect(respondent_form.errors).not_to include :address_telephone_number
-    end
-
-    it 'allows a nil phone number in address_telephone_number' do
-      # Arrange - Give the form an invalid number
-      respondent_form.address_telephone_number = nil
-
-      # Act - call .valid?
-      respondent_form.valid?
-
-      # Assert - Check the errors
-      expect(respondent_form.errors).not_to include :address_telephone_number
-    end
 
     it 'allows a blank county in address_county' do
       respondent_form.address_county = ""
@@ -88,14 +53,8 @@ RSpec.describe RespondentForm, type: :form do
         before { respondent_form.worked_at_same_address = 'true' }
 
         [:work_address_building, :work_address_street, :work_address_locality,
-         :work_address_telephone_number, :work_address_post_code].each do |attr|
+         :work_address_post_code].each do |attr|
           it { expect(respondent_form).not_to validate_presence_of(attr) }
-        end
-
-        it 'accepts a nil value for work address telephone number' do
-          respondent_form.work_address_telephone_number = nil
-          respondent_form.valid?
-          expect(respondent_form.errors[:work_address_telephone_number]).to be_empty
         end
       end
 

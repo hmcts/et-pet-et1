@@ -22,6 +22,7 @@ module Et1
                                              :net_pay => employment.net_pay,
                                              :net_pay_period_type => employment.pay_period_type,
                                              :new_job_gross_pay => employment.new_job_gross_pay,
+                                             :new_job_gross_pay_period_type => employment.new_job_gross_pay_frequency,
                                              :new_job_start_date => employment.new_job_start_date.try(:strftime, '%Y-%m-%d'),
                                              :notice_pay_period_count => employment.notice_pay_period_count,
                                              :notice_pay_period_type => employment.notice_pay_period_type,
@@ -47,10 +48,13 @@ module Et1
                                            pay_claims: claim.pay_claims.map(&:to_s),
                                            reference: claim.fee_group_reference,
                                            send_claim_to_whistleblowing_entity: claim.send_claim_to_whistleblowing_entity,
+                                           is_whistleblowing: claim.is_whistleblowing?,
+                                           whistleblowing_regulator_name: claim.whistleblowing_regulator_name,
+                                           was_employed: claim.was_employed?,
                                            submission_channel: "Web",
                                            submission_reference: claim.reference,
                                            email_template_reference: 'et1-v1-en',
-                                           pdf_template_reference: 'et1-v3-en',
+                                           pdf_template_reference: 'et1-v4-en',
                                            confirmation_email_recipients: claim.confirmation_email_recipients,
                                            miscellaneous_information: claim.miscellaneous_information
 

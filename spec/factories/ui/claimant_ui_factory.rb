@@ -21,7 +21,8 @@ FactoryBot.define do
       address_post_code { 'NE1 6WW' }
       address_country { :'claimants_details.country.options.united_kingdom' }
       best_correspondence_method { :'claimants_details.best_correspondence_method.options.post' }
-      allow_video_attendance { :'claimants_details.allow_video_attendance.options.yes' }
+      allow_phone_or_video_attendance { [:'claimants_details.allow_phone_or_video_attendance.options.phone'] }
+      allow_phone_or_video_attendance_reason { nil }
     end
 
     trait :default do
