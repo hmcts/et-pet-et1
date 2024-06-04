@@ -7,7 +7,6 @@ class ClaimTypeForm < Form
   attribute :send_claim_to_whistleblowing_entity, :boolean
   attribute :is_other_type_of_claim,              :boolean
   attribute :other_claim_details,                 :string
-  attribute :whistleblowing_regulator_name,       :string
 
   before_validation :reset_claim_details!, unless: :is_other_type_of_claim?
   validate :presence_of_at_least_one_claim_type

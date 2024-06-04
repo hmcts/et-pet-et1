@@ -7,6 +7,7 @@
   = f.text_field :address_locality
   = f.text_field :address_county
   = f.text_field :address_post_code
+  = f.phone_field :address_telephone_number, optional: true
 
 = f.fieldset label: { text: t('.workaddress_legend'), size: 'm' }
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
@@ -18,6 +19,7 @@
     = f.text_field :work_address_locality
     = f.text_field :work_address_county, optional: true
     = f.text_field :work_address_post_code
+    = f.phone_field :work_address_telephone_number, optional: true
 = f.fieldset label: { text: t('claims.respondent.acas_early_conciliation_certificate_number.label'), size: 'm' }
   hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
   = f.collection_radio_buttons :has_acas_number, inline: true

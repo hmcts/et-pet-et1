@@ -75,6 +75,7 @@ RSpec.describe ClaimantForm, type: :form do
     it { expect(claimant_form).to validate_inclusion_of(:title).in_array(['Mr', 'Mrs', 'Miss', 'Ms']).with_message('Select a title from the list') }
     it { expect(claimant_form).to validate_inclusion_of(:gender).in_array ['male', 'female', 'prefer_not_to_say'] }
     it { expect(claimant_form).to validate_inclusion_of(:contact_preference).in_array ['email', 'post'] }
+    it { expect(claimant_form).to validate_inclusion_of(:allow_video_attendance).in_array [true, false] }
 
     it { expect(claimant_form).to validate_length_of(:first_name).is_at_most(100) }
     it { expect(claimant_form).to validate_length_of(:last_name).is_at_most(100) }
@@ -238,7 +239,7 @@ RSpec.describe ClaimantForm, type: :form do
                     title: 'Mr',
                     gender: 'male',
                     contact_preference: 'email',
-                    allow_phone_or_video_attendance: ['video'],
+                    allow_video_attendance: true,
                     first_name: 'Barrington', last_name: 'Wrigglesworth',
                     address_building: '1', address_street: 'High Street',
                     address_locality: 'Anytown', address_county: 'Anyfordshire',

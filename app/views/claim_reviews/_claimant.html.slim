@@ -13,13 +13,7 @@
 = render 'answer', section_name: 'claimant', question: 'contact_preference' do
   - if claimant.contact_preference.present?
     = t "claims.claimant.contact_preference.options.#{claimant.contact_preference}"
-div.govuk-summary-list__row
-  dt.govuk-summary-list__key = t "claim_reviews.item.claimant.allow_phone_or_video_attendance.label"
-  dd.govuk-summary-list__value
-    - Array(claimant.allow_phone_or_video_attendance).each do |value|
-      = t "claim_reviews.item.claimant.allow_phone_or_video_attendance.options.#{value}"
-= render 'answer', section_name: 'claimant', question: 'allow_phone_or_video_reason' do
-  = claimant.allow_phone_or_video_reason
+= render 'answer_yes_no', section_name: 'claimant', question: 'allow_video_attendance', value: claimant.allow_video_attendance
 = render 'answer', section_name: 'claimant', question: 'telephone_number' do
   = claimant.address_telephone_number
 = render 'answer_yes_no', section_name: 'claimant', question: 'is_disabled', value: claimant.has_special_needs

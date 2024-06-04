@@ -22,7 +22,6 @@ p.govuk-body = t '.claim_type_label'
   = f.collection_radio_buttons :is_whistleblowing, inline: true
   = f.revealed_content :is_whistleblowing, values: [:true], classes: ['govuk-inset-text']
     = f.collection_radio_buttons :send_claim_to_whistleblowing_entity, inline: true
-    = f.text_field :whistleblowing_regulator_name, max_chars: 150
 - content_for(:javascripts)
 javascript:
   Et.pages.claims.ClaimTypePage()

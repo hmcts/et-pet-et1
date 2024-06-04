@@ -116,5 +116,3 @@ gem "devise", "~> 4.8"
 gem 'i18n', '~> 1.14.0' # Temporary
 
 gem "rack-attack", "~> 6.7"
-
-gem "stimulus-rails", "~> 1.3"

@@ -15,8 +15,6 @@ en:
           Mrs: Mrs
           Miss: Miss
           Ms: Ms
-          Mx: Mx
-          Other: Other
       first_name:
         label: First name
       last_name:

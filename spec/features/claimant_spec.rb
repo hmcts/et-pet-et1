@@ -71,5 +71,15 @@ describe 'Claimant page', js: true, type: :feature do
         claimants_details_page.about_the_claimant_group.date_of_birth_question.assert_error_message('Age must be between 10 and 100')
       end
     end
+
+    context 'with no video question present' do
+      let(:ui_claimant) { build(:ui_claimant, :default, :no_allow_video_attendance) }
+
+      it "displays validation if no allow video attendance is present" do
+        click_button "Save and continue"
+        expect(page).to have_text("Please say whether you would be able to attend a hearing by video")
+      end
+    end
+
   end
 end

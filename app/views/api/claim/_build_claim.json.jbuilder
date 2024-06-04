@@ -4,7 +4,7 @@ json.data do
   json.reference claim.fee_group_reference
   json.submission_reference claim.reference
   json.email_template_reference "et1-v1-#{I18n.locale}"
-  json.pdf_template_reference "et1-v4-#{I18n.locale}"
+  json.pdf_template_reference "et1-v3-#{I18n.locale}"
   json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
@@ -25,10 +25,7 @@ json.data do
   json.other_claim_details claim.other_claim_details
   json.claim_details claim.claim_details
   json.other_outcome claim.other_outcome
-  json.was_employed claim.was_employed?
-  json.is_whistleblowing claim.is_whistleblowing
   json.send_claim_to_whistleblowing_entity claim.send_claim_to_whistleblowing_entity
-  json.whistleblowing_regulator_name claim.whistleblowing_regulator_name
   json.miscellaneous_information claim.miscellaneous_information
 
   if employment.nil?
@@ -53,7 +50,6 @@ json.data do
       json.found_new_job employment.found_new_job
       json.new_job_start_date employment.new_job_start_date
       json.new_job_gross_pay employment.new_job_gross_pay
-      json.new_job_gross_pay_period_type employment.new_job_gross_pay_frequency
     end
   end
 end
