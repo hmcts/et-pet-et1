@@ -47,7 +47,6 @@ en:
         options:
           weekly: Weekly
           monthly: Monthly
-          annually: Annually
       net_pay:
         label: Pay after tax
         hint: This is your net or take-home pay, after tax and other deductions. You can find it on your payslip. Include overtime, commission and bonuses
@@ -72,7 +71,6 @@ en:
         options:
           weekly: Weekly
           monthly: Monthly
-          annually: Annually
       employment_details_legend: Employment details
       pay_legend: Pay, pension and benefits
       new_job_legend: New Job

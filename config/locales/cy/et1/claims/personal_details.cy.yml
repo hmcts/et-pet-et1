@@ -15,8 +15,6 @@ cy:
           Mrs: Mrs
           Miss: Miss
           Ms: Ms
-          Mx: Mx
-          Other: Arall
       first_name:
         label: Enw cyntaf
       last_name:

@@ -23,11 +23,9 @@ class ClaimantForm < Form
   attribute :email_address,      :string
   attribute :special_needs,      :string
   attribute :title,              :string
-  attribute :other_title,        :string
   attribute :gender,             :string
   attribute :contact_preference, :string
-  attribute :allow_phone_or_video_attendance
-  attribute :allow_phone_or_video_reason, :string
+  attribute :allow_video_attendance, :boolean
   attribute :has_special_needs, :boolean
 
   before_validation :reset_special_needs!, unless: :has_special_needs?
@@ -42,6 +40,7 @@ class ClaimantForm < Form
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }, special_character: true
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }, ccd_claimant_contact_preference: true
+  validates :allow_video_attendance, inclusion: [true, false]
   validates :mobile_number, :fax_number, length: { maximum: PHONE_NUMBER_LENGTH }, ccd_phone: true, allow_blank: true
   validates :address_country, inclusion: { in: COUNTRIES }
   validates :fax_number,    presence: { if: :contact_preference_fax? }
@@ -53,10 +52,6 @@ class ClaimantForm < Form
   validates :date_of_birth, date: true, date_range: { range: -> { 100.years.ago..10.years.ago } }, allow_blank: true
 
   delegate :fax?, :email?, to: :contact_preference, prefix: true
-
-  def allow_phone_or_video_attendance=(value)
-    super(value&.reject(&:blank?))
-  end
 
   def contact_preference
     (read_attribute(:contact_preference) || "").inquiry

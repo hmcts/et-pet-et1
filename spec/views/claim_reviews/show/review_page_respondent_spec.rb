@@ -46,6 +46,8 @@ describe "claim_reviews/show.html.slim" do
       end
     end
 
+    it { expect(respondent_section.phone.answer).to have_text('01234567890') }
+
     describe '#acas_early_conciliation_certificate_number' do
       it { expect(respondent_section.acas_number.answer).to have_text '123' }
 

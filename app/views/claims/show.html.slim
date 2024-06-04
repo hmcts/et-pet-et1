@@ -11,7 +11,7 @@ h1 class="govuk-heading-xl govuk-!-margin-top-3"
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.govuk_error_summary(t 'shared.error_notification.default_message')
-      .form-fields data-controller="claim-form-#{current_step.dasherize}"
+      .form-fields
         = render current_step, f: f
       div class="form-actions govuk-!-margin-top-9"
         = f.submit t('shared.continue_button')

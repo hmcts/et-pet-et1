@@ -52,14 +52,11 @@ cy:
         mobile_number: Ffôn Symudol
         email_address: E-bost
         contact_preference: Dull cyswllt dewisol
-        allow_phone_or_video_attendance:
-          label: "A ydych chi’n gallu cymryd rhan mewn gwrandawiadau drwy fideo a dros y ffôn?"
+        allow_video_attendance:
+          label: A allech chi gymryd rhan mewn gwrandawiad drwy fideo?
           options:
-            video: Gallaf gymryd rhan mewn gwrandawiad fideo
-            phone: Gallaf gymryd rhan mewn gwrandawiad dros y ffôn
-            neither: Ni allaf gymryd rhan mewn gwrandawiad fideo na gwrandawiad dros yffôn
-        allow_phone_or_video_reason:
-          label: "Eglurwch pam na allwch chi gymryd rhan mewn gwrandawiad fideo na gwrandawiad"
+            true: 'Gallaf'
+            false: 'Na allaf'
         is_disabled:
           label: "Angen cymorth yn y tribiwnlys?"
           options:
@@ -122,7 +119,6 @@ cy:
         new_job_start_date: Dyddiad cychwyn y swydd newydd
         pay_period_weekly: bob wythnos
         pay_period_monthly: bob mis
-        pay_period_annually: Y flwyddyn
         was_employed: Cael fy nghyflogi gan y cyflogwr
 
       claim_type:
@@ -130,7 +126,7 @@ cy:
         other_claim_details: Manylion math arall o hawliad
         is_whistleblowing: Chwythu'r chwiban
         send_claim_to_whistleblowing_entity: Anfon i gorff chwythu'r chwiban
-        whistleblowing_regulator_name: Enw’r rheoleiddiwr perthnasol
+
       claim_details:
         claim_details: Manylion yr hawliad
         other_known_claimant_names: Hawlwyr hysbys eraill

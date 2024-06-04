@@ -146,8 +146,7 @@ class Form < ApplicationRecord
       ActiveRecord::Base.transaction do
         mapped_attributes = __custom_mappings.keys.map(&:to_s)
         target.update attributes.except(*(transient_attributes.map(&:to_s) + mapped_attributes)) unless target.frozen?
-        write_custom_mappings(__custom_mappings)
-        read_custom_mappings(__custom_mappings)
+        custom_mappings(__custom_mappings)
         resource.save
       end
     end
@@ -162,14 +161,14 @@ class Form < ApplicationRecord
     (attributes.keys - __custom_mappings.keys.map(&:to_s)).each do |key|
       send "#{key}=", target.try(key)
     end
-    read_custom_mappings(__custom_mappings)
+    custom_mappings(__custom_mappings)
   end
 
   private
 
   attr_writer :resource
 
-  def read_custom_mappings(mappings)
+  def custom_mappings(mappings)
     mappings.each_pair do |attr, options|
       object_to_read_from = options[:to]
       raise "Unknown mapping 'to' method #{object_to_read_from}" unless respond_to?(object_to_read_from)
@@ -178,21 +177,12 @@ class Form < ApplicationRecord
     end
   end
 
-  def write_custom_mappings(mappings)
-    mappings.each_pair do |attr, options|
-      object_to_write_to = options[:to]
-      raise "Unknown mapping 'to' method #{object_to_write_to}" unless respond_to?(object_to_write_to)
-
-      send(object_to_write_to).send("#{attr}=", send(attr))
-    end
-  end
-
   def clean_strings
     @attributes.each_value do |attr|
       next unless attr.type.is_a?(ActiveModel::Type::String) && attr.value.is_a?(String)
 
       if attr.value.frozen?
-        attr.value = attr.value.strip
+        attr.value = attr.value.strip!
       else
         attr.value.strip!
       end
