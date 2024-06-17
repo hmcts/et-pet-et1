@@ -3,7 +3,7 @@ class RespondentForm < Form
 
   WORK_ADDRESS_ATTRIBUTES = [
     :work_address_building, :work_address_street, :work_address_locality,
-    :work_address_county, :work_address_post_code, :work_address_telephone_number
+    :work_address_county, :work_address_post_code
   ].freeze
 
   NAME_LENGTH = 100
@@ -17,7 +17,6 @@ class RespondentForm < Form
   attribute :work_address_locality,                      :string
   attribute :work_address_county,                        :string
   attribute :work_address_post_code,                     :string
-  attribute :work_address_telephone_number,              :string
   attribute :has_acas_number,                            :boolean
 
   before_validation :reset_acas_number!,  unless: :has_acas_number?
@@ -46,11 +45,6 @@ class RespondentForm < Form
             post_code: true,
             length: { maximum: POSTCODE_LENGTH },
             unless: :worked_at_same_address?
-  validates :work_address_telephone_number,
-            length: { maximum: PHONE_NUMBER_LENGTH },
-            ccd_phone: true,
-            allow_blank: true,
-            if: -> { worked_at_same_address == false }
   validates :work_address_county,
             special_character: true,
             allow_blank: true

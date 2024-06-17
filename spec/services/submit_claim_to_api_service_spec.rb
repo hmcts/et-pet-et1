@@ -114,6 +114,42 @@ RSpec.describe SubmitClaimToApiService, type: :service do
       end
     end
 
+    context 'with a claim with single claimant with other title' do
+      let(:example_claim) { create(:claim, :no_attachments, :not_submitted, primary_claimant: build(:claimant, :with_other_title, primary_claimant: true)) }
+
+      context 'when validating recorded request' do
+        subject { recorded_request }
+
+        include_context 'with action performed before each example'
+
+        it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      end
+    end
+
+    context 'with a claim with single claimant with the video and phone attendance options set' do
+      let(:example_claim) { create(:claim, :no_attachments, :not_submitted, primary_claimant: build(:claimant, :with_phone_and_video_attendance, primary_claimant: true)) }
+
+      context 'when validating recorded request' do
+        subject { recorded_request }
+
+        include_context 'with action performed before each example'
+
+        it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      end
+    end
+
+    context 'with a claim with single claimant with the video attendance options set to none' do
+      let(:example_claim) { create(:claim, :no_attachments, :not_submitted, primary_claimant: build(:claimant, :with_no_phone_or_video_attendance, primary_claimant: true)) }
+
+      context 'when validating recorded request' do
+        subject { recorded_request }
+
+        include_context 'with action performed before each example'
+
+        it { is_expected.to contain_valid_api_command('BuildPrimaryClaimant').version('2').for_db_data(example_claim.primary_claimant) }
+      end
+    end
+
     context 'with a claim with single claimant, single respondent (with no work address) and a representative' do
       subject { recorded_request }
 

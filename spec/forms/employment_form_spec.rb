@@ -42,7 +42,7 @@ RSpec.describe EmploymentForm, type: :form do
       it { expect(employment_form).to validate_numericality_of(attribute).allow_nil }
     end
 
-    it 'should validate net_pay if gross_pay is present' do
+    it 'validates net_pay if gross_pay is present' do
       expect(employment_form).to validate_numericality_of(:net_pay)
     end
 

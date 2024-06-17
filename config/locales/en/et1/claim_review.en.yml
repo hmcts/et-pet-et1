@@ -53,11 +53,15 @@ en:
         mobile_number: Mobile
         email_address: Email
         contact_preference: Preferred contact
-        allow_video_attendance:
-          label: Would you be able to take part in a hearing by video?
+        allow_phone_or_video_attendance:
+          label:  Would you be able to take part in hearings by video and phone?
           options:
-            true: 'Yes'
-            false: 'No'
+            "phone": "Yes, I can take part in phone hearings"
+            "video": "Yes, I can take part in video hearings"
+            "neither": "None"
+        allow_phone_or_video_reason:
+          label: "Eglurwch pam na allwch chi gymryd rhan mewn gwrandawiad fideo na gwrandawiad"
+
         is_disabled:
           label: Assistance required at the tribunal?
           options:
@@ -120,6 +124,7 @@ en:
         new_job_start_date: New job start date
         pay_period_weekly: per week
         pay_period_monthly: per month
+        pay_period_annually: per year
         was_employed: Employed by employer
 
       claim_type:
@@ -127,6 +132,7 @@ en:
         other_claim_details: Other type of claim details
         is_whistleblowing: Whistleblowing
         send_claim_to_whistleblowing_entity: Send to whistleblowing body
+        whistleblowing_regulator_name: Name of relevant regulator
 
       claim_details:
         claim_details: Claim details

@@ -48,7 +48,8 @@ class EmploymentForm < Form
 
   validates :gross_pay, :new_job_gross_pay, numericality: { allow_blank: true }
   validates :net_pay, numericality: { allow_blank: true, allow_nil: true }
-  validates :net_pay, numericality: { less_than_or_equal_to: :gross_pay, allow_blank: true, allow_nil: true }, if: :gross_pay?
+  validates :net_pay, numericality: { less_than_or_equal_to: :gross_pay, allow_blank: true, allow_nil: true },
+                      if: :gross_pay?
 
   validates :new_job_gross_pay_frequency, presence: { if: :new_job_gross_pay? }
   validates :notice_pay_period_type,      presence: { if: :notice_pay_period_count? }
