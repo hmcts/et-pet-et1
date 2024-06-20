@@ -339,6 +339,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.5-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.5-x86_64-linux)
+      racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
     orm_adapter (0.5.0)
@@ -428,8 +430,8 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.0)
+      strscan
     roda (3.79.0)
       rack
     rouge (4.2.1)
@@ -580,6 +582,7 @@ GEM
 PLATFORMS
   aarch64-linux-musl
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   activeadmin (~> 3.2)
@@ -632,7 +635,7 @@ DEPENDENCIES
   rubocop (~> 1.8)
   rubocop-rails
   rubocop-rspec (~> 2.1)
-  selenium-webdriver (~> 4.3, < 4.11)
+  selenium-webdriver (~> 4.3, < 4.22.1)
   sentry-rails (~> 5.17)
   sentry-ruby (~> 5.17)
   sentry-sidekiq (~> 5.17)
