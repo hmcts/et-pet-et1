@@ -4,15 +4,22 @@ class PopulateClaimantPhoneOrVideoQuestions < ActiveRecord::Migration[7.1]
   end
 
   def up
-    Claimant.where(allow_video_attendance: false).all.each do |claimant|
-      claimant.update(allow_phone_or_video_attendance: ['neither'])
-    end
-    Claimant.where(allow_video_attendance: true).all.each do |claimant|
-      claimant.update(allow_phone_or_video_attendance: ['video'])
-    end
+    execute <<-SQL
+      UPDATE claimants
+      SET allow_phone_or_video_attendance = '{neither}'::varchar[]
+      WHERE allow_video_attendance = false
+    SQL
+    execute <<-SQL
+      UPDATE claimants
+      SET allow_phone_or_video_attendance = '{video}'::varchar[]
+      WHERE allow_video_attendance = true
+    SQL
   end
 
   def down
-    # Intentionally do nothing
+    execute <<-SQL
+      UPDATE claimants
+      SET allow_phone_or_video_attendance = '{}'::varchar[]
+    SQL
   end
 end
