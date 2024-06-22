@@ -18,7 +18,7 @@ module Et1
                                     contact_preference: example_claimant.contact_preference.try(:humanize),
                                     allow_video_attendance: example_claimant.allow_phone_or_video_attendance.include?('video'),
                                     allow_phone_attendance: example_claimant.allow_phone_or_video_attendance.include?('phone'),
-                                    allow_phone_or_video_reason: example_claimant.allow_phone_or_video_attendance == ['neither'] ? example_claimant.allow_phone_or_video_reason : nil,
+                                    no_phone_or_video_reason: example_claimant.allow_phone_or_video_attendance == ['neither'] ? example_claimant.allow_phone_or_video_reason : nil,
                                     fax_number: example_claimant.fax_number,
                                     special_needs: example_claimant.special_needs,
                                     mobile_number: example_claimant.mobile_number,
