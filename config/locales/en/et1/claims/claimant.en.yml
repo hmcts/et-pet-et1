@@ -33,14 +33,40 @@ en:
           post: Post
       email_address:
         label: Email address
-      allow_video_attendance:
-        label: "Would you be able to take part in a hearing by video? (Requires internet access)."
+      allow_phone_or_video_attendance:
+        label: "Would you be able to take part in hearings by video and phone?"
         hint: "Further details on video hearings can be found on the following link https://www.gov.uk/guidance/hmcts-telephone-and-videohearings-during-coronavirus-outbreak"
         options:
-          "true": 'Yes'
-          "false": 'No'
+          "video": 'Yes, I can take part in video hearings'
+          "phone": 'Yes, I can take part in phone hearings'
+          "neither": 'None'
+      allow_phone_or_video_reason:
+        label: Explain why you are unable to take part in video or phone hearings
       legend_disability: Do you have a disability which means you require assistance at the tribunal hearing?
       legend_personal_details: About the claimant
       legend_contact_details: Claimant’s contact details
       personal_details_description: |
         Information about the person or organisation making this claim (known as the 'claimant').
+      date_of_birth:
+        label: Date of birth
+        hint: For example, 23 04 1981
+        day: Day
+        month: Month
+        year: Year
+      title:
+        label: Title
+        options:
+          '': Please select
+          Mr: Mr
+          Mrs: Mrs
+          Miss: Miss
+          Ms: Ms
+          Mx: Mx
+          Other: Other
+      other_title:
+        label: Other
+      first_name:
+        label: First name
+      last_name:
+        label: Last name
+

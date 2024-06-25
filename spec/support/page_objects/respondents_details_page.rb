@@ -42,7 +42,6 @@ module ET1
           s.town_question.set(respondent.address_town)
           s.county_question.set(respondent.address_county)
           s.post_code_question.set(respondent.address_post_code)
-          s.phone_number_question.set(respondent.phone_number)
         end
       end
 
@@ -57,7 +56,6 @@ module ET1
           s.work_town_question.set(respondent.work_address_town)
           s.work_county_question.set(respondent.work_address_county)
           s.work_post_code_question.set(respondent.work_address_post_code)
-          s.work_address_phone_number_question.set(respondent.work_address_phone_number)
         end
       end
 
@@ -120,10 +118,6 @@ module ET1
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
         gds_text_input :post_code_question, :'respondents_details.post_code'
-        # @!method phone_number_question
-        #   A govuk phone field component wrapping the input, label, hint etc..
-        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
-        gds_phone_input :phone_number_question, :'respondents_details.phone_number'
       end
       section :your_work_address_group, :govuk_fieldset, :'respondents_details.your_work_address_group' do
         include EtTestHelpers::Section
@@ -152,10 +146,6 @@ module ET1
         #   A govuk text field component wrapping the input, label, hint etc..
         #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section
         gds_text_input :work_post_code_question, :'respondents_details.work_post_code'
-        # @!method work_address_phone_number_question
-        #   A govuk phone field component wrapping the input, label, hint etc..
-        #   @return [EtTestHelpers::Components::GovUKPhoneField] The site prism section
-        gds_phone_input :work_address_phone_number_question, :'respondents_details.work_address_phone_number'
       end
 
       # @!method have_acas_number_question

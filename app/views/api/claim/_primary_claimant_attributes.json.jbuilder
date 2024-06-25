@@ -1,5 +1,5 @@
 # @TODO Send as simple value and transform at presentation layer ?
-json.title claimant.title.try(:titleize)
+json.title claimant.title == 'Other' ? claimant.other_title : claimant.title
 json.first_name claimant.first_name
 json.last_name claimant.last_name
 claimant.address.tap do |a|
@@ -18,7 +18,9 @@ json.fax_number claimant.fax_number
 json.email_address claimant.email_address
 # @TODO Maybe send as simple value and transform at presentation layer ?
 json.contact_preference claimant.contact_preference.try(:humanize)
-json.allow_video_attendance claimant.allow_video_attendance
+json.allow_video_attendance claimant.allow_phone_or_video_attendance.include?('video')
+json.allow_phone_attendance claimant.allow_phone_or_video_attendance.include?('phone')
+json.no_phone_or_video_reason claimant.allow_phone_or_video_attendance == ['neither'] ? claimant.allow_phone_or_video_reason : nil
 # @TODO Maybe send as simple value and transform at presentation layer ?
 json.gender({ 'male' => 'Male', 'female' => 'Female', 'prefer_not_to_say' => 'N/K' }[claimant.gender])
 json.date_of_birth claimant.date_of_birth

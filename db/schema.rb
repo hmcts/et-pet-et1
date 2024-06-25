@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_20_062552) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_102522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -78,6 +78,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_062552) do
     t.boolean "primary_claimant", default: false
     t.boolean "allow_video_attendance"
     t.boolean "has_special_needs"
+    t.string "other_title"
+    t.string "allow_phone_or_video_attendance", default: [], array: true
+    t.text "allow_phone_or_video_reason"
     t.index ["claim_id"], name: "index_claimants_on_claim_id"
     t.index ["primary_claimant"], name: "index_claimants_on_primary_claimant"
   end
@@ -116,6 +119,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_062552) do
     t.boolean "has_representative"
     t.boolean "was_employed"
     t.boolean "is_other_type_of_claim"
+    t.string "whistleblowing_regulator_name"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 

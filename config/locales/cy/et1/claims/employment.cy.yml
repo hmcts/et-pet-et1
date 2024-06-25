@@ -47,6 +47,7 @@ cy:
         options:
           weekly: Wythnosau
           monthly: Misoedd
+          annually: Yn flynyddol
       net_pay:
         label: Tâl ar ôl treth
         hint: Hwn yw eich tâl net neu dâl terfynol, ar ôl treth a didyniadau eraill. Gallwch ddod o hyd iddo ar eich slip cyflog. Dylech gynnwys unrhyw daliadau goramser, comisiwn a bonws
@@ -71,6 +72,7 @@ cy:
         options:
           weekly: Wythnosau
           monthly: Misoedd
+          annually: Yn flynyddol
       employment_details_legend: Manylion cyflogaeth
       pay_legend: "Tâl, pensiwn a buddion"
       new_job_legend: Swydd newydd

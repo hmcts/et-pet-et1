@@ -3,7 +3,7 @@ appVersion: "1.0"
 description: A Helm chart for et-pet et1 application
 name: et-pet-et1
 home: https://github.com/hmcts/et-pet-et1
-version: 0.0.25
+version: 0.0.24
 dependencies:
   - name: base
     version: 1.3.0
