@@ -20,7 +20,7 @@ cy:
           no_answer: Nac ydi
           prefer-not-to-say: Mae'n well gen i beidio dweud
       sexual_identity:
-        label: Which of the options below best describes your sexual identity?
+        label: Pa un o'r opsiynau isod sy'n disgrifio orau eich hunaniaeth rywiol?
         options:
           heterosexual-straight: Heterorywiol
           gay-lesbian: Hoyw / Lesbiaidd
