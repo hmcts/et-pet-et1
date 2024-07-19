@@ -76,7 +76,7 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 5.0.1'
-  gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
+  gem 'selenium-webdriver', '~> 4.3', '< 4.23.1'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.2'
