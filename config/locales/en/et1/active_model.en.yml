@@ -171,6 +171,8 @@ en:
             title:
               blank: Select a title from the list
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
+            other_title:
+              blank: Enter the claimant's other title
             gender:
               blank: Select the claimant’s gender, or select ‘prefer not to say’
             first_name:

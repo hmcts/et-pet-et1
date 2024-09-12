@@ -39,6 +39,7 @@ class ClaimantForm < Form
   validates :has_special_needs, inclusion: [true, false]
 
   validates :title, ccd_personal_title: true
+  validates :other_title, presence: { if: :other_title_selected? }
   validates :gender, inclusion: { in: GENDERS }, allow_blank: true
   validates :first_name, :last_name, length: { maximum: NAME_LENGTH }, special_character: true
   validates :contact_preference, inclusion: { in: CONTACT_PREFERENCES }, ccd_claimant_contact_preference: true
@@ -75,6 +76,10 @@ class ClaimantForm < Form
   end
 
   private
+
+  def other_title_selected?
+    title == I18n.t("claims.personal_details.title.options.Other")
+  end
 
   def international_address?
     address_country != 'united_kingdom'
