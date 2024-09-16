@@ -69,9 +69,9 @@ RSpec.describe ClaimantForm, type: :form do
     end
 
     describe 'other_title' do
-      before { claimant_form.title = 'Other' }
-
       context 'when title is other' do
+        before { claimant_form.title = 'Other' }
+
         it { expect(claimant_form).to validate_presence_of(:other_title) }
 
         it 'raises and error message' do

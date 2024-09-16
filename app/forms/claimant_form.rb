@@ -78,7 +78,7 @@ class ClaimantForm < Form
   private
 
   def other_title_selected?
-    title == I18n.t("claims.personal_details.title.options.Other")
+    title == 'Other'
   end
 
   def international_address?
