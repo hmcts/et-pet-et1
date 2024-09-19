@@ -144,6 +144,8 @@ cy:
             title:
               blank: Dewiswch deitl o'r rhestr
               invalid_ccd_personal_title: :'activemodel.errors.models.claimant.attributes.title.blank'
+            other_title:
+              blank: Nodwch deitl arall yr hawlydd
             gender:
               blank: "Dewiswch rywedd yr hawlydd, neu dewiswch 'mae'n well gen i beidio dweud'"
             first_name:

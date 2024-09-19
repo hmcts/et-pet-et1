@@ -68,6 +68,20 @@ RSpec.describe ClaimantForm, type: :form do
       end
     end
 
+    describe 'other_title' do
+      context 'when title is other' do
+        before { claimant_form.title = 'Other' }
+
+        it { expect(claimant_form).to validate_presence_of(:other_title) }
+
+        it 'raises and error message' do
+          claimant_form.valid?
+
+          expect(claimant_form.errors[:other_title]).to be_present
+        end
+      end
+    end
+
     [:first_name, :last_name, :address_building, :address_street, :address_locality, :address_post_code].each do |attr|
       it { expect(claimant_form).to validate_presence_of(attr) }
     end
