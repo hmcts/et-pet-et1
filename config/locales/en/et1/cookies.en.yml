@@ -25,6 +25,31 @@ en:
           three: how long you spend on each page
           four: how you got to the website, for example (from a search engine)
         line_two: "We don’t collect or store personal information in cookies, for example your name or address, so the information can’t be used to identify you. We don’t allow Google to use or share our analytics data. Google Analytics uses the following cookies:"
+        dynatrace_header: "To measure application performance"
+        dynatrace_details:
+          paragraph1: "We use Dynatrace Software Intelligence Platform to provide an Application Performance Monitoring Service to collect information about how you use HMCTS services. We do this to monitor HMCTS services in order to resolve issues within our services as well as collect data on how our services can be improved. HMCTS store information about:"
+          bullet-list:
+            - "Site performance"
+            - "Website usage"
+            - "User behaviour"
+          paragraph2: "Information is presented within the Application Performance Monitoring service for the purposes detailed above. We do not use or share the information for any other purpose. We do not allow Dynatrace to use or share the information for any other purposes."
+        dynatrace:
+          table:
+            dt-cookie:
+              purpose: "Tracks a visit across multiple requests"
+            expires:
+              session-end: "When session ends"
+            dt-lat-c:
+              purpose: "Measures server latency for performance monitoring"
+            dt-pc:
+              purpose: "Required to identify proper endpoints for beacon transmission; includes session ID for correlation"
+            dt-sa:
+              purpose: "Intermediate store for page-spanning actions"
+            rx-visitor:
+              purpose: "Visitor ID to correlate sessions"
+              expires: "1 year"
+            rxvt:
+              purpose: "Session timeout"
         table:
           labels:
             name: Name
@@ -96,5 +121,5 @@ en:
         options:
           'true': 'Yes'
           'false': 'No'
-      
+
 
