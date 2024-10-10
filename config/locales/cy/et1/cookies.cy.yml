@@ -25,6 +25,31 @@ cy:
           three: "faint o amser y byddwch yn ei dreulio ar bob tudalen"
           four: "sut y daethoch i'r wefan (ee trwy ddefnyddio chwilotwr)"
         line_two: "Nid ydym yn casglu nac yn cadw'ch gwybodaeth bersonol (e.e. eich enw neu'ch cyfeiriad) mewn cwcis, felly ni ellir defnyddio'r wybodaeth hon i'ch adnabod. Nid ydym yn caniatáu i Google ddefnyddio neu rannu ein data dadansoddi. Mae Google Analytics yn defnyddio'r cwcis canlynol:"
+        dynatrace_header: "I fesur perfformiad cais"
+        dynatrace_details:
+          paragraph1: "Rydym yn defnyddio Platfform Gwybodaeth Meddalwedd Dynatrace i ddarparu Gwasanaeth Monitro Perfformiad Cais i gasglu gwybodaeth am sut rydych chi'n defnyddio gwasanaethau GLlTEM. Rydym yn gwneud hyn i fonitro gwasanaethau GLlTEM er mwyn datrys problemau o fewn ein gwasanaethau yn ogystal â chasglu data ar sut y gellir gwella ein gwasanaethau. Mae GLlTEM yn storio gwybodaeth am:"
+          bullet-list:
+            - "Perfformiad y safle"
+            - "Defnydd o'r wefan"
+            - "Ymddygiad defnyddwyr"
+          paragraph2: "Cyflwynir gwybodaeth o fewn y gwasanaeth Monitro Perfformiad Cais at y dibenion a nodir uchod. Nid ydym yn defnyddio nac yn rhannu'r wybodaeth at unrhyw ddiben arall. Nid ydym yn caniatáu i Dynatrace ddefnyddio na rhannu'r wybodaeth at unrhyw ddibenion eraill."
+        dynatrace:
+          table:
+            dt-cookie:
+              purpose: "Olrhain ymweliad ar draws sawl cais"
+            expires:
+              session-end: "Pan ddaw'r sesiwn i ben"
+            dt-lat-c:
+              purpose: "Mesurau hwyrni gweinydd ar gyfer monitro perfformiad"
+            dt-pc:
+              purpose: "Angen nodi pwyntiau terfynbwyntiau priodol ar gyfer trosglwyddo beacon; yn cynnwys ID sesiwn ar gyfer cydberthynas"
+            dt-sa:
+              purpose: "Storfa ganolradd ar gyfer camau gweithredu rhychwantu tudalen"
+            rx-visitor:
+              purpose: "ID ymwelwyr i sesiynau cydberthyn"
+              expires: "Blwyddyn 1"
+            rxvt:
+              purpose: "Amser y sesiwn"
         table:
           labels:
             name: Enw
