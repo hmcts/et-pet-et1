@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-alpine
+FROM ruby:3.3.5-alpine
 
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
