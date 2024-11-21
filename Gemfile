@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.1.4.1'
+gem 'rails', '7.2.2'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -41,6 +41,8 @@ gem 'govuk_notify_rails', git: 'https://github.com/hmcts/govuk_notify_rails.git'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
+
+gem 'rackup', '1.0.0', require: false
 
 group :development, :test do
   gem 'awesome_print', '~> 1.9'
