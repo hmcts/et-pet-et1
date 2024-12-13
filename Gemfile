@@ -61,7 +61,7 @@ group :development, :test do
   gem 'rspec_junit_formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', '~> 2.1', :require => false
+  gem 'rubocop-rspec', '~> 3.3', :require => false
   gem 'shoulda-matchers', '~> 6.2'
   gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 4.6.0'
