@@ -2,16 +2,6 @@ class TimeoutSessionsController < ApplicationController
   skip_after_action :set_session_expiry, only: :expired
   redispatch_request unless: :present?, except: [:new, :create]
 
-  def create
-    if user_session.valid?
-      session[:claim_reference] = user_session.reference
-      claim.create_event Event::LOGIN, actor: 'user'
-      redirect_to claim_path_for :claimant
-    else
-      render :new
-    end
-  end
-
   def destroy
     if claim.user&.email.present?
       logout
@@ -20,6 +10,16 @@ class TimeoutSessionsController < ApplicationController
       logout
     else
       render 'reminder'
+    end
+  end
+
+  def create
+    if user_session.valid?
+      session[:claim_reference] = user_session.reference
+      claim.create_event Event::LOGIN, actor: 'user'
+      redirect_to claim_path_for :claimant
+    else
+      render :new
     end
   end
 
