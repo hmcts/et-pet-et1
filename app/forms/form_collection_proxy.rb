@@ -47,8 +47,8 @@ class FormCollectionProxy
     end
   end
 
-  def slice(*)
-    wrap_collection(collection_cache.slice(*))
+  def slice(*args)
+    wrap_collection(collection_cache.slice(*args))
   end
 
   def each(&)

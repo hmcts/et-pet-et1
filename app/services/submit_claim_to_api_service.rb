@@ -1,6 +1,6 @@
 class SubmitClaimToApiService < ApiService
-  def self.call(*, **kw_args)
-    new.call(*, **kw_args)
+  def self.call(*args, **kw_args)
+    new.call(*args, **kw_args)
   end
 
   def call(claim, uuid: SecureRandom.uuid)

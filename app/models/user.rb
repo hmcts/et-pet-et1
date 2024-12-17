@@ -49,8 +49,8 @@ class User < ApplicationRecord
     @pending_devise_notifications ||= []
   end
 
-  def render_and_send_devise_message(notification, *)
-    message = devise_mailer.send(notification, self, *)
+  def render_and_send_devise_message(notification, *args)
+    message = devise_mailer.send(notification, self, *args)
 
     if message.respond_to?(:deliver_later)
       message.deliver_later

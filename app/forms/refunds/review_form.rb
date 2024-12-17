@@ -12,8 +12,8 @@ module Refunds
       super(Refund.new(resource.to_h.except('_refund_id')), &)
     end
 
-    def method_missing(method, *)
-      return resource.send(method, *) if !method.to_s.end_with?('=') && resource.respond_to?(method)
+    def method_missing(method, *args)
+      return resource.send(method, *args) if !method.to_s.end_with?('=') && resource.respond_to?(method)
 
       super
     end

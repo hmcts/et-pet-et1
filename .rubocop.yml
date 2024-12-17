@@ -211,7 +211,7 @@ Style/FileEmpty:
 Style/FileNull:
   Enabled: true
 Style/ArgumentsForwarding:
-  Enabled: true
+  Enabled: false
 Style/ArrayIntersect:
   Enabled: true
 Style/BitwisePredicate:
