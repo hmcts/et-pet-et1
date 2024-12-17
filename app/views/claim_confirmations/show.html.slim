@@ -1,57 +1,71 @@
 - content_for(:page_title, page_title)
 
-h1 class="govuk-heading-xl govuk-!-margin-top-9" = t '.header'
-
-
-.govuk-grid-row
-  .govuk-grid-column-two-thirds
-    div.govuk-notification-banner.govuk-notification-banner--success role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner"
-      .govuk-notification-banner__header
-        h2.govuk-notification-banner__title = t '.callout_detail'
-      .govuk-notification-banner__content
-        .govuk-notification-banner__heading
-          span.number= claim.fee_group_reference
+div.govuk-grid-row
+  div.govuk-grid-column-two-thirds
+    div.govuk-panel.govuk-panel--confirmation
+      h1.govuk-panel__title = t '.header'
+    p.govuk-body
+      = t('.copy_sent')
+      = '.'
 
 .govuk-grid-row
   .govuk-grid-column-two-thirds
     h2.govuk-heading-m = t('.what_happens_next.header')
-    hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
 
-    ol.govuk-list
-      li
-        p.govuk-body = t('.what_happens_next.covid_19')
-        p.govuk-body = link_to 'https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation', t('.what_happens_next.covid_19_link'), class: 'govuk-link'
-        p.govuk-body = t('.what_happens_next.covid_19_confirmation')
-
-      / li
-      /   p.govuk-body= t('.what_happens_next.send_to_respondent')
-      / li
-      /   p.govuk-body= t('.what_happens_next.next_steps')
+    ul.govuk-list.govuk-list--bullet
+      - t('.what_happens_next.content').each do |content|
+        li.govuk-body
+          = content
 
     .submission-details
       h2.govuk-heading-m = t('.submission_details.header')
-      hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-3"
-      .govuk-grid-row
-        .govuk-grid-column-one-third
-          p.govuk-body = t '.download_application.header'
-        .govuk-grid-column-two-thirds
-          = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link'
-          = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link'
-      - confirmation_presenter.each_item do |name, content|
-        .govuk-grid-row
-          .govuk-grid-column-one-third.question
-            p.govuk-body = t ".submission_details.#{name}"
-          .govuk-grid-column-two-thirds.answer
-            p.govuk-body = content
+      dl.govuk-summary-list
+        - confirmation_presenter.each_item do |name, content|
+          .govuk-summary-list__row
+            dt.govuk-summary-list__key = t ".submission_details.#{name}"
+            dd.govuk-summary-list__value = content
+
+          - if name == :submission_information
+            .govuk-summary-list__row
+              dt.govuk-summary-list__key
+                strong = t '.download_application.header'
+                p.govuk-body = t '.download_application.subheader'
+              dd.govuk-summary-list__value
+                = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link'
+                = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link'
+
+    .office-information
+      h2.govuk-heading-m = t('.office_information.header')
+      p.govuk-body = t '.office_information.subheader'
+      dl.govuk-summary-list
+        .govuk-summary-list__row
+          dt.govuk-summary-list__key = t('.office_information.office_name')
+          dd.govuk-summary-list__value = claim.office.name
+        .govuk-summary-list__row
+          dt.govuk-summary-list__key = t('.office_information.office_email')
+          dd.govuk-summary-list__value = claim.office.email
+        .govuk-summary-list__row
+          dt.govuk-summary-list__key = t('.office_information.office_phone')
+          dd.govuk-summary-list__value = claim.office.telephone
+
+    h2.govuk-heading-m = t('.process_questions')
+    p.govuk-body = t('.process_questions_content')
+    p.govuk-body = t('.eng_telephone_number')
+    p.govuk-body = t('.wel_telephone_number')
+    p.govuk-body = t('.sco_telephone_number')
+
+    p.govuk-body = t('.telephone_times_html')
 
     = simple_format t('.pel_info') unless claim.remission_claimant_count.zero?
 
     p.govuk-body = t '.print_link_html'
+
     p.govuk-body
       = link_to t('.feedback_your'), 'https://www.smartsurvey.co.uk/s/ETES20/', class: 'govuk-link', target: '_blank'
-      = " "
-      = t('.feedback_helps_us')
+      = " " + t('.feedback_helps_us')
+
     p.govuk-body = t('.diversity_html', href: diversity_landing_path)
+
 - content_for(:javascripts)
 javascript:
   Et.pages.claims.ClaimConfirmationPage()

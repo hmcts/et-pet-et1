@@ -1,16 +1,11 @@
 class ConfirmationPresenter < Presenter
+  def submission_reference
+    I18n.t('claim_confirmations.show.submission_details.reference_number', reference: fee_group_reference)
+  end
+
   def submission_information
     I18n.t 'claim_confirmations.show.submission_details.submission',
            date: date(submitted_at)
-  end
-
-  def office_information
-    return '' if office.nil?
-    if display_wales_address_in_welsh?
-      return I18n.t 'claim_confirmations.show.submission_details.office_address_wales', date: date(submitted_at)
-    end
-
-    [office.name, office.email, office.telephone].join(', ')
   end
 
   def attachments
@@ -33,7 +28,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def items
-    [:submission_information, :office_information, :attachments]
+    [:submission_reference, :submission_information, :attachments]
   end
 
   def attachment_filenames

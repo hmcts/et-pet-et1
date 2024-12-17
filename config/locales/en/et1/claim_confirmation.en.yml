@@ -1,30 +1,21 @@
 en:
   claim_confirmations:
     show:
-      header: Claim submitted
-      callout_detail: Your submission reference
+      header: Your claim has been submitted
+      copy_sent: We've sent you an email confirmation
       feedback_your: Your feedback
       feedback_helps_us: helps us improve this service.
       diversity_html: |
         Help us keep track. Complete our <a class="govuk-link" href="%{href}" rel="external">diversity monitoring questionnaire</a>.
       what_happens_next:
         header: What happens next
-        covid_19: |
-          In view of the current situation with COVID-19, updated guidance from HMCTS is available here:
-        covid_19_html: |
-          COVID-19 Guidance
-        covid_19_link: https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation
-        covid_19_confirmation: We will contact you once we have sent your claim to the respondent and explain what happens next. At present, it is not possible to predict an exact timescale.
-        send_to_respondent: |
-          We'll contact you once we have sent your claim to the respondent and explain what happens next.
-          At present, this is taking us an average of 25 days.
-        next_steps: |
-          Once we have sent them your claim, the respondent has 28 days to reply.
-        next_steps_final_step: |
-          We’ll review your application for help with fees and let you know the outcome.
+        content:
+          - We'll check your claim and may contact you if we have any questions
+          - We'll contact you once we've sent your claim to the respondents and explain what happens next
 
       download_application:
         header: Download your claim
+        subheader: The questions you've answered are populated on our prescribed PDF form. This means the questions may appear differently in their wording or order on the version you download. This will not affect how the tribunal deals with your claim.
         link_text: Save a copy
         invalid_link_text: Not quite ready yet - a PDF version of your completed form will be available for download shortly
         link_suffix: for your records
@@ -34,9 +25,27 @@ en:
       submission_details:
         header: Submission details
         submission_information: Claim submitted
-        office_information: Tribunal office
         attachments: Attachments included
-        submission: Submitted %{date}
+        submission: "%{date}"
+        submission_reference: Submission reference
+        reference_number: "%{reference}"
+
+      office_information:
+        header: For questions about your claim
+        subheader: Contact the following tribunal office for questions about your claim
+        office_name: Tribunal office
+        office_email: Email
+        office_phone: Telephone
+
+      process_questions: For questions about the employment tribunal process
+      process_questions_content: Call one of our Employment Tribunal customer contact centres. They cannot give you legal advice.
+
+      eng_telephone_number: "Telephone: 0300 3230196"
+      wel_telephone_number: "Telephone: 0300 303 5176 (Welsh language)"
+      sco_telephone_number: "Telephone: 0300 790 6234 (Scotland)"
+
+      telephone_times_html: |
+        Monday to Friday, 9am to 5pm <a class="govuk-link" href="https://www.gov.uk/call-charges">Find out more about call charges</a>
 
       print_link_html: |
         <a class="govuk-link" href="javascript:window.print(0);">Print this page</a> for your
