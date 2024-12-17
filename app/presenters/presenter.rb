@@ -46,7 +46,7 @@ class Presenter
     self.class.instance_methods(false)
   end
 
-  def method_missing(meth, *args, &)
+  def method_missing(meth, *args, &block)
     if target.respond_to? meth
       singleton_class.instance_eval do
         define_method(meth) { target.send meth }

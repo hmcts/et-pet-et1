@@ -627,7 +627,7 @@ Naming/FileName:
 Naming/PredicateName:
   Enabled: false
 Naming/BlockForwarding:
-  Enabled: true
+  Enabled: false
 
 # Gemspec
 Gemspec/AddRuntimeDependency:

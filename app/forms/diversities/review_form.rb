@@ -4,9 +4,9 @@ module Diversities
 
     validates :accept_declaration, acceptance: { accept: true }
 
-    def initialize(resource, &)
+    def initialize(resource, &block)
       self.diversity_session = resource
-      super(Diversity.new(resource.to_h.except('_diversity_id')), &)
+      super(Diversity.new(resource.to_h.except('_diversity_id')), &block)
     end
 
     def method_missing(method, *args)

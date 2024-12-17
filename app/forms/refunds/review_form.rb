@@ -7,9 +7,9 @@ module Refunds
 
     validates :accept_declaration, acceptance: { accept: true }
 
-    def initialize(resource, &)
+    def initialize(resource, &block)
       self.refund_session = resource
-      super(Refund.new(resource.to_h.except('_refund_id')), &)
+      super(Refund.new(resource.to_h.except('_refund_id')), &block)
     end
 
     def method_missing(method, *args)

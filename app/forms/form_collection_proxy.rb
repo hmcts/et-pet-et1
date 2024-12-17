@@ -51,8 +51,8 @@ class FormCollectionProxy
     wrap_collection(collection_cache.slice(*args))
   end
 
-  def each(&)
-    collection_cache.each(&)
+  def each(&block)
+    collection_cache.each(&block)
   end
 
   def clear

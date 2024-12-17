@@ -4,7 +4,7 @@ class GuidePresenter
     @renderer = renderer
   end
 
-  def each_rendered_file(&)
+  def each_rendered_file(&_block)
     @files.each do |file|
       html_output = render(file)
       basename = file_name_without_extension(file)
