@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Claim, type: [:claim, :model] do
-  let(:claim_enqueued) { create :claim }
+  let(:claim_enqueued) { create(:claim) }
   let(:claim) { described_class.create }
 
   it { is_expected.to have_secure_password }
@@ -129,7 +129,7 @@ RSpec.describe Claim, type: [:claim, :model] do
     end
 
     context 'when claim with a single claimant' do
-      let(:claim) { create :claim, :single_claimant }
+      let(:claim) { create(:claim, :single_claimant) }
 
       specify { expect(claim).not_to be_multiple_claimants }
     end
@@ -329,7 +329,7 @@ RSpec.describe Claim, type: [:claim, :model] do
       end
 
       it 'Is invalid' do
-        expect(claim).to be_invalid
+        expect(claim).not_to be_valid
       end
 
       it 'Has correct message' do

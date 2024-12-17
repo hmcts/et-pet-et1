@@ -34,7 +34,7 @@ RSpec.describe ClaimTypeForm, type: :form do
       claim_type_form.is_other_type_of_claim = false
       claim_type_form.valid?
 
-      expect(claim_type_form.other_claim_details).to be nil
+      expect(claim_type_form.other_claim_details).to be_nil
     end
   end
 

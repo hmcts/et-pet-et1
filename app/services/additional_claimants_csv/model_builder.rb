@@ -24,7 +24,7 @@ class AdditionalClaimantsCsv::ModelBuilder
   end
 
   def attributes_from(row_data)
-    Hash[ATTRIBUTES.zip(sanitize(row_data))]
+    ATTRIBUTES.zip(sanitize(row_data)).to_h
   end
 
   def sanitize(row_data)

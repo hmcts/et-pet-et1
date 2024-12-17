@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Claimant page', js: true, type: :feature do
+describe 'Claimant page', :js, type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
@@ -38,7 +38,7 @@ describe 'Claimant page', js: true, type: :feature do
 
       it "displays no validation error if no DOB is present" do
         claimants_details_page.save_and_continue
-        expect(page).not_to have_text("Provide information in the highlighted fields")
+        expect(page).to have_no_text("Provide information in the highlighted fields")
       end
     end
 

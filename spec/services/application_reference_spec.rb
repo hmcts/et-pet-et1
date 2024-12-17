@@ -47,7 +47,7 @@ RSpec.describe ApplicationReference do
 
     it 'returns a string when given garbage' do
       input = ':-)'
-      expect(described_class.normalize(input)).to be_kind_of(String)
+      expect(described_class.normalize(input)).to be_a(String)
     end
   end
 end

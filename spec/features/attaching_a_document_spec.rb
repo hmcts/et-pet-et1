@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'securerandom'
 
-describe 'Attaching a document', js: true, type: :feature do
+describe 'Attaching a document', :js, type: :feature do
   include FormMethods
   include Messages
   include EtTestHelpers::RSpec
@@ -17,7 +17,7 @@ describe 'Attaching a document', js: true, type: :feature do
     claimants_details_page.assert_claim_retrieved_success
   end
 
-  describe 'For claim details RTF upload', with_stubbed_azure_upload: true do
+  describe 'For claim details RTF upload', :with_stubbed_azure_upload do
     let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
     let(:rtf_file_path) { "#{file_path}file.rtf" }
     let(:alternative_rtf_file_path) { "#{file_path}alt_file.rtf" }
@@ -66,7 +66,7 @@ describe 'Attaching a document', js: true, type: :feature do
     end
   end
 
-  describe 'For additional claimants', with_stubbed_azure_upload: true do
+  describe 'For additional claimants', :with_stubbed_azure_upload do
     let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
     let(:csv_file_path) { "#{file_path}file.csv" }
     let(:alternative_csv_file_path) { "#{file_path}alt_file.csv" }
@@ -93,7 +93,7 @@ describe 'Attaching a document', js: true, type: :feature do
         visit '/apply/additional-claimants-upload'
         sleep 2
         group_claims_upload_page.remove_csv_file
-        click_button 'Save and continue'
+        click_link_or_button 'Save and continue'
         sleep 2
 
         expect(claim.reload.additional_claimants_csv.present?).to be false

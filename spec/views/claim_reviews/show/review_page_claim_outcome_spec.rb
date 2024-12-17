@@ -7,8 +7,8 @@ describe "claim_reviews/show.html.slim" do
       ET1::Test::ReviewPage.new
     end
     let(:claim) do
-      create :claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
-                     other_outcome: "25 bags\r\nyour job"
+      create(:claim, desired_outcomes: [:tribunal_recommendation, :new_employment_and_compensation],
+                     other_outcome: "25 bags\r\nyour job")
     end
 
     let(:null_object) { NullObject.new }
@@ -37,7 +37,7 @@ describe "claim_reviews/show.html.slim" do
       it do
         expect(page).
           to eq "A recommendation from a tribunal (that the employer takes action so that the problem at work doesn’t happen again)" \
-            "<br>To get another job with the same employer or associated employer"
+                "<br>To get another job with the same employer or associated employer"
       end
     end
 

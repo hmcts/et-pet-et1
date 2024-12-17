@@ -80,7 +80,7 @@ Rails.application.configure do
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
@@ -99,15 +99,15 @@ Rails.application.configure do
   config.log_level = :debug
 
   config.action_mailer.default_url_options = {
-    host: ENV['SENDING_HOST'], protocol: 'https'
+    host: ENV.fetch('SENDING_HOST', nil), protocol: 'https'
   }
 
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_HOSTNAME'],
-    port: ENV['SMTP_PORT'],
-    domain: ENV['SENDING_HOST'],
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
+    address: ENV.fetch('SMTP_HOSTNAME', nil),
+    port: ENV.fetch('SMTP_PORT', nil),
+    domain: ENV.fetch('SENDING_HOST', nil),
+    user_name: ENV.fetch('SMTP_USERNAME', nil),
+    password: ENV.fetch('SMTP_PASSWORD', nil),
     authentication: :login,
     enable_starttls_auto: true
   }

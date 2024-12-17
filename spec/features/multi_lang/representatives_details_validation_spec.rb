@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Representatives Details Validation', type: :feature, js: true do
+RSpec.describe 'Representatives Details Validation', :js, type: :feature do
   it 'filters out an incorrect phone number and provides the correct message' do
     # Arrange - get to the page loaded with a claimant with the phone number overridden
     claimant = build(:ui_claimant, :mandatory)

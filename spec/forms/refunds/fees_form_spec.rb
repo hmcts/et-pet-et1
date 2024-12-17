@@ -17,9 +17,9 @@ module Refunds
       # are defined below.
       # These should stay in this file to make the test more readable
       shared_examples 'a positive fee with known date' do |fee_name:, fee:|
-        fee_payment_date_field = "#{fee_name}_fee_payment_date".to_sym
-        fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
-        before { form.send("#{fee_name}_fee=".to_sym, fee) }
+        fee_payment_date_field = :"#{fee_name}_fee_payment_date"
+        fee_payment_method_field = :"#{fee_name}_fee_payment_method"
+        before { form.send(:"#{fee_name}_fee=", fee) }
 
         context "with #{fee_payment_date_field} attribute" do
           it 'validates presence' do
@@ -35,7 +35,7 @@ module Refunds
           end
 
           it 'validates date allowing a ruby date' do
-            form.send("#{fee_payment_date_field}=".to_sym, Date.parse('1 December 2016'))
+            form.send(:"#{fee_payment_date_field}=", Date.parse('1 December 2016'))
             form.valid?
             expect(form.errors.where(fee_payment_date_field)).to be_empty
           end
@@ -58,7 +58,7 @@ module Refunds
 
           it 'validates date disallowing a ruby date which is past the end date' do
             date = Date.parse('1 September 2017')
-            form.send("#{fee_payment_date_field}=".to_sym, date)
+            form.send(:"#{fee_payment_date_field}=", date)
             form.valid?
             expect(form.errors.where(fee_payment_date_field, :date_range)).to include(have_attributes(message: 'The payment date must be between July 2013 and August 2017'))
           end
@@ -73,7 +73,7 @@ module Refunds
 
           it 'validates date disallowing a ruby date which is before the start date' do
             date = Date.parse('30 June 2013')
-            form.send("#{fee_payment_date_field}=".to_sym, date)
+            form.send(:"#{fee_payment_date_field}=", date)
             form.valid?
             expect(form.errors.where(fee_payment_date_field, :date_range)).to include(have_attributes(message: 'The payment date must be between July 2013 and August 2017'))
           end
@@ -108,9 +108,9 @@ module Refunds
       end
 
       shared_examples 'a positive fee with unknown date' do |fee_name:, fee:|
-        fee_payment_date_field = "#{fee_name}_fee_payment_date".to_sym
+        fee_payment_date_field = :"#{fee_name}_fee_payment_date"
         before do
-          form.send("#{fee_name}_fee=".to_sym, fee)
+          form.send(:"#{fee_name}_fee=", fee)
           form.send("#{fee_name}_fee_payment_date_unknown=", true)
         end
 
@@ -130,8 +130,8 @@ module Refunds
       end
 
       shared_examples 'a zero or nil fee' do |fee_name:, fee:|
-        fee_payment_date_field = "#{fee_name}_fee_payment_date".to_sym
-        fee_payment_method_field = "#{fee_name}_fee_payment_method".to_sym
+        fee_payment_date_field = :"#{fee_name}_fee_payment_date"
+        fee_payment_method_field = :"#{fee_name}_fee_payment_method"
         before { form.send("#{fee_name}_fee=", fee) }
 
         context "with #{fee_payment_date_field} attribute" do
@@ -204,7 +204,7 @@ module Refunds
 
         it 'fails validation as there are no fees represented as empty string' do
           [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
-            form.send("#{m}=".to_sym, '')
+            form.send(:"#{m}=", '')
           end
 
           form.valid?
@@ -213,7 +213,7 @@ module Refunds
 
         it 'fails validation as there are no fees represented as nil' do
           [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
-            form.send("#{m}=".to_sym, nil)
+            form.send(:"#{m}=", nil)
           end
 
           form.valid?
@@ -230,7 +230,7 @@ module Refunds
 
         it 'fails validation as there are no fees' do
           [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
-            form.send("#{m}=".to_sym, '0')
+            form.send(:"#{m}=", '0')
           end
           form.valid?
           expect(form.errors.where(:base)).to include(have_attributes(message: 'You must enter a fee in the relevant field'))
@@ -248,8 +248,8 @@ module Refunds
 
     context 'with attribute writers' do
       shared_examples 'a fee date writer' do |fee_name:|
-        reader_method = "#{fee_name}_fee_payment_date".to_sym
-        writer_method = "#{fee_name}_fee_payment_date=".to_sym
+        reader_method = :"#{fee_name}_fee_payment_date"
+        writer_method = :"#{fee_name}_fee_payment_date="
         it 'converts a partial date from a hash' do
           form.send(writer_method, 2 => '12', 1 => '2016')
           expect(form.send(reader_method)).to eql Date.parse('1 December 2016')
@@ -313,9 +313,9 @@ module Refunds
       end
 
       shared_examples 'a fee amount writer' do |fee_name:|
-        reader_method = "#{fee_name}_fee".to_sym
-        reader_before_cast_method = "#{fee_name}_fee_before_type_cast".to_sym
-        writer_method = "#{fee_name}_fee=".to_sym
+        reader_method = :"#{fee_name}_fee"
+        reader_before_cast_method = :"#{fee_name}_fee_before_type_cast"
+        writer_method = :"#{fee_name}_fee="
         it 'converts an amount from a string' do
           form.send(writer_method, '10.51')
           expect(form.send(reader_method)).to be 10

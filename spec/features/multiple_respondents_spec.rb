@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Multiple respondents', js: true, type: :feature do
+describe 'Multiple respondents', :js, type: :feature do
   include FormMethods
 
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
@@ -19,7 +19,7 @@ describe 'Multiple respondents', js: true, type: :feature do
 
     it "filling in a respondent and clicking 'Add another respondent' does not lose the entered details" do
       extra_ui_respondent = build(:ui_secondary_respondent, :default)
-      expect(page).not_to have_selector '#resource_1'
+      expect(page).to have_no_selector '#resource_1'
 
       additional_respondents_page.append_secondary_respondents([extra_ui_respondent])
       expect(additional_respondents_page.secondary_respondents).to match_array(ui_secondary_respondents + [extra_ui_respondent])

@@ -12,7 +12,7 @@ RSpec.describe DynatraceHelper, type: :helper do
 
     it 'returns the correct script tag' do
       content = Capybara.string(helper.dynatrace_script_tag)
-      expect(content).to have_selector('script[type="text/javascript"][src="https://js-cdn.dynatrace.com/jstag/17177a07246/123456/7890_complete.js"][crossorigin="anonymous"]', visible: :all)
+      expect(content).to have_css('script[type="text/javascript"][src="https://js-cdn.dynatrace.com/jstag/17177a07246/123456/7890_complete.js"][crossorigin="anonymous"]', visible: :all)
     end
   end
 
@@ -26,7 +26,7 @@ RSpec.describe DynatraceHelper, type: :helper do
     end
 
     it 'returns an empty string' do
-      expect(helper.dynatrace_script_tag).to be nil
+      expect(helper.dynatrace_script_tag).to be_nil
     end
   end
 end

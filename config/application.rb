@@ -14,7 +14,7 @@ module App
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_lib(ignore: ['assets', 'tasks'])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -78,8 +78,8 @@ module App
     if ENV.key?('GOVUK_NOTIFY_API_KEY_LIVE')
       config.govuk_notify.enabled = true
       config.govuk_notify.live_api_key = ENV['GOVUK_NOTIFY_API_KEY_LIVE']
-      config.govuk_notify.team_api_key = ENV['GOVUK_NOTIFY_API_KEY_TEAM']
-      config.govuk_notify.test_api_key = ENV['GOVUK_NOTIFY_API_KEY_TEST']
+      config.govuk_notify.team_api_key = ENV.fetch('GOVUK_NOTIFY_API_KEY_TEAM', nil)
+      config.govuk_notify.test_api_key = ENV.fetch('GOVUK_NOTIFY_API_KEY_TEST', nil)
       config.govuk_notify.mode = :live
     else
       config.govuk_notify.enabled = false
@@ -89,6 +89,6 @@ module App
     config.maintenance_allowed_ips = ENV.fetch('MAINTENANCE_ALLOWED_IPS', '').split(',').map(&:strip)
     config.maintenance_end = ENV.fetch('MAINTENANCE_END', nil)
     config.et_gds_design_system.api_url = ENV.fetch('ET_API_URL', 'http://api.et.127.0.0.1.nip.io:3100/api')
-    config.dynatrace_ui_tracking_id = ENV['DYNATRACE_UI_TRACKING_ID']
+    config.dynatrace_ui_tracking_id = ENV.fetch('DYNATRACE_UI_TRACKING_ID', nil)
   end
 end

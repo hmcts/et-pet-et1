@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Refund Form', js: true, type: :feature do
+RSpec.describe 'Refund Form', :js, type: :feature do
   before do
     given_i_am_luke_skywalker
     and_i_want_a_refund_for_my_previous_et_claim_with_case_number_1234567_2016

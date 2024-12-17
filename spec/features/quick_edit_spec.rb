@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Quick edit', type: :feature do
   include FormMethods
 
-  let(:claim_ready_for_review) { create :claim, :no_attachments, state: 'created' }
+  let(:claim_ready_for_review) { create(:claim, :no_attachments, state: 'created') }
 
   before do
     fill_in_return_form claim_ready_for_review.reference, 'lollolol'
@@ -59,14 +59,14 @@ describe 'Quick edit', type: :feature do
     expect(page).to have_current_path "/en/apply/review"
   end
 
-  it "editing 'Claim outcome'", js: true do
+  it "editing 'Claim outcome'", :js do
     review_page.edit_section('Claim outcome')
     expect(claim_outcome_page).to be_displayed
     claim_outcome_page.save_and_continue
     expect(review_page).to be_displayed
   end
 
-  it "editing 'Additional information'", js: true do
+  it "editing 'Additional information'", :js do
     review_page.edit_section('Additional information')
     expect(more_about_the_claim_page).to be_displayed
     more_about_the_claim_page.save_and_continue

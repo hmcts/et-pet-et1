@@ -8,7 +8,7 @@ module Multipart
 
   class Post < Net::HTTP::Post
     def initialize(path, *params)
-      super path
+      super(path)
       set_content_type 'multipart/form-data', 'boundary' => boundary
       self.body = (rendered_params(params) + coda).join(CRLF)
     end

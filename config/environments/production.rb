@@ -49,12 +49,12 @@ Rails.application.configure do
   # config.ssl_options = { redirect: { exclude: ->(request) { request.path == "/up" } } }
 
   # Log to STDOUT by default
-  config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-    .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+  config.logger = ActiveSupport::Logger.new($stdout).
+                  tap  { |logger| logger.formatter = Logger::Formatter.new }.
+                  then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # "info" includes generic and useful information about system operation, but avoids logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII). If you
@@ -87,7 +87,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Only use :id for inspections in production.
-  config.active_record.attributes_for_inspect = [ :id ]
+  config.active_record.attributes_for_inspect = [:id]
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
@@ -103,15 +103,15 @@ Rails.application.configure do
     }
   else
     config.action_mailer.default_url_options = {
-      host: ENV['SENDING_HOST'], protocol: 'https'
+      host: ENV.fetch('SENDING_HOST', nil), protocol: 'https'
     }
   end
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_HOSTNAME'],
-    port: ENV['SMTP_PORT'],
-    domain: ENV['SENDING_HOST'],
-    user_name: ENV['SMTP_USERNAME'],
-    password: ENV['SMTP_PASSWORD'],
+    address: ENV.fetch('SMTP_HOSTNAME', nil),
+    port: ENV.fetch('SMTP_PORT', nil),
+    domain: ENV.fetch('SENDING_HOST', nil),
+    user_name: ENV.fetch('SMTP_USERNAME', nil),
+    password: ENV.fetch('SMTP_PASSWORD', nil),
     authentication: :login,
     enable_starttls_auto: true
   }
@@ -124,5 +124,5 @@ Rails.application.configure do
   # var can also be used to disable.
   config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)
 
-  config.service_now_inbox_email = ENV['SERVICE_NOW_EMAIL']
+  config.service_now_inbox_email = ENV.fetch('SERVICE_NOW_EMAIL', nil)
 end

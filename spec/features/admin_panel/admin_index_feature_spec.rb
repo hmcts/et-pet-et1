@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
 
   let(:out_of_filter_range_claim) do
-    create :claim,
+    create(:claim,
            submitted_at: Date.new(2015, 6, 1),
-           created_at: Date.new(2015, 6, 1)
+           created_at: Date.new(2015, 6, 1))
   end
 
   let(:claim) do
-    create :claim,
+    create(:claim,
            application_reference: 'SUCH-9999',
            fee_group_reference: '511234567800',
            submitted_at: Date.new(2015, 6, 5),
            # Set created_at to a later date than other models to ensure it's the first row.
-           created_at: Date.new(2015, 6, 5)
+           created_at: Date.new(2015, 6, 5))
   end
 
   before do
-    admin_user = create :admin_user
+    admin_user = create(:admin_user)
     sign_in admin_user, scope: :admin_user
     out_of_filter_range_claim
     claim
@@ -51,7 +51,7 @@ RSpec.describe 'Viewing the admin interfaces index page', type: :feature do
       fill_in('q_submitted_at_lteq', with: '2015-06-05')
     end
 
-    click_button 'Filter'
+    click_link_or_button 'Filter'
 
     expect(claims_table.size).to eq 1
 

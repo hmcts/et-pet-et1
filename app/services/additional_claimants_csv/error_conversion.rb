@@ -13,7 +13,7 @@ class AdditionalClaimantsCsv::ErrorConversion
   private
 
   def mapped_attributes
-    @mapped_attributes ||= Hash[AdditionalClaimantsCsv::ModelBuilder::ATTRIBUTES.zip header]
+    @mapped_attributes ||= (AdditionalClaimantsCsv::ModelBuilder::ATTRIBUTES.zip header).to_h
   end
 
   def humanize(error)

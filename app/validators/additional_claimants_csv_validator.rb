@@ -30,7 +30,7 @@ class AdditionalClaimantsCsvValidator < ActiveModel::EachValidator
     result.errors.each_with_object([]) do |e, acc|
       next if e.attribute == :base
 
-      _, line_number, line_attribute = e.attribute.to_s.split('/').reject(&:blank?)
+      _, line_number, line_attribute = e.attribute.to_s.split('/').compact_blank
       prefix = I18n.t(error_prefix(record, attribute), line_number: line_number.to_i + 1)
       error_text = I18n.t(error_text(record, attribute, line_attribute, e), line_number:, **e.options)
       acc << "#{prefix} #{error_text}"

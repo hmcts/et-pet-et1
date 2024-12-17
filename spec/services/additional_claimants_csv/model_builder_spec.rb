@@ -27,7 +27,7 @@ RSpec.describe AdditionalClaimantsCsv::ModelBuilder, type: :service do
 
   describe "#build" do
     it "returns an additional claimant model" do
-      expect(additional_claimants_csv_builder.build_form_claimant(row)).to be_kind_of model_class
+      expect(additional_claimants_csv_builder.build_form_claimant(row)).to be_a model_class
     end
 
     it "sets attributes on the returned model" do

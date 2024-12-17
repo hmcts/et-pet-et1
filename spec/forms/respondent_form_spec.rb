@@ -135,7 +135,7 @@ RSpec.describe RespondentForm, type: :form do
       respondent_form.has_acas_number = 'false'
       respondent_form.valid?
 
-      expect(respondent_form.acas_early_conciliation_certificate_number).to be nil
+      expect(respondent_form.acas_early_conciliation_certificate_number).to be_nil
     end
 
     context 'when worked at same address' do
@@ -146,7 +146,7 @@ RSpec.describe RespondentForm, type: :form do
 
       work_attributes.each_key do |attr|
         it "clears #{attr} field" do
-          expect(respondent_form.attributes[attr]).to be nil
+          expect(respondent_form.attributes[attr]).to be_nil
         end
       end
     end
@@ -191,6 +191,6 @@ RSpec.describe RespondentForm, type: :form do
 
     let(:respondent_form) { described_class.new(Claim.new) }
 
-    it { is_expected.to be nil }
+    it { is_expected.to be_nil }
   end
 end

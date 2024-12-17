@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'Refund form with no optional fields filled in', js: true, type: :feature do
+RSpec.describe 'Refund form with no optional fields filled in', :js, type: :feature do
   # Assuming Anakin Skywalker's profile does not have any
   # of the optional field values such as town/city, county, respondent post code etc..
   # and he has a claim with case number 1234567/2015 which has all optional data missing also

@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '7.2.2'
+gem 'rails', '7.2.2.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -61,7 +61,10 @@ group :development, :test do
   gem 'rspec_junit_formatter', '~> 0.6.0'
   gem 'rubocop', '~> 1.8', :require => false
   gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', '~> 2.1', :require => false
+  gem 'rubocop-rspec', '~> 3.3', :require => false
+  gem 'rubocop-capybara', '~> 2.21', :require => false
+  gem 'rubocop-factory_bot', '~> 2.26', :require => false
+  gem 'rubocop-rspec_rails', '~> 2.30', :require => false
   gem 'shoulda-matchers', '~> 6.2'
   gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 4.6.0'
