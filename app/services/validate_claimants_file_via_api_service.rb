@@ -1,8 +1,8 @@
 class ValidateClaimantsFileViaApiService < ApiService
   attr_reader :line_count
 
-  def self.call(*args, **kw_args)
-    new.call(*args, **kw_args)
+  def self.call(*, **kw_args)
+    new.call(*, **kw_args)
   end
 
   def call(record, attribute, value, uuid: SecureRandom.uuid)

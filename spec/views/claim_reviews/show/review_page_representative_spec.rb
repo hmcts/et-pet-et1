@@ -15,7 +15,7 @@ describe "claim_reviews/show.html.slim" do
                          address_post_code: 'LOL B1Z', address_telephone_number: '01234567890',
                          mobile_number: '07956123456', contact_preference: 'post', dx_number: '1'
     end
-    let(:claim) { create :claim, representative: }
+    let(:claim) { create(:claim, representative:) }
 
     let(:null_object) { NullObject.new }
 

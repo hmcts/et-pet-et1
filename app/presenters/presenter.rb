@@ -46,7 +46,7 @@ class Presenter
     self.class.instance_methods(false)
   end
 
-  def method_missing(meth, *args, &block)
+  def method_missing(meth, *args, &)
     if target.respond_to? meth
       singleton_class.instance_eval do
         define_method(meth) { target.send meth }
@@ -75,6 +75,6 @@ class Presenter
   end
 
   def simple_format(value)
-    super value if value.present?
+    super if value.present?
   end
 end

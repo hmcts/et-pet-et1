@@ -213,7 +213,7 @@ RSpec.describe ClaimantForm, type: :form do
       claimant_form.has_special_needs = 'false'
       claimant_form.valid?
 
-      expect(claimant_form.special_needs).to be nil
+      expect(claimant_form.special_needs).to be_nil
     end
 
     it 'clears the email address if contact preference is post' do

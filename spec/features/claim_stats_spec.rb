@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Claim statistics', type: :feature do
   before do
-    allow(Stats::ClaimStats).to receive(:started_count).and_return(10)
-    allow(Stats::ClaimStats).to receive(:completed_count).and_return(15)
+    allow(Stats::ClaimStats).to receive_messages(started_count: 10, completed_count: 15)
   end
 
   it 'hitting the stats end point returns json' do

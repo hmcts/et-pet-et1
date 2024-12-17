@@ -1,4 +1,4 @@
-class ApplicationRecord < ::ActiveRecord::Base
+class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   class << self
@@ -9,7 +9,7 @@ class ApplicationRecord < ::ActiveRecord::Base
     def ransack(*args, **kw_args)
       if args.first.is_a?(Hash) || args.first.is_a?(ActionController::Parameters)
         my_params = enhance_date_range_search(args.first)
-        super my_params, **kw_args
+        super(my_params, **kw_args)
       else
         super(*args, **kw_args)
       end

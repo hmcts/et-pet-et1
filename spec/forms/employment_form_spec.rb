@@ -178,9 +178,9 @@ RSpec.describe EmploymentForm, type: :form do
         end
 
         context 'when previously entered other information clears other fields' do
-          it { expect(employment_form.notice_period_end_date).to be nil }
-          it { expect(employment_form.end_date).to be nil }
-          it { expect(employment_form.new_job_start_date).to be nil }
+          it { expect(employment_form.notice_period_end_date).to be_nil }
+          it { expect(employment_form.end_date).to be_nil }
+          it { expect(employment_form.new_job_start_date).to be_nil }
         end
       end
 
@@ -200,9 +200,9 @@ RSpec.describe EmploymentForm, type: :form do
           employment_form.valid?
         end
 
-        it { expect(employment_form.notice_period_end_date).not_to be nil }
-        it { expect(employment_form.end_date).to be nil }
-        it { expect(employment_form.new_job_start_date).to be nil }
+        it { expect(employment_form.notice_period_end_date).not_to be_nil }
+        it { expect(employment_form.end_date).to be_nil }
+        it { expect(employment_form.new_job_start_date).to be_nil }
       end
 
       context 'when employment terminated' do
@@ -215,9 +215,9 @@ RSpec.describe EmploymentForm, type: :form do
               employment_form.valid?
             end
 
-            it { expect(employment_form.new_job_start_date).to be nil }
-            it { expect(employment_form.new_job_gross_pay).to be nil }
-            it { expect(employment_form.new_job_gross_pay_frequency).to be nil }
+            it { expect(employment_form.new_job_start_date).to be_nil }
+            it { expect(employment_form.new_job_gross_pay).to be_nil }
+            it { expect(employment_form.new_job_gross_pay_frequency).to be_nil }
           end
 
           context 'when selecting new job details are not removed' do
@@ -226,9 +226,9 @@ RSpec.describe EmploymentForm, type: :form do
               employment_form.valid?
             end
 
-            it { expect(employment_form.new_job_start_date).not_to be nil }
-            it { expect(employment_form.new_job_gross_pay).not_to be nil }
-            it { expect(employment_form.new_job_gross_pay_frequency).not_to be nil }
+            it { expect(employment_form.new_job_start_date).not_to be_nil }
+            it { expect(employment_form.new_job_gross_pay).not_to be_nil }
+            it { expect(employment_form.new_job_gross_pay_frequency).not_to be_nil }
           end
         end
 
@@ -239,8 +239,8 @@ RSpec.describe EmploymentForm, type: :form do
               employment_form.valid?
             end
 
-            it { expect(employment_form.notice_pay_period_count).to be nil }
-            it { expect(employment_form.notice_pay_period_type).to be nil }
+            it { expect(employment_form.notice_pay_period_count).to be_nil }
+            it { expect(employment_form.notice_pay_period_type).to be_nil }
           end
         end
       end

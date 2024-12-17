@@ -3,10 +3,10 @@ module Refunds
     attribute :application_reference, :string
     attribute :submitted_at, :et_date
 
-    def initialize(resource, &block)
+    def initialize(resource, &)
       raise 'Session has no persisted refund' unless resource.respond_to?('_refund_id')
 
-      super(Refund.find_by!(id: resource._refund_id), &block)
+      super(Refund.find_by!(id: resource._refund_id), &)
     end
   end
 end

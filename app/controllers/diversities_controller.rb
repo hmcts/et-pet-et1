@@ -5,6 +5,10 @@ class DiversitiesController < ApplicationController
   before_action :validate_session, unless: :at_the_start?, except: [:index]
   skip_after_action :set_session_expiry, except: :new
 
+  def show
+    diversity_session.destroy if current_step == 'confirmation'
+  end
+
   def new
     diversity_session = Session.create
     session[:diversity_session_id] = diversity_session.id
@@ -18,10 +22,6 @@ class DiversitiesController < ApplicationController
     else
       render action: :show
     end
-  end
-
-  def show
-    diversity_session.destroy if current_step == 'confirmation'
   end
 
   private
