@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Claim applications', type: :feature, js: true do
+describe 'Claim applications', :js, type: :feature do
   include FormMethods
   include Messages
   include MailMatchers
@@ -68,7 +68,7 @@ describe 'Claim applications', type: :feature, js: true do
       saving_your_claim_page.assert_session_prompt
     end
 
-    it 'Create a new application', js: true do
+    it 'Create a new application', :js do
       start_claim
       expect(saving_your_claim_page).to be_displayed
       expect(page).to have_text before_you_start_message
@@ -88,7 +88,7 @@ describe 'Claim applications', type: :feature, js: true do
       claimants_details_page.assert_session_prompt
     end
 
-    it 'Entering word and email for save and return', js: true do
+    it 'Entering word and email for save and return', :js do
       start_claim
       saving_your_claim_page.register(email_address: FormMethods::SAVE_AND_RETURN_EMAIL, password: 'green')
 
@@ -170,7 +170,7 @@ describe 'Claim applications', type: :feature, js: true do
       respondents_details_page.assert_session_prompt
     end
 
-    it 'Display ACAS hints', js: true do
+    it 'Display ACAS hints', :js do
       start_claim
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -319,14 +319,14 @@ describe 'Claim applications', type: :feature, js: true do
     it 'Deselecting email confirmation recipients before submission' do
       complete_a_claim
       review_page.email_confirmation_section.email_recipients.set([])
-      click_button 'Submit claim'
+      click_link_or_button 'Submit claim'
 
       expect(Claim.last.confirmation_email_recipients).to be_empty
     end
 
     it 'Submitting the claim' do
       complete_a_claim
-      click_button 'Submit claim'
+      click_link_or_button 'Submit claim'
 
       expect(claim_submitted_page).to be_displayed
       expect(page).to have_text "Claim submitted"
@@ -337,7 +337,7 @@ describe 'Claim applications', type: :feature, js: true do
 
     it 'attempting a new claim after submission' do
       complete_a_claim
-      click_button 'Submit claim'
+      click_link_or_button 'Submit claim'
 
       expect(page).to have_text "Claim submitted"
       claim_submitted_page.home
@@ -347,7 +347,7 @@ describe 'Claim applications', type: :feature, js: true do
 
     it 'Validating the API calls claimant data' do
       complete_a_claim
-      click_button 'Submit claim'
+      click_link_or_button 'Submit claim'
       expect(a_request(:post, build_claim_url).
         with do |request|
                claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
@@ -375,10 +375,10 @@ describe 'Claim applications', type: :feature, js: true do
              end).to have_been_made
     end
 
-    context 'when downloading the PDF', js: true do
+    context 'when downloading the PDF', :js do
       it 'when the file is available' do
         complete_a_claim
-        click_button 'Submit claim'
+        click_link_or_button 'Submit claim'
         expect(claim_submitted_page).to have_save_a_copy_link
         expect(claim_submitted_page).not_to have_invalid_save_a_copy_link
       end
@@ -388,7 +388,7 @@ describe 'Claim applications', type: :feature, js: true do
 
         it 'when the file is unavailable' do
           complete_a_claim
-          click_button 'Submit claim'
+          click_link_or_button 'Submit claim'
           expect(claim_submitted_page).to have_invalid_save_a_copy_link
           expect(claim_submitted_page).not_to have_save_a_copy_link
         end
@@ -401,11 +401,11 @@ describe 'Claim applications', type: :feature, js: true do
         expect(page).to have_text 'Check your claim'
 
         within('#main-content') do
-          expect(page).not_to have_text 'Your fee '
-          expect(page).not_to have_text 'Help with fees'
+          expect(page).to have_no_text 'Your fee '
+          expect(page).to have_no_text 'Help with fees'
         end
 
-        click_button 'Submit claim', exact: true
+        click_link_or_button 'Submit claim', exact: true
         expect(page).to have_text 'Claim submitted'
       end
     end

@@ -75,6 +75,6 @@ class Presenter
   end
 
   def simple_format(value)
-    super value if value.present?
+    super if value.present?
   end
 end

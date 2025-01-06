@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Save and Return', js: true, type: :feature do
+describe 'Save and Return', :js, type: :feature do
   include FormMethods
   include Messages
   include MailMatchers
@@ -16,10 +16,10 @@ describe 'Save and Return', js: true, type: :feature do
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_link 'Save and complete later'
+      click_link_or_button 'Save and complete later'
     end
 
-    click_button 'Sign out now'
+    click_link_or_button 'Sign out now'
 
     visit claim_claimant_path
 
@@ -32,7 +32,7 @@ describe 'Save and Return', js: true, type: :feature do
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_link 'Save and complete later'
+      click_link_or_button 'Save and complete later'
     end
 
     expect(page).to have_text('Claim saved')
@@ -42,7 +42,7 @@ describe 'Save and Return', js: true, type: :feature do
     ActionMailer::Base.deliveries.clear
     fill_in 'Enter your email address to get your claim number emailed to you.',
             with: FormMethods::SAVE_AND_RETURN_EMAIL
-    click_button 'Sign out now'
+    click_link_or_button 'Sign out now'
 
     perform_active_jobs(ActionMailer::MailDeliveryJob)
     mail = ActionMailer::Base.deliveries.last
@@ -51,13 +51,13 @@ describe 'Save and Return', js: true, type: :feature do
     expect(page).to have_text(claim_heading_for(:new))
   end
 
-  it 'ending the session when email address previously entered', js: true do
+  it 'ending the session when email address previously entered', :js do
     start_claim
     saving_your_claim_page.register(email_address: 'mail@example.com', password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
 
     within 'aside' do
-      click_link 'Save and complete later'
+      click_link_or_button 'Save and complete later'
     end
 
     expect(page).to have_text(claim_heading_for(:new))
@@ -68,14 +68,14 @@ describe 'Save and Return', js: true, type: :feature do
     saving_your_claim_page.register(password: 'green')
 
     within 'aside' do
-      click_link 'Save and complete later'
+      click_link_or_button 'Save and complete later'
     end
 
     expect(page).to have_text('Claim saved')
     expect(page).not_to have_signout_button
   end
 
-  it 'returning to existing application', js: true do
+  it 'returning to existing application', :js do
     start_claim
     saving_your_claim_page.register(password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
@@ -134,7 +134,7 @@ describe 'Save and Return', js: true, type: :feature do
     end
   end
 
-  context 'when forgotten memorable word', js: true do
+  context 'when forgotten memorable word', :js do
     let(:email_address) { 'doesntmatter@example.com' }
 
     it 'recovers correctly when the email is not used at the beginning but when saved' do

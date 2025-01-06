@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe MarkdownRenderer, type: :service do
 
-  let(:html_renderer) { instance_double('Redcarpet::Render::HTML') }
+  let(:html_renderer) { instance_double(Redcarpet::Render::HTML) }
 
   before do
     allow(Redcarpet::Render::HTML).to receive(:new).and_return html_renderer
@@ -19,8 +19,8 @@ RSpec.describe MarkdownRenderer, type: :service do
 
     let(:content_arg)         { "such render.." }
     let(:html_safe_content)   { "so html safe.." }
-    let(:redcardpet_markdown) { instance_double('Redcarpet::Markdown', render: rendered_content) }
-    let(:rendered_content)    { instance_double('String', html_safe: html_safe_content) }
+    let(:redcardpet_markdown) { instance_double(Redcarpet::Markdown, render: rendered_content) }
+    let(:rendered_content)    { instance_double(String, html_safe: html_safe_content) }
 
     before do
       allow(Redcarpet::Markdown).to receive(:new).and_return redcardpet_markdown

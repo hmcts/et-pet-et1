@@ -2,20 +2,20 @@ require 'rails_helper'
 
 RSpec.describe 'Viewing a claims details in the admin interface', type: :feature do
   before do
-    admin_user = create :admin_user
+    admin_user = create(:admin_user)
     sign_in admin_user, scope: :admin_user
   end
 
   let!(:claim_with_attachments) do
-    create :claim, :submitted, :with_pdf,
+    create(:claim, :submitted, :with_pdf,
            fee_group_reference: '511234567800',
-           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz'])
   end
 
   let!(:enqueued_claim) do
-    create :claim, :with_pdf,
+    create(:claim, :with_pdf,
            fee_group_reference: '511234567800',
-           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz']
+           confirmation_email_recipients: ['such@lolz.com', 'wow@lol.biz'])
   end
 
   context 'with time frozen' do
@@ -57,7 +57,7 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
 
     visit admin_claim_path enqueued_claim.reference
 
-    click_button 'Mark as submitted'
+    click_link_or_button 'Mark as submitted'
     expect(enqueued_claim.reload.state).to eq 'submitted'
 
     event = enqueued_claim.events.reload.first
@@ -67,14 +67,14 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
     expect(event.actor).to eq 'admin'
   end
 
-  it 're-submitting a claim', clean_with_truncation: true do
+  it 're-submitting a claim', :clean_with_truncation do
 
-    fake_response = instance_spy('SubmitClaimToApiService', valid?: true, errors: [], response_data: { 'meta' => { 'BuildClaim' => { 'pdf_url' => 'http://anything.com/test.pdf' } } })
+    fake_response = instance_spy(SubmitClaimToApiService, valid?: true, errors: [], response_data: { 'meta' => { 'BuildClaim' => { 'pdf_url' => 'http://anything.com/test.pdf' } } })
     allow(EtApi).to receive(:create_claim).with(enqueued_claim).and_return(fake_response)
 
     visit admin_claim_path enqueued_claim.reference
 
-    click_button 'Submit claim'
+    click_link_or_button 'Submit claim'
     expect(page).to have_text 'Claim submitted to API'
     event = Claim.find(enqueued_claim.id).events.first
     expect(event.event).to eq Event::MANUALLY_SUBMITTED
@@ -83,43 +83,43 @@ RSpec.describe 'Viewing a claims details in the admin interface', type: :feature
 
   context 'with claim without large text inputs' do
     let!(:claim_without_large_text_inputs) do
-      create :claim,
+      create(:claim,
              claim_details: nil,
              miscellaneous_information: nil,
              other_claim_details: nil,
-             other_outcome: nil
+             other_outcome: nil)
     end
 
     before { visit admin_claim_path claim_without_large_text_inputs.reference }
 
     it 'no option to download claim details as a text file' do
-      expect(page).not_to have_link 'Claim details'
+      expect(page).to have_no_link 'Claim details'
     end
 
     it 'no option to download miscellaneous information as a text file' do
-      expect(page).not_to have_link 'Miscellaneous information'
+      expect(page).to have_no_link 'Miscellaneous information'
     end
 
     it 'no option to download other claim details as a text file' do
-      expect(page).not_to have_link 'Other claim details'
+      expect(page).to have_no_link 'Other claim details'
     end
 
     it 'no option to download other outcome as a text file' do
-      expect(page).not_to have_link 'Other outcome'
+      expect(page).to have_no_link 'Other outcome'
     end
   end
 
   context 'when claim without attachments' do
-    let!(:claim_without_attachments) { create :claim, :no_attachments }
+    let!(:claim_without_attachments) { create(:claim, :no_attachments) }
 
     before { visit admin_claim_path claim_without_attachments.reference }
 
     it 'no option to download the claim details rtf' do
-      expect(page).not_to have_link 'Download RTF'
+      expect(page).to have_no_link 'Download RTF'
     end
 
     it 'no option to download the additional claimants csv' do
-      expect(page).not_to have_link 'Download CSV'
+      expect(page).to have_no_link 'Download CSV'
     end
   end
 end

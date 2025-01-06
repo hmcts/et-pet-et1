@@ -35,7 +35,7 @@ RSpec.describe AdditionalInformationForm, type: :form do
         it 'sets #miscellaneous_information to nil on the underlying resource' do
           additional_information_form.valid?
 
-          expect(additional_information_form.miscellaneous_information).to be nil
+          expect(additional_information_form.miscellaneous_information).to be_nil
         end
       end
     end

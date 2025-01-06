@@ -47,64 +47,64 @@ RSpec.describe AdditionalClaimantsCsvValidator do
 
     it 'translates errors from API' do
       response_body = {
-        "status": "not_accepted",
-        "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72",
-        "errors": [
+        status: "not_accepted",
+        uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72",
+        errors: [
           {
-            "status": 422,
-            "code": "invalid",
-            "title": "is invalid",
-            "detail": "is invalid",
-            "options": {},
-            "source": "/data_from_key/0/date_of_birth",
-            "command": "ValidateClaimantsFile",
-            "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
+            status: 422,
+            code: "invalid",
+            title: "is invalid",
+            detail: "is invalid",
+            options: {},
+            source: "/data_from_key/0/date_of_birth",
+            command: "ValidateClaimantsFile",
+            uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
           },
           {
-            "status": 422,
-            "code": "inclusion",
-            "title": "is not included in the list",
-            "detail": "is not included in the list",
-            "options": {
-              "value": "Dr"
+            status: 422,
+            code: "inclusion",
+            title: "is not included in the list",
+            detail: "is not included in the list",
+            options: {
+              value: "Dr"
             },
-            "source": "/data_from_key/1/title",
-            "command": "ValidateClaimantsFile",
-            "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
+            source: "/data_from_key/1/title",
+            command: "ValidateClaimantsFile",
+            uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
           },
           {
-            "status": 422,
-            "code": "too_long",
-            "title": "is too long (maximum is 50 characters)",
-            "detail": "is too long (maximum is 50 characters)",
-            "options": {
-              "count": 50
+            status: 422,
+            code: "too_long",
+            title: "is too long (maximum is 50 characters)",
+            detail: "is too long (maximum is 50 characters)",
+            options: {
+              count: 50
             },
-            "source": "/data_from_key/2/street",
-            "command": "ValidateClaimantsFile",
-            "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
+            source: "/data_from_key/2/street",
+            command: "ValidateClaimantsFile",
+            uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
           },
           {
-            "status": 422,
-            "code": "too_long",
-            "title": "is too long (maximum is 50 characters)",
-            "detail": "is too long (maximum is 50 characters)",
-            "options": {
-              "count": 50
+            status: 422,
+            code: "too_long",
+            title: "is too long (maximum is 50 characters)",
+            detail: "is too long (maximum is 50 characters)",
+            options: {
+              count: 50
             },
-            "source": "/data_from_key/3/locality",
-            "command": "ValidateClaimantsFile",
-            "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
+            source: "/data_from_key/3/locality",
+            command: "ValidateClaimantsFile",
+            uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
           },
           {
-            "status": 422,
-            "code": "invalid",
-            "title": "is invalid",
-            "detail": "is invalid",
-            "options": {},
-            "source": "/data_from_key/5/post_code",
-            "command": "ValidateClaimantsFile",
-            "uuid": "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
+            status: 422,
+            code: "invalid",
+            title: "is invalid",
+            detail: "is invalid",
+            options: {},
+            source: "/data_from_key/5/post_code",
+            command: "ValidateClaimantsFile",
+            uuid: "fbad7ec7-2da7-4e34-9509-d73c5e20ec72"
           }
         ]
       }

@@ -10,7 +10,7 @@ describe "claim_reviews/show.html.slim" do
     let(:null_object) { NullObject.new }
     let(:claimant_collection_section) { review_page.group_claim }
 
-    let(:claim) { create :claim }
+    let(:claim) { create(:claim) }
 
     before do
       view.singleton_class.class_eval do
@@ -50,7 +50,7 @@ describe "claim_reviews/show.html.slim" do
       end
 
       context 'with secondary claimants' do
-        let(:claim) { create :claim, :without_additional_claimants_csv, :with_secondary_claimants }
+        let(:claim) { create(:claim, :without_additional_claimants_csv, :with_secondary_claimants) }
 
         it 'presents the list of claimants' do
           expect(claimant_collection_section.claimants[0]).to be_valid_for_model(claim.secondary_claimants[0])
@@ -58,7 +58,7 @@ describe "claim_reviews/show.html.slim" do
       end
 
       context 'without secondary claimants' do
-        let(:claim) { create :claim, :single_claimant }
+        let(:claim) { create(:claim, :single_claimant) }
 
         it 'returns "No"' do
           expect(claimant_collection_section.group_claim.answer).to have_text 'No'
