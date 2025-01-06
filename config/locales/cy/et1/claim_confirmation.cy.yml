@@ -1,28 +1,22 @@
 cy:
   claim_confirmations:
     show:
-      header: Hawliad wedi'i gyflwyno
-      callout_detail: Eich cyfeirnod cyflwyno
+      header: Mae eich hawliad wedi ei gyflwyno
+      copy_sent: Rydym wedi anfon cadarnhad atoch trwy e-bost
       feedback_your: Mae eich adborth
       feedback_helps_us: yn ein helpu i wella'r gwasanaeth hwn.
       diversity_html: |
         Helpwch ni i gadw cofnodion cywir . Llenwch ein <a class="govuk-link" href="%{href}" rel="external">holiadur monitro amrywiaeth</a>.
       what_happens_next:
-        header: Beth sy'n digwydd nesaf
-        covid_19: |
-         Yng ngoleuni’r sefyllfa bresennol gyda COVID-19, gallwch weld cyfarwyddyd diweddaraf GLlTEM yma:
-        covid_19_html: |
-          COVID-19 Canllawiau
-        covid_19_link: https://www.gov.uk/guidance/coronavirus-covid-19-courts-and-tribunals-planning-and-preparation
-        covid_19_confirmation: |
-          Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebydd i egluro beth fydd yn digwydd nesaf. Ar hyn o bryd nid yw’n bosib pennu amserlen benodol
-        send_to_respondent: Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebydd i egluro beth fydd yn digwydd nesaf. Ar hyn o bryd, mae’n cymryd oddeutu 25 diwrnod.
-        next_steps: Unwaith y byddwn wedi anfon eich hawliad atynt, mae gan yr atebydd 28 diwrnod i ymateb.
-        next_steps_final_step: |
-          Byddwn yn adolygu eich cais am help i dalu ffioedd ac yn rhoi gwybod i chi beth yw'r canlyniad.
+        header: Beth fydd yn digwydd nesaf
+        content:
+          - Byddwn yn gwirio’ch hawliad ac efallai y byddwn yn cysylltu â chi os oes gennym unrhyw gwestiynau
+          - Byddwn yn cysylltu â chi unwaith y byddwn wedi anfon eich hawliad at yr atebwyr ac yn egluro beth fydd yn digwydd nesaf
+
       download_application:
-        header: Lawrlwytho eich hawliad
-        link_text: Cadwch gopi
+        header: Llwytho eich hawliad i lawr
+        subheader: Mae'r cwestiynau rydych wedi'u hateb wedi'u cynnwys ar ein ffurflen PDF rhagnodedig. Mae hyn yn golygu y gall geiriad neu drefn y cwestiynau ymddangos yn wahanol ar y fersiwn y byddwch yn ei lawrlwytho. Ni fydd hyn yn effeithio ar sut mae'r tribiwnlys yn delio â'ch hawliad.
+        link_text: Cadw copi o’ch hawliad
         invalid_link_text: Ddim yn barod eto - bydd fersiwn PDF o'ch ffurflen wedi'i llenwi ar gael i'w lawrlwytho maes o law
         link_suffix: ar gyfer eich cofnodion
       no_attachments: Dim
@@ -30,10 +24,28 @@ cy:
       submission_details:
         header: Manylion cyflwyno
         submission_information: Hawliad wedi'i gyflwyno
-        office_information: Swyddfa tribiwnlys
         attachments: Atodiadau wedi'u cynnwys
-        submission: "Cyflwynwyd ar %{date}"
+        submission: "%{date}"
+        submission_reference: Cyfeirnod cyflwyno
+        reference_number: "%{reference}"
         office_address_wales: "swyddfa tribiwnlys Cymru, Tribiwnlys Cyflogaeth, 3ydd Llawr, Llys Ynadon Caerdydd a’r Fro, Plas Fitzalan, Caerdydd, CF24 0RA"
+
+      office_information:
+        header: Ar gyfer cwestiynau am eich hawliad
+        subheader: Cysylltwch â swyddfa’r tribiwnlys canlynol ar gyfer cwestiynau am eich hawliad
+        office_name: Swyddfa’r Tribiwnlys
+        office_email: E-bost
+        office_phone: Ffôn
+
+      process_questions: Ar gyfer cwestiynau am broses y tribiwnlys cyflogaeth
+      process_questions_content: Ffoniwch un o ganolfannau cyswllt cwsmeriaid y Tribiwnlys Cyflogaeth. Ni allant roi cyngor cyfreithiol i chi.
+
+      eng_telephone_number: "Rhif Ffôn: 0300 3230196"
+      wel_telephone_number: "Rhif Ffôn: 0300 303 5176 (Llinell laith Gymraeg)"
+      sco_telephone_number: "Rhif Ffôn: 0300 790 6234 (Yr Alban)"
+
+      telephone_times_html: |
+        Dydd Llun i ddydd Gwener, 9am - 5pm <a class="govuk-link" href="https://www.gov.uk/call-charges">Gwybodaeth am brisiau galwadau</a>
 
       print_link_html: |
         <a class="govuk-link" href="javascript:window.print(0);">Argraffwch y dudalen hon</a> ar gyfer eich

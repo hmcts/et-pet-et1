@@ -330,7 +330,9 @@ describe 'Claim applications', :js, type: :feature do
 
       expect(claim_submitted_page).to be_displayed
       expect(page).to have_text "Claim submitted"
-      expect(page).to have_text "Watford, watfordet@justice.gov.uk, 01923 281 750"
+      expect(page).to have_text("Tribunal office Watford")
+      expect(page).to have_text("Email watfordet@justice.gov.uk")
+      expect(page).to have_text("Telephone 01923 281 750")
       expect(claim_submitted_page).not_to have_sign_out_button
       claim_submitted_page.assert_no_session_prompt
     end
