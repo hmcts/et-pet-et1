@@ -139,6 +139,7 @@ class Form < ApplicationRecord
   # Bypasses original save and saves the target
   # @TODO Consider separating persistence from form objects
   # @TODO Why is this calling stuff on target and resource ?
+  # rubocop:disable Metrics/AbcSize
   def save
     return false unless valid?
 
@@ -152,7 +153,7 @@ class Form < ApplicationRecord
       end
     end
   end
-
+  # rubocop:enable Metrics/AbcSize
   # Resource methods
 
   # Loads the form object with values from the target

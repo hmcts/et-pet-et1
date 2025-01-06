@@ -36,7 +36,7 @@ class GdsDateType < ActiveRecord::Type::Date
     if value.is_a?(Hash)
       value = value.stringify_keys if value.respond_to?(:stringify_keys)
       begin
-        super 1 => value['year'], 2 => value['month'], 3 => value['day']
+        super(1 => value['year'], 2 => value['month'], 3 => value['day'])
       rescue ArgumentError
         value
       end

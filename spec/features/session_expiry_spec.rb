@@ -33,7 +33,7 @@ describe 'Session Expiry', type: :feature do
     it 'a users session does not expire' do
       visit apply_path
       travel_to TimeHelper.session_expiry_time do
-        click_button 'Start a claim'
+        click_link_or_button 'Start a claim'
         expect(page).to have_current_path claim_application_number_path(locale: :en), ignore_query: true
       end
     end

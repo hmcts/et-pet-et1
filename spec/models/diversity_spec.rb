@@ -27,7 +27,7 @@ RSpec.describe Diversity, type: :model do
     end
   end
 
-  describe 'send_the_data to ET API', clean_with_truncation: true do
+  describe 'send_the_data to ET API', :clean_with_truncation do
     include_context 'with transactions off'
     before do
       allow(SecureRandom).to receive(:uuid).and_return uuid

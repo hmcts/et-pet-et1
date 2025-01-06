@@ -22,6 +22,6 @@ module ApplicationHelper
   private
 
   def generic_header
-    I18n.t("#{controller_path.gsub(/\//, '.')}.#{action_name}.header")
+    I18n.t("#{controller_path.gsub('/', '.')}.#{action_name}.header")
   end
 end

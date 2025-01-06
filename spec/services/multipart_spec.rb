@@ -41,7 +41,7 @@ RSpec.describe Multipart, type: :service do
     end
 
     it 'is a Net::HTTP::Post' do
-      expect(multipart_post).to be_kind_of(Net::HTTP::Post)
+      expect(multipart_post).to be_a(Net::HTTP::Post)
     end
   end
 end

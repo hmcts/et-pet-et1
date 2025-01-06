@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ConfirmationPresenter, type: :presenter do
   let(:confirmation_presenter) { described_class.new claim }
 
-  let(:claim) { create :claim }
+  let(:claim) { create(:claim) }
 
   around do |example|
     travel_to(Time.new(2014).utc) { example.run }
@@ -52,7 +52,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
 
     context 'when there is no associated fee office' do
-      let(:claim) { create :claim, :no_fee_group_reference }
+      let(:claim) { create(:claim, :no_fee_group_reference) }
 
       it 'is the submission date' do
         expect(confirmation_presenter.submission_information).
@@ -72,7 +72,7 @@ RSpec.describe ConfirmationPresenter, type: :presenter do
     end
 
     context 'when no attachments were uploaded' do
-      let(:claim) { create :claim, :no_attachments }
+      let(:claim) { create(:claim, :no_attachments) }
 
       it 'yields text to state no attachments are present' do
         expect { |b| confirmation_presenter.each_item(&b) }.

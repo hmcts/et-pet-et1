@@ -50,8 +50,8 @@ describe 'Guide', type: :feature do
     it 'Returns to the previous form page' do
       start_claim
       visit claim_claimant_path
-      within('aside') { click_link 'Guide' }
-      click_link 'Return to form'
+      within('aside') { click_link_or_button 'Guide' }
+      click_link_or_button 'Return to form'
 
       expect(page).to have_current_path claim_claimant_path, ignore_query: true
     end
@@ -60,8 +60,8 @@ describe 'Guide', type: :feature do
       start_claim
       review_page.load
       review_page.edit_section('Group claim')
-      within('aside') { click_link 'Guide' }
-      click_link 'Return to form'
+      within('aside') { click_link_or_button 'Guide' }
+      click_link_or_button 'Return to form'
 
       expect(group_claims_page).to be_displayed
       group_claims_page.
@@ -72,7 +72,7 @@ describe 'Guide', type: :feature do
 
     it 'Redirects to claim apply path when not referred from current site' do
       visit guide_path
-      click_link 'Return to form'
+      click_link_or_button 'Return to form'
 
       expect(page).to have_current_path apply_path(locale: :en), ignore_query: true
     end

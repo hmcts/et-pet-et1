@@ -2,16 +2,16 @@ class CookiesController < ApplicationController
   include CookiesHelper
   include ApplicationHelper
 
-  def update
-    update_cookie
-    redirect_to cookies_path, flash: { info: t('cookie_banner.confirmation_message.cookie_flashes') }
-  end
-
   def create
     update_cookie
     redirect_to path_only(params.dig(:cookie, :return_path)),
                 flash: { cookie_banner_confirmation: t("cookie_banner.confirmation_message.#{cookie_form.usage}",
                                                        edit_cookies_path:) }
+  end
+
+  def update
+    update_cookie
+    redirect_to cookies_path, flash: { info: t('cookie_banner.confirmation_message.cookie_flashes') }
   end
 
   private

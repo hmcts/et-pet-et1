@@ -32,7 +32,7 @@ class ConfirmationPresenter < Presenter
   end
 
   def attachment_filenames
-    @attachment_filenames ||= \
+    @attachment_filenames ||=
       [claim_details_rtf, additional_claimants_csv].
       map { |attachment| FilenameCleaner.for attachment }.compact
   end

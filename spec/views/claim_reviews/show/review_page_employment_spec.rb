@@ -8,7 +8,7 @@ describe "claim_reviews/show.html.slim" do
     end
     let(:employment_section) { review_page.employment_section }
     let(:employment) do
-      build :employment, default_employment_attributes.merge(employment_attributes)
+      build(:employment, default_employment_attributes.merge(employment_attributes))
     end
     let(:employment_attributes) { {} }
     let(:default_employment_attributes) do

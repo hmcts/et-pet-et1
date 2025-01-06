@@ -3,6 +3,18 @@ class ClaimReviewsController < ApplicationController
   before_action :check_session_expiry
   helper_method :null_object
 
+  def show
+    render locals: {
+      claim:,
+      primary_claimant: claim.primary_claimant || null_object,
+      representative: claim.representative || null_object,
+      employment: claim.employment || null_object,
+      respondent: claim.primary_respondent || null_object,
+      secondary_claimants: claim.secondary_claimants,
+      secondary_respondents: claim.secondary_respondents
+    }
+  end
+
   def update
     claim.update confirmation_email_recipients: email_addresses
     response = EtApi.create_claim(claim)
@@ -14,18 +26,6 @@ class ClaimReviewsController < ApplicationController
       claim.update state: 'submission_failed'
       raise "An error occured in the API - #{response.errors.full_messages}"
     end
-  end
-
-  def show
-    render locals: {
-      claim:,
-      primary_claimant: claim.primary_claimant || null_object,
-      representative: claim.representative || null_object,
-      employment: claim.employment || null_object,
-      respondent: claim.primary_respondent || null_object,
-      secondary_claimants: claim.secondary_claimants,
-      secondary_respondents: claim.secondary_respondents
-    }
   end
 
   private
@@ -53,6 +53,6 @@ class ClaimReviewsController < ApplicationController
   end
 
   def email_addresses
-    params[:confirmation_email][:email_addresses].reject(&:blank?)
+    params[:confirmation_email][:email_addresses].compact_blank
   end
 end
