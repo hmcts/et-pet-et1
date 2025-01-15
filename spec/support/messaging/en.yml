@@ -51,6 +51,11 @@ en:
         mobile: 'Mobile'
         phone: 'Phone'
         gender: 'Gender'
+    case_heard_by:
+      title: Preference for judge or panel
+      questions:
+        case_heard_by_preference: 'How do you prefer to have your case heard?'
+        case_heard_by_preference_reason: 'Give reason'
     employment:
       title: 'Employment details'
       questions:
@@ -178,6 +183,16 @@ en:
         "phone": "Yes, I can take part in phone hearings"
         "video": "Yes, I can take part in video hearings"
         "neither": "None"
+  case_heard_by:
+    case_heard_by_preference:
+      label: How do you prefer to have your case heard? (optional)
+      options:
+        "judge": "Judge"
+        "panel": "I prefer my case to be heard by a panel including non-legal members"
+        "no_preference": "I have no preference"
+    case_heard_by_preference_reason:
+      label: Give reason
+    save_and_continue: Save and continue
   group_claims:
     save_and_continue: Save and continue
     people_making_claim_with_you:
