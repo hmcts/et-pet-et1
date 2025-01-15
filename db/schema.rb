@@ -89,6 +89,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.string "additional_claimants_csv"
     t.integer "additional_claimants_csv_record_count", default: 0
     t.string "application_reference", null: false
+    t.string "case_heard_by_preference"
+    t.text "case_heard_by_preference_reason"
     t.text "claim_details"
     t.string "claim_details_rtf"
     t.string "confirmation_email_recipients", default: [], array: true
