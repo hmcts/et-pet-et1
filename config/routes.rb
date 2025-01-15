@@ -44,6 +44,7 @@ Rails.application.routes.draw do
                  path: "additional-respondents"
 
         resource :claimant, only: [:show, :update], controller: :claims, page: 'claimant', path: "claimant"
+        resource :case_heard_by, only: [:show, :update], controller: :claims, page: 'case-heard-by', path: "case-heard-by"
         resource :additional_claimants, only: [:show, :update], controller: :claims, page: 'additional-claimants', path: "additional-claimants"
         resource :additional_claimants_upload, only: [:show, :update], controller: :claims, page: 'additional-claimants-upload', path: "additional-claimants-upload"
         resource :representative, only: [:show, :update], controller: :claims, page: 'representative', path: "representative"

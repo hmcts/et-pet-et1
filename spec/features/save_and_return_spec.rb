@@ -117,11 +117,11 @@ describe 'Save and Return', :js, type: :feature do
 
   it 'returning to the application page shows the correct page numbers' do
     start_claim
-    expect(page).to have_text('Page 1 of 11')
+    expect(page).to have_text('Page 1 of 12')
     saving_your_claim_page.register(password: 'green')
-    expect(page).to have_text('Page 2 of 11')
+    expect(page).to have_text('Page 2 of 12')
     page.go_back
-    expect(page).to have_text('Page 1 of 11')
+    expect(page).to have_text('Page 1 of 12')
   end
 
   context 'when memorable word not set' do
