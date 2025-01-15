@@ -156,6 +156,14 @@ module ET1
           element :answer, :govuk_summary_list_col
         end
       end
+      section :case_heard_by_section, :govuk_summary_list, :'review.case_heard_by.title' do
+        section :case_heard_by_preference, :govuk_summary_list_row, :'review.case_heard_by.questions.case_heard_by_preference' do
+          element :answer, :govuk_summary_list_col
+        end
+        section :case_heard_by_preference_reason, :govuk_summary_list_row, :'review.case_heard_by.questions.case_heard_by_preference_reason' do
+          element :answer, :govuk_summary_list_col
+        end
+      end
       section :employment_section, :govuk_summary_list, :'review.employment.title' do
         section :pension_scheme, :govuk_summary_list_row, :'review.employment.questions.pension_scheme' do
           element :answer, :govuk_summary_list_col

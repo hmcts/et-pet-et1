@@ -10,6 +10,8 @@ RSpec.describe 'Representatives Details Validation', :js, type: :feature do
     saving_your_claim_page.register(email_address: 'fred@bloggs.com', password: 'password')
     claimants_details_page.fill_in_all(claimant:)
     claimants_details_page.save_and_continue
+    case_heard_by_page.fill_in_all(claimant: claimant)
+    case_heard_by_page.save_and_continue
     group_claims_page.no_secondary_claimants
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative:)
