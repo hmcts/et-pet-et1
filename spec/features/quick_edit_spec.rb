@@ -17,6 +17,13 @@ describe 'Quick edit', type: :feature do
     expect(review_page).to be_displayed
   end
 
+  it "editing 'Preference for judge or panel'" do
+    review_page.edit_section('Preference for judge or panel')
+    expect(case_heard_by_page).to be_displayed
+    case_heard_by_page.save_and_continue
+    expect(review_page).to be_displayed
+  end
+
   it "editing 'Group claim'" do
     review_page.edit_section('Group claim')
     expect(group_claims_page).to be_displayed

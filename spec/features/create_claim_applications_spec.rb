@@ -109,6 +109,18 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      expect(case_heard_by_page).to be_displayed
+      expect(case_heard_by_page).to have_sign_out_button
+      case_heard_by_page.assert_session_prompt
+    end
+
+    it 'Choosing case heard by preference' do
+      start_claim
+      saving_your_claim_page.register(email_address: nil, password: 'green')
+      claimants_details_page.fill_in_all(claimant: ui_claimant)
+      claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       expect(group_claims_page).to be_displayed
       expect(group_claims_page).to have_sign_out_button
       group_claims_page.assert_session_prompt
@@ -119,6 +131,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       expect(representatives_details_page).to be_displayed
@@ -131,6 +145,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.provide_spreadsheet
 
       expect(group_claims_upload_page).to be_displayed
@@ -148,6 +164,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.provide_spreadsheet.no_secondary_claimants.save_and_continue
 
       expect(representatives_details_page).to be_displayed
@@ -160,6 +178,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
@@ -175,6 +195,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
@@ -193,6 +215,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
@@ -210,6 +234,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
@@ -230,6 +256,8 @@ describe 'Claim applications', :js, type: :feature do
       saving_your_claim_page.register(email_address: nil, password: 'green')
       claimants_details_page.fill_in_all(claimant: ui_claimant)
       claimants_details_page.save_and_continue
+      case_heard_by_page.fill_in_all(claimant: ui_claimant)
+      case_heard_by_page.save_and_continue
       group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
       group_claims_page.save_and_continue
       representatives_details_page.fill_in_all(representative: ui_representative)
@@ -352,29 +380,41 @@ describe 'Claim applications', :js, type: :feature do
       click_link_or_button 'Submit claim'
       expect(a_request(:post, build_claim_url).
         with do |request|
-               claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
-               expect(claimant).to include "title" => ET1::Test::I18n.t(ui_claimant.title),
-                                           "first_name" => ui_claimant.first_name,
-                                           "last_name" => ui_claimant.last_name,
-                                           "address_attributes" => a_hash_including(
-                                             "building" => ui_claimant.address_building,
-                                             "street" => ui_claimant.address_street,
-                                             "locality" => ui_claimant.address_town,
-                                             "county" => ui_claimant.address_county,
-                                             "post_code" => ui_claimant.address_post_code,
-                                             "country" => ET1::Test::I18n.t(ui_claimant.address_country)
-                                           ),
-                                           "address_telephone_number" => ui_claimant.phone_or_mobile_number,
-                                           "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
-                                           "email_address" => ui_claimant.email_address,
-                                           "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
-                                           "allow_video_attendance" => ui_claimant.allow_phone_or_video_attendance.map { |option| option.to_s.split('.').last }.include?('video'),
-                                           "allow_phone_attendance" => ui_claimant.allow_phone_or_video_attendance.map { |option| option.to_s.split('.').last }.include?('phone'),
-                                           "no_phone_or_video_reason" => ui_claimant.allow_phone_or_video_reason,
-                                           "gender" => ET1::Test::I18n.t(ui_claimant.gender),
-                                           "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
-                                           "special_needs" => ui_claimant.special_needs
-             end).to have_been_made
+        claimant = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildPrimaryClaimant' }['data']
+        expect(claimant).to include "title" => ET1::Test::I18n.t(ui_claimant.title),
+                                    "first_name" => ui_claimant.first_name,
+                                    "last_name" => ui_claimant.last_name,
+                                    "address_attributes" => a_hash_including(
+                                      "building" => ui_claimant.address_building,
+                                      "street" => ui_claimant.address_street,
+                                      "locality" => ui_claimant.address_town,
+                                      "county" => ui_claimant.address_county,
+                                      "post_code" => ui_claimant.address_post_code,
+                                      "country" => ET1::Test::I18n.t(ui_claimant.address_country)
+                                    ),
+                                    "address_telephone_number" => ui_claimant.phone_or_mobile_number,
+                                    "mobile_number" => ui_claimant.alternative_phone_or_mobile_number,
+                                    "email_address" => ui_claimant.email_address,
+                                    "contact_preference" => ET1::Test::I18n.t(ui_claimant.best_correspondence_method),
+                                    "allow_video_attendance" => ui_claimant.allow_phone_or_video_attendance.map { |option| option.to_s.split('.').last }.include?('video'),
+                                    "allow_phone_attendance" => ui_claimant.allow_phone_or_video_attendance.map { |option| option.to_s.split('.').last }.include?('phone'),
+                                    "no_phone_or_video_reason" => ui_claimant.allow_phone_or_video_reason,
+                                    "gender" => ET1::Test::I18n.t(ui_claimant.gender),
+                                    "date_of_birth" => Date.parse(ui_claimant.date_of_birth).strftime('%Y-%m-%d'),
+                                    "special_needs" => ui_claimant.special_needs
+      end).to have_been_made
+    end
+
+    it 'Validating the API calls claim data' do
+      complete_a_claim
+      click_link_or_button 'Submit claim'
+      expect(a_request(:post, build_claim_url).
+        with do |request|
+        claim = JSON.parse(request.body)['data'].detect { |cmd| cmd['command'] == 'BuildClaim' }['data']
+        expect(claim).to include "case_heard_by_preference" => ui_claimant.case_heard_by_preference.to_s,
+                                 "case_heard_by_preference_reason" => ui_claimant.case_heard_by_preference_reason
+
+      end).to have_been_made
     end
 
     context 'when downloading the PDF', :js do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_05_29_102522) do
+ActiveRecord::Schema[7.2].define(version: 2025_01_08_085827) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -120,6 +120,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_05_29_102522) do
     t.boolean "was_employed"
     t.boolean "is_other_type_of_claim"
     t.string "whistleblowing_regulator_name"
+    t.string "case_heard_by_preference"
+    t.text "case_heard_by_preference_reason"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
   end
 
