@@ -23,10 +23,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: bcc3811343479fd51d2be6bcbce3314b27bbc0b4
-  tag: v6.0.2
+  revision: 26e73f991ec226d72c67e45f750de6e17d7f5e76
+  tag: v6.0.1
   specs:
-    et_gds_design_system (6.0.2)
+    et_gds_design_system (6.0.1)
       govuk_design_system_formbuilder (~> 5.3.0)
       rack
       rails (>= 6.0)
@@ -190,16 +190,16 @@ GEM
     climate_control (1.2.0)
     cliver (0.3.2)
     coderay (1.1.3)
-    concurrent-ruby (1.3.4)
+    concurrent-ruby (1.3.5)
     connection_pool (2.4.1)
     crack (1.0.0)
       bigdecimal
       rexml
     crass (1.0.6)
     csv (3.3.0)
-    cuprite (0.15)
+    cuprite (0.15.1)
       capybara (~> 3.0)
-      ferrum (~> 0.14.0)
+      ferrum (~> 0.15.0)
     database_cleaner (2.1.0)
       database_cleaner-active_record (>= 2, < 3)
     database_cleaner-active_record (2.2.0)
@@ -236,11 +236,11 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
-    ferrum (0.14)
+    ferrum (0.15)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
       webrick (~> 1.7)
-      websocket-driver (>= 0.6, < 0.8)
+      websocket-driver (~> 0.7)
     ffi (1.16.3)
     formtastic (5.0.0)
       actionpack (>= 6.0.0)
@@ -578,7 +578,8 @@ GEM
       semantic_range (>= 2.3.0)
     webrick (1.9.1)
     websocket (1.2.10)
-    websocket-driver (0.7.6)
+    websocket-driver (0.7.7)
+      base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
