@@ -1,0 +1,5 @@
+= render 'answer', section_name: 'case_heard_by', question: 'case_heard_by_preference' do
+  - if claim.case_heard_by_preference.present?
+    = t "claims.case_heard_by.case_heard_by_preference.options.#{claim.case_heard_by_preference}"
+= render 'answer', section_name: 'case_heard_by', question: 'case_heard_by_preference_reason' do
+  = claim.case_heard_by_preference_reason

@@ -4,6 +4,7 @@ en:
       header: Check your claim
       edit: Edit
       edit_claimant_details_page: Edit Claimant’s details answers
+      edit_case_heard_by_page: Edit Preference for judge or panel answers
       edit_group_claim_page: Edit Group claim answers
       edit_representative_details_page: Edit Representative’s details answers
       edit_respondent_page: Edit Respondent’s details answers
@@ -21,6 +22,7 @@ en:
 
       sections:
         claimant: Claimant’s details
+        case_heard_by: Preference for judge or panel
         additional_claimants: Group claim
         additional_claimants_upload: :"claim_reviews.show.sections.additional_claimants"
         representative: Representative’s details
@@ -68,6 +70,9 @@ en:
             true: 'Yes'
             false: 'No'
         has_representative: Representative
+      case_heard_by:
+        case_heard_by_preference: How do you prefer to have your case heard?
+        case_heard_by_preference_reason: Give reason
 
       additional_claimants:
         group_claim: Group claim

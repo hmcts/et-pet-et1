@@ -1,0 +1,24 @@
+hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
+p.govuk-body = t('.explanation.heading')
+ul.govuk-list.govuk-list--bullet
+  - t('.explanation.options').each do |option|
+    li = option
+details.govuk-details
+  summary.govuk-details__summary
+    span.govuk-details__summary-text = t('.explanation.panel.heading')
+  div.govuk-details__text
+    - t('.explanation.panel.content_paragraphs').each do |content|
+      p.govuk-body = content
+details.govuk-details
+  summary.govuk-details__summary
+    span.govuk-details__summary-text = t('.explanation.presidential.heading')
+  div.govuk-details__text
+    p.govkuk-body
+      a.govuk-link href="" = t('.explanation.presidential.england_and_wales_link_text')
+    p.govkuk-body
+      a.govuk-link href="" = t('.explanation.presidential.scotland_link_text')
+- t('.explanation.footer').each do |paragraph|      
+  p.govuk-body = paragraph
+= f.collection_radio_buttons :case_heard_by_preference, inline: true, include_hidden: false, optional: true
+= f.revealed_content :case_heard_by_preference, values: [:judge, :panel]
+  = f.text_area :case_heard_by_preference_reason
