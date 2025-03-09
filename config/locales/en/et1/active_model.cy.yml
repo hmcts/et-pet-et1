@@ -16,6 +16,8 @@ cy:
           attributes:
             has_representative:
               inclusion: Nodwch os oes gennych rywun yn eich cynrychioli
+            email_address:
+              is_acas: Noder, nid yw Acas yn gynrychiolydd
         respondent:
           attributes:
             worked_at_same_address:
