@@ -453,10 +453,8 @@ Rails/InverseOf:
   Enabled: false
 Rails/HasManyOrHasOneDependent:
   Enabled: false
-Rails/EnumSyntax:
+Rails/EnumHash:
   Enabled: true
-Rails/WhereRange:
-  Enabled: false
 Rails/TopLevelHashWithIndifferentAccess:
   Enabled: true
 Rails/TransactionExitStatement:

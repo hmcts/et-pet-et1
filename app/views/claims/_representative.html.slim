@@ -3,6 +3,7 @@
   = f.collection_radio_buttons :has_representative, inline: true, include_hidden: false
   = f.revealed_content :has_representative, values: [:true]
     p.govuk-inset-text = t '.contact_info'
+    p.govuk-inset-text = t '.acas_not_representative'
 
     = f.fieldset label: t('.representative_legend')
       hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-4 govuk-!-margin-top-0"
