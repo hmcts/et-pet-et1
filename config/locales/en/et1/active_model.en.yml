@@ -283,6 +283,7 @@ en:
               blank: Enter your representative’s email address
               invalid: You have entered an invalid email address
               invalid_ccd_email: :'activemodel.errors.models.representative.attributes.email_address.invalid'
+              is_acas: Please note Acas are not a representative
             address_telephone_number:
               invalid_ccd_phone: Invalid phone number
             mobile_number:

@@ -53,6 +53,8 @@ en:
       contact_legend: Representative’s contact details
       contact_info: |
         All correspondence about the case will be sent to the representative and not the claimant. If you change representative after you have submitted your claim, you must send their contact details to the tribunal office handling your case.
+      acas_not_representative: |
+        Please note Acas are not a representative.
       what_is_dx:
         detail: What is a DX number?
         summary: DX is a private mail system used by organisations (eg legal firms)

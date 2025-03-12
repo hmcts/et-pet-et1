@@ -170,6 +170,15 @@ RSpec.describe RepresentativeForm, type: :form do
 
       expect(representative_form.errors).to include :email_address
     end
+
+    it 'validates email - disallowing special acas email' do
+      representative_form.contact_preference = 'email'
+      representative_form.email_address = 'case@acas.org.uk'
+
+      representative_form.valid?
+
+      expect(representative_form.errors.where(:email_address, message: :is_acas)).not_to be_empty
+    end
   end
 
   describe 'before validation' do

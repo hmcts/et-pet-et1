@@ -53,6 +53,8 @@ cy:
       contact_legend: "Manylion cyswllt y cynrychiolydd"
       contact_info: |
         Fe anfonir yr holl wybodaeth am yr achos at y cynrychiolydd ac nid at yr hawlydd. Os ydych chi'n newid cynrychiolydd ar ôl i chi gyflwyno eich hawliad, bydd rhaid i chi anfon eu manylion cyswllt i swyddfa'r tribiwnlys sy'n delio â'ch achos.
+      acas_not_representative: |
+        Noder, nid yw Acas yn gynrychiolydd
       what_is_dx:
         detail: "Beth yw rhif DX?"
         summary: System bost breifat yw DX a ddefnyddir gan sefydliadau (ee cwmnïau cyfreithiol)
