@@ -18,7 +18,14 @@ withPipeline(type, product, component) {
     env.TEST_BROWSER = 'chrome_local'
     env.NODE_OPTIONS='--openssl-legacy-provider'
     env.ENABLE_COVERAGE='true'
-
+    before('build') {
+        sh script:"""#!/bin/bash -l
+            set +x
+            source /usr/local/rvm/scripts/rvm
+            rvm install ruby-3.3.5
+            rvm use ruby-3.3.5 --default
+        """, label: 'Ruby version install'
+    }
     before('test') {
         sh script:"""
             yarn install
