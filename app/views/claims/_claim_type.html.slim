@@ -25,4 +25,6 @@ p.govuk-body = t '.claim_type_label'
     = f.text_field :whistleblowing_regulator_name, max_chars: 150
 - content_for(:javascripts)
 javascript:
-  Et.pages.claims.ClaimTypePage()
+  document.addEventListener("turbolinks:load", function() {
+    Et.pages.claims.ClaimTypePage()
+  });

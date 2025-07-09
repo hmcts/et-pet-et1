@@ -38,7 +38,8 @@ ENV APP_BUILD_TAG ${APP_BUILD_TAG}
 EXPOSE 8080
 
 COPY --chown=app:app . /home/app/et1
-COPY --from=assets --chown=app:app /home/app/et1/public/packs /home/app/et1/public/packs
+COPY --from=assets --chown=app:app /home/app/et1/public/assets /home/app/et1/public/assets
+COPY --from=assets --chown=app:app /home/app/et1/public/vite /home/app/et1/public/vite
 COPY --from=assets --chown=app:app /home/app/et1/vendor/bundle /home/app/et1/vendor/bundle
 RUN chown -R app:app /usr/local/bundle
 RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file bash libc6-compat && \

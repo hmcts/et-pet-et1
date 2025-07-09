@@ -31,5 +31,6 @@
 
 - content_for(:javascripts)
   javascript:
-    Et.pages.claims.ClaimantPage()
-
+    document.addEventListener("turbolinks:load", function() {
+      Et.pages.claims.ClaimantPage()
+    });

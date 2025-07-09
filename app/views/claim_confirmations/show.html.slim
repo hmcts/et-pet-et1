@@ -68,4 +68,6 @@ div.govuk-grid-row
 
 - content_for(:javascripts)
 javascript:
-  Et.pages.claims.ClaimConfirmationPage()
+  document.addEventListener("turbolinks:load", function() {
+    Et.pages.claims.ClaimConfirmationPage()
+  });
