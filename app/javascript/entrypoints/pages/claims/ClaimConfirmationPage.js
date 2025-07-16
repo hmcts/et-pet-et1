@@ -1,6 +1,8 @@
 function monitorDownloadLink() {
   const successNode = document.querySelector('.pdf-success');
   const failureNode = document.querySelector('.pdf-failure');
+  if(!successNode) { return }
+
   const url = successNode.getAttribute('href')
   let http = new XMLHttpRequest();
   http.overrideMimeType("application/pdf");

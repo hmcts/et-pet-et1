@@ -37,6 +37,7 @@ describe 'Attaching a document', :js, type: :feature do
           load.
           fill_in_all(claim_details: ui_claim_details).
           save_and_continue
+        expect(claim_outcome_page).to be_displayed
       end
 
       it 'Attaching the file' do
@@ -84,6 +85,7 @@ describe 'Attaching a document', :js, type: :feature do
       before do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(csv_file_path).save_and_continue
+        expect(representatives_details_page).to be_displayed
       end
 
       it 'Attaching the file' do
@@ -104,6 +106,7 @@ describe 'Attaching a document', :js, type: :feature do
         group_claims_upload_page.load
         group_claims_upload_page.upload_file_question.remove_file
         group_claims_upload_page.upload_secondary_claimants_csv(alternative_csv_file_path).save_and_continue
+        expect(representatives_details_page).to be_displayed
 
         expect(claim.reload.additional_claimants_csv).to include filename: File.basename(alternative_csv_file_path)
       end

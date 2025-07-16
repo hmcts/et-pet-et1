@@ -77,8 +77,10 @@ describe 'Multiple respondents', :js, type: :feature do
   def add_some_additional_respondents
     second_ui_respondent = build(:ui_secondary_respondent, :default)
     additional_respondents_page.load
+    additional_respondents_page.wait_until_displayed
     additional_respondents_page.
       fill_in_all(secondary_respondents: ui_secondary_respondents + [second_ui_respondent]).
       save_and_continue
+    employment_details_page.wait_until_displayed
   end
 end

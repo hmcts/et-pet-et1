@@ -31,6 +31,6 @@
       = t('.name_changed_cannot_continue_html')
 - content_for(:javascripts)
   javascript:
-      $(document).ready(function () {
+      document.addEventListener("turbolinks:load", function() {
           Et.pages.refunds.ApplicantPage()
       });

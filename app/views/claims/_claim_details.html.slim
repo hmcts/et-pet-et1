@@ -26,4 +26,6 @@ details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors
 
 - content_for(:javascripts)
 javascript:
-  Et.pages.claims.ClaimDetailsPage()
+  document.addEventListener("turbolinks:load", function() {
+    Et.pages.claims.ClaimDetailsPage()
+  });

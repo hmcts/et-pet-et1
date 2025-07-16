@@ -14,6 +14,6 @@ p.govuk-body = t('.account_help')
     = f.text_field :payment_building_society_sort_code
 - content_for(:javascripts)
   javascript:
-      $(document).ready(function () {
+      document.addEventListener("turbolinks:load", function() {
           Et.pages.refunds.BankDetailsPage();
       });

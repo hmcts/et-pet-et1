@@ -24,7 +24,7 @@
         .govuk-grid-column-one-quarter
           p class="govuk-body govuk-!-font-weight-bold" = t ".step_one_header"
         .govuk-grid-column-three-quarters
-          p.govuk-body = t(".download_template_html", path: asset_pack_url("media/packs/csv/#{t('.download_template_asset')}.csv"))
+          p.govuk-body = t(".download_template_html", path: "/csv/#{t('.download_template_asset')}.csv")
           p.govuk-body = t ".dob_info"
 
       .govuk-grid-row
@@ -50,4 +50,6 @@
           p.form-hint = t('.upload_limit')
 - content_for(:javascripts)
   javascript:
-    Et.pages.claims.AdditionalClaimantsUploadPage()
+    document.addEventListener("turbolinks:load", function() {
+      Et.pages.claims.AdditionalClaimantsUploadPage()
+    });

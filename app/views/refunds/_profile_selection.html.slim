@@ -1,6 +1,6 @@
 = f.collection_radio_buttons :profile_type
 - content_for(:javascripts)
   javascript:
-      $(document).ready(function () {
+      document.addEventListener("turbolinks:load", function() {
           Et.pages.refunds.ProfileSelectionPage();
       });

@@ -34,4 +34,4 @@
   = f.text_area :additional_information, rows: 10, max_chars: 500, optional: true
 - content_for(:javascripts)
 javascript:
-  $(document).ready(function() { Et.pages.refunds.OriginalCaseDetailsPage() });
+  document.addEventListener("turbolinks:load", function() { Et.pages.refunds.OriginalCaseDetailsPage() });
