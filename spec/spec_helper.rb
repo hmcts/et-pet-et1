@@ -1,7 +1,6 @@
 require 'webmock/rspec'
 app_host = ENV.fetch('CAPYBARA_SERVER_HOST', ENV.fetch('HOSTNAME', `hostname`.strip))
-selenium_host = URI.parse(ENV.fetch('SELENIUM_URL', 'http://localhost:4444')).host
-WebMock.disable_net_connect!(allow: ["github.com", "codeclimate.com", app_host, "chromedriver.storage.googleapis.com", selenium_host], allow_localhost: true)
+WebMock.disable_net_connect!(allow: ["github.com", "codeclimate.com", app_host], allow_localhost: true)
 
 RSpec.configure do |config|
   config.mock_with :rspec do |mocks|

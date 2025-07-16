@@ -1,25 +1,25 @@
 def then_all_fee_payment_method_fields_in_the_fees_page_should_be_marked_with_an_error
-  expect(refund_fees_page.original_claim_fees.et_issue.payment_method_question.error.text).to eql 'Please select a payment method'
-  expect(refund_fees_page.original_claim_fees.et_hearing.payment_method_question.error.text).to eql 'Please select a payment method'
-  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_method_question.error.text).to eql 'Please select a payment method'
-  expect(refund_fees_page.original_claim_fees.eat_issue.payment_method_question.error.text).to eql 'Please select a payment method'
-  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method_question.error.text).to eql 'Please select a payment method'
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_method_question.error).to have_content 'Please select a payment method'
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_method_question.error).to have_content 'Please select a payment method'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_method_question.error).to have_content 'Please select a payment method'
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_method_question.error).to have_content 'Please select a payment method'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_method_question.error).to have_content 'Please select a payment method'
 end
 
 def then_all_fee_payment_date_fields_in_the_fees_page_should_be_marked_with_an_error_for_blank_input
-  expect(refund_fees_page.original_claim_fees.et_issue.payment_date_question.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
-  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date_question.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
-  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date_question.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
-  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date_question.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
-  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date_question.error.text).to eql 'Please enter the payment year and month or tick \'Don\'t know\''
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_date_question.error).to have_content 'Please enter the payment year and month or tick \'Don\'t know\''
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date_question.error).to have_content 'Please enter the payment year and month or tick \'Don\'t know\''
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date_question.error).to have_content 'Please enter the payment year and month or tick \'Don\'t know\''
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date_question.error).to have_content 'Please enter the payment year and month or tick \'Don\'t know\''
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date_question.error).to have_content 'Please enter the payment year and month or tick \'Don\'t know\''
 end
 
 def then_all_fee_payment_date_fields_in_the_fees_page_should_be_marked_with_an_error_for_out_of_range
-  expect(refund_fees_page.original_claim_fees.et_issue.payment_date_question.error.text).to eql 'The payment date must be between July 2013 and August 2017'
-  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date_question.error.text).to eql 'The payment date must be between July 2013 and August 2017'
-  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date_question.error.text).to eql 'The payment date must be between July 2013 and August 2017'
-  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date_question.error.text).to eql 'The payment date must be between July 2013 and August 2017'
-  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date_question.error.text).to eql 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.et_issue.payment_date_question.error).to have_content 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.et_hearing.payment_date_question.error).to have_content 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.payment_date_question.error).to have_content 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.eat_issue.payment_date_question.error).to have_content 'The payment date must be between July 2013 and August 2017'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.payment_date_question.error).to have_content 'The payment date must be between July 2013 and August 2017'
 end
 
 def then_all_fee_payment_date_fields_in_the_fees_page_should_not_be_marked_with_an_error
@@ -31,11 +31,11 @@ def then_all_fee_payment_date_fields_in_the_fees_page_should_not_be_marked_with_
 end
 
 def then_all_fee_value_fields_in_the_fees_page_should_be_marked_with_an_error_for_negative_values
-  expect(refund_fees_page.original_claim_fees.et_issue.fee_question.error.text).to eql 'Fee must be greater than 0'
-  expect(refund_fees_page.original_claim_fees.et_hearing.fee_question.error.text).to eql 'Fee must be greater than 0'
-  expect(refund_fees_page.original_claim_fees.et_reconsideration.fee_question.error.text).to eql 'Fee must be greater than 0'
-  expect(refund_fees_page.original_claim_fees.eat_issue.fee_question.error.text).to eql 'Fee must be greater than 0'
-  expect(refund_fees_page.original_claim_fees.eat_hearing.fee_question.error.text).to eql 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.et_issue.fee_question.error).to have_content 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.et_hearing.fee_question.error).to have_content 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.et_reconsideration.fee_question.error).to have_content 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.eat_issue.fee_question.error).to have_content 'Fee must be greater than 0'
+  expect(refund_fees_page.original_claim_fees.eat_hearing.fee_question.error).to have_content 'Fee must be greater than 0'
 end
 
 def and_i_fill_in_my_refund_fees_and_verify_the_total

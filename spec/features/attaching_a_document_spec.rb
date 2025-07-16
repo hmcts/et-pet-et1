@@ -57,6 +57,7 @@ describe 'Attaching a document', :js, type: :feature do
         claim_details_page.
           load.
           claim_details_file_question.remove_file
+        sleep 2
         claim_details_page.
           fill_in_all(claim_details: ui_claim_details).
           save_and_continue

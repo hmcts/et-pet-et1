@@ -15,7 +15,7 @@ withPipeline(type, product, component) {
     env.DB_USER = 'postgres'
     env.DB_PORT = '5421'
     env.DB_PASSWORD = 'postgres'
-    env.TEST_BROWSER = 'chrome_local'
+    env.TEST_BROWSER = 'cuprite'
     env.NODE_OPTIONS='--openssl-legacy-provider'
     env.ENABLE_COVERAGE='true'
     before('build') {
@@ -33,7 +33,7 @@ withPipeline(type, product, component) {
             docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
         """, label: 'Start test postgres'
 
-        rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile webdrivers:chromedriver:update")
+        rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile")
     }
 
     afterAlways('test') {

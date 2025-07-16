@@ -36,15 +36,15 @@ end
 
 def and_all_mandatory_fields_in_the_refund_applicant_page_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_applicant_page.about_the_claimant.title_question.error.text).to eql "Select a title from the list"
-    expect(refund_applicant_page.about_the_claimant.first_name_question.error.text).to eql "Enter your first name"
-    expect(refund_applicant_page.about_the_claimant.last_name_question.error.text).to eql "Enter your last name"
-    expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error.text).to eql "Enter your date of birth"
-    expect(refund_applicant_page.claimants_contact_details.building_question.error.text).to eql "Enter the building number or name from your address"
-    expect(refund_applicant_page.claimants_contact_details.street_question.error.text).to eql "Enter the street from your address"
-    expect(refund_applicant_page.claimants_contact_details.locality_question.error.text).to eql "Enter the town or city from the claimant’s address"
-    expect(refund_applicant_page.claimants_contact_details.post_code_question.error.text).to eql "Enter your post code"
-    expect(refund_applicant_page.claimants_contact_details.telephone_number_question.error.text).to eql "Enter your preferred number"
+    expect(refund_applicant_page.about_the_claimant.title_question.error).to have_content "Select a title from the list"
+    expect(refund_applicant_page.about_the_claimant.first_name_question.error).to have_content "Enter your first name"
+    expect(refund_applicant_page.about_the_claimant.last_name_question.error).to have_content "Enter your last name"
+    expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error).to have_content "Enter your date of birth"
+    expect(refund_applicant_page.claimants_contact_details.building_question.error).to have_content "Enter the building number or name from your address"
+    expect(refund_applicant_page.claimants_contact_details.street_question.error).to have_content "Enter the street from your address"
+    expect(refund_applicant_page.claimants_contact_details.locality_question.error).to have_content "Enter the town or city from the claimant’s address"
+    expect(refund_applicant_page.claimants_contact_details.post_code_question.error).to have_content "Enter your post code"
+    expect(refund_applicant_page.claimants_contact_details.telephone_number_question.error).to have_content "Enter your preferred number"
 
     expect(refund_applicant_page.claimants_contact_details.county_question).to have_no_error, 'Expected county not to have an error'
     expect(refund_applicant_page.claimants_contact_details.email_address_question).to have_no_error, 'Expected email address not to have an error'
@@ -76,11 +76,11 @@ def then_the_continue_button_should_be_disabled_on_the_refund_applicant_page
 end
 
 def and_the_email_address_in_the_refund_applicant_page_should_be_marked_with_an_invalid_error
-  expect(refund_applicant_page.claimants_contact_details.email_address_question.error.text).to eql 'is invalid'
+  expect(refund_applicant_page.claimants_contact_details.email_address_question.error).to have_content 'is invalid'
 end
 
 def and_the_date_of_birth_in_the_refund_applicant_page_should_be_marked_with_an_invalid_error
-  expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error.text).to eql 'Enter a valid date of birth'
+  expect(refund_applicant_page.about_the_claimant.date_of_birth_question.error).to have_content 'Enter a valid date of birth'
 end
 
 def then_the_title_field_in_the_applicant_page_should_have_the_correct_default_option_selected
