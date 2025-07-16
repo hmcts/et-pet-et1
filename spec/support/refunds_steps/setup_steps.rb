@@ -1,3 +1,4 @@
+require 'ostruct'
 def given_i_am_luke_skywalker
   address = OpenStruct.new building: '102',
                            street: 'Petty France',

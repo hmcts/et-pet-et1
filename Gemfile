@@ -55,7 +55,6 @@ group :development, :test do
   gem 'gov_fake_notify', '~> 2.0'
   gem 'launchy'
   gem 'listen', '~> 3.7'
-  gem 'pry-rails', '~> 0.3'
   gem 'rspec-its', '~> 1.2', require: 'rspec/its'
   gem 'rspec-rails', '~> 6.0'
   gem 'rspec_junit_formatter', '~> 0.6.0'
@@ -69,7 +68,6 @@ group :development, :test do
   gem 'spring', '~> 4.0'
   gem 'parallel_tests', '~> 4.6.0'
   gem 'simplecov', '~> 0.21'
-  gem 'webdrivers', '~> 5.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
   gem 'et_full_system_control', git: 'https://github.com/hmcts/et-full-system-control.git'
 end
@@ -81,10 +79,9 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'site_prism', '~> 5.0.1'
-  gem 'selenium-webdriver', '~> 4.3',  '< 4.11'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'climate_control', '~> 1.0'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.2'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.3'
 end
 
 group :assets do

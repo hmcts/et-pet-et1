@@ -7,7 +7,7 @@ def and_i_save_my_profile_selection_on_the_refund_type_page
 end
 
 def then_the_user_should_be_informed_that_there_are_errors_on_the_profile_selection_page
-  expect(refund_profile_selection_page.select_profile_question.error.text).to eql "Please confirm"
+  expect(refund_profile_selection_page.select_profile_question.error).to have_content "Please confirm"
 end
 
 def then_the_continue_button_should_be_disabled_on_the_profile_selection_page

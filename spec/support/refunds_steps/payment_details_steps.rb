@@ -51,20 +51,20 @@ end
 
 def then_all_mandatory_bank_details_fields_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_payment_details_page.bank_details.account_name_question.error.text).to eql "Enter Account holder name"
-    expect(refund_payment_details_page.bank_details.bank_name_question.error.text).to eql "Enter Bank name"
-    expect(refund_payment_details_page.bank_details.account_number_question.error.text).to eql "Enter Bank account"
-    expect(refund_payment_details_page.bank_details.sort_code_question.error.text).to eql "Enter Sort Code"
+    expect(refund_payment_details_page.bank_details.account_name_question.error).to have_content "Enter Account holder name"
+    expect(refund_payment_details_page.bank_details.bank_name_question.error).to have_content "Enter Bank name"
+    expect(refund_payment_details_page.bank_details.account_number_question.error).to have_content "Enter Bank account"
+    expect(refund_payment_details_page.bank_details.sort_code_question.error).to have_content "Enter Sort Code"
     expect(refund_payment_details_page).to have_no_building_society_details
   end
 end
 
 def then_all_mandatory_building_society_details_fields_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_payment_details_page.building_society_details.account_name_question.error.text).to eql "Enter the name on the building society account"
-    expect(refund_payment_details_page.building_society_details.building_society_name_question.error.text).to eql "Enter the name of the building society"
-    expect(refund_payment_details_page.building_society_details.account_number_question.error.text).to eql "Enter the account number that the refund is to be paid into"
-    expect(refund_payment_details_page.building_society_details.sort_code_question.error.text).to eql "Enter the sort code of the account that the refund is to be paid into"
+    expect(refund_payment_details_page.building_society_details.account_name_question.error).to have_content "Enter the name on the building society account"
+    expect(refund_payment_details_page.building_society_details.building_society_name_question.error).to have_content "Enter the name of the building society"
+    expect(refund_payment_details_page.building_society_details.account_number_question.error).to have_content "Enter the account number that the refund is to be paid into"
+    expect(refund_payment_details_page.building_society_details.sort_code_question.error).to have_content "Enter the sort code of the account that the refund is to be paid into"
     expect(refund_payment_details_page).to have_no_bank_details
   end
 end
@@ -78,7 +78,7 @@ def and_i_select_building_society_account_type_in_the_refund_bank_details_page
 end
 
 def then_only_the_bank_details_account_type_field_should_be_marked_with_an_error
-  expect(refund_payment_details_page.account_type_question.error.text).to eql "Please select one of the options"
+  expect(refund_payment_details_page.account_type_question.error).to have_content "Please select one of the options"
   expect(refund_payment_details_page.bank_details.account_name_question).to have_no_error
   expect(refund_payment_details_page.bank_details.bank_name_question).to have_no_error
   expect(refund_payment_details_page.bank_details.account_number_question).to have_no_error
@@ -94,17 +94,17 @@ def then_the_continue_button_should_be_disabled_on_the_bank_details_page
 end
 
 def then_the_bank_account_number_field_should_be_marked_with_an_invalid_error_in_the_refund_bank_details_page
-  expect(refund_payment_details_page.bank_details.account_number_question.error.text).to eql "Must be 8 numbers"
+  expect(refund_payment_details_page.bank_details.account_number_question.error).to have_content "Must be 8 numbers"
 end
 
 def then_the_bank_sort_code_field_should_be_marked_with_an_invalid_error_in_the_refund_bank_details_page
-  expect(refund_payment_details_page.bank_details.sort_code_question.error.text).to eql "Must be 6 numbers"
+  expect(refund_payment_details_page.bank_details.sort_code_question.error).to have_content "Must be 6 numbers"
 end
 
 def then_the_building_society_account_number_field_should_be_marked_with_an_invalid_error_in_the_refund_bank_details_page
-  expect(refund_payment_details_page.building_society_details.account_number_question.error.text).to eql "Must be 8 numbers"
+  expect(refund_payment_details_page.building_society_details.account_number_question.error).to have_content "Must be 8 numbers"
 end
 
 def then_the_building_society_sort_code_field_should_be_marked_with_an_invalid_error_in_the_refund_bank_details_page
-  expect(refund_payment_details_page.building_society_details.sort_code_question.error.text).to eql "Must be 6 numbers"
+  expect(refund_payment_details_page.building_society_details.sort_code_question.error).to have_content "Must be 6 numbers"
 end

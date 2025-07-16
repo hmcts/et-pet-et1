@@ -128,9 +128,9 @@ end
 
 def then_all_mandatory_claimant_address_fields_in_the_refund_case_details_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_original_case_details_page.original_claimant_details.building_question.error.text).to eql "Enter the building number or name from your address at the time of the original claim"
-    expect(refund_original_case_details_page.original_claimant_details.street_question.error.text).to eql "Enter the street from your address at the time of the original claim"
-    expect(refund_original_case_details_page.original_claimant_details.post_code_question.error.text).to eql "Enter your post code at the time of the original claim"
+    expect(refund_original_case_details_page.original_claimant_details.building_question.error).to have_content "Enter the building number or name from your address at the time of the original claim"
+    expect(refund_original_case_details_page.original_claimant_details.street_question.error).to have_content "Enter the street from your address at the time of the original claim"
+    expect(refund_original_case_details_page.original_claimant_details.post_code_question.error).to have_content "Enter your post code at the time of the original claim"
     expect(refund_original_case_details_page.original_claimant_details.locality_question).to have_no_error, 'Expected claimant locality not to have an error'
     expect(refund_original_case_details_page.original_claimant_details.county_question).to have_no_error, 'Expected claimant county not to have an error'
   end
@@ -138,9 +138,9 @@ end
 
 def and_all_mandatory_respondent_address_fields_in_the_refund_case_details_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_original_case_details_page.original_respondent_details.name_question.error.text).to eql "Enter the respondent's name"
-    expect(refund_original_case_details_page.original_respondent_details.building_question.error.text).to eql "Enter the building number or name from the respondent's address"
-    expect(refund_original_case_details_page.original_respondent_details.street_question.error.text).to eql "Enter the street from the respondent's address"
+    expect(refund_original_case_details_page.original_respondent_details.name_question.error).to have_content "Enter the respondent's name"
+    expect(refund_original_case_details_page.original_respondent_details.building_question.error).to have_content "Enter the building number or name from the respondent's address"
+    expect(refund_original_case_details_page.original_respondent_details.street_question.error).to have_content "Enter the street from the respondent's address"
     expect(refund_original_case_details_page.original_respondent_details.locality_question).to have_no_error, 'Expected respondent locality not to have an error'
     expect(refund_original_case_details_page.original_respondent_details.post_code_question).to have_no_error, 'Expected respondent post code not to have an error'
     expect(refund_original_case_details_page.original_respondent_details.county_question).to have_no_error, 'Expected respondent county not to have an error'
@@ -149,21 +149,21 @@ end
 
 def and_all_mandatory_representative_address_fields_in_the_refund_case_details_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_original_case_details_page.original_representative_details.name_question.error.text).to eql "Enter the representative's name"
-    expect(refund_original_case_details_page.original_representative_details.building_question.error.text).to eql "Enter the building number or name from the representative's address"
-    expect(refund_original_case_details_page.original_representative_details.street_question.error.text).to eql "Enter the street from the representative's address"
-    expect(refund_original_case_details_page.original_representative_details.post_code_question.error.text).to eql "Enter the representative's post code"
+    expect(refund_original_case_details_page.original_representative_details.name_question.error).to have_content "Enter the representative's name"
+    expect(refund_original_case_details_page.original_representative_details.building_question.error).to have_content "Enter the building number or name from the representative's address"
+    expect(refund_original_case_details_page.original_representative_details.street_question.error).to have_content "Enter the street from the representative's address"
+    expect(refund_original_case_details_page.original_representative_details.post_code_question.error).to have_content "Enter the representative's post code"
     expect(refund_original_case_details_page.original_representative_details.locality_question).to have_no_error, 'Expected rep locality not to have an error'
     expect(refund_original_case_details_page.original_representative_details.county_question).to have_no_error, 'Expected rep county not to have an error'
   end
 end
 
 def and_the_had_representative_field_in_the_refunds_case_details_should_be_marked_with_an_error
-  expect(refund_original_case_details_page.claim_had_representative_question.error.text).to eql "Please select Yes or No"
+  expect(refund_original_case_details_page.claim_had_representative_question.error).to have_content "Please select Yes or No"
 end
 
 def and_the_country_of_claim_field_in_the_refunds_case_details_should_be_marked_with_an_error
-  expect(refund_original_case_details_page.original_case_details.et_country_of_claim_question.error.text).to eql "Please select the country where your case was heard"
+  expect(refund_original_case_details_page.original_case_details.et_country_of_claim_question.error).to have_content "Please select the country where your case was heard"
 end
 
 def and_i_answer_yes_to_the_had_representative_question_for_refunds
@@ -175,7 +175,7 @@ end
 
 def and_all_mandatory_case_details_fields_in_the_refund_case_details_should_be_marked_with_an_error
   aggregate_failures do
-    expect(refund_original_case_details_page.original_case_details.et_country_of_claim_question.error.text).to eql "Please select the country where your case was heard"
+    expect(refund_original_case_details_page.original_case_details.et_country_of_claim_question.error).to have_content "Please select the country where your case was heard"
     expect(refund_original_case_details_page.original_case_details.et_case_number_question).to have_no_error
     expect(refund_original_case_details_page.original_case_details.eat_case_number_question).to have_no_error
     expect(refund_original_case_details_page.original_case_details.et_tribunal_office_question).to have_no_error
@@ -186,7 +186,7 @@ end
 def then_i_should_see_the_following_errors_in_the_case_details_section_of_the_refund_case_details_step(table_hashes)
   # table is a table_hashes.keys # => [:field, :error]
   table_hashes.each do |hash|
-    expect(refund_original_case_details_page.original_case_details.send("#{hash[:field]}_question".to_sym).error.text).to eql hash[:error]
+    expect(refund_original_case_details_page.original_case_details.send("#{hash[:field]}_question".to_sym).error).to have_content hash[:error]
   end
 end
 
@@ -200,11 +200,11 @@ def then_i_should_see_too_many_chars_message_in_the_additional_information_field
 end
 
 def and_the_has_your_address_changed_field_in_the_refund_case_details_should_be_marked_with_an_error
-  expect(refund_original_case_details_page.address_changed_question.error.text).to eql 'Please select Yes or No'
+  expect(refund_original_case_details_page.address_changed_question.error).to have_content 'Please select Yes or No'
 end
 
 def and_the_had_representative_field_in_the_refund_case_details_should_be_marked_with_an_error
-  expect(refund_original_case_details_page.claim_had_representative_question.error.text).to eql 'Please select Yes or No'
+  expect(refund_original_case_details_page.claim_had_representative_question.error).to have_content 'Please select Yes or No'
 end
 
 def then_the_where_was_your_claim_issued_field_in_the_applicant_page_should_have_the_correct_default_option_selected
