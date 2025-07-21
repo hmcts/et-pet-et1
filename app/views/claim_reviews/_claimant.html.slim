@@ -18,7 +18,7 @@ div.govuk-summary-list__row
   dd.govuk-summary-list__value
     - Array(claimant.allow_phone_or_video_attendance).each do |value|
       = t "claim_reviews.item.claimant.allow_phone_or_video_attendance.options.#{value}"
-= render 'answer', section_name: 'claimant', question: 'allow_phone_or_video_reason' do
+= render 'answer', section_name: 'claimant', question: 'allow_phone_or_video_reason.label' do
   = claimant.allow_phone_or_video_reason
 = render 'answer', section_name: 'claimant', question: 'telephone_number' do
   = claimant.address_telephone_number
