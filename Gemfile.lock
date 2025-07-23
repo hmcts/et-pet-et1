@@ -23,10 +23,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: 74d36281347816bbc69cd10d0e7c6e6fd4d415ed
-  tag: v7.0.1
+  revision: 1fb35a368310f4b2e33489a556eff3888588d783
+  tag: v7.2.2
   specs:
-    et_gds_design_system (7.0.1)
+    et_gds_design_system (7.2.2)
       govuk_design_system_formbuilder (~> 5.3.0)
       rack
       rails (>= 6.0)
@@ -257,7 +257,7 @@ GEM
       roda (~> 3.48)
       thor (~> 1.1)
       tilt (~> 2.0, >= 2.0.10)
-    govuk_design_system_formbuilder (5.3.0)
+    govuk_design_system_formbuilder (5.3.3)
       actionview (>= 6.1)
       activemodel (>= 6.1)
       activesupport (>= 6.1)
@@ -337,16 +337,16 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.4)
-    nokogiri (1.18.8)
+    nokogiri (1.18.9)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.18.8-aarch64-linux-musl)
+    nokogiri (1.18.9-aarch64-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.18.8-arm-linux-gnu)
+    nokogiri (1.18.9-arm-linux-gnu)
       racc (~> 1.4)
-    nokogiri (1.18.8-arm64-darwin)
+    nokogiri (1.18.9-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.18.8-x86_64-linux-gnu)
+    nokogiri (1.18.9-x86_64-linux-gnu)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
@@ -544,7 +544,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.1.5)
     temple (0.10.3)
-    thor (1.3.2)
+    thor (1.4.0)
     tilt (2.3.0)
     timeout (0.4.3)
     turbolinks (5.2.1)
