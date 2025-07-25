@@ -54,19 +54,19 @@ en:
         email_address: Email
         contact_preference: Preferred contact
         allow_phone_or_video_attendance:
-          label:  Would you be able to take part in hearings by video and phone?
+          label: Would you be able to take part in hearings by video and phone?
           options:
             "phone": "Yes, I can take part in phone hearings"
             "video": "Yes, I can take part in video hearings"
             "neither": "None"
         allow_phone_or_video_reason:
-          label: "Eglurwch pam na allwch chi gymryd rhan mewn gwrandawiad fideo na gwrandawiad"
+          label: "Explain why you are unable to take part in video or phone hearings"
 
         is_disabled:
           label: Assistance required at the tribunal?
           options:
-            true: 'Yes'
-            false: 'No'
+            true: "Yes"
+            false: "No"
         has_representative: Representative
 
       additional_claimants:
