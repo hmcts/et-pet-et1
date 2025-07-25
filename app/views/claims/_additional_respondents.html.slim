@@ -32,4 +32,6 @@
     = t'.additional_respondents_limit', max: Rails.application.config.additional_respondents_limit
 - content_for(:javascripts)
   javascript:
-    Et.pages.claims.AdditionalRespondentsPage()
+    document.addEventListener("turbolinks:load", function() {
+      Et.pages.claims.AdditionalRespondentsPage()
+    });

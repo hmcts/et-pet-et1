@@ -24,4 +24,6 @@
       data: { 'multiple-add': true }
 - content_for(:javascripts)
   javascript:
-    Et.pages.claims.AdditionalClaimantsPage()
+    document.addEventListener("turbolinks:load", function() {
+      Et.pages.claims.AdditionalClaimantsPage()
+    });

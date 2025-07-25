@@ -36,6 +36,7 @@ describe 'Multiple claimants', :js, type: :feature do
   describe 'adding claimants' do
     before do
       group_claims_page.load
+      group_claims_page.wait_until_displayed
       group_claims_page.fill_in_all(secondary_claimants: [claimant_factory])
     end
 
@@ -53,7 +54,7 @@ describe 'Multiple claimants', :js, type: :feature do
       group_claims_page.
         append_secondary_claimants([extra_claimant]).
         save_and_continue
-      expect(page).to have_no_content("Group claims")
+      representatives_details_page.wait_until_displayed
       expect(claim.secondary_claimants.pluck(:last_name)).to contain_exactly(claimant_factory.last_name, extra_claimant.last_name)
     end
 

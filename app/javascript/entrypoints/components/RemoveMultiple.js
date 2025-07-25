@@ -21,7 +21,7 @@ function setupClickHandler() {
 
 function setInitialState() {
   const multiples = document.querySelectorAll('.multiple');
-  if(multiples.length <= 1) {
+  if(multiples.length === 1) {
     multiples[0].querySelector('a[data-multiple-remove]').style.display = 'none';
     updateCount();
     return;

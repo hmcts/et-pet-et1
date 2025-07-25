@@ -37,4 +37,6 @@
           p = t '.what_is_dx.summary'
 - content_for(:javascripts)
   javascript:
-    Et.pages.claims.RepresentativePage()
+    document.addEventListener("turbolinks:load", function() {
+      Et.pages.claims.RepresentativePage()
+    });
