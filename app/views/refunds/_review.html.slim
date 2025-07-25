@@ -233,6 +233,6 @@ div class=("review-list-entry applicant")
   = f.submit 'Submit Claim', class: ['behavior-continue-button']
 - content_for(:javascripts)
   javascript:
-      $(document).ready(function () {
+      document.addEventListener("turbolinks:load", function() {
           Et.pages.refunds.ReviewPage()
       });

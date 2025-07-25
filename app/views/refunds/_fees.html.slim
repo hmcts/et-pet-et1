@@ -61,4 +61,4 @@ fieldset.fees_copy data-behavior="help"
         span data-behavior='total_fees' = "0.00"
 - content_for(:javascripts)
   javascript:
-    $(document).ready(function() { Et.pages.refunds.FeesPage() });
+    document.addEventListener("turbolinks:load", function() { Et.pages.refunds.FeesPage() });

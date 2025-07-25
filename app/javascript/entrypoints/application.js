@@ -1,28 +1,27 @@
-/* eslint no-console:0 */
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+// To see this message, add the following to the `<head>` section in your
+// views/layouts/application.html.erb
 //
-// To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
-// layout file, like app/views/layouts/application.html.erb
+//    <%= vite_client_tag %>
+//    <%= vite_javascript_tag 'application' %>
+console.log("Vite ⚡️ Rails");
 
-
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
+// If using a TypeScript entrypoint file:
+//     <%= vite_typescript_tag 'application' %>
 //
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-import 'core-js';
+// If you want to use .jsx or .tsx, add the extension:
+//     <%= vite_javascript_tag 'application.jsx' %>
+
+console.log(
+  "Visit the guide for more information: ",
+  "https://vite-ruby.netlify.app/guide/rails",
+);
+import "core-js";
 import "./controllers";
 import AdditionalClaimantsUploadPage from "./pages/claims/AdditionalClaimantsUploadPage";
 
-const images = require.context('./csv', true);
-import {EtGdsDesignSystem } from "et_gds_design_system"
-import "et_gds_design_system/stylesheet"
-import "./stylesheets/application.scss"
-require("@rails/ujs").start();
+import { EtGdsDesignSystem } from "et_gds_design_system";
+import "./stylesheets/application.scss";
+import "@rails/ujs"
 import ClaimantPage from "./pages/claims/ClaimantPage";
 import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
 import RepresentativePage from "./pages/claims/RepresentativePage";
@@ -38,7 +37,7 @@ import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
 import GuidesPage from "./pages/claims/GuidesPage";
 EtGdsDesignSystem.initAll();
 window.Et = {
-  pages:{
+  pages: {
     claims: {
       ClaimantPage: ClaimantPage,
       AdditionalClaimantsPage: AdditionalClaimantsPage,
@@ -50,14 +49,28 @@ window.Et = {
       EmploymentPage: EmploymentPage,
       ClaimTypePage: ClaimTypePage,
       ClaimConfirmationPage: ClaimConfirmationPage,
-      GuidesPage: GuidesPage
+      GuidesPage: GuidesPage,
     },
     refunds: {
       ApplicantPage: RefundApplicantPage,
-      FeesPage: RefundFeesPage
-    }
+      FeesPage: RefundFeesPage,
+    },
   },
   components: {
-    SessionPrompt
-  }
+    SessionPrompt,
+  },
 };
+
+// Example: Load Rails libraries in Vite.
+//
+// import * as Turbo from '@hotwired/turbo'
+// Turbo.start()
+//
+// import ActiveStorage from '@rails/activestorage'
+// ActiveStorage.start()
+//
+// // Import all channels.
+// const channels = import.meta.globEager('./**/*_channel.js')
+
+// Example: Import a stylesheet in app/frontend/index.css
+// import '~/index.css'

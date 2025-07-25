@@ -1,11 +1,11 @@
 ActiveAdmin.setup do |config|
+  config.use_webpacker = true # Technically not using webpacker, but this is a workaround for use with vite
   # == Site Title
   #
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
   config.site_title = "ET Fees Claim Metadata"
-  config.use_webpacker = true
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -236,3 +236,14 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 end
+module ActiveAdminViteJS
+  def stylesheet_pack_tag(style, **options)
+    # noop as the stylesheet comes from the vite build via vite_javascript_tag
+  end
+
+  def javascript_pack_tag(script, **options)
+    vite_javascript_tag(script, **options)
+  end
+end
+
+ActiveAdmin::Views::Pages::Base.include ActiveAdminViteJS

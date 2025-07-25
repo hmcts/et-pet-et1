@@ -8,7 +8,9 @@
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
   - if start_session_timer?
     javascript:
-      Et.components.SessionPrompt.init();
+      document.addEventListener("turbolinks:load", function() {
+        Et.components.SessionPrompt.init();
+      });
 
 // @TODO Check on removed content here
 - content_for :after_header do

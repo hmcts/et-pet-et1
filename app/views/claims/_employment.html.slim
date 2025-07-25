@@ -41,4 +41,6 @@
         = f.text_field :new_job_gross_pay, prefix_text: "£"
 - content_for(:javascripts)
 javascript:
-  Et.pages.claims.EmploymentPage()
+  document.addEventListener("turbolinks:load", function() {
+    Et.pages.claims.EmploymentPage()
+  });
