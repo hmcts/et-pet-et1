@@ -31,5 +31,5 @@ FileUtils.chdir APP_ROOT do
   system! 'DISABLE_ADMIN=true bin/rails db:create db:migrate db:seed'
 
   puts "\n== Starting app and sidekiq =="
-  system! "cd #{APP_ROOT} && invoker start"
+  system! "cd #{APP_ROOT} && invoker start Procfile"
 end
