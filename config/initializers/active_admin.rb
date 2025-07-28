@@ -236,14 +236,3 @@ ActiveAdmin.setup do |config|
   #
   # config.filters = true
 end
-module ActiveAdminViteJS
-  def stylesheet_pack_tag(style, **options)
-    # noop as the stylesheet comes from the vite build via vite_javascript_tag
-  end
-
-  def javascript_pack_tag(script, **options)
-    vite_javascript_tag(script, **options)
-  end
-end
-
-ActiveAdmin::Views::Pages::Base.include ActiveAdminViteJS
