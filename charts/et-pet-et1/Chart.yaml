@@ -6,9 +6,9 @@ home: https://github.com/hmcts/et-pet-et1
 version: 0.0.26
 dependencies:
   - name: base
-    version: 1.4.0
+    version: 1.4.1-beta
     repository: 'oci://hmctspublic.azurecr.io/helm'
   - name: base
-    version: 1.4.0
+    version: 1.4.1-beta
     alias: sidekiq
     repository: 'oci://hmctspublic.azurecr.io/helm'
