@@ -4,7 +4,3 @@ base:
   ingressHost: ${SERVICE_FQDN}
   environment:
     DYNATRACE_UI_TRACKING_ID: "bf24054dsx/4bf1f9dd4856af92"
-sidekiq:
-  # Don't modify below here
-  image: ${IMAGE_NAME}
-  ingressHost: ${SERVICE_FQDN}

@@ -7,8 +7,4 @@ version: 0.0.26
 dependencies:
   - name: base
     version: 1.4.0
-    repository: 'oci://hmctspublic.azurecr.io/helm'
-  - name: base
-    version: 1.4.0
-    alias: sidekiq
-    repository: 'oci://hmctspublic.azurecr.io/helm'
+    repository: "oci://hmctspublic.azurecr.io/helm"

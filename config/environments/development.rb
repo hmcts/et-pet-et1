@@ -77,7 +77,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :solid_queue
 
   config.redis_database = ENV.fetch('REDIS_DATABASE', '4')
   default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}/#{config.redis_database}"

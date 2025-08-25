@@ -93,7 +93,7 @@ end
 group :production, :test, :development do
   gem "sentry-rails", "~> 5.17"
   gem "sentry-ruby", "~> 5.17"
-  gem "sentry-sidekiq", "~> 5.17"
+
 end
 
 gem 'activeadmin', '~> 3.2'
@@ -106,9 +106,7 @@ gem 'et_gds_design_system', git: 'https://github.com/hmcts/et_gds_design_system.
 gem 'invisible_captcha', '~> 2.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'
-gem 'sidekiq', '< 7'
-gem 'sidekiq_alive', '~> 2.1'
-gem 'sidekiq-failures', '~> 1.0'
+gem 'solid_queue', '~> 1.1'
 gem 'slim-rails', '~> 3.2'
 gem 'typhoeus', '~> 1.4'
 gem 'uk_postcode', '~> 2.1'

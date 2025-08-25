@@ -1,2 +1,2 @@
 web: bundle exec puma --port 8080
-sidekiq: bundle exec sidekiq -c 5 -v
+solid_queue: bundle exec rake solid_queue:start

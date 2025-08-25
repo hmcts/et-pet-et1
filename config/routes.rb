@@ -1,5 +1,3 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
   match "/404", :to => "errors#not_found", :via => :all
   match "/422", :to => "errors#unprocessable", :via => :all
@@ -88,7 +86,6 @@ Rails.application.routes.draw do
     get '/cy/apply/users', to: redirect('/cy/apply/application-number')
     root to: redirect('/apply')
     get '/:locale/apply/admin', to: redirect('/apply/admin')
-    get '/:locale/apply/sidekiq', to: redirect('/apply/sidekiq')
 
   end
 
@@ -99,7 +96,6 @@ Rails.application.routes.draw do
       unless ENV.fetch('DISABLE_ADMIN', 'false') == 'true'
         ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
       end
-      mount Sidekiq::Web => '/sidekiq'
     end
   end
 

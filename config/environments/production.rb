@@ -21,7 +21,7 @@ Rails.application.configure do
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?# 
+  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?#
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
@@ -55,7 +55,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  # config.active_job.queue_adapter = :resque
+  config.active_job.queue_adapter = :solid_queue
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -114,7 +114,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :solid_queue
 
   config.secure_cookies = ENV.fetch('SECURE_SESSION_COOKIE', 'true').downcase == 'true'
 

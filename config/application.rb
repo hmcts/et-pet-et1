@@ -59,7 +59,7 @@ module App
     default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}"
     config.redis_url = ENV.fetch('REDIS_URL', default_redis_url) + "/#{config.redis_database}"
 
-    role_suffix = Sidekiq.server? ? '-SIDEKIQ' : ''
+    role_suffix = SolidQueue.supervisor? ? '-SOLIDQUEUE' : ''
     insights_key = ENV.fetch('AZURE_APP_INSIGHTS_KEY', false)
     if insights_key
       config.azure_insights.enable = true
