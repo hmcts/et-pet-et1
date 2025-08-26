@@ -30,7 +30,9 @@ Rails.application.routes.draw do
       resource :guide,              only: :show
       resource :terms,              only: :show
       resource :cookies,            only: %i<edit update create>, path_names: { edit: '/' }
-      resource :claim_review,       only: %i<show update>, path: :review
+      resource :claim_review,       only: %i<show update>, path: :review do
+        get :in_progress
+      end
       resource :claim_confirmation, only: :show, path: :confirmation
 
       resource :claim, only: :create, path: "/" do
@@ -95,6 +97,10 @@ Rails.application.routes.draw do
     devise_scope :admin_user do
       unless ENV.fetch('DISABLE_ADMIN', 'false') == 'true'
         ActiveAdmin.routes(self) unless $ARGV.include?('db:create')
+
+        authenticate :admin_user do
+          mount MissionControl::Jobs::Engine, at: "/jobs"
+        end
       end
     end
   end

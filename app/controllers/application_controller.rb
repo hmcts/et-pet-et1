@@ -21,7 +21,10 @@ class ApplicationController < ActionController::Base
   class << self
     def redispatch_request(opts = {})
       states = Array(opts.delete(:unless))
+      except_actions = Array(opts.delete(:except))
       before_action(opts) do
+        next if except_actions.include?(action_name.to_sym)
+
         redispatch_request! unless states.any? { |state| claim.try state }
       end
     end

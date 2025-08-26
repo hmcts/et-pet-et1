@@ -5,6 +5,10 @@ base:
   aadIdentityName: et-pet
   startupPeriod: 12
   startupFailureThreshold: 10
+  cpuLimits: "1000m"
+  memoryLimits: "2048Mi"
+  cpuRequests: "400m"
+  memoryRequests: "512Mi"
   environment:
     SECRETS_PATH: "/mnt/secrets/et-pet"
     RAILS_LOG_TO_STDOUT: true

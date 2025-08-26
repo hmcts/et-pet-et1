@@ -1,0 +1,12 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-menu is-active mb-4">
+    <div class="navbar-start">
+      <%= link_to "Back to main app", "/apply/admin" %>
+    </div>
+
+    <div class="navbar-end">
+      <%= render "layouts/mission_control/jobs/application_selection/servers", application: @application %>
+      <%= render "layouts/mission_control/jobs/application_selection/applications" if selectable_applications.any? %>
+    </div>
+  </div>
+</nav>

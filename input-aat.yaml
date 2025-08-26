@@ -14,12 +14,7 @@ env:
   SMTP_USERNAME: <azure-secret:et-smtp-sendgrid-username>
   SMTP_PASSWORD: <azure-secret:et-smtp-sendgrid-password>
   RAVEN_DSN: <azure-secret:stg-et1-raven-dsn>
-  PAYMENT_GATEWAY_PING_ENDPOINT: <azure-secret:stg-et1-payment-gateway-ping-endpoint>
-  GOVUK_NOTIFY_API_KEY_LIVE: <azure-secret:prod-et-govuk-notify-api-key>
-  REDIS_PASSWORD: <azure-secret:stg-et1-redis-password>
-  REDIS_URL: <azure-secret:stg-et1-redis-url>
-  DB_HOST: employment-tribunals-et1-stg.postgres.database.azure.com
-  DB_PORT: 5432
+
   DB_USERNAME: employment_tribunals_postgresql_user@employment-tribunals-et1-stg
   DB_NAME: et1
   RAILS_LOG_TO_STDOUT: true

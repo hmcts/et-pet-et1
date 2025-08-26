@@ -155,3 +155,16 @@ en:
       email_addresses:
         label: "A copy of the completed claim will be sent to:"
       add_email_address: Add email address
+
+    in_progress:
+      page_title: Claim Submission
+      error_header: "Your claim is being submitted"
+      error_description: "There has been a delay submitting your claim. We are continuing to try to submit it in the background"
+      what_happens_next: "What happens next"
+      wait_for_page: "It is safe to close this page or you can leave it open and wait for your claim to be submitted."
+      wait_for_email: "Your claim information has been captured and you will receive an email once it has been submitted"
+      process_questions: "For questions about the employment tribunal process"
+      process_questions_content: "Call one of our Employment Tribunal customer contact centres. They cannot give you legal advice."
+      submission_feedback: "Your feedback"
+      feedback_content: "We'd like your feedback on this service so we can improve it."
+      return_link: "Give feedback"
