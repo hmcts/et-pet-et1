@@ -341,13 +341,11 @@ RSpec.describe SubmitClaimToApiService, type: :service do
 
       end
 
-      it 'is not valid' do
-        expect(service).not_to be_valid
-      end
-
-      it 'has errors' do
-        service.valid?
-        expect(service.errors).to be_present
+      it 'raises a ValidationError exception' do
+        expect { described_class.call example_claim }.to raise_error(ApiService::ValidationError) do |error|
+          expect(error.retry?).to be false
+          expect(error.message).to include('Validation failed: Invalid address')
+        end
       end
     end
 

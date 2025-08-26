@@ -235,4 +235,13 @@ ActiveAdmin.setup do |config|
   # You can enable or disable them for all resources here.
   #
   # config.filters = true
+
+  # == Custom Menu Items
+  #
+  # Add custom navigation menu items
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: "Job Queue", url: "/apply/jobs", priority: 99
+    end
+  end
 end

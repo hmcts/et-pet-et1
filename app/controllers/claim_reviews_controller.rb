@@ -1,5 +1,5 @@
 class ClaimReviewsController < ApplicationController
-  redispatch_request unless: :created?
+  redispatch_request unless: :created?, except: :in_progress
   before_action :check_session_expiry
   helper_method :null_object
 
@@ -17,15 +17,28 @@ class ClaimReviewsController < ApplicationController
 
   def update
     claim.update confirmation_email_recipients: email_addresses
-    response = EtApi.create_claim(claim)
-    if response.valid?
+
+    begin
+      response = EtApi.create_claim(claim)
       claim_update(response)
       create_office(response)
       redirect_to claim_confirmation_path
-    else
-      claim.update state: 'submission_failed'
-      raise "An error occured in the API - #{response.errors.full_messages}"
+    rescue ApiService::BaseException => e
+      if e.retry?
+        # Server errors, network issues, and other recoverable errors should retry
+        claim.update! state: 'enqueued_for_submission'
+        SubmitClaimToApiJob.perform_later(claim)
+        redirect_to action: :in_progress
+      else
+        # Non-recoverable errors (validation errors, client errors) should not retry
+        claim.update! state: 'submission_failed'
+        raise "An error occured in the API - #{e.message}"
+      end
     end
+  end
+
+  def in_progress
+    redirect_to claim_confirmation_path if claim.submitted?
   end
 
   private
