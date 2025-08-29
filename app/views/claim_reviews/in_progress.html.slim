@@ -1,0 +1,37 @@
+- content_for :head
+  meta(http-equiv="refresh" content="#{Rails.application.config.browser_poll_time}")
+- content_for :page_title, "#{t('claim_reviews.in_progress.page_title')} | Employment Tribunal"
+
+.main-header role="banner"
+  h1.govuk-heading-xl.govuk-!-margin-top-9 = t('claim_reviews.in_progress.error_header')
+
+.govuk-grid-row
+  .govuk-grid-column-two-thirds-from-desktop
+    .content-body.form-submission--in-progress
+      p.govuk-body
+        = t('claim_reviews.in_progress.error_description')
+        = '.'
+
+      h2.govuk-heading-m
+        = t('claim_reviews.in_progress.what_happens_next')
+      ul.govuk-list.govuk-list--bullet
+        li.govuk-body = t('claim_reviews.in_progress.wait_for_page')
+        li.govuk-body = t('claim_reviews.in_progress.wait_for_email')
+
+      h2.govuk-heading-m = t('claim_reviews.in_progress.process_questions')
+      p.govuk-body = t('claim_reviews.in_progress.process_questions_content')
+      p.govuk-body Telephone: 0300 109 0131
+      p.govuk-body Telephone: 0300 333 0145 (Welsh language)
+      p.govuk-body Telephone: 0300 790 6234 (Scotland)
+
+      h2.govuk-heading-m
+        strong.bold = t('claim_reviews.in_progress.submission_feedback')
+
+      p.govuk-body
+        = t('claim_reviews.in_progress.feedback_content')
+      br
+
+      = link_to 'https://www.smartsurvey.co.uk/s/ET12020/', class: 'govuk-button govuk-button--start'
+        = t('claim_reviews.in_progress.return_link')
+        svg.govuk-button__start-icon xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false"
+          path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"

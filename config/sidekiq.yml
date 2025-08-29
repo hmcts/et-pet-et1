@@ -1,8 +1,0 @@
-:concurrency: 5
-:queues:
-  - mailers
-  - feedback_submission
-  - claim_submission
-  - fee_group_reference
-  - diversity_form
-  - sidekiq_alive
