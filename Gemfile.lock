@@ -358,7 +358,10 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.6)
+    pg (1.6.1)
+    pg (1.6.1-aarch64-linux-musl)
+    pg (1.6.1-arm64-darwin)
+    pg (1.6.1-x86_64-linux)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
