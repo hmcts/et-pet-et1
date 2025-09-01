@@ -16,6 +16,16 @@ class ValidateClaimantsFileViaApiService < ApiService
     self
   end
 
+  def generate_errors
+    return unless response.code == 422
+
+    if response_data['status'] == 'not_accepted'
+      generate_custom_errors
+    else
+      errors.add :base, :unknown_422_error_from_api
+    end
+  end
+
   def generate_custom_errors
     response_data['errors'].each do |error|
       source = error['source'] == '/' ? :base : error['source']

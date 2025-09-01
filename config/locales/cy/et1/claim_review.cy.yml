@@ -63,8 +63,8 @@ cy:
         is_disabled:
           label: "Angen cymorth yn y tribiwnlys?"
           options:
-            true: 'Ydw'
-            false: 'Nac ydw'
+            true: "Ydw"
+            false: "Nac ydw"
         has_representative: Cynrychiolydd
 
       additional_claimants:
@@ -152,3 +152,16 @@ cy:
       email_addresses:
         label: "Fe anfonir copi o'r hawliad wedi'i gwblhau at:"
       add_email_address: Ychwanegu cyfeiriad e-bost
+
+    in_progress:
+      page_title: Cyflwyno Hawliad
+      error_header: "Mae eich hawliad yn cael ei gyflwyno"
+      error_description: "Bu oedi wrth gyflwyno eich hawliad. Rydym yn parhau i geisio ei gyflwyno yn y cefndir"
+      what_happens_next: "Beth sy'n digwydd nesaf"
+      wait_for_page: "Mae'n ddiogel i gau'r dudalen hon neu gallwch ei gadael ar agor ac aros i'ch hawliad gael ei gyflwyno."
+      wait_for_email: "Mae gwybodaeth eich hawliad wedi'i chipio a byddwch yn derbyn e-bost unwaith y bydd wedi'i gyflwyno"
+      process_questions: "I gael cwestiynau am y broses tribiwnlys cyflogaeth"
+      process_questions_content: "Ffoniwch un o'n canolfannau cyswllt cwsmeriaid Tribiwnlys Cyflogaeth. Ni allant roi cyngor cyfreithiol i chi."
+      submission_feedback: "Eich adborth"
+      feedback_content: "Hoffem eich adborth ar y gwasanaeth hwn fel y gallwn ei wella."
+      return_link: "Rhoi adborth"

@@ -25,14 +25,8 @@ describe 'Claim applications', :js, type: :feature do
   let(:ui_claim_outcome) { build(:ui_claim_outcome, :default) }
   let(:ui_more_about_the_claim) { build(:ui_more_about_the_claim, :default) }
 
-  around do |example|
-    ClimateControl.modify ET_API_URL: et_api_url do
-      example.run
-    end
-  end
-
-  before do
-    essential_response_data = {
+  let(:successful_api_response_data) {
+    {
       meta: {
         BuildClaim: {
           pdf_url: example_pdf_url,
@@ -47,9 +41,47 @@ describe 'Claim applications', :js, type: :feature do
         }
       }
     }
-    stub_request(:post, build_claim_url).with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).to_return do |_request|
-      { body: essential_response_data.to_json, headers: { 'Content-Type': 'application/json' } }
+  }
+
+  def stub_successful_api_response
+    stub_request(:post, build_claim_url).
+      with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).
+      to_return(
+        status: 200,
+        headers: { 'Content-Type' => 'application/json' },
+        body: successful_api_response_data.to_json
+      )
+  end
+
+  around do |example|
+    ClimateControl.modify ET_API_URL: et_api_url do
+      example.run
     end
+  end
+
+  def wait_for_page_refresh(timeout: 10)
+    current_request_count = page.driver.network_traffic.count
+    current_url_path = current_path
+
+    Timeout.timeout(timeout) do
+      loop do
+        sleep(0.1)
+
+        all_requests = page.driver.network_traffic
+        new_requests = all_requests[current_request_count..-1] || []
+
+        refresh_request = new_requests.find do |exchange|
+          http_method = exchange.request&.method
+          exchange.url.include?(current_url_path) && http_method == 'GET'
+        end
+
+        return true if refresh_request
+
+        current_request_count = all_requests.count
+      end
+    end
+  rescue Timeout::Error
+    false
   end
 
   context 'when along the happy path' do
@@ -317,6 +349,8 @@ describe 'Claim applications', :js, type: :feature do
     end
 
     it 'Deselecting email confirmation recipients before submission' do
+      stub_successful_api_response
+
       complete_a_claim
       review_page.email_confirmation_section.email_recipients.set([])
       click_link_or_button 'Submit claim'
@@ -325,6 +359,8 @@ describe 'Claim applications', :js, type: :feature do
     end
 
     it 'Submitting the claim' do
+      stub_successful_api_response
+
       complete_a_claim
       click_link_or_button 'Submit claim'
 
@@ -338,6 +374,8 @@ describe 'Claim applications', :js, type: :feature do
     end
 
     it 'attempting a new claim after submission' do
+      stub_successful_api_response
+
       complete_a_claim
       click_link_or_button 'Submit claim'
 
@@ -347,7 +385,37 @@ describe 'Claim applications', :js, type: :feature do
       expect(saving_your_claim_page).to be_displayed
     end
 
+    it 'handles API failures by showing progress page, retrying in background, and eventually showing success' do
+      stub = stub_request(:post, build_claim_url).
+             with(headers: { 'Content-Type' => 'application/json', 'Accept' => 'application/json' }).
+             to_return(
+               status: 404,
+               headers: { 'Content-Type' => 'application/json' },
+               body: '{"error": "Service unavailable"}'
+             )
+
+      complete_a_claim
+      click_link_or_button 'Submit claim'
+
+      expect(claim_submission_in_progress_page).to be_displayed
+      expect(SubmitClaimToApiJob).to have_been_enqueued.with(an_instance_of(Claim)).at_least(:once)
+
+      # Wait for the meta refresh to happen while job is still failing
+      # This proves the fix: page should stay on in_progress (not crash with error)
+      expect(wait_for_page_refresh(timeout: Rails.application.config.browser_poll_time + 2)).to be true
+      expect(claim_submission_in_progress_page).to be_displayed
+
+      # Now allow the job to succeed
+      remove_request_stub(stub)
+      stub_successful_api_response
+
+      perform_enqueued_jobs only: SubmitClaimToApiJob
+      expect(claim_submitted_page).to be_displayed
+    end
+
     it 'Validating the API calls claimant data' do
+      stub_successful_api_response
+
       complete_a_claim
       click_link_or_button 'Submit claim'
       expect(a_request(:post, build_claim_url).
@@ -379,6 +447,8 @@ describe 'Claim applications', :js, type: :feature do
 
     context 'when downloading the PDF', :js do
       it 'when the file is available' do
+        stub_successful_api_response
+
         complete_a_claim
         click_link_or_button 'Submit claim'
         expect(claim_submitted_page).to have_save_a_copy_link
@@ -389,6 +459,8 @@ describe 'Claim applications', :js, type: :feature do
         let(:example_pdf_url) { test_invalid_pdf_url(host: "#{page.server.host}:#{page.server.port}") }
 
         it 'when the file is unavailable' do
+          stub_successful_api_response
+
           complete_a_claim
           click_link_or_button 'Submit claim'
           expect(claim_submitted_page).to have_invalid_save_a_copy_link
@@ -399,6 +471,8 @@ describe 'Claim applications', :js, type: :feature do
 
     context 'when viewing the confirmation page' do
       it 'with a single claimant without remission option' do
+        stub_successful_api_response
+
         complete_a_claim
         expect(page).to have_text 'Check your claim'
 

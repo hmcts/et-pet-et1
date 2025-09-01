@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'Request redispatch', type: :feature do
   include FormMethods
-
   context 'when the user is not signed' do
     describe 'accessing the claim form' do
       it 'redirects to the start page' do
