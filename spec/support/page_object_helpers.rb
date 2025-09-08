@@ -90,6 +90,11 @@ module ET1
         ::ET1::Test::ClaimSubmittedPage.new
       end
 
+      # @return [ET1::Test::ClaimSubmissionInProgressPage]
+      def claim_submission_in_progress_page
+        ::ET1::Test::ClaimSubmissionInProgressPage.new
+      end
+
       # @return [ET1::Test::NewClaimPage]
       def new_claim_page
         @new_claim_page ||= NewClaimPage.new

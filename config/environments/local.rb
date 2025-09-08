@@ -118,7 +118,7 @@ Rails.application.configure do
   config.action_mailer.default_options = { from: 'no-reply@lol.biz.info' }
   config.action_mailer.raise_delivery_errors = false
 
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :solid_queue
 
   # The google tag manager account - fetched from environment variable, defaulting to false.  An empty string in the env
   # var can also be used to disable.

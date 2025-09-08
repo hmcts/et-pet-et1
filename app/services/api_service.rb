@@ -32,6 +32,12 @@ class ApiService
     end
   end
 
+  class ValidationError < BaseException
+    def retry?
+      false
+    end
+  end
+
   class Timeout < BaseException
     def initialize(msg)
       super(msg, '{}')
@@ -111,15 +117,18 @@ class ApiService
   def generate_errors
     return unless response.code == 422
 
-    if response_data['status'] == 'not_accepted'
-      generate_custom_errors
-    else
-      errors.add :base, :unknown_422_error_from_api
+    unless response_data['status'] == 'not_accepted'
+      raise ValidationError.new("Unknown validation error from API", response.body)
     end
+
+    error_details = collect_error_details
+    raise ValidationError.new("Validation failed: #{error_details}", response.body)
   end
 
-  def generate_custom_errors
-    raise "Must be overridden in subclass"
+  def collect_error_details
+    return "Unknown validation errors" unless response_data['errors']
+
+    response_data['errors'].map { |error| error['detail'] }.join(', ')
   end
 
   attr_writer :response_data

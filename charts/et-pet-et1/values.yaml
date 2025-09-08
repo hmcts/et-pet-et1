@@ -5,6 +5,10 @@ base:
   aadIdentityName: et-pet
   startupPeriod: 12
   startupFailureThreshold: 10
+  cpuLimits: "1000m"
+  memoryLimits: "2048Mi"
+  cpuRequests: "400m"
+  memoryRequests: "512Mi"
   environment:
     SECRETS_PATH: "/mnt/secrets/et-pet"
     RAILS_LOG_TO_STDOUT: true
@@ -30,83 +34,6 @@ base:
     MAINTENANCE_ALLOWED_IPS: "109.157.179.51,151.225.112.106"
     SERVICE_FQDN: ${SERVICE_FQDN}
     DB_SSL_MODE: "require"
-  keyVaults:
-    et-pet:
-      secrets:
-        - name: et-pet-api-redis-url
-          alias: REDIS_URL
-        - name: et1-postgres-host
-          alias: DB_HOST
-        - name: et1-postgres-port
-          alias: DB_PORT
-        - name: et1-postgres-user
-          alias: DB_USERNAME
-        - name: et1-postgres-password
-          alias: DB_PASSWORD
-        - name: et1-postgres-database
-          alias: DB_NAME
-        - name: et1-google-analytics-id
-          alias: GOOGLE_ANALYTICS_ID
-        - name: et1-secret-key-base
-          alias: SECRET_KEY_BASE
-        - name: et1-secret-key-token
-          alias: SECRET_KEY_TOKEN
-        - name: et1-zendesk-group-id
-          alias: ZENDESK_GROUP_ID
-        - name: et1-zendesk-token
-          alias: ZENDESK_TOKEN
-        - name: et1-zendesk-url
-          alias: ZENDESK_URL
-        - name: et1-zendesk-user
-          alias: ZENDESK_USER
-        - name: sendgrid-username
-          alias: SMTP_USERNAME
-        - name: sendgrid-password
-          alias: SMTP_PASSWORD
-        - name: et1-raven-dsn
-          alias: RAVEN_DSN
-        - name: govuk-notify-api-key
-          alias: GOVUK_NOTIFY_API_KEY_LIVE
-        - name: et1-gtm-account
-          alias: GTM_ACCOUNT
-        - name: app-insights-instrumentation-key
-          alias: AZURE_APP_INSIGHTS_KEY
-sidekiq:
-  applicationPort: 7433
-  readinessPath: /health
-  livenessPath: /health
-  startupPath: /health
-  image: "hmctspublic.azurecr.io/et-pet/et1:latest"
-  ingressHost: et-pet-et1-sidekiq.{{ .Values.global.environment }}.platform.hmcts.net
-  aadIdentityName: et-pet
-  args: ['./run_sidekiq.sh']
-  environment:
-    SECRETS_PATH: "/mnt/secrets/et-pet"
-    RAILS_LOG_TO_STDOUT: true
-    ABSOLUTE_HOST: "http://et-stg-azure.staging.et.dsd.io"
-    CLOUD_PROVIDER: "azure"
-    HTTP_OPEN_TIMEOUT_S: 60
-    HTTP_READ_TIMEOUT_S: 60
-    ET_API_URL: "http://et-pet-api-{{ .Values.global.environment }}.service.core-compute-{{ .Values.global.environment }}.internal/api/v2"
-    SENDING_HOST: "https://et-stg-azure.staging.et.dsd.io"
-    WEB_CONCURRENCY: 2
-    RAILS_ENV: "production"
-    RAILS_LOG_LEVEL: "info"
-    SMTP_HOSTNAME: "smtp.sendgrid.net"
-    SMTP_PORT: 587
-    FLATTEN_PDF: false
-    FOO: "bar"
-    DOCKER_STATE: "migrate"
-    RAVEN_SSL_VERIFICATION: false
-    SERVICE_NOW_EMAIL: "DCD-ETOnlineServiceDesk@HMCTS.NET"
-    RAILS_SERVE_STATIC_FILES: true
-    AZURE_APP_INSIGHTS_ROLE_NAME: "ET1"
-    MAINTENANCE_ENABLED: false
-    MAINTENANCE_END: "9am (if you're seeing this message after this time it means things are taking a little longer than expected.) Please check back again soon."
-    MAINTENANCE_ALLOWED_IPS: "109.157.179.51,151.225.112.106"
-    SERVICE_FQDN: ${SERVICE_FQDN}
-    DB_SSL_MODE: "require"
-    DISABLE_ADMIN: "true"
   keyVaults:
     et-pet:
       secrets:

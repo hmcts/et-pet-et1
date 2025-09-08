@@ -14,7 +14,7 @@ module App
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    config.autoload_lib(ignore: %w[assets tasks])
+    config.autoload_lib(ignore: ['assets', 'tasks'])
 
     # Configuration for the application, engines, and railties goes here.
     #
@@ -53,13 +53,7 @@ module App
     config.secure_cookies = false
     config.exceptions_app = routes
 
-    config.redis_host = ENV.fetch('REDIS_HOST', 'localhost')
-    config.redis_port = ENV.fetch('REDIS_PORT', '6379')
-    config.redis_database = ENV.fetch('REDIS_DATABASE', '5')
-    default_redis_url = "redis://#{config.redis_host}:#{config.redis_port}"
-    config.redis_url = ENV.fetch('REDIS_URL', default_redis_url) + "/#{config.redis_database}"
-
-    role_suffix = Sidekiq.server? ? '-SIDEKIQ' : ''
+    role_suffix = SolidQueue.supervisor? ? '-SOLIDQUEUE' : ''
     insights_key = ENV.fetch('AZURE_APP_INSIGHTS_KEY', false)
     if insights_key
       config.azure_insights.enable = true
@@ -90,5 +84,9 @@ module App
     config.maintenance_end = ENV.fetch('MAINTENANCE_END', nil)
     config.et_gds_design_system.api_url = ENV.fetch('ET_API_URL', 'http://api.et.127.0.0.1.nip.io:3100/api')
     config.dynatrace_ui_tracking_id = ENV.fetch('DYNATRACE_UI_TRACKING_ID', nil)
+
+    config.mission_control.jobs.http_basic_auth_enabled = false
+    # Configurable page refresh time for in-progress submissions (in seconds)
+    config.browser_poll_time = 30
   end
 end

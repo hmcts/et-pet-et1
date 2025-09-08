@@ -14,14 +14,14 @@ Rails.application.configure do
 
   # Turn on fragment caching in view templates.
   config.action_controller.perform_caching = true
-    # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
-    config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  # Disable serving static files from `public/`, relying on NGINX/Apache to do so instead.
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Cache assets for far-future expiry since they are all digest stamped.
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?# 
+  config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
@@ -39,7 +39,7 @@ Rails.application.configure do
   config.logger = ActiveSupport::Logger.new($stdout).
                   tap  { |logger| logger.formatter = Logger::Formatter.new }.
                   then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
   config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
 
   # Change to "debug" to log everything (including potentially personally-identifiable information!)
@@ -55,7 +55,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Replace the default in-process and non-durable queuing backend for Active Job.
-  # config.active_job.queue_adapter = :resque
+  config.active_job.queue_adapter = :solid_queue
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -84,7 +84,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Only use :id for inspections in production.
-  config.active_record.attributes_for_inspect = [ :id ]
+  config.active_record.attributes_for_inspect = [:id]
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
@@ -114,7 +114,7 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
-  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_adapter = :solid_queue
 
   config.secure_cookies = ENV.fetch('SECURE_SESSION_COOKIE', 'true').downcase == 'true'
 
@@ -123,4 +123,7 @@ Rails.application.configure do
   config.google_tag_manager_account = ENV.fetch('GTM_ACCOUNT', false)
 
   config.service_now_inbox_email = ENV.fetch('SERVICE_NOW_EMAIL', nil)
+
+  # Configurable page refresh time for in-progress submissions (in seconds)
+  config.browser_poll_time = 30
 end

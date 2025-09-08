@@ -13,4 +13,4 @@ create)
     ;;
 esac
 
-bundle exec puma --port ${PORT:-8080}
+invoker start Procfile
