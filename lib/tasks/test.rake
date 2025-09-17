@@ -6,7 +6,11 @@ task test: :environment do
 end
 
 task 'test:smoke' => :environment do
-  puts "No smoke tests yet"
+  if system "bundle exec rspec spec/features/create_claim_applications_spec.rb"
+    puts "Smoke test passed"
+  else
+    raise "Smoke tests failed"
+  end
 end
 
 task 'test:functional' => :environment do
