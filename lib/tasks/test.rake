@@ -7,6 +7,7 @@ end
 
 task 'test:smoke' => :environment do
   if system "bundle exec rspec spec/features/create_claim_applications_spec.rb"
+    #Test test line
     puts "Smoke test passed"
   else
     raise "Smoke tests failed"
