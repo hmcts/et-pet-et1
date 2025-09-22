@@ -462,7 +462,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.9)
+    rexml (3.4.4)
     roda (3.79.0)
       rack
     rouge (4.2.1)
