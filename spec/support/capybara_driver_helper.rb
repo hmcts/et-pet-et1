@@ -36,5 +36,10 @@ end
 
 Capybara.always_include_port = true
 
-Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST') if ENV.key?('CAPYBARA_APP_HOST')
-Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST') if ENV.key?('CAPYBARA_SERVER_HOST')
+if ENV['TEST_URL'].present?
+  Capybara.app_host = ENV['TEST_URL']
+  Capybara.run_server = false
+else
+  Capybara.app_host = ENV.fetch('CAPYBARA_APP_HOST') if ENV.key?('CAPYBARA_APP_HOST')
+  Capybara.server_host = ENV.fetch('CAPYBARA_SERVER_HOST') if ENV.key?('CAPYBARA_SERVER_HOST')
+end

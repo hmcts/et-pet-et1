@@ -18,6 +18,6 @@ RSpec.configure do |config|
 
   Kernel.srand config.seed
 
-  config.filter_run :focus
-  config.run_all_when_everything_filtered = true
+  # config.filter_run :focus
+  # config.run_all_when_everything_filtered = true
 end
