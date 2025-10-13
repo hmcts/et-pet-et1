@@ -42,7 +42,7 @@ gem 'notifications-ruby-client', '~> 5.3'
 # bundle exec rake doc:rails generates the API under doc/api.
 # gem 'sdoc', '~> 0.4.0',          group: :doc
 
-gem 'rackup', '1.0.0', require: false
+gem 'rackup', '~> 2.2.1', require: false
 
 group :development, :test do
   gem 'awesome_print', '~> 1.9'
