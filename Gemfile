@@ -48,7 +48,7 @@ group :development, :test do
   gem 'awesome_print', '~> 1.9'
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
-  gem 'brakeman', '~> 6.1.2'
+  gem 'brakeman', '~> 7.0'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'debug'
@@ -57,17 +57,17 @@ group :development, :test do
   gem 'gov_fake_notify', '~> 2.0'
   gem 'launchy'
   gem 'listen', '~> 3.7'
-  gem 'parallel_tests', '~> 4.6.0'
-  gem 'rspec-its', '~> 1.2', require: 'rspec/its'
+  gem 'parallel_tests', '~> 5.0'
+  gem 'rspec-its', '~> 2.0', require: 'rspec/its'
   gem 'rspec_junit_formatter', '~> 0.6.0'
-  gem 'rspec-rails', '~> 6.0'
+  gem 'rspec-rails', '~> 8.0'
   gem 'rubocop', '~> 1.8', require: false
   gem 'rubocop-capybara', '~> 2.21', require: false
   gem 'rubocop-factory_bot', '~> 2.26', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', '~> 3.3', require: false
   gem 'rubocop-rspec_rails', '~> 2.30', require: false
-  gem 'shoulda-matchers', '~> 6.2'
+  gem 'shoulda-matchers', '~> 7.0'
   gem 'simplecov', '~> 0.21'
   gem 'spring', '~> 4.0'
   gem 'webrick', '~> 1.4', '>= 1.4.2'
@@ -81,7 +81,7 @@ group :test do
   gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.3'
   gem 'poltergeist', '~> 1.18'
   gem 'rails-controller-testing', '~> 1.0'
-  gem 'site_prism', '~> 5.0.1'
+  gem 'site_prism', '5.0.1'
   gem 'webmock', '~> 3.11'
 end
 

@@ -394,7 +394,7 @@ RSpec/SpecFilePathFormat:
   Enabled: false
 RSpec/VerifiedDoubleReference:
   Enabled: false
-RSpec/StringAsInstanceDoubleConstant:
+RSpec/VerifiedDoubleReference:
   Enabled: false
 RSpec/NoExpectationExample:
   Enabled: false
