@@ -29,7 +29,7 @@ class ClaimDetailsForm < Form
       'application/vnd.openxmlformats-officedocument.presentationml.presentation',
       'application/vnd.openxmlformats-officedocument.presentationml.template',
       'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'application/rtf', 'text/rtf', 'text/csv',
-      'application/csv', 'application/vnd.ms-excel'
+      'application/csv', 'application/vnd.ms-excel', 'application/x-ole-storage'
     ], message: I18n.t('errors.messages.rtf')
   }
 

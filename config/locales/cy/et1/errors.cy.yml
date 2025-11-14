@@ -9,11 +9,11 @@ cy:
       title: "Ni chaniateir ichi wneud y newid hwn."
       title_two: "Cysylltwch â gweinyddwr y wefan."
     service_unavailable:
-      title:  Nid yw’r gwasanaeth ar gael
+      title: Nid yw’r gwasanaeth ar gael
       title_two: Nid yw gwasanaeth ar-lein y tribiwnlys cyflogaeth ar gael ar hyn o bryd. Rhowch gynnig arall arni nes ymlaen.
 
     messages:
-      rtf: nid yw'n RTF
+      rtf: math ffeil annilys
       csv: nid yw'n CSV
     user_session:
       not_found: "Rydych wedi rhoi rhif hawliad annilys"
