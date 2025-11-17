@@ -20,10 +20,13 @@ cy:
       other_known_claimant_names:
         label: "Gallwch ychwanegu enwau unigolion eraill yma."
       claim_details_rtf:
-        label: Mae angen i'r ddogfen fod mewn Rich Text Format(RTF)
-        hint: "Fel arfer gallwch gadw dogfen fel ffeil RTF drwy ddewis File> Save As> Export To> Format: Rich Text Format"
+        label: Gallwch lwytho 1 dogfen yn unig.
+        hint: "Os ydych eisiau llwytho e-bost, yn gyntaf rhaid i chi lawrlwytho’r neges a’i throsi i fformat addas. Gan amlaf, gallwch lawrlwytho’r neges e-bost fel dogfen pdf neu PostScript."
         remove_file_button_text: Dileu ffeil
         file_selected_text: "Ffeil wedi'i dewis:"
+      claim_details_upload_file_formats:
+        header: Fformatau derbyniol
+        text: "Mae’r canlynol yn fformatau ffeiliau derbyniol: pdf, doc, docx, txt, dot, jpg, jpeg, bmp, tif, tiff, png, xls, xlt, xla, xlsx, xltx, ppt, pot, pps, ppa, pptx, potx, ppsx, rtf, csv."
       remove_claim_details_rtf:
         label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
       claim_details:

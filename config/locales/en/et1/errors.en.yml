@@ -12,7 +12,7 @@ en:
       title: Service unavailable
       title_two: The employment tribunal online service is currently unavailable. Please check back later.
     messages:
-      rtf: is not an RTF
+      rtf: Invalid file type
       csv: is not a CSV
     user_session:
       not_found: " You have entered an invalid claim number"

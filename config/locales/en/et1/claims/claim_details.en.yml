@@ -20,12 +20,14 @@ en:
       other_known_claimant_names:
         label: You can add the names of other people here.
       claim_details_rtf:
-        label: The document needs to be in Rich Text Format(RTF)
-        hint: "You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format"
+        label: You can only upload 1 document.
+        hint: "If you want to upload an email, download and convert from your email client first. Most email clients will give the option of downloading as pdf or PostScript."
         button_text: Choose File
         remove_file_button_text: Remove file
         file_selected_text: "File selected:"
-
+      claim_details_upload_file_formats:
+        header: Accepted formats
+        text: Accepted file formats are pdf, doc, docx, txt, dot, jpg, jpeg, bmp, tif, tiff, png, xls, xlt, xla, xlsx, xltx, ppt, pot, pps, ppa, pptx, potx, ppsx, rtf, csv.
       remove_claim_details_rtf:
         label: "Remove previously uploaded document: %{file}"
       claim_details:

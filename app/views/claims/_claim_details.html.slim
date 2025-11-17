@@ -10,13 +10,16 @@ details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors
   .govuk-inset-text.govuk-details__text
     = f.file_dropzone_field :claim_details_rtf,
       optional: true,
-      accepted_files: ['.rtf'],
+      accepted_files: ['.pdf', '.doc', '.docx', '.txt', '.dot', '.jpg', '.jpeg', '.bmp', '.tif', '.tiff', '.png', '.xls', '.xlt', '.xla', '.xlsx', '.xltx', '.ppt', '.pot', '.pps', '.ppa', '.pptx', '.potx', '.ppsx', '.rtf', '.csv'],
       hint: true,
       upload_button: true,
       remove_file_button: true
     - if resource.claim_form_details_rtf?
       = f.check_box :remove_claim_details_rtf, true, label: { text: t('.remove_claim_details_rtf.label', file: resource.attachment_filename) }
-
+details.govuk-details
+  summary.govuk-details__summary
+    span.govuk-details__summary-text= t('.claim_details_upload_file_formats.header')
+  .govuk-inset-text.govuk-details__text= t('.claim_details_upload_file_formats.text')
 = f.text_area :claim_details, max_chars: 2500, rows: 15
 
 = f.fieldset label: t('.similar_claims') do

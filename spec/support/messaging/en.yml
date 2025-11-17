@@ -359,8 +359,8 @@ en:
     enter_your_details_fieldset: Enter your details below
   claim_details:
     rtf_file:
-      label: The document needs to be in Rich Text Format(RTF)
-      hint: "You can usually save a file as RTF by selecting File> Save As> Export To> Format: Rich Text Format"
+      label: You can only upload 1 document.
+      hint: "If you want to upload an email, download and convert from your email client first. Most email clients will give the option of downloading as pdf or PostScript."
     remove_rtf_file:
       label: "Remove previously uploaded document:"
     claim_details:
