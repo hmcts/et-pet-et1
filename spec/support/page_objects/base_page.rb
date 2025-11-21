@@ -11,9 +11,22 @@ module ET1
         yield self if block_given?
       end
 
-      def load(*)
-        super
+      def load(expansion_or_html = {})
+        # SitePrism deprecated loading HTML fragments in v5 and will remove in v6
+        # If param is a string (HTML fragment), use Capybara.string instead
+        if expansion_or_html.is_a?(String)
+          load_html_fragment(expansion_or_html)
+        else
+          super
+        end
         self
+      end
+
+      # Load an HTML fragment using Capybara.string instead of SitePrism's deprecated method
+      # @param html [String] The HTML string to load
+      # @return [self]
+      def load_html_fragment(html)
+        @page = Capybara.string(html)
       end
 
       element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false

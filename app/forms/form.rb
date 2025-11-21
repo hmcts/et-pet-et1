@@ -30,9 +30,7 @@ class Form < ApplicationRecord
     __custom_mappings[attribute_name] = { to: }
   end
 
-  def transient_attributes
-    self.class.transient_attributes
-  end
+  delegate :transient_attributes, to: :class
 
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def self.has_many_forms(collection_name, class_name: "#{collection_name.to_s.singularize.camelize}Form")
@@ -67,7 +65,7 @@ class Form < ApplicationRecord
       end
     end
   end
-  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength, Naming/PredicateName
+  # rubocop:enable Metrics/AbcSize, Metrics/MethodLength
 
   # Form Methods
   def form_name
