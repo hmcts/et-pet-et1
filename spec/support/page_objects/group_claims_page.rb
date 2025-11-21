@@ -43,7 +43,7 @@ module ET1
       def secondary_claimants
         secondary_claimant_sections.map do |s|
           ET1::Test::SecondaryClaimantUi.new.tap do |obj|
-            obj.title = title_to_i18n(s.title.value)
+            obj.title = title_to_i18n(s.title_question.value)
             obj.first_name = s.first_name.value
             obj.last_name = s.last_name.value
             obj.date_of_birth = date_to_user(s.date_of_birth.value)
@@ -91,7 +91,7 @@ module ET1
 
       class ClaimantSection < BaseSection
         def set(claimant)
-          title.set(claimant.title)
+          title_question.set(claimant.title)
           first_name.set(claimant.first_name)
           last_name.set(claimant.last_name)
           date_of_birth.set(claimant.date_of_birth)
@@ -115,7 +115,7 @@ module ET1
         section :fieldset, :xpath, XPath.generate {| x| x.child(:fieldset) } do
           element :claimant_number, :xpath, XPath.generate { |x| x.child(:legend) }
         end
-        gds_select :title, :'claimants_details.title'
+        gds_select :title_question, :'claimants_details.title'
         gds_text_input :first_name, :'claimants_details.first_name'
         gds_text_input :last_name, :'claimants_details.last_name'
         gds_date_input :date_of_birth, :'claimants_details.date_of_birth'

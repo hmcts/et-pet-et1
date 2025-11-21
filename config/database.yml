@@ -11,6 +11,9 @@ development:
   database: '<%= ENV.fetch('DB_NAME', 'atet_development') %>'
   host: '<%= ENV.fetch('DB_HOST', 'localhost') %>'
   user: '<%= ENV.fetch('DB_USERNAME', 'postgres') %>'
+  <% if ENV['DEVELOPMENT_DB_URL'] %>
+  url: '<%= ENV['DEVELOPMENT_DB_URL'] %>'
+  <% end %>
 
 local:
   <<: *default
@@ -23,6 +26,9 @@ test: &test
   database: '<%= ENV.fetch('DB_TEST_NAME', 'atet_test') %><%= ENV['TEST_ENV_NUMBER'] %>'
   host: '<%= ENV.fetch('DB_HOST', 'localhost') %>'
   user: '<%= ENV.fetch('DB_USERNAME', 'postgres') %>'
+  <% if ENV['TEST_DB_URL'] %>
+  url: '<%= ENV['TEST_DB_URL'] %>'
+  <% end %>
 
 production:
   <<: *default

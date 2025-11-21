@@ -10,7 +10,7 @@ module ET1
         ['two', 'three', 'four', 'five', 'six'].each_with_index do |number, idx|
 
           section :"about_claimant_#{number}", :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Claimant #{idx + 2}")]] }) do
-            element :title, "select[name=\"additional_claimants[collection_attributes][#{idx}][title]\"]"
+            element :title_select, "select[name=\"additional_claimants[collection_attributes][#{idx}][title]\"]"
             element :first_name, "input[name=\"additional_claimants[collection_attributes][#{idx}][first_name]\"]"
             element :last_name, "input[name=\"additional_claimants[collection_attributes][#{idx}][last_name]\"]"
             section :date_of_birth, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth (optional)")]] }) do

@@ -3,11 +3,7 @@ module CollectionForm
     boolean :_destroy
 
     def valid?
-      if _destroy?
-        true
-      else
-        super
-      end
+      _destroy? || super
     end
 
     def save

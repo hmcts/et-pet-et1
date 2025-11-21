@@ -4,7 +4,7 @@ module ET1
     class StepTwoPage < BasePage
 
       section :about_the_claimant, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("About the claimant")]] }) do
-        element :title, 'select[name="claimant[title]"]'
+        element :title_select, 'select[name="claimant[title]"]'
         element :first_name, 'input[name="claimant[first_name]"]'
         element :last_name, 'input[name="claimant[last_name]"]'
         section :date_of_birth, :xpath, (XPath.generate { |x| x.descendant(:fieldset)[x.descendant(:legend)[x.string.n.is("Date of birth (optional)")]] }) do
