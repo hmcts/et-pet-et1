@@ -5,7 +5,7 @@ module PageHelper
   end
 
   def show_signout?
-    unless_new_path_or_application_form = \
+    unless_new_path_or_application_form =
       -> { action_name != 'new' && params[:page] != 'application-number' }
 
     is_claim_page?(claims_condition: unless_new_path_or_application_form)
