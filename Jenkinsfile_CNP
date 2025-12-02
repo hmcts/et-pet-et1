@@ -37,6 +37,13 @@ withPipeline(type, product, component) {
         rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile")
     }
     before('smokeTest') {
+      sh script:"""#!/bin/bash -l
+            set +x
+            source /usr/local/rvm/scripts/rvm
+            rvm install ruby-3.3.5
+            rvm use ruby-3.3.5 --default
+        """, label: 'Ruby version install'
+
       rubyBuilder.bundle("install")
     }
 

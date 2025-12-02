@@ -38,7 +38,7 @@ module SaveAndReturn
     private
 
     def deliver_access_details
-      return unless claim && claim&.user&.email.present?
+      return unless claim&.reload&.user&.email.present?
 
       AccessDetailsMailer.deliver_later(claim)
     end
