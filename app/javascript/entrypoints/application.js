@@ -15,13 +15,13 @@ console.log(
   "Visit the guide for more information: ",
   "https://vite-ruby.netlify.app/guide/rails",
 );
-import "core-js";
 import "./controllers";
 import AdditionalClaimantsUploadPage from "./pages/claims/AdditionalClaimantsUploadPage";
 
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/application.scss";
-import "@rails/ujs"
+import Rails from "@rails/ujs"
+Rails.start()
 import ClaimantPage from "./pages/claims/ClaimantPage";
 import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
 import RepresentativePage from "./pages/claims/RepresentativePage";
