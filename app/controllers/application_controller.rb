@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :show_maintenance_page
-  after_action :set_sentry_context
+  before_action :set_sentry_context
   after_action :set_session_expiry
 
   before_action do
@@ -67,9 +67,14 @@ class ApplicationController < ActionController::Base
   def set_sentry_context
     return unless id_or_application_presence?
 
-    Sentry.with_scope do |scope|
-      scope.set_extras(claim_id: claim.id, application_reference: claim.application_reference, user_id: claim.user.id)
-    end
+    Sentry.set_user(id: claim.user.id)
+    Sentry.set_extras(
+      {
+        claim_id: claim.id,
+        application_reference: claim.application_reference,
+        reference: claim.fee_group_reference
+      }.compact
+    )
   end
 
   def id_or_application_presence?

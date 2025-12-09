@@ -91,8 +91,8 @@ group :assets do
 end
 
 group :production, :test, :development do
-  gem "sentry-rails", "~> 5.17"
-  gem "sentry-ruby", "~> 5.17"
+  gem "sentry-rails", "~> 6.0"
+  gem "sentry-ruby", "~> 6.0"
 
 end
 
