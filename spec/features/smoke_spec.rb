@@ -3,6 +3,16 @@ require 'smoke_test_helper'
 describe 'Smoke test', :js, type: :feature do
   include FormMethods
 
+  after do |example|
+    if example.exception
+      puts "\n" + "=" * 80
+      puts "SMOKE TEST FAILURE - Page HTML (first 100 lines):"
+      puts "=" * 80
+      puts page.html.lines.first(100).join
+      puts "=" * 80
+    end
+  end
+
   let(:ui_claimant) { build(:ui_claimant, :default) }
   let(:ui_secondary_claimants) { build_list(:ui_secondary_claimant, 1, :default) }
   let(:ui_representative) { build(:ui_representative, :default) }
