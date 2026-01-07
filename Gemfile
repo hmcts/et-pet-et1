@@ -102,7 +102,7 @@ gem 'bcrypt', '~> 3.1'
 gem 'bitmask_attributes', '~> 1.0'
 
 gem 'email_validator', '~> 2.2'
-gem 'et_gds_design_system', git: 'https://github.com/hmcts/et_gds_design_system.git', tag: 'v7.2.3'
+gem 'et_gds_design_system', git: 'https://github.com/hmcts/et_gds_design_system.git', tag: 'v7.2.4'
 gem 'invisible_captcha', '~> 2.0'
 gem 'pg', '~> 1.1'
 gem 'redcarpet', '~> 3.5'

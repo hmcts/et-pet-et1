@@ -17,7 +17,8 @@
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/refunds/application.scss";
 
-import "@rails/ujs"
+import Rails from "@rails/ujs"
+Rails.start()
 import SessionPrompt from "./components/SessionPrompt";
 import RefundApplicantPage from "./pages/refunds/ApplicantPage";
 import RefundFeesPage from "./pages/refunds/FeesPage";

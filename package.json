@@ -17,11 +17,12 @@
     "@hotwired/stimulus": "^3.2.2",
     "browserify": "^14.0.0",
     "browserify-incremental": "^3.1.0",
-    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#v7.2.3",
+    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#v7.2.4",
     "jquery": "^3.6.0"
   },
   "devDependencies": {
-    "vite": "^5.0.0",
+    "sass-embedded": "^1.93.3",
+    "vite": "^7.2.6",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-ruby": "^5.1.0",
     "vite-plugin-stimulus-hmr": "^3.0.0"

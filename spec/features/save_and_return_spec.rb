@@ -44,11 +44,11 @@ describe 'Save and Return', :js, type: :feature do
             with: FormMethods::SAVE_AND_RETURN_EMAIL
     click_link_or_button 'Sign out now'
 
+    expect(page).to have_text(claim_heading_for(:new))
+
     perform_active_jobs(ActionMailer::MailDeliveryJob)
     mail = ActionMailer::Base.deliveries.last
     expect(mail).to match_pattern Claim.last.reference
-
-    expect(page).to have_text(claim_heading_for(:new))
   end
 
   it 'ending the session when email address previously entered', :js do
