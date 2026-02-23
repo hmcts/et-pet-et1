@@ -20,7 +20,7 @@ RSpec.describe SpecialCharacterValidator do
   let(:model) { ModelClass.new }
   let(:valid_attributes) do
     {
-      first_name: 'name',
+      first_name: 'anne-marie',
       address_building: '12',
       address_postcode: 'DV1 GJ1',
       address_with_comma: 'home, /address'
