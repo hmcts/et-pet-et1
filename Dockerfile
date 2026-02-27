@@ -1,4 +1,4 @@
-FROM ruby:3.4.1-alpine3.21 AS assets
+FROM ruby:3.4.7-alpine3.21 AS assets
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
 RUN chown -R app:app /usr/local/bundle
@@ -19,7 +19,7 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-comp
   chown -R app:app /usr/local/bundle && \
   apk del .build-tools
 
-FROM ruby:3.4.1-alpine3.21
+FROM ruby:3.4.7-alpine3.21
 
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
