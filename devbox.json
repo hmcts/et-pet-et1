@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    "ruby@3.4.1",
+    "nodejs@latest",
+    "yarn@latest",
+    "pkg-config@latest",
+    "libyaml.dev",
+    "libffi.dev"
+  ],
+  "shell": {
+    "init_hook": ["gem install ruby-lsp debug"],
+    "scripts": {
+      "test": ["echo \"Error: no test specified\" && exit 1"]
+    }
+  }
+}
