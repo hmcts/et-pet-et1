@@ -366,6 +366,7 @@ describe 'Claim applications', :js, type: :feature do
 
       expect(claim_submitted_page).to be_displayed
       expect(page).to have_text "Claim submitted"
+      expect(page).to have_text "Please be advised that the current processing time is approximately 20 working days. This may extend during busy periods."
       expect(page).to have_content("Watford")
       expect(page).to have_text("watfordet@justice.gov.uk")
       expect(page).to have_text("01923 281 750")
