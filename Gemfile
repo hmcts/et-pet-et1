@@ -113,7 +113,7 @@ gem 'slim-rails', '~> 3.2'
 gem 'typhoeus', '~> 1.4'
 gem 'uk_postcode', '~> 2.1'
 
-gem "devise", "~> 4.8"
+gem "devise", "~> 5.0"
 gem 'i18n', '~> 1.14.0' # Temporary
 
 gem "rack-attack", "~> 6.7"
