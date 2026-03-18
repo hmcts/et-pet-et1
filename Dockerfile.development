@@ -19,7 +19,7 @@ EXPOSE 8080
 
 COPY --chown=app:app . /home/app/et1
 RUN chown -R app:app /usr/local/bundle
-RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file bash libc6-compat && \
+RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file bash libc6-compat yaml-dev && \
     apk add --no-cache postgresql-client~=11.12 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main && \
     apk add --no-cache git build-base nodejs yarn
 USER app

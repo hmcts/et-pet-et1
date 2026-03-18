@@ -6,7 +6,7 @@ COPY --chown=app:app . /home/app/et1
 ENV RAILS_ENV=production
 ENV HOME=/home/app
 ENV NODE_OPTIONS=--openssl-legacy-provider
-RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat libffi-dev && \
+RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat libffi-dev yaml-dev && \
   apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
   cd /home/app/et1 && \
   gem install bundler && \
@@ -43,7 +43,7 @@ COPY --from=assets --chown=app:app /home/app/et1/public/assets /home/app/et1/pub
 COPY --from=assets --chown=app:app /home/app/et1/public/vite /home/app/et1/public/vite
 COPY --from=assets --chown=app:app /home/app/et1/vendor/bundle /home/app/et1/vendor/bundle
 RUN chown -R app:app /usr/local/bundle
-RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file bash libc6-compat libffi-dev && \
+RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev file bash libc6-compat libffi-dev yaml-dev && \
   apk add --no-cache postgresql-client~=11.12 --repository=http://dl-cdn.alpinelinux.org/alpine/v3.10/main && \
   apk add --no-cache --virtual .build-tools git build-base && \
   cd /home/app/et1 && \
