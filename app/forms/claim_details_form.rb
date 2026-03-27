@@ -18,7 +18,8 @@ class ClaimDetailsForm < Form
     in: [
       'application/pdf', 'application/msword', 'application/x-msword', 'application/doc', 'application/vnd.ms-word',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain', 'application/txt',
-      'application/msword', 'application/x-msword', 'application/msword-template', 'image/jpeg', 'image/pjpeg', 'image/bmp',
+      'application/msword', 'application/x-msword', 'application/msword-template', 'image/jpeg', 'image/pjpeg',
+      'image/bmp',
       'image/x-windows-bmp', 'image/tiff', 'image/x-tiff', 'image/png', 'image/x-png', 'application/vnd.ms-excel',
       'application/msexcel', 'application/x-msexcel', 'application/x-ms-excel', 'application/vnd.ms-excel',
       'application/x-excel', 'application/vnd.ms-excel', 'application/x-excel',
@@ -28,10 +29,12 @@ class ClaimDetailsForm < Form
       'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint', 'application/x-mspowerpoint',
       'application/vnd.openxmlformats-officedocument.presentationml.presentation',
       'application/vnd.openxmlformats-officedocument.presentationml.template',
-      'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'application/rtf', 'text/rtf', 'text/csv',
+      'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'application/rtf', 'text/rtf',
+      'text/csv',
       'application/csv', 'application/vnd.ms-excel', 'application/x-ole-storage'
     ], message: I18n.t('errors.messages.rtf')
   }
+  validates :claim_details_rtf, additional_information_file: true, if: :valid_claim_details_rtf?
 
   def claim_form_details_rtf?
     resource.claim_details_rtf.present?
@@ -42,6 +45,10 @@ class ClaimDetailsForm < Form
   end
 
   private
+
+  def valid_claim_details_rtf?
+    claim_details_rtf.present? && errors[:claim_details_rtf].empty?
+  end
 
   def remove_claim_details_rtf!
     self.attributes = { claim_details_rtf: nil }

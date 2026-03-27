@@ -131,6 +131,8 @@ cy:
               blank: "Rhaid i chi roi'r manylion ynghylch eich hawliad yma. Os ydych chi eisiau uwchlwytho datganiad i gefnogi eich hawliad mewn dogfen ar wahân, teipiwch 'gweler yr atodiad' yn y blwch"
             other_known_claimant_names:
               blank: Rhestrwch enwau'r unigolion eraill sy'n gwneud hawliad tebyg
+            claim_details_rtf:
+              password_protected: Mae'r ffeil hon wedi'i diogelu gan gyfrinair. Uwchlwythwch ffeil nad yw wedi'i diogelu gan gyfrinair.
         claim_outcome:
           attributes:
             other_outcome:
@@ -158,7 +160,7 @@ cy:
               blank: Dywedwch p'un a ydych angen cymorth yn y gwrandawiad tribiwnlys
             contact_preference:
               blank: Dywedwch p'un a hoffech i ohebiaeth gael ei hanfon at yr hawlydd drwy'r post neu e-bost
-              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
+              invalid_ccd_claimant_contact_preference: "activemodel.errors.models.claimant.attributes.contact_preference.blank"
             allow_video_attendance:
               inclusion: "Dywedwch p’un a fyddech yn gallu mynychu gwrandawiad trwy gyswllt fideo"
             address_building:

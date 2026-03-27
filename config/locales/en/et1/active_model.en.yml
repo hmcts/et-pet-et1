@@ -4,7 +4,7 @@ en:
       attributes:
       messages:
         too_long: |
-           The information you have provided for this field must not exceed %{count} characters
+          The information you have provided for this field must not exceed %{count} characters
         invalid_ccd_address: activemodel.errors.messages.too_long
       models:
         user_session:
@@ -154,6 +154,8 @@ en:
               blank: List the names of other people who are making a similar claim
             other_known_claimants:
               inclusion: Please indicate if you know any other claimants making a similar claim
+            claim_details_rtf:
+              password_protected: This file is password protected. Upload a file that isn’t password protected.
         claim_outcome:
           attributes:
             other_outcome:
@@ -189,7 +191,7 @@ en:
               blank: Please indicate the country
             contact_preference:
               blank: Say whether you’d like correspondence to be sent to the claimant by post or email
-              invalid_ccd_claimant_contact_preference: 'activemodel.errors.models.claimant.attributes.contact_preference.blank'
+              invalid_ccd_claimant_contact_preference: "activemodel.errors.models.claimant.attributes.contact_preference.blank"
             allow_video_attendance:
               inclusion: "Please say whether you would be able to attend a hearing by video"
             address_building:

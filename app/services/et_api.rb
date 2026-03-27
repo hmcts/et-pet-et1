@@ -11,5 +11,10 @@ class EtApi
   def self.validate_claimants_file(record, attribute, value, uuid: SecureRandom.uuid, validate_claimants_file_service: ValidateClaimantsFileViaApiService)
     validate_claimants_file_service.call(record, attribute, value, uuid:)
   end
+
+  def self.validate_additional_information_file(record, attribute, value, uuid: SecureRandom.uuid,
+    validate_additional_information_file_service: ValidateAdditionalInformationFileViaApiService)
+    validate_additional_information_file_service.call(record, attribute, value, uuid:)
+  end
   # rubocop:enable Layout/LineLength
 end

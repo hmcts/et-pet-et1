@@ -9,6 +9,7 @@ describe 'Attaching a document', :js, type: :feature do
   let(:claim) { Claim.create user: User.new(password: 'lollolol') }
   let(:file_path) { Rails.root.join('spec/support/files/').to_s }
   let(:invalid_file_path) { "#{file_path}phil.jpg" }
+  let(:password_protected_message) { "This file is password protected. Upload a file that isn’t password protected." }
 
   before do
     return_to_your_claim_page.
@@ -29,6 +30,16 @@ describe 'Attaching a document', :js, type: :feature do
       end
     end
 
+    before do
+      stub_request(:post, "#{et_api_url}/validate").
+        with(body: hash_including(command: 'ValidateAdditionalInformationFile')).
+        to_return(
+          status: 200,
+          body: { status: 'accepted', uuid: SecureRandom.uuid, errors: [] }.to_json,
+          headers: { 'ContentType' => 'application/json' }
+        )
+    end
+
     context 'when uploading a valid RTF file' do
       let(:ui_claim_details) { build(:ui_claim_details, :default, rtf_file_path: rtf_file_path) }
 
@@ -37,7 +48,7 @@ describe 'Attaching a document', :js, type: :feature do
           load.
           fill_in_all(claim_details: ui_claim_details).
           save_and_continue
-        expect(claim_outcome_page).to be_displayed
+        claim_outcome_page.wait_until_displayed
       end
 
       it 'Attaching the file' do
@@ -66,6 +77,44 @@ describe 'Attaching a document', :js, type: :feature do
         expect(claim.reload.claim_details_rtf['filename']).to eq File.basename(alternative_rtf_file_path)
       end
     end
+
+    context 'when the api rejects the uploaded file' do
+      let(:ui_claim_details) { build(:ui_claim_details, :default, rtf_file_path: rtf_file_path) }
+      let(:response_body) do
+        {
+          status: 'not_accepted',
+          uuid: SecureRandom.uuid,
+          errors: [
+            {
+              status: 422,
+              code: 'password_protected',
+              title: password_protected_message,
+              detail: password_protected_message,
+              options: {},
+              source: '/data_from_key',
+              command: 'ValidateAdditionalInformationFile',
+              uuid: SecureRandom.uuid
+            }
+          ]
+        }
+      end
+
+      before do
+        stub_request(:post, "#{et_api_url}/validate").
+          with(body: hash_including(command: 'ValidateAdditionalInformationFile')).
+          to_return(status: 422, body: response_body.to_json, headers: { 'ContentType' => 'application/json' })
+      end
+
+      it 'shows the validation error and does not save the file' do
+        claim_details_page.
+          load.
+          fill_in_all(claim_details: ui_claim_details).
+          save_and_continue
+
+        expect(page).to have_text(password_protected_message)
+        expect(claim.reload.claim_details_rtf).not_to be_present
+      end
+    end
   end
 
   describe 'For additional claimants', :with_stubbed_azure_upload do
@@ -85,7 +134,7 @@ describe 'Attaching a document', :js, type: :feature do
       before do
         group_claims_upload_page.load
         group_claims_upload_page.upload_secondary_claimants_csv(csv_file_path).save_and_continue
-        expect(representatives_details_page).to be_displayed
+        representatives_details_page.wait_until_displayed
       end
 
       it 'Attaching the file' do
