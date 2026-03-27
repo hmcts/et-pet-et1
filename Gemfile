@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '8.0.2.1'
+gem 'rails', '8.0.4.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -113,7 +113,7 @@ gem 'slim-rails', '~> 3.2'
 gem 'typhoeus', '~> 1.4'
 gem 'uk_postcode', '~> 2.1'
 
-gem "devise", "~> 4.8"
+gem "devise", "~> 5.0"
 gem 'i18n', '~> 1.14.0' # Temporary
 
 gem "rack-attack", "~> 6.7"
