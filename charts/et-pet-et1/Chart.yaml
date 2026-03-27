@@ -6,5 +6,5 @@ home: https://github.com/hmcts/et-pet-et1
 version: 0.0.28
 dependencies:
   - name: base
-    version: 1.4.0
-    repository: "oci://hmctspublic.azurecr.io/helm"
+    version: 1.4.1
+    repository: "oci://hmctsprod.azurecr.io/helm"
