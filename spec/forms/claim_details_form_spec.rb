@@ -81,6 +81,14 @@ RSpec.describe ClaimDetailsForm, type: :form do
       end
     end
 
+    context 'when the filename extension is disallowed but the mime type matches an allowed legacy Office format' do
+      let(:file) { { 'path' => "#{path}/file.xla", 'filename' => 'file.xla', 'content_type' => 'application/vnd.ms-excel' } }
+
+      it 'adds an error message to the attribute' do
+        expect(claim_details_form.errors[:claim_details_rtf]).to include(I18n.t('errors.messages.rtf'))
+      end
+    end
+
     context 'when the api rejects the uploaded file' do
       let(:file) { { 'path' => "#{path}/file.pdf", 'filename' => 'file.pdf', 'content_type' => 'application/pdf' } }
 
