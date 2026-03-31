@@ -31,10 +31,10 @@ ARG APP_GIT_COMMIT=unknown
 ARG APP_BUILD_TAG=unknown
 
 # Setting up ping.json variables
-ENV APPVERSION ${APPVERSION}
-ENV APP_BUILD_DATE ${APP_BUILD_DATE}
-ENV APP_GIT_COMMIT ${APP_GIT_COMMIT}
-ENV APP_BUILD_TAG ${APP_BUILD_TAG}
+ENV APPVERSION=${APPVERSION}
+ENV APP_BUILD_DATE=${APP_BUILD_DATE}
+ENV APP_GIT_COMMIT=${APP_GIT_COMMIT}
+ENV APP_BUILD_TAG=${APP_BUILD_TAG}
 
 EXPOSE 8080
 
@@ -61,7 +61,7 @@ RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info curl-dev f
 
 
 USER app
-ENV HOME /home/app
+ENV HOME=/home/app
 WORKDIR /home/app/et1
 ENV RAILS_ENV=production
 CMD ["./run.sh"]

@@ -9,14 +9,14 @@ en:
         Include the background, dates and people involved.
         <a class="govuk-link" href="%{path}#writing_your_claim_statement">More about writing your claim statement</a>.
       similar_claims: Similar claims
-      'true': 'Yes'
-      'false': 'No'
+      "true": "Yes"
+      "false": "No"
       other_known_claimants:
         label: Do you know of any other claimants (not already listed) making similar claims against the same employer?
         hint: A judge may combine similar claims to manage and hear them together. This may save you and the tribunal time and money.
         options:
-          'true': 'Yes'
-          'false': 'No'
+          "true": "Yes"
+          "false": "No"
       other_known_claimant_names:
         label: You can add the names of other people here.
       claim_details_rtf:
@@ -27,8 +27,8 @@ en:
         file_selected_text: "File selected:"
       claim_details_upload_file_formats:
         header: Accepted formats
-        text: Accepted file formats are pdf, doc, docx, txt, dot, jpg, jpeg, bmp, tif, tiff, png, xls, xlt, xla, xlsx, xltx, ppt, pot, pps, ppa, pptx, potx, ppsx, rtf, csv.
+        text: Accepted file formats are pdf, doc, docx, txt, rtf.
       remove_claim_details_rtf:
         label: "Remove previously uploaded document: %{file}"
       claim_details:
-        label: 'Describe your claim'
+        label: "Describe your claim"

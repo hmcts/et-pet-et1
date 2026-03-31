@@ -10,7 +10,7 @@ details.govuk-details open=(resource.claim_form_details_rtf? || !resource.errors
   .govuk-inset-text.govuk-details__text
     = f.file_dropzone_field :claim_details_rtf,
       optional: true,
-      accepted_files: ['.pdf', '.doc', '.docx', '.txt', '.dot', '.jpg', '.jpeg', '.bmp', '.tif', '.tiff', '.png', '.xls', '.xlt', '.xla', '.xlsx', '.xltx', '.ppt', '.pot', '.pps', '.ppa', '.pptx', '.potx', '.ppsx', '.rtf', '.csv'],
+      accepted_files: ['.pdf', '.doc', '.docx', '.txt', '.rtf'],
       hint: true,
       upload_button: true,
       remove_file_button: true

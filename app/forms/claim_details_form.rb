@@ -1,4 +1,8 @@
 class ClaimDetailsForm < Form
+  ALLOWED_CLAIM_DETAILS_FILE_EXTENSIONS = [
+    '.pdf', '.doc', '.docx', '.txt', '.rtf', '.jpg', '.jpeg', '.bmp', '.tif', '.tiff', '.png', '.xls', '.xlt', '.xlsx', '.ppt', '.pptx', '.csv'
+  ].freeze
+
   attribute :claim_details,               :string
   attribute :other_known_claimant_names,  :string
   attribute :claim_details_rtf,           :gds_azure_file
@@ -14,24 +18,24 @@ class ClaimDetailsForm < Form
                             unless: -> { claim_details_rtf.present? }
   validates :other_known_claimant_names, length: { maximum: 350 }
   validates :other_known_claimants, inclusion: [true, false]
+  validate :claim_details_rtf_filename_extension, if: -> { claim_details_rtf.present? }
   validates :claim_details_rtf, content_type: {
     in: [
       'application/pdf', 'application/msword', 'application/x-msword', 'application/doc', 'application/vnd.ms-word',
       'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain', 'application/txt',
-      'application/msword', 'application/x-msword', 'application/msword-template', 'image/jpeg', 'image/pjpeg', 'image/bmp',
+      'application/msword', 'application/x-msword', 'image/jpeg', 'image/pjpeg', 'image/bmp',
       'image/x-windows-bmp', 'image/tiff', 'image/x-tiff', 'image/png', 'image/x-png', 'application/vnd.ms-excel',
       'application/msexcel', 'application/x-msexcel', 'application/x-ms-excel', 'application/vnd.ms-excel',
       'application/x-excel', 'application/vnd.ms-excel', 'application/x-excel',
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.template', 'application/vnd.ms-powerpoint',
-      'application/mspowerpoint', 'application/x-mspowerpoint', 'application/vnd.ms-powerpoint',
-      'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint', 'application/x-mspowerpoint',
-      'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-      'application/vnd.openxmlformats-officedocument.presentationml.template',
-      'application/vnd.openxmlformats-officedocument.presentationml.slideshow', 'application/rtf', 'text/rtf', 'text/csv',
+      'application/vnd.ms-powerpoint', 'application/mspowerpoint', 'application/x-mspowerpoint',
+      'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint', 'application/vnd.ms-powerpoint',
+      'application/x-mspowerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+      'application/rtf', 'text/rtf', 'text/csv',
       'application/csv', 'application/vnd.ms-excel', 'application/x-ole-storage'
     ], message: I18n.t('errors.messages.rtf')
   }
+  validates :claim_details_rtf, additional_information_file: true, if: :valid_claim_details_rtf?
 
   def claim_form_details_rtf?
     resource.claim_details_rtf.present?
@@ -42,6 +46,17 @@ class ClaimDetailsForm < Form
   end
 
   private
+
+  def claim_details_rtf_filename_extension
+    extension = File.extname(claim_details_rtf['filename']).downcase
+    return if extension.in?(ALLOWED_CLAIM_DETAILS_FILE_EXTENSIONS)
+
+    errors.add(:claim_details_rtf, I18n.t('errors.messages.rtf'))
+  end
+
+  def valid_claim_details_rtf?
+    claim_details_rtf.present? && errors[:claim_details_rtf].empty?
+  end
 
   def remove_claim_details_rtf!
     self.attributes = { claim_details_rtf: nil }

@@ -9,14 +9,14 @@ cy:
         Dylech gyfeirio at y cefndir, y dyddiadau a'r unigolion a oedd yn gysylltiedig â'r broblem.
         <a class="govuk-link" href="%{path}#writing_your_claim_statement">Mwy am ysgrifennu datganiad i gefnogi eich hawliad</a>.
       similar_claims: Hawliadau tebyg
-      'true': 'Ydw'
-      'false': 'Nac ydw'
+      "true": "Ydw"
+      "false": "Nac ydw"
       other_known_claimants:
         label: "Ydych chi'n gwybod am unrhyw hawlwyr eraill (nad ydynt eisoes wedi'u rhestru) sy'n gwneud hawliadau tebyg yn erbyn yr un cyflogwr?"
         hint: Efallai y bydd y barnwr yn cyfuno hawliadau tebyg i'w rheoli a'u gwrando gyda'i gilydd. Efallai y bydd hyn yn arbed amser ac arian i chi a'r tribiwnlys.
         options:
-          'true': 'Ydw'
-          'false': 'Nac ydw'
+          "true": "Ydw"
+          "false": "Nac ydw"
       other_known_claimant_names:
         label: "Gallwch ychwanegu enwau unigolion eraill yma."
       claim_details_rtf:
@@ -26,7 +26,7 @@ cy:
         file_selected_text: "Ffeil wedi'i dewis:"
       claim_details_upload_file_formats:
         header: Fformatau derbyniol
-        text: "Mae’r canlynol yn fformatau ffeiliau derbyniol: pdf, doc, docx, txt, dot, jpg, jpeg, bmp, tif, tiff, png, xls, xlt, xla, xlsx, xltx, ppt, pot, pps, ppa, pptx, potx, ppsx, rtf, csv."
+        text: "Mae’r canlynol yn fformatau ffeiliau derbyniol: pdf, doc, docx, txt, rtf."
       remove_claim_details_rtf:
         label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
       claim_details:
