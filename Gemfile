@@ -79,7 +79,7 @@ group :test do
   gem 'climate_control', '~> 1.0'
   gem 'cuprite', '~> 0.10'
   gem 'database_cleaner', '~> 2.0'
-  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.3'
+  gem 'et_test_helpers', git: 'https://github.com/hmcts/et_test_helpers.git', tag: 'v1.3.5'
   gem 'poltergeist', '~> 1.18'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'site_prism', '5.1'
