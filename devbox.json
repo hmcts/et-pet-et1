@@ -1,15 +1,21 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
-  "packages": [
-    "ruby@4.0.1",
-    "nodejs@latest",
-    "yarn@latest",
-    "pkg-config@latest",
-    "libyaml.dev",
-    "libffi.dev"
-  ],
+  "packages": {
+    "ruby": "4.0.1",
+    "nodejs": "latest",
+    "yarn": "latest",
+    "pkg-config": "latest",
+    "libyaml.dev": "",
+    "libffi.dev": "",
+    "curl": {
+      "version": "latest",
+      "outputs": ["out", "dev"]
+    },
+    "nghttp3": "latest",
+    "openldap": "latest"
+  },
   "shell": {
-    "init_hook": ["gem install ruby-lsp debug"],
+    "init_hook": [],
     "scripts": {
       "test": ["echo \"Error: no test specified\" && exit 1"]
     }
