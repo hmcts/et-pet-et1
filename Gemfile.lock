@@ -34,10 +34,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6eb1320926ed6512cac69271163ae50c9a2dac03
-  tag: v1.3.3
+  revision: 492bcf5338b7b57075b746b2a5bf716f604c8aaa
+  tag: v1.3.5
   specs:
-    et_test_helpers (1.3.3)
+    et_test_helpers (1.3.5)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -492,7 +492,7 @@ GEM
     rspec-its (2.0.0)
       rspec-core (>= 3.13.0)
       rspec-expectations (>= 3.13.0)
-    rspec-mocks (3.13.7)
+    rspec-mocks (3.13.8)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (8.0.2)
@@ -503,7 +503,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-    rspec-support (3.13.6)
+    rspec-support (3.13.7)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.86.0)
@@ -560,7 +560,7 @@ GEM
       addressable (~> 2.8, >= 2.8.4)
       capybara (~> 3.34)
       site_prism-all_there (> 3, < 5)
-    site_prism-all_there (3.0.7)
+    site_prism-all_there (3.0.8)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -613,7 +613,7 @@ GEM
       zeitwerk (~> 2.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webmock (3.26.1)
+    webmock (3.26.2)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
