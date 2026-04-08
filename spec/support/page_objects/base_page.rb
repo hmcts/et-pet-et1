@@ -58,11 +58,11 @@ module ET1
       end
 
       def assert_session_prompt
-        expect(page.body).to match(Regexp.escape('Et.components.SessionPrompt.init();'))
+        expect(page).to have_css('body[data-controller*="session-prompt"]')
       end
 
       def assert_no_session_prompt
-        expect(page.body).not_to match(Regexp.escape('Et.components.SessionPrompt.init();'))
+        expect(page).to have_no_css('body[data-controller*="session-prompt"]')
       end
 
       def home

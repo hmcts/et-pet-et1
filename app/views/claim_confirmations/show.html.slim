@@ -30,9 +30,9 @@ div.govuk-grid-row
               dt.govuk-summary-list__key
                 strong = t '.download_application.header'
                 p.govuk-body = t '.download_application.subheader'
-              dd.govuk-summary-list__value
-                = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link'
-                = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link'
+              dd.govuk-summary-list__value data-controller="pdf-link"
+                = link_to t('.download_application.link_text'), claim.pdf_url, target: "_blank", class: 'pdf-success govuk-link', data: { pdf_link_target: 'success' }
+                = link_to t('.download_application.invalid_link_text'), nil, target: "_blank", class: 'pdf-failure hidden govuk-link', data: { pdf_link_target: 'failure' }
 
     .office-information
       h2.govuk-heading-m = t('.office_information.header')
@@ -65,9 +65,3 @@ div.govuk-grid-row
       = " " + t('.feedback_helps_us')
 
     p.govuk-body = t('.diversity_html', href: diversity_landing_path)
-
-- content_for(:javascripts)
-javascript:
-  document.addEventListener("turbolinks:load", function() {
-    Et.pages.claims.ClaimConfirmationPage()
-  });

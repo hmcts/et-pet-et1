@@ -22,8 +22,3 @@
       value: 'claims.additional_claimants.add_fields',
       class: "govuk-!-margin-bottom-0 govuk-!-margin-top-9 #{f.object.secondary_claimants.length <= 3 ? '' : 'hidden'}",
       data: { 'multiple-add': true }
-- content_for(:javascripts)
-  javascript:
-    document.addEventListener("turbolinks:load", function() {
-      Et.pages.claims.AdditionalClaimantsPage()
-    });

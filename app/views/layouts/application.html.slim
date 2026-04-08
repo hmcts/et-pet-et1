@@ -1,16 +1,12 @@
 - content_for :head do
   = render "shared/google_tag_manager_head", account: Rails.application.config.google_tag_manager_account
   = csrf_meta_tag
-
+- if start_session_timer?
+  - content_for :body_js_controllers, 'session-prompt'
 - content_for :javascripts do
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present? && cookie_settings['usage']
     javascript:
       gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
-  - if start_session_timer?
-    javascript:
-      document.addEventListener("turbolinks:load", function() {
-        Et.components.SessionPrompt.init();
-      });
 
 // @TODO Check on removed content here
 - content_for :after_header do

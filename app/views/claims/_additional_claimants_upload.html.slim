@@ -48,8 +48,3 @@
           - if resource.has_additional_claimants_csv?
             = f.check_box :remove_additional_claimants_csv, true, label: t('.remove_additional_claimants_csv.label', file: resource.attachment_filename)
           p.form-hint = t('.upload_limit')
-- content_for(:javascripts)
-  javascript:
-    document.addEventListener("turbolinks:load", function() {
-      Et.pages.claims.AdditionalClaimantsUploadPage()
-    });

@@ -32,6 +32,3 @@
   = f.text_field :et_case_number, optional: true
   = f.text_field :eat_case_number, optional: true
   = f.text_area :additional_information, rows: 10, max_chars: 500, optional: true
-- content_for(:javascripts)
-javascript:
-  document.addEventListener("turbolinks:load", function() { Et.pages.refunds.OriginalCaseDetailsPage() });

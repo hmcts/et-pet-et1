@@ -16,50 +16,12 @@ console.log(
   "https://vite-ruby.netlify.app/guide/rails",
 );
 import "./controllers";
-import AdditionalClaimantsUploadPage from "./pages/claims/AdditionalClaimantsUploadPage";
 
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/application.scss";
-import Rails from "@rails/ujs"
-Rails.start()
-import ClaimantPage from "./pages/claims/ClaimantPage";
-import AdditionalClaimantsPage from "./pages/claims/AdditionalClaimantsPage";
-import RepresentativePage from "./pages/claims/RepresentativePage";
-import RespondentPage from "./pages/claims/RespondentPage";
-import AdditionalRespondentsPage from "./pages/claims/AdditionalRespondentsPage";
-import EmploymentPage from "./pages/claims/EmploymentPage";
-import ClaimTypePage from "./pages/claims/ClaimTypePage";
-import ClaimConfirmationPage from "./pages/claims/ClaimConfirmationPage";
-import SessionPrompt from "./components/SessionPrompt";
-import RefundApplicantPage from "./pages/refunds/ApplicantPage";
-import RefundFeesPage from "./pages/refunds/FeesPage";
-import ClaimDetailsPage from "./pages/claims/ClaimDetailsPage";
-import GuidesPage from "./pages/claims/GuidesPage";
+import Rails from "@rails/ujs";
+Rails.start();
 EtGdsDesignSystem.initAll();
-window.Et = {
-  pages: {
-    claims: {
-      ClaimantPage: ClaimantPage,
-      AdditionalClaimantsPage: AdditionalClaimantsPage,
-      AdditionalClaimantsUploadPage: AdditionalClaimantsUploadPage,
-      ClaimDetailsPage: ClaimDetailsPage,
-      RepresentativePage: RepresentativePage,
-      RespondentPage: RespondentPage,
-      AdditionalRespondentsPage: AdditionalRespondentsPage,
-      EmploymentPage: EmploymentPage,
-      ClaimTypePage: ClaimTypePage,
-      ClaimConfirmationPage: ClaimConfirmationPage,
-      GuidesPage: GuidesPage,
-    },
-    refunds: {
-      ApplicantPage: RefundApplicantPage,
-      FeesPage: RefundFeesPage,
-    },
-  },
-  components: {
-    SessionPrompt,
-  },
-};
 
 // Example: Load Rails libraries in Vite.
 //
