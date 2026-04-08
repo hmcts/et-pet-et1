@@ -26,9 +26,3 @@ details.govuk-details
   = f.collection_radio_buttons :other_known_claimants, inline: true
   = f.revealed_content :other_known_claimants, values: [:true]
     = f.text_area :other_known_claimant_names, optional: true, rows: 5, max_chars: 350
-
-- content_for(:javascripts)
-javascript:
-  document.addEventListener("turbolinks:load", function() {
-    Et.pages.claims.ClaimDetailsPage()
-  });

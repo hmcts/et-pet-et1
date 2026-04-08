@@ -2,7 +2,55 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import ClaimFormClaimantController from "./claim_form_claimant_controller"
-application.register("claim-form-claimant", ClaimFormClaimantController)
+import ClaimFormClaimantController from "./claim_form_claimant_controller";
+import ClaimFormClaimDetailsController from "./claim_form_claim_details_controller";
+import ClaimFormAdditionalClaimantsController from "./claim_form_additional_claimants_controller";
+import ClaimFormAdditionalClaimantsUploadController from "./claim_form_additional_claimants_upload_controller";
+import ClaimFormAdditionalRespondentsController from "./claim_form_additional_respondents_controller";
+import PdfLinkController from "./pdf_link_controller";
+import ScrollToTopController from "./scroll_to_top_controller";
+import RefundFormApplicantController from "./refund_form_applicant_controller";
+import RefundFormBankDetailsController from "./refund_form_bank_details_controller";
+import RefundFormFeesController from "./refund_form_fees_controller";
+import RefundFormOriginalCaseDetailsController from "./refund_form_original_case_details_controller";
+import RefundFormProfileSelectionController from "./refund_form_profile_selection_controller";
+import RefundFormReviewController from "./refund_form_review_controller";
+import SessionPromptController from "./session_prompt_controller";
+
+application.register("claim-form-claimant", ClaimFormClaimantController);
+application.register(
+  "claim-form-claim-details",
+  ClaimFormClaimDetailsController,
+);
+application.register(
+  "claim-form-additional-claimants",
+  ClaimFormAdditionalClaimantsController,
+);
+application.register(
+  "claim-form-additional-claimants-upload",
+  ClaimFormAdditionalClaimantsUploadController,
+);
+application.register(
+  "claim-form-additional-respondents",
+  ClaimFormAdditionalRespondentsController,
+);
+application.register("pdf-link", PdfLinkController);
+application.register("scroll-to-top", ScrollToTopController);
+application.register("refund-form-applicant", RefundFormApplicantController);
+application.register(
+  "refund-form-bank-details",
+  RefundFormBankDetailsController,
+);
+application.register("refund-form-fees", RefundFormFeesController);
+application.register(
+  "refund-form-original-case-details",
+  RefundFormOriginalCaseDetailsController,
+);
+application.register(
+  "refund-form-profile-selection",
+  RefundFormProfileSelectionController,
+);
+application.register("refund-form-review", RefundFormReviewController);
+application.register("session-prompt", SessionPromptController);

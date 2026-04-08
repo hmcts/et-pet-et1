@@ -26,7 +26,7 @@
   <%= yield :head %>
 </head>
 
-<body class="govuk-template__body <%= content_for?(:body_classes) ? raw("#{yield(:body_classes)}") : "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase}" %>">
+<body data-controller="<%= yield(:body_js_controllers) %>" class="govuk-template__body <%= content_for?(:body_classes) ? raw("#{yield(:body_classes)}") : "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase}" %>">
 <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
 <a href="#main-content" class="govuk-skip-link" data-turbolinks="false">Skip to main content</a>
 
