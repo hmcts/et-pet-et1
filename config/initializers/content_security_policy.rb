@@ -4,31 +4,37 @@
 # See the Securing Rails Applications Guide for more information:
 # https://guides.rubyonrails.org/security.html#content-security-policy-header
 
-# Rails.application.configure do
-#   config.content_security_policy do |policy|
-#     policy.default_src :self, :https
-#     policy.font_src    :self, :https, :data
-#     policy.img_src     :self, :https, :data
-#     policy.object_src  :none
-#     policy.script_src  :self, :https
-# Allow @vite/client to hot reload javascript changes in development
-#    policy.script_src *policy.script_src, :unsafe_eval, "http://#{ ViteRuby.config.host_with_port }" if Rails.env.development?
+require "securerandom"
 
-# You may need to enable this in production as well depending on your setup.
-#    policy.script_src *policy.script_src, :blob if Rails.env.test?
+Rails.application.configure do
+  config.content_security_policy do |policy|
+    policy.default_src :self
+    policy.base_uri :self
+    policy.form_action :self
+    policy.frame_ancestors :self
+    policy.font_src :self, :data
+    policy.img_src :self, :data
+    policy.object_src :none
+    policy.connect_src :self
+    policy.media_src :self
+    policy.manifest_src :self
+    policy.worker_src :self
+    policy.frame_src :self, "https://www.googletagmanager.com"
+    policy.script_src :self,
+                      "https://www.googletagmanager.com",
+                      "https://js-cdn.dynatrace.com"
+    # Temporary relaxation for shared dropzone/reveal components using inline styles.
+    # Follow-up: remove :unsafe_inline once ET1/ET3 design-system components are CSP-safe.
+    policy.style_src :self, :unsafe_inline
 
-#     policy.style_src   :self, :https
-# Allow @vite/client to hot reload style changes in development
-#    policy.style_src *policy.style_src, :unsafe_inline if Rails.env.development?
+    # Allow @vite/client to hot reload javascript/style changes in development.
+    if Rails.env.development?
+      policy.script_src *policy.script_src, :unsafe_eval, "http://#{ViteRuby.config.host_with_port}"
+      policy.style_src *policy.style_src, :unsafe_inline
+    end
+  end
 
-#     # Specify URI for violation reports
-#     # policy.report_uri "/csp-violation-report-endpoint"
-#   end
-#
-#   # Generate session nonces for permitted importmap, inline scripts, and inline styles.
-#   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
-#   config.content_security_policy_nonce_directives = %w(script-src style-src)
-#
-#   # Report violations without enforcing the policy.
-#   # config.content_security_policy_report_only = true
-# end
+  config.content_security_policy_nonce_generator = ->(request) { request.env["csp_nonce"] ||= SecureRandom.base64(16) }
+  config.content_security_policy_nonce_directives = %w(script-src)
+  config.content_security_policy_nonce_auto = true
+end

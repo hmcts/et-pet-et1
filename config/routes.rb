@@ -114,4 +114,9 @@ Rails.application.routes.draw do
     match '/test/invalid_pdf', to: -> (_env) { [404, {'Content-Type' => 'application/pdf'}, ['Not Found']] }, as: :test_invalid_pdf, via: :all
   end
 
+  match '*path',
+        to: 'errors#not_found',
+        via: :all,
+        constraints: ->(request) { !request.path.start_with?('/api/v2/') }
+
 end

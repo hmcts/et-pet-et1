@@ -5,8 +5,8 @@
   - content_for :body_js_controllers, 'session-prompt'
 - content_for :javascripts do
   - if ENV.has_key?('GOOGLE_ANALYTICS_ID') && ENV["GOOGLE_ANALYTICS_ID"].present? && cookie_settings['usage']
-    javascript:
-      gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
+    = javascript_tag nonce: true do
+      | gaTracker.init('#{ENV.fetch("GOOGLE_ANALYTICS_ID")}');
 
 // @TODO Check on removed content here
 - content_for :after_header do
