@@ -1,6 +1,8 @@
 require "rails_helper"
 
 describe "claim_reviews/show.html.slim" do
+  include Capybara::RSpecMatchers
+
   context "with claim_outcome" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
@@ -45,6 +47,14 @@ describe "claim_reviews/show.html.slim" do
       subject { review_page.claim_outcome_section.outcome_details.answer.native.inner_html }
 
       it { is_expected.to eq("25 bags\n<br>your job") }
+    end
+
+    it "renders the print link with a stimulus action" do
+      print_link = Capybara.string(rendered).find("a.print-page", text: "Print this page")
+
+      expect(print_link[:href]).to eq("#")
+      expect(print_link["data-controller"]).to eq("print-page")
+      expect(print_link["data-action"]).to eq("click->print-page#click")
     end
   end
 end

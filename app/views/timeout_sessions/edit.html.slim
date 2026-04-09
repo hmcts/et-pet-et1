@@ -16,7 +16,7 @@ h1.govuk-heading-xl= t(".header")
 
 
     p.print
-      = link_to t('.print_link'), 'javascript:window.print();', {class: 'print-page'}
+      = link_to t('.print_link'), '#', { class: 'print-page', data: { controller: 'print-page', action: 'click->print-page#click' } }
       = '&nbsp;'.html_safe
       = t('.print_copy')
     = f.hidden_field :reference

@@ -10,6 +10,7 @@ import ClaimFormAdditionalClaimantsController from "./claim_form_additional_clai
 import ClaimFormAdditionalClaimantsUploadController from "./claim_form_additional_claimants_upload_controller";
 import ClaimFormAdditionalRespondentsController from "./claim_form_additional_respondents_controller";
 import PdfLinkController from "./pdf_link_controller";
+import PrintPageController from "./print_page_controller";
 import ScrollToTopController from "./scroll_to_top_controller";
 import RefundFormApplicantController from "./refund_form_applicant_controller";
 import RefundFormBankDetailsController from "./refund_form_bank_details_controller";
@@ -37,6 +38,7 @@ application.register(
   ClaimFormAdditionalRespondentsController,
 );
 application.register("pdf-link", PdfLinkController);
+application.register("print-page", PrintPageController);
 application.register("scroll-to-top", ScrollToTopController);
 application.register("refund-form-applicant", RefundFormApplicantController);
 application.register(

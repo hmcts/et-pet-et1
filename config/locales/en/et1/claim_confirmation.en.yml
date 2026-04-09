@@ -49,7 +49,7 @@ en:
         Monday to Friday, 9am to 5pm <a class="govuk-link" href="https://www.gov.uk/call-charges">Find out more about call charges</a>
 
       print_link_html: |
-        <a class="govuk-link" href="javascript:window.print(0);">Print this page</a> for your
+        <a class="print-page govuk-link" href="#" data-controller="print-page" data-action="click->print-page#click">Print this page</a> for your
         records
 
       pel_info: |
