@@ -7,6 +7,16 @@ RSpec.describe ErrorsController, type: :controller do
       get :not_found
       expect(response).to have_http_status(:not_found)
     end
+
+    it "returns xml for xml requests" do
+      get :not_found, format: :xml
+
+      expect(response).to have_http_status(:not_found)
+      expect(response.media_type).to eq("application/xml")
+      expect(response.body).to include("<error>")
+      expect(response.body).to include("<status type=\"integer\">404</status>")
+      expect(response.body).to include("<error>Not Found</error>")
+    end
   end
 
   describe "GET #unprocessable" do
