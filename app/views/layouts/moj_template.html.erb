@@ -18,7 +18,7 @@
   <% if content_for?(:application_head) %>
     <%= yield(:application_head) %>
   <% else %>
-    <%= vite_javascript_tag 'application' %>
+    <%= vite_javascript_tag 'application', media: 'all' %>
   <% end %>
   <%= dynatrace_script_tag %>
 
