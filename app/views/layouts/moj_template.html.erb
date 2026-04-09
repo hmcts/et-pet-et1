@@ -27,9 +27,6 @@
 </head>
 
 <body data-controller="gds-page <%= yield(:body_js_controllers) %>" class="govuk-template__body <%= content_for?(:body_classes) ? raw("#{yield(:body_classes)}") : "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase}" %>">
-<%= javascript_tag nonce: true do %>
-document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
-<% end %>
 <a href="#main-content" class="govuk-skip-link" data-turbolinks="false">Skip to main content</a>
 
 <div id="cookie-banner">
