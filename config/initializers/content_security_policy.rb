@@ -23,9 +23,7 @@ Rails.application.configure do
     policy.script_src :self,
                       "https://www.googletagmanager.com",
                       "https://js-cdn.dynatrace.com"
-    # Temporary relaxation for shared dropzone/reveal components using inline styles.
-    # Follow-up: remove :unsafe_inline once ET1/ET3 design-system components are CSP-safe.
-    policy.style_src :self, :unsafe_inline
+    policy.style_src :self
 
     # Allow @vite/client to hot reload javascript/style changes in development.
     if Rails.env.development?

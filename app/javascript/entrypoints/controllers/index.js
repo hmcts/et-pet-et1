@@ -54,3 +54,4 @@ application.register(
 );
 application.register("refund-form-review", RefundFormReviewController);
 application.register("session-prompt", SessionPromptController);
+export default application;

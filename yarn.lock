@@ -911,16 +911,15 @@ esbuild@^0.25.0:
     "@esbuild/win32-ia32" "0.25.12"
     "@esbuild/win32-x64" "0.25.12"
 
-"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#v7.2.6":
-  version "7.2.6"
-  resolved "https://github.com/hmcts/et_gds_design_system.git#0b793ae8a9d7fad17b6112880384e812a16c51a9"
+"et_gds_design_system@https://github.com/hmcts/et_gds_design_system.git#v8.0.0":
+  version "8.0.0"
+  resolved "https://github.com/hmcts/et_gds_design_system.git#ddbd0e07eb347677f85641176b6cd33e9112c9a0"
   dependencies:
     "@rails/ujs" "^6.0.0"
     dropzone "^6.0.0-beta.2"
     govuk-frontend "^5.11.0"
     prop-types "^15.7.2"
     spark-md5 "^3.0.2"
-    turbolinks "^5.2.0"
     uuid "^8.3.2"
 
 events@~1.1.0:

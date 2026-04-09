@@ -14,13 +14,14 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-import "./controllers";
+import application from "./controllers";
+import TurboLinks from "turbolinks";
+TurboLinks.start();
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/refunds/application.scss";
-
 import Rails from "@rails/ujs";
 Rails.start();
 import jQuery from "jquery";
 window.$ = jQuery;
 window.jQuery = jQuery;
-EtGdsDesignSystem.initAll();
+EtGdsDesignSystem.initAll(application);

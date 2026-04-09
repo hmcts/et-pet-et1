@@ -15,13 +15,16 @@ console.log(
   "Visit the guide for more information: ",
   "https://vite-ruby.netlify.app/guide/rails",
 );
-import "./controllers";
+import application from "./controllers";
 
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/application.scss";
 import Rails from "@rails/ujs";
 Rails.start();
-EtGdsDesignSystem.initAll();
+import TurboLinks from "turbolinks";
+TurboLinks.start();
+
+EtGdsDesignSystem.initAll(application);
 
 // Example: Load Rails libraries in Vite.
 //
