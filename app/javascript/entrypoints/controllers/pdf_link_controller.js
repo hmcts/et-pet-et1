@@ -10,10 +10,10 @@ export default class extends Controller {
     }
 
     const url = successNode.getAttribute("href");
-    let http = new XMLHttpRequest();
+    const http = new XMLHttpRequest();
     http.overrideMimeType("application/pdf");
     http.open("GET", url, true);
-    http.onload = function (e) {
+    http.onload = () => {
       if (http.readyState === 4) {
         if (http.status === 200) {
           failureNode.classList.add("hidden");
@@ -25,6 +25,7 @@ export default class extends Controller {
             "Unable to find PDF, retrying " + url + " in 10 seconds",
           );
 
+          this.disconnectTimeout();
           this.timeout = setTimeout(this.boundMonitorDownloadLink, 10000);
         }
       }
