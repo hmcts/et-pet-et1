@@ -108,10 +108,15 @@ Rails.application.routes.draw do
   get '/health' => 'status#healthcheck', defaults: { format: 'json' }
   get '/health/readiness' => 'status#healthcheck', defaults: { format: 'json' }
   get '/health/liveness' => 'status#healthcheck', defaults: { format: 'json' }
+  mount EtGdsDesignSystem::Engine, at: '/'
 
   if Rails.env.test?
     match '/test/valid_pdf', to: -> (_env) { [200, {'Content-Type' => 'application/pdf'}, ['anything']] }, as: :test_valid_pdf, via: :all
     match '/test/invalid_pdf', to: -> (_env) { [404, {'Content-Type' => 'application/pdf'}, ['Not Found']] }, as: :test_invalid_pdf, via: :all
   end
+
+  match '*path',
+        to: 'errors#not_found',
+        via: :all
 
 end

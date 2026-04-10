@@ -11,7 +11,7 @@ h1 class="govuk-heading-xl govuk-!-margin-top-3"
       = hidden_field_tag :return_to_review, params[:return_to_review]
 
       = f.govuk_error_summary(t 'shared.error_notification.default_message')
-      .form-fields
+      .form-fields data-controller="refund-form-#{current_step.dasherize}"
         = render current_step, f: f
       .form-actions
         - if content_for?(:submit_button)

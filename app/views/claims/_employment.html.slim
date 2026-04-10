@@ -40,7 +40,3 @@
         = f.collection_radio_buttons :new_job_gross_pay_frequency, inline: true, include_hidden: false
         = f.text_field :new_job_gross_pay, prefix_text: "£"
 - content_for(:javascripts)
-javascript:
-  document.addEventListener("turbolinks:load", function() {
-    Et.pages.claims.EmploymentPage()
-  });

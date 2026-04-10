@@ -18,7 +18,13 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Cache assets for far-future expiry since they are all digest stamped.
-  config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
+  # Include baseline security headers for static responses (e.g. /422).
+  config.public_file_server.headers = {
+    "cache-control" => "public, max-age=#{1.year.to_i}",
+    "x-frame-options" => "SAMEORIGIN",
+    "x-content-type-options" => "nosniff",
+    "content-security-policy" => "default-src 'self' https:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.asset_host = ENV['ASSET_HOST'] if ENV['ASSET_HOST'].present?
@@ -27,7 +33,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  # config.assume_ssl = true
+  config.assume_ssl = true
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

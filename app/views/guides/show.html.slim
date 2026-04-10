@@ -24,7 +24,3 @@
         li= link_to t('.aside.exit_guide'), return_to_form, class: 'govuk-link'
         li= link_to t('.aside.contact_us'), t('.aside.contact_us_link'), { rel: 'external', target: '_blank', class: 'govuk-link' }
 - content_for(:javascripts)
-  javascript:
-    document.addEventListener("turbolinks:load", function() {
-      Et.pages.claims.GuidesPage()
-    });

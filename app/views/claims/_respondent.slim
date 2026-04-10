@@ -29,7 +29,3 @@
     = f.text_field :acas_early_conciliation_certificate_number, hint: { text: t('claims.respondent.acas_early_conciliation_certificate_number.hint', path:guide_path).html_safe }
 
 - content_for(:javascripts)
-  javascript:
-    document.addEventListener("turbolinks:load", function() {
-      Et.pages.claims.RespondentPage()
-    });

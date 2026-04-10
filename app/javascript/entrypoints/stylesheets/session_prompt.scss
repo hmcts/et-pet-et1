@@ -1,3 +1,9 @@
 #session_prompt {
   background-color: #f8acb4;
 }
+
+@media print {
+  #session_prompt {
+    display: none !important;
+  }
+}

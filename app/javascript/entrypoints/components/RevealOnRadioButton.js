@@ -23,11 +23,13 @@ export default function RevealOnRadioButton(node, selector, value) {
 
 }
 function showNode(node) {
-  node.style.display = 'block';
+  node.classList.remove('govuk-!-display-none');
+  node.classList.add('govuk-!-display-block');
 }
 
 function hideNode(node) {
-  node.style.display = 'none';
+  node.classList.remove('govuk-!-display-block');
+  node.classList.add('govuk-!-display-none');
 }
 
 function setInitialState(node, selector, value) {

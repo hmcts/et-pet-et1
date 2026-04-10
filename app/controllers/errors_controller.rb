@@ -3,6 +3,7 @@ class ErrorsController < ApplicationController
   def not_found
     respond_to do |format|
       format.json { render json: { status: 404, error: 'Not Found' } }
+      format.xml { render xml: { status: 404, error: 'Not Found' }.to_xml(root: 'error'), status: :not_found }
       format.html { render(status: :not_found) }
     end
   end

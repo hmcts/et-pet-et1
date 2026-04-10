@@ -17,8 +17,9 @@
     "@hotwired/stimulus": "^3.2.2",
     "browserify": "^14.0.0",
     "browserify-incremental": "^3.1.0",
-    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#v7.2.6",
-    "jquery": "^3.6.0"
+    "et_gds_design_system": "https://github.com/hmcts/et_gds_design_system.git#v8.0.4",
+    "jquery": "^3.6.0",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "sass-embedded": "^1.93.3",

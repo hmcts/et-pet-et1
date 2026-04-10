@@ -18,7 +18,7 @@
   <% if content_for?(:application_head) %>
     <%= yield(:application_head) %>
   <% else %>
-    <%= vite_javascript_tag 'application' %>
+    <%= vite_javascript_tag 'application', media: 'all' %>
   <% end %>
   <%= dynatrace_script_tag %>
 
@@ -26,8 +26,7 @@
   <%= yield :head %>
 </head>
 
-<body class="govuk-template__body <%= content_for?(:body_classes) ? raw("#{yield(:body_classes)}") : "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase}" %>">
-<script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+<body data-controller="gds-page <%= yield(:body_js_controllers) %>" class="govuk-template__body <%= content_for?(:body_classes) ? raw("#{yield(:body_classes)}") : "#{Rails.configuration.phase.to_s.downcase} #{Rails.configuration.product_type.to_s.downcase}" %>">
 <a href="#main-content" class="govuk-skip-link" data-turbolinks="false">Skip to main content</a>
 
 <div id="cookie-banner">

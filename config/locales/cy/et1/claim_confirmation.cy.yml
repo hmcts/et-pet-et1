@@ -49,11 +49,10 @@ cy:
         Dydd Llun i ddydd Gwener, 9am - 5pm <a class="govuk-link" href="https://www.gov.uk/call-charges">Gwybodaeth am brisiau galwadau</a>
 
       print_link_html: |
-        <a class="govuk-link" href="javascript:window.print(0);">Argraffwch y dudalen hon</a> ar gyfer eich
+        <a class="print-page govuk-link" href="#" data-controller="print-page" data-action="click->print-page#click">Argraffwch y dudalen hon</a> ar gyfer eich
         cofnodion
 
       pel_info: |
         Os oes gennych unrhyw gwestiynau, cysylltwch â'r Llinell Ymholiadau Cyhoeddus:
         Cymru a Lloegr 0300 123 1024
         Yr Alban 0141 354 8574
-

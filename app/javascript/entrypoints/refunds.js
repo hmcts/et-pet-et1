@@ -14,34 +14,14 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
+import application from "./controllers";
+import TurboLinks from "turbolinks";
+TurboLinks.start();
 import { EtGdsDesignSystem } from "et_gds_design_system";
 import "./stylesheets/refunds/application.scss";
-
-import Rails from "@rails/ujs"
-Rails.start()
-import SessionPrompt from "./components/SessionPrompt";
-import RefundApplicantPage from "./pages/refunds/ApplicantPage";
-import RefundFeesPage from "./pages/refunds/FeesPage";
-import OriginalCaseDetailsPage from "./pages/refunds/OriginalCaseDetailsPage";
-import BankDetailsPage from "./pages/refunds/BankDetailsPage";
-import ProfileSelectionPage from "./pages/refunds/ProfileSelectionPage";
-import ReviewPage from "./pages/refunds/ReviewPage";
+import Rails from "@rails/ujs";
+Rails.start();
 import jQuery from "jquery";
 window.$ = jQuery;
 window.jQuery = jQuery;
-EtGdsDesignSystem.initAll();
-window.Et = {
-  pages: {
-    refunds: {
-      ApplicantPage: RefundApplicantPage,
-      FeesPage: RefundFeesPage,
-      OriginalCaseDetailsPage: OriginalCaseDetailsPage,
-      BankDetailsPage: BankDetailsPage,
-      ProfileSelectionPage: ProfileSelectionPage,
-      ReviewPage: ReviewPage,
-    },
-  },
-  components: {
-    SessionPrompt,
-  },
-};
+EtGdsDesignSystem.initAll(application);

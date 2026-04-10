@@ -10,7 +10,7 @@
       .multiple id=("resource_#{builder.index}")
         = builder.fieldset label: t('.person', number: builder.index + 2)
           hr class="govuk-section-break.govuk-section-break--visible govuk-!-margin-bottom-3 govuk-!-margin-top-0"
-          = link_to t('.remove_resource_link', number: builder.index + 2), 'javascript:void(0);', data: { 'multiple-remove': "resource_#{builder.index}" }, class: 'remove-claimant govuk-link'
+          = link_to t('.remove_resource_link', number: builder.index + 2), '#', data: { 'multiple-remove': "resource_#{builder.index}" }, class: 'remove-claimant govuk-link'
 
           = render 'personal_details', f: builder
 
@@ -22,8 +22,3 @@
       value: 'claims.additional_claimants.add_fields',
       class: "govuk-!-margin-bottom-0 govuk-!-margin-top-9 #{f.object.secondary_claimants.length <= 3 ? '' : 'hidden'}",
       data: { 'multiple-add': true }
-- content_for(:javascripts)
-  javascript:
-    document.addEventListener("turbolinks:load", function() {
-      Et.pages.claims.AdditionalClaimantsPage()
-    });
