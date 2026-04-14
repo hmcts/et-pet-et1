@@ -82,7 +82,7 @@ module App
     config.maintenance_enabled = ENV.fetch('MAINTENANCE_ENABLED', 'false').downcase == 'true'
     config.maintenance_allowed_ips = ENV.fetch('MAINTENANCE_ALLOWED_IPS', '').split(',').map(&:strip)
     config.maintenance_end = ENV.fetch('MAINTENANCE_END', nil)
-    config.et_gds_design_system.api_url = ENV.fetch('ET_API_URL', 'http://api.et.127.0.0.1.nip.io:3100/api')
+    config.et_gds_design_system.api_url = ENV.fetch('ET_API_URL', 'http://api:8080/api')
     config.dynatrace_ui_tracking_id = ENV.fetch('DYNATRACE_UI_TRACKING_ID', nil)
 
     config.mission_control.jobs.http_basic_auth_enabled = false
