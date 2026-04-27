@@ -19,7 +19,7 @@ describe 'Attaching a document', :js, type: :feature do
   end
 
   describe 'For claim details RTF upload', :with_stubbed_azure_upload do
-    let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
+    let(:et_api_url) { 'http://api:8080/api/v2' }
     let(:rtf_file_path) { "#{file_path}file.rtf" }
     let(:alternative_rtf_file_path) { "#{file_path}alt_file.rtf" }
     let(:ui_claim_details) { build(:ui_claim_details, :default) }
@@ -118,7 +118,7 @@ describe 'Attaching a document', :js, type: :feature do
   end
 
   describe 'For additional claimants', :with_stubbed_azure_upload do
-    let(:et_api_url) { 'http://api.et.127.0.0.1.nip.io:3100/api/v2' }
+    let(:et_api_url) { 'http://api:8080/api/v2' }
     let(:csv_file_path) { "#{file_path}file.csv" }
     let(:alternative_csv_file_path) { "#{file_path}alt_file.csv" }
 
