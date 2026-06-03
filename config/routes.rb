@@ -81,6 +81,7 @@ Rails.application.routes.draw do
 
       get '/stats' => 'stats#index'
     end
+    resource :error_test, only: %i[show create], path: 'error-test'
 
     get '/apply' => 'claims#new'
     get '/apply/refund' => 'refunds#new'
