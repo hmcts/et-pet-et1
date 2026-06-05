@@ -34,6 +34,7 @@ base:
     MAINTENANCE_ALLOWED_IPS: "109.157.179.51,151.225.112.106"
     SERVICE_FQDN: ${SERVICE_FQDN}
     DB_SSL_MODE: "require"
+    ERROR_TEST_PAGE_TOKEN: "error"
   keyVaults:
     et-pet:
       secrets:
@@ -75,3 +76,6 @@ base:
           alias: GTM_ACCOUNT
         - name: app-insights-instrumentation-key
           alias: AZURE_APP_INSIGHTS_KEY
+        - name: et1-raven-public-dsn
+          alias: RAVEN_PUBLIC_DSN
+
