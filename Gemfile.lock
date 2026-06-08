@@ -403,7 +403,7 @@ GEM
       date
       stringio
     public_suffix (7.0.5)
-    puma (6.6.1)
+    puma (8.0.2)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -669,7 +669,7 @@ DEPENDENCIES
   pg (~> 1.1)
   poltergeist (~> 1.18)
   propshaft (~> 1.1)
-  puma (~> 6.3)
+  puma (~> 8.0.0)
   rack-attack (~> 6.7)
   rackup (~> 2.2.1)
   rails (= 8.1.2.1)
