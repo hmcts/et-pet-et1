@@ -1,0 +1,26 @@
+- content_for :form_page_title, "Error Test"
+- content_for :page_title, "Error Test - Response to Claim - MoJ"
+- content_for :page_head do
+  meta name="robots" content="noindex,nofollow,noarchive"
+- content_for :body_end do
+  = javascript_tag nonce: true do
+    | document.addEventListener("turbolinks:load", function() {
+    |   var trigger = document.querySelector("[data-error-test-js-trigger]");
+    |   if (!trigger) return;
+    |
+    |   trigger.addEventListener("click", function(event) {
+    |     event.preventDefault();
+    |     throw new Error("Deliberate JavaScript error triggered from the hidden error test page");
+    |   }, { once: true });
+    | });
+
+.content-body
+  p.govuk-body
+    | This page is intentionally hidden and is only for controlled monitoring checks.
+
+  p.govuk-body
+    | JavaScript and Ruby errors are only triggered by explicitly pressing the buttons below.
+
+  .govuk-button-group
+    = button_tag "Trigger JavaScript error", type: "button", class: "govuk-button govuk-button--secondary", data: { error_test_js_trigger: true }
+    = button_to "Trigger Ruby error", error_test_path(token: params[:token]), method: :post, class: "govuk-button", form_class: "inline-form"

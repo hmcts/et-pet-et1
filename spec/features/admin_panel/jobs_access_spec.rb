@@ -33,6 +33,14 @@ RSpec.describe 'Jobs UI access control', type: :feature do
     end
 
     it 'allows access to jobs dashboard route' do
+      adapter = MissionControl::Jobs.applications.first.servers.first.queue_adapter
+      adapter.define_singleton_method(:activating) { |&block| block.call }
+      adapter.define_singleton_method(:queues) { [] }
+      adapter.define_singleton_method(:supported_job_statuses) { [] }
+      adapter.define_singleton_method(:supports_queue_pausing?) { false }
+      adapter.define_singleton_method(:exposes_workers?) { false }
+      adapter.define_singleton_method(:supports_recurring_tasks?) { false }
+
       visit '/apply/jobs'
 
       expect(page).to have_no_current_path(new_admin_user_session_path)

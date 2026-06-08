@@ -6,6 +6,9 @@ import EtGdsDesignSystemPlugin from "et_gds_design_system/vite-plugin";
 import path from "path";
 
 export default defineConfig({
+  build: {
+    sourcemap: true,
+  },
   plugins: [
     RubyPlugin(),
     FullReload(["config/routes.rb", "app/views/**/*", "app/helpers/**/*"]),

@@ -15,7 +15,7 @@ Rails.application.configure do
     policy.font_src :self, :data
     policy.img_src :self, :data
     policy.object_src :none
-    policy.connect_src :self
+    policy.connect_src :self, :https
     policy.media_src :self
     policy.manifest_src :self
     policy.worker_src :self

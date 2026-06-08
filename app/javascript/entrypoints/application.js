@@ -15,6 +15,8 @@ console.log(
   "Visit the guide for more information: ",
   "https://vite-ruby.netlify.app/guide/rails",
 );
+import { initSentry } from "./utils/sentry";
+initSentry();
 import application from "./controllers";
 
 import { EtGdsDesignSystem } from "et_gds_design_system";

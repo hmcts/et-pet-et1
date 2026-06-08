@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :show_maintenance_page
   before_action :set_sentry_context
   after_action :set_session_expiry
+  helper_method :id_or_application_presence?
 
   before_action do
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
@@ -67,7 +68,7 @@ class ApplicationController < ActionController::Base
   def set_sentry_context
     return unless id_or_application_presence?
 
-    Sentry.set_user(id: claim.user.id)
+    Sentry.set_user(id: current_user.id) if current_user
     Sentry.set_extras(
       {
         claim_id: claim.id,

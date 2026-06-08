@@ -88,5 +88,9 @@ module App
     config.mission_control.jobs.http_basic_auth_enabled = false
     # Configurable page refresh time for in-progress submissions (in seconds)
     config.browser_poll_time = 30
+
+    config.error_test_page_token = ENV.fetch('ERROR_TEST_PAGE_TOKEN', '')
+    config.sentry_public_dsn = ENV.fetch('RAVEN_PUBLIC_DSN', '')
+    config.app_version = ENV.fetch('APPVERSION', 'unknown')
   end
 end

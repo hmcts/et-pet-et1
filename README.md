@@ -32,7 +32,8 @@ This should install node v4.4.3 and npm v2.15.1
 ## Running the application locally
 
 ### Install Docker and Docker Compose
-If you already have Docker, be sure it's at least v1.11
+
+ If you already have Docker, be sure it's at least v1.11
 
 If you're using [Kitematic] on OSX, use the terminal from there, or in any terminal run:
 
