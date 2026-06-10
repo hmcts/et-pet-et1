@@ -11,26 +11,13 @@ module ET1
         yield self if block_given?
       end
 
-      def load(expansion_or_html = {})
-        # SitePrism deprecated loading HTML fragments in v5 and will remove in v6
-        # If param is a string (HTML fragment), use Capybara.string instead
-        if expansion_or_html.is_a?(String)
-          load_html_fragment(expansion_or_html)
-        else
-          super
-        end
+      def load(*, **)
+        super
         self
       end
 
-      # Load an HTML fragment using Capybara.string instead of SitePrism's deprecated method
-      # @param html [String] The HTML string to load
-      # @return [self]
-      def load_html_fragment(html)
-        @page = Capybara.string(html)
-      end
-
-      element :google_tag_manager_head_script, :xpath, XPath.generate {|x| x.css('head script')[x.string.n.contains("googletagmanager")]}, visible: false
-      element :google_tag_manager_body_noscript, :xpath, XPath.generate {|x| x.css('body noscript')[x.child(:iframe)[x.attr(:src).contains('googletagmanager')]]}
+      element :google_tag_manager_head_script, :xpath, XPath.generate { |x| x.css('head script')[x.string.n.contains("googletagmanager")] }, visible: false
+      element(:google_tag_manager_body_noscript, :xpath, XPath.generate { |x| x.css('body noscript')[x.child(:iframe)[x.attr(:src).contains('googletagmanager')]] })
       section :sidebar, ET1::Test::SidebarSection, :css, 'aside[role=complementary]'
       element :home_link_element, :link, 'Employment Tribunals'
       element :sign_out_button, :link, 'Save and complete later'
@@ -49,9 +36,7 @@ module ET1
         t(sym_or_str.to_s)
       end
 
-      def save_and_complete_later
-        sidebar.save_and_complete_later
-      end
+      delegate :save_and_complete_later, to: :sidebar
 
       def assert_claim_retrieved_success
         assert_selector :css, '#flash-summary', text: t('return_to_your_claim.success_message')

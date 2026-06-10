@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "claim_reviews/show.html.slim" do
+describe "claim_reviews/show.html.slim", fake_capybara_session_with: :rendered do
   context "with employment" do
     include_context 'with controller dependencies for reviews'
     let(:review_page) do
@@ -45,7 +45,7 @@ describe "claim_reviews/show.html.slim" do
         secondary_claimants: claim.secondary_claimants,
         secondary_respondents: claim.secondary_respondents
       }
-      review_page.load(rendered.to_s)
+      review_page.load
     end
 
     it { expect(employment_section.start_date.answer).to have_text '01 February 2000' }

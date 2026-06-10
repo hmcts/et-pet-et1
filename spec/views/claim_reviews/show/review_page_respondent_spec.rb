@@ -1,12 +1,13 @@
 require "rails_helper"
 
-describe "claim_reviews/show.html.slim" do
+describe "claim_reviews/show.html.slim", fake_capybara_session_with: :rendered do
   context "with respondent" do
-    include_context 'with controller dependencies for reviews'
     let(:review_page) do
       ET1::Test::ReviewPage.new
     end
-    let(:respondent_section) { review_page.respondent_section }
+    let(:respondent_section) {
+      review_page.respondent_section
+    }
     let(:respondent) do
       build(:respondent, name: 'Lol Corp', address_building: '1', address_street: 'Lol street',
                          address_locality: 'Lolzville', address_county: 'Lolzfordshire',
@@ -34,7 +35,7 @@ describe "claim_reviews/show.html.slim" do
         secondary_claimants: claim.secondary_claimants,
         secondary_respondents: claim.secondary_respondents
       }
-      review_page.load(rendered.to_s)
+      review_page.load
     end
 
     it { expect(respondent_section.name.answer).to have_text('Lol Corp') }

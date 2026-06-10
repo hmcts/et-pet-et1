@@ -1,19 +1,19 @@
-require_relative './base'
+require_relative 'base'
 module Et1
   module Test
     module EmailObjects
-      class ResetPasswordEmailHtml < SitePrism::Page
+      class ResetPasswordEmailHtml < Base
         include RSpec::Matchers
 
         # @return [Et1::Test::EmailObjects::ResetPasswordEmailHtml, Nil]
-        def self.find(repo: ActionMailer::Base.deliveries, email_address:)
+        def self.find(email_address:, repo: ActionMailer::Base.deliveries)
           instances = repo.map { |mail| new(mail) }
           instances.detect { |instance| instance.has_correct_subject? && instance.has_correct_to_address?(email_address) }
         end
 
         def initialize(mail)
           self.mail = mail
-          part = mail.parts.detect { |p| p.content_type =~ %r{text\/html} }
+          part = mail.parts.detect { |p| p.content_type =~ %r{text/html} }
           body = part.nil? ? '' : part.body.to_s
           load(body)
         end
@@ -22,7 +22,7 @@ module Et1
           mail.from.include? "fredbloggs@example.com"
         end
 
-        def has_correct_content_for?(comments:, suggestions:, email_address:) # rubocop:disable Naming/PredicateName
+        def has_correct_content_for?(comments:, suggestions:, email_address:)
           aggregate_failures 'validating content' do
             expect(has_correct_subject?).to be true
             expect(has_correct_email_address?).to be true
@@ -30,11 +30,11 @@ module Et1
           true
         end
 
-        def has_correct_subject? # rubocop:disable Naming/PredicateName
+        def has_correct_subject?
           mail.subject == "Employment Tribunal: Reset your memorable word"
         end
 
-        def has_correct_to_address?(email_address) # rubocop:disable Naming/PredicateName
+        def has_correct_to_address?(email_address)
           mail.to.include?(email_address)
         end
 
