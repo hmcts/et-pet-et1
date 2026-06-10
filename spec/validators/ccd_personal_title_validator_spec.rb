@@ -5,6 +5,7 @@ RSpec.describe CcdPersonalTitleValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :title
 
       def self.name

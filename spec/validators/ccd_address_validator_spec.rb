@@ -10,6 +10,7 @@ RSpec.describe CcdAddressValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :example_address_street
 
       def self.name

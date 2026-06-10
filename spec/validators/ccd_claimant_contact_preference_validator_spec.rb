@@ -10,6 +10,7 @@ RSpec.describe CcdClaimantContactPreferenceValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :contact_preference
 
       def self.name

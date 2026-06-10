@@ -10,6 +10,7 @@ RSpec.describe CcdPostCodeValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :post_code
 
       def self.name

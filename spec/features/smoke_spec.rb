@@ -5,7 +5,7 @@ describe 'Smoke test', :js, type: :feature do
 
   after do |example|
     if example.exception
-      puts "\n" + "=" * 80
+      puts "\n" + ("=" * 80)
       puts "SMOKE TEST FAILURE - Page HTML (first 100 lines):"
       puts "=" * 80
       puts page.html.lines.first(100).join

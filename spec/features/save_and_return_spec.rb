@@ -6,6 +6,7 @@ describe 'Save and Return', :js, type: :feature do
   include MailMatchers
   include ActiveJob::TestHelper
   include ActiveJobPerformHelper
+
   let(:ui_claimant) { build(:ui_claimant, :default) }
 
   include_context 'fake gov notify'

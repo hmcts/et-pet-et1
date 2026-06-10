@@ -15,7 +15,7 @@ describe 'Multiple claimants/respondents on the review page', type: :feature do
 
     it "doesn't show a list of additional claimants" do
       expect(page.text).not_to match(/Claimant \d+/)
-      expect(page.text).to     match(/Group claimNo/)
+      expect(page.text).to     include('Group claimNo')
     end
   end
 
@@ -40,7 +40,7 @@ describe 'Multiple claimants/respondents on the review page', type: :feature do
           'Address', '1', 'Lol lane', 'London', 'London', 'SW1 1AA'
         )
 
-      expect(page.text).not_to match(/Group claimNo/)
+      expect(page.text).not_to include('Group claimNo')
     end
   end
 
@@ -49,7 +49,7 @@ describe 'Multiple claimants/respondents on the review page', type: :feature do
 
     it "doesn't show a list of additional claimants" do
       expect(page.text).not_to match(/Respondent \d+/)
-      expect(page.text).to     match(/Additional respondentsNo/)
+      expect(page.text).to     include('Additional respondentsNo')
     end
   end
 
@@ -74,7 +74,7 @@ describe 'Multiple claimants/respondents on the review page', type: :feature do
           'Address', '1', 'Lol lane', 'London', 'London', 'SW1 1AA'
         )
 
-      expect(page.text).not_to match(/Additional respondentsNo/)
+      expect(page.text).not_to include('Additional respondentsNo')
     end
   end
 end

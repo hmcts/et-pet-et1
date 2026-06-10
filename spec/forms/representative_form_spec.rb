@@ -245,11 +245,11 @@ RSpec.describe RepresentativeForm, type: :form do
         representative_form.contact_preference = 'email'
       end
 
-      include_examples "Postcode validation",
-                       attribute_prefix: 'address',
-                       error_message: 'Enter a valid postcode. If your representative lives abroad, enter SW55 9QT'
-      include_examples "Email validation",
-                       error_message: 'You have entered an invalid email address'
+      it_behaves_like "Postcode validation",
+                      attribute_prefix: 'address',
+                      error_message: 'Enter a valid postcode. If your representative lives abroad, enter SW55 9QT'
+      it_behaves_like "Email validation",
+                      error_message: 'You have entered an invalid email address'
     end
 
   end

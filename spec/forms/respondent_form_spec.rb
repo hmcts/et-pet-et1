@@ -177,13 +177,13 @@ RSpec.describe RespondentForm, type: :form do
   describe 'postcode validation' do
     subject { respondent_form }
 
-    include_examples "Postcode validation",
-                     attribute_prefix: 'address',
-                     error_message: 'Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT'
+    it_behaves_like "Postcode validation",
+                    attribute_prefix: 'address',
+                    error_message: 'Enter a valid UK postcode. If the respondent lives abroad, enter SW55 9QT'
 
-    include_examples "Postcode validation",
-                     attribute_prefix: 'work_address',
-                     error_message: 'Enter a valid UK postcode. If you live abroad enter SW55 9QT'
+    it_behaves_like "Postcode validation",
+                    attribute_prefix: 'work_address',
+                    error_message: 'Enter a valid UK postcode. If you live abroad enter SW55 9QT'
   end
 
   describe '#has_acas_number' do

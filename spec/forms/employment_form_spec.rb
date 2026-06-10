@@ -62,19 +62,19 @@ RSpec.describe EmploymentForm, type: :form do
     end
 
     describe 'end_date' do
-      include_examples 'common date examples', field: :end_date
+      it_behaves_like 'common date examples', field: :end_date
     end
 
     describe 'new_job_start_date' do
-      include_examples 'common date examples', field: :new_job_start_date
+      it_behaves_like 'common date examples', field: :new_job_start_date
     end
 
     describe 'notice_period_end_date' do
-      include_examples 'common date examples', field: :notice_period_end_date
+      it_behaves_like 'common date examples', field: :notice_period_end_date
     end
 
     describe 'start_date' do
-      include_examples 'common date examples', field: :start_date
+      it_behaves_like 'common date examples', field: :start_date
     end
 
     context 'when end date before start date' do

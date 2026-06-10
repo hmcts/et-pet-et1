@@ -10,6 +10,7 @@ RSpec.describe CcdEmailValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :email
 
       def self.name

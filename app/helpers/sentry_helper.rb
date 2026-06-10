@@ -16,7 +16,6 @@ module SentryHelper
       userId: current_user&.id,
       claimId: claim&.id,
       applicationReference: claim.application_reference,
-      reference: claim.fee_group_reference
-    }
+      reference: claim.fee_group_reference }
   end
 end

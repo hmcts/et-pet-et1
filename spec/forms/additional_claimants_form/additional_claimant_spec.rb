@@ -118,8 +118,8 @@ RSpec.describe AdditionalClaimantsForm::AdditionalClaimant, type: :form do
   context 'with shared validation' do
     subject { described_class.new Claimant.new }
 
-    include_examples "Postcode validation",
-                     attribute_prefix: 'address',
-                     error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
+    it_behaves_like "Postcode validation",
+                    attribute_prefix: 'address',
+                    error_message: 'Enter a valid UK postcode. If you live abroad, enter SW55 9QT'
   end
 end
