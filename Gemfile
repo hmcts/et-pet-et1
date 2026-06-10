@@ -46,7 +46,7 @@ gem 'rackup', '~> 2.2.1', require: false
 
 group :development, :test do
   gem 'awesome_print', '~> 1.9'
-  gem 'brakeman', '~> 7.0'
+  gem 'brakeman', '~> 8.0'
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'debug'

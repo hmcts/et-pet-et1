@@ -163,7 +163,7 @@ GEM
     bigdecimal (4.1.2)
     bitmask_attributes (1.0.0)
       activerecord (>= 3.1)
-    brakeman (7.1.1)
+    brakeman (8.0.4)
       racc
     builder (3.3.0)
     bundler-audit (0.9.3)
@@ -640,7 +640,7 @@ DEPENDENCIES
   base32_pure (~> 0.1)
   bcrypt (~> 3.1)
   bitmask_attributes (~> 1.0)
-  brakeman (~> 7.0)
+  brakeman (~> 8.0)
   bundler-audit (~> 0.9.1)
   capybara (~> 3.34)
   capybara-screenshot (~> 1.0)
