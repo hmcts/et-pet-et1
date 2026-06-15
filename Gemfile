@@ -27,7 +27,7 @@ gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsigh
 gem 'turbolinks', '~> 5.2'
 
 # Use puma as the app server
-gem 'puma', '~> 6.3'
+gem 'puma', '~> 8.0.0'
 
 # Use null db adapter for the form objects
 gem 'activerecord-nulldb-adapter', '~> 1.0'
