@@ -357,7 +357,7 @@ GEM
       turbo-rails
     multi_json (1.15.0)
     mutex_m (0.3.0)
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -707,4 +707,4 @@ DEPENDENCIES
   webrick (~> 1.4, >= 1.4.2)
 
 BUNDLED WITH
-  4.0.8
+  4.0.14
