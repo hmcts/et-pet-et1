@@ -6,7 +6,7 @@ RSpec.describe 'Jobs UI access control', type: :feature do
       visit '/apply/jobs'
 
       expect(page).to have_current_path(new_admin_user_session_path)
-      expect(page).to have_content('Login')
+      expect(page).to have_text('Login')
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe 'Jobs UI access control', type: :feature do
       visit '/apply/jobs'
 
       expect(page).to have_current_path(new_admin_user_session_path)
-      expect(page).to have_content('Login')
+      expect(page).to have_text('Login')
     end
   end
 

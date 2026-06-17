@@ -30,6 +30,7 @@ module Multipart
 
   class ParamHeader
     extend Forwardable
+
     def_delegator :CGI, :escape
 
     def initialize(name, value, options = {})
@@ -45,11 +46,11 @@ module Multipart
     private
 
     def rendered_name_and_value
-      '%<name>s: %<value>s' % [name: @name, value: @value]
+      '%<name>s: %<value>s' % [{ name: @name, value: @value }]
     end
 
     def rendered_options
-      @options.map { |k, v| '%<option>s="%<value>s"' % [option: escape(k), value: escape(v)] }
+      @options.map { |k, v| '%<option>s="%<value>s"' % [{ option: escape(k), value: escape(v) }] }
     end
   end
 

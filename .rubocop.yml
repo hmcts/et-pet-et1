@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 3.3.5
   SuggestExtensions: false
   Exclude:
@@ -394,8 +395,6 @@ RSpec/SpecFilePathFormat:
   Enabled: false
 RSpec/VerifiedDoubleReference:
   Enabled: false
-RSpec/VerifiedDoubleReference:
-  Enabled: false
 RSpec/NoExpectationExample:
   Enabled: false
 RSpec/PendingWithoutReason:
@@ -416,13 +415,13 @@ RSpecRails/TravelAround:
   Enabled: false
 
 # Capybara
-Capybara/CurrentPathExpectation:
+Capybara/RSpec/CurrentPathExpectation:
   Enabled: true
 Capybara/ClickLinkOrButtonStyle:
   Enabled: true
-Capybara/MatchStyle:
+Capybara/RSpec/MatchStyle:
   Enabled: true
-Capybara/NegationMatcher:
+Capybara/RSpec/NegationMatcher:
   Enabled: true
 Capybara/RedundantWithinFind:
   Enabled: true
@@ -430,7 +429,7 @@ Capybara/SpecificActions:
   Enabled: true
 Capybara/SpecificFinders:
   Enabled: true
-Capybara/SpecificMatcher:
+Capybara/RSpec/SpecificMatcher:
   Enabled: true
 Capybara/RSpec/HaveSelector:
   Enabled: true
@@ -622,7 +621,7 @@ Layout/SpaceBeforeBrackets:
 Naming/FileName:
   Exclude:
     - "import-secrets.rb"
-Naming/PredicateName:
+Naming/PredicatePrefix:
   Enabled: false
 Naming/BlockForwarding:
   Enabled: false
@@ -660,10 +659,10 @@ Security/CompoundHash:
   Enabled: true
 Security/IoMethods:
   Enabled: true
-
-require:
+plugins:
   - rubocop-rspec
   - rubocop-rails
   - rubocop-capybara
   - rubocop-factory_bot
   - rubocop-rspec_rails
+

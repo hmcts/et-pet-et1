@@ -1,5 +1,6 @@
 class ConfirmationEmail
   include ActiveModel::Model
+
   delegate :primary_claimant, :representative, :secondary_claimants, to: :claim
   attr_accessor :email_addresses, :additional_email_address
 

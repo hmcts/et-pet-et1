@@ -38,7 +38,7 @@ ActiveAdmin.register Claim do
     end
     resource.update state: 'submitted', pdf_url: response.response_data.dig('meta', 'BuildClaim', 'pdf_url')
     resource.create_event Event::MANUALLY_SUBMITTED, actor: 'admin'
-    redirect_back notice: 'Claim submitted to API', fallback_location: admin_claim_url(resource)
+    redirect_back_or_to(admin_claim_url(resource), notice: 'Claim submitted to API')
   end
 
   member_action :mark_submitted, method: :post do
@@ -49,7 +49,7 @@ ActiveAdmin.register Claim do
       message: "status changed to submitted"
     )
 
-    redirect_back notice: 'Claim marked as submitted', fallback_location: admin_claim_url(resource)
+    redirect_back_or_to(admin_claim_url(resource), notice: 'Claim marked as submitted')
   end
 
   member_action :txt_file, method: :get do

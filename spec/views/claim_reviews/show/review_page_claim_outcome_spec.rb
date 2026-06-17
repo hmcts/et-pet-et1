@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "claim_reviews/show.html.slim" do
+describe "claim_reviews/show.html.slim", fake_capybara_session_with: :rendered do
   include Capybara::RSpecMatchers
 
   context "with claim_outcome" do
@@ -30,7 +30,7 @@ describe "claim_reviews/show.html.slim" do
         secondary_claimants: claim.secondary_claimants,
         secondary_respondents: claim.secondary_respondents
       }
-      review_page.load(rendered.to_s)
+      review_page.load
     end
 
     context 'with outcome details' do

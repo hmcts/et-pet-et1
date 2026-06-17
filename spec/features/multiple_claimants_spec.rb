@@ -158,7 +158,7 @@ describe 'Multiple claimants', :js, type: :feature do
       expect(page).to have_no_css('#resource_1')
 
       group_claims_page.save_and_continue
-      expect(page).to have_no_content("Group claims")
+      expect(page).to have_no_text("Group claims")
       expect(claim.secondary_claimants.size).to eq 1
     end
   end
@@ -190,6 +190,6 @@ describe 'Multiple claimants', :js, type: :feature do
     group_claims_page.load
     group_claims_page.fill_in_all(secondary_claimants: [claimant_factory, second_claimant])
     group_claims_page.save_and_continue
-    expect(page).to have_no_content('Group claims')
+    expect(page).to have_no_text('Group claims')
   end
 end

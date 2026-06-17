@@ -164,43 +164,43 @@ module Refunds
 
       # Start of validation specs
       context 'with positive fees as float with known date' do
-        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: 12
-        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: 12
-        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: 12
-        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: 12
-        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: 12
+        it_behaves_like 'a positive fee with known date', fee_name: :et_issue, fee: 12
+        it_behaves_like 'a positive fee with known date', fee_name: :et_hearing, fee: 12
+        it_behaves_like 'a positive fee with known date', fee_name: :et_reconsideration, fee: 12
+        it_behaves_like 'a positive fee with known date', fee_name: :eat_issue, fee: 12
+        it_behaves_like 'a positive fee with known date', fee_name: :eat_hearing, fee: 12
       end
 
       context 'with positive fees as string with known date' do
-        include_examples 'a positive fee with known date', fee_name: :et_issue, fee: '12'
-        include_examples 'a positive fee with known date', fee_name: :et_hearing, fee: '12'
-        include_examples 'a positive fee with known date', fee_name: :et_reconsideration, fee: '12'
-        include_examples 'a positive fee with known date', fee_name: :eat_issue, fee: '12'
-        include_examples 'a positive fee with known date', fee_name: :eat_hearing, fee: '12'
+        it_behaves_like 'a positive fee with known date', fee_name: :et_issue, fee: '12'
+        it_behaves_like 'a positive fee with known date', fee_name: :et_hearing, fee: '12'
+        it_behaves_like 'a positive fee with known date', fee_name: :et_reconsideration, fee: '12'
+        it_behaves_like 'a positive fee with known date', fee_name: :eat_issue, fee: '12'
+        it_behaves_like 'a positive fee with known date', fee_name: :eat_hearing, fee: '12'
       end
 
       context 'with positive fees as float with unknown date' do
-        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: 12
-        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: 12
-        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: 12
-        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: 12
-        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: 12
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_issue, fee: 12
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_hearing, fee: 12
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: 12
+        it_behaves_like 'a positive fee with unknown date', fee_name: :eat_issue, fee: 12
+        it_behaves_like 'a positive fee with unknown date', fee_name: :eat_hearing, fee: 12
       end
 
       context 'with positive fees as string with unknown date' do
-        include_examples 'a positive fee with unknown date', fee_name: :et_issue, fee: '12'
-        include_examples 'a positive fee with unknown date', fee_name: :et_hearing, fee: '12'
-        include_examples 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: '12'
-        include_examples 'a positive fee with unknown date', fee_name: :eat_issue, fee: '12'
-        include_examples 'a positive fee with unknown date', fee_name: :eat_hearing, fee: '12'
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_issue, fee: '12'
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_hearing, fee: '12'
+        it_behaves_like 'a positive fee with unknown date', fee_name: :et_reconsideration, fee: '12'
+        it_behaves_like 'a positive fee with unknown date', fee_name: :eat_issue, fee: '12'
+        it_behaves_like 'a positive fee with unknown date', fee_name: :eat_hearing, fee: '12'
       end
 
       context 'with no fees' do
-        include_examples 'a zero or nil fee', fee_name: :et_issue, fee: nil
-        include_examples 'a zero or nil fee', fee_name: :et_hearing, fee: nil
-        include_examples 'a zero or nil fee', fee_name: :et_reconsideration, fee: nil
-        include_examples 'a zero or nil fee', fee_name: :eat_issue, fee: nil
-        include_examples 'a zero or nil fee', fee_name: :eat_hearing, fee: nil
+        it_behaves_like 'a zero or nil fee', fee_name: :et_issue, fee: nil
+        it_behaves_like 'a zero or nil fee', fee_name: :et_hearing, fee: nil
+        it_behaves_like 'a zero or nil fee', fee_name: :et_reconsideration, fee: nil
+        it_behaves_like 'a zero or nil fee', fee_name: :eat_issue, fee: nil
+        it_behaves_like 'a zero or nil fee', fee_name: :eat_hearing, fee: nil
 
         it 'fails validation as there are no fees represented as empty string' do
           [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
@@ -222,11 +222,11 @@ module Refunds
       end
 
       context 'with zero fees' do
-        include_examples 'a zero or nil fee', fee_name: :et_issue, fee: 0.0
-        include_examples 'a zero or nil fee', fee_name: :et_hearing, fee: 0.0
-        include_examples 'a zero or nil fee', fee_name: :et_reconsideration, fee: 0.0
-        include_examples 'a zero or nil fee', fee_name: :eat_issue, fee: 0.0
-        include_examples 'a zero or nil fee', fee_name: :eat_hearing, fee: 0.0
+        it_behaves_like 'a zero or nil fee', fee_name: :et_issue, fee: 0.0
+        it_behaves_like 'a zero or nil fee', fee_name: :et_hearing, fee: 0.0
+        it_behaves_like 'a zero or nil fee', fee_name: :et_reconsideration, fee: 0.0
+        it_behaves_like 'a zero or nil fee', fee_name: :eat_issue, fee: 0.0
+        it_behaves_like 'a zero or nil fee', fee_name: :eat_hearing, fee: 0.0
 
         it 'fails validation as there are no fees' do
           [:et_issue_fee, :et_hearing_fee, :et_reconsideration_fee, :eat_issue_fee, :eat_hearing_fee].each do |m|
@@ -238,11 +238,11 @@ module Refunds
       end
 
       context 'with common validations per fee' do
-        include_examples 'any fee', fee_name: :et_issue
-        include_examples 'any fee', fee_name: :et_hearing
-        include_examples 'any fee', fee_name: :et_reconsideration
-        include_examples 'any fee', fee_name: :eat_issue
-        include_examples 'any fee', fee_name: :eat_hearing
+        it_behaves_like 'any fee', fee_name: :et_issue
+        it_behaves_like 'any fee', fee_name: :et_hearing
+        it_behaves_like 'any fee', fee_name: :et_reconsideration
+        it_behaves_like 'any fee', fee_name: :eat_issue
+        it_behaves_like 'any fee', fee_name: :eat_hearing
       end
     end
 
@@ -338,19 +338,19 @@ module Refunds
       end
 
       context 'with fee date writers' do
-        include_examples 'a fee date writer', fee_name: :et_issue
-        include_examples 'a fee date writer', fee_name: :et_hearing
-        include_examples 'a fee date writer', fee_name: :et_reconsideration
-        include_examples 'a fee date writer', fee_name: :eat_issue
-        include_examples 'a fee date writer', fee_name: :eat_hearing
+        it_behaves_like 'a fee date writer', fee_name: :et_issue
+        it_behaves_like 'a fee date writer', fee_name: :et_hearing
+        it_behaves_like 'a fee date writer', fee_name: :et_reconsideration
+        it_behaves_like 'a fee date writer', fee_name: :eat_issue
+        it_behaves_like 'a fee date writer', fee_name: :eat_hearing
       end
 
       context 'with fee amount writers' do
-        include_examples 'a fee amount writer', fee_name: :et_issue
-        include_examples 'a fee amount writer', fee_name: :et_hearing
-        include_examples 'a fee amount writer', fee_name: :et_reconsideration
-        include_examples 'a fee amount writer', fee_name: :eat_issue
-        include_examples 'a fee amount writer', fee_name: :eat_hearing
+        it_behaves_like 'a fee amount writer', fee_name: :et_issue
+        it_behaves_like 'a fee amount writer', fee_name: :et_hearing
+        it_behaves_like 'a fee amount writer', fee_name: :et_reconsideration
+        it_behaves_like 'a fee amount writer', fee_name: :eat_issue
+        it_behaves_like 'a fee amount writer', fee_name: :eat_hearing
       end
     end
   end

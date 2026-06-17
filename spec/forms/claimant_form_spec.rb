@@ -264,12 +264,12 @@ RSpec.describe ClaimantForm, type: :form do
     describe 'postcode' do
       before { claimant_form.address_country = 'united_kingdom' }
 
-      include_examples "Postcode validation",
-                       attribute_prefix: 'address',
-                       error_message: 'Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT'
+      it_behaves_like "Postcode validation",
+                      attribute_prefix: 'address',
+                      error_message: 'Enter a valid UK postcode. If the claimant lives abroad, enter SW55 9QT'
     end
 
-    include_examples 'Email validation',
-                     error_message: 'You have entered an invalid email address'
+    it_behaves_like 'Email validation',
+                    error_message: 'You have entered an invalid email address'
   end
 end

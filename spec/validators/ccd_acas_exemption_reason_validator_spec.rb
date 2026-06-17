@@ -10,6 +10,7 @@ RSpec.describe CcdAcasExemptionReasonValidator do
   let(:model_class) do
     Class.new do
       include ActiveModel::Model
+
       attr_accessor :no_acas_number_reason
 
       def self.name

@@ -117,11 +117,11 @@ module Refunds
       end
 
       context 'with payment_account_type as bank' do
-        include_examples 'an account', account_type: :bank
+        it_behaves_like 'an account', account_type: :bank
       end
 
       context 'with payment_account_type as building_society' do
-        include_examples 'an account', account_type: :building_society
+        it_behaves_like 'an account', account_type: :building_society
       end
     end
 

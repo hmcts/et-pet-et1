@@ -27,12 +27,12 @@ Rails.application.configure do
 
     # Allow @vite/client to hot reload javascript/style changes in development.
     if Rails.env.development?
-      policy.script_src *policy.script_src, :unsafe_eval, "http://#{ViteRuby.config.host_with_port}"
-      policy.style_src *policy.style_src, :unsafe_inline
+      policy.script_src(*policy.script_src, :unsafe_eval, "http://#{ViteRuby.config.host_with_port}")
+      policy.style_src(*policy.style_src, :unsafe_inline)
     end
   end
 
   config.content_security_policy_nonce_generator = ->(request) { request.env["csp_nonce"] ||= SecureRandom.base64(16) }
-  config.content_security_policy_nonce_directives = %w(script-src)
+  config.content_security_policy_nonce_directives = ['script-src']
   config.content_security_policy_nonce_auto = true
 end

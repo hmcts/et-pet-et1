@@ -1,5 +1,6 @@
 class AdditionalRespondentsForm < Form
   include ValidateNested
+
   attribute :has_multiple_respondents, :boolean
   attribute :secondary_respondents
   transient_attributes :secondary_respondents

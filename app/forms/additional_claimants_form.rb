@@ -1,5 +1,6 @@
 class AdditionalClaimantsForm < Form
   include ValidateNested
+
   attribute :has_multiple_claimants, :boolean
   attribute :secondary_claimants
   transient_attributes :secondary_claimants
