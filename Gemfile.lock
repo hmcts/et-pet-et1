@@ -34,10 +34,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6eb1320926ed6512cac69271163ae50c9a2dac03
-  tag: v1.3.3
+  revision: 492bcf5338b7b57075b746b2a5bf716f604c8aaa
+  tag: v1.3.5
   specs:
-    et_test_helpers (1.3.3)
+    et_test_helpers (1.3.5)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -185,7 +185,7 @@ GEM
       logger (~> 1.5)
     climate_control (1.2.0)
     cliver (0.3.2)
-    concurrent-ruby (1.3.6)
+    concurrent-ruby (1.3.7)
     connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
@@ -303,7 +303,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (2.19.8)
+    json (2.19.9)
     jwt (2.10.3)
       base64
     kaminari (1.2.2)
@@ -560,7 +560,7 @@ GEM
       capybara (~> 3.37)
       logger (~> 1.7)
       site_prism-all_there (> 3, < 5)
-    site_prism-all_there (3.0.8)
+    site_prism-all_there (3.0.9)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
