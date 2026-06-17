@@ -23,10 +23,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_gds_design_system.git
-  revision: b2b9831934d75de112745021d6e07247b4d477dd
-  tag: v8.0.4
+  revision: b95c61bdf16e668e2395fe8cfa18004171b95542
+  tag: v8.0.5
   specs:
-    et_gds_design_system (8.0.4)
+    et_gds_design_system (8.0.5)
       govuk_design_system_formbuilder (~> 5.3.0)
       rack
       rails (>= 6.0)
@@ -185,7 +185,7 @@ GEM
       logger (~> 1.5)
     climate_control (1.2.0)
     cliver (0.3.2)
-    concurrent-ruby (1.3.6)
+    concurrent-ruby (1.3.7)
     connection_pool (3.0.2)
     crack (1.0.1)
       bigdecimal
@@ -303,7 +303,7 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    json (2.19.8)
+    json (2.19.9)
     jwt (2.10.3)
       base64
     kaminari (1.2.2)
@@ -338,7 +338,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.1.0)
+    marcel (1.1.1)
     matrix (0.4.3)
     mini_mime (1.1.5)
     mini_portile2 (2.8.9)
@@ -618,7 +618,7 @@ GEM
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webrick (1.9.2)
-    websocket-driver (0.8.0)
+    websocket-driver (0.8.1)
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
