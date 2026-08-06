@@ -10,7 +10,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '8.1.2.1'
+gem 'rails', '8.1.3.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
@@ -50,7 +50,6 @@ group :development, :test do
   gem 'bundler-audit', '~> 0.9.1'
   gem 'capybara', '~> 3.34'
   gem 'debug'
-  gem 'et_full_system_control', git: 'https://github.com/hmcts/et-full-system-control.git'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'gov_fake_notify', '~> 2.2'
   gem 'launchy'
