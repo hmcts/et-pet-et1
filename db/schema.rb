@@ -106,6 +106,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.boolean "is_other_type_of_claim"
     t.boolean "is_unfair_dismissal"
     t.boolean "is_whistleblowing"
+    t.date "last_event_date"
     t.text "miscellaneous_information"
     t.text "other_claim_details"
     t.text "other_known_claimant_names"
