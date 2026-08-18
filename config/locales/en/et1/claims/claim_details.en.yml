@@ -32,3 +32,6 @@ en:
         label: "Remove previously uploaded document: %{file}"
       claim_details:
         label: "Describe your claim"
+      last_event_date:
+        label: "What is the date of the most recent event you are complaining about?"
+        hint: "Tell us the date of the latest event related to your claim. For example, the date you were dismissed, the last act of discrimination, or the most recent incident related to your claim."

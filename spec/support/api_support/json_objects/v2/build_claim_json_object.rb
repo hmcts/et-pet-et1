@@ -35,6 +35,7 @@ module Et1
                                            eq({})
                                          end
             expect(json[:data]).to include case_type: claim.multiple_claimants? ? 'Multiple' : 'Single',
+                                           last_event_date: claim.last_event_date.strftime('%FT%T.%L%:z'),
                                            claim_details: claim.claim_details,
                                            date_of_receipt: claim.submitted_at.strftime('%FT%T.%L%:z'),
                                            desired_outcomes: claim.desired_outcomes.map(&:to_s),
@@ -54,7 +55,7 @@ module Et1
                                            submission_channel: "Web",
                                            submission_reference: claim.reference,
                                            email_template_reference: 'et1-v1-en',
-                                           pdf_template_reference: 'et1-v5-en',
+                                           pdf_template_reference: 'et1-v6-en',
                                            confirmation_email_recipients: claim.confirmation_email_recipients,
                                            miscellaneous_information: claim.miscellaneous_information
 

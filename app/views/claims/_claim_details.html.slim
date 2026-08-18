@@ -20,6 +20,7 @@ details.govuk-details
   summary.govuk-details__summary
     span.govuk-details__summary-text= t('.claim_details_upload_file_formats.header')
   .govuk-inset-text.govuk-details__text= t('.claim_details_upload_file_formats.text')
+= f.date_field :last_event_date, maxlength_enabled: true
 = f.text_area :claim_details, max_chars: 2500, rows: 15
 
 = f.fieldset label: t('.similar_claims') do

@@ -378,6 +378,9 @@ en:
       hint: "If you want to upload an email, download and convert from your email client first. Most email clients will give the option of downloading as pdf or PostScript."
     remove_rtf_file:
       label: "Remove previously uploaded document:"
+    last_event_date:
+      label: "What is the date of the most recent event you are complaining about?"
+      hint: "Tell us the date of the latest event related to your claim. For example, the date you were dismissed, the last act of discrimination, or the most recent incident related to your claim."
     claim_details:
       label: 'Describe your claim'
       hint: Limit is 2500 characters.
