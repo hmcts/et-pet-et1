@@ -1,6 +1,6 @@
 module ET1
   module Test
-    ClaimDetailsUi = Struct.new('ClaimDetailsUi', :text, :rtf_file_path, :other_known_claimants, :other_known_claimant_names, keyword_init: true)
+    ClaimDetailsUi = Struct.new('ClaimDetailsUi', :text, :rtf_file_path, :other_known_claimants, :other_known_claimant_names, :last_event_date, keyword_init: true)
   end
 end
 FactoryBot.define do
@@ -10,6 +10,7 @@ FactoryBot.define do
       rtf_file_path { nil }
       other_known_claimants { :'claim_details.other_known_claimants.options.no' }
       other_known_claimant_names { nil }
+      last_event_date { 1.day.ago.strftime('%d/%m/%Y') }
     end
 
     trait :default do
@@ -20,6 +21,7 @@ FactoryBot.define do
       text { 'Everybody hates me' }
       other_known_claimants { :'claim_details.other_known_claimants.options.yes' }
       other_known_claimant_names { 'Charles, Faz & Stevie' }
+      last_event_date { 1.day.ago.strftime('%d/%m/%Y') }
     end
   end
 end

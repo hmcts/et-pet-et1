@@ -40,6 +40,10 @@ cy:
           attributes:
             other_known_claimants:
               inclusion: Nodwch os ydych yn gwybod am unrhyw hawlwyr eraill sy’n gwneud hawliad tebyg
+            last_event_date:
+              blank: "Nodwch ddyddiad y digwyddiad mwyaf diweddar yr ydych yn cwyno amdano."
+              invalid: "Rhowch ddyddiad dilys."
+              date_in_future: "Ni all dyddiad y digwyddiad mwyaf diweddar fod yn y dyfodol."
         additional_information:
           attributes:
             has_miscellaneous_information:
