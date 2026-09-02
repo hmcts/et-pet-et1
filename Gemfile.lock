@@ -26,10 +26,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6eb1320926ed6512cac69271163ae50c9a2dac03
-  tag: v1.3.3
+  revision: 492bcf5338b7b57075b746b2a5bf716f604c8aaa
+  tag: v1.3.5
   specs:
-    et_test_helpers (1.3.3)
+    et_test_helpers (1.3.5)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -392,7 +392,7 @@ GEM
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.2.6)
+    rack (3.2.7)
     rack-attack (6.7.0)
       rack (>= 1.0, < 4)
     rack-proxy (0.7.7)
@@ -549,7 +549,7 @@ GEM
       capybara (~> 3.37)
       logger (~> 1.7)
       site_prism-all_there (> 3, < 5)
-    site_prism-all_there (3.0.8)
+    site_prism-all_there (3.0.10)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
@@ -601,7 +601,7 @@ GEM
       zeitwerk (~> 2.2)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webmock (3.26.2)
+    webmock (3.26.4)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
