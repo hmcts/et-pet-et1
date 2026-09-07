@@ -23,6 +23,8 @@ FactoryBot.define do
       best_correspondence_method { :'claimants_details.best_correspondence_method.options.post' }
       allow_phone_or_video_attendance { [:'claimants_details.allow_phone_or_video_attendance.options.phone'] }
       allow_phone_or_video_attendance_reason { nil }
+      case_heard_by_preference { :no_preference }
+      case_heard_by_preference_reason { nil }
     end
 
     trait :default do

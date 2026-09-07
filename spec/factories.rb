@@ -14,6 +14,7 @@ FactoryBot.define do
 
     is_unfair_dismissal { true }
 
+    last_event_date { 1.day.ago.to_date }
     claim_details_rtf do
       { 'path' => 'spec/support/files/file.rtf', 'content_type' => 'application/rtf', 'filename' => 'file.rtf' }
     end
@@ -40,6 +41,8 @@ FactoryBot.define do
     discrimination_claims  { [:sex_including_equal_pay, :disability, :race] }
     pay_claims             { [:redundancy, :notice, :holiday, :arrears, :other] }
     desired_outcomes       { [:compensation_only, :tribunal_recommendation] }
+    case_heard_by_preference         { 'judge' }
+    case_heard_by_preference_reason  { 'I feel intimidated by a group' }
 
     user { build(:user, password: 'lollolol') }
 

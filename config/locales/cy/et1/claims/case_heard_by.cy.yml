@@ -1,0 +1,39 @@
+cy:
+  claims:
+    case_heard_by:
+      header: Barnwr neu banel
+      subheader: ''
+      case_heard_by_preference:
+        label: Sut yr hoffech i’ch achos gael ei wrando?
+        options:
+          no_preference: Nid wyf yn ffafrio unrhyw ddewis dros y llall
+          judge: Mae’n well gennyf i fy achos gael ei wrando gan farnwr Nodwch eich rhesymau dros ddewis barnwr
+          panel: Mae’n well gennyf i fy achos gael ei wrando gan banel yn cynnwys aelodau nad ydynt wedi cymhwyso yn y gyfraith. Nodwch eich rhesymau dros ddewis panel yn cynnwys aelodau nad ydynt wedi cymhwyso yn y gyfraith
+      case_heard_by_preference_reason:
+        label: Rhowch reswm
+      explanation:
+        heading: "Gall un o’r canlynol wrando eich achos:"
+        options:
+          - Barnwr, neu
+          - Barnwr gyda dau aelod nad ydynt wedi cymhwyso yn y gyfraith, a elwir yn ‘banel’.
+        panel:
+          heading: Beth yw panel
+          content_paragraphs:
+            - >
+              Pobl lleyg a benodwyd oherwydd eu profiad penodol yn y gweithle fel gweithwyr neu reolwyr yw aelodau nad ydynt wedi cymhwyso yn y 
+              gyfraith. Bydd panel yn cynnwys barnwr, aelod gyda phrofiad o fod yn weithiwr neu brofiad o fod yn aelod o undeb, ac aelod gyda phrofiad
+              o reoli. Mae barn bob un yn gyfartal wrth ddod i benderfyniad.
+            - >
+              Barnwr fydd yn penderfynu p’un a fydd achos yn cael ei wrando gan farnwr neu gan banel. Wrth wneud yn
+              penderfyniad hwn, bydd y barnwr yn ystyried a yw’r achos yn cynnwys y math o broblem gyfreithiol neu ffeithiol lle
+              gallai profiad yr aelodau nad ydynt wedi cymhwyso yn y gyfraith helpu’r tribiwnlys i ddod i benderfyniad.
+        presidential:
+          heading: Mae Canllawiau’r Llywyddion yn egluro’r mathau o achosion lle gall y profiad hwn helpu.
+          england_and_wales_link_text: Cyfarwyddiadau Ymarfer a Chanllawiau ar gyfer y Tribiwnlysoedd Cyflogaeth (Cymru a Lloegr)
+          scotland_link_text: Cyfarwyddiadau a Chanllawiau ar gyfer y Tribiwnlys Cyflogaeth (Yr Alban)
+        footer: 
+          - >
+            Mae gennych gyfle i ddweud a fyddai’n well gennych i’ch achos gael ei wrando gan farnwr neu gan banel. 
+            Bydd y barnwr yn ystyried eich dewis.
+          - >
+            Os byddwch yn mynegi dewis, yna gofynnir i chi roi rhesymau dros hynny.

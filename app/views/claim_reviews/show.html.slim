@@ -14,6 +14,12 @@
     hr class="govuk-section-break.govuk-section-break--visible"
     dl class="govuk-summary-list govuk-!-margin-bottom-9"
       = render 'claimant', claimant: primary_claimant, section_name: 'claimant'
+    h2.govuk-heading-m
+      span = t ".sections.case_heard_by"
+    span = link_to t('.edit_case_heard_by_page'), claim_case_heard_by_path(return_to_review: true), class: 'govuk-link'
+    hr class="govuk-section-break.govuk-section-break--visible"
+    dl class="govuk-summary-list govuk-!-margin-bottom-9"
+      = render 'case_heard_by', claim:, section_name: 'case_heard_by'
 
     h2.govuk-heading-m
       span = t ".sections.additional_claimants"

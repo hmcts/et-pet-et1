@@ -7,6 +7,7 @@ module ET1
       # Fills in the whole form
       # @param [ET1::Test::ClaimDetailsUi] claim_details
       def fill_in_all(claim_details:)
+        last_event_date_question.set(claim_details.last_event_date)
         claim_details_question.set(claim_details.text)
         ensure_file_question_is_visible unless claim_details.rtf_file_path.nil?
         claim_details_file_question.set(claim_details.rtf_file_path) unless claim_details.rtf_file_path.nil?
@@ -27,6 +28,10 @@ module ET1
 
       private
 
+      # @!method last_event_date_question
+      #   A govuk text field component wrapping the input, label, hint etc..
+      #   @return [EtTestHelpers::Components::GovUKDateField] The site prism section
+      gds_date_input :last_event_date_question, :'claim_details.last_event_date'
       # @!method claim_details_question
       #   A govuk text field component wrapping the input, label, hint etc..
       #   @return [EtTestHelpers::Components::GovUKTextField] The site prism section

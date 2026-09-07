@@ -4,7 +4,9 @@ json.data do
   json.reference claim.fee_group_reference
   json.submission_reference claim.reference
   json.email_template_reference "et1-v1-#{I18n.locale}"
-  json.pdf_template_reference "et1-v4-#{I18n.locale}"
+  json.pdf_template_reference "et1-v6-#{I18n.locale}"
+  json.case_heard_by_preference claim.case_heard_by_preference
+  json.case_heard_by_preference_reason claim.case_heard_by_preference_reason
   json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
   json.case_type claim.multiple_claimants? ? 'Multiple' : 'Single'
@@ -23,6 +25,7 @@ json.data do
     json.array! claim.desired_outcomes.map(&:to_s)
   end
   json.other_claim_details claim.other_claim_details
+  json.last_event_date claim.last_event_date&.strftime('%FT%T.%L%:z')
   json.claim_details claim.claim_details
   json.other_outcome claim.other_outcome
   json.was_employed claim.was_employed?

@@ -134,9 +134,36 @@ RSpec.describe ClaimDetailsForm, type: :form do
     end
   end
 
+  describe '#last_event_date' do
+    it 'is invalid if the last_event_date is nil' do
+      claim_details_form.last_event_date = nil
+      claim_details_form.validate
+      expect(claim_details_form.errors.where(:last_event_date, :blank)).to be_present
+    end
+
+    it 'is invalid if the last_event_date is in the future' do
+      claim_details_form.last_event_date = 1.day.since.strftime('%Y-%m-%d')
+      claim_details_form.validate
+      expect(claim_details_form.errors.where(:last_event_date, :date_in_future)).to be_present
+    end
+
+    it 'is valid the last_event_date is today' do
+      claim_details_form.last_event_date = Time.zone.today.strftime('%Y-%m-%d')
+      claim_details_form.validate
+      expect(claim_details_form.errors.where(:last_event_date)).to be_empty
+    end
+
+    it 'is valid if the last_event_date is yesterday' do
+      claim_details_form.last_event_date = 1.day.ago.strftime('%Y-%m-%d')
+      claim_details_form.validate
+      expect(claim_details_form.errors.where(:last_event_date)).to be_empty
+    end
+
+  end
+
   it_behaves_like "a Form",
                   claim_details: "I want to make a claim", other_known_claimants: 'true',
-                  other_known_claimant_names: "Edgar"
+                  other_known_claimant_names: "Edgar", last_event_date: 1.day.ago.strftime('%Y-%m-%d')
 
   def api_rejection_response
     {
