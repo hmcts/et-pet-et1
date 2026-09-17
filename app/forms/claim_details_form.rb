@@ -8,6 +8,7 @@ class ClaimDetailsForm < Form
   attribute :claim_details_rtf,           :gds_azure_file
   attribute :remove_claim_details_rtf,    :boolean
   attribute :other_known_claimants, :boolean
+  attribute :last_event_date, :et_date
 
   before_validation :remove_claim_details_rtf!,
                     if: :remove_claim_details_rtf
@@ -36,6 +37,9 @@ class ClaimDetailsForm < Form
     ], message: I18n.t('errors.messages.rtf')
   }
   validates :claim_details_rtf, additional_information_file: true, if: :valid_claim_details_rtf?
+  validates :last_event_date, presence: true, date: true
+  validate :validate_date_is_past?
+
 
   def claim_form_details_rtf?
     resource.claim_details_rtf.present?
@@ -65,5 +69,11 @@ class ClaimDetailsForm < Form
 
   def reset_other_known_claimant_names!
     self.other_known_claimant_names = nil
+  end
+
+  def validate_date_is_past?
+    return if last_event_date.nil?
+
+    errors.add(:last_event_date, :date_in_future) if Time.zone.today < last_event_date
   end
 end
