@@ -44,6 +44,10 @@ gem 'notifications-ruby-client', '~> 5.3'
 
 gem 'rackup', '~> 2.2.1', require: false
 
+# For data migrations
+gem 'data_migrate', '>= 11.3.1'
+
+
 group :development, :test do
   gem 'awesome_print', '~> 1.9'
   gem 'brakeman', '~> 8.0'

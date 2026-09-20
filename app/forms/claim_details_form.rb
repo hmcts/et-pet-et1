@@ -37,8 +37,8 @@ class ClaimDetailsForm < Form
     ], message: I18n.t('errors.messages.rtf')
   }
   validates :claim_details_rtf, additional_information_file: true, if: :valid_claim_details_rtf?
-  validates :last_event_date, presence: true, date: true
-  validate :validate_date_is_past?
+  validates :last_event_date, presence: true, date: true, if: :era_oct_26?
+  validate :validate_date_is_past?, if: :era_oct_26?
 
 
   def claim_form_details_rtf?
@@ -75,5 +75,9 @@ class ClaimDetailsForm < Form
     return if last_event_date.nil?
 
     errors.add(:last_event_date, :date_in_future) if Time.zone.today < last_event_date
+  end
+
+  def era_oct_26?
+    FeatureFlag.value_for('era_oct_26')
   end
 end

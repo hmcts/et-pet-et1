@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_17_055335) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -124,6 +124,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.boolean "was_employed"
     t.string "whistleblowing_regulator_name"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "diversities", id: :serial, force: :cascade do |t|
