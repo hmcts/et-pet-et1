@@ -9,7 +9,7 @@ json.data do
     json.case_heard_by_preference claim.case_heard_by_preference
     json.case_heard_by_preference_reason claim.case_heard_by_preference_reason
   else
-    json.pdf_template_reference "et1-v5-#{I18n.locale}"
+    json.pdf_template_reference "et1-v4-#{I18n.locale}"
   end
   json.confirmation_email_recipients claim.confirmation_email_recipients
   json.submission_channel 'Web'
