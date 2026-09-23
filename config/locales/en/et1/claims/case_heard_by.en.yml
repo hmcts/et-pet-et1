@@ -1,0 +1,39 @@
+en:
+  claims:
+    case_heard_by:
+      header: Preference for judge or panel
+      subheader: ''
+      case_heard_by_preference:
+        label: How do you prefer to have your case heard?
+        options:
+          no_preference: I have no preference
+          judge: I prefer my case to be heard by a judge. Give your reasons in the box below.
+          panel: I prefer my case to be heard by a panel including non-legal members. Give your reasons in the box below.
+      case_heard_by_preference_reason:
+        label: Give reason
+      explanation:
+        heading: "You can have your case heard by:"
+        options:
+          - A judge, or
+          - A judge with two non-legal members, knows as a 'panel'
+        panel:
+          heading: What is a panel
+          content_paragraphs:
+            - >
+              Non-legal members are lay people appointed because of their particular experience in the workplace as either workers or managers.
+              A panel will consist of a judge, a member with worker or union experience and a member with management experience. Each has an equal
+              say in the decision.
+            - >
+              A judge will decide whether your case is heard by a judge or by a panel. When making this decision, the judge will consider whether
+              the case involves the sort of legal or factual problem where the experience of the non-legal members may help the tribunal react its
+              decision.
+        presidential:
+          heading: Presidential Guidance explains the types of cases where this experience may help.
+          england_and_wales_link_text: Practice Directions and Guidance for Employment Tribunals (England and Wales)
+          scotland_link_text: Directions and Guidance for Employment Tribunal (Scotland)
+        footer: 
+          - >
+            You have an opportunity to say if you would like your case heard by a judge or a panel.
+            The judge will then consider your preference.
+          - >
+            If you express a preference, you will be asked to give reasons.

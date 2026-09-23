@@ -34,7 +34,10 @@ class PageManager
   end
 
   def forward
-    page.transitions_to
+    transitions_to = page.transitions_to
+    return transitions_to unless transitions_to.respond_to?(:call)
+
+    page.transitions_to.call
   end
 
   def skip

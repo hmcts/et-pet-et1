@@ -89,6 +89,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.string "additional_claimants_csv"
     t.integer "additional_claimants_csv_record_count", default: 0
     t.string "application_reference", null: false
+    t.string "case_heard_by_preference"
+    t.text "case_heard_by_preference_reason"
     t.text "claim_details"
     t.string "claim_details_rtf"
     t.string "confirmation_email_recipients", default: [], array: true
@@ -104,6 +106,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.boolean "is_other_type_of_claim"
     t.boolean "is_unfair_dismissal"
     t.boolean "is_whistleblowing"
+    t.date "last_event_date"
     t.text "miscellaneous_information"
     t.text "other_claim_details"
     t.text "other_known_claimant_names"
@@ -121,6 +124,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_17_061014) do
     t.boolean "was_employed"
     t.string "whistleblowing_regulator_name"
     t.index ["application_reference"], name: "index_claims_on_application_reference", unique: true
+  end
+
+  create_table "data_migrations", primary_key: "version", id: :string, force: :cascade do |t|
   end
 
   create_table "diversities", id: :serial, force: :cascade do |t|
