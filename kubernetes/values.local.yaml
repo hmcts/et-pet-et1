@@ -1,0 +1,67 @@
+# First step: ET1 web process only. No database, workers or external integrations.
+# This file overrides the child's chart; the shared base chart stays unchanged.
+global:
+  environment: local
+  enableKeyVaults: false
+
+base:
+  releaseNameOverride: et1
+  image: et-full-system-servers-et1:latest
+  imagePullPolicy: Never
+  replicas: 1
+  # An inherited SOLID_QUEUE_IN_PUMA value (even 'false') would start a worker.
+  command: ["/bin/sh", "-c", "unset SOLID_QUEUE_IN_PUMA; exec bundle exec puma --port 8080"]
+  args: []
+  applicationPort: 8080
+  ingressHost: et1.k8s.orb.local
+  ingressClass: et-local
+  disableTraefikTls: false
+  ingressAnnotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+  aadIdentityName: ""
+  useWorkloadIdentity: false
+  saEnabled: false
+  disableKeyVaults: true
+  affinity:
+    podAntiAffinity: {}
+  # The default health endpoints need a database. Disable them for this step.
+  startupPath: ""
+  readinessPath: ""
+  livenessPath: ""
+  autoscaling:
+    enabled: false
+  pdb:
+    enabled: false
+  cpuRequests: 100m
+  cpuLimits: "1000m"
+  memoryRequests: 256Mi
+  memoryLimits: 2048Mi
+  terminationGracePeriodSeconds: 30
+  environment:
+    RAILS_ENV: production
+    RACK_ENV: production
+    RAILS_LOG_TO_STDOUT: "true"
+    RAILS_SERVE_STATIC_FILES: "true"
+    RAILS_MAX_THREADS: "3"
+    WEB_CONCURRENCY: "0"
+    PORT: "8080"
+    SECRET_KEY_BASE: local-kubernetes-only-not-a-real-secret-0123456789abcdef0123456789abcdef
+    # Explicitly avoid any production services. These are not deployed yet.
+    DB_HOST: database-not-configured.invalid
+    DB_PORT: "5432"
+    DB_NAME: etdb
+    DB_USERNAME: postgres
+    DB_PASSWORD: local-only
+    DB_SSL_MODE: disable
+    ET_API_URL: http://api-not-configured.invalid:8080/api/v2
+    SMTP_HOSTNAME: mail-not-configured.invalid
+    SMTP_PORT: "1025"
+    SERVICE_NOW_EMAIL: local@example.invalid
+    ROOT_URL: https://et1.k8s.orb.local
+    SERVICE_FQDN: https://et1.k8s.orb.local
+    SENDING_HOST: et1.k8s.orb.local
+    SECURE_SESSION_COOKIE: "true"
+    SECRETS_PATH: ""
+    DOCKER_STATE: ""
+    DISABLE_AZURE_APP_INSIGHTS: "true"
+    CLOUD_PROVIDER: null
