@@ -78,12 +78,3 @@ base:
           alias: AZURE_APP_INSIGHTS_KEY
         - name: et1-raven-public-dsn
           alias: RAVEN_PUBLIC_DSN
-
-
-# Enable the pre-deployment migration Job after its secret prerequisites are ready.
-# Creation and development seeds are opt-in; production uses migrations only.
-databaseSetup:
-  enabled: false
-  create: false
-  seed: false
-  activeDeadlineSeconds: 240

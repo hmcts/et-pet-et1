@@ -1,4 +1,4 @@
-# ET1 web process with shared local PostgreSQL. No workers or external integrations.
+# ET1 uses its existing startup script with shared local PostgreSQL.
 # This file overrides the child's chart; the shared base chart stays unchanged.
 global:
   environment: local
@@ -9,8 +9,8 @@ base:
   image: et-full-system-servers-et1:latest
   imagePullPolicy: Never
   replicas: 1
-  # An inherited SOLID_QUEUE_IN_PUMA value (even 'false') would start a worker.
-  command: ["/bin/sh", "-c", "unset SOLID_QUEUE_IN_PUMA; exec bundle exec puma --port 8080"]
+  # Use the same startup script as the application image.
+  command: ["./run.sh"]
   args: []
   applicationPort: 8080
   ingressHost: et1.k8s.orb.local
@@ -62,12 +62,7 @@ base:
     SENDING_HOST: et1.k8s.orb.local
     SECURE_SESSION_COOKIE: "true"
     SECRETS_PATH: ""
-    DOCKER_STATE: ""
+    # Existing run.sh creates, migrates and seeds the local database before starting Procfile.
+    DOCKER_STATE: create
     DISABLE_AZURE_APP_INSIGHTS: "true"
     CLOUD_PROVIDER: null
-
-# Local PostgreSQL is installed separately before deploying ET1.
-databaseSetup:
-  enabled: true
-  create: true
-  seed: true
