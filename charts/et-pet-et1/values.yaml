@@ -78,4 +78,3 @@ base:
           alias: AZURE_APP_INSIGHTS_KEY
         - name: et1-raven-public-dsn
           alias: RAVEN_PUBLIC_DSN
-
