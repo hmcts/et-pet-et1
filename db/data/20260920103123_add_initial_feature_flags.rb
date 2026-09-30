@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddInitialFeatureFlags < ActiveRecord::Migration[8.1]
   class FeatureFlag < ActiveRecord::Base
     self.table_name = :feature_flags
@@ -17,7 +19,7 @@ class AddInitialFeatureFlags < ActiveRecord::Migration[8.1]
   end
 
   def down
-    feature_flag = FeatureFlag.find_by(key: 'era_oct_26')
+    feature_flag = FeatureFlag.find_by(key: "era_oct_26")
     return if feature_flag.nil?
 
     feature_flag.destroy

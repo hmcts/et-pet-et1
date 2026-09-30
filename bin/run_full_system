@@ -28,7 +28,7 @@ FileUtils.chdir APP_ROOT do
 
 
   puts "\n== Preparing database =="
-  system! 'DISABLE_ADMIN=true bin/rails db:migrate:reset db:seed'
+  system! 'DISABLE_ADMIN=true bin/rails db:create db:migrate:with_data db:seed'
 
   puts "\n== Starting app and solid_queue =="
   system! "cd #{APP_ROOT} && invoker start Procfile"

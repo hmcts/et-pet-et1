@@ -156,6 +156,10 @@ en:
               inclusion: Please indicate if you know any other claimants making a similar claim
             claim_details_rtf:
               password_protected: This file is password protected. Upload a file that isn’t password protected.
+            last_event_date:
+              blank: "Enter the date of the most recent event you are complaining about"
+              invalid: "Enter a real date"
+              date_in_future: "The date of the most recent event cannot be in the future"
         claim_outcome:
           attributes:
             other_outcome:

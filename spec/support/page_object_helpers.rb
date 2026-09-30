@@ -28,6 +28,12 @@ module ET1
         ::ET1::Test::ClaimantsDetailsPage.new
       end
 
+
+      # @return [ET1::Test::CaseHeardByPage]
+      def case_heard_by_page
+        ::ET1::Test::CaseHeardByPage.new
+      end
+
       # @return [ET1::Test::GroupClaimsPage] The group claims page
       def group_claims_page
         ::ET1::Test::GroupClaimsPage.new

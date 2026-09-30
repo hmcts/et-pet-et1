@@ -31,3 +31,6 @@ cy:
         label: "Dileu'r ddogfen a gafodd ei huwchlwytho yn flaenorol: %{file}"
       claim_details:
         label: Disgrifiwch eich hawliad
+      last_event_date:
+        label: "Beth yw dyddiad y digwyddiad mwyaf diweddar yr ydych yn cwyno amdano?"
+        hint: "Rhowch ddyddiad y digwyddiad mwyaf diweddar sy'n ymwneud â'ch hawliad. Er enghraifft, y dyddiad y cawsoch eich diswyddo, y weithred wahaniaethu ddiwethaf, neu'r digwyddiad mwyaf diweddar sy'n ymwneud â'ch hawliad."

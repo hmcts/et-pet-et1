@@ -120,6 +120,8 @@ module FormMethods
     saving_your_claim_page.register(email_address: nil, password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
+    case_heard_by_page.fill_in_all(claimant: ui_claimant)
+    case_heard_by_page.save_and_continue
     group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
@@ -147,6 +149,8 @@ module FormMethods
     saving_your_claim_page.register(email_address: nil, password: 'green')
     claimants_details_page.fill_in_all(claimant: ui_claimant)
     claimants_details_page.save_and_continue
+    case_heard_by_page.fill_in_all(claimant: ui_claimant)
+    case_heard_by_page.save_and_continue
     group_claims_page.fill_in_all(secondary_claimants: ui_secondary_claimants)
     group_claims_page.save_and_continue
     representatives_details_page.fill_in_all(representative: ui_representative)
