@@ -38,8 +38,6 @@ base:
   keyVaults:
     et-pet:
       secrets:
-        - name: et-pet-api-redis-url
-          alias: REDIS_URL
         - name: et1-postgres-host
           alias: DB_HOST
         - name: et1-postgres-port
