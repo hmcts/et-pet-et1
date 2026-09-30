@@ -1,4 +1,4 @@
-# First step: ET1 web process only. No database, workers or external integrations.
+# ET1 web process with shared local PostgreSQL. No workers or external integrations.
 # This file overrides the child's chart; the shared base chart stays unchanged.
 global:
   environment: local
@@ -24,9 +24,9 @@ base:
   disableKeyVaults: true
   affinity:
     podAntiAffinity: {}
-  # The default health endpoints need a database. Disable them for this step.
-  startupPath: ""
-  readinessPath: ""
+  # Verify the claim page can render before exposing this pod to traffic.
+  startupPath: /apply
+  readinessPath: /apply
   livenessPath: ""
   autoscaling:
     enabled: false
@@ -46,8 +46,8 @@ base:
     WEB_CONCURRENCY: "0"
     PORT: "8080"
     SECRET_KEY_BASE: local-kubernetes-only-not-a-real-secret-0123456789abcdef0123456789abcdef
-    # Explicitly avoid any production services. These are not deployed yet.
-    DB_HOST: database-not-configured.invalid
+    # Shared local database; other integrations are not deployed yet.
+    DB_HOST: postgres.et-full-system-infra.svc.cluster.local
     DB_PORT: "5432"
     DB_NAME: etdb
     DB_USERNAME: postgres
@@ -65,3 +65,9 @@ base:
     DOCKER_STATE: ""
     DISABLE_AZURE_APP_INSIGHTS: "true"
     CLOUD_PROVIDER: null
+
+# Local PostgreSQL is installed separately before deploying ET1.
+databaseSetup:
+  enabled: true
+  create: true
+  seed: true

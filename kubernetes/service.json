@@ -10,5 +10,6 @@
   "domain": "k8s.orb.local",
   "ingressValues": [
     "base"
-  ]
+  ],
+  "waitForRollout": true
 }
