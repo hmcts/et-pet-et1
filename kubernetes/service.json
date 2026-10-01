@@ -1,0 +1,15 @@
+{
+  "chart": "charts/et-pet-et1",
+  "image": "et-full-system-servers-et1:latest",
+  "imageValues": [
+    "base.image"
+  ],
+  "release": "et-local-et1",
+  "workload": "et-local-et1-base",
+  "hostPrefix": "et1",
+  "domain": "k8s.orb.local",
+  "ingressValues": [
+    "base"
+  ],
+  "waitForRollout": true
+}

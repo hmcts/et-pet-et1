@@ -5,7 +5,7 @@ class ClaimPagesManager < PageManager
 
   page 'claimant',
        number: 2,
-       transitions_to: -> { FeatureFlag.value_for('era_oct_26') ? 'case-heard-by' :  'additional-claimants'}
+       transitions_to: -> { 'case-heard-by' }
 
   page 'case-heard-by',
        number: 3,
