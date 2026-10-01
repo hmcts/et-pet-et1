@@ -2,9 +2,5 @@
 # Only explicit Flux resource overrides; missing keys inherit chart defaults.
 {
   "base": {
-    "cpuRequests": "250m",
-    "cpuLimits": "500m",
-    "memoryRequests": "512Mi",
-    "memoryLimits": "3072Mi"
   }
 }

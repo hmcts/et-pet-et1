@@ -48,7 +48,7 @@ render successfully; automated tests should start after `up` succeeds. Shared
 PostgreSQL must be installed before the first ET1 deployment.
 
 The claim start page at `/apply` can render. ET1 connects directly to the API
-Service at `http://api.et-full-system.svc.cluster.local/api/v2`, using Service
+Service at `http://et-local-api-base.et-full-system.svc.cluster.local/api/v2`, using Service
 port 80 rather than the pod port 8080. API and Azurite must be deployed separately.
 Mail, ACAS, CCD and Notify use the shared support services. View captured mail
 at <https://mail.k8s.orb.local/>. Shared PostgreSQL
