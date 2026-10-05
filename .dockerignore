@@ -24,10 +24,7 @@ Vagrantfile
 yarn-error.log
 docker
 vendor/bundle
-.devbox
 .zed
-devbox.json
-devbox.lock
 .scannerwork
 .sonar
 Fortify Scan

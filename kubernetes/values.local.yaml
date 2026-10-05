@@ -33,7 +33,7 @@ base:
     DB_PASSWORD: local-only
     DB_SSL_MODE: disable
     ET_API_URL: http://et-local-api-base.et-full-system.svc.cluster.local/api/v2
-    SMTP_HOSTNAME: mailhog.et-full-system-infra.svc.cluster.local
+    SMTP_HOSTNAME: mailpit.et-full-system-infra.svc.cluster.local
     SMTP_PORT: "1025"
     SMTP_USERNAME: doesntmatter
     SMTP_PASSWORD: doesntmatter
