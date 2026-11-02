@@ -26,10 +26,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6eb1320926ed6512cac69271163ae50c9a2dac03
-  tag: v1.3.3
+  revision: 492bcf5338b7b57075b746b2a5bf716f604c8aaa
+  tag: v1.3.5
   specs:
-    et_test_helpers (1.3.3)
+    et_test_helpers (1.3.5)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -357,14 +357,14 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     nio4r (2.7.5)
-    nokogiri (1.19.4)
+    nokogiri (1.19.6)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
-    nokogiri (1.19.4-aarch64-linux-musl)
+    nokogiri (1.19.6-aarch64-linux-musl)
       racc (~> 1.4)
-    nokogiri (1.19.4-arm64-darwin)
+    nokogiri (1.19.6-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.19.4-x86_64-linux-gnu)
+    nokogiri (1.19.6-x86_64-linux-gnu)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
@@ -552,7 +552,7 @@ GEM
       capybara (~> 3.37)
       logger (~> 1.7)
       site_prism-all_there (> 3, < 5)
-    site_prism-all_there (3.0.8)
+    site_prism-all_there (3.0.10)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
