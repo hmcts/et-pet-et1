@@ -11,6 +11,11 @@ class Diversity < ApplicationRecord
 
   attr_accessor :religion_text
 
+
+  def self.ransackable_associations(_auth_object = nil)
+    []
+  end
+
   def ethinicity_subgroup
     ethnicity_subgroup
   end

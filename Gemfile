@@ -10,12 +10,12 @@ gem 'jbuilder', '~> 2.10'
 gem 'jquery-rails', '~> 4.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '8.1.3.1'
+gem 'rails', '8.1.4.1'
 gem 'responders', '~> 3.0'
 
 # Azure deployment so we need this
 gem 'azure_env_secrets', git: 'https://github.com/hmcts/azure_env_secrets.git', tag: 'v1.0.1'
-gem 'et_azure_insights', '0.3.2', git: 'https://github.com/hmcts/et-azure-insights.git', tag: 'v0.3.2'
+gem 'et_azure_insights', '1.0.3', git: 'https://github.com/hmcts/et-azure-insights.git', tag: 'v1.0.3'
 # gem 'et_azure_insights', path: '../../../et_azure_insights'
 gem 'application_insights', git: 'https://github.com/microsoft/ApplicationInsights-Ruby.git', ref: '5db6b4'
 
