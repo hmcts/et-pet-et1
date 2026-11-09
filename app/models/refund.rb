@@ -7,6 +7,10 @@ class Refund < ApplicationRecord
   attribute :eat_hearing_fee_payment_date, :gds_date_type
   REFERENCE_START = 1_000_000
 
+  def self.ransackable_associations(_auth_object = nil)
+    []
+  end
+
   def generate_application_reference
     last = self.class.maximum(:application_reference_number)
     last = REFERENCE_START if last.nil?

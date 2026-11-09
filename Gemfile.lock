@@ -7,10 +7,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et-azure-insights.git
-  revision: 1aa89eff387d15f680e5aa2368422f091ebdeae0
-  tag: v0.3.2
+  revision: 4950443c122d98382bdd7b5e431d4b382c7ee943
+  tag: v1.0.3
   specs:
-    et_azure_insights (0.3.2)
+    et_azure_insights (1.0.3)
       application_insights (~> 0.5.7)
 
 GIT
@@ -239,6 +239,7 @@ GEM
     ffi (1.17.4-aarch64-linux-musl)
     ffi (1.17.4-arm64-darwin)
     ffi (1.17.4-x86_64-linux-gnu)
+    ffi (1.17.4-x86_64-linux-musl)
     formtastic (6.0.0)
       actionpack (>= 7.2.0)
     formtastic_i18n (0.7.0)
@@ -363,6 +364,8 @@ GEM
     nokogiri (1.19.7-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.19.7-x86_64-linux-gnu)
+      racc (~> 1.4)
+    nokogiri (1.19.7-x86_64-linux-musl)
       racc (~> 1.4)
     notifications-ruby-client (5.4.0)
       jwt (>= 1.5, < 3)
@@ -620,6 +623,7 @@ PLATFORMS
   aarch64-linux-musl
   arm64-darwin-22
   x86_64-linux
+  x86_64-linux-musl
 
 DEPENDENCIES
   activeadmin (~> 3.2)
@@ -642,7 +646,7 @@ DEPENDENCIES
   devise (~> 5.0)
   dotenv-rails (~> 3.1.0)
   email_validator (~> 2.2)
-  et_azure_insights (= 0.3.2)!
+  et_azure_insights (= 1.0.3)!
   et_gds_design_system!
   et_test_helpers!
   factory_bot_rails (~> 6.2)
