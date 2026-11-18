@@ -33,4 +33,3 @@ smoke-output
 e2e-output
 api-output
 .yarn
-.yarnrc.yml

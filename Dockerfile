@@ -1,4 +1,5 @@
 FROM ruby:4.0.10-alpine3.23 AS assets
+COPY --from=ghcr.io/jdx/mise:2026.10.4 /usr/local/bin/mise /usr/local/bin/mise
 RUN addgroup app --gid 1000
 RUN adduser -SD -u 1000 --shell /bin/bash --home /home/app app app
 RUN chown -R app:app /usr/local/bundle
@@ -6,16 +7,19 @@ COPY --chown=app:app . /home/app/et1
 ENV RAILS_ENV=production
 ENV HOME=/home/app
 ENV NODE_OPTIONS=--openssl-legacy-provider
-RUN apk add --no-cache libpq-dev tzdata gettext sudo shared-mime-info libc6-compat libffi-dev yaml-dev && \
-  apk add --no-cache --virtual .build-tools git build-base curl-dev nodejs yarn && \
+ENV MISE_DISABLE_TOOLS=ruby
+ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+RUN apk add --no-cache bash libpq-dev tzdata gettext sudo shared-mime-info libc6-compat libffi-dev yaml-dev && \
+  apk add --no-cache --virtual .build-tools git build-base curl-dev && \
   cd /home/app/et1 && \
+  MISE_NODE_COMPILE=false mise install node && \
   gem install bundler && \
-  yarn install && \
+  mise exec -- yarn install && \
   bundle config set without 'test development' && \
   bundle config set with 'assets production' && \
   bundle config set deployment 'true' && \
   bundle install --no-cache --jobs=5 --retry=3 && \
-  bundle exec rails assets:precompile SECRET_KEY_BASE=doesntmatter && \
+  mise exec -- bundle exec rails assets:precompile SECRET_KEY_BASE=doesntmatter && \
   chown -R app:app /usr/local/bundle && \
   apk del .build-tools
 
