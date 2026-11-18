@@ -28,20 +28,17 @@ This runs the application's existing `./run.sh` with `RAILS_ENV=production`.
 Rails's existing SSL assumption is preserved: HTTPS terminates at ingress, and
 the pod receives HTTP. ET1 connects to shared local PostgreSQL and database `etdb`.
 
-Local values set `DOCKER_STATE=create`. The existing script runs, in order:
+Every `up` first runs the `et-local-et1-db-bootstrap` Job using the rendered web
+Deployment's image and configuration. It creates the databases, runs schema/data
+migrations and seeds using the existing seed file. Setup stops on failure, and
+Helm deploys only after the Job succeeds. This requires the parent deployment
+script's `bootstrapDatabase` support. Setup runs on every local `up`, so seeds
+must remain safe to rerun.
 
-```sh
-bundle exec rake db:create
-bundle exec rake db:migrate:with_data
-bundle exec rake db:seed
-invoker start Procfile
-```
-
-`Procfile` starts Puma and the Solid Queue worker together, as the application
-currently does. Tasks run on every container start. Local seeds use the existing
-seed file. Production retains the chart's `DOCKER_STATE=migrate`, which runs
-migrations without creation or seeds. There is no migration Job or init container;
-improving the migration mechanism is a separate phase.
+Local values set `DOCKER_STATE=migrate`, matching production. The existing
+`run.sh` runs migrations and then starts `Procfile`, which starts Puma and the
+Solid Queue worker together. Database creation and seeding are handled by the
+bootstrap Job before application startup. Charts are unchanged.
 
 `up` waits for web readiness and rollout. Readiness checks that `/apply` can
 render successfully; automated tests should start after `up` succeeds. Shared

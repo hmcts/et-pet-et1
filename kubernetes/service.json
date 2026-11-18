@@ -11,5 +11,6 @@
   "ingressValues": [
     "base"
   ],
-  "waitForRollout": true
+  "waitForRollout": true,
+  "bootstrapDatabase": true
 }
