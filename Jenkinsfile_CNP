@@ -53,13 +53,18 @@ withPipeline(type, product, component) {
     }
 
     before('test') {
-        sh script:"""
-            yarn install
-            docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
-            docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
-        """, label: 'Start test postgres'
+        def corepackBin = "${pwd(tmp: true)}/corepack-bin"
+        withEnv(["COREPACK_BIN=${corepackBin}", "PATH+COREPACK=${corepackBin}"]) {
+            sh script: '''
+                mkdir -p "$COREPACK_BIN"
+                corepack enable --install-directory "$COREPACK_BIN" yarn
+                yarn install
+                docker stop pet-et-et1-test-postgres && docker rm pet-et-et1-test-postgres || echo 'Ignoring failure in stopping old postgres'
+                docker run --rm --name pet-et-et1-test-postgres --publish 5421:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+            ''', label: 'Install JavaScript dependencies and start test postgres'
 
-        rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile")
+            rubyBuilder.bundle("exec rails db:create db:migrate assets:precompile")
+        }
     }
     before('functionalTest:preview') {
         installRuby()

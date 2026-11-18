@@ -1,6 +1,7 @@
 {
   "name": "ATET",
   "description": "Apply to Employment Tribunals",
+  "packageManager": "yarn@4.18.1",
   "author": {
     "name": "UK Ministry Of Justice"
   },
