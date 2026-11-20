@@ -45,5 +45,5 @@ base:
     SENDING_HOST: et1.k8s.orb.local
     SECRETS_PATH: ""
     # Existing run.sh creates, migrates and seeds the local database before starting Procfile.
-    DOCKER_STATE: create
+    DOCKER_STATE: migrate
     DISABLE_AZURE_APP_INSIGHTS: "true"
