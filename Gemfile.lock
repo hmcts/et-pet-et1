@@ -26,10 +26,10 @@ GIT
 
 GIT
   remote: https://github.com/hmcts/et_test_helpers.git
-  revision: 6eb1320926ed6512cac69271163ae50c9a2dac03
-  tag: v1.3.3
+  revision: 492bcf5338b7b57075b746b2a5bf716f604c8aaa
+  tag: v1.3.5
   specs:
-    et_test_helpers (1.3.3)
+    et_test_helpers (1.3.5)
       activesupport (> 5.0)
       capybara (~> 3)
       i18n (~> 1.8)
@@ -266,7 +266,7 @@ GEM
     has_scope (0.9.0)
       actionpack (>= 7.0)
       activesupport (>= 7.0)
-    hashdiff (1.2.1)
+    hashdiff (1.2.2)
     html-attributes-utils (1.0.2)
       activesupport (>= 6.1.4.4)
     i18n (1.14.8)
@@ -474,15 +474,15 @@ GEM
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
       rspec-mocks (~> 3.13.0)
-    rspec-core (3.13.6)
+    rspec-core (3.13.7)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.5)
+    rspec-expectations (3.13.6)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-its (2.0.0)
       rspec-core (>= 3.13.0)
       rspec-expectations (>= 3.13.0)
-    rspec-mocks (3.13.8)
+    rspec-mocks (3.13.9)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (8.0.4)
@@ -493,7 +493,7 @@ GEM
       rspec-expectations (>= 3.13.0, < 5.0.0)
       rspec-mocks (>= 3.13.0, < 5.0.0)
       rspec-support (>= 3.13.0, < 5.0.0)
-    rspec-support (3.13.7)
+    rspec-support (3.13.8)
     rspec_junit_formatter (0.6.0)
       rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (1.87.0)
@@ -553,7 +553,7 @@ GEM
       capybara (~> 3.37)
       logger (~> 1.7)
       site_prism-all_there (> 3, < 5)
-    site_prism-all_there (3.0.8)
+    site_prism-all_there (3.0.10)
     slim (5.2.1)
       temple (~> 0.10.0)
       tilt (>= 2.1.0)
