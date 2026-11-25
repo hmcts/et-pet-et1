@@ -44,6 +44,6 @@ base:
     SERVICE_FQDN: https://et1.k8s.orb.local
     SENDING_HOST: et1.k8s.orb.local
     SECRETS_PATH: ""
-    # Existing run.sh creates, migrates and seeds the local database before starting Procfile.
+    # Database bootstrap runs before Helm; application startup matches production.
     DOCKER_STATE: migrate
     DISABLE_AZURE_APP_INSIGHTS: "true"
